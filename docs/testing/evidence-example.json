@@ -1,0 +1,21 @@
+{
+  "work_item_id": "GDN-051",
+  "evidence_profile": "application",
+  "status": "not_run",
+  "recorded_at": null,
+  "commit_sha": null,
+  "deployment_id": null,
+  "environment": null,
+  "url": null,
+  "criteria": [
+    {
+      "id": "GDN-051-AC01",
+      "outcome": "not_run",
+      "evidence_ref": null
+    }
+  ],
+  "artifacts": [],
+  "limitations": [
+    "Template only. No application or deployment evidence exists for this item."
+  ]
+}

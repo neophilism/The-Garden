@@ -1,0 +1,53 @@
+{
+  "status": "proposed_intermediate_contract_not_actual_engine_room_api",
+  "endpoint": null,
+  "authentication": null,
+  "remote_project_id": null,
+  "required_operations": [
+    "register_repository",
+    "import_versioned_plan",
+    "upsert_work_item",
+    "record_ci_evidence",
+    "record_deployment",
+    "record_live_verification",
+    "record_health",
+    "reconcile_snapshot"
+  ],
+  "identity_fields": [
+    "repository_id",
+    "plan_id",
+    "plan_version",
+    "work_item_id",
+    "event_id"
+  ],
+  "event_fields": [
+    "schema_version",
+    "event_id",
+    "event_type",
+    "occurred_at",
+    "repository_id",
+    "plan_version",
+    "work_item_id",
+    "head_sha",
+    "merge_sha",
+    "provider_deployment_id",
+    "environment",
+    "status",
+    "evidence_refs",
+    "trace_id"
+  ],
+  "delivery_semantics": {
+    "idempotency": "event_id unique per source event; duplicate delivery safe",
+    "ordering": "source revision or sequence prevents stale event overwrites",
+    "auth": "verify real API token/scope and webhook signatures; never place tokens in payload",
+    "failure": "durable local outbox, bounded retries, visible pending status",
+    "reconciliation": "compare local plan/evidence with remote acknowledgments; unknown is not success"
+  },
+  "progress": {
+    "merged": "accepted exact commit with required CI and policy evidence",
+    "production_verified": "deployed accepted commit plus valid current live evidence",
+    "conditional": "separate denominator; no inferred activation",
+    "research": "separate scoped review metrics",
+    "initial_remote_progress": "unknown; no verified evidence obtained"
+  }
+}

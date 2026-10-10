@@ -1,0 +1,56 @@
+Fresh extraction of the portable ZIP; planning tooling only.
+
+{
+  "check": "local_plan_structure_not_application_tests",
+  "recorded_at": "2026-10-10T16:37:19.940794+00:00",
+  "result": "pass",
+  "summary": {
+    "work_items": 210,
+    "current_scope": 196,
+    "conditional_scope": 14,
+    "features": 43,
+    "acceptance_criteria": 630,
+    "specified_test_scenarios": 630,
+    "dependency_edges": 960,
+    "source_tables": 106,
+    "source_rows": 923292,
+    "production_verified_items": 0,
+    "status_counts": {
+      "planned": 196,
+      "conditional": 14
+    }
+  },
+  "errors": [],
+  "limits": [
+    "No application CI executed.",
+    "No GitHub PR or deployment verified.",
+    "Source byte/schema checks are not historical or rights verification."
+  ]
+}
+
+test_complete_scope (test_validate_plan.PlanTests.test_complete_scope) ... ok
+test_crosswalk (test_validate_plan.PlanTests.test_crosswalk) ... ok
+test_cycle (test_validate_plan.PlanTests.test_cycle) ... ok
+test_duplicate (test_validate_plan.PlanTests.test_duplicate) ... ok
+test_fake_ci (test_validate_plan.PlanTests.test_fake_ci) ... ok
+test_fake_migration (test_validate_plan.PlanTests.test_fake_migration) ... ok
+test_fake_pr (test_validate_plan.PlanTests.test_fake_pr) ... ok
+test_fake_production (test_validate_plan.PlanTests.test_fake_production) ... ok
+test_fake_progress (test_validate_plan.PlanTests.test_fake_progress) ... ok
+test_file_parity (test_validate_plan.PlanTests.test_file_parity) ... ok
+test_government_dependency (test_validate_plan.PlanTests.test_government_dependency) ... ok
+test_government_gate (test_validate_plan.PlanTests.test_government_gate) ... ok
+test_missing_criteria (test_validate_plan.PlanTests.test_missing_criteria) ... ok
+test_missing_dependency (test_validate_plan.PlanTests.test_missing_dependency) ... ok
+test_missing_table (test_validate_plan.PlanTests.test_missing_table) ... ok
+test_public_first (test_validate_plan.PlanTests.test_public_first) ... ok
+test_release_drift (test_validate_plan.PlanTests.test_release_drift) ... ok
+test_unexecuted (test_validate_plan.PlanTests.test_unexecuted) ... ok
+test_unknown_feature (test_validate_plan.PlanTests.test_unknown_feature) ... ok
+test_valid (test_validate_plan.PlanTests.test_valid) ... ok
+test_wrong_count (test_validate_plan.PlanTests.test_wrong_count) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.228s
+
+OK

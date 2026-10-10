@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Garden acceptance evidence",
+  "type": "object",
+  "required": [
+    "work_item_id",
+    "evidence_profile",
+    "status",
+    "recorded_at",
+    "commit_sha",
+    "criteria",
+    "artifacts"
+  ],
+  "properties": {
+    "work_item_id": {
+      "type": "string",
+      "pattern": "^GDN-[0-9]{3}$"
+    },
+    "evidence_profile": {
+      "enum": [
+        "document",
+        "application"
+      ]
+    },
+    "status": {
+      "enum": [
+        "not_run",
+        "pass",
+        "fail",
+        "blocked"
+      ]
+    },
+    "recorded_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "commit_sha": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "deployment_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "environment": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "outcome",
+          "evidence_ref"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "outcome": {
+            "enum": [
+              "pass",
+              "fail",
+              "blocked",
+              "not_run"
+            ]
+          },
+          "evidence_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

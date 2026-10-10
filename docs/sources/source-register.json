@@ -1,0 +1,156 @@
+[
+  {
+    "id": "P01",
+    "title": "Garden Act version 1.0, 28 September 2026",
+    "location": "https://chatgpt.com/api/library/files/libfile_7407f777de7c8191a7bea622cfc52dd0/download",
+    "scope": "Complete TEX text read through Files; proposed legislation, not enacted law. Particularly sections 201, 301, 401, 501, 801 and 1101-1102.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "P02",
+    "title": "Garden Act Source and Drafting Notes version 1.0",
+    "location": "https://chatgpt.com/api/library/files/libfile_6ba7a0a59a788191aac8fb2d57a07b93/download",
+    "scope": "Read/materialized; identifies numerical drafting defaults, legal uncertainty and fiscal qualifications.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "P03",
+    "title": "Current Documents registry and master latest index, CP-017",
+    "location": "Library paths /Not-From-Nowhere_Current-Documents.json and /guide_Not-From-Nowhere_LATEST.html",
+    "scope": "Read current versions 18 and 19 respectively before this plan; preserve research checkpoint on adding software-plan links.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "P04",
+    "title": "Not From Nowhere Work Log v1.17, 9 October 2026",
+    "location": "https://chatgpt.com/api/library/files/libfile_2527a2e529888191bed399150b694b10/download",
+    "scope": "Read complete work log. Recorded historic review/recovery claims are baseline reports, except separately repeated V01 checks.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "P05",
+    "title": "Corpus 1.17 CORE and component manifest",
+    "location": "https://chatgpt.com/api/library/files/libfile_b2791b7ec790819190a1dcb5a58ecba5/download",
+    "scope": "CORE materialized and verified. Other component sizes/hashes were read from current registry; not independently revalidated this turn.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "P06",
+    "title": "Not From Nowhere CHARTER.md, adopted 25 September 2026",
+    "location": "docs/sources/research-charter.md",
+    "scope": "Exact file extracted from verified CORE bundle; read in full. Included in handoff package, not silently rewritten.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "V01",
+    "title": "Local CORE/schema verification for this plan",
+    "location": "docs/migration/source-schema-inventory.json",
+    "scope": "Read-only immutable database inspection; 106 tables, 186 indexes, zero triggers, 923292 rows; integrity_check ok and no foreign-key violations. Not historical verification.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "S01",
+    "title": "Next.js self-hosting guide",
+    "location": "https://nextjs.org/docs/app/guides/self-hosting",
+    "scope": "Primary framework guidance; recheck supported version and hosting behavior when implementation begins.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "S02",
+    "title": "Next.js authentication guide",
+    "location": "https://nextjs.org/docs/app/guides/authentication",
+    "scope": "Primary guidance, not a substitute for selecting and verifying an actual identity engine.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "S03",
+    "title": "Node.js previous releases and support status",
+    "location": "https://nodejs.org/en/about/previous-releases",
+    "scope": "Node 24 LTS selected as planning baseline; pin current supported patched release at bootstrap.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "S04",
+    "title": "Render deploys documentation",
+    "location": "https://render.com/docs/deploys",
+    "scope": "Pre-deploy behavior and service availability are provider/plan-specific; verify actual entitlement. Failed deploy does not undo database changes.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "S05",
+    "title": "Render preview environments",
+    "location": "https://render.com/docs/preview-environments",
+    "scope": "Isolation, blueprint behavior and costs must be checked against authorized account resources.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "S06",
+    "title": "PostgreSQL 18 row security policies",
+    "location": "https://www.postgresql.org/docs/18/ddl-rowsecurity.html",
+    "scope": "Owners and BYPASSRLS roles require special consideration; application role tests are mandatory.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "S07",
+    "title": "Neon: PgBouncer and prepared statements",
+    "location": "https://neon.com/blog/pgbouncer-the-one-with-prepared-statements",
+    "scope": "Primary provider discussion of pooling; direct docs fetch was unsupported in this environment. Actual pool mode and limitations must be verified at bootstrap.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "S08",
+    "title": "IIIF Presentation API 3.0",
+    "location": "https://iiif.io/api/presentation/3.0/",
+    "scope": "Interoperability requirements limited to explicitly chosen supported profiles, not every optional IIIF feature.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "S09",
+    "title": "W3C Web Annotation Data Model",
+    "location": "https://www.w3.org/TR/annotation-model/",
+    "scope": "Selector and annotation model reference; exact content/version binding is still required.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "S10",
+    "title": "Yjs documentation",
+    "location": "https://docs.yjs.dev/",
+    "scope": "Collaborative data model reference; CRDT convergence does not itself implement authorization, encryption or durability.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "S11",
+    "title": "OWASP Application Security Verification Standard",
+    "location": "https://owasp.org/projects/asvs",
+    "scope": "ASVS 5.0.0 used as proposed supplementary baseline; not the missing user-specific canonical standard.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "S12",
+    "title": "OWASP Cryptographic Storage Cheat Sheet",
+    "location": "https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html",
+    "scope": "Use reviewed libraries, appropriate threat model and key separation; avoid custom crypto.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "S13",
+    "title": "OWASP Key Management Cheat Sheet",
+    "location": "https://cheatsheetseries.owasp.org/cheatsheets/Key_Management_Cheat_Sheet.html",
+    "scope": "Key lifecycle and recovery guidance; end-to-end mode has different operator capabilities.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "S14",
+    "title": "GitHub managing a merge queue",
+    "location": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue",
+    "scope": "Exact merge-group checks and account-plan availability must be verified for the target repository.",
+    "consulted_date": "2026-10-10"
+  },
+  {
+    "id": "S15",
+    "title": "W3C WCAG 2.2",
+    "location": "https://www.w3.org/TR/WCAG22/",
+    "scope": "AA is a proposed acceptance scope requiring complete-process and manual assessment, not automated certification.",
+    "consulted_date": "2026-10-10"
+  }
+]

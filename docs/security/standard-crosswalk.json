@@ -1,0 +1,163 @@
+{
+  "canonical_standard": "End-To-End-Everywhere Security Architecture Standard",
+  "canonical_revision": null,
+  "canonical_source": null,
+  "status": "unverified_not_located",
+  "certification_claim": false,
+  "supplementary_reference": "OWASP ASVS 5.0.0; proposed baseline only",
+  "controls": [
+    {
+      "id": "SEC-01",
+      "domain": "Identity and assurance",
+      "proposed_control": "Verified issuer/audience, secure session lifecycle, step-up for privileged operations.",
+      "prs": [
+        "GDN-021",
+        "GDN-022"
+      ],
+      "evidence": "Login, recovery, session fixation and revoked-device tests.",
+      "canonical_requirement_id": null,
+      "status": "specified_not_verified"
+    },
+    {
+      "id": "SEC-02",
+      "domain": "Authorization everywhere",
+      "proposed_control": "Default deny at data/API/storage/search/media/export/notification/worker/collaboration layers.",
+      "prs": [
+        "GDN-024",
+        "GDN-025",
+        "GDN-031"
+      ],
+      "evidence": "All-role data-class matrix with cross-user canaries.",
+      "canonical_requirement_id": null,
+      "status": "specified_not_verified"
+    },
+    {
+      "id": "SEC-03",
+      "domain": "Data and key separation",
+      "proposed_control": "Project/environment isolation, runtime versus migration roles, managed key lifecycle.",
+      "prs": [
+        "GDN-012",
+        "GDN-013",
+        "GDN-026"
+      ],
+      "evidence": "Wrong-project, pool contamination, rotation, KMS outage and restore tests.",
+      "canonical_requirement_id": null,
+      "status": "specified_not_verified"
+    },
+    {
+      "id": "SEC-04",
+      "domain": "Sealed E2EE",
+      "proposed_control": "Recipient-controlled keys, ciphertext server storage, no server plaintext search or AI.",
+      "prs": [
+        "GDN-027",
+        "GDN-028"
+      ],
+      "evidence": "Browser/server egress canaries and independent crypto assessment.",
+      "canonical_requirement_id": null,
+      "status": "specified_not_verified"
+    },
+    {
+      "id": "SEC-05",
+      "domain": "Purpose and consent",
+      "proposed_control": "Research, preservation, display, identity and endorsement permissions are separate.",
+      "prs": [
+        "GDN-029",
+        "GDN-139"
+      ],
+      "evidence": "Consent matrix, publication race and derivative withdrawal tests.",
+      "canonical_requirement_id": null,
+      "status": "specified_not_verified"
+    },
+    {
+      "id": "SEC-06",
+      "domain": "Untrusted archival inputs",
+      "proposed_control": "Quarantine and sandbox file parsing, no network/macro execution, bounded resources.",
+      "prs": [
+        "GDN-041",
+        "GDN-077",
+        "GDN-079"
+      ],
+      "evidence": "ZIP bomb, path traversal, XML entity, SSRF and converter timeout tests.",
+      "canonical_requirement_id": null,
+      "status": "specified_not_verified"
+    },
+    {
+      "id": "SEC-07",
+      "domain": "Publication and retraction",
+      "proposed_control": "Independent state gates, public projection and deny-first withdrawal.",
+      "prs": [
+        "GDN-034",
+        "GDN-043",
+        "GDN-126"
+      ],
+      "evidence": "Stale index/CDN/export/preview resurrection tests.",
+      "canonical_requirement_id": null,
+      "status": "specified_not_verified"
+    },
+    {
+      "id": "SEC-08",
+      "domain": "Integrity and audit",
+      "proposed_control": "Tamper-evident action records, immutable source lineage, actor and reason attribution.",
+      "prs": [
+        "GDN-030",
+        "GDN-048"
+      ],
+      "evidence": "Hash-chain/recovery, missing-row and reclassification audits.",
+      "canonical_requirement_id": null,
+      "status": "specified_not_verified"
+    },
+    {
+      "id": "SEC-09",
+      "domain": "Sensitive contributions",
+      "proposed_control": "Restricted defaults, complete redaction and explicit legal/ethical safeguards.",
+      "prs": [
+        "GDN-136",
+        "GDN-138",
+        "GDN-145"
+      ],
+      "evidence": "Hidden text/EXIF/media track and insider access tests.",
+      "canonical_requirement_id": null,
+      "status": "specified_not_verified"
+    },
+    {
+      "id": "SEC-10",
+      "domain": "AI boundaries",
+      "proposed_control": "Read-only tools, permission-first retrieval, no sealed data, bounded provider handling.",
+      "prs": [
+        "GDN-166",
+        "GDN-168",
+        "GDN-170"
+      ],
+      "evidence": "Prompt injection, cross-user retrieval, secret egress and cost ceiling tests.",
+      "canonical_requirement_id": null,
+      "status": "specified_not_verified"
+    },
+    {
+      "id": "SEC-11",
+      "domain": "Supply chain and deployment",
+      "proposed_control": "Least-privilege CI, checked artifacts, actual merge policy and environment isolation.",
+      "prs": [
+        "GDN-010",
+        "GDN-011",
+        "GDN-018",
+        "GDN-020"
+      ],
+      "evidence": "Fork secret denial, exact-SHA checks and failed migration drills.",
+      "canonical_requirement_id": null,
+      "status": "specified_not_verified"
+    },
+    {
+      "id": "SEC-12",
+      "domain": "Retention and recovery",
+      "proposed_control": "Purpose-based lifecycle, scoped holds, restorable backups and deletion replay.",
+      "prs": [
+        "GDN-032",
+        "GDN-183",
+        "GDN-184"
+      ],
+      "evidence": "Restore after withdrawal, key loss and truncated component tests.",
+      "canonical_requirement_id": null,
+      "status": "specified_not_verified"
+    }
+  ]
+}

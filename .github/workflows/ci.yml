@@ -1,0 +1,26 @@
+name: Garden repository checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: garden-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  plan-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify runtime
+        run: python3 -c 'import sys; assert sys.version_info >= (3, 10)'
+      - name: Validate full plan and dependency graph
+        run: python3 scripts/validate_plan.py
+      - name: Run plan-tool regression tests
+        run: python3 -m unittest discover -s tests/plan -v

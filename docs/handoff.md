@@ -1,0 +1,21 @@
+# Handoff to the next developer or AI agent
+
+## What is complete in this package
+
+A comprehensive planning baseline and local validation tooling. The actual CORE artifact was checksum-verified and its read-only SQLite schema/row inventory inspected; the 106-table disposition is a proposed migration map. Read validation reports for checks actually executed. This is not an implemented website or proof that historical content is correct.
+
+## What has not happened
+
+No GitHub repository was inspected, created or updated; no PR was opened or merged; no application CI or production test ran; no Render/Neon resource was provisioned; no Engine Room synchronization occurred; no canonical security conformance was verified; no new research, interview or generated image was created for the site. Optional and governmental capabilities remain inactive.
+
+## Continue without chat history
+
+Read AGENTS.md and the full plan. Validate all local files. Obtain authorized GitHub access and identify the intended repository or create a separate Garden repository only within explicit account authority. Commit the plan and source-access manifests; retain real metadata but never commit private source bytes or secrets. Preserve prior repository content if one already exists; inspect before deciding it is empty.
+
+Discover canonical security and existing engine contracts. Deliver gap records where missing, but do not treat proposed contracts as satisfied runtime dependencies. Verify authorized Render, Neon, storage, identity and budget resources. Register/import the plan to actual Engine Room only when its API and permissions are verified.
+
+Start dependency-ready foundation and public-experience PRs; use synthetic fixtures until sensitive production gates clear. Keep scholarly/editorial work explicit. R1 is the public-first path; full corpus import, advanced collaboration, community intake and AI follow in parallel where safe. Conditional governmental work never blocks current public-site completion.
+
+## Evidence and progress
+
+Use exact head/merge SHAs, real check IDs, actual deployment IDs/URLs and dated live test results. Local validation evidence belongs to the planning package, not an application PR that does not exist. Preserve blocked items and unknown health. Update latest-work pointers only after durable save and readback. Keep source checkpoint, policy version and software release independent.

@@ -1,0 +1,14 @@
+# Protect credentials, private data and local work.
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite3
+*.db
+private-data/
+raw-corpus/
+secrets/
+node_modules/
+.next/
+__pycache__/
+*.pyc
