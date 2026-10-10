@@ -1,0 +1,2735 @@
+{
+  "source_sha256": "3bc3b81b7a2ffaaf2a5a0a072ddf781c8688785aa67b3d6069cca5a9918d3ed0",
+  "table_count": 106,
+  "row_count": 923292,
+  "tables": [
+    {
+      "source_table": "access_log",
+      "source_rows": 83,
+      "source_columns": [
+        "id",
+        "url",
+        "checked_on",
+        "method",
+        "result",
+        "locator",
+        "note"
+      ],
+      "raw_preservation": "legacy_cp017.access_log",
+      "normalized_domain": "sources_and_inspections",
+      "rule": "Map sources, exact representations and inspection scope; preserve access barriers, derivative dependence and discovery-only status.",
+      "checks": "Check repository/item/version, original locator and read-versus-inspected-versus-reviewed distinctions.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "archival_items",
+      "source_rows": 13,
+      "source_columns": [
+        "id",
+        "source_id",
+        "parent_source_id",
+        "reference_code",
+        "title",
+        "raw_metadata_json",
+        "download_url",
+        "review_state"
+      ],
+      "raw_preservation": "legacy_cp017.archival_items",
+      "normalized_domain": "sources_and_inspections",
+      "rule": "Map sources, exact representations and inspection scope; preserve access barriers, derivative dependence and discovery-only status.",
+      "checks": "Check repository/item/version, original locator and read-versus-inspected-versus-reviewed distinctions.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "artifact_recoveries",
+      "source_rows": 2,
+      "source_columns": [
+        "id",
+        "source_name",
+        "report_json",
+        "status"
+      ],
+      "raw_preservation": "legacy_cp017.artifact_recoveries",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "assertion_placements",
+      "source_rows": 24,
+      "source_columns": [
+        "id",
+        "assertion_id",
+        "unit_id",
+        "start_offset",
+        "end_offset",
+        "status"
+      ],
+      "raw_preservation": "legacy_cp017.assertion_placements",
+      "normalized_domain": "claims_and_reviews",
+      "rule": "Map explicit assertions, candidates, evidence and placements without upgrading review status. Compound candidates are not atomic verified claims.",
+      "checks": "Check claim type, source locator, assertion versus source statement, contradictions and existing review limits.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "assertions",
+      "source_rows": 78,
+      "source_columns": [
+        "id",
+        "wording",
+        "entity_id",
+        "claim_type",
+        "temporal_scope",
+        "geographic_scope",
+        "status",
+        "judgment"
+      ],
+      "raw_preservation": "legacy_cp017.assertions",
+      "normalized_domain": "claims_and_reviews",
+      "rule": "Map explicit assertions, candidates, evidence and placements without upgrading review status. Compound candidates are not atomic verified claims.",
+      "checks": "Check claim type, source locator, assertion versus source statement, contradictions and existing review limits.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "asset_members",
+      "source_rows": 567,
+      "source_columns": [
+        "id",
+        "document_id",
+        "member_path",
+        "asset_sha256"
+      ],
+      "raw_preservation": "legacy_cp017.asset_members",
+      "normalized_domain": "assets_and_placements",
+      "rule": "Preserve legacy asset/placement tables as their own snapshot. Reconcile newest DOCX bytes separately; legacy counts are not latest counts.",
+      "checks": "Compare hashes, asset-versus-placement identity, captions, alt text and item-level rights; no appearance-based relabeling.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "assets",
+      "source_rows": 567,
+      "source_columns": [
+        "sha256",
+        "size_bytes",
+        "extension",
+        "width",
+        "height"
+      ],
+      "raw_preservation": "legacy_cp017.assets",
+      "normalized_domain": "assets_and_placements",
+      "rule": "Preserve legacy asset/placement tables as their own snapshot. Reconcile newest DOCX bytes separately; legacy counts are not latest counts.",
+      "checks": "Compare hashes, asset-versus-placement identity, captions, alt text and item-level rights; no appearance-based relabeling.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "audit_issues",
+      "source_rows": 34,
+      "source_columns": [
+        "id",
+        "severity",
+        "document_id",
+        "unit_id",
+        "category",
+        "observation",
+        "action",
+        "status"
+      ],
+      "raw_preservation": "legacy_cp017.audit_issues",
+      "normalized_domain": "research_work_management",
+      "rule": "Map original scope and status with evidence. Keep ten research gates independent from software milestones and avoid manufactured completion percentages.",
+      "checks": "Check imported states and denominators; gate 1 alone is closed in baseline; separate unsearched/inaccessible/no-find states.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "canonical_code_definitions",
+      "source_rows": 87,
+      "source_columns": [
+        "id",
+        "legacy_definition_id",
+        "code",
+        "current_unit_id",
+        "current_definition",
+        "current_text",
+        "legacy_definition",
+        "reconciliation_state",
+        "inherited_review_state",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.canonical_code_definitions",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "checkpoint_documents",
+      "source_rows": 42,
+      "source_columns": [
+        "checkpoint",
+        "role",
+        "filename",
+        "sha256",
+        "size_bytes",
+        "verification"
+      ],
+      "raw_preservation": "legacy_cp017.checkpoint_documents",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "checkpoint_review_status",
+      "source_rows": 25,
+      "source_columns": [
+        "checkpoint",
+        "review_kind",
+        "status",
+        "scope"
+      ],
+      "raw_preservation": "legacy_cp017.checkpoint_review_status",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "citation_repairs_cp008",
+      "source_rows": 94,
+      "source_columns": [
+        "id",
+        "kind",
+        "role",
+        "baseline_xpath",
+        "before_text",
+        "after_text",
+        "detail_json",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.citation_repairs_cp008",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "claim_adjudications_cp010",
+      "source_rows": 14,
+      "source_columns": [
+        "id",
+        "assertion_id",
+        "prior_status",
+        "current_status",
+        "decision",
+        "source_scope",
+        "remaining_limit",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.claim_adjudications_cp010",
+      "normalized_domain": "claims_and_reviews",
+      "rule": "Map explicit assertions, candidates, evidence and placements without upgrading review status. Compound candidates are not atomic verified claims.",
+      "checks": "Check claim type, source locator, assertion versus source statement, contradictions and existing review limits.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "claim_adjudications_cp011",
+      "source_rows": 1,
+      "source_columns": [
+        "id",
+        "assertion_id",
+        "prior_status",
+        "current_status",
+        "decision",
+        "source_scope",
+        "remaining_limit",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.claim_adjudications_cp011",
+      "normalized_domain": "claims_and_reviews",
+      "rule": "Map explicit assertions, candidates, evidence and placements without upgrading review status. Compound candidates are not atomic verified claims.",
+      "checks": "Check claim type, source locator, assertion versus source statement, contradictions and existing review limits.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "claim_candidates",
+      "source_rows": 40183,
+      "source_columns": [
+        "id",
+        "unit_id",
+        "risk_flags",
+        "state"
+      ],
+      "raw_preservation": "legacy_cp017.claim_candidates",
+      "normalized_domain": "claims_and_reviews",
+      "rule": "Map explicit assertions, candidates, evidence and placements without upgrading review status. Compound candidates are not atomic verified claims.",
+      "checks": "Check claim type, source locator, assertion versus source statement, contradictions and existing review limits.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "claim_current_placements_cp009",
+      "source_rows": 24,
+      "source_columns": [
+        "id",
+        "assertion_id",
+        "edition_unit_id",
+        "start_offset",
+        "end_offset",
+        "exact_span",
+        "status"
+      ],
+      "raw_preservation": "legacy_cp017.claim_current_placements_cp009",
+      "normalized_domain": "claims_and_reviews",
+      "rule": "Map explicit assertions, candidates, evidence and placements without upgrading review status. Compound candidates are not atomic verified claims.",
+      "checks": "Check claim type, source locator, assertion versus source statement, contradictions and existing review limits.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "claim_current_placements_cp010",
+      "source_rows": 4,
+      "source_columns": [
+        "id",
+        "assertion_id",
+        "edition_unit_id",
+        "start_offset",
+        "end_offset",
+        "exact_span",
+        "status"
+      ],
+      "raw_preservation": "legacy_cp017.claim_current_placements_cp010",
+      "normalized_domain": "claims_and_reviews",
+      "rule": "Map explicit assertions, candidates, evidence and placements without upgrading review status. Compound candidates are not atomic verified claims.",
+      "checks": "Check claim type, source locator, assertion versus source statement, contradictions and existing review limits.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "claim_current_placements_cp011",
+      "source_rows": 4,
+      "source_columns": [
+        "id",
+        "assertion_id",
+        "edition_unit_id",
+        "start_offset",
+        "end_offset",
+        "exact_span",
+        "status"
+      ],
+      "raw_preservation": "legacy_cp017.claim_current_placements_cp011",
+      "normalized_domain": "claims_and_reviews",
+      "rule": "Map explicit assertions, candidates, evidence and placements without upgrading review status. Compound candidates are not atomic verified claims.",
+      "checks": "Check claim type, source locator, assertion versus source statement, contradictions and existing review limits.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "claim_segments_cp009",
+      "source_rows": 24,
+      "source_columns": [
+        "id",
+        "assertion_id",
+        "parent_unit_id",
+        "parent_edition",
+        "start_offset",
+        "end_offset",
+        "exact_span",
+        "proposition",
+        "review_state",
+        "reason",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.claim_segments_cp009",
+      "normalized_domain": "claims_and_reviews",
+      "rule": "Map explicit assertions, candidates, evidence and placements without upgrading review status. Compound candidates are not atomic verified claims.",
+      "checks": "Check claim type, source locator, assertion versus source statement, contradictions and existing review limits.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "code_authorities",
+      "source_rows": 89,
+      "source_columns": [
+        "code",
+        "definition_ids_json",
+        "definition_variants_json",
+        "bibliographic_scope",
+        "source_ids_json",
+        "status",
+        "open_requirements",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.code_authorities",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "code_definitions",
+      "source_rows": 87,
+      "source_columns": [
+        "id",
+        "code",
+        "unit_id",
+        "definition",
+        "status",
+        "canonical_note"
+      ],
+      "raw_preservation": "legacy_cp017.code_definitions",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "code_mentions",
+      "source_rows": 3899,
+      "source_columns": [
+        "id",
+        "unit_id",
+        "code",
+        "offset"
+      ],
+      "raw_preservation": "legacy_cp017.code_mentions",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "code_occurrence_offset_maps",
+      "source_rows": 1499,
+      "source_columns": [
+        "legacy_occurrence_id",
+        "new_occurrence_id",
+        "old_start",
+        "old_end",
+        "new_start",
+        "new_end",
+        "status"
+      ],
+      "raw_preservation": "legacy_cp017.code_occurrence_offset_maps",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "code_occurrences_v2",
+      "source_rows": 1515,
+      "source_columns": [
+        "id",
+        "code",
+        "unit_id",
+        "start_offset",
+        "end_offset",
+        "usage_kind",
+        "status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.code_occurrences_v2",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "code_source_links",
+      "source_rows": 31,
+      "source_columns": [
+        "id",
+        "code",
+        "source_id",
+        "binding_basis",
+        "locator",
+        "scope_limit"
+      ],
+      "raw_preservation": "legacy_cp017.code_source_links",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "code_use_candidates",
+      "source_rows": 1604,
+      "source_columns": [
+        "id",
+        "code",
+        "unit_id",
+        "start_offset",
+        "end_offset",
+        "status"
+      ],
+      "raw_preservation": "legacy_cp017.code_use_candidates",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "code_use_reconciliation",
+      "source_rows": 1604,
+      "source_columns": [
+        "legacy_use_id",
+        "current_occurrence_id",
+        "mapping_status",
+        "reason"
+      ],
+      "raw_preservation": "legacy_cp017.code_use_reconciliation",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "collection_census",
+      "source_rows": 31,
+      "source_columns": [
+        "id",
+        "title",
+        "repository",
+        "url",
+        "source_languages",
+        "region",
+        "trade_system",
+        "period",
+        "destination",
+        "evidence_type",
+        "access_state",
+        "inspection_depth",
+        "next_action",
+        "notes"
+      ],
+      "raw_preservation": "legacy_cp017.collection_census",
+      "normalized_domain": "sources_and_inspections",
+      "rule": "Map sources, exact representations and inspection scope; preserve access barriers, derivative dependence and discovery-only status.",
+      "checks": "Check repository/item/version, original locator and read-versus-inspected-versus-reviewed distinctions.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "compound_source_uses",
+      "source_rows": 67,
+      "source_columns": [
+        "id",
+        "unit_id",
+        "exact_form",
+        "start_offset",
+        "end_offset",
+        "component_codes_json",
+        "status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.compound_source_uses",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "corpus_checkpoints",
+      "source_rows": 10,
+      "source_columns": [
+        "checkpoint",
+        "version",
+        "parent_version",
+        "parent_database_sha256",
+        "created_at_utc",
+        "scope"
+      ],
+      "raw_preservation": "legacy_cp017.corpus_checkpoints",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "corrections_cp009",
+      "source_rows": 55,
+      "source_columns": [
+        "id",
+        "role",
+        "part",
+        "xpath",
+        "before_text",
+        "after_text",
+        "kind",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.corrections_cp009",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "corrections_cp010",
+      "source_rows": 53,
+      "source_columns": [
+        "id",
+        "role",
+        "part",
+        "xpath",
+        "before_text",
+        "after_text",
+        "kind",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.corrections_cp010",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "corrections_cp011",
+      "source_rows": 41,
+      "source_columns": [
+        "id",
+        "role",
+        "part",
+        "xpath",
+        "before_text",
+        "after_text",
+        "kind",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.corrections_cp011",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "corrections_cp012",
+      "source_rows": 5,
+      "source_columns": [
+        "id",
+        "document_scope",
+        "correction",
+        "evidence",
+        "status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.corrections_cp012",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "corrections_cp013",
+      "source_rows": 7,
+      "source_columns": [
+        "id",
+        "scope",
+        "action",
+        "evidence",
+        "status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.corrections_cp013",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "corrections_cp015",
+      "source_rows": 4,
+      "source_columns": [
+        "action",
+        "checkpoint",
+        "evidence",
+        "id",
+        "limits",
+        "scope"
+      ],
+      "raw_preservation": "legacy_cp017.corrections_cp015",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "corrections_cp016",
+      "source_rows": 5,
+      "source_columns": [
+        "action",
+        "checkpoint",
+        "evidence",
+        "id",
+        "limits",
+        "scope"
+      ],
+      "raw_preservation": "legacy_cp017.corrections_cp016",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "corrections_cp017",
+      "source_rows": 5,
+      "source_columns": [
+        "id",
+        "scope",
+        "action",
+        "evidence",
+        "limits",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.corrections_cp017",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "coverage_cells",
+      "source_rows": 22400,
+      "source_columns": [
+        "id",
+        "region",
+        "period",
+        "trade_system",
+        "destination",
+        "evidence_type",
+        "status",
+        "rationale"
+      ],
+      "raw_preservation": "legacy_cp017.coverage_cells",
+      "normalized_domain": "research_work_management",
+      "rule": "Map original scope and status with evidence. Keep ten research gates independent from software milestones and avoid manufactured completion percentages.",
+      "checks": "Check imported states and denominators; gate 1 alone is closed in baseline; separate unsearched/inaccessible/no-find states.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "cp017_reconstruction_exceptions",
+      "source_rows": 1,
+      "source_columns": [
+        "table_name",
+        "expected_rows",
+        "actual_lines",
+        "expected_sha256",
+        "actual_sha256",
+        "size_bytes",
+        "action",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.cp017_reconstruction_exceptions",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "current_code_occurrences",
+      "source_rows": 1499,
+      "source_columns": [
+        "id",
+        "code",
+        "unit_id",
+        "start_offset",
+        "end_offset",
+        "usage_kind",
+        "status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.current_code_occurrences",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "current_document_units",
+      "source_rows": 41442,
+      "source_columns": [
+        "id",
+        "checkpoint",
+        "role",
+        "part",
+        "xpath",
+        "text",
+        "style"
+      ],
+      "raw_preservation": "legacy_cp017.current_document_units",
+      "normalized_domain": "document_structure",
+      "rule": "Retain every edition/legacy unit, table and offset. Identify current-edition projection explicitly rather than summing versions as new research.",
+      "checks": "Check Unicode offset basis, document part, tables/headers/notes, edition identity and round-trip locators.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "current_reference_occurrences",
+      "source_rows": 48,
+      "source_columns": [
+        "id",
+        "role",
+        "part",
+        "xpath",
+        "unit_id",
+        "kind",
+        "target",
+        "status",
+        "payload_json",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.current_reference_occurrences",
+      "normalized_domain": "document_structure",
+      "rule": "Retain every edition/legacy unit, table and offset. Identify current-edition projection explicitly rather than summing versions as new research.",
+      "checks": "Check Unicode offset basis, document part, tables/headers/notes, edition identity and round-trip locators.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "current_structure_audit",
+      "source_rows": 21,
+      "source_columns": [
+        "id",
+        "role",
+        "part",
+        "payload_json",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.current_structure_audit",
+      "normalized_domain": "document_structure",
+      "rule": "Retain every edition/legacy unit, table and offset. Identify current-edition projection explicitly rather than summing versions as new research.",
+      "checks": "Check Unicode offset basis, document part, tables/headers/notes, edition identity and round-trip locators.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "current_table_cells",
+      "source_rows": 26712,
+      "source_columns": [
+        "id",
+        "role",
+        "part",
+        "table_xpath",
+        "row_index",
+        "cell_index",
+        "grid_span",
+        "vertical_merge",
+        "unit_ids_json",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.current_table_cells",
+      "normalized_domain": "document_structure",
+      "rule": "Retain every edition/legacy unit, table and offset. Identify current-edition projection explicitly rather than summing versions as new research.",
+      "checks": "Check Unicode offset basis, document part, tables/headers/notes, edition identity and round-trip locators.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "current_text_representations",
+      "source_rows": 41442,
+      "source_columns": [
+        "unit_id",
+        "text_with_controls",
+        "text_sha256",
+        "legacy_text_sha256",
+        "insertions_json",
+        "extraction_rule",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.current_text_representations",
+      "normalized_domain": "document_structure",
+      "rule": "Retain every edition/legacy unit, table and offset. Identify current-edition projection explicitly rather than summing versions as new research.",
+      "checks": "Check Unicode offset basis, document part, tables/headers/notes, edition identity and round-trip locators.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "current_unit_structure",
+      "source_rows": 41442,
+      "source_columns": [
+        "unit_id",
+        "table_xpath",
+        "cell_xpath",
+        "style",
+        "nested_paragraphs",
+        "tracked_insertions",
+        "tracked_deletions",
+        "exact_text_check"
+      ],
+      "raw_preservation": "legacy_cp017.current_unit_structure",
+      "normalized_domain": "document_structure",
+      "rule": "Retain every edition/legacy unit, table and offset. Identify current-edition projection explicitly rather than summing versions as new research.",
+      "checks": "Check Unicode offset basis, document part, tables/headers/notes, edition identity and round-trip locators.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "database_recovery_cp012",
+      "source_rows": 1,
+      "source_columns": [
+        "id",
+        "source_path",
+        "observed_size",
+        "declared_page_count",
+        "page_size",
+        "declared_size",
+        "normal_read",
+        "immutable_read",
+        "recovery_method",
+        "limits",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.database_recovery_cp012",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "document_note_navigation",
+      "source_rows": 43,
+      "source_columns": [
+        "reference_id",
+        "note_definition_id",
+        "book_filename",
+        "apparatus_filename",
+        "bookmark",
+        "label",
+        "section_heading",
+        "status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.document_note_navigation",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "documents",
+      "source_rows": 12,
+      "source_columns": [
+        "id",
+        "role",
+        "filename",
+        "library_id",
+        "sha256",
+        "size_bytes",
+        "edition",
+        "xml_paragraphs",
+        "nonempty_units"
+      ],
+      "raw_preservation": "legacy_cp017.documents",
+      "normalized_domain": "document_structure",
+      "rule": "Retain every edition/legacy unit, table and offset. Identify current-edition projection explicitly rather than summing versions as new research.",
+      "checks": "Check Unicode offset basis, document part, tables/headers/notes, edition identity and round-trip locators.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "edition_code_definitions",
+      "source_rows": 917,
+      "source_columns": [
+        "id",
+        "edition",
+        "code",
+        "unit_id",
+        "definition_text",
+        "previous_definition_id",
+        "review_state",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.edition_code_definitions",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "edition_code_occurrences",
+      "source_rows": 20791,
+      "source_columns": [
+        "id",
+        "edition",
+        "unit_id",
+        "code",
+        "start_offset",
+        "end_offset",
+        "usage_kind",
+        "status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.edition_code_occurrences",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "edition_current_units",
+      "source_rows": 421084,
+      "source_columns": [
+        "id",
+        "edition",
+        "role",
+        "part",
+        "xpath",
+        "text_with_controls",
+        "previous_unit_id",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.edition_current_units",
+      "normalized_domain": "document_structure",
+      "rule": "Retain every edition/legacy unit, table and offset. Identify current-edition projection explicitly rather than summing versions as new research.",
+      "checks": "Check Unicode offset basis, document part, tables/headers/notes, edition identity and round-trip locators.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "editorial_comment_anchors",
+      "source_rows": 78,
+      "source_columns": [
+        "id",
+        "comment_id",
+        "unit_id",
+        "marker_kind",
+        "xpath",
+        "rich_text_offset",
+        "status"
+      ],
+      "raw_preservation": "legacy_cp017.editorial_comment_anchors",
+      "normalized_domain": "editorial_only",
+      "rule": "Preserve editorial comments, anchors and handoff concerns outside source testimony or current-public-claim text.",
+      "checks": "Check exact old/replacement text, author/date, anchor bounds and nonpublication by default.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "editorial_comment_links",
+      "source_rows": 26,
+      "source_columns": [
+        "id",
+        "comment_id",
+        "application_id",
+        "basis"
+      ],
+      "raw_preservation": "legacy_cp017.editorial_comment_links",
+      "normalized_domain": "editorial_only",
+      "rule": "Preserve editorial comments, anchors and handoff concerns outside source testimony or current-public-claim text.",
+      "checks": "Check exact old/replacement text, author/date, anchor bounds and nonpublication by default.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "editorial_comment_paragraphs",
+      "source_rows": 130,
+      "source_columns": [
+        "id",
+        "comment_id",
+        "ordinal",
+        "xpath",
+        "text",
+        "text_sha256"
+      ],
+      "raw_preservation": "legacy_cp017.editorial_comment_paragraphs",
+      "normalized_domain": "editorial_only",
+      "rule": "Preserve editorial comments, anchors and handoff concerns outside source testimony or current-public-claim text.",
+      "checks": "Check exact old/replacement text, author/date, anchor bounds and nonpublication by default.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "editorial_comments",
+      "source_rows": 26,
+      "source_columns": [
+        "id",
+        "role",
+        "comment_xml_id",
+        "author",
+        "initials",
+        "recorded_date",
+        "body_text",
+        "source_part",
+        "source_xpath",
+        "document_sha256",
+        "status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.editorial_comments",
+      "normalized_domain": "editorial_only",
+      "rule": "Preserve editorial comments, anchors and handoff concerns outside source testimony or current-public-claim text.",
+      "checks": "Check exact old/replacement text, author/date, anchor bounds and nonpublication by default.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "editorial_drafts",
+      "source_rows": 1,
+      "source_columns": [
+        "id",
+        "title",
+        "status",
+        "word_count",
+        "page_count",
+        "source_review",
+        "sha256",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.editorial_drafts",
+      "normalized_domain": "document_structure",
+      "rule": "Retain every edition/legacy unit, table and offset. Identify current-edition projection explicitly rather than summing versions as new research.",
+      "checks": "Check Unicode offset basis, document part, tables/headers/notes, edition identity and round-trip locators.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "editorial_paragraphs",
+      "source_rows": 50,
+      "source_columns": [
+        "id",
+        "draft_id",
+        "text",
+        "note_ids_json",
+        "status"
+      ],
+      "raw_preservation": "legacy_cp017.editorial_paragraphs",
+      "normalized_domain": "document_structure",
+      "rule": "Retain every edition/legacy unit, table and offset. Identify current-edition projection explicitly rather than summing versions as new research.",
+      "checks": "Check Unicode offset basis, document part, tables/headers/notes, edition identity and round-trip locators.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "entities",
+      "source_rows": 116,
+      "source_columns": [
+        "id",
+        "label",
+        "entity_type",
+        "registry_class",
+        "origin_unit_id",
+        "source_row_json",
+        "review_state"
+      ],
+      "raw_preservation": "legacy_cp017.entities",
+      "normalized_domain": "entities_and_dossiers",
+      "rule": "Map with original entity type and candidate status. Separate 116 inherited entities from the named 104-candidate roster; preserve unknown/umbrella classifications.",
+      "checks": "Check types, aliases, candidate admission evidence and reversible placement mapping.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "entity_current_placements",
+      "source_rows": 116,
+      "source_columns": [
+        "entity_id",
+        "current_unit_id",
+        "recorded_text",
+        "relationship",
+        "scope_limit",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.entity_current_placements",
+      "normalized_domain": "entities_and_dossiers",
+      "rule": "Map with original entity type and candidate status. Separate 116 inherited entities from the named 104-candidate roster; preserve unknown/umbrella classifications.",
+      "checks": "Check types, aliases, candidate admission evidence and reversible placement mapping.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "evidence",
+      "source_rows": 69,
+      "source_columns": [
+        "id",
+        "assertion_id",
+        "source_id",
+        "unit_id",
+        "locator",
+        "relation",
+        "evidence_class",
+        "independence_group",
+        "access_date",
+        "note"
+      ],
+      "raw_preservation": "legacy_cp017.evidence",
+      "normalized_domain": "claims_and_reviews",
+      "rule": "Map explicit assertions, candidates, evidence and placements without upgrading review status. Compound candidates are not atomic verified claims.",
+      "checks": "Check claim type, source locator, assertion versus source statement, contradictions and existing review limits.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "external_corrections",
+      "source_rows": 1,
+      "source_columns": [
+        "id",
+        "dataset_id",
+        "row_number",
+        "field",
+        "raw_value",
+        "proposed_value",
+        "source_id",
+        "basis",
+        "status"
+      ],
+      "raw_preservation": "legacy_cp017.external_corrections",
+      "normalized_domain": "external_records",
+      "rule": "Preserve all source registration rows and corrections with dataset/version identifiers. Never equate a row with a unique person; retain the CP-016 non-equivalence warning.",
+      "checks": "Compare raw field values, NULLs, types, row counts, original inventory values and separately applied corrections.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "external_datasets",
+      "source_rows": 1,
+      "source_columns": [
+        "id",
+        "title",
+        "repository",
+        "source_url",
+        "download_url",
+        "access_date",
+        "file_name",
+        "sha256",
+        "row_count",
+        "fields_json",
+        "record_unit",
+        "rights_state",
+        "inspection_state",
+        "limitations"
+      ],
+      "raw_preservation": "legacy_cp017.external_datasets",
+      "normalized_domain": "external_records",
+      "rule": "Preserve all source registration rows and corrections with dataset/version identifiers. Never equate a row with a unique person; retain the CP-016 non-equivalence warning.",
+      "checks": "Compare raw field values, NULLs, types, row counts, original inventory values and separately applied corrections.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "external_record_checks",
+      "source_rows": 14,
+      "source_columns": [
+        "dataset_id",
+        "row_number",
+        "check_kind",
+        "result",
+        "note"
+      ],
+      "raw_preservation": "legacy_cp017.external_record_checks",
+      "normalized_domain": "external_records",
+      "rule": "Preserve all source registration rows and corrections with dataset/version identifiers. Never equate a row with a unique person; retain the CP-016 non-equivalence warning.",
+      "checks": "Compare raw field values, NULLs, types, row counts, original inventory values and separately applied corrections.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "external_records",
+      "source_rows": 161790,
+      "source_columns": [
+        "dataset_id",
+        "row_number",
+        "source_record_id",
+        "raw_json",
+        "record_sha256",
+        "review_state"
+      ],
+      "raw_preservation": "legacy_cp017.external_records",
+      "normalized_domain": "external_records",
+      "rule": "Preserve all source registration rows and corrections with dataset/version identifiers. Never equate a row with a unique person; retain the CP-016 non-equivalence warning.",
+      "checks": "Compare raw field values, NULLs, types, row counts, original inventory values and separately applied corrections.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "extraction_reconciliation",
+      "source_rows": 709,
+      "source_columns": [
+        "id",
+        "baseline_unit_id",
+        "current_unit_id",
+        "old_relation",
+        "new_relation",
+        "basis",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.extraction_reconciliation",
+      "normalized_domain": "document_structure",
+      "rule": "Retain every edition/legacy unit, table and offset. Identify current-edition projection explicitly rather than summing versions as new research.",
+      "checks": "Check Unicode offset basis, document part, tables/headers/notes, edition identity and round-trip locators.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "gates",
+      "source_rows": 10,
+      "source_columns": [
+        "number",
+        "title",
+        "status",
+        "completion_test"
+      ],
+      "raw_preservation": "legacy_cp017.gates",
+      "normalized_domain": "research_work_management",
+      "rule": "Map original scope and status with evidence. Keep ten research gates independent from software milestones and avoid manufactured completion percentages.",
+      "checks": "Check imported states and denominators; gate 1 alone is closed in baseline; separate unsearched/inaccessible/no-find states.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "handoff_findings",
+      "source_rows": 18,
+      "source_columns": [
+        "id",
+        "handoff",
+        "finding",
+        "evidence_action",
+        "status",
+        "review_note"
+      ],
+      "raw_preservation": "legacy_cp017.handoff_findings",
+      "normalized_domain": "editorial_only",
+      "rule": "Preserve editorial comments, anchors and handoff concerns outside source testimony or current-public-claim text.",
+      "checks": "Check exact old/replacement text, author/date, anchor bounds and nonpublication by default.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "image_placements",
+      "source_rows": 591,
+      "source_columns": [
+        "id",
+        "document_id",
+        "unit_id",
+        "part",
+        "xpath",
+        "relationship_id",
+        "asset_sha256",
+        "target",
+        "alt_text",
+        "title",
+        "crop_json",
+        "extent_json",
+        "kind",
+        "review_state"
+      ],
+      "raw_preservation": "legacy_cp017.image_placements",
+      "normalized_domain": "assets_and_placements",
+      "rule": "Preserve legacy asset/placement tables as their own snapshot. Reconcile newest DOCX bytes separately; legacy counts are not latest counts.",
+      "checks": "Compare hashes, asset-versus-placement identity, captions, alt text and item-level rights; no appearance-based relabeling.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "integration_additions",
+      "source_rows": 415,
+      "source_columns": [
+        "id",
+        "checkpoint",
+        "role",
+        "text",
+        "style",
+        "verification"
+      ],
+      "raw_preservation": "legacy_cp017.integration_additions",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "integration_applications",
+      "source_rows": 42,
+      "source_columns": [
+        "id",
+        "checkpoint",
+        "role",
+        "part",
+        "baseline_unit_id",
+        "baseline_xpath",
+        "current_xpath",
+        "original_span",
+        "replacement_span",
+        "assertion_id",
+        "verification",
+        "payload_json",
+        "verified_at_utc"
+      ],
+      "raw_preservation": "legacy_cp017.integration_applications",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "legacy_code_hit_adjudications",
+      "source_rows": 115,
+      "source_columns": [
+        "legacy_use_id",
+        "code",
+        "decision",
+        "context",
+        "new_occurrence_id",
+        "explanation",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.legacy_code_hit_adjudications",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "manual_reference_bindings",
+      "source_rows": 43,
+      "source_columns": [
+        "reference_id",
+        "note_definition_id",
+        "selection_basis",
+        "status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.manual_reference_bindings",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "marinerito_collation_cp012",
+      "source_rows": 25,
+      "source_columns": [
+        "row_number",
+        "tna_number",
+        "tna_reading",
+        "tna_age",
+        "tna_pdf_page",
+        "slpa_number",
+        "slpa_reading",
+        "slpa_age",
+        "slpa_pdf_page",
+        "uncertainty_or_conflict",
+        "review_status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.marinerito_collation_cp012",
+      "normalized_domain": "witness_sequences",
+      "rule": "Preserve positional rows, original witness strings, coordinates and alignment hypotheses. Rows 152-326 remain provisional; row-223 displacement is unresolved.",
+      "checks": "Check accepted/provisional boundary, witness/page transitions, remarks linkage and absence of inferred person identity.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "marinerito_collation_cp013",
+      "source_rows": 25,
+      "source_columns": [
+        "row_number",
+        "tna_number",
+        "tna_reading",
+        "tna_sex",
+        "tna_age",
+        "tna_pdf_page",
+        "slpa_number",
+        "slpa_reading",
+        "slpa_sex",
+        "slpa_age",
+        "slpa_pdf_page",
+        "sequence_alignment_state",
+        "uncertainty_or_conflict",
+        "review_status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.marinerito_collation_cp013",
+      "normalized_domain": "witness_sequences",
+      "rule": "Preserve positional rows, original witness strings, coordinates and alignment hypotheses. Rows 152-326 remain provisional; row-223 displacement is unresolved.",
+      "checks": "Check accepted/provisional boundary, witness/page transitions, remarks linkage and absence of inferred person identity.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "marinerito_collation_cp014",
+      "source_rows": 25,
+      "source_columns": [
+        "row_number",
+        "tna_number",
+        "tna_reading",
+        "tna_sex",
+        "tna_age",
+        "tna_pdf_page",
+        "slpa_number",
+        "slpa_reading",
+        "slpa_sex",
+        "slpa_age",
+        "slpa_pdf_page",
+        "sequence_alignment_state",
+        "uncertainty_or_conflict",
+        "review_status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.marinerito_collation_cp014",
+      "normalized_domain": "witness_sequences",
+      "rule": "Preserve positional rows, original witness strings, coordinates and alignment hypotheses. Rows 152-326 remain provisional; row-223 displacement is unresolved.",
+      "checks": "Check accepted/provisional boundary, witness/page transitions, remarks linkage and absence of inferred person identity.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "marinerito_collation_cp015",
+      "source_rows": 25,
+      "source_columns": [
+        "checkpoint",
+        "review_status",
+        "row_number",
+        "sequence_alignment_state",
+        "slpa_age",
+        "slpa_number",
+        "slpa_pdf_page",
+        "slpa_reading",
+        "slpa_sex",
+        "tna_age",
+        "tna_number",
+        "tna_pdf_page",
+        "tna_reading",
+        "tna_sex",
+        "uncertainty_or_conflict"
+      ],
+      "raw_preservation": "legacy_cp017.marinerito_collation_cp015",
+      "normalized_domain": "witness_sequences",
+      "rule": "Preserve positional rows, original witness strings, coordinates and alignment hypotheses. Rows 152-326 remain provisional; row-223 displacement is unresolved.",
+      "checks": "Check accepted/provisional boundary, witness/page transitions, remarks linkage and absence of inferred person identity.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "marinerito_collation_cp016",
+      "source_rows": 25,
+      "source_columns": [
+        "checkpoint",
+        "review_status",
+        "row_number",
+        "sequence_alignment_state",
+        "slpa_age",
+        "slpa_number",
+        "slpa_pdf_page",
+        "slpa_reading",
+        "slpa_sex",
+        "tna_age",
+        "tna_number",
+        "tna_pdf_page",
+        "tna_reading",
+        "tna_sex",
+        "uncertainty_or_conflict"
+      ],
+      "raw_preservation": "legacy_cp017.marinerito_collation_cp016",
+      "normalized_domain": "witness_sequences",
+      "rule": "Preserve positional rows, original witness strings, coordinates and alignment hypotheses. Rows 152-326 remain provisional; row-223 displacement is unresolved.",
+      "checks": "Check accepted/provisional boundary, witness/page transitions, remarks linkage and absence of inferred person identity.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "marinerito_collation_cp017",
+      "source_rows": 25,
+      "source_columns": [
+        "row_number",
+        "tna_number",
+        "tna_reading",
+        "tna_sex",
+        "tna_age",
+        "tna_pdf_page",
+        "slpa_number",
+        "slpa_reading",
+        "slpa_sex",
+        "slpa_age",
+        "slpa_pdf_page",
+        "sequence_alignment_state",
+        "uncertainty_or_conflict",
+        "review_status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.marinerito_collation_cp017",
+      "normalized_domain": "witness_sequences",
+      "rule": "Preserve positional rows, original witness strings, coordinates and alignment hypotheses. Rows 152-326 remain provisional; row-223 displacement is unresolved.",
+      "checks": "Check accepted/provisional boundary, witness/page transitions, remarks linkage and absence of inferred person identity.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "note_definitions",
+      "source_rows": 396,
+      "source_columns": [
+        "id",
+        "unit_id",
+        "label",
+        "section_heading",
+        "scope",
+        "text",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.note_definitions",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "note_navigation_cp009",
+      "source_rows": 43,
+      "source_columns": [
+        "relationship_id",
+        "previous_target",
+        "current_target",
+        "status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.note_navigation_cp009",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "note_navigation_cp010",
+      "source_rows": 43,
+      "source_columns": [
+        "relationship_id",
+        "previous_target",
+        "current_target",
+        "status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.note_navigation_cp010",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "note_navigation_cp011",
+      "source_rows": 43,
+      "source_columns": [
+        "relationship_id",
+        "previous_target",
+        "current_target",
+        "status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.note_navigation_cp011",
+      "normalized_domain": "citations_and_authorities",
+      "rule": "Preserve original code/edition namespaces and all literal occurrences. Lexical matches are not certified citations; repeated note numbers remain section-local.",
+      "checks": "Verify exact spans, 43 companion targets where applicable, unresolved compound references and no automatic source equivalence.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "page_inspections",
+      "source_rows": 114,
+      "source_columns": [
+        "id",
+        "file_id",
+        "page_number",
+        "locator",
+        "inspection_kind",
+        "findings",
+        "limits",
+        "inspected_on"
+      ],
+      "raw_preservation": "legacy_cp017.page_inspections",
+      "normalized_domain": "sources_and_inspections",
+      "rule": "Map sources, exact representations and inspection scope; preserve access barriers, derivative dependence and discovery-only status.",
+      "checks": "Check repository/item/version, original locator and read-versus-inspected-versus-reviewed distinctions.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "polity_dossier_sections",
+      "source_rows": 8,
+      "source_columns": [
+        "id",
+        "entity_id",
+        "section",
+        "text",
+        "assertion_ids_json",
+        "status",
+        "next_action"
+      ],
+      "raw_preservation": "legacy_cp017.polity_dossier_sections",
+      "normalized_domain": "entities_and_dossiers",
+      "rule": "Map with original entity type and candidate status. Separate 116 inherited entities from the named 104-candidate roster; preserve unknown/umbrella classifications.",
+      "checks": "Check types, aliases, candidate admission evidence and reversible placement mapping.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "polity_review_candidates",
+      "source_rows": 1,
+      "source_columns": [
+        "id",
+        "label",
+        "source_id",
+        "locator",
+        "evidence_for_collectivity",
+        "distinction_from_named",
+        "unresolved_identity",
+        "status"
+      ],
+      "raw_preservation": "legacy_cp017.polity_review_candidates",
+      "normalized_domain": "entities_and_dossiers",
+      "rule": "Map with original entity type and candidate status. Separate 116 inherited entities from the named 104-candidate roster; preserve unknown/umbrella classifications.",
+      "checks": "Check types, aliases, candidate admission evidence and reversible placement mapping.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "proposed_edits",
+      "source_rows": 8,
+      "source_columns": [
+        "id",
+        "unit_id",
+        "start_offset",
+        "end_offset",
+        "original_text",
+        "replacement_text",
+        "assertion_id",
+        "reason",
+        "status"
+      ],
+      "raw_preservation": "legacy_cp017.proposed_edits",
+      "normalized_domain": "claims_and_reviews",
+      "rule": "Map explicit assertions, candidates, evidence and placements without upgrading review status. Compound candidates are not atomic verified claims.",
+      "checks": "Check claim type, source locator, assertion versus source statement, contradictions and existing review limits.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "provisional_sequence_rows",
+      "source_rows": 175,
+      "source_columns": [
+        "id",
+        "sequence_label",
+        "row_number",
+        "payload_json",
+        "status",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.provisional_sequence_rows",
+      "normalized_domain": "witness_sequences",
+      "rule": "Preserve positional rows, original witness strings, coordinates and alignment hypotheses. Rows 152-326 remain provisional; row-223 displacement is unresolved.",
+      "checks": "Check accepted/provisional boundary, witness/page transitions, remarks linkage and absence of inferred person identity.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "reading_records",
+      "source_rows": 40,
+      "source_columns": [
+        "id",
+        "code",
+        "source_id",
+        "title",
+        "creator_roles",
+        "publication",
+        "digital_lineage",
+        "repository",
+        "identifier",
+        "rights_observed",
+        "access_date",
+        "inspection_depth",
+        "inspected_locator",
+        "limits"
+      ],
+      "raw_preservation": "legacy_cp017.reading_records",
+      "normalized_domain": "sources_and_inspections",
+      "rule": "Map sources, exact representations and inspection scope; preserve access barriers, derivative dependence and discovery-only status.",
+      "checks": "Check repository/item/version, original locator and read-versus-inspected-versus-reviewed distinctions.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "research_files",
+      "source_rows": 129,
+      "source_columns": [
+        "id",
+        "source_id",
+        "filename",
+        "sha256",
+        "size_bytes",
+        "media_type",
+        "access_date",
+        "rights_state",
+        "role"
+      ],
+      "raw_preservation": "legacy_cp017.research_files",
+      "normalized_domain": "sources_and_inspections",
+      "rule": "Map sources, exact representations and inspection scope; preserve access barriers, derivative dependence and discovery-only status.",
+      "checks": "Check repository/item/version, original locator and read-versus-inspected-versus-reviewed distinctions.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "retrieval_attempts",
+      "source_rows": 17,
+      "source_columns": [
+        "id",
+        "url_or_query",
+        "result",
+        "inspected_content",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.retrieval_attempts",
+      "normalized_domain": "sources_and_inspections",
+      "rule": "Map sources, exact representations and inspection scope; preserve access barriers, derivative dependence and discovery-only status.",
+      "checks": "Check repository/item/version, original locator and read-versus-inspected-versus-reviewed distinctions.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "schema_meta",
+      "source_rows": 15,
+      "source_columns": [
+        "key",
+        "value"
+      ],
+      "raw_preservation": "legacy_cp017.schema_meta",
+      "normalized_domain": "lineage_and_recovery",
+      "rule": "Preserve immutable correction applications, hashes, reconstruction exceptions and recovery boundaries; never replay inherited migrations over the current corpus.",
+      "checks": "Compare original/replacement strings, checksums, non-equivalence exceptions and applied-versus-proposed status.",
+      "initial_classification": "audit_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "search_log",
+      "source_rows": 30,
+      "source_columns": [
+        "id",
+        "query",
+        "language",
+        "endpoint",
+        "checked_on",
+        "results_note",
+        "followup"
+      ],
+      "raw_preservation": "legacy_cp017.search_log",
+      "normalized_domain": "sources_and_inspections",
+      "rule": "Map sources, exact representations and inspection scope; preserve access barriers, derivative dependence and discovery-only status.",
+      "checks": "Check repository/item/version, original locator and read-versus-inspected-versus-reviewed distinctions.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "sequence_progress",
+      "source_rows": 6,
+      "source_columns": [
+        "id",
+        "label",
+        "source_reference",
+        "known_total",
+        "unit_type",
+        "baseline_reported_completed",
+        "independently_checked",
+        "status",
+        "next_action"
+      ],
+      "raw_preservation": "legacy_cp017.sequence_progress",
+      "normalized_domain": "witness_sequences",
+      "rule": "Preserve positional rows, original witness strings, coordinates and alignment hypotheses. Rows 152-326 remain provisional; row-223 displacement is unresolved.",
+      "checks": "Check accepted/provisional boundary, witness/page transitions, remarks linkage and absence of inferred person identity.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "sequence_reviews",
+      "source_rows": 8,
+      "source_columns": [
+        "id",
+        "sequence_label",
+        "unit_type",
+        "known_online_extent",
+        "downloaded_extent",
+        "visually_inspected_extent",
+        "transcribed_extent",
+        "second_read_extent",
+        "scope",
+        "limits",
+        "as_of"
+      ],
+      "raw_preservation": "legacy_cp017.sequence_reviews",
+      "normalized_domain": "witness_sequences",
+      "rule": "Preserve positional rows, original witness strings, coordinates and alignment hypotheses. Rows 152-326 remain provisional; row-223 displacement is unresolved.",
+      "checks": "Check accepted/provisional boundary, witness/page transitions, remarks linkage and absence of inferred person identity.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "source_group_reviews",
+      "source_rows": 7,
+      "source_columns": [
+        "code",
+        "definition_count",
+        "lexical_unit_count",
+        "status",
+        "next_action"
+      ],
+      "raw_preservation": "legacy_cp017.source_group_reviews",
+      "normalized_domain": "sources_and_inspections",
+      "rule": "Map sources, exact representations and inspection scope; preserve access barriers, derivative dependence and discovery-only status.",
+      "checks": "Check repository/item/version, original locator and read-versus-inspected-versus-reviewed distinctions.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "source_occurrences",
+      "source_rows": 1766,
+      "source_columns": [
+        "id",
+        "source_id",
+        "document_id",
+        "unit_id",
+        "part",
+        "locator",
+        "raw_url",
+        "method",
+        "scope"
+      ],
+      "raw_preservation": "legacy_cp017.source_occurrences",
+      "normalized_domain": "sources_and_inspections",
+      "rule": "Map sources, exact representations and inspection scope; preserve access barriers, derivative dependence and discovery-only status.",
+      "checks": "Check repository/item/version, original locator and read-versus-inspected-versus-reviewed distinctions.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "source_relationships",
+      "source_rows": 5,
+      "source_columns": [
+        "id",
+        "source_id",
+        "related_source_id",
+        "relation",
+        "status",
+        "note"
+      ],
+      "raw_preservation": "legacy_cp017.source_relationships",
+      "normalized_domain": "sources_and_inspections",
+      "rule": "Map sources, exact representations and inspection scope; preserve access barriers, derivative dependence and discovery-only status.",
+      "checks": "Check repository/item/version, original locator and read-versus-inspected-versus-reviewed distinctions.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "source_shorthand_records",
+      "source_rows": 10,
+      "source_columns": [
+        "id",
+        "unit_id",
+        "exact_form",
+        "start_offset",
+        "end_offset",
+        "proposed_codes_json",
+        "status",
+        "note"
+      ],
+      "raw_preservation": "legacy_cp017.source_shorthand_records",
+      "normalized_domain": "sources_and_inspections",
+      "rule": "Map sources, exact representations and inspection scope; preserve access barriers, derivative dependence and discovery-only status.",
+      "checks": "Check repository/item/version, original locator and read-versus-inspected-versus-reviewed distinctions.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "sources",
+      "source_rows": 1033,
+      "source_columns": [
+        "id",
+        "url",
+        "kind",
+        "review_state"
+      ],
+      "raw_preservation": "legacy_cp017.sources",
+      "normalized_domain": "sources_and_inspections",
+      "rule": "Map sources, exact representations and inspection scope; preserve access barriers, derivative dependence and discovery-only status.",
+      "checks": "Check repository/item/version, original locator and read-versus-inspected-versus-reviewed distinctions.",
+      "initial_classification": "restricted_pending_rights",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "status_history",
+      "source_rows": 104,
+      "source_columns": [
+        "id",
+        "checkpoint",
+        "table_name",
+        "record_id",
+        "old_status",
+        "new_status",
+        "reason",
+        "changed_at_utc"
+      ],
+      "raw_preservation": "legacy_cp017.status_history",
+      "normalized_domain": "research_work_management",
+      "rule": "Map original scope and status with evidence. Keep ten research gates independent from software milestones and avoid manufactured completion percentages.",
+      "checks": "Check imported states and denominators; gate 1 alone is closed in baseline; separate unsearched/inaccessible/no-find states.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "tables_inventory",
+      "source_rows": 2267,
+      "source_columns": [
+        "id",
+        "document_id",
+        "part",
+        "xpath",
+        "row_count",
+        "header_json"
+      ],
+      "raw_preservation": "legacy_cp017.tables_inventory",
+      "normalized_domain": "document_structure",
+      "rule": "Retain every edition/legacy unit, table and offset. Identify current-edition projection explicitly rather than summing versions as new research.",
+      "checks": "Check Unicode offset basis, document part, tables/headers/notes, edition identity and round-trip locators.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "tasks",
+      "source_rows": 191,
+      "source_columns": [
+        "id",
+        "gate",
+        "title",
+        "priority",
+        "status",
+        "input_locator",
+        "completion_test"
+      ],
+      "raw_preservation": "legacy_cp017.tasks",
+      "normalized_domain": "research_work_management",
+      "rule": "Map original scope and status with evidence. Keep ten research gates independent from software milestones and avoid manufactured completion percentages.",
+      "checks": "Check imported states and denominators; gate 1 alone is closed in baseline; separate unsearched/inaccessible/no-find states.",
+      "initial_classification": "review_required",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "unit_lineage",
+      "source_rows": 40993,
+      "source_columns": [
+        "baseline_unit_id",
+        "current_unit_id",
+        "relation",
+        "basis_json",
+        "checkpoint"
+      ],
+      "raw_preservation": "legacy_cp017.unit_lineage",
+      "normalized_domain": "document_structure",
+      "rule": "Retain every edition/legacy unit, table and offset. Identify current-edition projection explicitly rather than summing versions as new research.",
+      "checks": "Check Unicode offset basis, document part, tables/headers/notes, edition identity and round-trip locators.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    },
+    {
+      "source_table": "units",
+      "source_rows": 40993,
+      "source_columns": [
+        "id",
+        "document_id",
+        "part",
+        "xpath",
+        "ordinal",
+        "style",
+        "in_table",
+        "heading_context",
+        "text",
+        "text_sha256",
+        "has_revision"
+      ],
+      "raw_preservation": "legacy_cp017.units",
+      "normalized_domain": "document_structure",
+      "rule": "Retain every edition/legacy unit, table and offset. Identify current-edition projection explicitly rather than summing versions as new research.",
+      "checks": "Check Unicode offset basis, document part, tables/headers/notes, edition identity and round-trip locators.",
+      "initial_classification": "editorial_restricted",
+      "normalization_status": "specified_not_executed",
+      "owner": "Data steward + domain reviewer",
+      "pr_ids": [
+        "GDN-044",
+        "GDN-045",
+        "GDN-048"
+      ]
+    }
+  ]
+}

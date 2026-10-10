@@ -1,0 +1,27 @@
+{
+  "check": "local_plan_structure_not_application_tests",
+  "recorded_at": "2026-10-10T16:36:46.170146+00:00",
+  "result": "pass",
+  "summary": {
+    "work_items": 210,
+    "current_scope": 196,
+    "conditional_scope": 14,
+    "features": 43,
+    "acceptance_criteria": 630,
+    "specified_test_scenarios": 630,
+    "dependency_edges": 960,
+    "source_tables": 106,
+    "source_rows": 923292,
+    "production_verified_items": 0,
+    "status_counts": {
+      "planned": 196,
+      "conditional": 14
+    }
+  },
+  "errors": [],
+  "limits": [
+    "No application CI executed.",
+    "No GitHub PR or deployment verified.",
+    "Source byte/schema checks are not historical or rights verification."
+  ]
+}

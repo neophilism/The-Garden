@@ -1,0 +1,136 @@
+{
+  "artifact": "portable plan reader, not Garden application",
+  "recorded_at": "2026-10-10T16:35:23.592767+00:00",
+  "browser": "Playwright system Chromium, supplied local HTML (file URL navigation unavailable)",
+  "checks": [
+    {
+      "check": "All planned PR cards present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Correct document title",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "No desktop document horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "PR identifier filtering",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Expand visible PR",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Clear restores all PRs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Conditional filter returns exactly 14",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Funding feature filter has results",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Feature filter exact membership",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Research workstream has 18 PRs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Deep link opens and reveals PR",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Global search reveals results",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Global results include target PR",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "No-result explanation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Search clearing hides results",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Keyboard search shortcut",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "No broken internal fragment links",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "No external automatic network requests",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "No JavaScript errors",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "Mobile no horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Mobile contents initially collapsed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Mobile filter and expand work",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "No-JS content remains available",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Native details work without JS",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "passed": 24,
+  "failed": 0,
+  "javascript_errors": [],
+  "external_network_requests": [],
+  "limits": [
+    "Not a WCAG certification or full assistive-technology audit.",
+    "No website deployment or production functionality tested.",
+    "Screenshots inspected separately."
+  ]
+}

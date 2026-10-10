@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Garden development plan v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "plan_id",
+    "version",
+    "features",
+    "prs",
+    "releases",
+    "progress"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "plan_id": {
+      "const": "GARDEN-WEB-PLAN-001"
+    },
+    "version": {
+      "type": "string"
+    },
+    "features": {
+      "type": "array",
+      "minItems": 43,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "prs"
+        ]
+      }
+    },
+    "prs": {
+      "type": "array",
+      "minItems": 210,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "number",
+          "title",
+          "workstream",
+          "depends_on",
+          "features",
+          "scope",
+          "contract",
+          "acceptance_criteria",
+          "test_cases",
+          "status",
+          "owner_role",
+          "risk",
+          "effort_weight",
+          "evidence_profile",
+          "applicability",
+          "required_evidence",
+          "external_gates"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^GDN-[0-9]{3}$"
+          },
+          "depends_on": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "features": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "enum": [
+              "planned",
+              "conditional",
+              "in_progress",
+              "pr_open",
+              "checks_passed",
+              "merged",
+              "deployed",
+              "production_verified",
+              "blocked",
+              "regressed",
+              "superseded"
+            ]
+          },
+          "effort_weight": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "acceptance_criteria": {
+            "type": "array",
+            "minItems": 3
+          },
+          "test_cases": {
+            "type": "array",
+            "minItems": 3
+          },
+          "evidence_profile": {
+            "enum": [
+              "document",
+              "application"
+            ]
+          },
+          "applicability": {
+            "enum": [
+              "current_scope",
+              "conditional_government"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

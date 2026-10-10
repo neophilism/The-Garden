@@ -1,0 +1,62 @@
+{
+  "X01": {
+    "title": "GitHub repository access",
+    "status": "unavailable_in_this_session",
+    "need": "Connected GitHub with authorized target organization/repository and required write/PR/check scopes. Never assume private account entitlement or bypass branch rules."
+  },
+  "X02": {
+    "title": "Canonical End-To-End-Everywhere standard",
+    "status": "not_located",
+    "need": "Actual controlled document/repository revision and reusable security engine contract. A proposed crosswalk is not canonical conformance."
+  },
+  "X03": {
+    "title": "Engine Room integration",
+    "status": "contract_not_located",
+    "need": "Actual endpoint/schema, authentication, project identity and permitted mutation contract. Proposed intermediate JSON remains unsynchronized."
+  },
+  "X04": {
+    "title": "Render authorization",
+    "status": "not_connected_or_inspected",
+    "need": "Authorized workspace/service identities, deployment rights, DNS ownership and budget. Do not provision new paid resources without authority."
+  },
+  "X05": {
+    "title": "Neon authorization",
+    "status": "not_connected_or_inspected",
+    "need": "Project-specific authorized resource IDs, roles, connection scopes, extension capability and recovery policy. No unrelated project database reuse."
+  },
+  "X06": {
+    "title": "Storage, identity, key and notification providers",
+    "status": "discovery_required",
+    "need": "Existing reusable engines or authorized providers, actual contracts, credentials by secret name, costs and privacy terms."
+  },
+  "X07": {
+    "title": "Expert and community review",
+    "status": "assignments_not_verified",
+    "need": "Qualified historical, source-language, rights, fiscal, legal, accessibility, safeguarding and independent security reviewers for relevant release gates."
+  },
+  "X08": {
+    "title": "Incremental costs",
+    "status": "not_authorized_by_this_plan",
+    "need": "Explicit authority for new hosting/storage capacity, email, AI, licensed images, payment processing and external assessments. Existing resources must be verified first."
+  },
+  "X09": {
+    "title": "Full research artifacts and item rights",
+    "status": "partial_preparation_only",
+    "need": "All four components and six current documents must be revalidated at import; only CORE byte/schema checks were performed in preparing this plan. Item rights and research review remain open."
+  },
+  "X10": {
+    "title": "AI provider/data-processing authority",
+    "status": "unverified",
+    "need": "Approved provider/model contract, retention/data handling, budgets, evaluation and permission-first retrieval. Disabled until satisfied."
+  },
+  "X11": {
+    "title": "Payments and civic provider authority",
+    "status": "unverified",
+    "need": "Authorized payee/legal organization, provider agreement, verified compliance disclosures and actual district/contact data for enabled services."
+  },
+  "X12": {
+    "title": "Governmental authority",
+    "status": "conditional_future",
+    "need": "Actual enacted law, implementing rules, authorized operator, dedicated funding/credentials and independent acceptance. No current enactment or authority is asserted."
+  }
+}

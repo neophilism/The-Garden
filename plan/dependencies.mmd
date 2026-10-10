@@ -1,0 +1,1171 @@
+flowchart TD
+  GDN001["GDN-001: Repository charter and complete feature contract"]
+  GDN002["GDN-002: Baseline evidence and source-access manifest"]
+  GDN001 --> GDN002
+  GDN003["GDN-003: Canonical security-standard reconciliation"]
+  GDN001 --> GDN003
+  GDN004["GDN-004: Existing engines and external contract discovery"]
+  GDN001 --> GDN004
+  GDN005["GDN-005: Threat model and data classification"]
+  GDN001 --> GDN005
+  GDN003 --> GDN005
+  GDN006["GDN-006: Public information architecture and design studies"]
+  GDN001 --> GDN006
+  GDN007["GDN-007: Content, expert review and image commissioning plan"]
+  GDN002 --> GDN007
+  GDN006 --> GDN007
+  GDN008["GDN-008: Machine-readable plan and release dependency graph"]
+  GDN001 --> GDN008
+  GDN002 --> GDN008
+  GDN005 --> GDN008
+  GDN006 --> GDN008
+  GDN009["GDN-009: Application monorepo and reproducible toolchain"]
+  GDN004 --> GDN009
+  GDN008 --> GDN009
+  GDN010["GDN-010: CI, test harness and supply-chain checks"]
+  GDN009 --> GDN010
+  GDN011["GDN-011: Branch protection and autonomous merge protocol"]
+  GDN010 --> GDN011
+  GDN012["GDN-012: Environment, secret and cost-authorization registry"]
+  GDN005 --> GDN012
+  GDN009 --> GDN012
+  GDN013["GDN-013: Neon foundation and migration roles"]
+  GDN012 --> GDN013
+  GDN014["GDN-014: First Render staging deployment"]
+  GDN009 --> GDN014
+  GDN012 --> GDN014
+  GDN013 --> GDN014
+  GDN015["GDN-015: Object storage and immutable originals"]
+  GDN005 --> GDN015
+  GDN012 --> GDN015
+  GDN016["GDN-016: Transactional jobs, outbox and retries"]
+  GDN013 --> GDN016
+  GDN017["GDN-017: Observability with content-safe telemetry"]
+  GDN014 --> GDN017
+  GDN016 --> GDN017
+  GDN018["GDN-018: Staged deployment and database migration pipeline"]
+  GDN010 --> GDN018
+  GDN013 --> GDN018
+  GDN014 --> GDN018
+  GDN017 --> GDN018
+  GDN019["GDN-019: Engine Room adapter and reconciliation contract"]
+  GDN004 --> GDN019
+  GDN008 --> GDN019
+  GDN010 --> GDN019
+  GDN017 --> GDN019
+  GDN020["GDN-020: Safe preview environments and cleanup"]
+  GDN011 --> GDN020
+  GDN012 --> GDN020
+  GDN018 --> GDN020
+  GDN021["GDN-021: Identity provider integration and account lifecycle"]
+  GDN004 --> GDN021
+  GDN005 --> GDN021
+  GDN009 --> GDN021
+  GDN013 --> GDN021
+  GDN022["GDN-022: Sessions, passkeys and privileged authentication"]
+  GDN021 --> GDN022
+  GDN023["GDN-023: Roles, membership and researcher onboarding"]
+  GDN021 --> GDN023
+  GDN024["GDN-024: Database row-level security and policy context"]
+  GDN013 --> GDN024
+  GDN023 --> GDN024
+  GDN025["GDN-025: Unified authorization at every delivery path"]
+  GDN015 --> GDN025
+  GDN024 --> GDN025
+  GDN026["GDN-026: Key management and trusted-processing encryption"]
+  GDN003 --> GDN026
+  GDN005 --> GDN026
+  GDN012 --> GDN026
+  GDN025 --> GDN026
+  GDN027["GDN-027: Sealed client-side encryption and recipient keys"]
+  GDN022 --> GDN027
+  GDN025 --> GDN027
+  GDN026 --> GDN027
+  GDN028["GDN-028: Encrypted collaboration and controlled disclosure"]
+  GDN027 --> GDN028
+  GDN029["GDN-029: Consent, purpose and permitted-use enforcement"]
+  GDN005 --> GDN029
+  GDN025 --> GDN029
+  GDN030["GDN-030: Tamper-evident audit and sensitive-action ledger"]
+  GDN016 --> GDN030
+  GDN022 --> GDN030
+  GDN025 --> GDN030
+  GDN031["GDN-031: Authorization abuse and isolation regression suite"]
+  GDN024 --> GDN031
+  GDN025 --> GDN031
+  GDN029 --> GDN031
+  GDN030 --> GDN031
+  GDN032["GDN-032: Retention, deletion and legal-hold workflow"]
+  GDN026 --> GDN032
+  GDN029 --> GDN032
+  GDN030 --> GDN032
+  GDN033["GDN-033: Web hardening, dependency defense and secure headers"]
+  GDN010 --> GDN033
+  GDN014 --> GDN033
+  GDN022 --> GDN033
+  GDN034["GDN-034: Publication and retraction safety kernel"]
+  GDN025 --> GDN034
+  GDN029 --> GDN034
+  GDN030 --> GDN034
+  GDN031 --> GDN034
+  GDN033 --> GDN034
+  GDN035["GDN-035: Typed historical entities and reversible relationships"]
+  GDN013 --> GDN035
+  GDN024 --> GDN035
+  GDN036["GDN-036: Sources, repositories and archival hierarchy"]
+  GDN013 --> GDN036
+  GDN024 --> GDN036
+  GDN037["GDN-037: Atomic claims, evidence links and placements"]
+  GDN035 --> GDN037
+  GDN036 --> GDN037
+  GDN038["GDN-038: Durable locators and Web Annotation selectors"]
+  GDN035 --> GDN038
+  GDN036 --> GDN038
+  GDN039["GDN-039: Independent research, rights and publication states"]
+  GDN029 --> GDN039
+  GDN030 --> GDN039
+  GDN037 --> GDN039
+  GDN040["GDN-040: Structured editorial content and policy versions"]
+  GDN006 --> GDN040
+  GDN007 --> GDN040
+  GDN037 --> GDN040
+  GDN039 --> GDN040
+  GDN041["GDN-041: Import quarantine and content inventory service"]
+  GDN015 --> GDN041
+  GDN016 --> GDN041
+  GDN030 --> GDN041
+  GDN036 --> GDN041
+  GDN042["GDN-042: Baseline documents and manual-review publication seed"]
+  GDN002 --> GDN042
+  GDN034 --> GDN042
+  GDN038 --> GDN042
+  GDN040 --> GDN042
+  GDN041 --> GDN042
+  GDN043["GDN-043: Public-only data projection and delivery API"]
+  GDN034 --> GDN043
+  GDN035 --> GDN043
+  GDN036 --> GDN043
+  GDN037 --> GDN043
+  GDN038 --> GDN043
+  GDN039 --> GDN043
+  GDN040 --> GDN043
+  GDN044["GDN-044: Explicit mapping of all 106 source tables"]
+  GDN002 --> GDN044
+  GDN035 --> GDN044
+  GDN036 --> GDN044
+  GDN037 --> GDN044
+  GDN038 --> GDN044
+  GDN039 --> GDN044
+  GDN041 --> GDN044
+  GDN045["GDN-045: Idempotent corpus staging importer"]
+  GDN041 --> GDN045
+  GDN044 --> GDN045
+  GDN046["GDN-046: Manuscript structure, citations and comments migration"]
+  GDN038 --> GDN046
+  GDN040 --> GDN046
+  GDN042 --> GDN046
+  GDN045 --> GDN046
+  GDN047["GDN-047: Image, rights and derivative migration"]
+  GDN015 --> GDN047
+  GDN029 --> GDN047
+  GDN041 --> GDN047
+  GDN045 --> GDN047
+  GDN048["GDN-048: Full migration reconciliation and recovery exceptions"]
+  GDN045 --> GDN048
+  GDN046 --> GDN048
+  GDN047 --> GDN048
+  GDN049["GDN-049: Accessible public shell and navigation"]
+  GDN006 --> GDN049
+  GDN009 --> GDN049
+  GDN033 --> GDN049
+  GDN043 --> GDN049
+  GDN050["GDN-050: Design system and readable content components"]
+  GDN006 --> GDN050
+  GDN049 --> GDN050
+  GDN051["GDN-051: Homepage and first-screen explanation"]
+  GDN007 --> GDN051
+  GDN040 --> GDN051
+  GDN042 --> GDN051
+  GDN049 --> GDN051
+  GDN050 --> GDN051
+  GDN052["GDN-052: Layered overview and guided introduction"]
+  GDN040 --> GDN052
+  GDN049 --> GDN052
+  GDN050 --> GDN052
+  GDN053["GDN-053: Human-centered story templates"]
+  GDN007 --> GDN053
+  GDN037 --> GDN053
+  GDN038 --> GDN053
+  GDN050 --> GDN053
+  GDN054["GDN-054: Meaning of The Garden and institutional vision"]
+  GDN040 --> GDN054
+  GDN050 --> GDN054
+  GDN052 --> GDN054
+  GDN055["GDN-055: Image galleries and pose-pair storytelling"]
+  GDN034 --> GDN055
+  GDN042 --> GDN055
+  GDN050 --> GDN055
+  GDN056["GDN-056: Introductory film, audio and transcript experience"]
+  GDN029 --> GDN056
+  GDN034 --> GDN056
+  GDN050 --> GDN056
+  GDN057["GDN-057: Historical exhibits and curated learning paths"]
+  GDN043 --> GDN057
+  GDN053 --> GDN057
+  GDN055 --> GDN057
+  GDN058["GDN-058: Contextual glossary and terminology explanations"]
+  GDN035 --> GDN058
+  GDN040 --> GDN058
+  GDN050 --> GDN058
+  GDN059["GDN-059: Public visitor routes and reading continuity"]
+  GDN049 --> GDN059
+  GDN052 --> GDN059
+  GDN057 --> GDN059
+  GDN058 --> GDN059
+  GDN060["GDN-060: About, ownership and proposal status"]
+  GDN040 --> GDN060
+  GDN049 --> GDN060
+  GDN061["GDN-061: Public FAQ and searchable questions"]
+  GDN040 --> GDN061
+  GDN049 --> GDN061
+  GDN058 --> GDN061
+  GDN062["GDN-062: Print, lightweight reading and slow-network modes"]
+  GDN049 --> GDN062
+  GDN050 --> GDN062
+  GDN052 --> GDN062
+  GDN053 --> GDN062
+  GDN063["GDN-063: Multilingual public content and review freshness"]
+  GDN040 --> GDN063
+  GDN050 --> GDN063
+  GDN058 --> GDN063
+  GDN064["GDN-064: Public experience acceptance and launch content audit"]
+  GDN051 --> GDN064
+  GDN052 --> GDN064
+  GDN053 --> GDN064
+  GDN054 --> GDN064
+  GDN055 --> GDN064
+  GDN056 --> GDN064
+  GDN057 --> GDN064
+  GDN058 --> GDN064
+  GDN059 --> GDN064
+  GDN060 --> GDN064
+  GDN061 --> GDN064
+  GDN062 --> GDN064
+  GDN063 --> GDN064
+  GDN065["GDN-065: Program-stage explorer and decision authority"]
+  GDN040 --> GDN065
+  GDN050 --> GDN065
+  GDN052 --> GDN065
+  GDN066["GDN-066: Rights and informational eligibility guide"]
+  GDN040 --> GDN066
+  GDN050 --> GDN066
+  GDN058 --> GDN066
+  GDN065 --> GDN066
+  GDN067["GDN-067: Legislative reader with provision anchors"]
+  GDN038 --> GDN067
+  GDN040 --> GDN067
+  GDN042 --> GDN067
+  GDN050 --> GDN067
+  GDN068["GDN-068: Policy version comparison and change notices"]
+  GDN037 --> GDN068
+  GDN040 --> GDN068
+  GDN067 --> GDN068
+  GDN069["GDN-069: Deterministic funding calculation library"]
+  GDN040 --> GDN069
+  GDN067 --> GDN069
+  GDN070["GDN-070: Funding center and assumption transparency"]
+  GDN050 --> GDN070
+  GDN069 --> GDN070
+  GDN071["GDN-071: Fiscal scenario explorer and reproducible exports"]
+  GDN069 --> GDN071
+  GDN070 --> GDN071
+  GDN072["GDN-072: Examples of benefits, choices and failure"]
+  GDN040 --> GDN072
+  GDN050 --> GDN072
+  GDN065 --> GDN072
+  GDN070 --> GDN072
+  GDN073["GDN-073: Objections, alternatives and unresolved analysis"]
+  GDN040 --> GDN073
+  GDN061 --> GDN073
+  GDN065 --> GDN073
+  GDN070 --> GDN073
+  GDN074["GDN-074: Legal research, authority and ambiguity register"]
+  GDN036 --> GDN074
+  GDN040 --> GDN074
+  GDN067 --> GDN074
+  GDN068 --> GDN074
+  GDN075["GDN-075: Public current-documents registry and downloads"]
+  GDN042 --> GDN075
+  GDN043 --> GDN075
+  GDN067 --> GDN075
+  GDN068 --> GDN075
+  GDN076["GDN-076: Policy and fiscal launch integration gate"]
+  GDN065 --> GDN076
+  GDN066 --> GDN076
+  GDN067 --> GDN076
+  GDN068 --> GDN076
+  GDN069 --> GDN076
+  GDN070 --> GDN076
+  GDN071 --> GDN076
+  GDN072 --> GDN076
+  GDN073 --> GDN076
+  GDN074 --> GDN076
+  GDN075 --> GDN076
+  GDN077["GDN-077: Secure resumable source uploads"]
+  GDN015 --> GDN077
+  GDN016 --> GDN077
+  GDN025 --> GDN077
+  GDN029 --> GDN077
+  GDN041 --> GDN077
+  GDN078["GDN-078: Repository links and bibliographic intake"]
+  GDN036 --> GDN078
+  GDN041 --> GDN078
+  GDN077 --> GDN078
+  GDN079["GDN-079: Safe document conversion and derivative workers"]
+  GDN016 --> GDN079
+  GDN033 --> GDN079
+  GDN038 --> GDN079
+  GDN077 --> GDN079
+  GDN080["GDN-080: Page, text and exact-source viewer"]
+  GDN038 --> GDN080
+  GDN043 --> GDN080
+  GDN050 --> GDN080
+  GDN079 --> GDN080
+  GDN081["GDN-081: IIIF manifest and interoperability support"]
+  GDN036 --> GDN081
+  GDN038 --> GDN081
+  GDN079 --> GDN081
+  GDN080 --> GDN081
+  GDN082["GDN-082: Audio/video archival viewer and time-linked transcripts"]
+  GDN029 --> GDN082
+  GDN038 --> GDN082
+  GDN079 --> GDN082
+  GDN080 --> GDN082
+  GDN083["GDN-083: Document and witness comparison workspace"]
+  GDN038 --> GDN083
+  GDN080 --> GDN083
+  GDN082 --> GDN083
+  GDN084["GDN-084: Source annotations and evidence capture"]
+  GDN025 --> GDN084
+  GDN030 --> GDN084
+  GDN038 --> GDN084
+  GDN080 --> GDN084
+  GDN082 --> GDN084
+  GDN085["GDN-085: Source acquisition queue and repository requests"]
+  GDN023 --> GDN085
+  GDN029 --> GDN085
+  GDN036 --> GDN085
+  GDN078 --> GDN085
+  GDN086["GDN-086: Source context, reliability and independence reviews"]
+  GDN036 --> GDN086
+  GDN037 --> GDN086
+  GDN039 --> GDN086
+  GDN080 --> GDN086
+  GDN087["GDN-087: Source citation, rights-aware download and reuse"]
+  GDN025 --> GDN087
+  GDN029 --> GDN087
+  GDN036 --> GDN087
+  GDN038 --> GDN087
+  GDN080 --> GDN087
+  GDN081 --> GDN087
+  GDN088["GDN-088: Intake-to-viewer integrated acceptance"]
+  GDN077 --> GDN088
+  GDN078 --> GDN088
+  GDN079 --> GDN088
+  GDN080 --> GDN088
+  GDN081 --> GDN088
+  GDN082 --> GDN088
+  GDN083 --> GDN088
+  GDN084 --> GDN088
+  GDN085 --> GDN088
+  GDN086 --> GDN088
+  GDN087 --> GDN088
+  GDN089["GDN-089: Historical subject pages and dossier navigation"]
+  GDN035 --> GDN089
+  GDN037 --> GDN089
+  GDN039 --> GDN089
+  GDN043 --> GDN089
+  GDN050 --> GDN089
+  GDN090["GDN-090: Names, aliases and historical terminology resolution"]
+  GDN035 --> GDN090
+  GDN089 --> GDN090
+  GDN091["GDN-091: Public text index and simple search"]
+  GDN043 --> GDN091
+  GDN089 --> GDN091
+  GDN090 --> GDN091
+  GDN092["GDN-092: Research search with permission-first retrieval"]
+  GDN025 --> GDN092
+  GDN031 --> GDN092
+  GDN035 --> GDN092
+  GDN036 --> GDN092
+  GDN037 --> GDN092
+  GDN038 --> GDN092
+  GDN091 --> GDN092
+  GDN093["GDN-093: Advanced structured query builder"]
+  GDN038 --> GDN093
+  GDN050 --> GDN093
+  GDN091 --> GDN093
+  GDN092 --> GDN093
+  GDN094["GDN-094: Reproducible queries, saved searches and citations"]
+  GDN021 --> GDN094
+  GDN029 --> GDN094
+  GDN093 --> GDN094
+  GDN095["GDN-095: Historical geography and uncertainty data layer"]
+  GDN035 --> GDN095
+  GDN037 --> GDN095
+  GDN039 --> GDN095
+  GDN096["GDN-096: Accessible atlas map and linked list view"]
+  GDN043 --> GDN096
+  GDN050 --> GDN096
+  GDN089 --> GDN096
+  GDN095 --> GDN096
+  GDN097["GDN-097: Timelines and temporal investigation"]
+  GDN035 --> GDN097
+  GDN038 --> GDN097
+  GDN043 --> GDN097
+  GDN050 --> GDN097
+  GDN089 --> GDN097
+  GDN098["GDN-098: Relationship and movement exploration"]
+  GDN035 --> GDN098
+  GDN037 --> GDN098
+  GDN043 --> GDN098
+  GDN089 --> GDN098
+  GDN095 --> GDN098
+  GDN099["GDN-099: Claim evidence drawer and review history"]
+  GDN037 --> GDN099
+  GDN038 --> GDN099
+  GDN039 --> GDN099
+  GDN043 --> GDN099
+  GDN050 --> GDN099
+  GDN080 --> GDN099
+  GDN100["GDN-100: Reading shelf and private notes"]
+  GDN021 --> GDN100
+  GDN025 --> GDN100
+  GDN029 --> GDN100
+  GDN050 --> GDN100
+  GDN089 --> GDN100
+  GDN101["GDN-101: Public curated collections and share controls"]
+  GDN034 --> GDN101
+  GDN087 --> GDN101
+  GDN089 --> GDN101
+  GDN100 --> GDN101
+  GDN102["GDN-102: Dataset and bibliography exports with manifests"]
+  GDN025 --> GDN102
+  GDN032 --> GDN102
+  GDN087 --> GDN102
+  GDN093 --> GDN102
+  GDN101 --> GDN102
+  GDN103["GDN-103: Search relevance, language and load evaluation"]
+  GDN090 --> GDN103
+  GDN091 --> GDN103
+  GDN092 --> GDN103
+  GDN093 --> GDN103
+  GDN094 --> GDN103
+  GDN096 --> GDN103
+  GDN097 --> GDN103
+  GDN098 --> GDN103
+  GDN099 --> GDN103
+  GDN102 --> GDN103
+  GDN104["GDN-104: Public investigation journey acceptance"]
+  GDN064 --> GDN104
+  GDN088 --> GDN104
+  GDN089 --> GDN104
+  GDN091 --> GDN104
+  GDN093 --> GDN104
+  GDN096 --> GDN104
+  GDN097 --> GDN104
+  GDN098 --> GDN104
+  GDN099 --> GDN104
+  GDN100 --> GDN104
+  GDN101 --> GDN104
+  GDN102 --> GDN104
+  GDN103 --> GDN104
+  GDN105["GDN-105: Diplomatic transcription editor"]
+  GDN023 --> GDN105
+  GDN025 --> GDN105
+  GDN038 --> GDN105
+  GDN079 --> GDN105
+  GDN080 --> GDN105
+  GDN084 --> GDN105
+  GDN106["GDN-106: Structured registers, tables and row alignment"]
+  GDN083 --> GDN106
+  GDN105 --> GDN106
+  GDN107["GDN-107: Translation and normalized-text layers"]
+  GDN038 --> GDN107
+  GDN063 --> GDN107
+  GDN105 --> GDN107
+  GDN108["GDN-108: Independent second-reading and adjudication queues"]
+  GDN023 --> GDN108
+  GDN039 --> GDN108
+  GDN086 --> GDN108
+  GDN105 --> GDN108
+  GDN106 --> GDN108
+  GDN107 --> GDN108
+  GDN109["GDN-109: Entity matching proposals and reversible merge UI"]
+  GDN023 --> GDN109
+  GDN035 --> GDN109
+  GDN039 --> GDN109
+  GDN090 --> GDN109
+  GDN106 --> GDN109
+  GDN110["GDN-110: Atomic claim authoring and evidence linking"]
+  GDN037 --> GDN110
+  GDN038 --> GDN110
+  GDN039 --> GDN110
+  GDN084 --> GDN110
+  GDN086 --> GDN110
+  GDN105 --> GDN110
+  GDN111["GDN-111: Peer review, reviewer conflicts and decisions"]
+  GDN023 --> GDN111
+  GDN030 --> GDN111
+  GDN039 --> GDN111
+  GDN108 --> GDN111
+  GDN110 --> GDN111
+  GDN112["GDN-112: Shared writing with durable version history"]
+  GDN025 --> GDN112
+  GDN030 --> GDN112
+  GDN040 --> GDN112
+  GDN105 --> GDN112
+  GDN113["GDN-113: Autosave, interruption recovery and handoff checkpoints"]
+  GDN016 --> GDN113
+  GDN112 --> GDN113
+  GDN114["GDN-114: Comments, mentions and review conversations"]
+  GDN023 --> GDN114
+  GDN025 --> GDN114
+  GDN038 --> GDN114
+  GDN112 --> GDN114
+  GDN115["GDN-115: Research task boards, assignments and dependencies"]
+  GDN008 --> GDN115
+  GDN023 --> GDN115
+  GDN037 --> GDN115
+  GDN085 --> GDN115
+  GDN110 --> GDN115
+  GDN116["GDN-116: Notifications, subscriptions and quiet controls"]
+  GDN016 --> GDN116
+  GDN025 --> GDN116
+  GDN029 --> GDN116
+  GDN094 --> GDN116
+  GDN114 --> GDN116
+  GDN115 --> GDN116
+  GDN117["GDN-117: Dossier workspace and evidence completeness"]
+  GDN035 --> GDN117
+  GDN037 --> GDN117
+  GDN039 --> GDN117
+  GDN089 --> GDN117
+  GDN110 --> GDN117
+  GDN111 --> GDN117
+  GDN115 --> GDN117
+  GDN118["GDN-118: Coverage matrix and research-gap analysis"]
+  GDN035 --> GDN118
+  GDN036 --> GDN118
+  GDN085 --> GDN118
+  GDN115 --> GDN118
+  GDN117 --> GDN118
+  GDN119["GDN-119: Search logs and citation-chain discovery"]
+  GDN036 --> GDN119
+  GDN078 --> GDN119
+  GDN085 --> GDN119
+  GDN086 --> GDN119
+  GDN118 --> GDN119
+  GDN120["GDN-120: Reopening findings and research dispute handling"]
+  GDN030 --> GDN120
+  GDN039 --> GDN120
+  GDN111 --> GDN120
+  GDN117 --> GDN120
+  GDN121["GDN-121: Researcher workbench, onboarding and training"]
+  GDN023 --> GDN121
+  GDN088 --> GDN121
+  GDN108 --> GDN121
+  GDN109 --> GDN121
+  GDN110 --> GDN121
+  GDN111 --> GDN121
+  GDN113 --> GDN121
+  GDN114 --> GDN121
+  GDN115 --> GDN121
+  GDN117 --> GDN121
+  GDN118 --> GDN121
+  GDN119 --> GDN121
+  GDN120 --> GDN121
+  GDN122["GDN-122: Research collaboration integration gate"]
+  GDN108 --> GDN122
+  GDN109 --> GDN122
+  GDN110 --> GDN122
+  GDN111 --> GDN122
+  GDN112 --> GDN122
+  GDN113 --> GDN122
+  GDN114 --> GDN122
+  GDN115 --> GDN122
+  GDN116 --> GDN122
+  GDN117 --> GDN122
+  GDN118 --> GDN122
+  GDN119 --> GDN122
+  GDN120 --> GDN122
+  GDN121 --> GDN122
+  GDN123["GDN-123: Editorial CMS with structured evidence blocks"]
+  GDN023 --> GDN123
+  GDN034 --> GDN123
+  GDN040 --> GDN123
+  GDN112 --> GDN123
+  GDN124["GDN-124: Editorial release workflow and independent sign-offs"]
+  GDN034 --> GDN124
+  GDN039 --> GDN124
+  GDN111 --> GDN124
+  GDN123 --> GDN124
+  GDN125["GDN-125: Preview, scheduled publication and release rollback"]
+  GDN016 --> GDN125
+  GDN018 --> GDN125
+  GDN043 --> GDN125
+  GDN124 --> GDN125
+  GDN126["GDN-126: Correction dependency graph and impact review"]
+  GDN037 --> GDN126
+  GDN068 --> GDN126
+  GDN099 --> GDN126
+  GDN120 --> GDN126
+  GDN124 --> GDN126
+  GDN127["GDN-127: Public correction notices and superseded editions"]
+  GDN075 --> GDN127
+  GDN120 --> GDN127
+  GDN125 --> GDN127
+  GDN126 --> GDN127
+  GDN128["GDN-128: Image asset registry and provenance interface"]
+  GDN036 --> GDN128
+  GDN038 --> GDN128
+  GDN047 --> GDN128
+  GDN123 --> GDN128
+  GDN129["GDN-129: Licensing requests, restrictions and costs"]
+  GDN029 --> GDN129
+  GDN085 --> GDN129
+  GDN128 --> GDN129
+  GDN130["GDN-130: Generated-image reconstruction and historical review"]
+  GDN034 --> GDN130
+  GDN055 --> GDN130
+  GDN128 --> GDN130
+  GDN129 --> GDN130
+  GDN131["GDN-131: Crops, responsive derivatives and alt-text review"]
+  GDN050 --> GDN131
+  GDN079 --> GDN131
+  GDN128 --> GDN131
+  GDN129 --> GDN131
+  GDN130 --> GDN131
+  GDN132["GDN-132: Coordinated web and book edition exports"]
+  GDN046 --> GDN132
+  GDN087 --> GDN132
+  GDN102 --> GDN132
+  GDN124 --> GDN132
+  GDN126 --> GDN132
+  GDN131 --> GDN132
+  GDN133["GDN-133: Metadata, SEO and safe public discovery"]
+  GDN043 --> GDN133
+  GDN060 --> GDN133
+  GDN089 --> GDN133
+  GDN124 --> GDN133
+  GDN127 --> GDN133
+  GDN134["GDN-134: Editorial and image release acceptance"]
+  GDN124 --> GDN134
+  GDN125 --> GDN134
+  GDN126 --> GDN134
+  GDN127 --> GDN134
+  GDN128 --> GDN134
+  GDN129 --> GDN134
+  GDN130 --> GDN134
+  GDN131 --> GDN134
+  GDN132 --> GDN134
+  GDN133 --> GDN134
+  GDN135["GDN-135: Contributor portal and separate program charter"]
+  GDN007 --> GDN135
+  GDN023 --> GDN135
+  GDN029 --> GDN135
+  GDN077 --> GDN135
+  GDN085 --> GDN135
+  GDN136["GDN-136: Family archive submissions and private receipts"]
+  GDN025 --> GDN136
+  GDN029 --> GDN136
+  GDN032 --> GDN136
+  GDN077 --> GDN136
+  GDN135 --> GDN136
+  GDN137["GDN-137: Oral-history consent and narrator review"]
+  GDN029 --> GDN137
+  GDN082 --> GDN137
+  GDN107 --> GDN137
+  GDN135 --> GDN137
+  GDN136 --> GDN137
+  GDN138["GDN-138: Redaction, minors and sensitive contributor material"]
+  GDN025 --> GDN138
+  GDN029 --> GDN138
+  GDN032 --> GDN138
+  GDN079 --> GDN138
+  GDN136 --> GDN138
+  GDN137 --> GDN138
+  GDN139["GDN-139: Withdrawal, embargo and contributor communication"]
+  GDN029 --> GDN139
+  GDN032 --> GDN139
+  GDN116 --> GDN139
+  GDN126 --> GDN139
+  GDN136 --> GDN139
+  GDN138 --> GDN139
+  GDN140["GDN-140: Community advisory groups and public participation"]
+  GDN023 --> GDN140
+  GDN029 --> GDN140
+  GDN035 --> GDN140
+  GDN060 --> GDN140
+  GDN135 --> GDN140
+  GDN141["GDN-141: Community annotations and representation concerns"]
+  GDN084 --> GDN141
+  GDN089 --> GDN141
+  GDN120 --> GDN141
+  GDN135 --> GDN141
+  GDN140 --> GDN141
+  GDN142["GDN-142: Consultation responses and participation transparency"]
+  GDN111 --> GDN142
+  GDN120 --> GDN142
+  GDN140 --> GDN142
+  GDN141 --> GDN142
+  GDN143["GDN-143: Public interviews, conversations and endorsements"]
+  GDN029 --> GDN143
+  GDN056 --> GDN143
+  GDN137 --> GDN143
+  GDN140 --> GDN143
+  GDN144["GDN-144: Moderated public questions and discussions"]
+  GDN021 --> GDN144
+  GDN025 --> GDN144
+  GDN033 --> GDN144
+  GDN061 --> GDN144
+  GDN116 --> GDN144
+  GDN140 --> GDN144
+  GDN145["GDN-145: Research conduct and confidential misconduct reports"]
+  GDN023 --> GDN145
+  GDN025 --> GDN145
+  GDN030 --> GDN145
+  GDN032 --> GDN145
+  GDN111 --> GDN145
+  GDN146["GDN-146: Authorship, contributor credit and conflicts"]
+  GDN023 --> GDN146
+  GDN030 --> GDN146
+  GDN111 --> GDN146
+  GDN124 --> GDN146
+  GDN140 --> GDN146
+  GDN147["GDN-147: Public appeals and independent dispute review"]
+  GDN120 --> GDN147
+  GDN127 --> GDN147
+  GDN141 --> GDN147
+  GDN142 --> GDN147
+  GDN145 --> GDN147
+  GDN148["GDN-148: Community contribution acceptance and safeguarding gate"]
+  GDN135 --> GDN148
+  GDN136 --> GDN148
+  GDN137 --> GDN148
+  GDN138 --> GDN148
+  GDN139 --> GDN148
+  GDN140 --> GDN148
+  GDN141 --> GDN148
+  GDN142 --> GDN148
+  GDN143 --> GDN148
+  GDN144 --> GDN148
+  GDN145 --> GDN148
+  GDN146 --> GDN148
+  GDN147 --> GDN148
+  GDN149["GDN-149: Teaching collections and classroom resources"]
+  GDN057 --> GDN149
+  GDN063 --> GDN149
+  GDN087 --> GDN149
+  GDN101 --> GDN149
+  GDN124 --> GDN149
+  GDN150["GDN-150: Source exercises and guided research tutorials"]
+  GDN080 --> GDN150
+  GDN099 --> GDN150
+  GDN105 --> GDN150
+  GDN121 --> GDN150
+  GDN149 --> GDN150
+  GDN151["GDN-151: Press center and verified media assets"]
+  GDN060 --> GDN151
+  GDN067 --> GDN151
+  GDN075 --> GDN151
+  GDN127 --> GDN151
+  GDN129 --> GDN151
+  GDN131 --> GDN151
+  GDN133 --> GDN151
+  GDN152["GDN-152: Shareable explainers and accessible social graphics"]
+  GDN040 --> GDN152
+  GDN055 --> GDN152
+  GDN068 --> GDN152
+  GDN070 --> GDN152
+  GDN126 --> GDN152
+  GDN131 --> GDN152
+  GDN151 --> GDN152
+  GDN153["GDN-153: Events, public conversations and registration"]
+  GDN021 --> GDN153
+  GDN029 --> GDN153
+  GDN056 --> GDN153
+  GDN116 --> GDN153
+  GDN140 --> GDN153
+  GDN154["GDN-154: Volunteer opportunities and matching"]
+  GDN023 --> GDN154
+  GDN029 --> GDN154
+  GDN115 --> GDN154
+  GDN135 --> GDN154
+  GDN153 --> GDN154
+  GDN155["GDN-155: Public updates and consented subscriptions"]
+  GDN029 --> GDN155
+  GDN116 --> GDN155
+  GDN127 --> GDN155
+  GDN153 --> GDN155
+  GDN156["GDN-156: Representative lookup and user-controlled civic actions"]
+  GDN029 --> GDN156
+  GDN040 --> GDN156
+  GDN060 --> GDN156
+  GDN073 --> GDN156
+  GDN155 --> GDN156
+  GDN157["GDN-157: Donations and purpose-separated financial records"]
+  GDN012 --> GDN157
+  GDN029 --> GDN157
+  GDN060 --> GDN157
+  GDN116 --> GDN157
+  GDN158["GDN-158: Public organizational finances and funding disclosures"]
+  GDN060 --> GDN158
+  GDN070 --> GDN158
+  GDN146 --> GDN158
+  GDN157 --> GDN158
+  GDN159["GDN-159: Public contact, support and accessibility reporting"]
+  GDN029 --> GDN159
+  GDN060 --> GDN159
+  GDN116 --> GDN159
+  GDN144 --> GDN159
+  GDN160["GDN-160: Participation and communications acceptance"]
+  GDN149 --> GDN160
+  GDN150 --> GDN160
+  GDN151 --> GDN160
+  GDN152 --> GDN160
+  GDN153 --> GDN160
+  GDN154 --> GDN160
+  GDN155 --> GDN160
+  GDN156 --> GDN160
+  GDN157 --> GDN160
+  GDN158 --> GDN160
+  GDN159 --> GDN160
+  GDN161["GDN-161: Reproducible research datasets and snapshots"]
+  GDN045 --> GDN161
+  GDN048 --> GDN161
+  GDN093 --> GDN161
+  GDN102 --> GDN161
+  GDN162["GDN-162: Controlled analysis jobs and notebook execution"]
+  GDN016 --> GDN162
+  GDN025 --> GDN162
+  GDN026 --> GDN162
+  GDN161 --> GDN162
+  GDN163["GDN-163: Data cleaning, reconciliation and reproducible transformations"]
+  GDN106 --> GDN163
+  GDN109 --> GDN163
+  GDN161 --> GDN163
+  GDN162 --> GDN163
+  GDN164["GDN-164: Evidence-based charts, statistics and map outputs"]
+  GDN095 --> GDN164
+  GDN097 --> GDN164
+  GDN102 --> GDN164
+  GDN161 --> GDN164
+  GDN162 --> GDN164
+  GDN163 --> GDN164
+  GDN165["GDN-165: Computational review and reproducibility gate"]
+  GDN111 --> GDN165
+  GDN124 --> GDN165
+  GDN161 --> GDN165
+  GDN162 --> GDN165
+  GDN163 --> GDN165
+  GDN164 --> GDN165
+  GDN166["GDN-166: Assistant retrieval, provider and cost boundary"]
+  GDN004 --> GDN166
+  GDN012 --> GDN166
+  GDN025 --> GDN166
+  GDN029 --> GDN166
+  GDN092 --> GDN166
+  GDN099 --> GDN166
+  GDN161 --> GDN166
+  GDN167["GDN-167: Citation-grounded assistant answer interface"]
+  GDN038 --> GDN167
+  GDN050 --> GDN167
+  GDN099 --> GDN167
+  GDN166 --> GDN167
+  GDN168["GDN-168: Prompt-injection and tool isolation defense"]
+  GDN033 --> GDN168
+  GDN162 --> GDN168
+  GDN166 --> GDN168
+  GDN167 --> GDN168
+  GDN169["GDN-169: Assistant evaluation, bias and abstention"]
+  GDN103 --> GDN169
+  GDN165 --> GDN169
+  GDN167 --> GDN169
+  GDN168 --> GDN169
+  GDN170["GDN-170: Assistant feedback, cost visibility and opt-out"]
+  GDN029 --> GDN170
+  GDN032 --> GDN170
+  GDN116 --> GDN170
+  GDN167 --> GDN170
+  GDN169 --> GDN170
+  GDN171["GDN-171: Bounded research automation proposals"]
+  GDN115 --> GDN171
+  GDN119 --> GDN171
+  GDN165 --> GDN171
+  GDN168 --> GDN171
+  GDN169 --> GDN171
+  GDN170 --> GDN171
+  GDN172["GDN-172: Analysis and assistant controlled-release gate"]
+  GDN161 --> GDN172
+  GDN162 --> GDN172
+  GDN163 --> GDN172
+  GDN164 --> GDN172
+  GDN165 --> GDN172
+  GDN166 --> GDN172
+  GDN167 --> GDN172
+  GDN168 --> GDN172
+  GDN169 --> GDN172
+  GDN170 --> GDN172
+  GDN171 --> GDN172
+  GDN173["GDN-173: Administrative console and least-privilege operations"]
+  GDN023 --> GDN173
+  GDN025 --> GDN173
+  GDN030 --> GDN173
+  GDN115 --> GDN173
+  GDN144 --> GDN173
+  GDN145 --> GDN173
+  GDN174["GDN-174: Moderation tools, abuse response and appeals"]
+  GDN030 --> GDN174
+  GDN033 --> GDN174
+  GDN144 --> GDN174
+  GDN145 --> GDN174
+  GDN147 --> GDN174
+  GDN173 --> GDN174
+  GDN175["GDN-175: Public governance, research standards and independence"]
+  GDN060 --> GDN175
+  GDN111 --> GDN175
+  GDN140 --> GDN175
+  GDN142 --> GDN175
+  GDN145 --> GDN175
+  GDN146 --> GDN175
+  GDN147 --> GDN175
+  GDN176["GDN-176: Accurate research progress and coverage dashboards"]
+  GDN039 --> GDN176
+  GDN048 --> GDN176
+  GDN115 --> GDN176
+  GDN117 --> GDN176
+  GDN118 --> GDN176
+  GDN124 --> GDN176
+  GDN177["GDN-177: Software plan, PR and production status reporting"]
+  GDN008 --> GDN177
+  GDN011 --> GDN177
+  GDN018 --> GDN177
+  GDN019 --> GDN177
+  GDN173 --> GDN177
+  GDN178["GDN-178: Data stewardship, rights expiry and access reviews"]
+  GDN025 --> GDN178
+  GDN029 --> GDN178
+  GDN032 --> GDN178
+  GDN085 --> GDN178
+  GDN129 --> GDN178
+  GDN173 --> GDN178
+  GDN179["GDN-179: Content-safe analytics and usability measurement"]
+  GDN005 --> GDN179
+  GDN029 --> GDN179
+  GDN064 --> GDN179
+  GDN103 --> GDN179
+  GDN160 --> GDN179
+  GDN176 --> GDN179
+  GDN180["GDN-180: Operational dashboards and dependency health"]
+  GDN017 --> GDN180
+  GDN018 --> GDN180
+  GDN088 --> GDN180
+  GDN173 --> GDN180
+  GDN177 --> GDN180
+  GDN178 --> GDN180
+  GDN181["GDN-181: Financial, cost and resource-capacity controls"]
+  GDN012 --> GDN181
+  GDN157 --> GDN181
+  GDN158 --> GDN181
+  GDN170 --> GDN181
+  GDN173 --> GDN181
+  GDN180 --> GDN181
+  GDN182["GDN-182: Governance, administration and status acceptance"]
+  GDN173 --> GDN182
+  GDN174 --> GDN182
+  GDN175 --> GDN182
+  GDN176 --> GDN182
+  GDN177 --> GDN182
+  GDN178 --> GDN182
+  GDN179 --> GDN182
+  GDN180 --> GDN182
+  GDN181 --> GDN182
+  GDN183["GDN-183: Preservation packages and verifiable backups"]
+  GDN015 --> GDN183
+  GDN026 --> GDN183
+  GDN032 --> GDN183
+  GDN048 --> GDN183
+  GDN102 --> GDN183
+  GDN132 --> GDN183
+  GDN184["GDN-184: Restore drills, key recovery and deletion replay"]
+  GDN026 --> GDN184
+  GDN027 --> GDN184
+  GDN032 --> GDN184
+  GDN183 --> GDN184
+  GDN185["GDN-185: Master current-work index and portable continuation"]
+  GDN075 --> GDN185
+  GDN113 --> GDN185
+  GDN132 --> GDN185
+  GDN177 --> GDN185
+  GDN183 --> GDN185
+  GDN186["GDN-186: Portability and repository-only developer handoff"]
+  GDN008 --> GDN186
+  GDN044 --> GDN186
+  GDN173 --> GDN186
+  GDN177 --> GDN186
+  GDN183 --> GDN186
+  GDN185 --> GDN186
+  GDN187["GDN-187: Full accessibility and assistive-technology audit"]
+  GDN064 --> GDN187
+  GDN076 --> GDN187
+  GDN104 --> GDN187
+  GDN122 --> GDN187
+  GDN134 --> GDN187
+  GDN148 --> GDN187
+  GDN160 --> GDN187
+  GDN188["GDN-188: Performance, capacity and resilience testing"]
+  GDN020 --> GDN188
+  GDN103 --> GDN188
+  GDN113 --> GDN188
+  GDN164 --> GDN188
+  GDN180 --> GDN188
+  GDN181 --> GDN188
+  GDN189["GDN-189: Backup, outage and incident response playbooks"]
+  GDN017 --> GDN189
+  GDN030 --> GDN189
+  GDN032 --> GDN189
+  GDN174 --> GDN189
+  GDN180 --> GDN189
+  GDN184 --> GDN189
+  GDN188 --> GDN189
+  GDN190["GDN-190: Independent security assessment and canonical crosswalk closure"]
+  GDN003 --> GDN190
+  GDN005 --> GDN190
+  GDN024 --> GDN190
+  GDN025 --> GDN190
+  GDN026 --> GDN190
+  GDN030 --> GDN190
+  GDN031 --> GDN190
+  GDN033 --> GDN190
+  GDN034 --> GDN190
+  GDN041 --> GDN190
+  GDN077 --> GDN190
+  GDN079 --> GDN190
+  GDN088 --> GDN190
+  GDN122 --> GDN190
+  GDN184 --> GDN190
+  GDN191["GDN-191: Full-corpus import and public-clearance release audit"]
+  GDN048 --> GDN191
+  GDN117 --> GDN191
+  GDN118 --> GDN191
+  GDN122 --> GDN191
+  GDN134 --> GDN191
+  GDN183 --> GDN191
+  GDN184 --> GDN191
+  GDN192["GDN-192: Public launch deployment and smoke gate"]
+  GDN017 --> GDN192
+  GDN018 --> GDN192
+  GDN034 --> GDN192
+  GDN042 --> GDN192
+  GDN064 --> GDN192
+  GDN076 --> GDN192
+  GDN080 --> GDN192
+  GDN087 --> GDN192
+  GDN193["GDN-193: Research beta deployment and real cohort verification"]
+  GDN020 --> GDN193
+  GDN088 --> GDN193
+  GDN104 --> GDN193
+  GDN122 --> GDN193
+  GDN134 --> GDN193
+  GDN148 --> GDN193
+  GDN184 --> GDN193
+  GDN187 --> GDN193
+  GDN188 --> GDN193
+  GDN190 --> GDN193
+  GDN191 --> GDN193
+  GDN192 --> GDN193
+  GDN194["GDN-194: Complete public/research capability release"]
+  GDN160 --> GDN194
+  GDN172 --> GDN194
+  GDN182 --> GDN194
+  GDN185 --> GDN194
+  GDN186 --> GDN194
+  GDN187 --> GDN194
+  GDN188 --> GDN194
+  GDN189 --> GDN194
+  GDN190 --> GDN194
+  GDN191 --> GDN194
+  GDN193 --> GDN194
+  GDN195["GDN-195: Production monitoring and release regression controls"]
+  GDN177 --> GDN195
+  GDN180 --> GDN195
+  GDN181 --> GDN195
+  GDN189 --> GDN195
+  GDN194 --> GDN195
+  GDN196["GDN-196: Final non-government acceptance and operational handoff"]
+  GDN186 --> GDN196
+  GDN194 --> GDN196
+  GDN195 --> GDN196
+  GDN028 --> GDN196
+  GDN197["GDN-197: Legal authority and governmental product activation contract"]
+  GDN074 --> GDN197
+  GDN175 --> GDN197
+  GDN190 --> GDN197
+  GDN196 --> GDN197
+  GDN198["GDN-198: Government repository, tenancy and assurance boundary"]
+  GDN197 --> GDN198
+  GDN199["GDN-199: Official roster publication and administrative record"]
+  GDN197 --> GDN199
+  GDN198 --> GDN199
+  GDN200["GDN-200: Statutory comments, petitions and reasoned responses"]
+  GDN198 --> GDN200
+  GDN199 --> GDN200
+  GDN201["GDN-201: Enrollment evidence submission and private casework"]
+  GDN197 --> GDN201
+  GDN198 --> GDN201
+  GDN200 --> GDN201
+  GDN202["GDN-202: Duplicate enrollment, minors and affiliation changes"]
+  GDN198 --> GDN202
+  GDN201 --> GDN202
+  GDN203["GDN-203: Eligibility decisions, notices and impartial appeals"]
+  GDN200 --> GDN203
+  GDN201 --> GDN203
+  GDN202 --> GDN203
+  GDN204["GDN-204: Nation certification and public instruments"]
+  GDN198 --> GDN204
+  GDN203 --> GDN204
+  GDN205["GDN-205: Official opportunity register and equal access"]
+  GDN197 --> GDN205
+  GDN198 --> GDN205
+  GDN204 --> GDN205
+  GDN206["GDN-206: Sealed preferences and auditable closing process"]
+  GDN198 --> GDN206
+  GDN204 --> GDN206
+  GDN205 --> GDN206
+  GDN207["GDN-207: Voluntary negotiation and compact workspaces"]
+  GDN204 --> GDN207
+  GDN205 --> GDN207
+  GDN206 --> GDN207
+  GDN208["GDN-208: Government public finance and compact reporting"]
+  GDN198 --> GDN208
+  GDN204 --> GDN208
+  GDN207 --> GDN208
+  GDN209["GDN-209: Nation portals and government service boundaries"]
+  GDN198 --> GDN209
+  GDN204 --> GDN209
+  GDN208 --> GDN209
+  GDN210["GDN-210: Government legal, security and production acceptance"]
+  GDN197 --> GDN210
+  GDN198 --> GDN210
+  GDN199 --> GDN210
+  GDN200 --> GDN210
+  GDN201 --> GDN210
+  GDN202 --> GDN210
+  GDN203 --> GDN210
+  GDN204 --> GDN210
+  GDN205 --> GDN210
+  GDN206 --> GDN210
+  GDN207 --> GDN210
+  GDN208 --> GDN210
+  GDN209 --> GDN210
