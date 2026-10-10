@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "baseline": "GARDEN-WEB-PLAN-001",
+  "repository": "neophilism/The-Garden",
+  "baseline_statuses_are_historical": true,
+  "observations": [{
+    "kind": "bootstrap_merge",
+    "pr_number": 1,
+    "url": "https://github.com/neophilism/The-Garden/pull/1",
+    "tested_head": "fedf621f2b6acc738684cf13b0c3e2d4ac0410e4",
+    "merge_commit": "ae4e04ce000afaeea24e3936a9feb45489ceb127",
+    "ci_run_url": "https://github.com/neophilism/The-Garden/actions/runs/38074250081",
+    "ci_result": "success",
+    "mapped_work_items": [],
+    "note": "Exact 274-file text baseline restored; three historic documentation QA PNGs excluded. Bootstrap is not 210 completed work items."
+  }],
+  "work_items": {"GDN-001": {
+    "implementation": "local_contract_tests_passed",
+    "github_pr_number": null,
+    "accepted": false,
+    "independent_review": "not_performed",
+    "production": "not_applicable_to_document"
+  }},
+  "production_verified_items": 0,
+  "engine_room": {"registration": "not_verified", "sync": "not_verified"},
+  "environment": "not_deployed"
+}

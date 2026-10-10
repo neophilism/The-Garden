@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "project": "the-garden",
+  "repository": "neophilism/The-Garden",
+  "authorization_basis": "Owner supplied these exact target URLs and requested continued development in this conversation on 2026-10-10.",
+  "render": {
+    "project_id": "prj-db57f92jnfac739ghic0",
+    "console_url": "https://dashboard.render.com/project/prj-db57f92jnfac739ghic0",
+    "connection_status": "not_connected",
+    "provider_inspection": "not_performed",
+    "service_id": null,
+    "environment": null
+  },
+  "neon": {
+    "project_id": "royal-union-78374030",
+    "branch_id": "br-curly-band-b5aatp1e",
+    "console_url": "https://console.neon.tech/app/projects/royal-union-78374030/branches/br-curly-band-b5aatp1e",
+    "connection_status": "not_connected",
+    "provider_inspection": "not_performed",
+    "database_name": null,
+    "role_name": null
+  },
+  "spending": {"incremental_spend_authorized": false, "create_billable_resources": false},
+  "constraints": [
+    "Inspect the exact named project and branch after authenticated connection.",
+    "Do not inherit credentials or databases from another project.",
+    "Do not modify source research or import private data through this manifest.",
+    "Supplied IDs are authorized targets, not proof that resources exist or are deployed.",
+    "Do not allocate billable resources without a separate spending authorization."
+  ]
+}

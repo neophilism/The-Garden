@@ -1,0 +1,17 @@
+{
+  "work_item_id": "GDN-001",
+  "recorded_at": "2026-10-10T18:08:07Z",
+  "environment": "local_container",
+  "commands": [
+    {"command": "python scripts/validate_charter.py", "outcome": "pass"},
+    {"command": "python -m unittest discover -s tests/architecture -v", "outcome": "pass", "tests": 11},
+    {"command": "python scripts/validate_plan.py", "outcome": "pass"},
+    {"command": "python -m unittest discover -s tests/plan -q", "outcome": "pass", "tests": 21}
+  ],
+  "scenario_mapping": {
+    "GDN-001-T01": "test_complete_snapshot; test_missing_feature_fails; test_unknown_role_fails",
+    "GDN-001-T02": "test_every_invariant_is_enforced; test_boolean_strings_do_not_pass",
+    "GDN-001-T03": "test_government_cannot_enter_current_release; test_current_scope_cannot_be_hidden_in_government; existing plan progress tests"
+  },
+  "limits": ["Not a deployed application test or independent document review. Fresh GitHub checks must independently pass for the actual PR head."]
+}
