@@ -1,0 +1,15 @@
+{
+  "work_item_id": "GDN-001",
+  "evidence_profile": "document",
+  "status": "blocked",
+  "criteria": [
+    {"id": "GDN-001-AC01", "outcome": "pass", "evidence_ref": "docs/product/feature-contract.json; tests/architecture/test_charter.py"},
+    {"id": "GDN-001-AC02", "outcome": "pass", "evidence_ref": "docs/product/charter.md; scripts/validate_charter.py"},
+    {"id": "GDN-001-AC03", "outcome": "pass", "evidence_ref": "README.md; plan/README.md"}
+  ],
+  "limitations": [
+    "Local author contract review only; independent document review is not performed.",
+    "Actual PR/CI and merge observations are added after they exist.",
+    "No deployment or historical verification claimed."
+  ]
+}

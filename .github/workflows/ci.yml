@@ -3,13 +3,15 @@ on:
   pull_request:
   push:
     branches: [main]
+  merge_group:
 permissions:
   contents: read
 concurrency:
-  group: garden-ci-${{ github.workflow }}-${{ github.ref }}
+  group: garden-ci-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 jobs:
-  plan-validation:
+  plan:
+    name: plan-validation
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
@@ -18,9 +20,23 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - name: Verify runtime
-        run: python3 -c 'import sys; assert sys.version_info >= (3, 10)'
-      - name: Validate full plan and dependency graph
+      - name: Validate approved baseline
         run: python3 scripts/validate_plan.py
-      - name: Run plan-tool regression tests
+      - name: Plan regression tests
         run: python3 -m unittest discover -s tests/plan -v
+  architecture:
+    name: architecture-contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Validate charter and run negative fixtures
+        run: |
+          set -eu
+          python3 scripts/validate_charter.py
+          python3 -m unittest discover -s tests/architecture -v
+          printf 'Tested SHA: %s\n' "$GITHUB_SHA"
