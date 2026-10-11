@@ -1,1109 +1,1951 @@
 {
   "repository": "neophilism/The-Garden",
   "title": "The-Garden",
-  "version": 1,
+  "version": 2,
   "planVerified": true,
   "plannedPrCount": 210,
   "sourceFiles": [
     ".exechub/project.yml",
     "DEVELOPMENT_PLAN.md",
-    ".exechub/approved-pr-mapping.json"
+    ".exechub/approved-pr-mapping.json",
+    "plan/plan.json"
   ],
   "milestones": [
     {
       "id": "GDN-001",
-      "title": "Decisions, evidence and charter — approved work package 1 of 8",
+      "title": "Repository charter and complete feature contract",
       "origin": "original",
       "pullRequests": [
         2
-      ]
+      ],
+      "sourceItemId": "GDN-001",
+      "applicability": "current_scope",
+      "scope": "Preserve the 43-function inventory, user standing instructions, research independence and conditional-government scope in versioned repository documents. Separate product, research, engineering and production acceptance.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-002",
-      "title": "Decisions, evidence and charter — approved work package 2 of 8",
+      "title": "Baseline evidence and source-access manifest",
       "origin": "original",
       "pullRequests": [
         3
-      ]
+      ],
+      "sourceItemId": "GDN-002",
+      "applicability": "current_scope",
+      "scope": "Inventory current Garden policy, CP-017 documents, all four corpus components, charter, exact hashes and access limits. Preserve original sources and distinguish inspected bytes from baseline-reported status.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-003",
-      "title": "Decisions, evidence and charter — approved work package 3 of 8",
+      "title": "Canonical security-standard reconciliation",
       "origin": "original",
       "pullRequests": [
         4
-      ]
+      ],
+      "sourceItemId": "GDN-003",
+      "applicability": "current_scope",
+      "scope": "Retrieve the actual End-To-End-Everywhere standard, pin its revision, compare every required data flow and record differences from this proposed security baseline.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-004",
-      "title": "Decisions, evidence and charter — approved work package 4 of 8",
+      "title": "Existing engines and external contract discovery",
       "origin": "original",
       "pullRequests": [
         5
-      ]
+      ],
+      "sourceItemId": "GDN-004",
+      "applicability": "current_scope",
+      "scope": "Inspect authorized reusable identity, storage, encryption, notification and Engine Room engines before implementing duplicates. Record real APIs, ownership, versions and license constraints.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-005",
-      "title": "Decisions, evidence and charter — approved work package 5 of 8",
+      "title": "Threat model and data classification",
       "origin": "original",
       "pullRequests": [
         6
-      ]
+      ],
+      "sourceItemId": "GDN-005",
+      "applicability": "current_scope",
+      "scope": "Model public, research, sensitive and sealed data flows, attackers, trust boundaries, misuse and retention. Include source poisoning, identity inference, abusive insiders and political targeting.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-006",
-      "title": "Decisions, evidence and charter — approved work package 6 of 8",
+      "title": "Public information architecture and design studies",
       "origin": "original",
       "pullRequests": [
         7
-      ]
+      ],
+      "sourceItemId": "GDN-006",
+      "applicability": "current_scope",
+      "scope": "Design six primary navigation areas and prototype newcomer, descendant-contributor and skeptical-investigator journeys. Establish typography, responsive behavior and historical-image treatment.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-007",
-      "title": "Decisions, evidence and charter — approved work package 7 of 8",
+      "title": "Content, expert review and image commissioning plan",
       "origin": "original",
       "pullRequests": [
         9
-      ]
+      ],
+      "sourceItemId": "GDN-007",
+      "applicability": "current_scope",
+      "scope": "Specify launch texts, exhibits, fiscal/legal review, community consultation and asset review as explicit work with editorial owners and consent boundaries.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-008",
-      "title": "Decisions, evidence and charter — approved work package 8 of 8",
+      "title": "Machine-readable plan and release dependency graph",
       "origin": "original",
       "pullRequests": [
         8
-      ]
+      ],
+      "sourceItemId": "GDN-008",
+      "applicability": "current_scope",
+      "scope": "Commit this PR catalog, JSON schema, dependency DAG, feature crosswalk, release closures and evidence-based progress semantics. Include a local validator and handoff instructions.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-009",
-      "title": "Delivery infrastructure — approved work package 1 of 12",
+      "title": "Application monorepo and reproducible toolchain",
       "origin": "original",
       "pullRequests": [
         10
-      ]
+      ],
+      "sourceItemId": "GDN-009",
+      "applicability": "current_scope",
+      "scope": "Scaffold separate public and research apps, shared domain packages and worker services with TypeScript strictness, locked dependencies and local synthetic fixtures. Pin patched Node 24 LTS and compatible stable Next.js at bootstrap.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-010",
-      "title": "Delivery infrastructure — approved work package 2 of 12",
+      "title": "CI, test harness and supply-chain checks",
       "origin": "original",
       "pullRequests": [
         12
-      ]
+      ],
+      "sourceItemId": "GDN-010",
+      "applicability": "current_scope",
+      "scope": "Add lint, unit, integration, accessibility, security, build and plan-consistency jobs. Pin external actions by verified commit and scope job permissions minimally.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-011",
-      "title": "Delivery infrastructure — approved work package 3 of 12",
-      "origin": "original"
+      "title": "Branch protection and autonomous merge protocol",
+      "origin": "original",
+      "sourceItemId": "GDN-011",
+      "applicability": "current_scope",
+      "scope": "Configure actual repository rulesets, required checks, merge queue when available and safe automated PR chaining. Preserve genuine independent review requirements.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-012",
-      "title": "Delivery infrastructure — approved work package 4 of 12",
+      "title": "Environment, secret and cost-authorization registry",
       "origin": "original",
       "pullRequests": [
         13
-      ]
+      ],
+      "sourceItemId": "GDN-012",
+      "applicability": "current_scope",
+      "scope": "Define isolated local, CI, preview, staging and production configuration and required secret names. Inventory existing authorized resources and proposed incremental spending.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-013",
-      "title": "Delivery infrastructure — approved work package 5 of 12",
+      "title": "Neon foundation and migration roles",
       "origin": "original",
       "pullRequests": [
         14
-      ]
+      ],
+      "sourceItemId": "GDN-013",
+      "applicability": "current_scope",
+      "scope": "Provision only authorized project-specific Neon environments. Configure runtime, migration and publication roles, TLS connections, pool-aware transactions and extension verification.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-014",
-      "title": "Delivery infrastructure — approved work package 6 of 12",
-      "origin": "original"
+      "title": "First Render staging deployment",
+      "origin": "original",
+      "sourceItemId": "GDN-014",
+      "applicability": "current_scope",
+      "scope": "Deploy minimal public/research service shells to authorized Render resources, verify routing, health endpoints, HTTPS and environment isolation.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-015",
-      "title": "Delivery infrastructure — approved work package 7 of 12",
+      "title": "Object storage and immutable originals",
       "origin": "original",
       "pullRequests": [
         15
-      ]
+      ],
+      "sourceItemId": "GDN-015",
+      "applicability": "current_scope",
+      "scope": "Configure authorized S3-compatible object storage with separate quarantine, restricted and public-derivative namespaces. Store checksums, encryption metadata and version identifiers.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-016",
-      "title": "Delivery infrastructure — approved work package 8 of 12",
+      "title": "Transactional jobs, outbox and retries",
       "origin": "original",
       "pullRequests": [
         16
-      ]
+      ],
+      "sourceItemId": "GDN-016",
+      "applicability": "current_scope",
+      "scope": "Implement durable jobs and transactional outbox with idempotency keys, leases, retry policy, dead-letter queue and cancellation. Avoid an extra paid queue until justified.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-017",
-      "title": "Delivery infrastructure — approved work package 9 of 12",
-      "origin": "original"
+      "title": "Observability with content-safe telemetry",
+      "origin": "original",
+      "sourceItemId": "GDN-017",
+      "applicability": "current_scope",
+      "scope": "Add request IDs, metrics, traces, structured redacted logs and error reporting. Separate operational telemetry from reading histories and contributor content.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-018",
-      "title": "Delivery infrastructure — approved work package 10 of 12",
-      "origin": "original"
+      "title": "Staged deployment and database migration pipeline",
+      "origin": "original",
+      "sourceItemId": "GDN-018",
+      "applicability": "current_scope",
+      "scope": "Build immutable artifacts, execute serialized expand-contract migrations and verify staging before promotion. Document Render pre-deploy entitlement and safe fallback.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-019",
-      "title": "Delivery infrastructure — approved work package 11 of 12",
-      "origin": "original"
+      "title": "Engine Room adapter and reconciliation contract",
+      "origin": "original",
+      "sourceItemId": "GDN-019",
+      "applicability": "current_scope",
+      "scope": "Implement against the discovered Engine Room API only after schema/authentication validation. Produce a local intermediate contract while the actual API is unavailable.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-020",
-      "title": "Delivery infrastructure — approved work package 12 of 12",
-      "origin": "original"
+      "title": "Safe preview environments and cleanup",
+      "origin": "original",
+      "sourceItemId": "GDN-020",
+      "applicability": "current_scope",
+      "scope": "Create isolated previews using synthetic or specifically sanitized data, scoped secrets and authorized resource limits. Remove resources after PR closure with explicit retention exceptions.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-021",
-      "title": "Identity and privacy — approved work package 1 of 14",
+      "title": "Identity provider integration and account lifecycle",
       "origin": "original",
       "pullRequests": [
         18
-      ]
+      ],
+      "sourceItemId": "GDN-021",
+      "applicability": "current_scope",
+      "scope": "Reuse verified identity service or an approved standards-based provider. Implement sign-in, verified account linking, sign-out, suspension and account recovery without bespoke password crypto.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-022",
-      "title": "Identity and privacy — approved work package 2 of 14",
-      "origin": "original"
+      "title": "Sessions, passkeys and privileged authentication",
+      "origin": "original",
+      "sourceItemId": "GDN-022",
+      "applicability": "current_scope",
+      "scope": "Configure secure session cookies, CSRF protections, session rotation, passkey/MFA support and step-up authentication for sensitive actions.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-023",
-      "title": "Identity and privacy — approved work package 3 of 14",
-      "origin": "original"
+      "title": "Roles, membership and researcher onboarding",
+      "origin": "original",
+      "sourceItemId": "GDN-023",
+      "applicability": "current_scope",
+      "scope": "Implement organization/workspace membership, role grants, training tasks, expertise claims and accountable reviewer assignments. Community historians need no institutional credential to contribute.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-024",
-      "title": "Identity and privacy — approved work package 4 of 14",
-      "origin": "original"
+      "title": "Database row-level security and policy context",
+      "origin": "original",
+      "sourceItemId": "GDN-024",
+      "applicability": "current_scope",
+      "scope": "Enforce tenant/workspace and record policies with non-owner runtime roles and transaction-local identity. Test owner bypass and background-worker contexts explicitly.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-025",
-      "title": "Identity and privacy — approved work package 5 of 14",
-      "origin": "original"
+      "title": "Unified authorization at every delivery path",
+      "origin": "original",
+      "sourceItemId": "GDN-025",
+      "applicability": "current_scope",
+      "scope": "Apply authorization to APIs, search facets, counts, snippets, image tiles, media ranges, exports, notifications and collaboration channels.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-026",
-      "title": "Identity and privacy — approved work package 6 of 14",
-      "origin": "original"
+      "title": "Key management and trusted-processing encryption",
+      "origin": "original",
+      "sourceItemId": "GDN-026",
+      "applicability": "current_scope",
+      "scope": "Implement approved key-provider adapter, envelope encryption, key separation, rotation and access auditing for server-processed restricted material.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-027",
-      "title": "Identity and privacy — approved work package 7 of 14",
-      "origin": "original"
+      "title": "Sealed client-side encryption and recipient keys",
+      "origin": "original",
+      "sourceItemId": "GDN-027",
+      "applicability": "current_scope",
+      "scope": "Provide an optional sealed workspace using reviewed client-side cryptographic libraries and explicit recipient-controlled keys. Specify device trust, metadata leakage and unrecoverable-key risks.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-028",
-      "title": "Identity and privacy — approved work package 8 of 14",
-      "origin": "original"
+      "title": "Encrypted collaboration and controlled disclosure",
+      "origin": "original",
+      "sourceItemId": "GDN-028",
+      "applicability": "current_scope",
+      "scope": "Add encrypted document updates, device/recipient changes and deliberate release of selected sealed material into a named trusted or public workflow.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-029",
-      "title": "Identity and privacy — approved work package 9 of 14",
-      "origin": "original"
+      "title": "Consent, purpose and permitted-use enforcement",
+      "origin": "original",
+      "sourceItemId": "GDN-029",
+      "applicability": "current_scope",
+      "scope": "Model separate consent for preservation, research, public display, name attribution and promotional endorsement. Track scope, expiry, guardian authority and withdrawal.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-030",
-      "title": "Identity and privacy — approved work package 10 of 14",
-      "origin": "original"
+      "title": "Tamper-evident audit and sensitive-action ledger",
+      "origin": "original",
+      "sourceItemId": "GDN-030",
+      "applicability": "current_scope",
+      "scope": "Record authorization, review, publication, consent and administrative events in append-only structured audit with integrity verification and redacted payloads.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-031",
-      "title": "Identity and privacy — approved work package 11 of 14",
-      "origin": "original"
+      "title": "Authorization abuse and isolation regression suite",
+      "origin": "original",
+      "sourceItemId": "GDN-031",
+      "applicability": "current_scope",
+      "scope": "Build reusable property-based and E2E policy tests for every role/data-class combination and all non-HTML retrieval surfaces.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-032",
-      "title": "Identity and privacy — approved work package 12 of 14",
-      "origin": "original"
+      "title": "Retention, deletion and legal-hold workflow",
+      "origin": "original",
+      "sourceItemId": "GDN-032",
+      "applicability": "current_scope",
+      "scope": "Implement retention classes, review queues, user export/deletion requests, legitimate preservation exceptions and narrowly scoped legal holds. Explain backup and public-copy limits.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-033",
-      "title": "Identity and privacy — approved work package 13 of 14",
-      "origin": "original"
+      "title": "Web hardening, dependency defense and secure headers",
+      "origin": "original",
+      "sourceItemId": "GDN-033",
+      "applicability": "current_scope",
+      "scope": "Configure CSP, safe HTML rendering, CSRF defense, origin checks, rate limits, dependency scanning and upload-viewer sandboxing. Remove uncontrolled third-party scripts.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-034",
-      "title": "Identity and privacy — approved work package 14 of 14",
-      "origin": "original"
+      "title": "Publication and retraction safety kernel",
+      "origin": "original",
+      "sourceItemId": "GDN-034",
+      "applicability": "current_scope",
+      "scope": "Require independent checks of research status, rights, consent, privacy, accessibility and release authority before public delivery. Provide deny-first withdrawal across origins and derivatives.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-035",
-      "title": "Canonical data and migration — approved work package 1 of 14",
-      "origin": "original"
+      "title": "Typed historical entities and reversible relationships",
+      "origin": "original",
+      "sourceItemId": "GDN-035",
+      "applicability": "current_scope",
+      "scope": "Model people, polities, peoples, languages, places, institutions, voyages and events with typed relationships, historical names and provenance.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-036",
-      "title": "Canonical data and migration — approved work package 2 of 14",
-      "origin": "original"
+      "title": "Sources, repositories and archival hierarchy",
+      "origin": "original",
+      "sourceItemId": "GDN-036",
+      "applicability": "current_scope",
+      "scope": "Model repositories, collections, series, items, witnesses, editions and digital representations. Preserve conflicting catalog data and source independence links.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-037",
-      "title": "Canonical data and migration — approved work package 3 of 14",
-      "origin": "original"
+      "title": "Atomic claims, evidence links and placements",
+      "origin": "original",
+      "sourceItemId": "GDN-037",
+      "applicability": "current_scope",
+      "scope": "Store atomic source claims, historical interpretations and policy statements separately, with supporting/contradicting evidence and every public placement.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-038",
-      "title": "Canonical data and migration — approved work package 4 of 14",
-      "origin": "original"
+      "title": "Durable locators and Web Annotation selectors",
+      "origin": "original",
+      "sourceItemId": "GDN-038",
+      "applicability": "current_scope",
+      "scope": "Implement edition/page/region/timecode locators, text quotes and positions bound to exact content hashes. Preserve original page labels alongside digital ordinals.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-039",
-      "title": "Canonical data and migration — approved work package 5 of 14",
-      "origin": "original"
+      "title": "Independent research, rights and publication states",
+      "origin": "original",
+      "sourceItemId": "GDN-039",
+      "applicability": "current_scope",
+      "scope": "Implement separate status axes for acquisition, transcription, evidentiary review, rights, consent, accessibility and publication. Record actor and scope of each review.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-040",
-      "title": "Canonical data and migration — approved work package 6 of 14",
-      "origin": "original"
+      "title": "Structured editorial content and policy versions",
+      "origin": "original",
+      "sourceItemId": "GDN-040",
+      "applicability": "current_scope",
+      "scope": "Define typed pages, explanation levels, callouts, definitions, policy provisions and citations. Separate advocacy interpretation from research claims and effective draft versions.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-041",
-      "title": "Canonical data and migration — approved work package 7 of 14",
-      "origin": "original"
+      "title": "Import quarantine and content inventory service",
+      "origin": "original",
+      "sourceItemId": "GDN-041",
+      "applicability": "current_scope",
+      "scope": "Build read-only ingestion manifests, content-type verification, malware/quota checks and quarantine. Record source bytes, transformation lineage and denied access.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-042",
-      "title": "Canonical data and migration — approved work package 8 of 14",
-      "origin": "original"
+      "title": "Baseline documents and manual-review publication seed",
+      "origin": "original",
+      "sourceItemId": "GDN-042",
+      "applicability": "current_scope",
+      "scope": "Register all current research/legislation files and create a small explicitly reviewed public seed with exact provenance and limitations. Preserve restricted originals separately.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-043",
-      "title": "Canonical data and migration — approved work package 9 of 14",
-      "origin": "original"
+      "title": "Public-only data projection and delivery API",
+      "origin": "original",
+      "sourceItemId": "GDN-043",
+      "applicability": "current_scope",
+      "scope": "Create a public serving database/projection using only publication-eligible fields and versions, with separate credentials and revocation checks.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-044",
-      "title": "Canonical data and migration — approved work package 10 of 14",
-      "origin": "original"
+      "title": "Explicit mapping of all 106 source tables",
+      "origin": "original",
+      "sourceItemId": "GDN-044",
+      "applicability": "current_scope",
+      "scope": "Inspect every CP-017 table and map it to raw preservation, normalized destination, legacy snapshot or unresolved recovery status. Define conversion and foreign-key rules.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-045",
-      "title": "Canonical data and migration — approved work package 11 of 14",
-      "origin": "original"
+      "title": "Idempotent corpus staging importer",
+      "origin": "original",
+      "sourceItemId": "GDN-045",
+      "applicability": "current_scope",
+      "scope": "Import exact SQLite and valid export representations into immutable legacy staging, preserving typed cells, NULLs, raw JSON and edition namespaces.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-046",
-      "title": "Canonical data and migration — approved work package 12 of 14",
-      "origin": "original"
+      "title": "Manuscript structure, citations and comments migration",
+      "origin": "original",
+      "sourceItemId": "GDN-046",
+      "applicability": "current_scope",
+      "scope": "Convert DOCX structures, note targets, tables, citations, editorial comments and exact spans without treating comments as source testimony. Preserve edition-local numbering.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-047",
-      "title": "Canonical data and migration — approved work package 13 of 14",
-      "origin": "original"
+      "title": "Image, rights and derivative migration",
+      "origin": "original",
+      "sourceItemId": "GDN-047",
+      "applicability": "current_scope",
+      "scope": "Reconcile actual current-document media and placements with legacy asset tables, carry rights/captions/alt text and distinguish archival images from generated illustrations.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-048",
-      "title": "Canonical data and migration — approved work package 14 of 14",
-      "origin": "original"
+      "title": "Full migration reconciliation and recovery exceptions",
+      "origin": "original",
+      "sourceItemId": "GDN-048",
+      "applicability": "current_scope",
+      "scope": "Produce row, hash, source, note, asset and state reconciliation reports. Preserve CP-016 truncation and CP-011 schema-lineage gaps as open exceptions.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-049",
-      "title": "Public storytelling and orientation — approved work package 1 of 16",
-      "origin": "original"
+      "title": "Accessible public shell and navigation",
+      "origin": "original",
+      "sourceItemId": "GDN-049",
+      "applicability": "current_scope",
+      "scope": "Build the public site shell with six primary sections, global search entry, footer identity/status and a separate researcher entry point.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-050",
-      "title": "Public storytelling and orientation — approved work package 2 of 16",
-      "origin": "original"
+      "title": "Design system and readable content components",
+      "origin": "original",
+      "sourceItemId": "GDN-050",
+      "applicability": "current_scope",
+      "scope": "Implement typography, spacing, accessible controls, callouts, cards, long-form reading, citations and distinct source/interpretation labels.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-051",
-      "title": "Public storytelling and orientation — approved work package 3 of 16",
-      "origin": "original"
+      "title": "Homepage and first-screen explanation",
+      "origin": "original",
+      "sourceItemId": "GDN-051",
+      "applicability": "current_scope",
+      "scope": "Implement the primary definition, public purpose, policy status, optional film, key routes and prominent funding explanation linked to the full caveats.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-052",
-      "title": "Public storytelling and orientation — approved work package 4 of 16",
-      "origin": "original"
+      "title": "Layered overview and guided introduction",
+      "origin": "original",
+      "sourceItemId": "GDN-052",
+      "applicability": "current_scope",
+      "scope": "Provide brief, guided and detailed explanations with preserved place, definitions and routes to source provisions. Avoid contradictory summaries.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-053",
-      "title": "Public storytelling and orientation — approved work package 5 of 16",
-      "origin": "original"
+      "title": "Human-centered story templates",
+      "origin": "original",
+      "sourceItemId": "GDN-053",
+      "applicability": "current_scope",
+      "scope": "Build narrated story pages connecting documented lives, institutions, disruption, survival and evidence without inventing scenes or quotes.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-054",
-      "title": "Public storytelling and orientation — approved work package 6 of 16",
-      "origin": "original"
+      "title": "Meaning of The Garden and institutional vision",
+      "origin": "original",
+      "sourceItemId": "GDN-054",
+      "applicability": "current_scope",
+      "scope": "Explain the metaphor and proposed institutional relationships using accessible text and diagrams with equivalent descriptions.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-055",
-      "title": "Public storytelling and orientation — approved work package 7 of 16",
-      "origin": "original"
+      "title": "Image galleries and pose-pair storytelling",
+      "origin": "original",
+      "sourceItemId": "GDN-055",
+      "applicability": "current_scope",
+      "scope": "Add paired-image and gallery layouts preserving separate captions, attribution, rights, context and reconstruction labels for each asset. Use the explicitly cleared seed for the first release; full asset migration is added independently under GDN-047.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-056",
-      "title": "Public storytelling and orientation — approved work package 8 of 16",
-      "origin": "original"
+      "title": "Introductory film, audio and transcript experience",
+      "origin": "original",
+      "sourceItemId": "GDN-056",
+      "applicability": "current_scope",
+      "scope": "Add optional film/audio with captions, transcripts, audio description where needed, playback controls and low-bandwidth alternatives.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-057",
-      "title": "Public storytelling and orientation — approved work package 9 of 16",
-      "origin": "original"
+      "title": "Historical exhibits and curated learning paths",
+      "origin": "original",
+      "sourceItemId": "GDN-057",
+      "applicability": "current_scope",
+      "scope": "Build thematic exhibits mixing subjects, objects and documents with clear curatorial scope and routes to underlying research.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-058",
-      "title": "Public storytelling and orientation — approved work package 10 of 16",
-      "origin": "original"
+      "title": "Contextual glossary and terminology explanations",
+      "origin": "original",
+      "sourceItemId": "GDN-058",
+      "applicability": "current_scope",
+      "scope": "Provide accessible inline definitions, pronunciation where licensed and historic/modern term distinctions. Preserve historical offensive terminology with context rather than silently normalizing evidence.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-059",
-      "title": "Public storytelling and orientation — approved work package 11 of 16",
-      "origin": "original"
+      "title": "Public visitor routes and reading continuity",
+      "origin": "original",
+      "sourceItemId": "GDN-059",
+      "applicability": "current_scope",
+      "scope": "Add optional choose-a-topic routes, breadcrumbs, in-page navigation and local reading position. Avoid demographic targeting or compulsory personas.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-060",
-      "title": "Public storytelling and orientation — approved work package 12 of 16",
-      "origin": "original"
+      "title": "About, ownership and proposal status",
+      "origin": "original",
+      "sourceItemId": "GDN-060",
+      "applicability": "current_scope",
+      "scope": "Identify the organization, editorial roles, funding disclosures, contact channels and dated legislative status with evidence.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-061",
-      "title": "Public storytelling and orientation — approved work package 13 of 16",
-      "origin": "original"
+      "title": "Public FAQ and searchable questions",
+      "origin": "original",
+      "sourceItemId": "GDN-061",
+      "applicability": "current_scope",
+      "scope": "Build topic-filtered questions with concise answers, full explanations, dated sources and unresolved-status labels.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-062",
-      "title": "Public storytelling and orientation — approved work package 14 of 16",
-      "origin": "original"
+      "title": "Print, lightweight reading and slow-network modes",
+      "origin": "original",
+      "sourceItemId": "GDN-062",
+      "applicability": "current_scope",
+      "scope": "Add text-first reading, print styles, optional image suppression and robust low-bandwidth fallbacks. Do not cache restricted research offline.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-063",
-      "title": "Public storytelling and orientation — approved work package 15 of 16",
-      "origin": "original"
+      "title": "Multilingual public content and review freshness",
+      "origin": "original",
+      "sourceItemId": "GDN-063",
+      "applicability": "current_scope",
+      "scope": "Implement locale-aware routes, directionality, translation provenance, fallback and stale-translation notices.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-064",
-      "title": "Public storytelling and orientation — approved work package 16 of 16",
-      "origin": "original"
+      "title": "Public experience acceptance and launch content audit",
+      "origin": "original",
+      "sourceItemId": "GDN-064",
+      "applicability": "current_scope",
+      "scope": "Run integrated usability, comprehension, content-source, rights and accessibility checks across newcomer and investigation paths. Create a reproducible acceptance dossier.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-065",
-      "title": "Policy and fiscal explanation — approved work package 1 of 12",
-      "origin": "original"
+      "title": "Program-stage explorer and decision authority",
+      "origin": "original",
+      "sourceItemId": "GDN-065",
+      "applicability": "current_scope",
+      "scope": "Implement enactment-to-census-to-founding-to-compacts-to-enterprises steps and a who-decides view using versioned conditions rather than assumed dates.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-066",
-      "title": "Policy and fiscal explanation — approved work package 2 of 12",
-      "origin": "original"
+      "title": "Rights and informational eligibility guide",
+      "origin": "original",
+      "sourceItemId": "GDN-066",
+      "applicability": "current_scope",
+      "scope": "Explain draft criteria, optional affiliation, privacy, appeals and continuing US citizenship. Provide a non-recording local questionnaire for general information.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-067",
-      "title": "Policy and fiscal explanation — approved work package 3 of 12",
-      "origin": "original"
+      "title": "Legislative reader with provision anchors",
+      "origin": "original",
+      "sourceItemId": "GDN-067",
+      "applicability": "current_scope",
+      "scope": "Render full legislation as accessible HTML with stable section anchors, source file downloads and commentary clearly separated from operative draft text.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-068",
-      "title": "Policy and fiscal explanation — approved work package 4 of 12",
-      "origin": "original"
+      "title": "Policy version comparison and change notices",
+      "origin": "original",
+      "sourceItemId": "GDN-068",
+      "applicability": "current_scope",
+      "scope": "Show side-by-side and inline legislative changes, explanatory change logs and downstream content affected by revisions.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-069",
-      "title": "Policy and fiscal explanation — approved work package 5 of 12",
-      "origin": "original"
+      "title": "Deterministic funding calculation library",
+      "origin": "original",
+      "sourceItemId": "GDN-069",
+      "applicability": "current_scope",
+      "scope": "Implement draft-specific fiscal calculations using decimal/minor-unit arithmetic, versioned assumptions and separate founding, operating, fee, tax and repayment accounts.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-070",
-      "title": "Policy and fiscal explanation — approved work package 6 of 12",
-      "origin": "original"
+      "title": "Funding center and assumption transparency",
+      "origin": "original",
+      "sourceItemId": "GDN-070",
+      "applicability": "current_scope",
+      "scope": "Display cash-flow diagrams, actual-versus-projected distinctions, assumptions, risks, repayment mechanism and downloadable calculation notes.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-071",
-      "title": "Policy and fiscal explanation — approved work package 7 of 12",
-      "origin": "original"
+      "title": "Fiscal scenario explorer and reproducible exports",
+      "origin": "original",
+      "sourceItemId": "GDN-071",
+      "applicability": "current_scope",
+      "scope": "Add editable scenarios for low income, failure, delays, fees and changing costs with baseline comparison and machine-readable exports.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-072",
-      "title": "Policy and fiscal explanation — approved work package 8 of 12",
-      "origin": "original"
+      "title": "Examples of benefits, choices and failure",
+      "origin": "original",
+      "sourceItemId": "GDN-072",
+      "applicability": "current_scope",
+      "scope": "Create labeled hypothetical examples of community budgeting, private investment, reinvestment versus distributions and unsuccessful negotiations.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-073",
-      "title": "Policy and fiscal explanation — approved work package 9 of 12",
-      "origin": "original"
+      "title": "Objections, alternatives and unresolved analysis",
+      "origin": "original",
+      "sourceItemId": "GDN-073",
+      "applicability": "current_scope",
+      "scope": "Provide structured questions, strongest substantive objections, project responses, independent views and comparisons using explicit criteria.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-074",
-      "title": "Policy and fiscal explanation — approved work package 10 of 12",
-      "origin": "original"
+      "title": "Legal research, authority and ambiguity register",
+      "origin": "original",
+      "sourceItemId": "GDN-074",
+      "applicability": "current_scope",
+      "scope": "Link draft provisions to relevant legal analyses and record questions requiring qualified counsel. Track law/source currency without pretending the proposal is enacted.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-075",
-      "title": "Policy and fiscal explanation — approved work package 11 of 12",
-      "origin": "original"
+      "title": "Public current-documents registry and downloads",
+      "origin": "original",
+      "sourceItemId": "GDN-075",
+      "applicability": "current_scope",
+      "scope": "Build the stable latest-work page with current versions, status, prior milestones, checked links and rights-respecting downloads. Preserve existing index redirects.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-076",
-      "title": "Policy and fiscal explanation — approved work package 12 of 12",
-      "origin": "original"
+      "title": "Policy and fiscal launch integration gate",
+      "origin": "original",
+      "sourceItemId": "GDN-076",
+      "applicability": "current_scope",
+      "scope": "Verify policy walkthrough, bill reader, funding model, examples and objections against one consistent draft revision and the public narrative.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-077",
-      "title": "Archival source viewing — approved work package 1 of 12",
-      "origin": "original"
+      "title": "Secure resumable source uploads",
+      "origin": "original",
+      "sourceItemId": "GDN-077",
+      "applicability": "current_scope",
+      "scope": "Implement chunked uploads, checksums, quotas, pause/resume and clear contributor receipts for allowed file types.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-078",
-      "title": "Archival source viewing — approved work package 2 of 12",
-      "origin": "original"
+      "title": "Repository links and bibliographic intake",
+      "origin": "original",
+      "sourceItemId": "GDN-078",
+      "applicability": "current_scope",
+      "scope": "Add manual repository records and import of common bibliographic formats, DOI/catalog metadata and citations with conservative matching.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-079",
-      "title": "Archival source viewing — approved work package 3 of 12",
-      "origin": "original"
+      "title": "Safe document conversion and derivative workers",
+      "origin": "original",
+      "sourceItemId": "GDN-079",
+      "applicability": "current_scope",
+      "scope": "Sandbox text extraction, image tiling and document conversion with resource limits, disabled macros/network and immutable source references.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-080",
-      "title": "Archival source viewing — approved work package 4 of 12",
-      "origin": "original"
+      "title": "Page, text and exact-source viewer",
+      "origin": "original",
+      "sourceItemId": "GDN-080",
+      "applicability": "current_scope",
+      "scope": "Build zoomable page viewer with original page labels, digital page navigation, side-by-side text and linked evidence regions.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-081",
-      "title": "Archival source viewing — approved work package 5 of 12",
-      "origin": "original"
+      "title": "IIIF manifest and interoperability support",
+      "origin": "original",
+      "sourceItemId": "GDN-081",
+      "applicability": "current_scope",
+      "scope": "Generate and consume supported IIIF Presentation manifests for eligible images and annotations, maintaining attribution and access controls.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-082",
-      "title": "Archival source viewing — approved work package 6 of 12",
-      "origin": "original"
+      "title": "Audio/video archival viewer and time-linked transcripts",
+      "origin": "original",
+      "sourceItemId": "GDN-082",
+      "applicability": "current_scope",
+      "scope": "Add media segments, synchronized transcripts, captions and speaker labels with consent-scoped delivery.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-083",
-      "title": "Archival source viewing — approved work package 7 of 12",
-      "origin": "original"
+      "title": "Document and witness comparison workspace",
+      "origin": "original",
+      "sourceItemId": "GDN-083",
+      "applicability": "current_scope",
+      "scope": "Provide synchronized and independent page/time panes, region matching and explicit alignment hypotheses for multiple witnesses.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-084",
-      "title": "Archival source viewing — approved work package 8 of 12",
-      "origin": "original"
+      "title": "Source annotations and evidence capture",
+      "origin": "original",
+      "sourceItemId": "GDN-084",
+      "applicability": "current_scope",
+      "scope": "Let researchers annotate image regions, text spans and media segments, attach notes and propose evidence links with visibility controls.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-085",
-      "title": "Archival source viewing — approved work package 9 of 12",
-      "origin": "original"
+      "title": "Source acquisition queue and repository requests",
+      "origin": "original",
+      "sourceItemId": "GDN-085",
+      "applicability": "current_scope",
+      "scope": "Track scans, permissions, access barriers, repository correspondence, lawful offline research leads and costs without initiating unauthorized transactions.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-086",
-      "title": "Archival source viewing — approved work package 10 of 12",
-      "origin": "original"
+      "title": "Source context, reliability and independence reviews",
+      "origin": "original",
+      "sourceItemId": "GDN-086",
+      "applicability": "current_scope",
+      "scope": "Add structured reviews of provenance, author position, witness dependence, translation limits, completeness and competing interpretations.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-087",
-      "title": "Archival source viewing — approved work package 11 of 12",
-      "origin": "original"
+      "title": "Source citation, rights-aware download and reuse",
+      "origin": "original",
+      "sourceItemId": "GDN-087",
+      "applicability": "current_scope",
+      "scope": "Produce citations and authorized source/derivative downloads with complete repository, call-number, edition, locator and license information.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-088",
-      "title": "Archival source viewing — approved work package 12 of 12",
-      "origin": "original"
+      "title": "Intake-to-viewer integrated acceptance",
+      "origin": "original",
+      "sourceItemId": "GDN-088",
+      "applicability": "current_scope",
+      "scope": "Exercise full source workflow with hostile files, large scans, missing pages, private media, corrected metadata and lost network sessions.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-089",
-      "title": "Atlas and search — approved work package 1 of 16",
-      "origin": "original"
+      "title": "Historical subject pages and dossier navigation",
+      "origin": "original",
+      "sourceItemId": "GDN-089",
+      "applicability": "current_scope",
+      "scope": "Build pages for polities, peoples, people, places, institutions, voyages and events with evidence, aliases, scope and uncertainty.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-090",
-      "title": "Atlas and search — approved work package 2 of 16",
-      "origin": "original"
+      "title": "Names, aliases and historical terminology resolution",
+      "origin": "original",
+      "sourceItemId": "GDN-090",
+      "applicability": "current_scope",
+      "scope": "Add searchable spelling/transliteration variants, language labels, historical names and explainable suggestions without automatic identity merging.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-091",
-      "title": "Atlas and search — approved work package 3 of 16",
-      "origin": "original"
+      "title": "Public text index and simple search",
+      "origin": "original",
+      "sourceItemId": "GDN-091",
+      "applicability": "current_scope",
+      "scope": "Build a public-only full-text index with exact/phrase search, excerpt highlighting, type/status filters and useful no-results guidance.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-092",
-      "title": "Atlas and search — approved work package 4 of 16",
-      "origin": "original"
+      "title": "Research search with permission-first retrieval",
+      "origin": "original",
+      "sourceItemId": "GDN-092",
+      "applicability": "current_scope",
+      "scope": "Add separate researcher indexes and policy filters before ranking, faceting, snippets or aggregation. Exclude sealed content from server indexes.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-093",
-      "title": "Atlas and search — approved work package 5 of 16",
-      "origin": "original"
+      "title": "Advanced structured query builder",
+      "origin": "original",
+      "sourceItemId": "GDN-093",
+      "applicability": "current_scope",
+      "scope": "Implement an accessible validated query AST for dates, record types, languages, repositories, review states, relations, exact phrases and missing data.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-094",
-      "title": "Atlas and search — approved work package 6 of 16",
-      "origin": "original"
+      "title": "Reproducible queries, saved searches and citations",
+      "origin": "original",
+      "sourceItemId": "GDN-094",
+      "applicability": "current_scope",
+      "scope": "Save or share queries against named public snapshots or authorized workspaces, record result counts and offer opt-in change notifications.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-095",
-      "title": "Atlas and search — approved work package 7 of 16",
-      "origin": "original"
+      "title": "Historical geography and uncertainty data layer",
+      "origin": "original",
+      "sourceItemId": "GDN-095",
+      "applicability": "current_scope",
+      "scope": "Model sourced geographic assertions, changing names/boundaries and approximate locations without treating modern states as historical polities.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-096",
-      "title": "Atlas and search — approved work package 8 of 16",
-      "origin": "original"
+      "title": "Accessible atlas map and linked list view",
+      "origin": "original",
+      "sourceItemId": "GDN-096",
+      "applicability": "current_scope",
+      "scope": "Build progressive-loading maps with synchronized accessible lists, uncertain-boundary styles and optional modern context.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-097",
-      "title": "Atlas and search — approved work package 9 of 16",
-      "origin": "original"
+      "title": "Timelines and temporal investigation",
+      "origin": "original",
+      "sourceItemId": "GDN-097",
+      "applicability": "current_scope",
+      "scope": "Display events, source dates and interpretations on navigable timelines with uncertain ranges and linked evidence.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-098",
-      "title": "Atlas and search — approved work package 10 of 16",
-      "origin": "original"
+      "title": "Relationship and movement exploration",
+      "origin": "original",
+      "sourceItemId": "GDN-098",
+      "applicability": "current_scope",
+      "scope": "Add relationship and voyage/movement views with source-backed edges, accessible tables and clear hypothesis styling.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-099",
-      "title": "Atlas and search — approved work package 11 of 16",
-      "origin": "original"
+      "title": "Claim evidence drawer and review history",
+      "origin": "original",
+      "sourceItemId": "GDN-099",
+      "applicability": "current_scope",
+      "scope": "Expose supporting and contradicting evidence, exact passages, review scope, alternative interpretations and correction history beside public claims.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-100",
-      "title": "Atlas and search — approved work package 12 of 16",
-      "origin": "original"
+      "title": "Reading shelf and private notes",
+      "origin": "original",
+      "sourceItemId": "GDN-100",
+      "applicability": "current_scope",
+      "scope": "Add bookmarks, saved passages, private notes and optional cross-device sync. Keep interests and notes out of advocacy profiling.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-101",
-      "title": "Atlas and search — approved work package 13 of 16",
-      "origin": "original"
+      "title": "Public curated collections and share controls",
+      "origin": "original",
+      "sourceItemId": "GDN-101",
+      "applicability": "current_scope",
+      "scope": "Let authorized users publish curated record collections with captions, citations and granular sharing after rights/content review.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-102",
-      "title": "Atlas and search — approved work package 14 of 16",
-      "origin": "original"
+      "title": "Dataset and bibliography exports with manifests",
+      "origin": "original",
+      "sourceItemId": "GDN-102",
+      "applicability": "current_scope",
+      "scope": "Export rights-permitted query results, citations and structured metadata with schemas, checksums, provenance and snapshot IDs.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-103",
-      "title": "Atlas and search — approved work package 15 of 16",
-      "origin": "original"
+      "title": "Search relevance, language and load evaluation",
+      "origin": "original",
+      "sourceItemId": "GDN-103",
+      "applicability": "current_scope",
+      "scope": "Build expert-judged query sets across source languages, exact names, uncertainty and common public questions. Measure quality and performance separately.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-104",
-      "title": "Atlas and search — approved work package 16 of 16",
-      "origin": "original"
+      "title": "Public investigation journey acceptance",
+      "origin": "original",
+      "sourceItemId": "GDN-104",
+      "applicability": "current_scope",
+      "scope": "Validate story-to-subject-to-claim-to-source-to-citation journeys across public, researcher and assistive-technology paths.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-105",
-      "title": "Research collaboration — approved work package 1 of 18",
-      "origin": "original"
+      "title": "Diplomatic transcription editor",
+      "origin": "original",
+      "sourceItemId": "GDN-105",
+      "applicability": "current_scope",
+      "scope": "Build line/page-bound transcription with uncertain characters, abbreviations, deletions, ditto marks and original orthography. Preserve machine suggestions separately.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-106",
-      "title": "Research collaboration — approved work package 2 of 18",
-      "origin": "original"
+      "title": "Structured registers, tables and row alignment",
+      "origin": "original",
+      "sourceItemId": "GDN-106",
+      "applicability": "current_scope",
+      "scope": "Provide cell-level transcription, row boundaries, facing-leaf remarks linkage and competing alignment hypotheses for registers.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-107",
-      "title": "Research collaboration — approved work package 3 of 18",
-      "origin": "original"
+      "title": "Translation and normalized-text layers",
+      "origin": "original",
+      "sourceItemId": "GDN-107",
+      "applicability": "current_scope",
+      "scope": "Add distinct diplomatic, normalized and translated layers with language, translator, source-version binding and terminology notes.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-108",
-      "title": "Research collaboration — approved work package 4 of 18",
-      "origin": "original"
+      "title": "Independent second-reading and adjudication queues",
+      "origin": "original",
+      "sourceItemId": "GDN-108",
+      "applicability": "current_scope",
+      "scope": "Assign qualified independent reviewers, hide prior readings where useful and preserve disagreements before adjudication.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-109",
-      "title": "Research collaboration — approved work package 5 of 18",
-      "origin": "original"
+      "title": "Entity matching proposals and reversible merge UI",
+      "origin": "original",
+      "sourceItemId": "GDN-109",
+      "applicability": "current_scope",
+      "scope": "Provide side-by-side evidence for possible identity matches, duplicate entities and aliases with reject/merge/unmerge workflows.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-110",
-      "title": "Research collaboration — approved work package 6 of 18",
-      "origin": "original"
+      "title": "Atomic claim authoring and evidence linking",
+      "origin": "original",
+      "sourceItemId": "GDN-110",
+      "applicability": "current_scope",
+      "scope": "Let researchers split compound assertions, classify claim types and attach supporting/contradicting locators and scoped interpretation.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-111",
-      "title": "Research collaboration — approved work package 7 of 18",
-      "origin": "original"
+      "title": "Peer review, reviewer conflicts and decisions",
+      "origin": "original",
+      "sourceItemId": "GDN-111",
+      "applicability": "current_scope",
+      "scope": "Implement review requests, conflict declarations, recommendations, editorial decisions, reasons and appeals with separation of roles.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-112",
-      "title": "Research collaboration — approved work package 8 of 18",
-      "origin": "original"
+      "title": "Shared writing with durable version history",
+      "origin": "original",
+      "sourceItemId": "GDN-112",
+      "applicability": "current_scope",
+      "scope": "Implement collaborative rich-text authoring with CRDT or equivalent conflict handling, document versions and typed evidence blocks.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-113",
-      "title": "Research collaboration — approved work package 9 of 18",
-      "origin": "original"
+      "title": "Autosave, interruption recovery and handoff checkpoints",
+      "origin": "original",
+      "sourceItemId": "GDN-113",
+      "applicability": "current_scope",
+      "scope": "Add visible save state, retry/backoff, local recovery controls, durable snapshots and exact resume locations for interrupted sessions.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-114",
-      "title": "Research collaboration — approved work package 10 of 18",
-      "origin": "original"
+      "title": "Comments, mentions and review conversations",
+      "origin": "original",
+      "sourceItemId": "GDN-114",
+      "applicability": "current_scope",
+      "scope": "Add anchored comments, threads, resolved states and mentions with visibility inherited from the underlying content and explicit editorial purpose.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-115",
-      "title": "Research collaboration — approved work package 11 of 18",
-      "origin": "original"
+      "title": "Research task boards, assignments and dependencies",
+      "origin": "original",
+      "sourceItemId": "GDN-115",
+      "applicability": "current_scope",
+      "scope": "Build work queues tied to sources, claims, dossiers, languages and review gates, with task dependencies, ownership and handoff notes.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-116",
-      "title": "Research collaboration — approved work package 12 of 18",
-      "origin": "original"
+      "title": "Notifications, subscriptions and quiet controls",
+      "origin": "original",
+      "sourceItemId": "GDN-116",
+      "applicability": "current_scope",
+      "scope": "Add in-app and authorized email notifications, digest preferences, mentions, task changes and opt-in saved-search updates.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-117",
-      "title": "Research collaboration — approved work package 13 of 18",
-      "origin": "original"
+      "title": "Dossier workspace and evidence completeness",
+      "origin": "original",
+      "sourceItemId": "GDN-117",
+      "applicability": "current_scope",
+      "scope": "Create structured dossiers for political existence, institutions, chronology, enslavement relationships, disruption, continuity and competing explanations.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-118",
-      "title": "Research collaboration — approved work package 14 of 18",
-      "origin": "original"
+      "title": "Coverage matrix and research-gap analysis",
+      "origin": "original",
+      "sourceItemId": "GDN-118",
+      "applicability": "current_scope",
+      "scope": "Track coverage by region, period, language, repository, trade system and evidence type, with explicit searched/not-searched/inaccessible states.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-119",
-      "title": "Research collaboration — approved work package 15 of 18",
-      "origin": "original"
+      "title": "Search logs and citation-chain discovery",
+      "origin": "original",
+      "sourceItemId": "GDN-119",
+      "applicability": "current_scope",
+      "scope": "Record source queries, consulted editions, access attempts, backward/forward citations, competing accounts and lawful follow-up leads.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-120",
-      "title": "Research collaboration — approved work package 16 of 18",
-      "origin": "original"
+      "title": "Reopening findings and research dispute handling",
+      "origin": "original",
+      "sourceItemId": "GDN-120",
+      "applicability": "current_scope",
+      "scope": "Allow new evidence or credible criticism to reopen claims, freeze affected publication and route independent review without deleting prior decisions.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-121",
-      "title": "Research collaboration — approved work package 17 of 18",
-      "origin": "original"
+      "title": "Researcher workbench, onboarding and training",
+      "origin": "original",
+      "sourceItemId": "GDN-121",
+      "applicability": "current_scope",
+      "scope": "Provide one coherent researcher dashboard, training cases, assigned work, source tools and exact resume points without overwhelming new contributors.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-122",
-      "title": "Research collaboration — approved work package 18 of 18",
-      "origin": "original"
+      "title": "Research collaboration integration gate",
+      "origin": "original",
+      "sourceItemId": "GDN-122",
+      "applicability": "current_scope",
+      "scope": "Verify intake, transcription, second reading, claim review, dossier work, team handoff and durable save across concurrent users.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-123",
-      "title": "Editorial and imagery — approved work package 1 of 12",
-      "origin": "original"
+      "title": "Editorial CMS with structured evidence blocks",
+      "origin": "original",
+      "sourceItemId": "GDN-123",
+      "applicability": "current_scope",
+      "scope": "Build editor-facing page composition using approved components, source bindings, previews and versioned drafts rather than unrestricted HTML.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-124",
-      "title": "Editorial and imagery — approved work package 2 of 12",
-      "origin": "original"
+      "title": "Editorial release workflow and independent sign-offs",
+      "origin": "original",
+      "sourceItemId": "GDN-124",
+      "applicability": "current_scope",
+      "scope": "Route releases through evidence, editorial, rights, consent and accessibility review, with documented responsibility and immutable release manifests.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-125",
-      "title": "Editorial and imagery — approved work package 3 of 12",
-      "origin": "original"
+      "title": "Preview, scheduled publication and release rollback",
+      "origin": "original",
+      "sourceItemId": "GDN-125",
+      "applicability": "current_scope",
+      "scope": "Implement preview tokens, approved release scheduling, atomic public updates and rollback to a still-eligible release.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-126",
-      "title": "Editorial and imagery — approved work package 4 of 12",
-      "origin": "original"
+      "title": "Correction dependency graph and impact review",
+      "origin": "original",
+      "sourceItemId": "GDN-126",
+      "applicability": "current_scope",
+      "scope": "Track claims into pages, translations, exhibits, models, charts, social assets, downloadable editions and assistant retrieval snapshots.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-127",
-      "title": "Editorial and imagery — approved work package 5 of 12",
-      "origin": "original"
+      "title": "Public correction notices and superseded editions",
+      "origin": "original",
+      "sourceItemId": "GDN-127",
+      "applicability": "current_scope",
+      "scope": "Display material corrections, qualifications and retractions with dates, reasons, precise affected passages and preserved historical editions when lawful.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-128",
-      "title": "Editorial and imagery — approved work package 6 of 12",
-      "origin": "original"
+      "title": "Image asset registry and provenance interface",
+      "origin": "original",
+      "sourceItemId": "GDN-128",
+      "applicability": "current_scope",
+      "scope": "Give editors/reviewers exact original, creator, date, repository ID, rights, image identity, caption, alt text, crops and placements in one asset record.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-129",
-      "title": "Editorial and imagery — approved work package 7 of 12",
-      "origin": "original"
+      "title": "Licensing requests, restrictions and costs",
+      "origin": "original",
+      "sourceItemId": "GDN-129",
+      "applicability": "current_scope",
+      "scope": "Track rights evidence, permission correspondence, allowed uses, territories, credits, expirations and known/unknown fees.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-130",
-      "title": "Editorial and imagery — approved work package 8 of 12",
-      "origin": "original"
+      "title": "Generated-image reconstruction and historical review",
+      "origin": "original",
+      "sourceItemId": "GDN-130",
+      "applicability": "current_scope",
+      "scope": "Add a separate generated-asset workflow with creation provenance, intended illustrative role, historical checks and conspicuous public labels.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-131",
-      "title": "Editorial and imagery — approved work package 9 of 12",
-      "origin": "original"
+      "title": "Crops, responsive derivatives and alt-text review",
+      "origin": "original",
+      "sourceItemId": "GDN-131",
+      "applicability": "current_scope",
+      "scope": "Generate responsive image sizes, safe crops and descriptive alternatives preserving historically relevant details, captions and orientation.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-132",
-      "title": "Editorial and imagery — approved work package 10 of 12",
-      "origin": "original"
+      "title": "Coordinated web and book edition exports",
+      "origin": "original",
+      "sourceItemId": "GDN-132",
+      "applicability": "current_scope",
+      "scope": "Produce coordinated HTML and rights-permitted DOCX/PDF/EPUB/data exports from reviewed content, preserving citations, image licenses and edition identifiers.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-133",
-      "title": "Editorial and imagery — approved work package 11 of 12",
-      "origin": "original"
+      "title": "Metadata, SEO and safe public discovery",
+      "origin": "original",
+      "sourceItemId": "GDN-133",
+      "applicability": "current_scope",
+      "scope": "Add canonical URLs, public sitemaps, descriptive metadata, structured data and safe social previews for eligible content.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-134",
-      "title": "Editorial and imagery — approved work package 12 of 12",
-      "origin": "original"
+      "title": "Editorial and image release acceptance",
+      "origin": "original",
+      "sourceItemId": "GDN-134",
+      "applicability": "current_scope",
+      "scope": "Verify author-to-public release and correction journeys, all asset classes and publication reversal with real editorial roles.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-135",
-      "title": "Community and consent — approved work package 1 of 14",
-      "origin": "original"
+      "title": "Contributor portal and separate program charter",
+      "origin": "original",
+      "sourceItemId": "GDN-135",
+      "applicability": "current_scope",
+      "scope": "Launch an optional contribution program with explicit scope separate from the original research charter, contributor guidance and non-endorsement participation.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-136",
-      "title": "Community and consent — approved work package 2 of 14",
-      "origin": "original"
+      "title": "Family archive submissions and private receipts",
+      "origin": "original",
+      "sourceItemId": "GDN-136",
+      "applicability": "current_scope",
+      "scope": "Provide secure file submission, context forms, attribution preferences, visibility selection and an auditable receipt.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-137",
-      "title": "Community and consent — approved work package 3 of 14",
-      "origin": "original"
+      "title": "Oral-history consent and narrator review",
+      "origin": "original",
+      "sourceItemId": "GDN-137",
+      "applicability": "current_scope",
+      "scope": "Support interview agreements, media permissions, transcript review, narrator corrections, embargoes and distinct research/promotional uses.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-138",
-      "title": "Community and consent — approved work package 4 of 14",
-      "origin": "original"
+      "title": "Redaction, minors and sensitive contributor material",
+      "origin": "original",
+      "sourceItemId": "GDN-138",
+      "applicability": "current_scope",
+      "scope": "Implement redaction review for documents/audio/video, guardian/minor permissions and separate restricted originals with public-safe derivatives.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-139",
-      "title": "Community and consent — approved work package 5 of 14",
-      "origin": "original"
+      "title": "Withdrawal, embargo and contributor communication",
+      "origin": "original",
+      "sourceItemId": "GDN-139",
+      "applicability": "current_scope",
+      "scope": "Let contributors manage permitted visibility, embargo dates, correction requests and withdrawal with clear processing status and limits.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-140",
-      "title": "Community and consent — approved work package 6 of 14",
-      "origin": "original"
+      "title": "Community advisory groups and public participation",
+      "origin": "original",
+      "sourceItemId": "GDN-140",
+      "applicability": "current_scope",
+      "scope": "Publish advisory remit, member permissions, meeting records and consultation channels without treating one person as representative of an entire people.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-141",
-      "title": "Community and consent — approved work package 7 of 14",
-      "origin": "original"
+      "title": "Community annotations and representation concerns",
+      "origin": "original",
+      "sourceItemId": "GDN-141",
+      "applicability": "current_scope",
+      "scope": "Let communities and readers submit contextual annotations, naming concerns and representation challenges linked to records.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-142",
-      "title": "Community and consent — approved work package 8 of 14",
-      "origin": "original"
+      "title": "Consultation responses and participation transparency",
+      "origin": "original",
+      "sourceItemId": "GDN-142",
+      "applicability": "current_scope",
+      "scope": "Publish consultation questions, material submissions where permitted, reasoned responses, unresolved concerns and resulting changes.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-143",
-      "title": "Community and consent — approved work package 9 of 14",
-      "origin": "original"
+      "title": "Public interviews, conversations and endorsements",
+      "origin": "original",
+      "sourceItemId": "GDN-143",
+      "applicability": "current_scope",
+      "scope": "Publish consented public conversations and interviews, separating testimony, reflection, analysis and explicit endorsement.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-144",
-      "title": "Community and consent — approved work package 10 of 14",
-      "origin": "original"
+      "title": "Moderated public questions and discussions",
+      "origin": "original",
+      "sourceItemId": "GDN-144",
+      "applicability": "current_scope",
+      "scope": "Add optional moderated Q&A, reporting, rate limits, appeals and clear separation of discussion from reviewed research.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-145",
-      "title": "Community and consent — approved work package 11 of 14",
-      "origin": "original"
+      "title": "Research conduct and confidential misconduct reports",
+      "origin": "original",
+      "sourceItemId": "GDN-145",
+      "applicability": "current_scope",
+      "scope": "Provide confidential reporting of fabrication, coercion, harassment, conflicts and data misuse, with segregated case access and recusal.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-146",
-      "title": "Community and consent — approved work package 12 of 14",
-      "origin": "original"
+      "title": "Authorship, contributor credit and conflicts",
+      "origin": "original",
+      "sourceItemId": "GDN-146",
+      "applicability": "current_scope",
+      "scope": "Track contribution roles, authorship agreements, affiliations, reviewer credit and declared conflicts across research outputs.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-147",
-      "title": "Community and consent — approved work package 13 of 14",
-      "origin": "original"
+      "title": "Public appeals and independent dispute review",
+      "origin": "original",
+      "sourceItemId": "GDN-147",
+      "applicability": "current_scope",
+      "scope": "Offer accessible routes to challenge historical representation, rights decisions and moderation, with evidence, response windows and impartial reviewer assignment.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-148",
-      "title": "Community and consent — approved work package 14 of 14",
-      "origin": "original"
+      "title": "Community contribution acceptance and safeguarding gate",
+      "origin": "original",
+      "sourceItemId": "GDN-148",
+      "applicability": "current_scope",
+      "scope": "Test contribution, narrator review, representation challenge, withdrawal, moderation and confidential reporting with appropriate reviewers.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-149",
-      "title": "Education and civic access — approved work package 1 of 12",
-      "origin": "original"
+      "title": "Teaching collections and classroom resources",
+      "origin": "original",
+      "sourceItemId": "GDN-149",
+      "applicability": "current_scope",
+      "scope": "Build age-appropriate, source-centered teaching collections, activities and teacher guides with content notices and accessible formats.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-150",
-      "title": "Education and civic access — approved work package 2 of 12",
-      "origin": "original"
+      "title": "Source exercises and guided research tutorials",
+      "origin": "original",
+      "sourceItemId": "GDN-150",
+      "applicability": "current_scope",
+      "scope": "Provide worked examples of transcription, source criticism, uncertainty, conflicting evidence and citation, using synthetic or cleared training records.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-151",
-      "title": "Education and civic access — approved work package 3 of 12",
-      "origin": "original"
+      "title": "Press center and verified media assets",
+      "origin": "original",
+      "sourceItemId": "GDN-151",
+      "applicability": "current_scope",
+      "scope": "Publish current summaries, approved visuals, spokesperson contacts, policy status, corrections and source packs for journalists.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-152",
-      "title": "Education and civic access — approved work package 4 of 12",
-      "origin": "original"
+      "title": "Shareable explainers and accessible social graphics",
+      "origin": "original",
+      "sourceItemId": "GDN-152",
+      "applicability": "current_scope",
+      "scope": "Generate reviewed share cards, short explainers and presentations from source-bound content with dates and qualifications.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-153",
-      "title": "Education and civic access — approved work package 5 of 12",
-      "origin": "original"
+      "title": "Events, public conversations and registration",
+      "origin": "original",
+      "sourceItemId": "GDN-153",
+      "applicability": "current_scope",
+      "scope": "Add public event pages, capacity-aware registration, calendar exports, access needs, cancellation and optional recording consent.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-154",
-      "title": "Education and civic access — approved work package 6 of 12",
-      "origin": "original"
+      "title": "Volunteer opportunities and matching",
+      "origin": "original",
+      "sourceItemId": "GDN-154",
+      "applicability": "current_scope",
+      "scope": "Publish research, translation, outreach and operational volunteer roles with requirements, training and accountable assignment.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-155",
-      "title": "Education and civic access — approved work package 7 of 12",
-      "origin": "original"
+      "title": "Public updates and consented subscriptions",
+      "origin": "original",
+      "sourceItemId": "GDN-155",
+      "applicability": "current_scope",
+      "scope": "Offer separate project, research-correction, event and general advocacy subscriptions with preference center and confirmed consent.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-156",
-      "title": "Education and civic access — approved work package 8 of 12",
-      "origin": "original"
+      "title": "Representative lookup and user-controlled civic actions",
+      "origin": "original",
+      "sourceItemId": "GDN-156",
+      "applicability": "current_scope",
+      "scope": "Provide optional general-public representative lookup and user-reviewed communications based on accurate district data and current policy materials.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-157",
-      "title": "Education and civic access — approved work package 9 of 12",
-      "origin": "original"
+      "title": "Donations and purpose-separated financial records",
+      "origin": "original",
+      "sourceItemId": "GDN-157",
+      "applicability": "current_scope",
+      "scope": "Integrate an authorized payment provider using hosted checkout, separate research/advocacy purposes, receipts, refunds and reconciliation.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-158",
-      "title": "Education and civic access — approved work package 10 of 12",
-      "origin": "original"
+      "title": "Public organizational finances and funding disclosures",
+      "origin": "original",
+      "sourceItemId": "GDN-158",
+      "applicability": "current_scope",
+      "scope": "Publish the website/research organization's actual finances and funding sources separately from modeled government-program finances.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-159",
-      "title": "Education and civic access — approved work package 11 of 12",
-      "origin": "original"
+      "title": "Public contact, support and accessibility reporting",
+      "origin": "original",
+      "sourceItemId": "GDN-159",
+      "applicability": "current_scope",
+      "scope": "Provide clear contact routes for general questions, corrections, press, accessibility and sensitive concerns, with safe routing and delivery receipts.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-160",
-      "title": "Education and civic access — approved work package 12 of 12",
-      "origin": "original"
+      "title": "Participation and communications acceptance",
+      "origin": "original",
+      "sourceItemId": "GDN-160",
+      "applicability": "current_scope",
+      "scope": "Verify education, press, subscriptions, events, volunteering, civic tools, donations and support with realistic consent and failure cases.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-161",
-      "title": "Analysis and optional AI — approved work package 1 of 12",
-      "origin": "original"
+      "title": "Reproducible research datasets and snapshots",
+      "origin": "original",
+      "sourceItemId": "GDN-161",
+      "applicability": "current_scope",
+      "scope": "Create immutable analysis snapshots with schemas, source lineage, known gaps and reproducible query/export manifests.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-162",
-      "title": "Analysis and optional AI — approved work package 2 of 12",
-      "origin": "original"
+      "title": "Controlled analysis jobs and notebook execution",
+      "origin": "original",
+      "sourceItemId": "GDN-162",
+      "applicability": "current_scope",
+      "scope": "Run authorized analytic code in resource-limited, isolated workers with no arbitrary network access, short-lived inputs and versioned dependencies.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-163",
-      "title": "Analysis and optional AI — approved work package 3 of 12",
-      "origin": "original"
+      "title": "Data cleaning, reconciliation and reproducible transformations",
+      "origin": "original",
+      "sourceItemId": "GDN-163",
+      "applicability": "current_scope",
+      "scope": "Provide versioned transformation recipes for dates, names, tabular joins and deduplication proposals with side-by-side raw data.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-164",
-      "title": "Analysis and optional AI — approved work package 4 of 12",
-      "origin": "original"
+      "title": "Evidence-based charts, statistics and map outputs",
+      "origin": "original",
+      "sourceItemId": "GDN-164",
+      "applicability": "current_scope",
+      "scope": "Build reproducible analysis-to-chart workflows with accessible tables, denominators, uncertainty and source/exclusion notes.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-165",
-      "title": "Analysis and optional AI — approved work package 5 of 12",
-      "origin": "original"
+      "title": "Computational review and reproducibility gate",
+      "origin": "original",
+      "sourceItemId": "GDN-165",
+      "applicability": "current_scope",
+      "scope": "Require another authorized researcher to rerun important computations and inspect assumptions before publishing results.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-166",
-      "title": "Analysis and optional AI — approved work package 6 of 12",
-      "origin": "original"
+      "title": "Assistant retrieval, provider and cost boundary",
+      "origin": "original",
+      "sourceItemId": "GDN-166",
+      "applicability": "current_scope",
+      "scope": "Implement an optional assistant gateway over approved public or authorized research material using a verified provider contract, usage limits and data-processing review.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-167",
-      "title": "Analysis and optional AI — approved work package 7 of 12",
-      "origin": "original"
+      "title": "Citation-grounded assistant answer interface",
+      "origin": "original",
+      "sourceItemId": "GDN-167",
+      "applicability": "current_scope",
+      "scope": "Add question answering with exact supporting passages, distinctions between quote/inference/uncertainty and links to inspect sources.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-168",
-      "title": "Analysis and optional AI — approved work package 8 of 12",
-      "origin": "original"
+      "title": "Prompt-injection and tool isolation defense",
+      "origin": "original",
+      "sourceItemId": "GDN-168",
+      "applicability": "current_scope",
+      "scope": "Treat archival text, annotations and uploads as untrusted data. Restrict assistant tools, egress, cross-record access and mutation capabilities.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-169",
-      "title": "Analysis and optional AI — approved work package 9 of 12",
-      "origin": "original"
+      "title": "Assistant evaluation, bias and abstention",
+      "origin": "original",
+      "sourceItemId": "GDN-169",
+      "applicability": "current_scope",
+      "scope": "Build expert-reviewed evaluation sets covering conflicts, missing evidence, source dependence, historical slurs, uncertainty and non-English queries.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-170",
-      "title": "Analysis and optional AI — approved work package 10 of 12",
-      "origin": "original"
+      "title": "Assistant feedback, cost visibility and opt-out",
+      "origin": "original",
+      "sourceItemId": "GDN-170",
+      "applicability": "current_scope",
+      "scope": "Add user feedback, answer correction routing, opt-out, usage/cost controls and minimal retained logs.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-171",
-      "title": "Analysis and optional AI — approved work package 11 of 12",
-      "origin": "original"
+      "title": "Bounded research automation proposals",
+      "origin": "original",
+      "sourceItemId": "GDN-171",
+      "applicability": "current_scope",
+      "scope": "Let assistants propose transcription drafts, source leads, claim segmentation and task suggestions with human/scholarly review, never silently apply them as accepted evidence.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-172",
-      "title": "Analysis and optional AI — approved work package 12 of 12",
-      "origin": "original"
+      "title": "Analysis and assistant controlled-release gate",
+      "origin": "original",
+      "sourceItemId": "GDN-172",
+      "applicability": "current_scope",
+      "scope": "Review reproducibility, provider handling, security, citation accuracy and costs before controlled release of optional analysis/AI capabilities.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-173",
-      "title": "Administration and transparent operations — approved work package 1 of 10",
-      "origin": "original"
+      "title": "Administrative console and least-privilege operations",
+      "origin": "original",
+      "sourceItemId": "GDN-173",
+      "applicability": "current_scope",
+      "scope": "Build separate admin views for accounts, roles, imports, queues, publication holds and incidents, with restricted sensitive-case access.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-174",
-      "title": "Administration and transparent operations — approved work package 2 of 10",
-      "origin": "original"
+      "title": "Moderation tools, abuse response and appeals",
+      "origin": "original",
+      "sourceItemId": "GDN-174",
+      "applicability": "current_scope",
+      "scope": "Consolidate spam, harassment, copyright concerns, personal-data leaks and abuse reports with triage, evidence, response and appeal.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-175",
-      "title": "Administration and transparent operations — approved work package 3 of 10",
-      "origin": "original"
+      "title": "Public governance, research standards and independence",
+      "origin": "original",
+      "sourceItemId": "GDN-175",
+      "applicability": "current_scope",
+      "scope": "Publish editorial standards, advisory remit, authorship, conflicts, appeals, donor separation and correction procedures with version history.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-176",
-      "title": "Administration and transparent operations — approved work package 4 of 10",
-      "origin": "original"
+      "title": "Accurate research progress and coverage dashboards",
+      "origin": "original",
+      "sourceItemId": "GDN-176",
+      "applicability": "current_scope",
+      "scope": "Report acquired, read, transcribed, reviewed, rights-cleared and published work separately, with definitions and denominators.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-177",
-      "title": "Administration and transparent operations — approved work package 5 of 10",
-      "origin": "original"
+      "title": "Software plan, PR and production status reporting",
+      "origin": "original",
+      "sourceItemId": "GDN-177",
+      "applicability": "current_scope",
+      "scope": "Track planned, implemented, CI-passed, merged, deployed, production-verified and regressed states with GitHub/Render evidence and Engine Room reconciliation.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-178",
-      "title": "Administration and transparent operations — approved work package 6 of 10",
-      "origin": "original"
+      "title": "Data stewardship, rights expiry and access reviews",
+      "origin": "original",
+      "sourceItemId": "GDN-178",
+      "applicability": "current_scope",
+      "scope": "Provide administrator queues for expiring licenses, stale permissions, sensitive data reviews, retention actions and storage access checks.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-179",
-      "title": "Administration and transparent operations — approved work package 7 of 10",
-      "origin": "original"
+      "title": "Content-safe analytics and usability measurement",
+      "origin": "original",
+      "sourceItemId": "GDN-179",
+      "applicability": "current_scope",
+      "scope": "Measure aggregate task success, search quality, performance and accessibility feedback with minimal collection and no demographic/political targeting.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-180",
-      "title": "Administration and transparent operations — approved work package 8 of 10",
-      "origin": "original"
+      "title": "Operational dashboards and dependency health",
+      "origin": "original",
+      "sourceItemId": "GDN-180",
+      "applicability": "current_scope",
+      "scope": "Display service status, queue lag, failed imports, index freshness, broken links, backup age and external integration state.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-181",
-      "title": "Administration and transparent operations — approved work package 9 of 10",
-      "origin": "original"
+      "title": "Financial, cost and resource-capacity controls",
+      "origin": "original",
+      "sourceItemId": "GDN-181",
+      "applicability": "current_scope",
+      "scope": "Track website operating costs, authorized budgets, AI usage, storage growth and vendor resource limits separately from program fiscal models.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-182",
-      "title": "Administration and transparent operations — approved work package 10 of 10",
-      "origin": "original"
+      "title": "Governance, administration and status acceptance",
+      "origin": "original",
+      "sourceItemId": "GDN-182",
+      "applicability": "current_scope",
+      "scope": "Verify operational controls, governance truthfulness, progress accuracy, moderation and financial separation with an audit-oriented reviewer.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-183",
-      "title": "Production hardening and release — approved work package 1 of 14",
-      "origin": "original"
+      "title": "Preservation packages and verifiable backups",
+      "origin": "original",
+      "sourceItemId": "GDN-183",
+      "applicability": "current_scope",
+      "scope": "Produce checksummed, size-bounded backups and portable research packages with all manifests, schema, rights, lineage and restore instructions.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-184",
-      "title": "Production hardening and release — approved work package 2 of 14",
-      "origin": "original"
+      "title": "Restore drills, key recovery and deletion replay",
+      "origin": "original",
+      "sourceItemId": "GDN-184",
+      "applicability": "current_scope",
+      "scope": "Restore authorized backups into isolated environments, recover keys according to mode and reapply withdrawals, legal holds and revocations before serving.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-185",
-      "title": "Production hardening and release — approved work package 3 of 14",
-      "origin": "original"
+      "title": "Master current-work index and portable continuation",
+      "origin": "original",
+      "sourceItemId": "GDN-185",
+      "applicability": "current_scope",
+      "scope": "Maintain stable project-wide current-work index, per-product latest pointers, downloadable checkpoints and resume instructions after each successful durable save.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-186",
-      "title": "Production hardening and release — approved work package 4 of 14",
-      "origin": "original"
+      "title": "Portability and repository-only developer handoff",
+      "origin": "original",
+      "sourceItemId": "GDN-186",
+      "applicability": "current_scope",
+      "scope": "Test that a new developer can clone, validate, run synthetic services, understand architecture, locate required credentials and continue work without chat context.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-187",
-      "title": "Production hardening and release — approved work package 5 of 14",
-      "origin": "original"
+      "title": "Full accessibility and assistive-technology audit",
+      "origin": "original",
+      "sourceItemId": "GDN-187",
+      "applicability": "current_scope",
+      "scope": "Audit complete public and researcher processes against chosen WCAG 2.2 AA scope using automated and manual checks including source tools and authentication.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-188",
-      "title": "Production hardening and release — approved work package 6 of 14",
-      "origin": "original"
+      "title": "Performance, capacity and resilience testing",
+      "origin": "original",
+      "sourceItemId": "GDN-188",
+      "applicability": "current_scope",
+      "scope": "Test real deployment topology under expected/synthetic growth, simultaneous editing, large files, database sleep/restarts and slow networks.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-189",
-      "title": "Production hardening and release — approved work package 7 of 14",
-      "origin": "original"
+      "title": "Backup, outage and incident response playbooks",
+      "origin": "original",
+      "sourceItemId": "GDN-189",
+      "applicability": "current_scope",
+      "scope": "Establish incident severity, containment, key compromise response, data-loss recovery, lawful notification review and public status communication.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-190",
-      "title": "Production hardening and release — approved work package 8 of 14",
-      "origin": "original"
+      "title": "Independent security assessment and canonical crosswalk closure",
+      "origin": "original",
+      "sourceItemId": "GDN-190",
+      "applicability": "current_scope",
+      "scope": "Obtain authorized independent security testing of actual components and reconcile canonical-standard controls, penetration findings and cryptographic boundaries. Assess the enabled core research scope first; sealed, community, AI and government capabilities retain their own independent activation assessments in their feature and release PRs, not an assumed blanket pass.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-191",
-      "title": "Production hardening and release — approved work package 9 of 14",
-      "origin": "original"
+      "title": "Full-corpus import and public-clearance release audit",
+      "origin": "original",
+      "sourceItemId": "GDN-191",
+      "applicability": "current_scope",
+      "scope": "Reconcile all currently available research artifacts, preserve open historical questions and verify what is eligible for public discovery versus restricted preservation.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-192",
-      "title": "Production hardening and release — approved work package 10 of 14",
-      "origin": "original"
+      "title": "Public launch deployment and smoke gate",
+      "origin": "original",
+      "sourceItemId": "GDN-192",
+      "applicability": "current_scope",
+      "scope": "Launch the reviewed public explanation and document library on authorized production resources with verified DNS/HTTPS, backups and visible status. Verify seed backup/restore, minimal live monitoring and safe metadata here; the full-corpus backup and monitoring suites follow without blocking this bounded release.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-193",
-      "title": "Production hardening and release — approved work package 11 of 14",
-      "origin": "original"
+      "title": "Research beta deployment and real cohort verification",
+      "origin": "original",
+      "sourceItemId": "GDN-193",
+      "applicability": "current_scope",
+      "scope": "Release researcher tools to an authorized cohort, import permitted material and verify actual uploads, collaboration, review, publication and withdrawal online.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-194",
-      "title": "Production hardening and release — approved work package 12 of 14",
-      "origin": "original"
+      "title": "Complete public/research capability release",
+      "origin": "original",
+      "sourceItemId": "GDN-194",
+      "applicability": "current_scope",
+      "scope": "Verify the full non-government feature inventory across providers, documentation, consent, performance and production behavior. Record any intentionally disabled optional capability.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-195",
-      "title": "Production hardening and release — approved work package 13 of 14",
-      "origin": "original"
+      "title": "Production monitoring and release regression controls",
+      "origin": "original",
+      "sourceItemId": "GDN-195",
+      "applicability": "current_scope",
+      "scope": "Configure authorized health checks, dependency alerts, security updates, restore exercises and regression-triggered status changes as application operations.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-196",
-      "title": "Production hardening and release — approved work package 14 of 14",
-      "origin": "original"
+      "title": "Final non-government acceptance and operational handoff",
+      "origin": "original",
+      "sourceItemId": "GDN-196",
+      "applicability": "current_scope",
+      "scope": "Perform final feature inventory, source preservation, security, accessibility, live deployment and repository-only handoff review. Establish ongoing ownership and unresolved research backlog.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-197",
-      "title": "Conditional government, not active — approved work package 1 of 14",
-      "origin": "original"
+      "title": "Legal authority and governmental product activation contract",
+      "origin": "original",
+      "sourceItemId": "GDN-197",
+      "applicability": "conditional_government",
+      "scope": "After actual enactment and authorization, retrieve operative law/rules and establish governmental operator, mandate, privacy authority, funding and separate repository contracts.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-198",
-      "title": "Conditional government, not active — approved work package 2 of 14",
-      "origin": "original"
+      "title": "Government repository, tenancy and assurance boundary",
+      "origin": "original",
+      "sourceItemId": "GDN-198",
+      "applicability": "conditional_government",
+      "scope": "Establish separate governmental application/services with authorized identity, isolated data stores/keys, procurement and accessibility/security requirements.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-199",
-      "title": "Conditional government, not active — approved work package 3 of 14",
-      "origin": "original"
+      "title": "Official roster publication and administrative record",
+      "origin": "original",
+      "sourceItemId": "GDN-199",
+      "applicability": "conditional_government",
+      "scope": "Implement official roster versions, evidence, agency decisions, public notice and distinction from independent scholarly dossiers.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-200",
-      "title": "Conditional government, not active — approved work package 4 of 14",
-      "origin": "original"
+      "title": "Statutory comments, petitions and reasoned responses",
+      "origin": "original",
+      "sourceItemId": "GDN-200",
+      "applicability": "conditional_government",
+      "scope": "Support legally specified comment windows, correction petitions, accessible filing, docketing and reasoned decisions with required retention.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-201",
-      "title": "Conditional government, not active — approved work package 5 of 14",
-      "origin": "original"
+      "title": "Enrollment evidence submission and private casework",
+      "origin": "original",
+      "sourceItemId": "GDN-201",
+      "applicability": "conditional_government",
+      "scope": "Build authorized identity/evidence submission, case assignment and secure family-record handling under adopted standards.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-202",
-      "title": "Conditional government, not active — approved work package 6 of 14",
-      "origin": "original"
+      "title": "Duplicate enrollment, minors and affiliation changes",
+      "origin": "original",
+      "sourceItemId": "GDN-202",
+      "applicability": "conditional_government",
+      "scope": "Implement legally authorized duplicate detection with privacy-preserving identifiers, guardian/minor processes and allowed founding-period affiliation corrections.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-203",
-      "title": "Conditional government, not active — approved work package 7 of 14",
-      "origin": "original"
+      "title": "Eligibility decisions, notices and impartial appeals",
+      "origin": "original",
+      "sourceItemId": "GDN-203",
+      "applicability": "conditional_government",
+      "scope": "Support human-authorized decisions, reasons, evidence requests, impartial appeals and final status under adopted rules.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-204",
-      "title": "Conditional government, not active — approved work package 8 of 14",
-      "origin": "original"
+      "title": "Nation certification and public instruments",
+      "origin": "original",
+      "sourceItemId": "GDN-204",
+      "applicability": "conditional_government",
+      "scope": "Accept authorized founding instruments and publish certification status, constitutions, public laws and budgets with verified signatures and redaction.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-205",
-      "title": "Conditional government, not active — approved work package 9 of 14",
-      "origin": "original"
+      "title": "Official opportunity register and equal access",
+      "origin": "original",
+      "sourceItemId": "GDN-205",
+      "applicability": "conditional_government",
+      "scope": "Publish verified governmental offers, districts, conditions, existing rights, readiness requirements and deadlines for every eligible nation, including non-Assembly participants.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-206",
-      "title": "Conditional government, not active — approved work package 10 of 14",
-      "origin": "original"
+      "title": "Sealed preferences and auditable closing process",
+      "origin": "original",
+      "sourceItemId": "GDN-206",
+      "applicability": "conditional_government",
+      "scope": "Implement externally reviewed sealed submissions, immutable receipts, authorized common deadlines, controlled key custody and auditable opening ceremony.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-207",
-      "title": "Conditional government, not active — approved work package 11 of 14",
-      "origin": "original"
+      "title": "Voluntary negotiation and compact workspaces",
+      "origin": "original",
+      "sourceItemId": "GDN-207",
+      "applicability": "conditional_government",
+      "scope": "Provide authorized negotiation records, draft agreements, conflicts, invitations and voluntary joint proposals without giving the Assembly power to impose outcomes.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-208",
-      "title": "Conditional government, not active — approved work package 12 of 14",
-      "origin": "original"
+      "title": "Government public finance and compact reporting",
+      "origin": "original",
+      "sourceItemId": "GDN-208",
+      "applicability": "conditional_government",
+      "scope": "Publish authorized audited budgets, enterprise reporting, fee/repayment calculations and compact compliance with confidential fields segregated.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-209",
-      "title": "Conditional government, not active — approved work package 13 of 14",
-      "origin": "original"
+      "title": "Nation portals and government service boundaries",
+      "origin": "original",
+      "sourceItemId": "GDN-209",
+      "applicability": "conditional_government",
+      "scope": "Provide linked public portals for laws, budgets, notices and service directories, with clear service owners and separate governance.",
+      "source": "plan/plan.json"
     },
     {
       "id": "GDN-210",
-      "title": "Conditional government, not active — approved work package 14 of 14",
-      "origin": "original"
+      "title": "Government legal, security and production acceptance",
+      "origin": "original",
+      "sourceItemId": "GDN-210",
+      "applicability": "conditional_government",
+      "scope": "Conduct formal authorized acceptance of every activated governmental function, including independent security, legal process, accessibility, operations and disaster recovery.",
+      "source": "plan/plan.json"
     }
-  ]
+  ],
+  "scopeNote": "Exact 210 work package titles and scopes recovered from plan/plan.json; the last 14 are contingent governmental scope, not activated powers or deployed features. PR links come only from existing reviewed historical mappings."
 }
