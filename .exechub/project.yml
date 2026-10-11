@@ -1,0 +1,42 @@
+project:
+  name: the-garden
+  display_name: The Garden
+  repository: neophilism/The-Garden
+  status: development
+roadmap:
+  version: 1
+  planned_prs: 210
+  approved: true
+milestones:
+  - name: Decisions, evidence and charter
+    prs: 8
+  - name: Delivery infrastructure
+    prs: 12
+  - name: Identity and privacy
+    prs: 14
+  - name: Canonical data and migration
+    prs: 14
+  - name: Public storytelling and orientation
+    prs: 16
+  - name: Policy and fiscal explanation
+    prs: 12
+  - name: Archival source viewing
+    prs: 12
+  - name: Atlas and search
+    prs: 16
+  - name: Research collaboration
+    prs: 18
+  - name: Editorial and imagery
+    prs: 12
+  - name: Community and consent
+    prs: 14
+  - name: Education and civic access
+    prs: 12
+  - name: Analysis and optional AI
+    prs: 12
+  - name: Administration and transparent operations
+    prs: 10
+  - name: Production hardening and release
+    prs: 14
+  - name: Conditional government, not active
+    prs: 14
