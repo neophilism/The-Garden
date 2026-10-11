@@ -4,9 +4,15 @@
   "private": true,
   "type": "module",
   "engines": {"node": ">=24 <25"},
-  "scripts": {"test:browser": "playwright test"},
+  "scripts": {
+    "test": "node --test unit/*.test.mjs",
+    "test:browser": "playwright test",
+    "policy": "node verify-policy.mjs",
+    "lint": "node lint.mjs"
+  },
   "devDependencies": {
     "@playwright/test": "1.64.0",
-    "axe-core": "4.14.0"
+    "axe-core": "4.14.0",
+    "yaml": "2.9.0"
   }
 }
