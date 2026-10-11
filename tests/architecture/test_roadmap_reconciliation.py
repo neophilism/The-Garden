@@ -25,6 +25,16 @@ class RoadmapReconciliationTests(unittest.TestCase):
         self.assertEqual(value["production_verified"], 0)
         self.assertEqual(value["plan_items"], 210)
 
+    def test_boolean_pr_number_denied(self):
+        docs = [copy.deepcopy(x) for x in self.data]
+        docs[3]["pullRequestNumbers"][0] = True
+        docs[1]["work_items"]["GDN-001"]["github_pr_number"] = True
+        with self.assertRaises(ValueError):
+            validate(*docs)
+
+    def test_numeric_acceptance_denied(self):
+        self.bad(1, lambda p: p["work_items"]["GDN-001"].update(accepted=1))
+
     def test_fake_merged_count_denied(self):
         self.bad(2, lambda p: p.update(verified_merged_items=209))
 

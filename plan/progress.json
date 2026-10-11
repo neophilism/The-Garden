@@ -1,10 +1,10 @@
 {
-  "current_scope_items": 196,
-  "conditional_items": 14,
-  "remote_prs_opened": 9,
-  "verified_merged_items": 8,
-  "production_verified_items": 0,
-  "current_scope_weight": 608,
-  "conditional_weight": 46,
-  "note": "GDN-001..GDN-008 have evidence-backed merged PRs (#2-#9, with #7=GDN-006, #8=GDN-008, #9=GDN-007). GDN-009 PR #10 open, awaiting actual lock/CI. Bootstrap #1 excluded; no production verified."
+  "current_scope_items":196,
+  "conditional_items":14,
+  "remote_prs_opened":10,
+  "verified_merged_items":9,
+  "production_verified_items":0,
+  "current_scope_weight":608,
+  "conditional_weight":46,
+  "note":"Nine mapped engineering items GDN-001 through GDN-009 have observed merged PRs and passing CI. GDN-010 PR #12 is open and under verification. Bootstrap #1 and provider inventory #11 are excluded. No production-verified features; independent acceptance remains separate."
 }

@@ -1,0 +1,20 @@
+{
+  "work_item_id":"GDN-010",
+  "status":"implemented_under_verification",
+  "accepted":false,
+  "production_verified":false,
+  "criteria":{
+    "GDN-010-AC01":"Policy and static-export negative fixtures pass; initial browser CI failed on real accessibility defects, demonstrating nontrivial enforcement.",
+    "GDN-010-AC02":"Parsed workflow policy requires read-only verification permissions, no credential persistence and no secret references; fork-event mutation fixtures reject elevated variants.",
+    "GDN-010-AC03":"CI artifacts identify checkout SHA, PR head, runtime and dependency-lock digests."
+  },
+  "first_browser_run":"https://github.com/neophilism/The-Garden/actions/runs/38099077789",
+  "first_run_head":"b20951d49a8fe8ef741d2b0074f189a07da523e4",
+  "first_browser_result":{"passed":12,"failed":27,"skipped":0,"distinct_defect_classes":3},
+  "corrections":["Increase copper-label contrast on paper, white and mist backgrounds.","Align researcher link accessible name with visible label.","Place preheader notice inside the banner landmark and make the skip-link target focusable."],
+  "supply_chain_result":"Passed initial CI policy, two npm audits and CycloneDX inventory generation; this is not proof of absence of unknown vulnerabilities.",
+  "fresh_browser_result":"pending",
+  "independent_security_review":"not_performed",
+  "inclusive_accessibility_review":"not_performed",
+  "render_deployment":"not_performed"
+}

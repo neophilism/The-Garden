@@ -49,6 +49,6 @@ test("public navigation does not point to private Library records or missing sig
  assert.doesNotMatch(read("packages/domain/src/index.ts"),/chatgpt\.com\/api\/library/);
  const layout=read("apps/public/app/layout.tsx");
  assert.doesNotMatch(layout,/href="#workspace-notice"/);
- assert.match(layout,/href="\/research\/" aria-label="Researcher sign-in not yet available"/);
+ assert.match(layout,/href="\/research\/" aria-label="Researcher access: sign-in not yet available"/);
  assert.match(read("apps/public/app/[section]/page.tsx"),/page.sourceNote/);
 });
