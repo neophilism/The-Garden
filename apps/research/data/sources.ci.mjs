@@ -1,3 +1,4 @@
+import {exerciseNumericHistory} from '../../../tests/data/history-pagination.ci-fixture.mjs';
 import {allowSyntheticResearchUse} from '../access/consent-test-fixture.mjs';
 import assert from 'node:assert/strict';
 import {randomBytes,randomUUID} from 'node:crypto';
@@ -73,6 +74,7 @@ try {
  const bad=source(await empty(),'edition',[randomUUID()]);await assert.rejects(()=>create(bad),PolicyError);check('dangling source reference rejects atomically');
  await assert.rejects(()=>executor.run(headers('alice'),{workspaceId:W,action:'write'},c=>c.query("UPDATE garden_private.record_envelopes SET payload=jsonb_set(payload,'{derivedFrom}',jsonb_build_array($2::text)) WHERE id=$1",[edition.record.id,scan.record.id])),PolicyError);check('database rejects edition to own digitization cycles');
  await assert.rejects(()=>executor.run(headers('alice'),{workspaceId:W,action:'write'},c=>c.query("UPDATE garden_private.record_envelopes SET payload=jsonb_set(payload,'{form}','\"witness\"') WHERE id=$1",[edition.record.id])),PolicyError);check('database cannot reclassify an edition as a new witness');
+ await exerciseNumericHistory(repo,headers('alice'),W,w.id);check('numeric source history crosses 9 to 10 with complete keyset continuation and concurrent append exclusion');
  await admin.query("UPDATE garden_control.access_members SET state='revoked' WHERE workspace_id=$1 AND subject_id='alice'",[W]);
  await assert.rejects(()=>repo.history(headers('alice'),W,w.id),PolicyError);check('membership revocation also protects historical versions');
  assert.equal((await admin.query('SELECT count(*)::int AS n FROM garden_control.policy_tickets')).rows[0].n,0);check('all source tickets retired after successes and failures');
