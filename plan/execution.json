@@ -483,11 +483,30 @@
       "note": "All six final-head workflows passed before merge. PostgreSQL JSONB key-order identity comparison fixed; immutable fields compared individually."
     },
     "GDN-041": {
-      "implementation": "candidate_readonly_import_quarantine",
+      "implementation": "merged_with_exact_ci",
+      "github_pr_number": 34,
+      "github_head_sha": "3d9401e3d5a05320bf14275de58c67a354dea68d",
+      "github_merge_sha": "d789ed5e440a19d07a35f8a3fdfa8863b9d76d54",
+      "ci_url": "https://github.com/neophilism/The-Garden/actions/runs/38172784461",
+      "ci_workflows": {
+        "repository": 38172784461,
+        "database": 38172784484,
+        "identity": 38172784458,
+        "storage": 38172784478,
+        "historical_data": 38172784468,
+        "quality_browser": 38172784454
+      },
       "accepted": false,
       "production_verified": false,
       "independent_review": "not_performed",
-      "note": "Bounded subprocess inventories and immutable private manifests; no live scanner, uploads or worker activation."
+      "note": "All six final-head workflows passed before GitHub confirmed merge. Scanner and live isolated-worker activation remain unverified."
+    },
+    "GDN-044": {
+      "implementation": "candidate_explicit_source_mapping",
+      "accepted": false,
+      "production_verified": false,
+      "independent_review": "not_performed",
+      "note": "106 table mappings over the committed source inventory; schema fingerprints, conversion and reference rules, no source row import."
     }
   },
   "production_verified_items": 0,
@@ -495,8 +514,8 @@
     "registration": "not_verified",
     "sync": "not_verified",
     "manifest_in_repo": true,
-    "mapped_planned_units": 29
+    "mapped_planned_units": 30
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-11T20:33:10.312420+00:00"
+  "observed_at_utc": "2026-10-11T20:43:15.613018+00:00"
 }
