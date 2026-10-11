@@ -1,3 +1,13 @@
+# Current continuation: GDN-022 candidate
+
+PR #26 / GDN-029 is merged at `b62396cf1715d51c2d396ef24d276a7a3306f017`; all six exact-head CI workflows were reverified. There are 23 observed engineering merges, not production acceptances.
+
+GDN-022 adds current server-side passkey assurance, secure session rotation, own/all-device revocation, protected enrollment and recovery, and unmounted account controls. 78 local identity tests pass; new real-browser/PostgreSQL CI is pending. Read `docs/security/sessions-and-step-up.md`. No hosted routes, cloud migrations, physical-device approval or independent certification are claimed.
+
+Render still requires explicit workspace confirmation before service access in this session. The supplied project and Neon branch remain the sole authorized targets; no substitute deployment or new costs.
+
+---
+
 # Current continuation: GDN-029 candidate
 
 Observed 2026-10-11T15:11:52.262803+00:00. PR #25 / GDN-037 is merged at `38eea9c6cf2a3af390270db0ef248cd48be242fd` after all six exact-head workflows passed. There are 22 observed engineering merges, not 22 production-accepted capabilities.

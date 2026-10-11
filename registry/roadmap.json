@@ -324,7 +324,10 @@
       "sourceItemId": "GDN-029",
       "applicability": "current_scope",
       "scope": "Model separate consent for preservation, research, public display, name attribution and promotional endorsement. Track scope, expiry, guardian authority and withdrawal.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        26
+      ]
     },
     {
       "id": "GDN-030",

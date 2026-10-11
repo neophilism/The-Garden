@@ -59,3 +59,7 @@ See [archival sources and lineage](docs/data/archival-sources.md). GDN-036 disti
 ## Durable evidence locators
 
 GDN-036 is merged in PR #23. GDN-038 is the current unmounted source-locator candidate; read `docs/data/durable-locators.md`. No source-viewer, publication, independent acceptance or cloud rollout is implied. Exact current PR mappings remain in `plan/execution.json`.
+
+## Session-security continuation
+
+GDN-029 is merged in PR #26. GDN-022 is the unmounted session/passkey candidate: [session and recovery contract](docs/security/sessions-and-step-up.md). The real verification gates and current mappings are in the execution registry, not inferred from this note.
