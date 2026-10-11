@@ -74,7 +74,7 @@ try{
  await assert.rejects(()=>step('dave','evidentiary-review','reviewed',assignment),ReviewError);
  const replacement=await reviews.assign(H('carl'),W,scope,'dave','research');await step('dave','evidentiary-review','reviewed',replacement);
  await reopen('eve','evidentiary-review');await step('dave','evidentiary-review','in-review');
- await admin.query("UPDATE garden_control.access_roles SET expires_at=expires_at+interval '1 minute' WHERE workspace_id=$1 AND subject_id='dave' AND role='reviewer'",[W]);
+ await admin.query("UPDATE garden_control.access_roles SET expires_at=expires_at+interval '1 minute',version=version+1 WHERE workspace_id=$1 AND subject_id='dave' AND role='reviewer'",[W]);
  await assert.rejects(()=>step('dave','evidentiary-review','reviewed',replacement),ReviewError);
  const latestAssignment=await reviews.assign(H('carl'),W,scope,'dave','research');await step('dave','evidentiary-review','reviewed',latestAssignment);
  check('revoked assigner and changed reviewer-grant versions invalidate receipts and require a fresh authorized assignment');
