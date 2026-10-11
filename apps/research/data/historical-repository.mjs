@@ -75,7 +75,7 @@ export function createHistoricalRepository(executor) {
       uuid(workspace);uuid(id);if(beforeRevision!==null)expected(beforeRevision);if(!Number.isInteger(limit)||limit<1||limit>100)reject();
       return executor.run(headers,{workspaceId:workspace},async c=>{
         validateHistorical((await load(c,workspace,id)).payload);
-        const rows=(await c.query('SELECT version::text,payload,changed_at FROM garden_private.record_revisions WHERE workspace_id=$1::uuid AND record_id=$2::uuid AND ($3::bigint IS NULL OR version<$3::bigint) ORDER BY version DESC LIMIT $4::integer',[workspace,id,beforeRevision,limit+1])).rows;
+        const rows=(await c.query('SELECT version::text,payload,changed_at FROM garden_private.record_revisions AS revisions WHERE workspace_id=$1::uuid AND record_id=$2::uuid AND ($3::bigint IS NULL OR revisions.version<$3::bigint) ORDER BY revisions.version DESC LIMIT $4::integer',[workspace,id,beforeRevision,limit+1])).rows;
         const output=[];for(const row of rows.slice(0,limit)){const value=row.payload.recordType?validateHistorical(row.payload):null;if(value)await references(c,workspace,value);output.push({revision:row.version,record:value,changedAt:row.changed_at});}return {versions:output,nextBeforeRevision:rows.length>limit?output.at(-1).revision:null};
       });
     }

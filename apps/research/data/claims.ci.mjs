@@ -1,3 +1,4 @@
+import {exerciseNumericHistory} from '../../../tests/data/history-pagination.ci-fixture.mjs';
 import {allowSyntheticResearchUse} from '../access/consent-test-fixture.mjs';
 import assert from 'node:assert/strict';
 import {randomBytes,randomUUID} from 'node:crypto';
@@ -57,6 +58,7 @@ try{
  await admin.query('UPDATE garden_control.record_grants SET revoked_at=NULL WHERE record_id=$1',[witness.id]);
  await admin.query('UPDATE garden_control.record_grants SET revoked_at=clock_timestamp() WHERE record_id=$1',[translation.id]);
  report=await claims.affectedPlacements(headers('alice'),W,[interpretation.id]);assert.equal(report.placements.length,3);assert.equal(report.globalCompleteness,'not-established');assert(!JSON.stringify(report).includes(translation.id));check('hidden placement identifiers are not disclosed or described as globally absent');
+ await exerciseNumericHistory(claims,headers('alice'),W,interpretation.id);check('numeric claim history crosses 9 to 10 with no skipped, duplicated or concurrent later revisions');
  await assert.rejects(()=>claims.affectedPlacements(headers('alice'),W,[interpretation.id],{maxRecords:2}));check('bounded correction report fails rather than giving a misleading partial result');
  assert.equal((await admin.query('SELECT count(*)::int AS n FROM garden_control.policy_tickets')).rows[0].n,0);check('policy tickets retire after successful and failed claim operations');
  await mkdir('data-evidence',{recursive:true});await writeFile('data-evidence/claims.json',JSON.stringify({tested_sha:process.env.GITHUB_SHA,synthetic_only:true,production_verified:false,checks},null,2)+'\n');console.log('PASS: '+checks.length+' real PostgreSQL claim checks');

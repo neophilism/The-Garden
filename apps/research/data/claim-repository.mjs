@@ -49,7 +49,7 @@ export function createClaimRepository(executor){
    uuid(w);uuid(id);if(beforeRevision!==null)revision(beforeRevision);if(!Number.isInteger(limit)||limit<1||limit>100)reject();
    return executor.run(h,{workspaceId:w},async c=>{
     const r=reader(c,w);await r.inspect(validateClaimRecord((await r.get(id)).payload));
-    const rows=(await c.query('SELECT version::text,payload,changed_at FROM garden_private.record_revisions WHERE workspace_id=$1::uuid AND record_id=$2::uuid AND ($3::bigint IS NULL OR version<$3::bigint) ORDER BY version DESC LIMIT $4::integer',[w,id,beforeRevision,limit+1])).rows;
+    const rows=(await c.query('SELECT version::text,payload,changed_at FROM garden_private.record_revisions AS revisions WHERE workspace_id=$1::uuid AND record_id=$2::uuid AND ($3::bigint IS NULL OR revisions.version<$3::bigint) ORDER BY revisions.version DESC LIMIT $4::integer',[w,id,beforeRevision,limit+1])).rows;
     const versions=[];for(const row of rows.slice(0,limit)){const v=row.payload.recordType?validateClaimRecord(row.payload):null;if(v)await r.inspect(v);versions.push({revision:row.version,record:v,changedAt:row.changed_at});}
     return {versions,nextBeforeRevision:rows.length>limit?versions.at(-1).revision:null};
    });

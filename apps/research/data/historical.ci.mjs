@@ -1,3 +1,4 @@
+import {exerciseNumericHistory} from '../../../tests/data/history-pagination.ci-fixture.mjs';
 import {allowSyntheticResearchUse} from '../access/consent-test-fixture.mjs';
 import assert from 'node:assert/strict';
 import {randomBytes,randomUUID} from 'node:crypto';
@@ -81,6 +82,7 @@ try {
   repo.merge(headers('alice'),W,ids.b,ids.a,b.revision,restored.revision,{reason:'fixture b to a',evidence:evidence()})
  ]);
  assert.equal(results.filter(x=>x.status==='fulfilled').length,1);check('concurrent opposite merges cannot form a cycle');
+ await exerciseNumericHistory(repo,headers('alice'),W,ids.a);check('numeric revision history crosses 9 to 10 and excludes concurrent later edits from continuation pages');
  await admin.query("UPDATE garden_control.record_grants SET revoked_at=clock_timestamp() WHERE record_id=$1 AND subject_id='alice'",[ids.a]);
  await assert.rejects(()=>repo.history(headers('alice'),W,ids.a),PolicyError);check('revocation removes access to previous versions too');
  assert.equal((await admin.query('SELECT count(*)::int AS n FROM garden_control.policy_tickets')).rows[0].n,0);check('successful and failed data operations retire authorization tickets');
