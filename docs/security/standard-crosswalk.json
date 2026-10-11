@@ -1,8 +1,8 @@
 {
   "canonical_standard": "End-To-End-Everywhere Security Architecture Standard",
-  "canonical_revision": null,
-  "canonical_source": null,
-  "status": "unverified_not_located",
+  "canonical_revision": "ddfbd40c47d13890ebb81ea91c81fe329417058e",
+  "canonical_source": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard",
+  "status": "normative_documents_located_document_level_mapping_only_unassessed",
   "certification_claim": false,
   "supplementary_reference": "OWASP ASVS 5.0.0; proposed baseline only",
   "controls": [
@@ -16,7 +16,25 @@
       ],
       "evidence": "Login, recovery, session fixation and revoked-device tests.",
       "canonical_requirement_id": null,
-      "status": "specified_not_verified"
+      "status": "document_mapped_requirement_and_implementation_unverified",
+      "canonical_documents": [
+        {
+          "path": "spec/identity-device-architecture.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/identity-device-architecture.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/key-verification.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/key-verification.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/security-properties.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/security-properties.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        }
+      ],
+      "assessed": false
     },
     {
       "id": "SEC-02",
@@ -29,7 +47,20 @@
       ],
       "evidence": "All-role data-class matrix with cross-user canaries.",
       "canonical_requirement_id": null,
-      "status": "specified_not_verified"
+      "status": "document_mapped_requirement_and_implementation_unverified",
+      "canonical_documents": [
+        {
+          "path": "spec/server-trust-minimization.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/server-trust-minimization.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/security-properties.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/security-properties.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        }
+      ],
+      "assessed": false
     },
     {
       "id": "SEC-03",
@@ -42,7 +73,25 @@
       ],
       "evidence": "Wrong-project, pool contamination, rotation, KMS outage and restore tests.",
       "canonical_requirement_id": null,
-      "status": "specified_not_verified"
+      "status": "document_mapped_requirement_and_implementation_unverified",
+      "canonical_documents": [
+        {
+          "path": "spec/secret-storage-hardware-protection.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/secret-storage-hardware-protection.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/profile-configuration.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/profile-configuration.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/transport-security.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/transport-security.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        }
+      ],
+      "assessed": false
     },
     {
       "id": "SEC-04",
@@ -54,7 +103,25 @@
       ],
       "evidence": "Browser/server egress canaries and independent crypto assessment.",
       "canonical_requirement_id": null,
-      "status": "specified_not_verified"
+      "status": "document_mapped_requirement_and_implementation_unverified",
+      "canonical_documents": [
+        {
+          "path": "spec/attachments-file-encryption.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/attachments-file-encryption.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/group-e2ee.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/group-e2ee.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/native-web-client-security.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/native-web-client-security.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        }
+      ],
+      "assessed": false
     },
     {
       "id": "SEC-05",
@@ -66,7 +133,20 @@
       ],
       "evidence": "Consent matrix, publication race and derivative withdrawal tests.",
       "canonical_requirement_id": null,
-      "status": "specified_not_verified"
+      "status": "document_mapped_requirement_and_implementation_unverified",
+      "canonical_documents": [
+        {
+          "path": "spec/metadata-privacy.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/metadata-privacy.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/observatory-evidence-model.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/observatory-evidence-model.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        }
+      ],
+      "assessed": false
     },
     {
       "id": "SEC-06",
@@ -79,7 +159,20 @@
       ],
       "evidence": "ZIP bomb, path traversal, XML entity, SSRF and converter timeout tests.",
       "canonical_requirement_id": null,
-      "status": "specified_not_verified"
+      "status": "document_mapped_requirement_and_implementation_unverified",
+      "canonical_documents": [
+        {
+          "path": "spec/attachments-file-encryption.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/attachments-file-encryption.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/secure-development-standard.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/secure-development-standard.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        }
+      ],
+      "assessed": false
     },
     {
       "id": "SEC-07",
@@ -92,7 +185,20 @@
       ],
       "evidence": "Stale index/CDN/export/preview resurrection tests.",
       "canonical_requirement_id": null,
-      "status": "specified_not_verified"
+      "status": "document_mapped_requirement_and_implementation_unverified",
+      "canonical_documents": [
+        {
+          "path": "spec/deprecation-emergency-migration.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/deprecation-emergency-migration.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/observatory-evidence-model.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/observatory-evidence-model.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        }
+      ],
+      "assessed": false
     },
     {
       "id": "SEC-08",
@@ -104,7 +210,25 @@
       ],
       "evidence": "Hash-chain/recovery, missing-row and reclassification audits.",
       "canonical_requirement_id": null,
-      "status": "specified_not_verified"
+      "status": "document_mapped_requirement_and_implementation_unverified",
+      "canonical_documents": [
+        {
+          "path": "spec/observatory-evidence-model.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/observatory-evidence-model.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/observatory-data-architecture.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/observatory-data-architecture.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/software-supply-chain.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/software-supply-chain.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        }
+      ],
+      "assessed": false
     },
     {
       "id": "SEC-09",
@@ -117,7 +241,20 @@
       ],
       "evidence": "Hidden text/EXIF/media track and insider access tests.",
       "canonical_requirement_id": null,
-      "status": "specified_not_verified"
+      "status": "document_mapped_requirement_and_implementation_unverified",
+      "canonical_documents": [
+        {
+          "path": "spec/metadata-privacy.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/metadata-privacy.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/security-properties.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/security-properties.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        }
+      ],
+      "assessed": false
     },
     {
       "id": "SEC-10",
@@ -130,7 +267,20 @@
       ],
       "evidence": "Prompt injection, cross-user retrieval, secret egress and cost ceiling tests.",
       "canonical_requirement_id": null,
-      "status": "specified_not_verified"
+      "status": "document_mapped_requirement_and_implementation_unverified",
+      "canonical_documents": [
+        {
+          "path": "spec/server-trust-minimization.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/server-trust-minimization.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/metadata-privacy.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/metadata-privacy.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        }
+      ],
+      "assessed": false
     },
     {
       "id": "SEC-11",
@@ -144,7 +294,20 @@
       ],
       "evidence": "Fork secret denial, exact-SHA checks and failed migration drills.",
       "canonical_requirement_id": null,
-      "status": "specified_not_verified"
+      "status": "document_mapped_requirement_and_implementation_unverified",
+      "canonical_documents": [
+        {
+          "path": "spec/software-supply-chain.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/software-supply-chain.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/secure-development-standard.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/secure-development-standard.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        }
+      ],
+      "assessed": false
     },
     {
       "id": "SEC-12",
@@ -157,7 +320,35 @@
       ],
       "evidence": "Restore after withdrawal, key loss and truncated component tests.",
       "canonical_requirement_id": null,
-      "status": "specified_not_verified"
+      "status": "document_mapped_requirement_and_implementation_unverified",
+      "canonical_documents": [
+        {
+          "path": "spec/backup-recovery.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/backup-recovery.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        },
+        {
+          "path": "spec/secret-storage-hardware-protection.md",
+          "source_url": "https://github.com/neophilism/End-To-End-Everywhere-Security-Architecture-Standard/blob/ddfbd40c47d13890ebb81ea91c81fe329417058e/spec/secret-storage-hardware-protection.md",
+          "relationship": "subject_area_only_not_verified_implementation"
+        }
+      ],
+      "assessed": false
     }
-  ]
+  ],
+  "canonical_release_status": "development_toward_0.9.0_rc2_under_audit_remediation_not_certification",
+  "mapping_kind": "document_subject_area_not_requirement_level_or_conformance",
+  "mapping_verified_at": "2026-10-10",
+  "gaps": [
+    "Canonical requirement-level mapping and profile resolution not completed",
+    "Product-specific controls such as consent, archival ingestion, publication and AI provider policy require separate design and review",
+    "Independent code, cryptographic and operational assessment not performed",
+    "Current development tree is not a certified or frozen production release"
+  ],
+  "release_gates": {
+    "sensitive_research_processing": "blocked_pending_security_and_privacy_review",
+    "sealed_e2ee": "blocked_pending_exact_profile_selection_and_independent_crypto_assessment",
+    "public_only_non_sensitive_prototype": "permitted_subject_to_normal_release_checks",
+    "governmental_operations": "blocked_pending_statutory_authority"
+  }
 }
