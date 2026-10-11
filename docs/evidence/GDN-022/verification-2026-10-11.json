@@ -1,0 +1,36 @@
+{
+  "repository": "neophilism/The-Garden",
+  "pull_request": 27,
+  "observed_pr_head": "bc0d1e55890fe0daceba72ae5e4af44596bbb8fd",
+  "tested_merge_ref": "3ec300bb0dbf508cd9c320a507f846a0c6866bcf",
+  "source_tree": "2197a7c402159985a1c7f57c04f8659edb51a3a2",
+  "checked_out_artifact_tree_matches_pr_head": true,
+  "workflows": {
+    "repository": {"id": 38160649352, "conclusion": "success"},
+    "database": {"id": 38160649340, "conclusion": "success"},
+    "identity": {"id": 38160649354, "conclusion": "success"},
+    "storage": {"id": 38160649350, "conclusion": "success"},
+    "historical_data": {"id": 38160649433, "conclusion": "success"},
+    "quality_browser": {"id": 38160649361, "conclusion": "success"}
+  },
+  "identity_artifact": {
+    "id": 11709174764,
+    "sha256": "ee199a107b424c3bd094853cffb8e52c6a22f87e9611143d60e13f907781fe15",
+    "download_hash_verified": true,
+    "zip_integrity_verified": true,
+    "session_journey_checks": 27,
+    "desktop_and_mobile_screenshots_visually_inspected": true,
+    "automated_accessibility_violations": 0
+  },
+  "source_artifact": {
+    "id": 11710545876,
+    "outer_sha256": "2cfe948ae9b1976bffeb46a8139feabb97fd0848f54e3826651e907863ca2c7d",
+    "source_zip_sha256": "f0d17fd60dbccca5d936e7a59bf1da1dcafedeeecde81a33b757cf02d9d41316",
+    "verified_tree": "2197a7c402159985a1c7f57c04f8659edb51a3a2"
+  },
+  "fixed_failures": [
+    "Preserve empty verification redirects during credential response redaction; added ten regression tests.",
+    "Use a valid localhost WebAuthn relying-party domain while keeping all fixture networking on loopback."
+  ],
+  "limitations": ["Synthetic users and virtual authenticators only", "No independent security assessment", "No physical device or hosted identity verification", "Later commits require their own fresh CI", "Artifacts expire; run identifiers and hashes do not grant current availability"]
+}
