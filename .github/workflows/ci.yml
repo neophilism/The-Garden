@@ -40,3 +40,35 @@ jobs:
           python3 scripts/validate_charter.py
           python3 -m unittest discover -s tests/architecture -v
           printf 'Tested SHA: %s\n' "$GITHUB_SHA"
+  application:
+    name: application-build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      NODE_ENV: production
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Enforce committed dependency lock
+        run: test -s package-lock.json
+      - name: Install exact packages
+        run: npm ci --ignore-scripts=false
+      - name: Unit, type and executable build checks
+        run: npm run check
+      - name: Confirm static public output, nonindexable preview and no leaks
+        run: |
+          test -s apps/public/out/index.html
+          test -s apps/public/out/robots.txt
+          grep -qi 'History deserves' apps/public/out/index.html
+          grep -qi 'funding' apps/public/out/funding/index.html
+          grep -qi 'Disallow: /' apps/public/out/robots.txt
+          ! grep -riE 'DATABASE_URL|IDENTITY_CLIENT_SECRET|GITHUB_APP_PRIVATE_KEY' apps/public/out
+          printf 'Garden public static preview built at %s\n' "$GITHUB_SHA"
