@@ -5,8 +5,9 @@ import {admin} from 'better-auth/plugins/admin';
 import {defaultAc,userAc} from 'better-auth/plugins/admin/access';
 import {passkey} from '@better-auth/passkey';
 import {identityPolicy,boundedAuthRequest,unavailableIdentity} from './policy.mjs';
+import {identityResponse} from './response.mjs';
 import {accountLocks} from './session-locks.mjs';
-import {verifiedCredential,sessionAssurance,mayEnrollPasskey,redactAuthPayload,PRIVILEGED_ACTIONS,sameAssurance} from './assurance.mjs';
+import {verifiedCredential,sessionAssurance,mayEnrollPasskey,PRIVILEGED_ACTIONS,sameAssurance} from './assurance.mjs';
 const denied = () => new APIError('FORBIDDEN', {message:'Identity security request denied'});
 const responseJSON = (value, status=200) => Response.json(value, {status, headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
 /** All inputs are server-owned. sessionLockDatabase is an independently bounded
@@ -178,18 +179,7 @@ export function createResearchIdentity({database,secret,baseURL,environment,acti
      if(enabled&&(path.startsWith('/session/')||path==='/passkey/list'||path==='/passkey/remove')){
       response=await customSecurity(path,body,bounded.headers);
      }else{
-      const original=await auth.handler(bounded);
-      if(original.status>=500)response=unavailableIdentity();
-      else{
-       const headers=new Headers(original.headers);headers.set('Cache-Control','no-store');headers.set('X-Content-Type-Options','nosniff');
-       if((headers.get('content-type')??'').includes('application/json')){
-        let data=redactAuthPayload(await original.json());
-        if(path==='/passkey/generate-authenticate-options'&&original.ok)data={...data,userVerification:'required'};
-        if(path==='/passkey/verify-registration'&&original.ok)data={registered:true,id:data.id,name:data.name??null};
-        headers.delete('content-length');
-        response=new Response(JSON.stringify(data),{status:original.status,headers});
-       }else response=new Response(original.body,{status:original.status,headers});
-      }
+      response=await identityResponse(await auth.handler(bounded),path);
      }
     }catch(error){response=error instanceof APIError?responseJSON({error:'request_denied'},403):unavailableIdentity();}
     finally{if(state.release){try{await state.release();}catch{response=unavailableIdentity();}}}
