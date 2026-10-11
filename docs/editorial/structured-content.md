@@ -1,0 +1,21 @@
+# Structured content and draft versions — GDN-040
+
+The first implementation compiles versioned structured files into a private editorial preview. It provides the content contract for the later CMS without adding database tables, exposing a new route, or publishing records. `packages/domain/src/editorial/content.mjs` is the runtime validator/compiler; `StructuredContentPreview.tsx` renders the committed model using React text nodes.
+
+Pages contain an exact page revision, a language, one explanation level, stable block identifiers and an optional exact policy-version UUID. Supported blocks are headings, orientation or advocacy paragraphs, definitions, contextual callouts, policy provisions, policy figures, research assertions and citations. Raw HTML, arbitrary component names, scripts, event attributes and nested markup are not accepted. Links allow HTTPS or constrained site paths and have no-referrer semantics. Compiling and rendering do not fetch those links.
+
+Policy numbers and figures are resolved from the page's exact policy version. Each version carries its source document identity and SHA-256, draft date (or explicit unknown), provisions and figures. Figures are literal display values with units and context, not floating-point calculations or promises. A missing provision, different version or nonexistent figure fails the entire preview. A subsequent policy version explicitly names its predecessor; comparison preserves both numberings and never infers equivalence between unrelated sections. The source document hash is a binding to be checked by ingestion, not an assertion that this compiler inspected the underlying document bytes.
+
+Research assertion blocks reference exact claim/evidence revisions and immutable locator records. The compiler rejects missing or incompatible records, research claims mislabeled as policy statements, duplicate references and review scopes attached to the wrong record/revision. It shows source testimony separately from historical interpretation and preserves contrary evidence. Scoped review derives from the supplied current snapshot; an earlier revision stays visibly earlier. No input `verified` field or whole-work verification badge exists. The presence of supporting evidence is not a judgment that it is convincing or independent.
+
+## Authority and publication boundary
+
+The bundle is **already-authorized trusted snapshot material**, initially controlled structured files. The compiler is not an authentication or signature verifier. Never accept arbitrary browser-supplied review receipts as authority, and never send a bundle to a browser before authorizing every record and all source ancestors. GDN-025/GDN-037 repository reads establish that source boundary; GDN-039 supplies scoped review snapshots. A future CMS adapter must assemble a consistent snapshot, recheck current rights/consent and record dependencies in the correction graph before release. This PR does not implement that adapter or the future GDN-043 public projection.
+
+The component is unmounted. The output is explicitly `editorial-preview`, `publicationApproved:false` and `wholeWorkVerified:false`, including when all individual evidence dimensions pass. Compiling files cannot establish legal, fiscal, historical or publication review. Advocacy text still needs editorial review; schema validation cannot classify the meaning of prose or detect a fabricated historical claim hidden in an orientation paragraph.
+
+## Verification and continuation
+
+`node --test tests/data/editorial.test.mjs` covers missing/stale bindings, malicious markup/URLs, duplicate identities, bounded schemas, literal Unicode, competing evidence and draft comparison. `tools/quality/browser/editorial.spec.mjs` compiles the actual component and checks keyboard use, mobile layout, accessibility, malicious literal text without network requests, and stale-review presentation in Chromium/Firefox. These fixtures are synthetic and do not contain policy values or historical evidence for publication.
+
+No schema migration, new package or provider configuration is needed. Rollback removes the unmounted component/compiler; versioned input files and earlier drafts must remain preserved. Live deployment, independent editorial acceptance and Engine Room ingestion/readback are unverified.

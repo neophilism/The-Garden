@@ -10,6 +10,7 @@
     ".exechub/approved-pr-mapping.json",
     "plan/plan.json"
   ],
+  "scopeNote": "Exact 210 work package titles and scopes recovered from plan/plan.json; the last 14 are contingent governmental scope, not activated powers or deployed features. PR links come only from existing reviewed historical mappings.",
   "milestones": [
     {
       "id": "GDN-001",
@@ -438,7 +439,10 @@
       "sourceItemId": "GDN-039",
       "applicability": "current_scope",
       "scope": "Implement separate status axes for acquisition, transcription, evidentiary review, rights, consent, accessibility and publication. Record actor and scope of each review.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        31
+      ]
     },
     {
       "id": "GDN-040",
@@ -1979,6 +1983,5 @@
       "scope": "Conduct formal authorized acceptance of every activated governmental function, including independent security, legal process, accessibility, operations and disaster recovery.",
       "source": "plan/plan.json"
     }
-  ],
-  "scopeNote": "Exact 210 work package titles and scopes recovered from plan/plan.json; the last 14 are contingent governmental scope, not activated powers or deployed features. PR links come only from existing reviewed historical mappings."
+  ]
 }

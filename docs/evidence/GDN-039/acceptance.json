@@ -1,6 +1,6 @@
 {
   "work_item_id": "GDN-039",
-  "implementation": "candidate_scoped_review_states",
+  "implementation": "merged_with_exact_ci",
   "accepted": false,
   "production_verified": false,
   "independent_review": "not_performed",
@@ -9,7 +9,7 @@
     "GDN-039-AC02": "Domain and SQL role/state guards, optimistic version, author conflicts, receipt-bound assignment and current purpose permission.",
     "GDN-039-AC03": "Append-only reopened disputes preserve earlier events and verbatim legacy labels without promoting them."
   },
-  "local_validation": "Domain/repository/registry tests; actual PostgreSQL and browser evaluation is pending for this candidate.",
+  "local_validation": "Domain, PostgreSQL, repository and actual browser fixtures passed in six final-head PR CI workflows. Synthetic evidence only.",
   "activation": "No HTTP routes, private records, publication or new hosting activated.",
   "digest_profile": "postgres-jsonb-text-sha256 for a working revision, not a claim to original archival byte hashing.",
   "migration": "0011 additive and checksum-locked; not applied to Neon.",
@@ -18,5 +18,24 @@
     "Current purpose permission is not legal adjudication or rights verification.",
     "Release recommendation remains distinct from publication approval.",
     "Operator-controlled database history is not independently anchored."
-  ]
+  ],
+  "github": {
+    "implementation": "merged_with_exact_ci",
+    "github_pr_number": 31,
+    "github_head_sha": "90a5ca803bd760e35d85779b4b3d763f2850ffa0",
+    "github_merge_sha": "9d286f168cb24d51178f020da60d1b462c277275",
+    "ci_url": "https://github.com/neophilism/The-Garden/actions/runs/38168167666",
+    "ci_workflows": {
+      "repository": 38168167666,
+      "database": 38168167737,
+      "identity": 38168167619,
+      "storage": 38168167675,
+      "historical_data": 38168167808,
+      "quality_browser": 38168167563
+    },
+    "accepted": false,
+    "production_verified": false,
+    "independent_review": "not_performed",
+    "note": "All six final-head workflows succeeded before the confirmed merge. No production or historical acceptance inferred."
+  }
 }

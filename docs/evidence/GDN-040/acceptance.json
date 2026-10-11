@@ -1,0 +1,24 @@
+{
+  "work_item_id": "GDN-040",
+  "implementation": "candidate_structured_editorial_content",
+  "accepted": false,
+  "production_verified": false,
+  "independent_review": "not_performed",
+  "criteria": {
+    "GDN-040-AC01": "Exact claim, evidence and locator existence/revision validation; review scope must match. Caller authenticates snapshot separately.",
+    "GDN-040-AC02": "Policy figures/provision numbers resolve only within exact document-bound draft version.",
+    "GDN-040-AC03": "Closed typed text nodes and navigation-only URLs; React escaping; no raw HTML renderer."
+  },
+  "local_unit_tests_passed": 72,
+  "browser_verification": "Local browser download returned a truncated archive; fresh GitHub browser CI required before merge.",
+  "migration": "none; versioned structured-file rollout as specified",
+  "activation": "Unmounted private preview only; no publication or cloud changes.",
+  "limitations": [
+    "Semantic classification and independent source/legal/fiscal review remain human responsibilities.",
+    "The compiler cannot authenticate caller-supplied review receipts.",
+    "Public release and authorized live CMS snapshot assembly remain separate later capabilities."
+  ],
+  "local_core_tests_passed": 1129,
+  "local_architecture_tests_passed": 103,
+  "local_plan_tests_passed": 21
+}
