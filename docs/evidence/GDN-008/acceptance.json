@@ -1,0 +1,14 @@
+{
+  "work_item_id": "GDN-008",
+  "evidence_profile": "roadmap_documentation_and_validation",
+  "status": "pending_exact_head_ci_and_independent_review",
+  "acceptance": {
+    "GDN-008-AC01": "DAG has 210 unique IDs and cycle detection with negative tests",
+    "GDN-008-AC02": "43 features mapped to PRs with documented release closures; existing plan validator remains authority",
+    "GDN-008-AC03": "actual GitHub PR number only through explicitly reviewed mapping, independent of GDN ordinal; no production claim"
+  },
+  "tests": "Ten newly specified execution/false-completion regression tests in tests/architecture/test_roadmap_reconciliation.py; existing plan and architecture CI also required",
+  "independent_review": "not_performed",
+  "remote_engine_room_ingestion": "unverified",
+  "production_verification": 0
+}

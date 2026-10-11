@@ -1,10 +1,10 @@
 {
   "current_scope_items": 196,
   "conditional_items": 14,
-  "remote_prs_opened": 5,
-  "verified_merged_items": 4,
+  "remote_prs_opened": 7,
+  "verified_merged_items": 6,
   "production_verified_items": 0,
   "current_scope_weight": 608,
   "conditional_weight": 46,
-  "note": "GDN-001..004 map to merged PRs #2-#5 with passing GitHub checks. GDN-005 PR #6 open. Four accepted production items: 0. Independent scholarly/rights/security review still pending. Bootstrap #1 excluded."
+  "note": "Six planned PRs GDN-001..006 have actual merged GitHub PRs #2..#7 and passing CI; GDN-008 has open PR #8; GDN-007 not begun. Bootstrap PR #1 excluded. No independently accepted release or production feature."
 }
