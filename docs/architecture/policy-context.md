@@ -1,0 +1,31 @@
+# Record-level policy context - GDN-024
+
+## Purpose and scope
+
+An identity, a workspace membership and a record grant are distinct. An active member reads a record only when an explicit unrevoked record grant covers that subject, workspace, research purpose and current record. Unclassified, quarantined, withdrawn, licensed, personal, sealed and governmental records are denied by this first implementation even when a grant exists. They need their own later reviewed delivery capabilities. Public publication is a separate transaction and dataset.
+
+`garden_private.record_envelopes` has ENABLE and FORCE ROW LEVEL SECURITY. Its owner has no read policy; a compromised migration owner can still alter DDL, so migration credentials are excluded from runtime, not declared harmless. The query role has SELECT and UPDATE(payload), not INSERT, DELETE, TRUNCATE, classification or ACL changes. An update requires both a writer role and explicit write grant. A database trigger increments the record version. The envelope is a bounded synthetic storage boundary; future domain tables require equivalent record policies and tests, not assumed inheritance.
+
+## Two trusted server capabilities, not a writable identity GUC
+
+A server-owned identity adapter obtains the verified subject. The context-issuer login may SET only the issuer capability, not the query, worker, publisher, administration or migration roles. The query login may SET only the research capability. Every checked-out connection is tested for dangerous role attributes and cross-capability membership before use. A changed session role or contaminated pool is rejected and its connection destroyed.
+
+The issuer mints a short-lived opaque bearer ticket: two random UUIDs, hashed in the control table, with workspace, subject, membership version, operation, optional record scope, research purpose and thirty-second expiry. The query transaction can redeem, but cannot issue, a ticket. The binding lives in a private database table keyed by backend PID and transaction ID. Client `SET` variables cannot impersonate an identity. A transaction cannot switch bindings. Committed ticket replay is denied.
+
+These roles reduce accidental privilege mixing; they do not make a fully compromised application server or a stolen issuer credential trustworthy. The issuer must not be exposed as a client-facing arbitrary-subject endpoint. Bearer tickets must never appear in URLs, logs, metrics, errors or response bodies. Different pools mean different least-privilege login credentials, not two pool objects sharing an owner password.
+
+## Revocation and transaction semantics
+
+At each READ COMMITTED statement, RLS checks current membership state, policy, membership version, role validity, record grant, classification, record state, ticket lifetime and purpose. Earlier data already returned to an authorized client cannot be recalled. A concurrent revocation does not retroactively cancel a completed database statement. Later delivery-path validation belongs to GDN-025. READ COMMITTED is the supported isolation level; this is not a promise about stale repeatable-read snapshots.
+
+The executor revalidates the authenticated subject before returning, clears its context and commits. Errors trigger rollback and discard results. A failed rollback destroys the connection. A separate issuer transaction retires the ticket after commit or rollback. If a process crashes before retirement, expiry limits further use and the PID/transaction key prevents cross-transaction context reuse. In a rolled-back redemption the used flag also rolls back: the no-replay claim is for committed redemption, not a global distributed exactly-once guarantee after a crash. Expired control rows require a separately configured bounded cleanup procedure; no scheduler is created here.
+
+A cleanup failure after successful COMMIT is an indeterminate delivery outcome: return no protected result, do not assume the write rolled back, and do not blindly retry non-idempotent writes. Later operation IDs and audit controls must preserve this distinction.
+
+## Evidence, rollout and recovery
+
+`tests/access/policy-context.test.mjs` tests policy-executor rejection, connection destruction, cleanup and identity changes. `apps/research/access/rls.ci.mjs` exercises actual PostgreSQL with disjoint non-owner logins, ten role types on one reused backend, no-context/GUC spoofing, write restrictions, owner and worker denial, revocation, ticket expiry/replay, rollback and cleanup. Synthetic records are marked as such. Identity-lifecycle CI records source-bound observations.
+
+No public endpoint, real researcher account, cloud schema migration or private corpus is activated. The existing production-denying migration runner remains unchanged. Deploy only to an authorized synthetic test environment after all required exact-head CI passes; perform independent security and actual hosted TLS/login/pool verification before sensitive data. Roll back activation/application code while retaining successful records. Do not bypass FORCE RLS or delete research to make a test pass.
+
+References: PostgreSQL 18 row security, transaction identifiers, and built-in binary SHA-256 functions are upstream interfaces; see https://www.postgresql.org/docs/18/ddl-rowsecurity.html , https://www.postgresql.org/docs/18/functions-info.html and https://www.postgresql.org/docs/18/functions-binarystring.html . Upstream documentation is not certification of this implementation.

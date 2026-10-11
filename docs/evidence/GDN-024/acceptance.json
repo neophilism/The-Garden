@@ -1,0 +1,21 @@
+{
+  "work_item": "GDN-024",
+  "implementation": "candidate",
+  "criteria": {
+    "GDN-024-AC01": "RLS permits only explicitly granted active research rows; all other classifications default-deny.",
+    "GDN-024-AC02": "Opaque issuer tickets bind to exact PID/transaction; disjoint runtime identities and cleanup prevent reuse of context.",
+    "GDN-024-AC03": "Capability preflight and PostgreSQL grants exclude DDL, migration, issuer and other privileged roles from query login."
+  },
+  "tests": [
+    "tests/access/policy-context.test.mjs",
+    "apps/research/access/rls.ci.mjs"
+  ],
+  "local_new_tests_passed": 23,
+  "local_all_access_tests_passed": 65,
+  "github_ci": "pending",
+  "independent_review": "not_performed",
+  "accepted": false,
+  "neon_migration_applied": false,
+  "public_route_enabled": false,
+  "production_verified": false
+}
