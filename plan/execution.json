@@ -57,12 +57,22 @@
       "production": "not_applicable_to_source_verification"
     },
     "GDN-003": {
-      "implementation": "pr_open_subject_area_security_mapping",
+      "implementation": "merged_pinned_document_mapping",
       "github_pr_number": 4,
+      "github_merge_sha": "91307ffc3831d8a908f2ecebd97b5baf18303fab",
+      "github_head_sha": "dde6135afa4a5df3e7549eb27ef1f32693dfab3c",
+      "ci_url": "https://github.com/neophilism/The-Garden/actions/runs/38097184916",
       "accepted": false,
-      "canonical_revision": "ddfbd40c47d13890ebb81ea91c81fe329417058e",
       "independent_review": "not_performed",
       "production": "not_applicable_to_document"
+    },
+    "GDN-004": {
+      "implementation": "pr_open_integrations_and_approved_manifest",
+      "github_pr_number": 5,
+      "accepted": false,
+      "engine_room_registration": "not_verified",
+      "independent_review": "not_performed",
+      "production": "not_deployed"
     }
   },
   "production_verified_items": 0,

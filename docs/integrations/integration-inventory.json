@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "observed_at": "2026-10-10",
+  "repository": {
+    "provider": "github",
+    "identity": "neophilism/The-Garden",
+    "status": "connected_write_pr_merge_verified",
+    "privacy": "public",
+    "access": "admin",
+    "plan_manifest": ".exechub/project.yml",
+    "approved_pr_map": ".exechub/approved-pr-mapping.json"
+  },
+  "hosting": {
+    "provider": "render",
+    "workspace_id": "tea-db23jkks728c73av263g",
+    "user_designated_project_id": "prj-db57f92jnfac739ghic0",
+    "project_membership_verified": false,
+    "service_id": null,
+    "service_url": null,
+    "garden_service_found_in_workspace": false,
+    "workspace_authenticated": true,
+    "deployment_verified": false,
+    "new_spending_authorized": false,
+    "connector_limitation": "create_static_site and create_web_service expose workspaceId but not projectId; do not silently create a workspace-root/unassociated site"
+  },
+  "database": {
+    "provider": "neon",
+    "project_id": "royal-union-78374030",
+    "project_name": "The Garden",
+    "branch_id": "br-curly-band-b5aatp1e",
+    "branch_name": "production",
+    "database_name": "neondb",
+    "role_names": [
+      "neondb_owner"
+    ],
+    "application_roles_created": false,
+    "tables_observed": 0,
+    "region": "aws-us-east-2",
+    "access": "ADMIN",
+    "isolation_verified_by_project_id": true,
+    "schema_migrated": false,
+    "neon_auth_enabled": false,
+    "data_api_enabled": false,
+    "storage_endpoint_enabled": true,
+    "buckets_observed": 0,
+    "private_media_permissions_configured": false
+  },
+  "engine_room": {
+    "repository": "neophilism/Engine-Room",
+    "documented_import": "approved .exechub/project.yml with explicit .exechub/approved-pr-mapping.json",
+    "public_source_sync": "documented best effort GitHub ingestion; not yet observed for The Garden",
+    "website": "https://engine-room-1ec7.onrender.com",
+    "registration_observed": false,
+    "progress_observed": false,
+    "provider_health_observed": false
+  },
+  "other_services": {
+    "identity": {
+      "state": "not_configured",
+      "plan": "Use existing compatible identity engine only after contract review; do not fabricate accounts"
+    },
+    "archive_storage": {
+      "state": "available_no_bucket_or_access_contract",
+      "plan": "No publication until rights, encryption, consent, region and access verified"
+    },
+    "notifications": {
+      "state": "not_configured",
+      "plan": "No email without authenticated provider and approved sending domain"
+    },
+    "payments": {
+      "state": "not_configured",
+      "plan": "No payment actions until authorized payee and provider contract"
+    },
+    "ai": {
+      "state": "disabled",
+      "plan": "No private data/model egress until contract and cost authorization"
+    }
+  },
+  "cost_policy": "No paid provider tier/new instance without user authorization; existing services belonging to other products are out of scope.",
+  "integrity": "observations_not_implementation_or_production_acceptance"
+}

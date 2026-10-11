@@ -1,16 +1,19 @@
 # Current execution status — 2026-10-10
 
-## Verified GitHub changes
-- [Bootstrap PR #1](https://github.com/neophilism/The-Garden/pull/1): merged, full approved text restored; not part of the 210 planned items.
-- [GDN-001 PR #2](https://github.com/neophilism/The-Garden/pull/2): merged with passing checks; product charter / 43 feature contract; independent review pending.
-- [GDN-002 PR #3](https://github.com/neophilism/The-Garden/pull/3): merged with passing checks; four CP-017 archive hashes, CRC and canonical read-only SQLite integrity verified; historical assertions and rights **not** certified.
-- [GDN-003 PR #4](https://github.com/neophilism/The-Garden/pull/4): open; canonical security standard pinned to `ddfbd40c47d13890ebb81ea91c81fe329417058e`, only document-level mappings, **no conformance claim**. CI and independent review required.
+## Actual merged engineering work
+- Bootstrap [PR #1](https://github.com/neophilism/The-Garden/pull/1): restored 274 source-planning text files; excluded from 210-item denominator.
+- GDN-001 [PR #2](https://github.com/neophilism/The-Garden/pull/2): charter and feature roles, CI passed.
+- GDN-002 [PR #3](https://github.com/neophilism/The-Garden/pull/3): verified four CP-017 component archives, CRC and CORE read-only SQLite integrity, CI passed.
+- GDN-003 [PR #4](https://github.com/neophilism/The-Garden/pull/4): pinned actual E2EESA development SHA and mapped security subject areas with fail-closed tests, CI passed. **Not security certified.**
+- GDN-004 [PR #5](https://github.com/neophilism/The-Garden/pull/5): open; explicit provider inventory and `.exechub` plan/mapping for Engine Room, CI and external observation pending.
 
-## Provider identities
-- GitHub: write and PR/merge confirmed.
-- Neon: named Garden project `royal-union-78374030`; production branch `br-curly-band-b5aatp1e`; empty `neondb` schema observed. No schema or role changes made.
-- Render: authorized workspace `tea-db23jkks728c73av263g`, owner-supplied project `prj-db57f92jnfac739ghic0`. **No Garden service presently listed**; tool lacks explicit service-to-project attachment. No services provisioned or deployments performed.
-- Engine Room: source repo and service located; Garden live registration and progress sync not verified.
+## Provider observations
+- GitHub is writable and PR operations verified.
+- Render workspace `tea-db23jkks728c73av263g` is authenticated. The owner-given Render project is `prj-db57f92jnfac739ghic0`; no Garden service is listed, and the connector's create-service operation cannot set a Render project ID. **Do not attach to another project silently.**
+- Neon project `royal-union-78374030` (The Garden), branch `br-curly-band-b5aatp1e` (`production`), `neondb` currently has zero tables. Neon Auth and Data API are absent; object storage exists, but no buckets. No infrastructure mutations made.
+- Engine Room is located and its `.exechub/project.yml` importer contract is documented. No verified Garden live registration or progress readback yet.
 
-## Release gates
-No Garden feature is production verified. Upstream E2EESA is addressing audit remediation, so sensitive research/sealed-encryption release stays blocked pending exact-profile selection and independent review. Public-only work may proceed in isolation. Historical integrity checking is not editorial validation. See `plan/execution.json` for exact hashes and evidence. No new spending, no background work.
+## Honest acceptance
+Three planned PRs are merged; not equivalent to completed release acceptance. Independent research/rights/security expert review and all production acceptance remain pending. No Garden website has been deployed, no new spending authorized, and no scheduler/background work is claimed.
+
+Use `plan/execution.json` for current work-to-actual-PR mapping, `plan/progress.json` for counts, and `docs/integrations/integration-inventory.json` for provider scopes.
