@@ -42,21 +42,12 @@ jobs:
         with:
           node-version: '24'
           package-manager-cache: false
-      - name: Generate complete deterministic lock
-        run: npm install --package-lock-only --include=dev --ignore-scripts --no-audit
-      - name: Verify generated lock installs
+      - name: Exact locked dependencies
         run: npm ci --include=dev --no-audit
       - name: Identity configuration and route rejection tests
         run: npm run test:identity --workspace=@garden/research
       - name: Database-backed login, recovery, revocation and suspension
         run: node apps/research/identity/lifecycle.ci.mjs
-      - name: Preserve generated lock
-        if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: garden-identity-lock-${{ github.run_id }}
-          path: package-lock.json
-          retention-days: 1
       - name: Preserve safe lifecycle evidence and generated synthetic schema
         if: success()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
