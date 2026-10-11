@@ -1,6 +1,6 @@
 # Security assurance baseline and canonical-standard gap
 
-The actual user-specific End-To-End-Everywhere standard was not located. This file is a proposed testable baseline, not an interpretation that replaces the missing standard and not a compliance claim. GDN-003 reconciles the canonical text; GDN-190 independently assesses actual implementation before sensitive production.
+The canonical End-To-End-Everywhere standard has now been located and pinned to Git commit `ddfbd40c47d13890ebb81ea91c81fe329417058e`. See [canonical reconciliation](canonical-reconciliation.md) and the [machine-readable crosswalk](standard-crosswalk.json). Existing controls below are **proposed application requirements**, not conformance, assessed cryptographic profiles, or certification. The upstream standard is undergoing Audit v2 remediation; GDN-190 independently assesses implementation before sensitive production.
 
 ## SEC-01 - Identity and assurance
 
@@ -8,7 +8,7 @@ Verified issuer/audience, secure session lifecycle, step-up for privileged opera
 
 PRs: GDN-021,GDN-022. Required evidence: Login, recovery, session fixation and revoked-device tests.
 
-Canonical mapping: pending; status: specified, not implemented or verified.
+Canonical mapping: pinned subject-area documents only; requirement-level mapping, implementation and independent verification remain pending.
 
 ## SEC-02 - Authorization everywhere
 
@@ -16,7 +16,7 @@ Default deny at data/API/storage/search/media/export/notification/worker/collabo
 
 PRs: GDN-024,GDN-025,GDN-031. Required evidence: All-role data-class matrix with cross-user canaries.
 
-Canonical mapping: pending; status: specified, not implemented or verified.
+Canonical mapping: pinned subject-area documents only; requirement-level mapping, implementation and independent verification remain pending.
 
 ## SEC-03 - Data and key separation
 
@@ -24,7 +24,7 @@ Project/environment isolation, runtime versus migration roles, managed key lifec
 
 PRs: GDN-012,GDN-013,GDN-026. Required evidence: Wrong-project, pool contamination, rotation, KMS outage and restore tests.
 
-Canonical mapping: pending; status: specified, not implemented or verified.
+Canonical mapping: pinned subject-area documents only; requirement-level mapping, implementation and independent verification remain pending.
 
 ## SEC-04 - Sealed E2EE
 
@@ -32,7 +32,7 @@ Recipient-controlled keys, ciphertext server storage, no server plaintext search
 
 PRs: GDN-027,GDN-028. Required evidence: Browser/server egress canaries and independent crypto assessment.
 
-Canonical mapping: pending; status: specified, not implemented or verified.
+Canonical mapping: pinned subject-area documents only; requirement-level mapping, implementation and independent verification remain pending.
 
 ## SEC-05 - Purpose and consent
 
@@ -40,7 +40,7 @@ Research, preservation, display, identity and endorsement permissions are separa
 
 PRs: GDN-029,GDN-139. Required evidence: Consent matrix, publication race and derivative withdrawal tests.
 
-Canonical mapping: pending; status: specified, not implemented or verified.
+Canonical mapping: pinned subject-area documents only; requirement-level mapping, implementation and independent verification remain pending.
 
 ## SEC-06 - Untrusted archival inputs
 
@@ -48,7 +48,7 @@ Quarantine and sandbox file parsing, no network/macro execution, bounded resourc
 
 PRs: GDN-041,GDN-077,GDN-079. Required evidence: ZIP bomb, path traversal, XML entity, SSRF and converter timeout tests.
 
-Canonical mapping: pending; status: specified, not implemented or verified.
+Canonical mapping: pinned subject-area documents only; requirement-level mapping, implementation and independent verification remain pending.
 
 ## SEC-07 - Publication and retraction
 
@@ -56,7 +56,7 @@ Independent state gates, public projection and deny-first withdrawal.
 
 PRs: GDN-034,GDN-043,GDN-126. Required evidence: Stale index/CDN/export/preview resurrection tests.
 
-Canonical mapping: pending; status: specified, not implemented or verified.
+Canonical mapping: pinned subject-area documents only; requirement-level mapping, implementation and independent verification remain pending.
 
 ## SEC-08 - Integrity and audit
 
@@ -64,7 +64,7 @@ Tamper-evident action records, immutable source lineage, actor and reason attrib
 
 PRs: GDN-030,GDN-048. Required evidence: Hash-chain/recovery, missing-row and reclassification audits.
 
-Canonical mapping: pending; status: specified, not implemented or verified.
+Canonical mapping: pinned subject-area documents only; requirement-level mapping, implementation and independent verification remain pending.
 
 ## SEC-09 - Sensitive contributions
 
@@ -72,7 +72,7 @@ Restricted defaults, complete redaction and explicit legal/ethical safeguards.
 
 PRs: GDN-136,GDN-138,GDN-145. Required evidence: Hidden text/EXIF/media track and insider access tests.
 
-Canonical mapping: pending; status: specified, not implemented or verified.
+Canonical mapping: pinned subject-area documents only; requirement-level mapping, implementation and independent verification remain pending.
 
 ## SEC-10 - AI boundaries
 
@@ -80,7 +80,7 @@ Read-only tools, permission-first retrieval, no sealed data, bounded provider ha
 
 PRs: GDN-166,GDN-168,GDN-170. Required evidence: Prompt injection, cross-user retrieval, secret egress and cost ceiling tests.
 
-Canonical mapping: pending; status: specified, not implemented or verified.
+Canonical mapping: pinned subject-area documents only; requirement-level mapping, implementation and independent verification remain pending.
 
 ## SEC-11 - Supply chain and deployment
 
@@ -88,7 +88,7 @@ Least-privilege CI, checked artifacts, actual merge policy and environment isola
 
 PRs: GDN-010,GDN-011,GDN-018,GDN-020. Required evidence: Fork secret denial, exact-SHA checks and failed migration drills.
 
-Canonical mapping: pending; status: specified, not implemented or verified.
+Canonical mapping: pinned subject-area documents only; requirement-level mapping, implementation and independent verification remain pending.
 
 ## SEC-12 - Retention and recovery
 
@@ -96,7 +96,7 @@ Purpose-based lifecycle, scoped holds, restorable backups and deletion replay.
 
 PRs: GDN-032,GDN-183,GDN-184. Required evidence: Restore after withdrawal, key loss and truncated component tests.
 
-Canonical mapping: pending; status: specified, not implemented or verified.
+Canonical mapping: pinned subject-area documents only; requirement-level mapping, implementation and independent verification remain pending.
 
 ## Explicit trust limits
 

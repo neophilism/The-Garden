@@ -1,17 +1,16 @@
-# Current execution status — observed 2026-10-10
+# Current execution status — 2026-10-10
 
-## Verified GitHub delivery
-Bootstrap [PR #1](https://github.com/neophilism/The-Garden/pull/1) and charter **GDN-001 [PR #2](https://github.com/neophilism/The-Garden/pull/2)** are merged with passing exact-head CI. Only GDN-001 maps to the approved 210-item plan; independent acceptance review is outstanding and no feature is production verified.
+## Verified GitHub changes
+- [Bootstrap PR #1](https://github.com/neophilism/The-Garden/pull/1): merged, full approved text restored; not part of the 210 planned items.
+- [GDN-001 PR #2](https://github.com/neophilism/The-Garden/pull/2): merged with passing checks; product charter / 43 feature contract; independent review pending.
+- [GDN-002 PR #3](https://github.com/neophilism/The-Garden/pull/3): merged with passing checks; four CP-017 archive hashes, CRC and canonical read-only SQLite integrity verified; historical assertions and rights **not** certified.
+- [GDN-003 PR #4](https://github.com/neophilism/The-Garden/pull/4): open; canonical security standard pinned to `ddfbd40c47d13890ebb81ea91c81fe329417058e`, only document-level mappings, **no conformance claim**. CI and independent review required.
 
-**GDN-002 [PR #3](https://github.com/neophilism/The-Garden/pull/3)** is open: documented archive identities and a read-only verifier. The four CP-017 component ZIPs were retrieved from the owner's Library; exact SHA-256 and archive CRC checks passed. Canonical CORE SQLite integrity passed with zero FK violations (107 tables including SQLite internal tables). Historical scholarship, full recovery, image/asset rights, and publication authorization are explicitly **not verified**. No private corpus bytes have been committed.
+## Provider identities
+- GitHub: write and PR/merge confirmed.
+- Neon: named Garden project `royal-union-78374030`; production branch `br-curly-band-b5aatp1e`; empty `neondb` schema observed. No schema or role changes made.
+- Render: authorized workspace `tea-db23jkks728c73av263g`, owner-supplied project `prj-db57f92jnfac739ghic0`. **No Garden service presently listed**; tool lacks explicit service-to-project attachment. No services provisioned or deployments performed.
+- Engine Room: source repo and service located; Garden live registration and progress sync not verified.
 
-## Authorized providers
-- GitHub `neophilism/The-Garden`: write/PR operations verified.
-- Render: connected workspace `tea-db23jkks728c73av263g`; user supplied project `prj-db57f92jnfac739ghic0`. **No Garden service currently visible** among workspace services; assigning a new service to that project is not supported by the connector's create service interface. Other services are out of scope.
-- Neon: authorized named project `royal-union-78374030`, branch `br-curly-band-b5aatp1e` (`production`), database `neondb`, current database table list empty. No migrations or role changes made.
-- Engine Room: repository and service contracts located, but actual Garden registration and live sync remain unverified. Do not count planned IDs as GitHub PR ordinals.
-
-## Boundaries
-No Garden application or URL is deployed or production verified. No new services or spending authorized, and no provider mutation performed. Actual runtime release remains gated by tested application functionality, provider placement and cost review, rights, privacy and security assurance. The original baseline `DEVELOPMENT_PLAN.md` includes historical preparation-time access statements; this file carries the verified current observations.
-
-See `plan/execution.json`, `plan/progress.json`, `plan/blockers.json`, `docs/product/charter.md` and `docs/sources/baseline-artifacts.json`.
+## Release gates
+No Garden feature is production verified. Upstream E2EESA is addressing audit remediation, so sensitive research/sealed-encryption release stays blocked pending exact-profile selection and independent review. Public-only work may proceed in isolation. Historical integrity checking is not editorial validation. See `plan/execution.json` for exact hashes and evidence. No new spending, no background work.
