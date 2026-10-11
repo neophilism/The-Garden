@@ -1,0 +1,13 @@
+# GDN-013: isolated synthetic database foundation
+
+Staging lives only in Garden Neon project `royal-union-78374030`, branch `br-purple-grass-b5hurfl7` (`garden-staging`), database `neondb`. Production `br-curly-band-b5aatp1e` is unchanged. The branch was created within the observed free_v3 allowance (2 of 10 branches), fixed 0.25 CU, with no paid upgrade. No historical/family records were copied or ingested.
+
+Four NOLOGIN / NOBYPASSRLS group roles separate schema migration, public reading, restricted research, and publication. They are not runtime authentication credentials. Schema privileges and deny-all forced RLS are verified on synthetic probe records. No active researcher accounts, publication interface, identity backend or production schema is enabled.
+
+`scripts/db_migrate.py` uses only the standard library and psql. Set GARDEN_DB_TARGET=ci with PGHOST=127.0.0.1, PGDATABASE=neondb, PGPORT=5432 and PGUSER=postgres for ephemeral CI. Staging requires the exact recorded direct host, project/branch IDs, PGUSER=neondb_owner, PGSSLMODE=verify-full and PGCHANNELBINDING=require; inject PGPASSWORD privately, never paste it in logs. Without --apply the tool prints only the SQL plan. Production targets, pooled migration hosts, overridden libpq connections, altered digests and existing mismatched deployment bindings fail closed.
+
+Migrations and their history commit atomically under an advisory transaction lock. Applied migrations are skipped only after their stored SHA-256 matches. Concurrent operators serialize; failures roll back. No automatic destructive down migration exists. Recovery disables the dependent app and retains the tested staging branch for inspection; do not delete/reset branches without explicit authorization.
+
+The live Neon MCP tests confirmed public/private separation, no runtime DDL, NOLOGIN/no-bypass attributes, one public synthetic probe and zero private rows visible to the research group. They did NOT authenticate with runtime login credentials. The internal SQL connection reported pg_stat_ssl=false, so it does not establish external client TLS. CI additionally uses SET SESSION AUTHORIZATION in an ephemeral PostgreSQL container to test privilege escalation correctly; SET ROLE from an administrator alone cannot establish that assurance.
+
+Independent security assessment, actual pooled runtime/login tests, backup restoration and production migration approval remain open. The earlier unmerged branch `foundation/gdn-013-database` contains an alternative candidate and is not the migration manifest for this staging branch. It is retained rather than erased; do not execute competing foundations against the same schemas.

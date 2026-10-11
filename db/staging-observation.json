@@ -1,0 +1,5 @@
+{
+ "observed_at":"2026-10-11T07:21:00Z","project_id":"royal-union-78374030","branch_id":"br-purple-grass-b5hurfl7","branch_name":"garden-staging","parent_branch_id":"br-curly-band-b5aatp1e","database":"neondb","endpoint_id":"ep-round-recipe-b5mlz2vw","schema_version":"0001_foundation","schema_sha256":"7ba727f1d96d342853a75670ecf4313275e72fb53674188c2e27690e246cf52e",
+ "group_roles":["garden_migrator","garden_public","garden_research","garden_publisher"],"all_roles_nologin_and_nobypassrls":true,"public_private_usage":false,"research_private_visible_rows":0,"public_probe_visible_rows":1,"runtime_ddl_privilege":false,"production_changed":false,"historical_records_imported":0,"external_client_tls_verified":false,
+ "tls_note":"MCP SQL session pg_stat_ssl reported false; internal proxy SQL is not external client TLS proof. Connection planner requires verify-full and channel_binding=require. No production credentials issued.","independent_security_review":"not_performed","cost_basis":"Existing free_v3 project; branch 2 of 10; staging compute fixed 0.25 CU, no paid tier selected. Account limits still apply."
+}
