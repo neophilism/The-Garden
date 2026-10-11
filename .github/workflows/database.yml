@@ -39,15 +39,23 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - name: Planner negative fixtures
-        run: python3 -m unittest discover -s tests/database -v
-      - name: Verify idempotent atomic migration twice
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Planner and worker negative fixtures
+        run: |
+          python3 -m unittest discover -s tests/database -v
+          node --test tests/jobs/*.test.mjs
+      - name: Verify idempotent atomic migrations twice
         run: |
           set -eu
           python3 scripts/db_migrate.py --apply
           python3 scripts/db_migrate.py --apply
-      - name: Enforce actual PostgreSQL permission boundaries
-        run: psql -X -w -f tests/database/roles.sql
+      - name: Enforce actual PostgreSQL permission and job boundaries
+        run: |
+          psql -X -w -f tests/database/roles.sql
+          psql -X -w -f tests/database/jobs.sql
       - name: Record database version and source
         run: |
           psql -X -w -Atc 'select version()'

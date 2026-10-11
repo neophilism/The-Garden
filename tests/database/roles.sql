@@ -32,6 +32,6 @@ ROLLBACK;
 DO $test$ BEGIN
  IF current_user<>'postgres' THEN RAISE EXCEPTION 'transaction role leaked into reused session'; END IF;
  IF (SELECT count(*) FROM garden_private.access_probe)<>1 THEN RAISE EXCEPTION 'role test changed source row'; END IF;
- IF (SELECT count(*) FROM garden_control.schema_migrations)<>1 THEN RAISE EXCEPTION 'migration not idempotent'; END IF;
+ IF (SELECT count(*) FROM garden_control.schema_migrations WHERE migration_id='0001_foundation')<>1 THEN RAISE EXCEPTION 'migration not idempotent'; END IF;
 END $test$;
 SELECT 'permission, escalation, force-RLS, idempotency and role-reset tests passed' AS result;
