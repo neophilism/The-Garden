@@ -1,0 +1,16 @@
+{
+  "work_item": "GDN-029",
+  "implementation": "candidate",
+  "criteria": {
+    "GDN-029-AC01": "Five independent purposes and exact immutable terms; consent does not replace other approvals.",
+    "GDN-029-AC02": "Intersection of all registered derivative inputs; obligations cannot be dropped or reset to exempt.",
+    "GDN-029-AC03": "Restrictive current-use RLS and serialized, rechecked transactional use admission."
+  },
+  "unit_tests": "83 new purpose/administration/pipeline tests and one additional unsafe-role test passed locally",
+  "real_postgres_checks": "executable CI fixture; pending exact-head execution",
+  "independent_review": "not_performed",
+  "accepted": false,
+  "production_verified": false,
+  "neon_migration_applied": false,
+  "sensitive_routes_enabled": false
+}

@@ -1,3 +1,4 @@
+import {allowSyntheticResearchUse} from '../access/consent-test-fixture.mjs';
 import assert from 'node:assert/strict';
 import {randomBytes,randomUUID} from 'node:crypto';
 import {mkdir,writeFile} from 'node:fs/promises';
@@ -25,7 +26,7 @@ try {
   await admin.query("INSERT INTO garden_control.access_members(workspace_id,subject_id,state,policy_sha256) VALUES($1,$2,'active',$3)",[W,s,policy]);
   await admin.query("INSERT INTO garden_control.access_roles(workspace_id,subject_id,role,issued_by,expires_at) VALUES($1,$2,'researcher','alice',clock_timestamp()+interval '30 days')",[W,s]);
  }
- async function empty(){const id=randomUUID();await admin.query("INSERT INTO garden_private.record_envelopes(id,workspace_id,owner_subject_id,classification,state) VALUES($1,$2,'alice','research','active')",[id,W]);await admin.query("INSERT INTO garden_control.record_grants(workspace_id,record_id,subject_id,can_read,can_write,purpose,expires_at) VALUES($1,$2,'alice',true,true,'research',clock_timestamp()+interval '30 days')",[W,id]);return id;}
+ async function empty(){const id=randomUUID();await admin.query("INSERT INTO garden_private.record_envelopes(id,workspace_id,owner_subject_id,classification,state) VALUES($1,$2,'alice','research','active')",[id,W]);await allowSyntheticResearchUse(admin,W,id);await admin.query("INSERT INTO garden_control.record_grants(workspace_id,record_id,subject_id,can_read,can_write,purpose,expires_at) VALUES($1,$2,'alice',true,true,'research',clock_timestamp()+interval '30 days')",[W,id]);return id;}
  async function create(value){return repo.initialize(headers('alice'),W,value.id,'1',value);}
  const repository=await create(unit(await empty()));
  const collection=await create(unit(await empty(),'collection',repository.record.id));

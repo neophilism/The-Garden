@@ -1,3 +1,4 @@
+import {allowSyntheticResearchUse} from '../access/consent-test-fixture.mjs';
 import assert from 'node:assert/strict';
 import {randomBytes,randomUUID} from 'node:crypto';
 import {mkdir,writeFile} from 'node:fs/promises';
@@ -27,7 +28,7 @@ try {
  const ids={};
  for(const label of ['a','b','c','language','port','voyage','relation','hidden']){
   ids[label]=randomUUID();
-  await admin.query("INSERT INTO garden_private.record_envelopes(id,workspace_id,owner_subject_id,classification,state) VALUES($1,$2,'alice','research','active')",[ids[label],W]);
+  await admin.query("INSERT INTO garden_private.record_envelopes(id,workspace_id,owner_subject_id,classification,state) VALUES($1,$2,'alice','research','active')",[ids[label],W]);await allowSyntheticResearchUse(admin,W,ids[label]);
   for(const s of label==='hidden'?['bob']:label==='a'?['alice','bob']:['alice'])await admin.query("INSERT INTO garden_control.record_grants(workspace_id,record_id,subject_id,can_read,can_write,purpose,expires_at) VALUES($1,$2,$3,true,true,'research',clock_timestamp()+interval '30 days')",[W,ids[label],s]);
  }
  const original=named();original.id=ids.a;original.title='Same name';

@@ -1,3 +1,13 @@
+# Current continuation: GDN-029 candidate
+
+Observed 2026-10-11T15:11:52.262803+00:00. PR #25 / GDN-037 is merged at `38eea9c6cf2a3af390270db0ef248cd48be242fd` after all six exact-head workflows passed. There are 22 observed engineering merges, not 22 production-accepted capabilities.
+
+GDN-029 adds purpose-specific consent, descendant permission limits, immutable terms/grant/withdrawal history and restrictive research RLS. Administration and publication/preservation admission remain unmounted and require separate authorizers; no real contributor, expert approval, Neon migration or production deployment is claimed. Exact-head CI is pending. See `docs/security/consent-and-permitted-use.md`.
+
+Prior observations remain timestamped below; current totals are in `plan/progress.json`, actual mappings in `plan/execution.json`. Engine Room live readback and the Render project-bound deployment limitation remain open.
+
+---
+
 # Current execution status - 11 October 2026
 
 Twenty-one planned engineering items are merged: GDN-001 through GDN-010, GDN-012, GDN-013, GDN-015, GDN-016, GDN-021, GDN-023, GDN-024, GDN-025, GDN-035 GDN-036 and GDN-038. Exact PR heads, merge commits and passing CI are in `plan/execution.json`. Bootstrap #1, provider inventory #11 and queue follow-up #17 are not additional roadmap units. Independent acceptance and production verification remain separate; the 196-current/14-conditional roadmap is unchanged.
