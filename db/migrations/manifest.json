@@ -16,6 +16,11 @@
       "id": "0003_membership",
       "file": "0003_membership.sql",
       "sha256": "a3a85fdfbd7102af0f1b8c110b274756104d1a188970063062936d08f84f2e9d"
+    },
+    {
+      "id": "0004_policy_context",
+      "file": "0004_policy_context.sql",
+      "sha256": "ce2d084065efc930255d4bb3e46080d65fb8cadf8ef72c1520b10b27bac6e4dd"
     }
   ]
 }
