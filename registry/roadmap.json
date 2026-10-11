@@ -390,7 +390,10 @@
       "sourceItemId": "GDN-036",
       "applicability": "current_scope",
       "scope": "Model repositories, collections, series, items, witnesses, editions and digital representations. Preserve conflicting catalog data and source independence links.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        23
+      ]
     },
     {
       "id": "GDN-037",

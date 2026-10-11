@@ -55,3 +55,7 @@ No code/documentation license is selected. Public repository access grants no re
 ## Archival source model
 
 See [archival sources and lineage](docs/data/archival-sources.md). GDN-036 distinguishes witnesses, editions and exact digital representations, preserves contradictory catalog assertions, and never infers independent testimony merely from separate records. Its repository remains unmounted pending independent review and activation.
+
+## Durable evidence locators
+
+GDN-036 is merged in PR #23. GDN-038 is the current unmounted source-locator candidate; read `docs/data/durable-locators.md`. No source-viewer, publication, independent acceptance or cloud rollout is implied. Exact current PR mappings remain in `plan/execution.json`.

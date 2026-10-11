@@ -1,0 +1,17 @@
+{
+  "work_item": "GDN-038",
+  "implementation": "candidate",
+  "criteria": {
+    "GDN-038-AC01": "Byte- and version-bound source identity with distinct ordinal/printed label and selectors.",
+    "GDN-038-AC02": "Exact text hash, code-point offsets and no silent movement after text or file changes.",
+    "GDN-038-AC03": "Explicit orphan/ambiguity results and unadopted reanchor proposals."
+  },
+  "new_unit_tests_passed": 51,
+  "local_core_tests_passed": 319,
+  "real_postgres_checks": "specified executable fixture; pending CI",
+  "independent_review": "not_performed",
+  "accepted": false,
+  "production_verified": false,
+  "public_route_enabled": false,
+  "neon_migration_applied": false
+}
