@@ -1,0 +1,323 @@
+{
+  "version": 1,
+  "status": "architected_not_independently_assessed",
+  "canonical_standard": {
+    "source": "neophilism/End-To-End-Everywhere-Security-Architecture-Standard",
+    "revision": "ddfbd40c47d13890ebb81ea91c81fe329417058e",
+    "conformance": false
+  },
+  "classification": [
+    {
+      "id": "public_policy",
+      "readers": [
+        "anonymous",
+        "researcher",
+        "editor"
+      ],
+      "decryptors": [
+        "none"
+      ],
+      "stores": [
+        "published_read_model"
+      ],
+      "search": "public",
+      "ai": "public_only_after_review",
+      "retention": "versioned_public_policy",
+      "publication_gate": "editorial_and_fiscal_legal_review"
+    },
+    {
+      "id": "public_verified_research",
+      "readers": [
+        "anonymous",
+        "researcher",
+        "editor"
+      ],
+      "decryptors": [
+        "none"
+      ],
+      "stores": [
+        "published_read_model"
+      ],
+      "search": "public",
+      "ai": "public_only_after_claim_review",
+      "retention": "versioned_with_corrections",
+      "publication_gate": "evidence_rights_and_source_review"
+    },
+    {
+      "id": "restricted_research",
+      "readers": [
+        "authorized_researcher",
+        "editor"
+      ],
+      "decryptors": [
+        "authorized_server_component"
+      ],
+      "stores": [
+        "restricted_database",
+        "private_source_store"
+      ],
+      "search": "authorized_filter_before_retrieval",
+      "ai": "disabled_without_specific_provider_contract",
+      "retention": "case_and_rights_policy",
+      "publication_gate": "separate_source_review_and_permission"
+    },
+    {
+      "id": "sensitive_contributor",
+      "readers": [
+        "contributor",
+        "assigned_reviewer"
+      ],
+      "decryptors": [
+        "authorized_case_service"
+      ],
+      "stores": [
+        "restricted_contributor_store"
+      ],
+      "search": "explicitly_authorized_case_only",
+      "ai": "prohibited",
+      "retention": "consent_and_legal_hold_policy",
+      "publication_gate": "fresh_per_use_consent_redaction"
+    },
+    {
+      "id": "sealed_ciphertext",
+      "readers": [
+        "authorized_client_device"
+      ],
+      "decryptors": [
+        "authorized_client_device_only"
+      ],
+      "stores": [
+        "ciphertext_only_store"
+      ],
+      "search": "no_server_plaintext_search",
+      "ai": "prohibited",
+      "retention": "cryptographic_key_and_policy_lifecycle",
+      "publication_gate": "never_auto_publish"
+    },
+    {
+      "id": "operational_security",
+      "readers": [
+        "designated_operator",
+        "security_reviewer"
+      ],
+      "decryptors": [
+        "authorized_admin_server"
+      ],
+      "stores": [
+        "audit_store"
+      ],
+      "search": "restricted_operator_only",
+      "ai": "prohibited",
+      "retention": "bounded_audit_policy",
+      "publication_gate": "never_public_as_raw_records"
+    },
+    {
+      "id": "future_governmental",
+      "readers": [
+        "authorized_government_operator_only_after_enactment"
+      ],
+      "decryptors": [
+        "separately_authorized_system"
+      ],
+      "stores": [
+        "separate_governmental_store_when_authorized"
+      ],
+      "search": "disabled_until_enactment",
+      "ai": "prohibited",
+      "retention": "requires_future_statute_and_operator",
+      "publication_gate": "blocked_pending_legal_authority"
+    }
+  ],
+  "flows": [
+    {
+      "id": "visitor_read",
+      "data_class": "public_policy",
+      "source": "published_read_model",
+      "sink": "public_web",
+      "processor": "public_renderer",
+      "purpose": "explain_proposed_law",
+      "test": "anonymous_read_and_no_secret_cookies",
+      "owner": "GDN-049",
+      "gate": "editorial_legal_fiscal"
+    },
+    {
+      "id": "research_page",
+      "data_class": "public_verified_research",
+      "source": "published_read_model",
+      "sink": "public_web",
+      "processor": "citation_renderer",
+      "purpose": "inspect_reviewed_sources",
+      "test": "uncleared_claim_never_published",
+      "owner": "GDN-043",
+      "gate": "evidence_and_rights"
+    },
+    {
+      "id": "private_ingest",
+      "data_class": "restricted_research",
+      "source": "authorized_archive_upload",
+      "sink": "restricted_database",
+      "processor": "quarantined_parser",
+      "purpose": "research_inspection",
+      "test": "zipbomb_ssrf_script_and_wrong_user",
+      "owner": "GDN-077",
+      "gate": "security_review"
+    },
+    {
+      "id": "family_contribution",
+      "data_class": "sensitive_contributor",
+      "source": "consented_family_submit",
+      "sink": "restricted_contributor_store",
+      "processor": "case_service",
+      "purpose": "preservation_not_endorsement",
+      "test": "permission_revocation_and_no_public_index",
+      "owner": "GDN-136",
+      "gate": "consent_and_privacy"
+    },
+    {
+      "id": "sealed_upload",
+      "data_class": "sealed_ciphertext",
+      "source": "verified_client_encryptor",
+      "sink": "ciphertext_only_store",
+      "processor": "ciphertext_relay",
+      "purpose": "private_collaboration",
+      "test": "server_plaintext_canary_and_device_revocation",
+      "owner": "GDN-027",
+      "gate": "independent_crypto_assessment"
+    },
+    {
+      "id": "operator_audit",
+      "data_class": "operational_security",
+      "source": "system_events",
+      "sink": "audit_store",
+      "processor": "event_redactor",
+      "purpose": "tamper_evidence",
+      "test": "secret_elision_and_restore",
+      "owner": "GDN-030",
+      "gate": "security_review"
+    },
+    {
+      "id": "official_enrollment",
+      "data_class": "future_governmental",
+      "source": "disabled",
+      "sink": "disabled",
+      "processor": "none",
+      "purpose": "only_authorized_enrollment",
+      "test": "all_public_and_research_routes_return_denied",
+      "owner": "GDN-197",
+      "gate": "enacted_law_authorized_operator_and_new_assessment"
+    }
+  ],
+  "threats": [
+    {
+      "id": "T01",
+      "name": "Untrusted archival content runs code or escapes parser",
+      "severity": "critical",
+      "owner": "GDN-077",
+      "test": "archive-parser-fuzz"
+    },
+    {
+      "id": "T02",
+      "name": "False identity inference from image, port or similar name",
+      "severity": "high",
+      "owner": "GDN-040",
+      "test": "identity-evidence-review"
+    },
+    {
+      "id": "T03",
+      "name": "Private source visible in public search, cache, media or export",
+      "severity": "critical",
+      "owner": "GDN-025",
+      "test": "cross-user-private-canary"
+    },
+    {
+      "id": "T04",
+      "name": "Sealed plaintext reaches server log, AI or index",
+      "severity": "critical",
+      "owner": "GDN-027",
+      "test": "sealed-plaintext-canary"
+    },
+    {
+      "id": "T05",
+      "name": "Consent to preserve misconstrued as display or endorsement",
+      "severity": "high",
+      "owner": "GDN-029",
+      "test": "purpose-separated-consent-matrix"
+    },
+    {
+      "id": "T06",
+      "name": "Revoked record survives stale cache or exported snapshot",
+      "severity": "critical",
+      "owner": "GDN-034",
+      "test": "publication-retraction-replay"
+    },
+    {
+      "id": "T07",
+      "name": "Privileged insider accesses unrelated family history",
+      "severity": "critical",
+      "owner": "GDN-024",
+      "test": "insider-denial-role-matrix"
+    },
+    {
+      "id": "T08",
+      "name": "Politically targeted contact from ancestry or inferred ethnicity",
+      "severity": "critical",
+      "owner": "GDN-151",
+      "test": "segmentation-and-export-anti-targeting"
+    },
+    {
+      "id": "T09",
+      "name": "Fabricated scholarly citation enters public claim",
+      "severity": "high",
+      "owner": "GDN-117",
+      "test": "independent-citation-support"
+    },
+    {
+      "id": "T10",
+      "name": "Cross-environment credentials or data leaked in preview",
+      "severity": "critical",
+      "owner": "GDN-012",
+      "test": "wrong-project-credential-canary"
+    },
+    {
+      "id": "T11",
+      "name": "Prompt injection causes unauthorized retrieval or disclosure",
+      "severity": "high",
+      "owner": "GDN-168",
+      "test": "ai-permission-precheck"
+    },
+    {
+      "id": "T12",
+      "name": "Governmental authority assumed before enactment",
+      "severity": "critical",
+      "owner": "GDN-197",
+      "test": "governmental-feature-activation-denied"
+    },
+    {
+      "id": "T13",
+      "name": "False fiscal claim reaches website or share graphic",
+      "severity": "high",
+      "owner": "GDN-069",
+      "test": "funding-copy-evidence-gate"
+    }
+  ],
+  "hard_rules": [
+    "No server plaintext processing of sealed ciphertext",
+    "Rights and scholarly review independent of storage integrity",
+    "Never infer ancestry/identity from a photograph/name/port/row proximity",
+    "Never use ancestry/family history for individualized political targeting",
+    "No governmental enrollment or authorization before enacted law",
+    "No unreviewed private source in anonymous search, AI, CDN or export"
+  ],
+  "review": {
+    "security": "not_performed",
+    "historical": "not_performed",
+    "privacy": "not_performed",
+    "abuse_tabletop": "not_performed"
+  },
+  "release": {
+    "public_only": "subject_to_normal_checks",
+    "private_research": "blocked_pending_review",
+    "sealed": "blocked_pending_review",
+    "governmental": "disabled_until_enactment"
+  }
+}
