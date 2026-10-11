@@ -1,6 +1,6 @@
 # Current execution status - 11 October 2026
 
-Twenty planned engineering items are merged: GDN-001 through GDN-010, GDN-012, GDN-013, GDN-015, GDN-016, GDN-021, GDN-023, GDN-024, GDN-025, GDN-035 and GDN-036. Exact PR heads, merge commits and passing CI are in `plan/execution.json`. Bootstrap #1, provider inventory #11 and queue follow-up #17 are not additional roadmap units. Independent acceptance and production verification remain separate; the 196-current/14-conditional roadmap is unchanged.
+Twenty-one planned engineering items are merged: GDN-001 through GDN-010, GDN-012, GDN-013, GDN-015, GDN-016, GDN-021, GDN-023, GDN-024, GDN-025, GDN-035 GDN-036 and GDN-038. Exact PR heads, merge commits and passing CI are in `plan/execution.json`. Bootstrap #1, provider inventory #11 and queue follow-up #17 are not additional roadmap units. Independent acceptance and production verification remain separate; the 196-current/14-conditional roadmap is unchanged.
 
 PR #21 / GDN-025 passed all five exact-head workflows after the canonical-roadmap merge conflict was resolved without losing any scope. Its protected search, projections, exports and bounded private byte delivery remain unmounted; no public research or hosted streaming is claimed.
 
@@ -8,7 +8,9 @@ GDN-035 / PR #22 is merged after all six exact-head workflows passed, including 
 
 GDN-036 / PR #23 is merged after all six exact-head workflows passed. Its source hierarchy, conflicting catalog assertions and lineage comparison passed real PostgreSQL concurrency and revocation checks. Copies do not become independent evidence automatically.
 
-GDN-038 is the current exact-locator candidate. It binds source versions, original bytes, printed page labels, Unicode text positions, image regions and time intervals; ambiguity/orphaning and proposed reanchors remain explicit. PostgreSQL acceptance is pending CI. It is being implemented before GDN-037 so claim evidence can use durable anchors from the start; both planned units depend on the now-merged GDN-035/GDN-036.
+GDN-038 / PR #24 is merged after all six exact-head workflows passed. Its immutable version-bound locators, reanchor proposals and original-source revocation checks are recorded in the execution registry. Exact bytes do not establish historical truth or publication rights.
+
+GDN-037 is the current atomic-claim candidate. It separates attributed testimony, historical interpretation and policy assertions; preserves opposing evidence pinned to evaluated revisions; and traces corrections to direct/transitive artifact placements. Semantic atomicity still needs human review. PostgreSQL verification is pending CI, and the correction report makes no global-completeness claim beyond authorized records.
 
 The public application remains a nine-page preproduction orientation site. Existing browser checks run against local CI builds, not a live Render deployment. The existing Garden staging branch is `br-purple-grass-b5hurfl7`, with three private archive buckets. No original corpus, family data, AI, payments or official governmental functions are enabled.
 

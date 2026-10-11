@@ -1,0 +1,37 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {randomUUID} from 'node:crypto';
+import {validateClaimRecord,validateClaimBatch,preserveClaimKind,evidenceForClaim,dependencyIds,collectAffectedPlacements,ASSERTION_TYPES,PLACEMENT_KINDS} from '../../packages/domain/src/historical/claims.mjs';
+import {HistoricalModelError} from '../../packages/domain/src/historical/model.mjs';
+const id=()=>randomUUID();
+export const claim=(assertionType='historical-interpretation')=>({recordType:'claim',schemaVersion:1,id:id(),assertionType,proposition:{subject:'Synthetic vessel',predicate:'arrived-at',object:'Synthetic port'},wording:'The synthetic vessel arrived at the synthetic port.',attribution:assertionType==='source-testimony'?{locatorId:id(),agentLabel:null}:null,notes:null});
+export const edge=(c)=>({recordType:'evidence-link',schemaVersion:1,id:id(),claim:{id:c.id,revision:'2'},locatorId:id(),relation:'supports',rationale:'Synthetic source evaluation; not a verified fact.'});
+export const placement=(r,kind='webpage')=>({recordType:'claim-placement',schemaVersion:1,id:id(),target:{kind,identifier:'/synthetic/record',version:'draft-v1',language:null},dependencies:[{id:r.id,revision:'2'}]});
+for(const type of ASSERTION_TYPES)test(type+' is a separate immutable assertion type',()=>{const v=claim(type),out=validateClaimRecord(v);assert.deepEqual(out,v);assert(Object.isFrozen(out.proposition));assert.throws(()=>preserveClaimKind(v,claim()),HistoricalModelError);});
+for(const kind of PLACEMENT_KINDS)test('tracks '+kind+' with an explicit artifact version',()=>assert.equal(validateClaimRecord(placement(claim(),kind)).target.kind,kind));
+const changes=[
+ v=>delete v.wording,v=>v.verified=true,v=>v.schemaVersion='1',v=>v.proposition.predicate=['arrived-at','departed-from'],v=>v.proposition.extra='unspecified predicate',v=>v.wording='',v=>v.proposition.object=' ',v=>v.proposition.subject='x'.repeat(501),v=>v.notes='\ud800',v=>v.assertionType='verified-fact',v=>v.attribution={locatorId:id(),agentLabel:null}
+];
+for(const [i,mutate]of changes.entries())test('rejects malformed or elevated claim '+i,()=>{const v=claim();mutate(v);assert.throws(()=>validateClaimRecord(v),HistoricalModelError);});
+test('testimony requires a locator, including when the author is unknown',()=>{const v=claim('source-testimony');v.attribution=null;assert.throws(()=>validateClaimRecord(v));});
+test('testimony cannot cite itself',()=>{const v=claim('source-testimony');v.attribution.locatorId=v.id;assert.throws(()=>validateClaimRecord(v));});
+test('revision preserves the distinction between testimony and interpretation',()=>{const v=claim('source-testimony'),after={...v,assertionType:'historical-interpretation',attribution:null};assert.throws(()=>preserveClaimKind(v,after));assert.equal(preserveClaimKind(v,{...v,wording:'Corrected synthetic transcription.'}).wording,'Corrected synthetic transcription.');});
+test('multi-predicate passage is explicitly segmented into atomic records',()=>{const first=claim(),second={...claim(),proposition:{subject:'Synthetic vessel',predicate:'departed-from',object:'Another synthetic port'}};const batch=validateClaimBatch([first,second]);assert.equal(batch.claims.length,2);assert.equal(batch.semanticAtomicity,'requires-human-review');assert.equal(batch.historicalVerification,'not-established');});
+test('batch rejects repeated identity and does not parse a paragraph as claims',()=>{const v=claim();assert.throws(()=>validateClaimBatch([v,v]));assert.throws(()=>validateClaimBatch(v.wording));assert.throws(()=>validateClaimBatch([]));});
+for(const revision of ['0',0,'latest','01','9223372036854775808'])test('rejects non-exact claim revision '+revision,()=>{const v=edge(claim());v.claim.revision=revision;assert.throws(()=>validateClaimRecord(v));});
+test('support and contradiction coexist without voting or truth promotion',()=>{const c=claim(),a=edge(c),b={...edge(c),relation:'contradicts'},out=evidenceForClaim(c,'2',[a,b]);assert.equal(out.groups.supports.length,1);assert.equal(out.groups.contradicts.length,1);assert.equal(out.conclusion,'not-computed');assert.equal(out.independentSourceCount,null);});
+test('edge needs locator, relation and rationale',()=>{for(const key of ['locatorId','relation','rationale']){const v=edge(claim());delete v[key];assert.throws(()=>validateClaimRecord(v));}});
+test('edges are tied to the evaluated claim version',()=>{const c=claim();assert.throws(()=>evidenceForClaim(c,'3',[edge(c)]));});
+test('duplicate edge cannot inflate displayed evidence',()=>{const c=claim(),v=edge(c);assert.throws(()=>evidenceForClaim(c,'2',[v,v]));});
+test('immutable placements reject duplicate or self dependencies',()=>{const v=placement(claim());v.dependencies.push(v.dependencies[0]);assert.throws(()=>validateClaimRecord(v));v.dependencies=[{id:v.id,revision:'2'}];assert.throws(()=>validateClaimRecord(v));});
+test('placement requires an actual pinned dependency',()=>{const v=placement(claim());v.dependencies=[];assert.throws(()=>validateClaimRecord(v));});
+test('dependency identifiers are unique when several revisions are placed',()=>{const c=claim(),v=placement(c);v.dependencies.push({id:c.id,revision:'3'});assert.deepEqual(dependencyIds(v),[c.id]);});
+test('an evidence link cannot be relabeled by an ordinary revision',()=>{const v=edge(claim());assert.throws(()=>preserveClaimKind(v,{...v,relation:'contradicts'}));});
+function closure(){const c=claim(),e=edge(c),a=placement(c),b=placement(e,'book'),d=placement(a,'translation');const rows=[e,a,b,d].map(record=>({record,revision:'2'}));return {c,e,a,b,d,rows,find:async ids=>rows.filter(r=>dependencyIds(r.record).some(id=>ids.includes(id)))};}
+test('correction traversal includes direct, edge-mediated and transitive placements',async()=>{const x=closure(),out=await collectAffectedPlacements([x.c.id],x.find);assert.deepEqual(out.placements.map(v=>v.record.id).sort(),[x.a.id,x.b.id,x.d.id].sort());assert.equal(out.affectedRecords.length,4);assert.equal(out.completeness,'authorized-records-only');assert.equal(out.globalCompleteness,'not-established');assert.equal(out.automaticallyCorrected,false);});
+test('closure fails rather than silently truncating',async()=>{const x=closure();await assert.rejects(()=>collectAffectedPlacements([x.c.id],x.find,{maxRecords:3}));});
+test('closure bounds initial roots',async()=>{await assert.rejects(()=>collectAffectedPlacements([id(),id()],async()=>[],{maxRecords:1}));});
+test('unrelated results cannot enter a correction report',async()=>{const x=closure();await assert.rejects(()=>collectAffectedPlacements([id()],async()=>x.rows));});
+test('hidden dependencies are not reported as globally absent',async()=>{const out=await collectAffectedPlacements([id()],async()=>[]);assert.equal(out.globalCompleteness,'not-established');assert.deepEqual(out.placements,[]);});
+test('immutable result cannot be changed by mutating supplied fixtures',()=>{const v=claim(),copy=validateClaimRecord(v);v.proposition.subject='changed';assert.notEqual(copy.proposition.subject,v.proposition.subject);});
+test('a corrected source evaluation reaches placements of its claim, not just the edge',async()=>{const x=closure(),out=await collectAffectedPlacements([x.e.locatorId],x.find);assert.deepEqual(out.placements.map(v=>v.record.id).sort(),[x.a.id,x.b.id,x.d.id].sort());assert.deepEqual(out.affectedClaimIds,[x.c.id]);});

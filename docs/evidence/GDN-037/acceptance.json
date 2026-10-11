@@ -1,0 +1,16 @@
+{
+  "work_item": "GDN-037",
+  "implementation": "candidate",
+  "criteria": {
+    "GDN-037-AC01": "Distinct immutable assertion types; attributed source testimony never auto-promoted. Semantic atomicity requires human review.",
+    "GDN-037-AC02": "Immutable evaluations pin exact claim revisions, durable locators and explicit relations.",
+    "GDN-037-AC03": "Bounded one-statement reverse closure follows evidence impacts and artifact placements; authorized scope is explicit."
+  },
+  "new_unit_tests_passed": 62,
+  "real_postgres_checks": "executable fixture, pending exact-head CI",
+  "independent_review": "not_performed",
+  "accepted": false,
+  "production_verified": false,
+  "public_route_enabled": false,
+  "neon_migration_applied": false
+}
