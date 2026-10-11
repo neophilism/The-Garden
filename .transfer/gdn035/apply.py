@@ -20,6 +20,9 @@ for item in bundle['files']:
  name=item['path'];rel=PurePosixPath(name);path=ROOT/name
  if rel.is_absolute() or '..' in rel.parts or '.git' in rel.parts or '\\' in name or str(rel)!=name or name in outputs or not path.resolve().is_relative_to(ROOT) or any(p.is_symlink() for p in (path,*path.parents)):raise ValueError('transfer_path')
  before=path.read_bytes() if path.is_file() else None
+ if name.startswith('.github/workflows/'):
+  if name!='.github/workflows/data.yml' or before!=item['text'].encode('utf-8') or hashlib.sha256(before).hexdigest()!=item['after']:raise ValueError('workflow_not_preinstalled_exactly')
+  continue
  if (hashlib.sha256(before).hexdigest() if before is not None else None)!=item['before']:raise ValueError('source_changed:'+name)
  if 'text' in item:content=item['text'].encode('utf-8')
  else:
@@ -40,4 +43,4 @@ for item in bundle['files']:
 for name,content in outputs.items():
  path=ROOT/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(content)
 subprocess.run(['git','add','--',*outputs.keys()],cwd=ROOT,check=True)
-print('Applied 19 exact reviewed source files; no cloud or production data touched.')
+print('Applied 18 exact source files; the nineteenth file was preinstalled and verified without a workflow write.')
