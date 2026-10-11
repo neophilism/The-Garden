@@ -1,0 +1,10 @@
+SELECT current_database() AS database_name,
+  (SELECT count(*) FROM pg_roles WHERE rolname IN ('garden_schema_owner','garden_migrator','garden_research_runtime','garden_publication_writer','garden_public_reader')) AS expected_role_count,
+  (SELECT count(*) FROM pg_roles WHERE rolname LIKE 'garden_%' AND (rolcanlogin OR rolsuper OR rolcreatedb OR rolcreaterole OR rolbypassrls OR rolreplication)) AS unsafe_group_roles,
+  (SELECT count(*) FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='garden_control' AND c.relname='migration_history' AND c.relrowsecurity AND c.relforcerowsecurity) AS forced_rls_tables,
+  has_schema_privilege('garden_research_runtime','garden_private','CREATE') AS runtime_can_create,
+  has_table_privilege('garden_research_runtime','garden_control.migration_history','SELECT,INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES,TRIGGER') AS runtime_has_migration_table_privilege,
+  pg_has_role('garden_research_runtime','garden_schema_owner','MEMBER') AS runtime_is_schema_owner_member,
+  has_schema_privilege('garden_public_reader','garden_private','USAGE') AS public_reader_has_private_usage,
+  pg_has_role('garden_migrator','garden_schema_owner','SET') AS migrator_can_set_owner,
+  (SELECT count(*) FROM pg_tables WHERE schemaname='garden_private') AS private_user_tables;

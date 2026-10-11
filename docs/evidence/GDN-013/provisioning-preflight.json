@@ -1,0 +1,11 @@
+{
+ "project_id":"royal-union-78374030","parent_branch_id":"br-curly-band-b5aatp1e","database_name":"neondb",
+ "observed_plan":"free_v3","observed_branches":1,"observed_branch_limit":10,"observed_branch_logical_size_bytes":31686656,"observed_logical_size_limit_bytes":1073741824,
+ "requested_temporary_branches":1,"expected_additional_usd":0,
+ "data_scope":"Empty application database; existing PG catalogs only. No research records or private corpus copied.",
+ "free_plan_reference":"https://neon.com/blog/neon-free-plan-1-gb-per-project",
+ "no_overage_reference":"https://github.com/neondatabase/website/blob/main/content/faqs/free-plan-limits-and-quotas.md",
+ "evidence_expires_at":"2026-10-12T00:00:00Z",
+ "production_schema_mutation":"not_authorized_by_preflight; completion requires explicit user confirmation",
+ "cleanup":"Use complete_database_migration after user accepts or rejects; no autonomous deletion or reset."
+}

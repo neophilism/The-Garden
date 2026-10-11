@@ -1,0 +1,6 @@
+{
+ "migration_id":"0001_role_foundation","path":"db/migrations/0001_role_foundation.sql",
+ "sha256":"720a71c8c55832ba287bb9c5dc72077ff5fdf9682de4a769fff6d28e2ea9a44a",
+ "scope":"new roles and private control schemas only","target_project":"royal-union-78374030","target_database":"neondb",
+ "production_apply":"requires_explicit_user_confirmation","temporary_validation":"not_started","extension_installs":false,"credentials_created":false
+}
