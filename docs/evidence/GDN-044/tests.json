@@ -1,0 +1,11 @@
+{
+  "work_item_id": "GDN-044",
+  "commands": [
+    "python scripts/validate_migration_map.py",
+    "python -m unittest discover -s tests/migration -v"
+  ],
+  "passed": 25,
+  "failed": 0,
+  "fixtures": "Coverage, duplicate/missing tables and IDs, count/schema/source drift, key ambiguity, lossy conversion, references and erased recovery limits.",
+  "ci": "Fresh final-head CI pending."
+}

@@ -1,0 +1,27 @@
+{
+  "work_item_id": "GDN-044",
+  "implementation": "candidate_explicit_source_mapping",
+  "accepted": false,
+  "production_verified": false,
+  "independent_review": "not_performed",
+  "criteria": {
+    "GDN-044-AC01": "Every recorded source table and ordered column has an explicit immutable raw destination, disposition, conversion and reference rule; validator rejects missing/duplicated tables and fields.",
+    "GDN-044-AC02": "Exactly 923292 recorded source rows accounted for across 106 tables; schema and inventory hashes pinned.",
+    "GDN-044-AC03": "Source counts explicitly include repeated editions/legacy states and are never people or historical-verification counts."
+  },
+  "source_evidence": "Committed GDN-002 inventory; original research bytes and row contents were not reread in this PR.",
+  "schema_hash_scope": "Table DDL and column metadata only; index definitions absent from source inventory.",
+  "local_validation": {
+    "mapping_tests_passed": 25,
+    "architecture_tests_passed": 103,
+    "plan_tests_passed": 21,
+    "mapping_validator": "pass"
+  },
+  "activation": "contract only; no cloud or corpus mutation",
+  "limitations": [
+    "Logical references are candidate relationships, not validated foreign keys.",
+    "No table declares a primary key in recorded DDL; unique index definitions are not available.",
+    "CP-011 lineage, CP-016 truncation and Marinerito row-223 alignment remain unresolved.",
+    "Independent mapping review and actual import/reconciliation remain required."
+  ]
+}

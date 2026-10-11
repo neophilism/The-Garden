@@ -463,7 +463,10 @@
       "sourceItemId": "GDN-041",
       "applicability": "current_scope",
       "scope": "Build read-only ingestion manifests, content-type verification, malware/quota checks and quarantine. Record source bytes, transformation lineage and denied access.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        34
+      ]
     },
     {
       "id": "GDN-042",

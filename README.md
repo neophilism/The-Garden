@@ -2,7 +2,7 @@
 
 ## Current engineering checkpoint (11 October 2026)
 
-GDN-095 / PR #33 is merged at `d55a3ea953c6b009945bb572817f30dd5040f65a` with all six final-head workflows passing. There are 29 mapped engineering merges and no independently accepted or production-verified capabilities. GDN-041 adds bounded read-only import inventories and private immutable quarantine manifests; see [the import contract](docs/data/import-quarantine.md) and `docs/CURRENT_STATUS.md`. Earlier checkpoints below are historical.
+GDN-041 / PR #34 is merged at `d789ed5e440a19d07a35f8a3fdfa8863b9d76d54` with all six final-head workflows passing. There are 30 mapped engineering merges and no independently accepted or production-verified capabilities. GDN-044 adds explicit mappings, conversion rules and schema-drift checks for all 106 recorded CP-017 tables; see [the conversion contract](docs/migration/conversion-rules.md) and `docs/CURRENT_STATUS.md`. Earlier checkpoints below are historical.
 
 
 A public-information and historical-research platform under development.

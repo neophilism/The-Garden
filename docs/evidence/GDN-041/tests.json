@@ -13,6 +13,14 @@
       "failed": 0
     }
   ],
-  "ci": "Fresh final-head CI required.",
-  "scanner": "synthetic adapter only; no real malware detection claim"
+  "ci": "All six final-head workflows passed at 3d9401e3d5a05320bf14275de58c67a354dea68d before merge.",
+  "scanner": "synthetic adapter only; no real malware detection claim",
+  "ci_workflows": {
+    "repository": 38172784461,
+    "database": 38172784484,
+    "identity": 38172784458,
+    "storage": 38172784478,
+    "historical_data": 38172784468,
+    "quality_browser": 38172784454
+  }
 }
