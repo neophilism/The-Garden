@@ -1,0 +1,39 @@
+name: Garden one-time observed audit progress
+on:
+  push:
+    branches: [security/gdn-030-audit-ledger]
+    paths: [.github/workflows/record-gdn030-progress.yml]
+permissions:
+  contents: write
+concurrency:
+  group: garden-gdn030-progress-once
+  cancel-in-progress: false
+jobs:
+  record:
+    if: github.repository == 'neophilism/The-Garden' && github.actor == 'neophilism' && github.ref == 'refs/heads/security/gdn-030-audit-ledger'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+      - name: Reconcile explicitly observed merge and canonical roadmap
+        run: |
+          set -eu
+          python3 .github/record-gdn030-progress.py
+          python3 scripts/sync_roadmap.py --write
+          python3 scripts/reconcile_roadmap.py
+          python3 scripts/validate_plan.py
+      - name: Commit bounded documentation changes on candidate branch only
+        env:
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          set -eu
+          actual=$(git ls-remote origin refs/heads/security/gdn-030-audit-ledger | cut -f1)
+          test "$actual" = "$EXPECTED_HEAD"
+          git config user.name 'Garden source preparation'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add plan/execution.json plan/progress.json registry/roadmap.json .exechub/approved-pr-mapping.json README.md docs/CURRENT_STATUS.md db/migrations/manifest.json tests/access/membership.test.mjs
+          git rm .github/workflows/record-gdn030-progress.yml .github/record-gdn030-progress.py
+          git commit -m 'docs: reconcile observed GDN-022 merge and audit candidate without acceptance claims'
+          git push origin HEAD:refs/heads/security/gdn-030-audit-ledger

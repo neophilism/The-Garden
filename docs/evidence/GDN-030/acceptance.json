@@ -1,0 +1,17 @@
+{
+  "work_item_id": "GDN-030",
+  "implementation": "candidate_unmounted_audit",
+  "accepted": false,
+  "production_verified": false,
+  "independent_review": "not_performed",
+  "local_audit_tests": {"passed": 102, "failed": 0, "skipped": 0},
+  "criteria": {
+    "GDN-030-AC01": "Closed event schema binds opaque actor/subject references, reason, revision and request identity; no arbitrary private payload.",
+    "GDN-030-AC02": "Bounded hash-chain and trusted-checkpoint verifiers detect changes, gaps, wrong scope and missing suffix relative to a trusted checkpoint. Owner-rewrite detection requires independently held anchors.",
+    "GDN-030-AC03": "Separate roles and immutable triggers deny normal editor mutation. Real PostgreSQL verification is pending."
+  },
+  "cloud_migrations": false,
+  "public_endpoint": false,
+  "external_anchor_service_configured": false,
+  "remaining": ["Exact-head database and full CI", "Independent security review", "Operationally trusted checkpoint and restore procedures", "Authorized staging and production verification"]
+}
