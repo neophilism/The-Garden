@@ -11,17 +11,17 @@
   },
   "X03": {
     "title": "Engine Room integration",
-    "status": "engine_room_repository_located_live_sync_not_verified",
+    "status": "manifest_contract_located_registration_pending_independent_observation",
     "need": "Actual endpoint/schema, authentication, project identity and permitted mutation contract. Proposed intermediate JSON remains unsynchronized."
   },
   "X04": {
     "title": "Render authorization",
-    "status": "render_connected_workspace_verified_no_garden_service",
+    "status": "render_workspace_connected_no_garden_service_project_attachment_unsupported_by_tool",
     "need": "Authorized workspace/service identities, deployment rights, DNS ownership and budget. Do not provision new paid resources without authority."
   },
   "X05": {
     "title": "Neon authorization",
-    "status": "neon_project_branch_verified_database_empty",
+    "status": "neon_project_branch_verified_empty_db_auth_disabled_storage_no_buckets",
     "need": "Project-specific authorized resource IDs, roles, connection scopes, extension capability and recovery policy. No unrelated project database reuse."
   },
   "X06": {
