@@ -60,7 +60,7 @@ jobs:
       - name: Enforce committed dependency lock
         run: test -s package-lock.json
       - name: Install exact packages
-        run: npm ci --ignore-scripts=false
+        run: npm ci --include=dev --no-audit
       - name: Unit, type and executable build checks
         run: npm run check
       - name: Confirm static public output, nonindexable preview and no leaks
