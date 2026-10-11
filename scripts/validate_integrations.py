@@ -44,8 +44,18 @@ def validate(inventory, manifest_text, mapping):
     specified = [x for x in numbers if x is not None]
     if any(type(x) is not int or x <= 0 for x in specified) or len(specified) != len(set(specified)):
         raise ValueError("invalid/duplicate GitHub PR evidence")
-    if numbers[:3] != [2, 3, 4] or any(x is not None for x in numbers[3:]):
-        raise ValueError("unverified mapping of planned items to PRs")
+    if numbers[:3] != [2, 3, 4]:
+        raise ValueError("original verified PR mapping changed")
+    execution = json.loads((ROOT / "plan/execution.json").read_text())
+    for index, number in enumerate(numbers):
+        if number is None:
+            continue
+        work_id = "GDN-" + str(index + 1).zfill(3)
+        state = execution.get("work_items", {}).get(work_id, {})
+        if state.get("github_pr_number") != number:
+            raise ValueError("unverified mapping of planned item " + work_id + " to GitHub PR")
+        if index >= 196:
+            raise ValueError("conditional government work cannot be active")
     return True
 
 def main():
