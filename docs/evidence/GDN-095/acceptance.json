@@ -1,6 +1,6 @@
 {
   "work_item_id": "GDN-095",
-  "implementation": "candidate_sourced_geographic_assertions",
+  "implementation": "merged_with_exact_ci",
   "accepted": false,
   "production_verified": false,
   "independent_review": "not_performed",
@@ -9,8 +9,8 @@
     "GDN-095-AC02": "Separate assertion identities/revisions preserve competing extents, names and date ranges.",
     "GDN-095-AC03": "Sensitive geometry requires personal SQL classification, is denied by research repository and wholly omitted from layer projection."
   },
-  "domain_tests_passed": 57,
-  "postgres_verification": "Fresh final-head CI pending; no local PostgreSQL available.",
+  "domain_tests_passed": 61,
+  "postgres_verification": "All six final-head GitHub workflows passed, including PostgreSQL geographic creation, competing extents, review scopes, ancestry revocation and optimistic version history.",
   "provider_observation": {
     "project_id": "royal-union-78374030",
     "branch_id": "br-purple-grass-b5hurfl7",
@@ -26,12 +26,31 @@
     "No public map, live source import, public projection, geospatial index or historical interpretation is published."
   ],
   "local_validation": {
-    "core_tests_passed": 1186,
+    "core_tests_passed": 1190,
     "architecture_tests_passed": 103,
     "plan_tests_passed": 21,
     "migration_planner_tests_passed": 18,
     "typecheck": "pass",
     "public_build": "pass",
     "research_build": "pass"
+  },
+  "github": {
+    "implementation": "merged_with_exact_ci",
+    "github_pr_number": 33,
+    "github_head_sha": "75b64e576dff4021cd0a6b98b155735e1305ddaa",
+    "github_merge_sha": "d55a3ea953c6b009945bb572817f30dd5040f65a",
+    "ci_url": "https://github.com/neophilism/The-Garden/actions/runs/38172019158",
+    "ci_workflows": {
+      "repository": 38172019158,
+      "database": 38172019154,
+      "identity": 38172019320,
+      "storage": 38172019254,
+      "historical_data": 38172019161,
+      "quality_browser": 38172019148
+    },
+    "accepted": false,
+    "production_verified": false,
+    "independent_review": "not_performed",
+    "note": "All six final-head workflows passed before merge. PostgreSQL JSONB key-order identity comparison fixed; immutable fields compared individually."
   }
 }

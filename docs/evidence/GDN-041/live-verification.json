@@ -1,0 +1,7 @@
+{
+  "work_item_id": "GDN-041",
+  "verified": false,
+  "url": null,
+  "service_id": null,
+  "scope": "Local and ephemeral CI synthetic fixtures only. No live intake or historical corpus parsed."
+}

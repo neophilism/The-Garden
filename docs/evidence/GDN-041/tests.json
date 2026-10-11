@@ -1,0 +1,18 @@
+{
+  "work_item_id": "GDN-041",
+  "synthetic_only": true,
+  "suites": [
+    {
+      "command": "node --test tests/storage/*.test.mjs",
+      "passed": 47,
+      "failed": 0
+    },
+    {
+      "command": "python3 -I -m unittest discover -s tests/import -v",
+      "passed": 22,
+      "failed": 0
+    }
+  ],
+  "ci": "Fresh final-head CI required.",
+  "scanner": "synthetic adapter only; no real malware detection claim"
+}

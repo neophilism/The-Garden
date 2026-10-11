@@ -949,7 +949,10 @@
       "sourceItemId": "GDN-095",
       "applicability": "current_scope",
       "scope": "Model sourced geographic assertions, changing names/boundaries and approximate locations without treating modern states as historical polities.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        33
+      ]
     },
     {
       "id": "GDN-096",
