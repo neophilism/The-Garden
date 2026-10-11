@@ -63,3 +63,14 @@ test('research health fails closed and does not expose credentials',async({reque
  expect(JSON.stringify(data)).not.toMatch(/postgres(?:ql)?:\/\/|password|token|secret/i);
  const unknown=await request.get('http://127.0.0.1:4174/api/upload');expect(unknown.status()).toBe(404);
 });
+
+test('disabled research health exposes no account or private record data',async({request})=>{
+ const response=await request.get('http://127.0.0.1:4174/api/health');
+ expect(response.status()).toBe(503);
+ expect(response.headers()['cache-control']).toContain('no-store');
+ expect(await response.json()).toEqual({project:'The Garden',service:'research',status:'restricted_not_enabled',private_record_access:false,identity_configured:false});
+ for(const route of ['/api/research/ai','/api/research/index','/api/publication/records','/api/research/workspaces/00000000-0000-4000-8000-000000000031/records/00000000-0000-4000-8000-000000000032/export']){
+  const absent=await request.get('http://127.0.0.1:4174'+route);expect(absent.status()).toBe(404);
+  expect((await absent.text())).not.toContain('PRIVATE-MATRIX-CANARY');
+ }
+});

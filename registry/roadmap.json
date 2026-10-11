@@ -339,7 +339,10 @@
       "sourceItemId": "GDN-030",
       "applicability": "current_scope",
       "scope": "Record authorization, review, publication, consent and administrative events in append-only structured audit with integrity verification and redacted payloads.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        28
+      ]
     },
     {
       "id": "GDN-031",

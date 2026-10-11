@@ -1,3 +1,4 @@
+import {roleProbe} from '../security/database-role-fixture.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {randomUUID} from 'node:crypto';
@@ -9,8 +10,8 @@ function fixture({role={},fault,viewer,assured=true,enabled=()=>true,sqlMember=t
  const identity={viewer:viewer??(async()=>({id:'auditor',verified:true,privilegedAssurance:true})),async authorizePrivileged(h,a,authorize){checks++;if(typeof assured==='function'?!assured(checks):!assured)return false;return authorize({subjectId:'auditor',action:a});}};
  const event={schemaVersion:1,eventId:randomUUID(),workspaceId:W,sequence:'1',requestId:randomUUID(),occurredAt:'2026-10-11T12:00:00.000000Z',actor:{kind:'subject',reference:randomUUID()},subject:{kind:'record',reference:randomUUID(),version:'1'},action:'record.create',outcome:'succeeded',reasonCode:'record-created'};
  const text=JSON.stringify(event),row={workspaceId:W,sequence:'1',previousHash:GENESIS,hash:auditHash(W,'1',GENESIS,text),eventText:text};
- function pool(kind){return{connect:async()=>({async query(sql,args){calls.push({kind,sql,args});if(fault?.(kind,sql))throw Error('secret-password-canary');
-  if(sql.startsWith('SELECT current_user'))return{rows:[{login_role:kind,current_role:kind,elevated:false,expected:true,conflicting:false,...(role[kind]??{})}]};
+ function pool(kind){const observe=roleProbe(kind,role[kind]??{});return{connect:async()=>({async query(sql,args){calls.push({kind,sql,args});if(fault?.(kind,sql))throw Error('secret-password-canary');
+  const guarded=observe(sql,args);if(guarded)return guarded;
   if(sql.includes('issue_audit_ticket')){if(!sqlMember)throw Error('not-auditor');return{rows:[{token:TOKEN}]};}
   if(sql.includes('audit_member'))return{rows:[{allowed:sqlMember}]};
   if(sql.includes('audit_may_read'))return{rows:[{allowed:sqlContext}]};

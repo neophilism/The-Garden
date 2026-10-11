@@ -1,16 +1,20 @@
+import {assertDatabaseCapability,DatabaseCapabilityError} from './database-role.mjs';
 /** PostgreSQL membership adapter; database identity is not supplied by the browser. */
 export function createMembershipRepository(pool) {
   if (typeof pool?.connect !== 'function') throw new Error('Missing membership pool');
   async function transaction(fn) {
-    let client; let failed = false;
+    let client,login; let failed = false;
     try {
       client = await pool.connect();
+      login = await assertDatabaseCapability(client,'garden_research');
       await client.query('BEGIN');
       await client.query('SET LOCAL ROLE garden_research');
       await client.query("SET LOCAL statement_timeout = '5s'");
       const value = await fn(client);
+      await assertDatabaseCapability(client,'garden_research',{activeRole:true,login});
       await client.query('COMMIT'); return value;
-    } catch {
+    } catch (error) {
+      if(error instanceof DatabaseCapabilityError) failed=true;
       try { if(client) await client.query('ROLLBACK'); } catch { failed = true; }
       throw new Error('Membership storage unavailable');
     } finally { client?.release(failed); }

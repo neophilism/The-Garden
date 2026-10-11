@@ -39,6 +39,7 @@ jobs:
           set -eu
           python3 scripts/validate_charter.py
           python3 scripts/sync_roadmap.py
+          python3 scripts/verify_policy_routes.py
           python3 -m unittest discover -s tests/architecture -v
           printf 'Tested SHA: %s\n' "$GITHUB_SHA"
   application:

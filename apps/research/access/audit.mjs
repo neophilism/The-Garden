@@ -1,26 +1,18 @@
+import {assertDatabaseCapability,DatabaseCapabilityError} from './database-role.mjs';
 import {randomUUID} from 'node:crypto';
 import {AuditError,auditUUID,auditPageOptions,GENESIS,verifyAuditPage,validateCheckpoint} from '../../../packages/domain/src/audit/ledger.mjs';
 const fail=()=>{throw new AuditError();};
 const CAPS=['garden_context_issuer','garden_audit_reader','garden_audit_writer'];
-const ROLE_SQL=`SELECT current_user::text AS current_role,session_user::text AS login_role,
- (r.rolsuper OR r.rolbypassrls OR r.rolcreaterole OR r.rolcreatedb OR r.rolreplication OR r.rolinherit) AS elevated,
- pg_has_role(session_user,$1,'MEMBER') AS expected,
- EXISTS(SELECT 1 FROM unnest(ARRAY['garden_migrator','garden_public','garden_research','garden_context_issuer','garden_membership_admin','garden_consent_admin','garden_publisher','garden_worker','garden_audit_reader','garden_audit_writer']) n WHERE n<>$1 AND pg_has_role(session_user,n,'MEMBER')) AS conflicting
- FROM pg_roles r WHERE r.rolname=session_user`;
-async function role(client,cap){
- if(!CAPS.includes(cap))fail();const r=(await client.query(ROLE_SQL,[cap])).rows;
- if(r?.length!==1||!r[0].login_role||r[0].current_role!==r[0].login_role||r[0].elevated!==false||r[0].expected!==true||r[0].conflicting!==false)fail();
-}
 function poolExecutor(pool,cap){
  if(typeof pool?.connect!=='function'||!CAPS.includes(cap))fail();
  return async work=>{
-  let c,bad=false;
+  let c,bad=false,login;
   try{
-   c=await pool.connect();try{await role(c,cap);}catch{bad=true;fail();}
+   c=await pool.connect();try{login=await assertDatabaseCapability(c,cap);}catch{bad=true;fail();}
    await c.query('BEGIN');await c.query('SET LOCAL ROLE '+cap);
    await c.query("SET LOCAL statement_timeout='5s'; SET LOCAL idle_in_transaction_session_timeout='10s'");
-   const result=await work(c);await c.query('COMMIT');return result;
-  }catch{try{if(c)await c.query('ROLLBACK');}catch{bad=true;}fail();}finally{c?.release(bad);}
+   const result=await work(c);await assertDatabaseCapability(c,cap,{activeRole:true,login});await c.query('COMMIT');return result;
+  }catch(error){if(error instanceof DatabaseCapabilityError)bad=true;try{if(c)await c.query('ROLLBACK');}catch{bad=true;}fail();}finally{c?.release(bad);}
  };
 }
 function subject(value){

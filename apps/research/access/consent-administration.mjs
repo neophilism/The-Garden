@@ -1,14 +1,10 @@
+import {assertDatabaseCapability,DatabaseCapabilityError} from './database-role.mjs';
 import {validateConsentGrant,validateUsePolicy,ConsentError} from '../../../packages/domain/src/consent/purpose.mjs';
 import {UUID,SHA256} from './roles.mjs';
 const fail=()=>{throw new ConsentError();};
 function uuid(value){if(typeof value!=='string'||!UUID.test(value)||value!==value.toLowerCase())fail();return value;}
 function digest(value){if(typeof value!=='string'||!SHA256.test(value))fail();return value;}
 function version(value,{zero=false}={}){if(typeof value!=='string'||!(zero?/^(0|[1-9][0-9]{0,17})$/:/^[1-9][0-9]{0,17}$/).test(value))fail();return value;}
-const ROLE_SQL=`SELECT current_user::text AS current_role,session_user::text AS login_role,
- (r.rolsuper OR r.rolbypassrls OR r.rolcreaterole OR r.rolcreatedb OR r.rolreplication OR r.rolinherit) AS elevated,
- pg_has_role(session_user,'garden_consent_admin','MEMBER') AS consent_admin,
- EXISTS(SELECT 1 FROM unnest(ARRAY['garden_migrator','garden_research','garden_context_issuer','garden_membership_admin','garden_publisher','garden_worker']) n WHERE pg_has_role(session_user,n,'MEMBER')) AS conflicting
- FROM pg_roles r WHERE r.rolname=session_user`;
 /** Unmounted administration boundary. The trusted authorizer must independently
  * verify privilege, workspace scope and recent step-up (GDN-022), not infer them
  * from ordinary verified email or a client-provided administrator flag. */
@@ -20,13 +16,12 @@ export function createConsentAdministration({pool,authorize,enabled=()=>false}){
   return actor.id;
  }
  async function run(headers,workspace,operation,work){
-  workspace=uuid(workspace);let actor,c,bad=false;
+  workspace=uuid(workspace);let actor,c,login,bad=false;
   try{
-   actor=await identity(headers,workspace,operation);c=await pool.connect();const r=(await c.query(ROLE_SQL)).rows;
-   if(r.length!==1||!r[0].login_role||r[0].current_role!==r[0].login_role||r[0].elevated!==false||r[0].conflicting!==false||r[0].consent_admin!==true){bad=true;fail();}
+   actor=await identity(headers,workspace,operation);c=await pool.connect();login=await assertDatabaseCapability(c,'garden_consent_admin');
    await c.query('BEGIN');await c.query('SET LOCAL ROLE garden_consent_admin');await c.query("SET LOCAL statement_timeout='5s'");await c.query("SET LOCAL idle_in_transaction_session_timeout='10s'");
-   const result=await work(c,actor);if(await identity(headers,workspace,operation)!==actor)fail();await c.query('COMMIT');return result;
-  }catch{try{if(c)await c.query('ROLLBACK');}catch{bad=true;}fail();}finally{c?.release(bad);}
+   const result=await work(c,actor);if(await identity(headers,workspace,operation)!==actor)fail();await assertDatabaseCapability(c,'garden_consent_admin',{activeRole:true,login});await c.query('COMMIT');return result;
+  }catch(error){if(error instanceof DatabaseCapabilityError)bad=true;try{if(c)await c.query('ROLLBACK');}catch{bad=true;}fail();}finally{c?.release(bad);}
  }
  return Object.freeze({
   async registerTerms(headers,workspace,terms){

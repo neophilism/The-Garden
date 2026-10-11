@@ -1,0 +1,18 @@
+{
+  "work_item_id": "GDN-031",
+  "implementation": "candidate_authorization_regressions",
+  "accepted": false,
+  "production_verified": false,
+  "independent_review": "not_performed",
+  "local_core_tests": {"passed":756,"failed":0,"skipped":0},
+  "local_architecture_tests": {"passed":103,"failed":0},
+  "criteria": {
+    "GDN-031-AC01": "Matrix assertions cover role/class/state/grant reads, role/class writes, all existing non-HTML research projections and separate audit access. Exact-head PostgreSQL and browser execution remains pending at authorship; no statistical timing assertion.",
+    "GDN-031-AC02": "Route/method registration, exact named test existence, runtime matrix vocabulary and deliberately invalid fixtures fail closed. Conservative scanner does not certify arbitrary JS.",
+    "GDN-031-AC03": "Real queue/outbox suite exercises revocation before claim, during work and before consumption; irreversible handler side effects remain prohibited before admission."
+  },
+  "new_schema_migration": false,
+  "cloud_mutation": false,
+  "research_endpoints_mounted": false,
+  "pending": ["Exact-head CI", "Independent security review", "Authorized hosting and live behavior verification"]
+}

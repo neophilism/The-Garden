@@ -1,10 +1,10 @@
 {
   "current_scope_items": 196,
   "conditional_items": 14,
-  "remote_prs_opened": 24,
-  "verified_merged_items": 24,
+  "remote_prs_opened": 25,
+  "verified_merged_items": 25,
   "production_verified_items": 0,
   "current_scope_weight": 608,
   "conditional_weight": 46,
-  "note": "24 engineering items have observed merges and exact-head CI. GDN-030 is a candidate, not accepted or deployed. Original scope remains 196 current and 14 conditional."
+  "note": "25 observed engineering merges; GDN-031 candidate. No independent acceptance or production verification inferred."
 }

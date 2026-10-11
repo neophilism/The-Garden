@@ -1,5 +1,10 @@
 # The Garden
 
+## Current engineering checkpoint (11 October 2026)
+
+GDN-030 / PR #28 is merged at `7cb417f291011f20f89f66c8a0d2da804b560198` after all six final-head workflows passed. The audit pagination defect was corrected and 21 real PostgreSQL audit checks passed. GDN-031 authorization-isolation work is a candidate until its own CI and merge are verified. See `docs/CURRENT_STATUS.md` and `docs/security/authorization-regression.md`. Earlier checkpoints below are historical, not current production claims.
+
+
 A public-information and historical-research platform under development.
 
 **Start with [current execution status](docs/CURRENT_STATUS.md), [the complete plan](DEVELOPMENT_PLAN.md), and [AGENTS.md](AGENTS.md).** The approved baseline has 210 work items covering 43 functions: 196 current public/research items and 14 conditional governmental items. Planned IDs are not GitHub PR numbers.

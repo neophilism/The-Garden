@@ -1,39 +1,25 @@
-# Audit continuation - 11 October 2026
-
-GDN-022 is merged at `fa0a14c1917fcdbaeb648acfec72d65f90ccb55f` in PR #27. All six workflows passed for final head `1cf895006931c8f2930cfd07c8f36e3449ad0227`. There are 24 engineering merges, not 24 accepted or deployed features.
-
-GDN-030 adds the workspace audit ledger and an independently supplied checkpoint verifier. Local core tests: 568 passed, including 102 audit-specific tests. Real PostgreSQL and exact-head CI remain pending for this candidate. Read `docs/security/audit-ledger.md`; no cloud schema, live export endpoint or external anchoring service is enabled.
-
-After GDN-030 passes and merges, continue GDN-031 authorization matrix tests and GDN-039 independent review/rights/publication state. Render workspace confirmation remains pending. No new spending or substitute target.
-
-Earlier checkpoint observations follow; inspect current execution and GitHub before treating them as live state.
-
----
-
 # Current continuation - 11 October 2026
 
-## Verified baseline and current work
+## Verified baseline
 
-PR #26 / GDN-029 is merged at `b62396cf1715d51c2d396ef24d276a7a3306f017`; all six exact-head workflows were reverified. There are 23 observed engineering merges at this checkpoint. Bootstrap, inventory and follow-up PRs do not inflate the planned-work count. The 196-current/14-conditional scope is unchanged.
+PR #28 / GDN-030 is merged at `7cb417f291011f20f89f66c8a0d2da804b560198`. All six final-head workflows passed for `c00198d8796f10594f119194e4ffb14baee3d060`. The PostgreSQL audit test found lexical sorting of exported sequence text; the stored bigint is now explicitly ordered. The final run passed 21 real PostgreSQL audit checks. There are 25 observed mapped engineering merges, not 25 independently accepted or deployed features.
 
-PR #27 / GDN-022 has passed all six workflows for head `bc0d1e55890fe0daceba72ae5e4af44596bbb8fd`. Its 88 identity unit tests and 27 real-browser/PostgreSQL checks cover passkey signatures, mandatory user verification, session rotation and revocation, privilege expiry, cross-tab logout and password-recovery races. Evidence preserves both the PR head and the tested merge ref. The downloaded source tree matched the PR head exactly, and the desktop/mobile screenshots were inspected. See `docs/evidence/GDN-022/verification-2026-10-11.json`. Subsequent commits must pass fresh CI before merge; this record does not claim they already did.
+## Current candidate
 
-The identity and account-security capability remains unmounted. Email infrastructure, hosted HTTPS, physical authenticators, multi-browser testing, independent review and production acceptance remain separate gates. Ordinary password recovery does not replace an enrolled passkey or enable privileged actions. Read `docs/security/sessions-and-step-up.md` before integrating consumers.
+GDN-031 adds closed database-capability validation before and after transactions, a 594-coordinate read matrix, 66 role/class write cases, signed-byte and non-HTML channel checks, a fail-closed endpoint registration gate and real job/outbox revocation tests. Local core tests: 756 passed; architecture: 103 passed. Exact-head CI is pending at this record's authorship. No researcher endpoint or new provider is activated.
 
-## Next dependency-ready implementation
+## Next work
 
-After GDN-022 merges with fresh passing CI, continue GDN-030 tamper-evident audit, then GDN-031 authorization isolation and GDN-039 independent evidence/rights/publication status. Other dependency-ready work must respect the explicit key-management and provider gates. Do not infer source verification, publication permission or legal authority from a schema or successful CI run.
+Finish fresh CI and merge-safety review for GDN-031, then continue dependency-ready GDN-039 review/rights/publication states and GDN-041 preservation-first import quarantine. Inspect actual branch/PR state before acting; never infer acceptance from these instructions.
 
-## Provider and deployment boundary
+## Hosting and privacy
 
-The supplied Render project is `prj-db57f92jnfac739ghic0`. This session's Render connection requires explicit confirmation of Phillip's workspace (`tea-db23jkks728c73av263g`) before service access. No alternate project, service or paid resource was substituted. Earlier project-bound service-inspection/assignment limitations also require verification after workspace selection.
+Render project `prj-db57f92jnfac739ghic0` remains the authorized target. Its connector requires the owner's explicit confirmation before selecting Phillip's workspace `tea-db23jkks728c73av263g`; that question has been asked and is unanswered in this session. No alternate project or service is used.
 
-Neon project `royal-union-78374030` is connected. The existing Garden staging branch is `br-purple-grass-b5hurfl7`; production branch `br-curly-band-b5aatp1e` is unchanged. This continuation changed no cloud schema or storage object and sent no external email.
+Neon access and both branches are verified: staging `br-purple-grass-b5hurfl7`, production `br-curly-band-b5aatp1e`, project `royal-union-78374030`. This continuation has changed no cloud database, resource or storage object. No additional spending or recurring scheduler was authorized.
 
-The public application remains a nine-page preproduction orientation site. Browser checks operate against CI builds, not a verified live Garden deployment. No original corpus, private family data, AI, payments or official governmental capability is enabled.
+The public orientation site is a nine-page nonindexable preproduction build. Research identity, restricted delivery, audit, original corpus ingestion, AI and official governmental features remain unmounted or disabled. Browser/SQL CI uses synthetic fixtures, not a verified live Garden deployment.
 
-## Progress integrity and handoff
+## Handoff
 
-Read `AGENTS.md`, `registry/roadmap.json`, `plan/plan.json`, `plan/execution.json`, `plan/progress.json` and applicable ADRs. Engine Room source mappings reflect actual PRs; live ingestion/readback and branch-rule administration remain unverified. Merged engineering, independent acceptance and production readiness are different observations. Inspect actual GitHub state at the start of each session; do not use an old status paragraph as current evidence.
-
-Previous status text and source snapshots remain in Git history. There is no recurring development scheduler or claimed unattended worker. Required code, tests and runbooks reside in the repository; conversation history is not an implementation dependency.
+Read AGENTS.md, registry/roadmap.json, plan/execution.json, plan/progress.json and applicable source/security runbooks. Engine Room repository mappings reflect actual PRs; live ingestion/readback is unverified. Independent review, secure deployment, restore tests and actual end-user behavior remain separate acceptance gates. There is no unattended development worker.
