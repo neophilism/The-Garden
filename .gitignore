@@ -1,4 +1,4 @@
-# Protect credentials, private data and local work.
+# Credentials and private records
 .env
 .env.*
 !.env.example
@@ -12,10 +12,10 @@ node_modules/
 .next/
 __pycache__/
 *.pyc
-
-# Garden Next.js workspaces
 **/.next/
 **/out/
 **/*.tsbuildinfo
-.env.*
-!.env.example
+# Local quality artifacts are retained by CI separately
+**/test-results/
+**/playwright-report/
+quality-environment.json

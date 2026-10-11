@@ -15,17 +15,17 @@ export default function PublicLayout({children}:{children:ReactNode}) {
     <html lang="en">
       <body>
         <a className="skip-link" href="#main">Skip to main content</a>
-        <div className="preheader">PUBLIC DESIGN PREVIEW · DRAFT LEGISLATION · NOT AN OFFICIAL PROGRAM</div>
         <header className="site-header">
+          <div className="preheader">PUBLIC DESIGN PREVIEW · DRAFT LEGISLATION · NOT AN OFFICIAL PROGRAM</div>
           <div className="topbar wrap">
             <Link href="/" className="logo"><span aria-hidden="true" className="logo-mark">✦</span> The Garden</Link>
             <nav aria-label="Primary" className="main-nav">
               {TOP_NAV.map(item=><Link key={item.href} href={item.href}>{item.label}</Link>)}
-              <a className="sign-in" href="/research/" aria-label="Researcher sign-in not yet available">Researcher access <span aria-hidden="true">↗</span></a>
+              <a className="sign-in" href="/research/" aria-label="Researcher access: sign-in not yet available">Researcher access <span aria-hidden="true">↗</span></a>
             </nav>
           </div>
         </header>
-        <main id="main">{children}</main>
+        <main id="main" tabIndex={-1}>{children}</main>
         <footer className="site-footer">
           <div className="wrap footer-inner">
             <div>

@@ -48,10 +48,10 @@ def validate(plan, execution, progress, mapping):
             if state and state.get("github_merge_sha"):
                 raise ValueError("merged work missing approved PR mapping")
             continue
-        if not isinstance(number, int) or number < 1 or not state or state.get("github_pr_number") != number:
+        if type(number) is not int or number < 1 or not state or state.get("github_pr_number") != number:
             raise ValueError("planned and actual PR mapping diverged")
         if state.get("github_merge_sha"):
-            if not state.get("ci_url") or state.get("accepted") not in (False, True):
+            if not state.get("ci_url") or type(state.get("accepted")) is not bool:
                 raise ValueError("merged item lacks exact CI or acceptance distinction")
             merged += 1
         if state.get("production_verified") and not state.get("github_merge_sha"):
