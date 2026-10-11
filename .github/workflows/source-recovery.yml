@@ -1,0 +1,30 @@
+name: Garden source-only recovery
+on:
+  push:
+    branches: [security/gdn-025-delivery-authorization]
+    paths: [.github/workflows/source-recovery.yml]
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Package public Git objects only
+        run: |
+          set -eu
+          git bundle create "$RUNNER_TEMP/garden-source.bundle" --all
+          git bundle verify "$RUNNER_TEMP/garden-source.bundle"
+          sha256sum "$RUNNER_TEMP/garden-source.bundle" > "$RUNNER_TEMP/garden-source.sha256"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: garden-source-recovery
+          path: |
+            ${{ runner.temp }}/garden-source.bundle
+            ${{ runner.temp }}/garden-source.sha256
+          retention-days: 3
+          if-no-files-found: error
