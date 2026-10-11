@@ -1,5 +1,1 @@
-{
-  "version": 1,
-  "scope": "synthetic-foundation-only",
-  "migrations": [{"id":"0001_foundation","file":"0001_foundation.sql","sha256":"7ba727f1d96d342853a75670ecf4313275e72fb53674188c2e27690e246cf52e"}]
-}
+{"version":1,"scope":"synthetic-foundation-only","migrations":[{"id":"0001_foundation","file":"0001_foundation.sql","sha256":"7ba727f1d96d342853a75670ecf4313275e72fb53674188c2e27690e246cf52e"},{"id":"0002_jobs","file":"0002_jobs.sql","sha256":"3c5a0fa7579aee8ad19d5cf7471a3c0cfcda677961328766f55cb8b71c691f90"}]}
