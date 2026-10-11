@@ -1,29 +1,27 @@
-# Current continuation: GDN-029 candidate
+# Current continuation - 11 October 2026
 
-Observed 2026-10-11T15:11:52.262803+00:00. PR #25 / GDN-037 is merged at `38eea9c6cf2a3af390270db0ef248cd48be242fd` after all six exact-head workflows passed. There are 22 observed engineering merges, not 22 production-accepted capabilities.
+## Verified baseline and current work
 
-GDN-029 adds purpose-specific consent, descendant permission limits, immutable terms/grant/withdrawal history and restrictive research RLS. Administration and publication/preservation admission remain unmounted and require separate authorizers; no real contributor, expert approval, Neon migration or production deployment is claimed. Exact-head CI is pending. See `docs/security/consent-and-permitted-use.md`.
+PR #26 / GDN-029 is merged at `b62396cf1715d51c2d396ef24d276a7a3306f017`; all six exact-head workflows were reverified. There are 23 observed engineering merges at this checkpoint. Bootstrap, inventory and follow-up PRs do not inflate the planned-work count. The 196-current/14-conditional scope is unchanged.
 
-Prior observations remain timestamped below; current totals are in `plan/progress.json`, actual mappings in `plan/execution.json`. Engine Room live readback and the Render project-bound deployment limitation remain open.
+PR #27 / GDN-022 has passed all six workflows for head `bc0d1e55890fe0daceba72ae5e4af44596bbb8fd`. Its 88 identity unit tests and 27 real-browser/PostgreSQL checks cover passkey signatures, mandatory user verification, session rotation and revocation, privilege expiry, cross-tab logout and password-recovery races. Evidence preserves both the PR head and the tested merge ref. The downloaded source tree matched the PR head exactly, and the desktop/mobile screenshots were inspected. See `docs/evidence/GDN-022/verification-2026-10-11.json`. Subsequent commits must pass fresh CI before merge; this record does not claim they already did.
 
----
+The identity and account-security capability remains unmounted. Email infrastructure, hosted HTTPS, physical authenticators, multi-browser testing, independent review and production acceptance remain separate gates. Ordinary password recovery does not replace an enrolled passkey or enable privileged actions. Read `docs/security/sessions-and-step-up.md` before integrating consumers.
 
-# Current execution status - 11 October 2026
+## Next dependency-ready implementation
 
-Twenty-one planned engineering items are merged: GDN-001 through GDN-010, GDN-012, GDN-013, GDN-015, GDN-016, GDN-021, GDN-023, GDN-024, GDN-025, GDN-035 GDN-036 and GDN-038. Exact PR heads, merge commits and passing CI are in `plan/execution.json`. Bootstrap #1, provider inventory #11 and queue follow-up #17 are not additional roadmap units. Independent acceptance and production verification remain separate; the 196-current/14-conditional roadmap is unchanged.
+After GDN-022 merges with fresh passing CI, continue GDN-030 tamper-evident audit, then GDN-031 authorization isolation and GDN-039 independent evidence/rights/publication status. Other dependency-ready work must respect the explicit key-management and provider gates. Do not infer source verification, publication permission or legal authority from a schema or successful CI run.
 
-PR #21 / GDN-025 passed all five exact-head workflows after the canonical-roadmap merge conflict was resolved without losing any scope. Its protected search, projections, exports and bounded private byte delivery remain unmounted; no public research or hosted streaming is claimed.
+## Provider and deployment boundary
 
-GDN-035 / PR #22 is merged after all six exact-head workflows passed, including the real PostgreSQL entity/history/revocation/concurrency journey. Its 53 historical-domain and repository unit tests include both allowed and denied linked-record reads. No historical source is imported or verified.
+The supplied Render project is `prj-db57f92jnfac739ghic0`. This session's Render connection requires explicit confirmation of Phillip's workspace (`tea-db23jkks728c73av263g`) before service access. No alternate project, service or paid resource was substituted. Earlier project-bound service-inspection/assignment limitations also require verification after workspace selection.
 
-GDN-036 / PR #23 is merged after all six exact-head workflows passed. Its source hierarchy, conflicting catalog assertions and lineage comparison passed real PostgreSQL concurrency and revocation checks. Copies do not become independent evidence automatically.
+Neon project `royal-union-78374030` is connected. The existing Garden staging branch is `br-purple-grass-b5hurfl7`; production branch `br-curly-band-b5aatp1e` is unchanged. This continuation changed no cloud schema or storage object and sent no external email.
 
-GDN-038 / PR #24 is merged after all six exact-head workflows passed. Its immutable version-bound locators, reanchor proposals and original-source revocation checks are recorded in the execution registry. Exact bytes do not establish historical truth or publication rights.
+The public application remains a nine-page preproduction orientation site. Browser checks operate against CI builds, not a verified live Garden deployment. No original corpus, private family data, AI, payments or official governmental capability is enabled.
 
-GDN-037 is the current atomic-claim candidate. It separates attributed testimony, historical interpretation and policy assertions; preserves opposing evidence pinned to evaluated revisions; and traces corrections to direct/transitive artifact placements. Semantic atomicity still needs human review. PostgreSQL verification is pending CI, and the correction report makes no global-completeness claim beyond authorized records.
+## Progress integrity and handoff
 
-The public application remains a nine-page preproduction orientation site. Existing browser checks run against local CI builds, not a live Render deployment. The existing Garden staging branch is `br-purple-grass-b5hurfl7`, with three private archive buckets. No original corpus, family data, AI, payments or official governmental functions are enabled.
+Read `AGENTS.md`, `registry/roadmap.json`, `plan/plan.json`, `plan/execution.json`, `plan/progress.json` and applicable ADRs. Engine Room source mappings reflect actual PRs; live ingestion/readback and branch-rule administration remain unverified. Merged engineering, independent acceptance and production readiness are different observations. Inspect actual GitHub state at the start of each session; do not use an old status paragraph as current evidence.
 
-Render and Neon connections were rechecked and work. The current Render connector cannot inspect or assign services within project `prj-db57f92jnfac739ghic0`; no substitute Garden service was created in a different project. Branch-rule administration and Engine Room live readback remain unverified. The canonical registry and actual-PR mapping are maintained without claiming live ingestion.
-
-No new paid resource, scheduler or production database change accompanies this work. Production branch `br-curly-band-b5aatp1e` is unchanged.
+Previous status text and source snapshots remain in Git history. There is no recurring development scheduler or claimed unattended worker. Required code, tests and runbooks reside in the repository; conversation history is not an implementation dependency.

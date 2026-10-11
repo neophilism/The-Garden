@@ -13,7 +13,7 @@ jobs:
   identity:
     name: identity-lifecycle
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     services:
       postgres:
         image: postgres:18.6-bookworm
@@ -47,6 +47,10 @@ jobs:
           package-manager-cache: false
       - name: Exact locked dependencies
         run: npm ci --include=dev --no-audit
+      - name: Locked browser verification tools
+        run: |
+          npm ci --prefix tools/quality --ignore-scripts --no-audit
+          cd tools/quality && npx playwright install --with-deps chromium
       - name: Identity configuration and route rejection tests
         run: npm run test:identity --workspace=@garden/research
       - name: Isolated membership migration foundation
@@ -59,6 +63,8 @@ jobs:
         run: node apps/research/access/delivery.ci.mjs
       - name: Purpose-specific consent and withdrawal races
         run: node apps/research/access/consent.ci.mjs
+      - name: Real-browser passkeys, step-up, device revocation and recovery
+        run: node apps/research/identity/sessions.ci.mjs
       - name: Preserve safe lifecycle evidence and generated synthetic schema
         if: success()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

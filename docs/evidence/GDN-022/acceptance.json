@@ -1,0 +1,20 @@
+{
+  "work_item_id": "GDN-022",
+  "implementation": "unmounted_session_security_with_verified_ci",
+  "accepted": false,
+  "production_verified": false,
+  "independent_review": "not_performed",
+  "identity_unit_tests": {"passed": 88, "failed": 0, "skipped": 0, "environment": "GitHub CI Node 24.21.0"},
+  "real_browser_postgres_checks": {"passed": 27, "failed": 0, "virtual_authenticator": true},
+  "criteria": {
+    "GDN-022-AC01": "Own-session/all-device SQL revocation, cross-instance reads and real cross-tab logout verified in the saved CI journey.",
+    "GDN-022-AC02": "Actual verifier signatures, authenticated user verification, current enrolled key, five-minute expiry and separate action authority tested. Origin, relying-party, replay and false-UV attacks rejected.",
+    "GDN-022-AC03": "Password reset preserves factors and revokes sessions. Recovered passwords cannot replace existing factors or gain privilege. Concurrent old-password login/reset tested."
+  },
+  "evidence": "docs/evidence/GDN-022/verification-2026-10-11.json",
+  "capability": "user-verified passkeys; no password-only privileged fallback",
+  "physical_authenticators_tested": false,
+  "cloud_schema_changed": false,
+  "runtime_endpoints_mounted": false,
+  "remaining": ["fresh required checks on each subsequent commit", "independent security review", "physical-device and cross-browser ceremony testing", "staging activation and safe pool capacity", "live HTTPS verification"]
+}
