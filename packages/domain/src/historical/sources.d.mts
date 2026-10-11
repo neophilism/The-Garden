@@ -1,0 +1,17 @@
+import type {SourceReference} from './model.mjs';
+export type ArchivalLevel='repository'|'collection'|'series'|'item';
+export type SourceForm='witness'|'edition'|'digital-representation';
+export type CatalogAssertion=Readonly<{id:string;field:'title'|'date'|'creator'|'call-number'|'language'|'extent'|'description';value:string;provenance:readonly SourceReference[];supersedes:string|null}>;
+export type ArchivalUnit=Readonly<{recordType:'archival-unit';schemaVersion:1;id:string;title:string|null;level:ArchivalLevel;parentId:string|null;assertions:readonly CatalogAssertion[];notes:string|null}>;
+export type Source=Readonly<{recordType:'source';schemaVersion:1;id:string;title:string|null;form:SourceForm;archivalItemId:string|null;derivedFrom:readonly string[];assertions:readonly CatalogAssertion[];representation:Readonly<{sha256:string;mediaType:string;byteLength:number;originalFilename:string|null}>|null}>;
+export type SourceRecord=ArchivalUnit|Source;
+export type SourceLoader=(id:string)=>Promise<unknown>;
+export type LineageComparison=Readonly<{sources:readonly Readonly<{sourceId:string;knownWitnessRoots:readonly string[];unresolvedRoots:readonly string[]}>[];sharedLineages:readonly Readonly<{sourceIds:readonly string[];sharedRoots:readonly string[]}>[];independence:'not-established';independentEvidenceCount:null}>;
+export const ARCHIVAL_LEVELS:readonly ArchivalLevel[];
+export const SOURCE_FORMS:readonly SourceForm[];
+export function validateArchivalUnit(value:unknown):ArchivalUnit;
+export function validateSource(value:unknown):Source;
+export function validateSourceRecord(value:unknown):SourceRecord;
+export function preserveCatalogAssertions(before:unknown,after:unknown):SourceRecord;
+export function validateSourceGraph(value:unknown,load:SourceLoader,options?:{maxNodes?:number}):Promise<SourceRecord>;
+export function compareSourceLineages(ids:readonly string[],load:SourceLoader):Promise<LineageComparison>;

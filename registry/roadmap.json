@@ -378,7 +378,10 @@
       "sourceItemId": "GDN-035",
       "applicability": "current_scope",
       "scope": "Model people, polities, peoples, languages, places, institutions, voyages and events with typed relationships, historical names and provenance.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        22
+      ]
     },
     {
       "id": "GDN-036",

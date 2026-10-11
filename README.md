@@ -51,3 +51,7 @@ Read [the charter](docs/product/charter.md) and [feature responsibilities](docs/
 `bootstrap/` preserves a bounded, hash-checked transport of the original text baseline. Restore only in a separate recovery directory; its one-time workflow is retired. The historical manifest names three original documentation-QA PNGs excluded from that text-only import.
 
 No code/documentation license is selected. Public repository access grants no redistribution rights to archival material, family records or book assets. No private corpus or licensed image collection is included. Maintain rights and consent review separately from code review.
+
+## Archival source model
+
+See [archival sources and lineage](docs/data/archival-sources.md). GDN-036 distinguishes witnesses, editions and exact digital representations, preserves contradictory catalog assertions, and never infers independent testimony merely from separate records. Its repository remains unmounted pending independent review and activation.

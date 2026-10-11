@@ -1,18 +1,22 @@
 {
   "work_item": "GDN-035",
-  "implementation": "candidate",
+  "implementation": "merged_with_exact_ci",
   "criteria": {
     "GDN-035-AC01": "Closed entity kinds and typed endpoint constraints distinguish ports, languages, polities and peoples in both domain and database boundaries.",
     "GDN-035-AC02": "Unknown fields remain explicit nulls and authored date bounds retain original text; no inferred ancestry or date is produced.",
     "GDN-035-AC03": "Redirect merges leave UUIDs, aliases and source identities in place; unmerge and append-only versions preserve the decision history."
   },
-  "local_domain_tests_passed": 49,
-  "local_application_tests_passed": 226,
+  "local_domain_tests_passed": 53,
+  "local_application_tests_passed": 230,
   "local_runtime": "Node 22.16.0 with experimental type stripping; exact Node 24 check required in CI",
-  "database_checks": "specified executable real-PostgreSQL journey, pending CI",
+  "database_checks": "passed in exact-head ephemeral PostgreSQL CI",
   "independent_review": "not_performed",
   "accepted": false,
   "public_route_enabled": false,
   "neon_migration_applied": false,
-  "production_verified": false
+  "production_verified": false,
+  "github_pr": 22,
+  "github_head_sha": "7734e0759ce6341739ea3f8c96eb7f3458c73621",
+  "github_merge_sha": "8fee8457a4bff214ab09b20da67ed877a34aba46",
+  "data_ci_url": "https://github.com/neophilism/The-Garden/actions/runs/38128703475"
 }
