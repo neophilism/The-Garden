@@ -2,17 +2,16 @@ import {betterAuth} from 'better-auth';
 import {admin} from 'better-auth/plugins/admin';
 import {defaultAc,userAc} from 'better-auth/plugins/admin/access';
 import {identityPolicy,boundedAuthRequest,unavailableIdentity} from './policy.mjs';
-/** Server-owned dependencies only. Never let an HTTP caller select the pool,
- * mailer, authorization callback, signing secret, activation or base origin.
- * Does not run schema migrations, assign operator roles or publish an API.
+import {verifiedViewer} from './session.mjs';
+/** All dependencies are server-owned. Never accept a pool, mailer, policy,
+ * signing secret, activation record or origin from an HTTP caller.
  */
 export function createResearchIdentity({database,secret,baseURL,environment,activation,deliverMail,isSuspended}){
  const policy=identityPolicy({environment,secret,baseURL,activation});
  if(typeof database?.query!=='function'||typeof deliverMail!=='function'||typeof isSuspended!=='function')throw new Error('Missing trusted identity dependencies');
  const operatorAc=defaultAc.newRole({user:['ban','get'],session:['list','revoke']});
  const options={
-  appName:'The Garden Research',database,secret,baseURL:policy.origin,basePath:'/api/auth',trustedOrigins:[policy.origin],
-  logger:{disabled:true},
+  appName:'The Garden Research',database,secret,baseURL:policy.origin,basePath:'/api/auth',trustedOrigins:[policy.origin],logger:{disabled:true},
   emailAndPassword:{enabled:true,minPasswordLength:12,maxPasswordLength:128,requireEmailVerification:true,revokeSessionsOnPasswordReset:true,
    sendResetPassword:async({user,url,token})=>deliverMail({kind:'password-reset',userId:user.id,to:user.email,url,token})},
   emailVerification:{sendOnSignUp:true,autoSignInAfterVerification:false,expiresIn:1800,
@@ -24,13 +23,11 @@ export function createResearchIdentity({database,secret,baseURL,environment,acti
   plugins:[admin({defaultRole:'researcher',adminRoles:['operator'],roles:{researcher:userAc,operator:operatorAc}})]
  };
  const auth=betterAuth(options);
- return Object.freeze({
-  options,
+ return Object.freeze({options,
   async handle(request){
    let bounded;try{bounded=await boundedAuthRequest(request,policy);}catch{return Response.json({error:'request_denied'},{status:403,headers:{'Cache-Control':'no-store'}});}
    try{
-    const response=await auth.handler(bounded);
-    if(response.status>=500)return unavailableIdentity();
+    const response=await auth.handler(bounded);if(response.status>=500)return unavailableIdentity();
     const headers=new Headers(response.headers);headers.set('Cache-Control','no-store');headers.set('X-Content-Type-Options','nosniff');
     return new Response(response.body,{status:response.status,headers});
    }catch{return unavailableIdentity();}
@@ -38,9 +35,8 @@ export function createResearchIdentity({database,secret,baseURL,environment,acti
   async viewer(headers){
    try{
     const session=await auth.api.getSession({headers,query:{disableCookieCache:true}});
-    if(!session||session.user.emailVerified!==true||session.user.banned===true||new Date(session.session.expiresAt).getTime()<=Date.now()||(await isSuspended(session.user.id))!==false)return null;
-    // Authentication is not authorization to read research or become a citizen.
-    return Object.freeze({id:session.user.id,email:session.user.email,name:session.user.name,verified:true,canReadRestrictedRecords:false,privilegedAssurance:false});
+    if(typeof session?.user?.id!=='string')return null;
+    return verifiedViewer(session,await isSuspended(session.user.id));
    }catch{return null;}
   }
  });

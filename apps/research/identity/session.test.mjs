@@ -1,0 +1,12 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {verifiedViewer} from './session.mjs';
+const now=1800000000000;
+const sample=()=>({user:{id:'synthetic-user',name:'Synthetic researcher',email:'researcher@example.invalid',emailVerified:true,banned:false},session:{userId:'synthetic-user',expiresAt:new Date(now+1000)}});
+test('verified session exposes no token or elevated permissions',()=>{const result=verifiedViewer(sample(),false,now);assert.equal(result.verified,true);assert.equal(result.canReadRestrictedRecords,false);assert.equal(result.privilegedAssurance,false);assert.equal('token' in result,false);assert.ok(Object.isFrozen(result));});
+test('expired session is denied',()=>{const s=sample();s.session.expiresAt=new Date(now);assert.equal(verifiedViewer(s,false,now),null);});
+test('malformed expiry fails closed',()=>{const s=sample();s.session.expiresAt='not-a-date';assert.equal(verifiedViewer(s,false,now),null);});
+test('session must match user identity',()=>{const s=sample();s.session.userId='another-user';assert.equal(verifiedViewer(s,false,now),null);});
+test('unverified email denied',()=>{const s=sample();s.user.emailVerified=false;assert.equal(verifiedViewer(s,false,now),null);});
+test('suspension or unknown state denies',()=>{for(const state of [true,null,undefined,'false'])assert.equal(verifiedViewer(sample(),state,now),null);});
+test('provider ban independently denies',()=>{const s=sample();s.user.banned=true;assert.equal(verifiedViewer(s,false,now),null);});
+test('invalid clock fails closed',()=>assert.equal(verifiedViewer(sample(),false,NaN),null));
+test('empty or oversized identity denied',()=>{for(const id of ['', 'a'.repeat(257)]){const s=sample();s.user.id=id;s.session.userId=id;assert.equal(verifiedViewer(s,false,now),null);}});
