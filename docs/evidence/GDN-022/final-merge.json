@@ -1,0 +1,12 @@
+{
+  "work_item_id": "GDN-022",
+  "github_pr_number": 27,
+  "github_head_sha": "1cf895006931c8f2930cfd07c8f36e3449ad0227",
+  "github_merge_sha": "fa0a14c1917fcdbaeb648acfec72d65f90ccb55f",
+  "ci_url": "https://github.com/neophilism/The-Garden/actions/runs/38160962939",
+  "ci_workflows": {"repository":38160962960,"database":38160962890,"identity":38160962939,"storage":38160962914,"historical_data":38160962913,"quality_browser":38160962949},
+  "ci_results": "all_six_success_observed_before_merge",
+  "accepted": false,
+  "production_verified": false,
+  "independent_review": "not_performed"
+}

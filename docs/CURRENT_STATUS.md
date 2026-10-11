@@ -1,3 +1,15 @@
+# Audit continuation - 11 October 2026
+
+GDN-022 is merged at `fa0a14c1917fcdbaeb648acfec72d65f90ccb55f` in PR #27. All six workflows passed for final head `1cf895006931c8f2930cfd07c8f36e3449ad0227`. There are 24 engineering merges, not 24 accepted or deployed features.
+
+GDN-030 adds the workspace audit ledger and an independently supplied checkpoint verifier. Local core tests: 568 passed, including 102 audit-specific tests. Real PostgreSQL and exact-head CI remain pending for this candidate. Read `docs/security/audit-ledger.md`; no cloud schema, live export endpoint or external anchoring service is enabled.
+
+After GDN-030 passes and merges, continue GDN-031 authorization matrix tests and GDN-039 independent review/rights/publication state. Render workspace confirmation remains pending. No new spending or substitute target.
+
+Earlier checkpoint observations follow; inspect current execution and GitHub before treating them as live state.
+
+---
+
 # Current continuation - 11 October 2026
 
 ## Verified baseline and current work

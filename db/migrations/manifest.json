@@ -46,6 +46,11 @@
       "id": "0009_purpose_consent",
       "file": "0009_purpose_consent.sql",
       "sha256": "ff49fa5baa2bf92b8d537e4daf115facd7e1baedd913e49ca9dac387776f7312"
+    },
+    {
+      "id": "0010_audit_ledger",
+      "file": "0010_audit_ledger.sql",
+      "sha256": "658e8adc7764e90b7cc51e3ee6fb49925913c31d5d114aae70f13561862dbe75"
     }
   ]
 }

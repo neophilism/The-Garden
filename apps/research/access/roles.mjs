@@ -10,6 +10,7 @@ const matrix = {
   rights_reviewer: [...all, 'review.rights'],
   community_adviser: [...all, 'review.community'],
   moderator: [...all, 'moderation.act'],
+  auditor: [...all, 'audit.inspect'],
   administrator: [...all, 'membership.manage', 'task.assign']
 };
 export const ROLE_CAPABILITIES = Object.freeze(Object.fromEntries(

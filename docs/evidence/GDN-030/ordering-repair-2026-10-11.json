@@ -1,0 +1,16 @@
+{
+  "scope": "GDN-030 audit page ordering repair",
+  "observed_failed_head": "89c15d5f70f99eb83b6f35a1fbf709110d175657",
+  "observed_failed_run": "https://github.com/neophilism/The-Garden/actions/runs/38162352911",
+  "cause": "PostgreSQL ORDER BY resolved sequence to the exported sequence::text alias, placing 10 before 2.",
+  "repair": "Qualify ORDER BY ae.sequence against the stored bigint in both the scoped reader and the real-database fixture. Preserve the string export format for exact bigint transport.",
+  "source_preparation_run": "https://github.com/neophilism/The-Garden/actions/runs/38163470941",
+  "prepared_commit": "485155b447f3baaa7483f080257caa5a82220856",
+  "source_validation": "The downloaded source tree matched the tested GitHub merge-ref tree 5405932897b67d5b296af3f840764dc5e114a12b, not the PR head tree; preparation checked exact before/after hashes for all three edited files.",
+  "local_tests": {"runtime":"Node.js 22.16.0 with --experimental-strip-types", "core_passed":569,"core_failed":0,"plan_passed":21,"architecture_passed":97},
+  "new_regressions": ["Reader SQL orders the stored bigint rather than a text alias", "Real PostgreSQL sequence fixture includes at least twelve entries and checks exact numeric ordering before hash verification"],
+  "current_commit_ci": "Pending fresh six-workflow evaluation; this record is not a pass assertion for its own commit.",
+  "production_verified": false,
+  "independent_acceptance": false,
+  "cloud_database_changed": false
+}
