@@ -2,11 +2,11 @@
 
 ## Verified baseline
 
-GDN-040 / PR #32 is merged at `e0c98404757c05337116b2a2fb52c1896a3dbcfb`. All six final-head workflows passed for `656b16a9774da9ff9e4f1622efe1532e36956b47`. The repository has 28 mapped engineering merges; independent acceptance and production verification remain separate and unperformed. Maintenance PR #30 is not another roadmap unit.
+GDN-095 / PR #33 is merged at `d55a3ea953c6b009945bb572817f30dd5040f65a`. All six final-head workflows passed for `75b64e576dff4021cd0a6b98b155735e1305ddaa`, including the corrected JSONB identity comparison. The repository has 29 mapped engineering merges; independent acceptance and production verification remain separate and unperformed. Maintenance PR #30 is not another roadmap unit.
 
 ## Current work
 
-GDN-095 adds source-bound geographic assertions, explicit dates/uncertainty, competing extents and protected numeric revision history. The typed repository rechecks source ancestry; personal locations remain unavailable to the general research/map layer. Additive migration 0012 is only exercised in ephemeral CI. See `docs/data/geographic-assertions.md`. Finish final-head CI and merge checks, then continue GDN-041 quarantine/intake.
+GDN-041 adds read-only source inventories, immutable quarantine manifests and bounded subprocess inspection. ZIP/database/JSON fixtures, denied access, revocation, retries and incomplete inputs are tested. All outcomes stay quarantined; the actual malware scanner and isolated worker deployment remain unconfigured. See `docs/data/import-quarantine.md`. Finish final-head CI and merge checks, then continue dependency-ready work.
 
 ## Hosting and authority
 

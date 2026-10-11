@@ -1,0 +1,8 @@
+{
+  "work_item_id": "GDN-041",
+  "deployed": false,
+  "provider_mutations": false,
+  "worker_enabled": false,
+  "real_scanner_configured": false,
+  "reason": "Private provider binding, malware service, denied worker egress and operational recovery not verified."
+}

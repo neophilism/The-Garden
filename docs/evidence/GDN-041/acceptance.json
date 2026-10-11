@@ -1,0 +1,32 @@
+{
+  "work_item_id": "GDN-041",
+  "implementation": "candidate_readonly_import_quarantine",
+  "accepted": false,
+  "production_verified": false,
+  "independent_review": "not_performed",
+  "criteria": {
+    "GDN-041-AC01": "Fixed read-only parser executes no source code/macros/XML/SQL or source callbacks; real worker network/filesystem isolation remains an activation gate.",
+    "GDN-041-AC02": "Bounded ZIP expansion, paths, CRCs, input/subprocess quotas and interrupted source reads fail closed.",
+    "GDN-041-AC03": "Each inventoried original retains exact immutable reference, checksum and quarantined disposition; incomplete uploads never masquerade as complete originals."
+  },
+  "contract": "Private immutable importRun/importedArtifacts/quarantineDecision manifest records; no SQL tables or public routes.",
+  "malware": "Real scanner not configured. Unavailable checks remain needs-review; synthetic test results are not malware assurance.",
+  "migration": "none",
+  "activation": "disabled; synthetic only",
+  "local_validation": {
+    "storage_tests_passed": 47,
+    "python_inventory_tests_passed": 22,
+    "core_tests_passed": 1190,
+    "architecture_tests_passed": 103,
+    "plan_tests_passed": 21,
+    "typecheck": "pass",
+    "public_build": "pass",
+    "research_build": "pass"
+  },
+  "limitations": [
+    "Resource limits are not an OS sandbox; denied egress and filesystem isolation require deployment verification.",
+    "ZIP members receive byte inventories, not recursive format interpretation. SQLite describes a main-file snapshot only.",
+    "No original is released, published, accepted as a historical claim or deemed rights-cleared.",
+    "No live provider/scanner/identity/audit worker composition has been activated."
+  ]
+}
