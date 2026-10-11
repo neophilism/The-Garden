@@ -1,6 +1,6 @@
 {
   "work_item_id": "GDN-044",
-  "implementation": "candidate_explicit_source_mapping",
+  "implementation": "merged_with_exact_ci",
   "accepted": false,
   "production_verified": false,
   "independent_review": "not_performed",
@@ -23,5 +23,24 @@
     "No table declares a primary key in recorded DDL; unique index definitions are not available.",
     "CP-011 lineage, CP-016 truncation and Marinerito row-223 alignment remain unresolved.",
     "Independent mapping review and actual import/reconciliation remain required."
-  ]
+  ],
+  "github": {
+    "implementation": "merged_with_exact_ci",
+    "github_pr_number": 35,
+    "github_head_sha": "b2b4eb3ef9f656e305f5cc06c033ba0f46b65ec2",
+    "github_merge_sha": "3cfd7584fee08cc87d0fffc0fac839b5e9d73913",
+    "ci_url": "https://github.com/neophilism/The-Garden/actions/runs/38173488701",
+    "ci_workflows": {
+      "repository": 38173488701,
+      "database": 38173488774,
+      "identity": 38173488706,
+      "storage": 38173488700,
+      "historical_data": 38173488693,
+      "quality_browser": 38173488719
+    },
+    "accepted": false,
+    "production_verified": false,
+    "independent_review": "not_performed",
+    "note": "All six final-head workflows passed before confirmed GitHub merge. Mapping covers recorded schema only; no source rows imported or historical review inferred."
+  }
 }

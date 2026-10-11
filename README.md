@@ -2,7 +2,7 @@
 
 ## Current engineering checkpoint (11 October 2026)
 
-GDN-041 / PR #34 is merged at `d789ed5e440a19d07a35f8a3fdfa8863b9d76d54` with all six final-head workflows passing. There are 30 mapped engineering merges and no independently accepted or production-verified capabilities. GDN-044 adds explicit mappings, conversion rules and schema-drift checks for all 106 recorded CP-017 tables; see [the conversion contract](docs/migration/conversion-rules.md) and `docs/CURRENT_STATUS.md`. Earlier checkpoints below are historical.
+GDN-044 / PR #35 is merged at `3cfd7584fee08cc87d0fffc0fac839b5e9d73913`. PRs #32–#35 each passed all six workflows on their final heads before merge. There are 31 mapped engineering merges and no independently accepted or production-verified capabilities. Structured editorial content, sourced geography, import quarantine and the complete recorded source-table mapping are implemented and tested within their documented activation limits. See `docs/CURRENT_STATUS.md` and `plan/execution.json`. Earlier checkpoints below are historical.
 
 
 A public-information and historical-research platform under development.

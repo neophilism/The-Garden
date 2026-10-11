@@ -17,30 +17,17 @@
     },
     {
       "kind": "authorized_provider_discovery",
-      "neon": {
-        "project_id": "royal-union-78374030",
-        "branch_id": "br-curly-band-b5aatp1e",
-        "branch_name": "production",
-        "database": "neondb",
-        "user_tables": 0,
-        "access": "ADMIN"
-      },
-      "render": {
-        "workspace_id": "tea-db23jkks728c73av263g",
-        "garden_service_observed": false,
-        "project_url": "https://dashboard.render.com/project/prj-db57f92jnfac739ghic0",
-        "target_project_membership_unverified": true
-      },
       "inspection_date": "2026-10-10",
-      "no_resource_mutations": true
+      "no_resource_mutations": true,
+      "public_summary": "Provider discovery recorded; resource identifiers are omitted from the public progress summary. Connection does not imply deployment or production acceptance."
     },
     {
       "kind": "staging_database_foundation",
       "observed_at": "2026-10-11T07:21:00Z",
-      "branch_id": "br-purple-grass-b5hurfl7",
       "source_sha256": "7ba727f1d96d342853a75670ecf4313275e72fb53674188c2e27690e246cf52e",
       "production_changed": false,
-      "historical_records": 0
+      "historical_records": 0,
+      "public_summary": "Synthetic staging foundation observation; resource identifiers omitted from this public progress summary."
     },
     {
       "kind": "maintenance_merge",
@@ -188,7 +175,6 @@
       "accepted": false,
       "independent_review": "not_performed",
       "production_verified": false,
-      "staging_branch_id": "br-purple-grass-b5hurfl7",
       "evidence": "db/staging-observation.json",
       "github_head_sha": "b57815aa65a753e574d802aefc867a570839c1db",
       "github_merge_sha": "e37b220875ea93b5416119244ab346780f4da769",
@@ -502,11 +488,23 @@
       "note": "All six final-head workflows passed before GitHub confirmed merge. Scanner and live isolated-worker activation remain unverified."
     },
     "GDN-044": {
-      "implementation": "candidate_explicit_source_mapping",
+      "implementation": "merged_with_exact_ci",
+      "github_pr_number": 35,
+      "github_head_sha": "b2b4eb3ef9f656e305f5cc06c033ba0f46b65ec2",
+      "github_merge_sha": "3cfd7584fee08cc87d0fffc0fac839b5e9d73913",
+      "ci_url": "https://github.com/neophilism/The-Garden/actions/runs/38173488701",
+      "ci_workflows": {
+        "repository": 38173488701,
+        "database": 38173488774,
+        "identity": 38173488706,
+        "storage": 38173488700,
+        "historical_data": 38173488693,
+        "quality_browser": 38173488719
+      },
       "accepted": false,
       "production_verified": false,
       "independent_review": "not_performed",
-      "note": "106 table mappings over the committed source inventory; schema fingerprints, conversion and reference rules, no source row import."
+      "note": "All six final-head workflows passed before confirmed GitHub merge. Mapping covers recorded schema only; no source rows imported or historical review inferred."
     }
   },
   "production_verified_items": 0,
@@ -514,8 +512,8 @@
     "registration": "not_verified",
     "sync": "not_verified",
     "manifest_in_repo": true,
-    "mapped_planned_units": 30
+    "mapped_planned_units": 31
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-11T20:43:15.613018+00:00"
+  "observed_at_utc": "2026-10-11T20:48:16.676501+00:00"
 }
