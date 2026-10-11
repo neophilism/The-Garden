@@ -2,6 +2,8 @@
 
 The canonical End-To-End-Everywhere standard has now been located and pinned to Git commit `ddfbd40c47d13890ebb81ea91c81fe329417058e`. See [canonical reconciliation](canonical-reconciliation.md) and the [machine-readable crosswalk](standard-crosswalk.json). Existing controls below are **proposed application requirements**, not conformance, assessed cryptographic profiles, or certification. The upstream standard is undergoing Audit v2 remediation; GDN-190 independently assesses implementation before sensitive production.
 
+The seven concrete classes, permission/processor boundaries, thirteen risk scenarios, and fail-closed release expectations are now specified in [data classification](data-classification.json) and the [threat model](threat-model.md). These are static specifications, not deployed security controls or third-party assurance.
+
 ## SEC-01 - Identity and assurance
 
 Verified issuer/audience, secure session lifecycle, step-up for privileged operations.

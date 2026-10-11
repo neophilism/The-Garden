@@ -1,0 +1,17 @@
+{
+  "work_item_id": "GDN-005",
+  "status": "security_contract_implemented_pending_independent_review",
+  "acceptance": {
+    "GDN-005-AC01": "seven classes explicitly specify readers/decryptors/stores/search/AI/retention/gates",
+    "GDN-005-AC02": "public/research/contributor/sealed/operational/official flows separately classified; AI path blocked for private and sealed",
+    "GDN-005-AC03": "13 high/critical threats assigned owning work item and negative test"
+  },
+  "limits": [
+    "This is architecture and static tests, not operational security",
+    "Independent threat-model tabletop review not performed",
+    "No actual identity/role key distribution or cryptographic implementation tested",
+    "Private and sealed production gates remain closed"
+  ],
+  "independent_review": "not_performed",
+  "production_accepted": false
+}
