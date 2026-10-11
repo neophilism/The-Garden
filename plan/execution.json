@@ -3,25 +3,63 @@
   "baseline": "GARDEN-WEB-PLAN-001",
   "repository": "neophilism/The-Garden",
   "baseline_statuses_are_historical": true,
-  "observations": [{
-    "kind": "bootstrap_merge",
-    "pr_number": 1,
-    "url": "https://github.com/neophilism/The-Garden/pull/1",
-    "tested_head": "fedf621f2b6acc738684cf13b0c3e2d4ac0410e4",
-    "merge_commit": "ae4e04ce000afaeea24e3936a9feb45489ceb127",
-    "ci_run_url": "https://github.com/neophilism/The-Garden/actions/runs/38074250081",
-    "ci_result": "success",
-    "mapped_work_items": [],
-    "note": "Exact 274-file text baseline restored; three historic documentation QA PNGs excluded. Bootstrap is not 210 completed work items."
-  }],
-  "work_items": {"GDN-001": {
-    "implementation": "local_contract_tests_passed",
-    "github_pr_number": null,
-    "accepted": false,
-    "independent_review": "not_performed",
-    "production": "not_applicable_to_document"
-  }},
+  "observations": [
+    {
+      "kind": "bootstrap_merge",
+      "pr_number": 1,
+      "url": "https://github.com/neophilism/The-Garden/pull/1",
+      "tested_head": "fedf621f2b6acc738684cf13b0c3e2d4ac0410e4",
+      "merge_commit": "ae4e04ce000afaeea24e3936a9feb45489ceb127",
+      "ci_run_url": "https://github.com/neophilism/The-Garden/actions/runs/38074250081",
+      "ci_result": "success",
+      "mapped_work_items": [],
+      "note": "Exact 274-file text baseline restored; three historic documentation QA PNGs excluded. Bootstrap is not 210 completed work items."
+    },
+    {
+      "kind": "authorized_provider_discovery",
+      "neon": {
+        "project_id": "royal-union-78374030",
+        "branch_id": "br-curly-band-b5aatp1e",
+        "branch_name": "production",
+        "database": "neondb",
+        "user_tables": 0,
+        "access": "ADMIN"
+      },
+      "render": {
+        "workspace_id": "tea-db23jkks728c73av263g",
+        "garden_service_observed": false,
+        "project_url": "https://dashboard.render.com/project/prj-db57f92jnfac739ghic0",
+        "target_project_membership_unverified": true
+      },
+      "inspection_date": "2026-10-10",
+      "no_resource_mutations": true
+    }
+  ],
+  "work_items": {
+    "GDN-001": {
+      "implementation": "merged_document_contracts",
+      "github_pr_number": 2,
+      "github_head_sha": "a3ffa6605e2cd10da25e46a76cd407fa6a54097e",
+      "github_merge_sha": "84995389795271438c61f14ea629c412d3814c5b",
+      "ci_url": "https://github.com/neophilism/The-Garden/actions/runs/38074685541",
+      "accepted": false,
+      "independent_review": "not_performed",
+      "production": "not_applicable_to_document"
+    },
+    "GDN-002": {
+      "implementation": "pr_open_pending_ci_and_independent_review",
+      "github_pr_number": 3,
+      "accepted": false,
+      "local_archives_verified": true,
+      "historical_review": false,
+      "production": "not_applicable_to_document"
+    }
+  },
   "production_verified_items": 0,
-  "engine_room": {"registration": "not_verified", "sync": "not_verified"},
+  "engine_room": {
+    "registration": "unverified",
+    "sync": "unverified",
+    "repo": "neophilism/Engine-Room"
+  },
   "environment": "not_deployed"
 }

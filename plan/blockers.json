@@ -1,27 +1,27 @@
 {
   "X01": {
     "title": "GitHub repository access",
-    "status": "unavailable_in_this_session",
+    "status": "github_connected_write_and_pr_verified",
     "need": "Connected GitHub with authorized target organization/repository and required write/PR/check scopes. Never assume private account entitlement or bypass branch rules."
   },
   "X02": {
     "title": "Canonical End-To-End-Everywhere standard",
-    "status": "not_located",
+    "status": "canonical_standard_repository_located_adoption_and_assessment_open",
     "need": "Actual controlled document/repository revision and reusable security engine contract. A proposed crosswalk is not canonical conformance."
   },
   "X03": {
     "title": "Engine Room integration",
-    "status": "contract_not_located",
+    "status": "engine_room_repository_located_live_sync_not_verified",
     "need": "Actual endpoint/schema, authentication, project identity and permitted mutation contract. Proposed intermediate JSON remains unsynchronized."
   },
   "X04": {
     "title": "Render authorization",
-    "status": "not_connected_or_inspected",
+    "status": "render_connected_workspace_verified_no_garden_service",
     "need": "Authorized workspace/service identities, deployment rights, DNS ownership and budget. Do not provision new paid resources without authority."
   },
   "X05": {
     "title": "Neon authorization",
-    "status": "not_connected_or_inspected",
+    "status": "neon_project_branch_verified_database_empty",
     "need": "Project-specific authorized resource IDs, roles, connection scopes, extension capability and recovery policy. No unrelated project database reuse."
   },
   "X06": {
@@ -41,7 +41,7 @@
   },
   "X09": {
     "title": "Full research artifacts and item rights",
-    "status": "partial_preparation_only",
+    "status": "four_corpus_components_integrity_verified_companions_and_rights_open",
     "need": "All four components and six current documents must be revalidated at import; only CORE byte/schema checks were performed in preparing this plan. Item rights and research review remain open."
   },
   "X10": {

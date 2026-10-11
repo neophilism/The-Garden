@@ -1,15 +1,17 @@
-# Current execution status
+# Current execution status — observed 2026-10-10
 
-## Verified baseline
+## Verified GitHub delivery
+Bootstrap [PR #1](https://github.com/neophilism/The-Garden/pull/1) and charter **GDN-001 [PR #2](https://github.com/neophilism/The-Garden/pull/2)** are merged with passing exact-head CI. Only GDN-001 maps to the approved 210-item plan; independent acceptance review is outstanding and no feature is production verified.
 
-[Bootstrap PR #1](https://github.com/neophilism/The-Garden/pull/1) merged as `ae4e04ce000afaeea24e3936a9feb45489ceb127`. Its exact tested head was `fedf621f2b6acc738684cf13b0c3e2d4ac0410e4`; [GitHub CI](https://github.com/neophilism/The-Garden/actions/runs/38074250081) passed. The restored text is the original 274-file planning baseline, not implemented application behavior.
+**GDN-002 [PR #3](https://github.com/neophilism/The-Garden/pull/3)** is open: documented archive identities and a read-only verifier. The four CP-017 component ZIPs were retrieved from the owner's Library; exact SHA-256 and archive CRC checks passed. Canonical CORE SQLite integrity passed with zero FK violations (107 tables including SQLite internal tables). Historical scholarship, full recovery, image/asset rights, and publication authorization are explicitly **not verified**. No private corpus bytes have been committed.
 
-## Current change
+## Authorized providers
+- GitHub `neophilism/The-Garden`: write/PR operations verified.
+- Render: connected workspace `tea-db23jkks728c73av263g`; user supplied project `prj-db57f92jnfac739ghic0`. **No Garden service currently visible** among workspace services; assigning a new service to that project is not supported by the connector's create service interface. Other services are out of scope.
+- Neon: authorized named project `royal-union-78374030`, branch `br-curly-band-b5aatp1e` (`production`), database `neondb`, current database table list empty. No migrations or role changes made.
+- Engine Room: repository and service contracts located, but actual Garden registration and live sync remain unverified. Do not count planned IDs as GitHub PR ordinals.
 
-GDN-001 adds the governing charter, all 43 accountable feature-role assignments and executable contract tests. Its candidate implementation is tested locally; independent document review and this candidate's remote CI are not asserted by this file. Actual PR/merge evidence is recorded after it exists.
+## Boundaries
+No Garden application or URL is deployed or production verified. No new services or spending authorized, and no provider mutation performed. Actual runtime release remains gated by tested application functionality, provider placement and cost review, rights, privacy and security assurance. The original baseline `DEVELOPMENT_PLAN.md` includes historical preparation-time access statements; this file carries the verified current observations.
 
-## Access and production
-
-GitHub read/write access works. The canonical security-standard and Engine Room repositories were located; full adoption and live synchronization are not verified. Render project `prj-db57f92jnfac739ghic0` and Neon project `royal-union-78374030` / branch `br-curly-band-b5aatp1e` are the owner's exact target identifiers. Both provider connections are absent in the current execution environment, so no service/database contents were inspected and no deployment occurred. No new costs are authorized.
-
-Read [runtime targets](../plan/runtime-targets.json), [execution observations](../plan/execution.json) and the [full baseline](../DEVELOPMENT_PLAN.md). Baseline statements that access was unavailable describe preparation time, not the current GitHub connection. No Garden feature is production-verified. No background work or scheduler is created.
+See `plan/execution.json`, `plan/progress.json`, `plan/blockers.json`, `docs/product/charter.md` and `docs/sources/baseline-artifacts.json`.

@@ -1,0 +1,15 @@
+{
+  "work_item_id": "GDN-002",
+  "status": "pending_independent_review",
+  "historical_assertions_verified": false,
+  "rights_cleared": false,
+  "production_migration_authorized": false,
+  "criteria": {
+    "GDN-002-AC01": "four full hashes and ZIP CRC pass locally; CORE SQLite integrity_check ok, FK violations 0",
+    "GDN-002-AC02": "four ZIP bytes verified; seven named policy/research documents located via Library, not all bytes rechecked",
+    "GDN-002-AC03": "archive verification reports and tests must preserve historical_claims_verified=false"
+  },
+  "local_evidence": "Four hashes, 83+110+126+4 members CRC checked and canonical read-only SQLite reopened on 2026-10-10",
+  "independent_review": "not_performed",
+  "deployment": "not_applicable"
+}
