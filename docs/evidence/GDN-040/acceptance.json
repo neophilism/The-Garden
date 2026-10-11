@@ -1,6 +1,6 @@
 {
   "work_item_id": "GDN-040",
-  "implementation": "candidate_structured_editorial_content",
+  "implementation": "merged_with_exact_ci",
   "accepted": false,
   "production_verified": false,
   "independent_review": "not_performed",
@@ -10,7 +10,7 @@
     "GDN-040-AC03": "Closed typed text nodes and navigation-only URLs; React escaping; no raw HTML renderer."
   },
   "local_unit_tests_passed": 72,
-  "browser_verification": "Local browser download returned a truncated archive; fresh GitHub browser CI required before merge.",
+  "browser_verification": "All exact-head GitHub quality/browser checks passed; local browser download limitation did not bypass CI.",
   "migration": "none; versioned structured-file rollout as specified",
   "activation": "Unmounted private preview only; no publication or cloud changes.",
   "limitations": [
@@ -20,5 +20,24 @@
   ],
   "local_core_tests_passed": 1129,
   "local_architecture_tests_passed": 103,
-  "local_plan_tests_passed": 21
+  "local_plan_tests_passed": 21,
+  "github": {
+    "implementation": "merged_with_exact_ci",
+    "github_pr_number": 32,
+    "github_head_sha": "656b16a9774da9ff9e4f1622efe1532e36956b47",
+    "github_merge_sha": "e0c98404757c05337116b2a2fb52c1896a3dbcfb",
+    "ci_url": "https://github.com/neophilism/The-Garden/actions/runs/38171089464",
+    "ci_workflows": {
+      "repository": 38171089464,
+      "database": 38171089389,
+      "identity": 38171089387,
+      "storage": 38171089380,
+      "historical_data": 38171089450,
+      "quality_browser": 38171089379
+    },
+    "accepted": false,
+    "production_verified": false,
+    "independent_review": "not_performed",
+    "note": "All six final-head workflows passed, including actual-component browser/accessibility/injection checks. Merge confirmed by GitHub."
+  }
 }

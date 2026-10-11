@@ -2,7 +2,7 @@
 
 ## Current engineering checkpoint (11 October 2026)
 
-GDN-039 / PR #31 is merged at `9d286f168cb24d51178f020da60d1b462c277275` with all six final-head workflows successful. There are 27 mapped engineering merges and no independently accepted or production-verified capabilities. GDN-040 adds a structured editorial-content compiler and safe, unmounted preview; see [the content contract](docs/editorial/structured-content.md) and `docs/CURRENT_STATUS.md`. Earlier checkpoints below are historical.
+GDN-040 / PR #32 is merged at `e0c98404757c05337116b2a2fb52c1896a3dbcfb` with all six final-head workflows passing. There are 28 mapped engineering merges and no independently accepted or production-verified capabilities. GDN-095 adds sourced geographic assertions, uncertainty and protected revision history; see [the geography contract](docs/data/geographic-assertions.md) and `docs/CURRENT_STATUS.md`. Earlier checkpoints below are historical.
 
 
 A public-information and historical-research platform under development.

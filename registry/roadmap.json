@@ -451,7 +451,10 @@
       "sourceItemId": "GDN-040",
       "applicability": "current_scope",
       "scope": "Define typed pages, explanation levels, callouts, definitions, policy provisions and citations. Separate advocacy interpretation from research claims and effective draft versions.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        32
+      ]
     },
     {
       "id": "GDN-041",
