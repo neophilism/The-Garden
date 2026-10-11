@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "status": "designed_not_production_implemented",
+  "primary_navigation": [
+    "garden",
+    "how",
+    "history",
+    "research",
+    "participate",
+    "about"
+  ],
+  "secondary_navigation": [
+    "funding",
+    "questions",
+    "legislation"
+  ],
+  "routes": [
+    {
+      "id": "garden",
+      "path": "/",
+      "label": "The Garden",
+      "kind": "public",
+      "intent": "understand_what_and_why",
+      "requires_login": false
+    },
+    {
+      "id": "how",
+      "path": "/how-it-works",
+      "label": "How it works",
+      "kind": "public",
+      "intent": "process_rights_governance",
+      "requires_login": false
+    },
+    {
+      "id": "history",
+      "path": "/history",
+      "label": "History & Atlas",
+      "kind": "public",
+      "intent": "lives_cultures_loss_continuity",
+      "requires_login": false
+    },
+    {
+      "id": "research",
+      "path": "/research",
+      "label": "Research",
+      "kind": "public",
+      "intent": "explore_reviewed_sources_search",
+      "requires_login": false
+    },
+    {
+      "id": "participate",
+      "path": "/participate",
+      "label": "Participate",
+      "kind": "public",
+      "intent": "contribute_without_endorsement",
+      "requires_login": false
+    },
+    {
+      "id": "about",
+      "path": "/about",
+      "label": "About",
+      "kind": "public",
+      "intent": "sponsorship_status_transparency",
+      "requires_login": false
+    },
+    {
+      "id": "funding",
+      "path": "/funding",
+      "label": "Funding and risk",
+      "kind": "public",
+      "intent": "recovery_mechanism_and_public_exposure",
+      "requires_login": false
+    },
+    {
+      "id": "questions",
+      "path": "/questions",
+      "label": "Questions and objections",
+      "kind": "public",
+      "intent": "fair_counterarguments",
+      "requires_login": false
+    },
+    {
+      "id": "legislation",
+      "path": "/legislation",
+      "label": "Read the proposal",
+      "kind": "public",
+      "intent": "full_text_version_history",
+      "requires_login": false
+    },
+    {
+      "id": "workspace",
+      "path": "/workspace",
+      "label": "Researcher workspace",
+      "kind": "restricted",
+      "intent": "collaboration_under_access_control",
+      "requires_login": true
+    }
+  ],
+  "screen_readers": {
+    "skip_link": true,
+    "landmark_navigation": true,
+    "keyboard": true,
+    "focus_visible": true,
+    "reduce_motion": true
+  },
+  "low_bandwidth": {
+    "no_required_video": true,
+    "offline_text_alternative": true,
+    "images_optional": true
+  },
+  "editorial_rules": [
+    "No unqualified zero-taxpayer-cost guarantee",
+    "Actual bill is proposed not enacted",
+    "Generated art must be labelled as reconstruction",
+    "Reviewed findings and provisional records separately visible",
+    "Research participation does not require policy endorsement",
+    "No sensitive demographic profiling for political targeting"
+  ],
+  "publication_status": "prototype_only"
+}
