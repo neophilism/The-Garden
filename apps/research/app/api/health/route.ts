@@ -1,0 +1,1 @@
+export async function GET(){return Response.json({project:"The Garden",service:"research",status:"restricted_not_enabled",private_record_access:false,identity_configured:false},{status:503,headers:{"Cache-Control":"no-store"}});}
