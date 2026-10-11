@@ -1,0 +1,57 @@
+name: Garden identity verification
+on:
+  pull_request:
+  push:
+    branches: [main]
+  merge_group:
+permissions:
+  contents: read
+concurrency:
+  group: garden-identity-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  identity:
+    name: identity-lifecycle
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:18.6-bookworm
+        env:
+          POSTGRES_DB: neondb
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: garden-identity-ci-only
+        ports:
+          - 127.0.0.1:5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PGHOST: 127.0.0.1
+      PGUSER: postgres
+      PGPASSWORD: garden-identity-ci-only
+      GARDEN_IDENTITY_TEST: ephemeral-ci
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Exact locked dependencies
+        run: npm ci --include=dev --no-audit
+      - name: Identity configuration and route rejection tests
+        run: npm run test:identity --workspace=@garden/research
+      - name: Database-backed login, recovery, revocation and suspension
+        run: node apps/research/identity/lifecycle.ci.mjs
+      - name: Preserve safe lifecycle evidence and generated synthetic schema
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: garden-identity-${{ github.run_id }}
+          path: identity-evidence/
+          retention-days: 30
