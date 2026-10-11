@@ -1,0 +1,379 @@
+{
+  "schemaVersion": 1,
+  "axes": [
+    {
+      "id": "acquisition",
+      "initial": "unassessed",
+      "states": [
+        "unassessed",
+        "in-progress",
+        "recorded",
+        "unavailable",
+        "disputed"
+      ],
+      "transitions": {
+        "unassessed": [
+          "in-progress"
+        ],
+        "in-progress": [
+          "recorded",
+          "unavailable",
+          "disputed"
+        ],
+        "disputed": [
+          "in-progress"
+        ],
+        "recorded": [
+          "disputed"
+        ],
+        "unavailable": [
+          "in-progress",
+          "disputed"
+        ]
+      },
+      "roles": {
+        "in-progress": [
+          "contributor",
+          "researcher",
+          "editor"
+        ],
+        "recorded": [
+          "contributor",
+          "researcher",
+          "editor"
+        ],
+        "unavailable": [
+          "contributor",
+          "researcher",
+          "editor"
+        ]
+      },
+      "passing": [
+        "recorded"
+      ],
+      "independentStates": [],
+      "assignmentKind": null
+    },
+    {
+      "id": "transcription",
+      "initial": "unassessed",
+      "states": [
+        "unassessed",
+        "in-progress",
+        "checked",
+        "not-applicable",
+        "disputed"
+      ],
+      "transitions": {
+        "unassessed": [
+          "in-progress"
+        ],
+        "in-progress": [
+          "checked",
+          "not-applicable",
+          "disputed"
+        ],
+        "disputed": [
+          "in-progress"
+        ],
+        "checked": [
+          "disputed"
+        ],
+        "not-applicable": [
+          "disputed"
+        ]
+      },
+      "roles": {
+        "in-progress": [
+          "transcriber",
+          "translator",
+          "researcher",
+          "editor"
+        ],
+        "checked": [
+          "reviewer"
+        ],
+        "not-applicable": [
+          "reviewer"
+        ]
+      },
+      "passing": [
+        "checked",
+        "not-applicable"
+      ],
+      "independentStates": [
+        "checked",
+        "not-applicable"
+      ],
+      "assignmentKind": "research"
+    },
+    {
+      "id": "evidentiary-review",
+      "initial": "unassessed",
+      "states": [
+        "unassessed",
+        "in-review",
+        "reviewed",
+        "contested",
+        "requires-correction",
+        "disputed"
+      ],
+      "transitions": {
+        "unassessed": [
+          "in-review"
+        ],
+        "in-review": [
+          "reviewed",
+          "contested",
+          "requires-correction",
+          "disputed"
+        ],
+        "disputed": [
+          "in-review"
+        ],
+        "reviewed": [
+          "disputed"
+        ],
+        "contested": [
+          "in-review",
+          "disputed"
+        ],
+        "requires-correction": [
+          "in-review",
+          "disputed"
+        ]
+      },
+      "roles": {
+        "in-review": [
+          "reviewer"
+        ],
+        "reviewed": [
+          "reviewer"
+        ],
+        "contested": [
+          "reviewer"
+        ],
+        "requires-correction": [
+          "reviewer"
+        ]
+      },
+      "passing": [
+        "reviewed"
+      ],
+      "independentStates": [
+        "reviewed",
+        "contested",
+        "requires-correction"
+      ],
+      "assignmentKind": "research"
+    },
+    {
+      "id": "rights",
+      "initial": "unassessed",
+      "states": [
+        "unassessed",
+        "in-review",
+        "cleared",
+        "restricted",
+        "disputed"
+      ],
+      "transitions": {
+        "unassessed": [
+          "in-review"
+        ],
+        "in-review": [
+          "cleared",
+          "restricted",
+          "disputed"
+        ],
+        "disputed": [
+          "in-review"
+        ],
+        "cleared": [
+          "disputed"
+        ],
+        "restricted": [
+          "in-review",
+          "disputed"
+        ]
+      },
+      "roles": {
+        "in-review": [
+          "rights_reviewer"
+        ],
+        "cleared": [
+          "rights_reviewer"
+        ],
+        "restricted": [
+          "rights_reviewer"
+        ]
+      },
+      "passing": [
+        "cleared"
+      ],
+      "independentStates": [
+        "cleared",
+        "restricted"
+      ],
+      "assignmentKind": "rights"
+    },
+    {
+      "id": "consent",
+      "initial": "unassessed",
+      "states": [
+        "unassessed",
+        "in-review",
+        "documented",
+        "not-required",
+        "withdrawn",
+        "disputed"
+      ],
+      "transitions": {
+        "unassessed": [
+          "in-review"
+        ],
+        "in-review": [
+          "documented",
+          "not-required",
+          "withdrawn",
+          "disputed"
+        ],
+        "disputed": [
+          "in-review"
+        ],
+        "documented": [
+          "disputed"
+        ],
+        "not-required": [
+          "disputed"
+        ],
+        "withdrawn": [
+          "in-review",
+          "disputed"
+        ]
+      },
+      "roles": {
+        "in-review": [
+          "editor"
+        ],
+        "documented": [
+          "editor"
+        ],
+        "not-required": [
+          "editor"
+        ],
+        "withdrawn": [
+          "editor"
+        ]
+      },
+      "passing": [
+        "documented",
+        "not-required"
+      ],
+      "independentStates": [],
+      "assignmentKind": null
+    },
+    {
+      "id": "accessibility",
+      "initial": "unassessed",
+      "states": [
+        "unassessed",
+        "in-progress",
+        "checked",
+        "needs-work",
+        "disputed"
+      ],
+      "transitions": {
+        "unassessed": [
+          "in-progress"
+        ],
+        "in-progress": [
+          "checked",
+          "needs-work",
+          "disputed"
+        ],
+        "disputed": [
+          "in-progress"
+        ],
+        "checked": [
+          "disputed"
+        ],
+        "needs-work": [
+          "in-progress",
+          "disputed"
+        ]
+      },
+      "roles": {
+        "in-progress": [
+          "contributor",
+          "researcher",
+          "editor"
+        ],
+        "checked": [
+          "reviewer"
+        ],
+        "needs-work": [
+          "reviewer"
+        ]
+      },
+      "passing": [
+        "checked"
+      ],
+      "independentStates": [
+        "checked",
+        "needs-work"
+      ],
+      "assignmentKind": "research"
+    },
+    {
+      "id": "publication",
+      "initial": "private",
+      "states": [
+        "private",
+        "in-review",
+        "ready-for-release-review",
+        "withdrawn",
+        "disputed"
+      ],
+      "transitions": {
+        "private": [
+          "in-review"
+        ],
+        "in-review": [
+          "ready-for-release-review",
+          "withdrawn",
+          "disputed"
+        ],
+        "disputed": [
+          "in-review"
+        ],
+        "ready-for-release-review": [
+          "disputed",
+          "withdrawn"
+        ],
+        "withdrawn": [
+          "in-review",
+          "disputed"
+        ]
+      },
+      "roles": {
+        "in-review": [
+          "editor"
+        ],
+        "ready-for-release-review": [
+          "editor"
+        ],
+        "withdrawn": [
+          "editor"
+        ]
+      },
+      "passing": [
+        "ready-for-release-review"
+      ],
+      "independentStates": [
+        "ready-for-release-review"
+      ],
+      "assignmentKind": null
+    }
+  ]
+}

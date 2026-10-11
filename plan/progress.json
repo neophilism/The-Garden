@@ -1,10 +1,10 @@
 {
   "current_scope_items": 196,
   "conditional_items": 14,
-  "remote_prs_opened": 25,
-  "verified_merged_items": 25,
+  "remote_prs_opened": 26,
+  "verified_merged_items": 26,
   "production_verified_items": 0,
   "current_scope_weight": 608,
   "conditional_weight": 46,
-  "note": "25 observed engineering merges; GDN-031 candidate. No independent acceptance or production verification inferred."
+  "note": "26 mapped engineering merges, one unmerged scoped-review candidate. Maintenance #30 is not a new planned work unit. Independent acceptance and production remain unverified."
 }

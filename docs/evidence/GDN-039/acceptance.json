@@ -1,0 +1,22 @@
+{
+  "work_item_id": "GDN-039",
+  "implementation": "candidate_scoped_review_states",
+  "accepted": false,
+  "production_verified": false,
+  "independent_review": "not_performed",
+  "criteria": {
+    "GDN-039-AC01": "Seven independent exact-revision dimensions and read-only display; no aggregate verified badge, probability or publication claim.",
+    "GDN-039-AC02": "Domain and SQL role/state guards, optimistic version, author conflicts, receipt-bound assignment and current purpose permission.",
+    "GDN-039-AC03": "Append-only reopened disputes preserve earlier events and verbatim legacy labels without promoting them."
+  },
+  "local_validation": "Domain/repository/registry tests; actual PostgreSQL and browser evaluation is pending for this candidate.",
+  "activation": "No HTTP routes, private records, publication or new hosting activated.",
+  "digest_profile": "postgres-jsonb-text-sha256 for a working revision, not a claim to original archival byte hashing.",
+  "migration": "0011 additive and checksum-locked; not applied to Neon.",
+  "limitations": [
+    "Recorded-author conflict prevention is not a guarantee of undisclosed independence.",
+    "Current purpose permission is not legal adjudication or rights verification.",
+    "Release recommendation remains distinct from publication approval.",
+    "Operator-controlled database history is not independently anchored."
+  ]
+}
