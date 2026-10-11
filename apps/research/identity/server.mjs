@@ -1,5 +1,6 @@
 import {betterAuth} from 'better-auth';
 import {admin} from 'better-auth/plugins/admin';
+import {defaultAc,userAc} from 'better-auth/plugins/admin/access';
 import {identityPolicy,boundedAuthRequest,unavailableIdentity} from './policy.mjs';
 /** Server-owned dependencies only. Never let an HTTP caller select the pool,
  * mailer, authorization callback, signing secret, activation or base origin.
@@ -8,6 +9,7 @@ import {identityPolicy,boundedAuthRequest,unavailableIdentity} from './policy.mj
 export function createResearchIdentity({database,secret,baseURL,environment,activation,deliverMail,isSuspended}){
  const policy=identityPolicy({environment,secret,baseURL,activation});
  if(typeof database?.query!=='function'||typeof deliverMail!=='function'||typeof isSuspended!=='function')throw new Error('Missing trusted identity dependencies');
+ const operatorAc=defaultAc.newRole({user:['ban','get'],session:['list','revoke']});
  const options={
   appName:'The Garden Research',database,secret,baseURL:policy.origin,basePath:'/api/auth',trustedOrigins:[policy.origin],
   logger:{disabled:true},
@@ -19,7 +21,7 @@ export function createResearchIdentity({database,secret,baseURL,environment,acti
   session:{expiresIn:28800,updateAge:3600,freshAge:600,cookieCache:{enabled:false}},
   advanced:{cookiePrefix:'garden-research',useSecureCookies:policy.secureCookies,crossSubDomainCookies:{enabled:false},defaultCookieAttributes:{httpOnly:true,sameSite:'lax',secure:policy.secureCookies}},
   rateLimit:{enabled:true,storage:'database',window:60,max:100,customRules:{'/sign-in/email':{window:60,max:10},'/request-password-reset':{window:60,max:5}}},
-  plugins:[admin({defaultRole:'researcher',adminRoles:['operator']})]
+  plugins:[admin({defaultRole:'researcher',adminRoles:['operator'],roles:{researcher:userAc,operator:operatorAc}})]
  };
  const auth=betterAuth(options);
  return Object.freeze({
