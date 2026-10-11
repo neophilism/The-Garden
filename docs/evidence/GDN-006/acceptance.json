@@ -1,0 +1,18 @@
+{
+  "work_item_id": "GDN-006",
+  "status": "prototype_and_contract_tests_pending_independent_user_study",
+  "acceptance": {
+    "GDN-006-AC01": "public pages and prototype directly explain what, why, proposed mechanics, financing uncertainty, evidence and participation without sign-in",
+    "GDN-006-AC02": "distinct public navigation model and restricted researcher-workspace boundary",
+    "GDN-006-AC03": "keyboard skip link, semantic landmarks, reduced-motion fallback and low-bandwidth static HTML"
+  },
+  "tests": [
+    "static navigation/anchor validation and negative fixtures",
+    "not yet live keyboard, mobile or screen-reader audit",
+    "not yet moderated comprehension study"
+  ],
+  "no_political_targeting": true,
+  "no_collection": true,
+  "rights_review": "no historical images reused in prototype",
+  "production_verified": false
+}
