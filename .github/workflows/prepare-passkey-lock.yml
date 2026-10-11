@@ -1,0 +1,36 @@
+name: Garden reviewed passkey lock preparation
+on:
+  push:
+    branches: [security/gdn-022-passkey-assurance]
+    paths: [.github/workflows/prepare-passkey-lock.yml]
+permissions:
+  contents: read
+jobs:
+  lock:
+    if: github.repository == 'neophilism/The-Garden' && github.actor == 'neophilism' && github.ref == 'refs/heads/security/gdn-022-passkey-assurance'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Resolve the exact reviewed passkey version without lifecycle scripts
+        run: |
+          set -eu
+          npm install --package-lock-only --ignore-scripts --save-exact --no-audit @better-auth/passkey@1.7.7 --workspace=@garden/research
+          node --input-type=module -e "import fs from 'node:fs'; const p=JSON.parse(fs.readFileSync('apps/research/package.json')); const l=JSON.parse(fs.readFileSync('package-lock.json')); if(p.dependencies['@better-auth/passkey']!=='1.7.7'||l.packages['node_modules/@better-auth/passkey'].version!=='1.7.7') throw Error('Dependency version mismatch');"
+          git diff -- apps/research/package.json package-lock.json > passkey-lock.diff
+      - name: Preserve the candidate lock for source review; no repository mutation
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: garden-passkey-lock-${{ github.run_id }}
+          path: |
+            package-lock.json
+            apps/research/package.json
+            passkey-lock.diff
+          if-no-files-found: error
+          retention-days: 7
