@@ -1,0 +1,18 @@
+{
+  "work_item": "GDN-035",
+  "implementation": "candidate",
+  "criteria": {
+    "GDN-035-AC01": "Closed entity kinds and typed endpoint constraints distinguish ports, languages, polities and peoples in both domain and database boundaries.",
+    "GDN-035-AC02": "Unknown fields remain explicit nulls and authored date bounds retain original text; no inferred ancestry or date is produced.",
+    "GDN-035-AC03": "Redirect merges leave UUIDs, aliases and source identities in place; unmerge and append-only versions preserve the decision history."
+  },
+  "local_domain_tests_passed": 49,
+  "local_application_tests_passed": 226,
+  "local_runtime": "Node 22.16.0 with experimental type stripping; exact Node 24 check required in CI",
+  "database_checks": "specified executable real-PostgreSQL journey, pending CI",
+  "independent_review": "not_performed",
+  "accepted": false,
+  "public_route_enabled": false,
+  "neon_migration_applied": false,
+  "production_verified": false
+}

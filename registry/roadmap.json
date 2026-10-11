@@ -285,7 +285,10 @@
       "sourceItemId": "GDN-025",
       "applicability": "current_scope",
       "scope": "Apply authorization to APIs, search facets, counts, snippets, image tiles, media ranges, exports, notifications and collaboration channels.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        21
+      ]
     },
     {
       "id": "GDN-026",
