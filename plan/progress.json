@@ -1,10 +1,10 @@
 {
   "current_scope_items": 196,
   "conditional_items": 14,
-  "remote_prs_opened": 17,
-  "verified_merged_items": 17,
+  "remote_prs_opened": 18,
+  "verified_merged_items": 18,
   "production_verified_items": 0,
   "current_scope_weight": 608,
   "conditional_weight": 46,
-  "note": "17 engineering items merged with observed exact-head CI. GDN-025 is a candidate, not counted as merged or independently accepted. Bootstrap #1, inventory #11 and queue follow-up #17 are excluded. Production and Engine Room live readback remain unverified."
+  "note": "18 engineering items have observed merge and exact-head CI evidence. GDN-035 is a candidate. Accepted research, independent review, production and live Engine Room ingestion remain separate and unverified."
 }

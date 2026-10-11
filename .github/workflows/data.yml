@@ -1,0 +1,66 @@
+name: Garden historical data verification
+on:
+  pull_request:
+  push:
+    branches: [main]
+  merge_group:
+permissions:
+  contents: read
+concurrency:
+  group: garden-data-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  data:
+    name: historical-data-contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:18.6-bookworm
+        env:
+          POSTGRES_DB: neondb
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: garden-data-ci-only
+        ports:
+          - 127.0.0.1:5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PGHOST: 127.0.0.1
+      GARDEN_DB_TARGET: ci
+      PGPORT: '5432'
+      PGDATABASE: neondb
+      PGUSER: postgres
+      PGPASSWORD: garden-data-ci-only
+      GARDEN_IDENTITY_TEST: ephemeral-ci
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Install exact dependencies
+        run: npm ci --include=dev --no-audit
+      - name: Typed-domain regression tests
+        run: node --test tests/data/*.test.mjs
+      - name: Apply checksum-locked migrations twice
+        run: |
+          set -eu
+          python3 scripts/db_migrate.py | psql -X -q -v ON_ERROR_STOP=1
+          python3 scripts/db_migrate.py --apply
+      - name: Real database entity, history and RLS journey
+        run: node apps/research/data/historical.ci.mjs
+      - name: Preserve synthetic data acceptance evidence
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: garden-data-${{ github.run_id }}
+          path: data-evidence/
+          if-no-files-found: error
+          retention-days: 30

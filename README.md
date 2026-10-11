@@ -16,7 +16,7 @@ npm run check
 npm run dev --workspace=@garden/public
 ```
 
-The membership layer (PR #19) and forced record-security layer (PR #20) are merged and tested with synthetic PostgreSQL identities. Unified delivery authorization is the next candidate. Research APIs remain unmounted pending source, authorization and security gates.
+The membership layer (PR #19) and forced record-security layer (PR #20) are merged and tested with synthetic PostgreSQL identities. The delivery authorization layer (PR #21) is also merged; typed historical records are the next candidate. Research APIs remain unmounted pending source, authorization and security gates.
 
 The public development server is local only. A production build creates `apps/public/out`; the independent research app does not provide accounts, uploads or historical records. See [quality gates](docs/testing/quality-gates.md) for browser, accessibility, dependency, workflow and negative-fixture checks.
 

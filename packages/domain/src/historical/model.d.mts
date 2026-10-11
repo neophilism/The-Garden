@@ -1,0 +1,23 @@
+export type EntityKind = 'person' | 'polity' | 'people' | 'language' | 'place' | 'port' | 'institution' | 'voyage' | 'event';
+export type SourceReference = Readonly<{sourceId:string;locator:string}>;
+export type TemporalValue = Readonly<{verbatim:string|null;earliestYear:number|null;latestYear:number|null;calendar:string|null}>;
+export type HistoricalName = Readonly<{id:string;value:string;language:string|null;script:string|null;usage:'historical'|'preferred'|'alternate'|'catalogued';provenance:readonly SourceReference[]}>;
+export type Entity = Readonly<{recordType:'entity';schemaVersion:1;id:string;kind:EntityKind;title:string|null;summary:string|null;names:readonly HistoricalName[];sourceIdentities:readonly Readonly<{namespace:string;identifier:string}>[];temporal:TemporalValue;redirect:Readonly<{targetId:string;reason:string;evidence:readonly SourceReference[]}>|null}>;
+export type Relationship = Readonly<{recordType:'relationship';schemaVersion:1;id:string;title:string|null;predicate:'located_in'|'used_language'|'member_of'|'participated_in'|'departed_from'|'arrived_at'|'succeeded_by'|'related_to';fromId:string;fromKind:EntityKind;toId:string;toKind:EntityKind;assessment:'unreviewed'|'contested';explanation:string;evidence:readonly SourceReference[];temporal:TemporalValue}>;
+export class HistoricalModelError extends Error {readonly code:'invalid_historical_record'}
+export const ENTITY_KINDS:readonly EntityKind[];
+export const UUID:RegExp;
+export function reject():never;
+export function object(value:unknown,keys:readonly string[]):void;
+export function text(value:unknown,max:number,nullable?:boolean):void;
+export function uuid(value:unknown):void;
+export function list(value:unknown,max:number,check:(item:unknown)=>void):void;
+export function provenance(value:unknown):void;
+export function temporal(value:unknown):void;
+export function freeze<T>(value:T):Readonly<T>;
+export function validateEntity(value:unknown):Entity;
+export function validateRelationship(value:unknown):Relationship;
+export function validateHistorical(value:unknown):Entity|Relationship;
+export function mergeEntities(source:unknown,target:unknown,decision:Readonly<{reason:string;evidence:readonly SourceReference[]}>):Entity;
+export function unmergeEntity(value:unknown):Entity;
+export function preserveSourceIdentities(before:unknown,after:unknown):Entity;

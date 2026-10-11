@@ -21,6 +21,11 @@
       "id": "0004_policy_context",
       "file": "0004_policy_context.sql",
       "sha256": "ce2d084065efc930255d4bb3e46080d65fb8cadf8ef72c1520b10b27bac6e4dd"
+    },
+    {
+      "id": "0005_historical_records",
+      "file": "0005_historical_records.sql",
+      "sha256": "7d92349869fde52a1c152b9deb7a2d63a524bbb4cf3a736daa3fe322cc624188"
     }
   ]
 }
