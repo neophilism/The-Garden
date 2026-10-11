@@ -30,6 +30,9 @@ jobs:
           --health-retries 10
     env:
       PGHOST: 127.0.0.1
+      GARDEN_DB_TARGET: ci
+      PGPORT: '5432'
+      PGDATABASE: neondb
       PGUSER: postgres
       PGPASSWORD: garden-identity-ci-only
       GARDEN_IDENTITY_TEST: ephemeral-ci
@@ -46,6 +49,8 @@ jobs:
         run: npm ci --include=dev --no-audit
       - name: Identity configuration and route rejection tests
         run: npm run test:identity --workspace=@garden/research
+      - name: Isolated membership migration foundation
+        run: python3 scripts/db_migrate.py --apply
       - name: Database-backed login, recovery, revocation and suspension
         run: node apps/research/identity/lifecycle.ci.mjs
       - name: Preserve safe lifecycle evidence and generated synthetic schema

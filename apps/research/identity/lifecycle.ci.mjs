@@ -4,9 +4,11 @@ import {writeFile,mkdir} from 'node:fs/promises';
 import pg from 'pg';
 import {getMigrations} from 'better-auth/db/migration';
 import {createResearchIdentity} from './server.mjs';
+import {createMembershipService,createMembershipHandler,inviteTokenHash,invitationEmailHash} from '../access/membership.mjs';
+import {createMembershipRepository} from '../access/repository.mjs';
 if(process.env.GARDEN_IDENTITY_TEST!=='ephemeral-ci'||process.env.PGHOST!=='127.0.0.1'||process.env.PGUSER!=='postgres'||process.env.CI!=='true')throw new Error('Refuse identity test outside ephemeral CI');
 const base={host:'127.0.0.1',port:5432,database:'neondb',user:'postgres',password:process.env.PGPASSWORD};
-const adminPool=new pg.Pool({...base,max:2});let migrationPool,runtimePool;
+const adminPool=new pg.Pool({...base,max:2});let migrationPool,runtimePool,membershipPool;
 const secret=randomBytes(48).toString('base64url'),runtimePassword=randomBytes(24).toString('hex');
 const origin='http://127.0.0.1:3101',mailbox=[],checks=[];
 const record=name=>checks.push({name,result:'pass'});
@@ -40,6 +42,33 @@ try{
  response=await send('/sign-in/email',{email,password});assert.equal(response.status,200);
  let cookie=cookies(response);assert.ok(cookie.includes('garden-research'));assert.match(response.headers.get('set-cookie'),/HttpOnly/i);assert.match(response.headers.get('set-cookie'),/SameSite=Lax/i);
  const viewer=await app.viewer(new Headers({cookie}));assert.equal(viewer.email,email);assert.equal(viewer.canReadRestrictedRecords,false);assert.equal(viewer.privilegedAssurance,false);record('login cookie works and grants no research/privileged authorization');
+ // A non-institutional contributor moves through the real identity, HTTP adapter,
+ // separate least-privilege connection, invitation and onboarding transactions.
+ const membershipPassword=randomBytes(24).toString('hex'), invitationSecret=randomBytes(48).toString('base64url');
+ await adminPool.query(`CREATE ROLE garden_membership_ci LOGIN NOINHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS PASSWORD '${membershipPassword}'`);
+ await adminPool.query('GRANT garden_research TO garden_membership_ci WITH INHERIT FALSE, SET TRUE');
+ membershipPool=new pg.Pool({...base,user:'garden_membership_ci',password:membershipPassword,max:1});
+ const workspace='33333333-3333-4333-8333-333333333333',policy='a'.repeat(64);
+ await adminPool.query('INSERT INTO garden_control.access_workspaces VALUES($1,$2,$3,true)',[workspace,'Synthetic onboarding',policy]);
+ await adminPool.query("INSERT INTO garden_control.access_members(workspace_id,subject_id,state,policy_sha256) VALUES($1,'inviter','active',$2)",[workspace,policy]);
+ await adminPool.query("INSERT INTO garden_control.access_roles(workspace_id,subject_id,role,issued_by,expires_at) VALUES($1,'inviter','administrator','inviter',statement_timestamp()+interval '30 days')",[workspace]);
+ const service=createMembershipService({identity:app,repository:createMembershipRepository(membershipPool),invitationSecret});
+ const membershipHandler=createMembershipHandler({service,origin});
+ const membershipRequest=async(action,body)=>membershipHandler(new Request(origin+'/api/research/membership/'+action,{method:'POST',headers:{origin,'content-type':'application/json',cookie},body:JSON.stringify(body)}));
+ let joined=await membershipRequest('request',{workspaceId:workspace,policyDigest:policy,expertise:'Community historian, independent of an institution'});
+ assert.equal(joined.status,200);let snapshot=await joined.json();assert.equal(snapshot.state,'requested');assert.equal(snapshot.expertise.verified,false);assert.deepEqual(snapshot.capabilities,[]);record('noninstitutional contributor requests membership through verified session and PostgreSQL');
+ assert.equal((await membershipRequest('request',{workspaceId:workspace,policyDigest:policy,roles:['administrator']})).status,403);record('request cannot self-assign administrator');
+ const token=randomBytes(32).toString('base64url');
+ await adminPool.query("SELECT garden_control.issue_membership_invite($1,'inviter','contributor',decode($2,'hex'),decode($3,'hex'),statement_timestamp()+interval '1 day')",[workspace,invitationEmailHash(email,invitationSecret),inviteTokenHash(token)]);
+ joined=await membershipRequest('accept',{token,policyDigest:policy});assert.equal(joined.status,200);assert.equal((await joined.json()).state,'onboarding');
+ assert.equal((await membershipRequest('accept',{token,policyDigest:policy})).status,403);record('email-bound invitation is single use');
+ for(const task of ['source-integrity','consent-and-rights','research-conduct']){joined=await membershipRequest('attest',{workspaceId:workspace,policyDigest:policy,task});assert.equal(joined.status,200);snapshot=await joined.json();assert.equal(snapshot.canPublish,false);}
+ assert.equal(snapshot.state,'active');assert.ok(snapshot.capabilities.includes('source.submit'));assert.ok(!snapshot.capabilities.includes('review.research'));record('onboarding enables contributor role only, without publication authority');
+ const pooledRole=await membershipPool.query('SELECT current_user');assert.equal(pooledRole.rows[0].current_user,'garden_membership_ci');
+ await assert.rejects(()=>membershipPool.query('SELECT * FROM garden_control.access_members'),e=>e.code==='42501');record('transaction role is reset and pooled base login cannot read raw membership');
+ await adminPool.query("UPDATE garden_control.access_members SET state='suspended',version=version+1 WHERE workspace_id=$1 AND subject_id=$2",[workspace,viewer.id]);
+ assert.deepEqual((await service.status(new Headers({cookie}),workspace)).capabilities,[]);assert.equal((await membershipRequest('attest',{workspaceId:workspace,policyDigest:policy,task:'research-conduct'})).status,403);record('workspace suspension denies existing verified session');
+ await membershipPool.end();membershipPool=null;
  const restored=await send('/get-session',undefined,cookie);assert.equal(restored.status,200);assert.ok((await restored.json())?.user?.id);record('session restoration after a separate request');
  response=await send('/sign-out',{},cookie);assert.equal(response.status,200);assert.equal(await app.viewer(new Headers({cookie})),null);record('logout revokes old session');
  response=await send('/sign-in/email',{email,password});assert.equal(response.status,200);cookie=cookies(response);
@@ -57,4 +86,4 @@ try{
  await runtimePool.end();runtimePool=null;assert.equal(await app.viewer(new Headers({cookie})),null);record('provider outage fails closed');
  await writeFile('identity-evidence/results.json',JSON.stringify({source:process.env.GITHUB_SHA,checks,synthetic_users_only:true,emails_sent_externally:0,production_verified:false},null,2)+'\n');
  console.log('PASS: '+checks.length+' identity lifecycle checks using real ephemeral PostgreSQL; no external emails or production identities');
-}finally{if(runtimePool)await runtimePool.end();if(migrationPool)await migrationPool.end();await adminPool.end();}
+}finally{if(membershipPool)await membershipPool.end();if(runtimePool)await runtimePool.end();if(migrationPool)await migrationPool.end();await adminPool.end();}
