@@ -5,11 +5,11 @@
     2,
     3,
     4,
+    5,
+    6,
+    7,
     null,
-    null,
-    null,
-    null,
-    null,
+    8,
     null,
     null,
     null,
@@ -213,7 +213,7 @@
     null,
     null
   ],
-  "mapping_policy": "explicit_verified_pr_id_only; do_not_map_GDN_ordinals_to_GitHub_PR_numbers",
+  "mapping_policy": "Only observed actual GitHub PR numbers; no guessed ordinal or conditional activation.",
   "conditional_items": "GDN-197–GDN-210; no legal authority",
   "last_verified": "2026-10-10"
 }
