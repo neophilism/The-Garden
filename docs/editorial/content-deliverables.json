@@ -1,0 +1,332 @@
+{
+  "version": 1,
+  "status": "commissioning_specification_only",
+  "project": "The Garden",
+  "editorial_independence": true,
+  "affiliation_not_eligibility": true,
+  "unqualified_zero_taxpayer_cost_claim_allowed": false,
+  "unreviewed_historical_material_publication_allowed": false,
+  "public_pages": [
+    {
+      "id": "home",
+      "route": "/",
+      "feature_id": "F01",
+      "claims": [
+        "policy_summary",
+        "status_notice",
+        "human_context"
+      ],
+      "review_roles": [
+        "policy_editor",
+        "historical_editor",
+        "fiscal_reviewer"
+      ],
+      "status": "provisional_copy_not_ready",
+      "reviewers_assigned": [],
+      "sources": [
+        "Garden_Act_v1-0_2026-09-28.md"
+      ],
+      "public_release": "not_approved",
+      "localization_review": "pending",
+      "accessibility_review": "pending"
+    },
+    {
+      "id": "purpose",
+      "route": "/why",
+      "feature_id": "F03",
+      "claims": [
+        "human_full_lives",
+        "institutional_disruption",
+        "survival_continuity"
+      ],
+      "review_roles": [
+        "historian",
+        "community_adviser"
+      ],
+      "status": "provisional_copy_not_ready",
+      "reviewers_assigned": [],
+      "sources": [
+        "Garden_Act_v1-0_2026-09-28.md"
+      ],
+      "public_release": "not_approved",
+      "localization_review": "pending",
+      "accessibility_review": "pending"
+    },
+    {
+      "id": "mechanics",
+      "route": "/how-it-works",
+      "feature_id": "F05",
+      "claims": [
+        "voluntary_participation",
+        "constitution",
+        "negotiation",
+        "rights"
+      ],
+      "review_roles": [
+        "legal_counsel",
+        "policy_editor"
+      ],
+      "status": "provisional_copy_not_ready",
+      "reviewers_assigned": [],
+      "sources": [
+        "Garden_Act_v1-0_2026-09-28.md"
+      ],
+      "public_release": "not_approved",
+      "localization_review": "pending",
+      "accessibility_review": "pending"
+    },
+    {
+      "id": "funding",
+      "route": "/funding",
+      "feature_id": "F10",
+      "claims": [
+        "startup_expenditures",
+        "recovery_not_guaranteed",
+        "failure_cases"
+      ],
+      "review_roles": [
+        "fiscal_analyst",
+        "legal_counsel"
+      ],
+      "status": "provisional_copy_not_ready",
+      "reviewers_assigned": [],
+      "sources": [
+        "Garden_Act_v1-0_2026-09-28.md"
+      ],
+      "public_release": "not_approved",
+      "localization_review": "pending",
+      "accessibility_review": "pending"
+    },
+    {
+      "id": "legislation",
+      "route": "/legislation",
+      "feature_id": "F10",
+      "claims": [
+        "full_draft",
+        "draft_status",
+        "amendment_history"
+      ],
+      "review_roles": [
+        "legal_counsel"
+      ],
+      "status": "provisional_copy_not_ready",
+      "reviewers_assigned": [],
+      "sources": [
+        "Garden_Act_v1-0_2026-09-28.md"
+      ],
+      "public_release": "not_approved",
+      "localization_review": "pending",
+      "accessibility_review": "pending"
+    },
+    {
+      "id": "atlas",
+      "route": "/history",
+      "feature_id": "F03",
+      "claims": [
+        "historical_full_lives",
+        "nations_vs_ethnonyms",
+        "source_review_states"
+      ],
+      "review_roles": [
+        "historian",
+        "rights_reviewer"
+      ],
+      "status": "provisional_copy_not_ready",
+      "reviewers_assigned": [],
+      "sources": [
+        "Garden_Act_v1-0_2026-09-28.md"
+      ],
+      "public_release": "not_approved",
+      "localization_review": "pending",
+      "accessibility_review": "pending"
+    },
+    {
+      "id": "evidence",
+      "route": "/research",
+      "feature_id": "F24",
+      "claims": [
+        "public_source_only",
+        "exact_citations",
+        "correction_reasons"
+      ],
+      "review_roles": [
+        "research_editor",
+        "rights_reviewer"
+      ],
+      "status": "blocked_on_publication_clearance",
+      "reviewers_assigned": [],
+      "sources": [
+        "Garden_Act_v1-0_2026-09-28.md"
+      ],
+      "public_release": "not_approved",
+      "localization_review": "pending",
+      "accessibility_review": "pending"
+    },
+    {
+      "id": "questions",
+      "route": "/questions",
+      "feature_id": "F11",
+      "claims": [
+        "constitutional_questions",
+        "economic_fairness",
+        "consent",
+        "cost_exposure"
+      ],
+      "review_roles": [
+        "legal_counsel",
+        "fiscal_analyst",
+        "community_adviser"
+      ],
+      "status": "provisional_copy_not_ready",
+      "reviewers_assigned": [],
+      "sources": [
+        "Garden_Act_v1-0_2026-09-28.md"
+      ],
+      "public_release": "not_approved",
+      "localization_review": "pending",
+      "accessibility_review": "pending"
+    },
+    {
+      "id": "participation",
+      "route": "/participate",
+      "feature_id": "F35",
+      "claims": [
+        "consent_notice",
+        "privacy_purpose_separation",
+        "no_official_enrollment"
+      ],
+      "review_roles": [
+        "privacy_reviewer",
+        "community_adviser"
+      ],
+      "status": "blocked_on_intake_security",
+      "reviewers_assigned": [],
+      "sources": [
+        "Garden_Act_v1-0_2026-09-28.md"
+      ],
+      "public_release": "not_approved",
+      "localization_review": "pending",
+      "accessibility_review": "pending"
+    },
+    {
+      "id": "about",
+      "route": "/about",
+      "feature_id": "F35",
+      "claims": [
+        "operator_identity",
+        "policies",
+        "correction_contact"
+      ],
+      "review_roles": [
+        "project_owner"
+      ],
+      "status": "provisional_copy_not_ready",
+      "reviewers_assigned": [],
+      "sources": [
+        "Garden_Act_v1-0_2026-09-28.md"
+      ],
+      "public_release": "not_approved",
+      "localization_review": "pending",
+      "accessibility_review": "pending"
+    }
+  ],
+  "asset_types": [
+    {
+      "type": "archival_primary",
+      "allow_public_without_review": false,
+      "required": [
+        "exact_repository_record",
+        "identity_caption",
+        "creator_context",
+        "license_or_permission",
+        "depiction_sensitivity",
+        "independent_context_review"
+      ],
+      "label": "Original archival item — exact source and rights"
+    },
+    {
+      "type": "generated_historical",
+      "allow_public_without_review": false,
+      "required": [
+        "generation_provenance",
+        "reconstruction_label",
+        "historical_accuracy_review",
+        "asset_rights",
+        "scene_accuracy"
+      ],
+      "label": "Artistic historical reconstruction (not archival evidence)"
+    },
+    {
+      "type": "conceptual_art",
+      "allow_public_without_review": false,
+      "required": [
+        "generation_provenance",
+        "conceptual_label",
+        "publication_rights",
+        "context_review"
+      ],
+      "label": "Conceptual illustration"
+    },
+    {
+      "type": "family_contribution",
+      "allow_public_without_review": false,
+      "required": [
+        "subject_consent",
+        "rights_to_display",
+        "purpose_specific_permissions",
+        "sensitive_data_review",
+        "withdrawal_handling"
+      ],
+      "label": "Consented family submission"
+    }
+  ],
+  "review_gates": [
+    {
+      "id": "historical",
+      "reviewer": "qualified_historian",
+      "status": "not_assigned",
+      "min_evidence": "independent source-context review"
+    },
+    {
+      "id": "fiscal",
+      "reviewer": "qualified_fiscal_analyst",
+      "status": "not_assigned",
+      "min_evidence": "reproducible scenarios and absence of false zero-cost promise"
+    },
+    {
+      "id": "legal",
+      "reviewer": "qualified_counsel",
+      "status": "not_assigned",
+      "min_evidence": "draft law and constitutional limitations reviewed"
+    },
+    {
+      "id": "rights",
+      "reviewer": "rights_specialist",
+      "status": "not_assigned",
+      "min_evidence": "asset exact rights + permissions audit"
+    },
+    {
+      "id": "community",
+      "reviewer": "authorized_community_adviser",
+      "status": "not_assigned",
+      "min_evidence": "appropriate representation consultation"
+    },
+    {
+      "id": "accessibility",
+      "reviewer": "accessibility_qa",
+      "status": "not_assigned",
+      "min_evidence": "keyboard and assistive tech tests"
+    }
+  ],
+  "mandatory_principles": [
+    "No research participation conditioned on policy endorsement",
+    "A source statement is not identical to verified historical interpretation",
+    "Original source and reconstruction must not be visually indistinguishable",
+    "Family submission requires purpose-by-purpose consent",
+    "Financial recovery target is not a guarantee of zero fiscal cost",
+    "All public claims carry a revision and evidence chain"
+  ],
+  "quotes_and_testimonials": "None until verified authorship, rights and consent; never invent.",
+  "launch_media_count_verified": 0,
+  "expert_review_complete": false
+}
