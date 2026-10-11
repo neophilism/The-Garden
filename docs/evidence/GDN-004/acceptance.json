@@ -1,0 +1,24 @@
+{
+  "work_item_id": "GDN-004",
+  "status": "integration_discovery_prepared_pending_contract_review",
+  "criteria": {
+    "GDN-004-AC01": "GitHub/Render/Neon exact identifiers inspected; Engine Room import contract located; missing identity/buckets/email/payments/AI explicitly unconfigured",
+    "GDN-004-AC02": "Garden remains its own GitHub repository, Neon project, and planned isolated Render deployment",
+    "GDN-004-AC03": "No unrelated project DB/credentials reused or authorized"
+  },
+  "manifest": {
+    "items": 210,
+    "current_scope": 196,
+    "conditional_scope": 14,
+    "mapped_github_prs": [
+      2,
+      3,
+      4
+    ],
+    "planned_ids_not_pr_ordinals": true
+  },
+  "remote_engine_room_registration": "not_verified",
+  "render_deployment": "not_deployed",
+  "neon_mutations": "none",
+  "review": "independent_contract_review_not_performed"
+}
