@@ -48,7 +48,7 @@ jobs:
       - name: Install exact dependencies
         run: npm ci --include=dev --no-audit
       - name: Typed-domain regression tests
-        run: node --test tests/data/*.test.mjs
+        run: node --test tests/data/*.test.mjs tests/review/*.test.mjs
       - name: Apply checksum-locked migrations twice
         run: |
           set -eu
@@ -61,6 +61,7 @@ jobs:
           node apps/research/data/locators.ci.mjs
           node apps/research/data/claims.ci.mjs
           node apps/research/access/audit.ci.mjs
+          node apps/research/review/reviews.ci.mjs
       - name: Preserve synthetic data acceptance evidence
         if: success()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
