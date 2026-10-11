@@ -35,7 +35,7 @@ jobs:
           test ! -e package-lock.json
           npm install --package-lock-only --ignore-scripts --no-audit
           test -s package-lock.json
-          npm ci --no-audit
+          npm ci --include=dev --no-audit
       - name: Test all workspaces and exported public HTML
         run: |
           npm run check
