@@ -1,0 +1,100 @@
+{
+  "manifest_version": 1,
+  "checkpoint": "CP-017",
+  "corpus_version": "1.17",
+  "book_version": "1.29-alpha",
+  "research_claims_verified": false,
+  "rights_cleared": false,
+  "production_migration_authorized": false,
+  "components": [
+    {
+      "artifact_id": "CORE",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-17_CORE_2026-10-09.zip",
+      "size_bytes": 86756261,
+      "sha256": "d8bef939c9ef63c4f0e3896f947d79679aae10f3fd62d347ff99f960d8247780",
+      "member_count": 83,
+      "location": "https://chatgpt.com/api/library/files/libfile_b2791b7ec790819190a1dcb5a58ecba5/download",
+      "verification": "2026-10-10 full SHA256 and member CRC checked"
+    },
+    {
+      "artifact_id": "EXPORTS",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-17_EXPORTS_2026-10-09.zip",
+      "size_bytes": 48442726,
+      "sha256": "fbf5af2a539a139e4ee75ca67d3b29528887125f853936edbfc3b422f291cba5",
+      "member_count": 110,
+      "location": "https://chatgpt.com/api/library/files/libfile_91e15cfa3a048191a49f9328b345ea11/download",
+      "verification": "2026-10-10 full SHA256 and member CRC checked"
+    },
+    {
+      "artifact_id": "SOURCES",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-17_SOURCES_2026-10-09.zip",
+      "size_bytes": 157109695,
+      "sha256": "7d45411f93d0f25be72470d11fcbccc3a9d9b1848acf51299b2449a8f394f7f0",
+      "member_count": 126,
+      "location": "https://chatgpt.com/api/library/files/libfile_6903c1bf13908191acb0a5040b4dc060/download",
+      "verification": "2026-10-10 full SHA256 and member CRC checked"
+    },
+    {
+      "artifact_id": "RECOVERY",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-17_RECOVERY_2026-10-09.zip",
+      "size_bytes": 40788215,
+      "sha256": "2cd05a40df3e5f00ef67a8af9ae4e9091a6506630fe1b5b802aab7d02e6364ec",
+      "member_count": 4,
+      "location": "https://chatgpt.com/api/library/files/libfile_d12cb749bd388191b2033ab7f8b2c3ad/download",
+      "verification": "2026-10-10 full SHA256 and member CRC checked"
+    }
+  ],
+  "documents": [
+    {
+      "label": "Garden Act",
+      "filename": "Garden_Act_v1-0_2026-09-28.md",
+      "location": "https://chatgpt.com/api/library/files/libfile_37ef09d116408191878054e76404c37f/download",
+      "status": "located in current saved index; exact bytes not revalidated",
+      "rights": "unresolved"
+    },
+    {
+      "label": "Original policy",
+      "filename": "garden.docx",
+      "location": "https://chatgpt.com/api/library/files/libfile_2b11a00f70b88191b4e3054985504a48/download",
+      "status": "located in current saved index; exact bytes not revalidated",
+      "rights": "unresolved"
+    },
+    {
+      "label": "Atlas working edition",
+      "filename": "book_Not-From-Nowhere_atlas-working-research-edition_v1-29-alpha_2026-10-09.docx",
+      "location": "https://chatgpt.com/api/library/files/libfile_d78074aef3a4819191bfc9c5465f4b2b/download",
+      "status": "located in current saved index; exact bytes not revalidated",
+      "rights": "unresolved"
+    },
+    {
+      "label": "Apparatus",
+      "filename": "apparatus_Not-From-Nowhere_atlas_v1-29-alpha_2026-10-09.docx",
+      "location": "https://chatgpt.com/api/library/files/libfile_f3487411fd248191b6e42e94cc8dd6e7/download",
+      "status": "located in current saved index; exact bytes not revalidated",
+      "rights": "unresolved"
+    },
+    {
+      "label": "Corrections",
+      "filename": "correction-log_Not-From-Nowhere_atlas_v1-29-alpha_2026-10-09.docx",
+      "location": "https://chatgpt.com/api/library/files/libfile_0ea3df9db4f08191a98ee3d18847e168/download",
+      "status": "located in current saved index; exact bytes not revalidated",
+      "rights": "unresolved"
+    },
+    {
+      "label": "Image budget",
+      "filename": "image-budget_Not-From-Nowhere_atlas_v1-29-alpha_2026-10-09.docx",
+      "location": "https://chatgpt.com/api/library/files/libfile_9169c59a4c088191982180b270191c33/download",
+      "status": "located in current saved index; exact bytes not revalidated",
+      "rights": "unresolved"
+    },
+    {
+      "label": "Registry",
+      "filename": "registry_African-Tribal-Nations_atlas_v1-29-alpha_2026-10-09.docx",
+      "location": "https://chatgpt.com/api/library/files/libfile_c40b72bb4d588191acb0d4a4fb99960b/download",
+      "status": "located in current saved index; exact bytes not revalidated",
+      "rights": "unresolved"
+    }
+  ],
+  "recovery_boundary": "Corpus 1.16 SQLite and external_records export defective/truncated; 1.17 is a bounded reconstruction not complete equivalence. Recovery ZIP includes defective historical material. Never replay historical migrations.",
+  "source_archive_bytes_not_committed": true
+}
