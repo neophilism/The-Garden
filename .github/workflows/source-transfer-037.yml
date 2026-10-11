@@ -1,0 +1,43 @@
+name: Garden reviewed source transfer GDN-037
+on:
+  push:
+    branches: [plan/gdn-037-atomic-claims]
+    paths: [bootstrap/GDN037-READY]
+permissions:
+  contents: write
+concurrency:
+  group: garden-transfer-037
+  cancel-in-progress: false
+jobs:
+  transfer:
+    if: github.repository == 'neophilism/The-Garden' && github.actor == 'neophilism' && github.ref == 'refs/heads/plan/gdn-037-atomic-claims'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      EXPECTED_REF: refs/heads/plan/gdn-037-atomic-claims
+      SOURCE_SHA256: ea4cd2855cf0673a79ee9ce36e18effcc985f4b0f00c043475b4df444f46f4b8
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+      - name: Restore reviewed bytes and verify contracts
+        run: |
+          set -eu
+          python3 bootstrap/apply_source_bundle.py
+          python3 scripts/validate_plan.py
+          python3 scripts/sync_roadmap.py
+          python3 -m unittest discover -s tests/architecture -q
+          python3 -m unittest discover -s tests/plan -q
+      - name: Commit restored source to the fixed development branch
+        env:
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          set -eu
+          actual=$(git ls-remote origin "$EXPECTED_REF" | cut -f1)
+          test "$actual" = "$EXPECTED_HEAD"
+          git config user.name 'Garden repository automation'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add apps/research/data packages/domain/src/historical tests/data db/migrations docs/data docs/evidence/GDN-037 docs/CURRENT_STATUS.md plan/execution.json plan/progress.json registry/roadmap.json .exechub/approved-pr-mapping.json
+          git commit -m 'GDN-037: preserve atomic claims and explicit evidence relationships'
+          git push origin HEAD:"$EXPECTED_REF"
