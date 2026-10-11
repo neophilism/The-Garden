@@ -57,6 +57,8 @@ jobs:
         run: node apps/research/access/rls.ci.mjs
       - name: Database-backed delivery authorization and hidden-record canaries
         run: node apps/research/access/delivery.ci.mjs
+      - name: Purpose-specific consent and withdrawal races
+        run: node apps/research/access/consent.ci.mjs
       - name: Preserve safe lifecycle evidence and generated synthetic schema
         if: success()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
