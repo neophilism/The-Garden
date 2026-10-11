@@ -1,0 +1,18 @@
+{
+  "work_item": "GDN-023",
+  "implementation": "candidate",
+  "criteria": {
+    "GDN-023-AC01": "Expiring issuer-bound grants and atomic single-use invitation functions; database fixture and lifecycle CI specified.",
+    "GDN-023-AC02": "Expertise is self-reported; no institution is required or automatically verified.",
+    "GDN-023-AC03": "Three policy-bound attestations confer no publication approval; raw publication writes remain denied."
+  },
+  "tests": ["tests/access/membership.test.mjs", "tests/database/membership.sql", "apps/research/identity/lifecycle.ci.mjs"],
+  "local_tests_passed": 42,
+  "local_runtime": "Node 22.16.0; authoritative supported runtime is Node 24 in CI",
+  "github_ci": "pending",
+  "independent_review": "not_performed",
+  "accepted": false,
+  "neon_migration_applied": false,
+  "public_route_enabled": false,
+  "production_verified": false
+}

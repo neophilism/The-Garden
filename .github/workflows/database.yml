@@ -57,6 +57,7 @@ jobs:
           psql -X -w -f tests/database/roles.sql
           psql -X -w -f tests/database/jobs.sql
           psql -X -w -f tests/database/consumer.sql
+          psql -X -w -f tests/database/membership.sql
           python3 tests/database/concurrency.py
       - name: Record database version and source
         run: |
