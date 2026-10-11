@@ -445,11 +445,30 @@
       "note": "All six final-head workflows succeeded before the confirmed merge. No production or historical acceptance inferred."
     },
     "GDN-040": {
-      "implementation": "candidate_structured_editorial_content",
+      "implementation": "merged_with_exact_ci",
+      "github_pr_number": 32,
+      "github_head_sha": "656b16a9774da9ff9e4f1622efe1532e36956b47",
+      "github_merge_sha": "e0c98404757c05337116b2a2fb52c1896a3dbcfb",
+      "ci_url": "https://github.com/neophilism/The-Garden/actions/runs/38171089464",
+      "ci_workflows": {
+        "repository": 38171089464,
+        "database": 38171089389,
+        "identity": 38171089387,
+        "storage": 38171089380,
+        "historical_data": 38171089450,
+        "quality_browser": 38171089379
+      },
       "accepted": false,
       "production_verified": false,
       "independent_review": "not_performed",
-      "note": "Typed structured-file compiler and unmounted React preview; fresh PR CI pending."
+      "note": "All six final-head workflows passed, including actual-component browser/accessibility/injection checks. Merge confirmed by GitHub."
+    },
+    "GDN-095": {
+      "implementation": "candidate_sourced_geographic_assertions",
+      "accepted": false,
+      "production_verified": false,
+      "independent_review": "not_performed",
+      "note": "Bounded GeoJSON, temporal uncertainty, private versioned repository and additive migration. Fresh PostgreSQL PR CI required."
     }
   },
   "production_verified_items": 0,
@@ -457,8 +476,8 @@
     "registration": "not_verified",
     "sync": "not_verified",
     "manifest_in_repo": true,
-    "mapped_planned_units": 27
+    "mapped_planned_units": 28
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-11T20:07:26.686391+00:00"
+  "observed_at_utc": "2026-10-11T20:18:11.325161+00:00"
 }

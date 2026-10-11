@@ -1,10 +1,10 @@
 {
   "current_scope_items": 196,
   "conditional_items": 14,
-  "remote_prs_opened": 27,
-  "verified_merged_items": 27,
+  "remote_prs_opened": 28,
+  "verified_merged_items": 28,
   "production_verified_items": 0,
   "current_scope_weight": 608,
   "conditional_weight": 46,
-  "note": "27 mapped engineering merges. GDN-040 is a local candidate, not accepted or deployed."
+  "note": "28 mapped engineering merges. GDN-095 is a candidate, not accepted or deployed."
 }

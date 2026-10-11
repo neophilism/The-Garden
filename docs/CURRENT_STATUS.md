@@ -2,11 +2,11 @@
 
 ## Verified baseline
 
-GDN-039 / PR #31 is merged at `9d286f168cb24d51178f020da60d1b462c277275`. All six final-head workflows passed for `90a5ca803bd760e35d85779b4b3d763f2850ffa0`. The repository has 27 mapped engineering merges; independent acceptance and production verification remain separate and unperformed. Maintenance PR #30 is not another roadmap unit.
+GDN-040 / PR #32 is merged at `e0c98404757c05337116b2a2fb52c1896a3dbcfb`. All six final-head workflows passed for `656b16a9774da9ff9e4f1622efe1532e36956b47`. The repository has 28 mapped engineering merges; independent acceptance and production verification remain separate and unperformed. Maintenance PR #30 is not another roadmap unit.
 
 ## Current work
 
-GDN-040 introduces typed structured editorial pages, exact draft-bound provisions/figures, scoped claim/evidence/locator bindings and safe React text rendering. It follows the specified structured-file rollout. The preview is unmounted and cannot authorize publication. See `docs/editorial/structured-content.md` and its acceptance record. Finish final-head CI and merge checks, then continue dependency-ready GDN-041 quarantine or GDN-095 geographic assertions.
+GDN-095 adds source-bound geographic assertions, explicit dates/uncertainty, competing extents and protected numeric revision history. The typed repository rechecks source ancestry; personal locations remain unavailable to the general research/map layer. Additive migration 0012 is only exercised in ephemeral CI. See `docs/data/geographic-assertions.md`. Finish final-head CI and merge checks, then continue GDN-041 quarantine/intake.
 
 ## Hosting and authority
 

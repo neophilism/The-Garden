@@ -1,0 +1,37 @@
+{
+  "work_item_id": "GDN-095",
+  "implementation": "candidate_sourced_geographic_assertions",
+  "accepted": false,
+  "production_verified": false,
+  "independent_review": "not_performed",
+  "criteria": {
+    "GDN-095-AC01": "Required exact subject/claim/evidence references, original date expression, explicit uncertainty and CRS84 geometry. Unknown location is null.",
+    "GDN-095-AC02": "Separate assertion identities/revisions preserve competing extents, names and date ranges.",
+    "GDN-095-AC03": "Sensitive geometry requires personal SQL classification, is denied by research repository and wholly omitted from layer projection."
+  },
+  "domain_tests_passed": 57,
+  "postgres_verification": "Fresh final-head CI pending; no local PostgreSQL available.",
+  "provider_observation": {
+    "project_id": "royal-union-78374030",
+    "branch_id": "br-purple-grass-b5hurfl7",
+    "date": "2026-10-11",
+    "postgis_available_version": "3.6.4",
+    "postgis_installed": false,
+    "action": "read-only extension inventory; no extension installed"
+  },
+  "migration": "0012 additive and checksum-locked; not applied to Neon",
+  "limitations": [
+    "This bounded GeoJSON profile rejects poles, unsplit antimeridian segments, touching and near-degenerate polygons. Original geometry must be retained for specialist normalization.",
+    "SQL enforces identity/references/privacy/basic shape; full bounded geometry validation runs before repository writes and after reads. Raw privileged storage is not certified geometry.",
+    "No public map, live source import, public projection, geospatial index or historical interpretation is published."
+  ],
+  "local_validation": {
+    "core_tests_passed": 1186,
+    "architecture_tests_passed": 103,
+    "plan_tests_passed": 21,
+    "migration_planner_tests_passed": 18,
+    "typecheck": "pass",
+    "public_build": "pass",
+    "research_build": "pass"
+  }
+}
