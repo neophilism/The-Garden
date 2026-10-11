@@ -25,7 +25,7 @@ export function createHistoricalRepository(executor) {
   return Object.freeze({
     async read(headers,workspace,id) {
       uuid(workspace);uuid(id);
-      return executor.run(headers,{workspaceId:workspace,recordId:id},async c=>{
+      return executor.run(headers,{workspaceId:workspace},async c=>{
         const row=await load(c,workspace,id),value=validateHistorical(row.payload);await references(c,workspace,value);return {record:value,revision:row.version};
       });
     },
@@ -53,7 +53,6 @@ export function createHistoricalRepository(executor) {
       uuid(workspace);uuid(sourceId);uuid(targetId);expected(sourceRevision);expected(targetRevision);
       if(sourceId===targetId)reject();
       return executor.run(headers,{workspaceId:workspace,action:'write'},async c=>{
-        // A deterministic lock order serializes opposite-direction merges.
         const found=new Map();
         for(const id of [sourceId,targetId].sort()){
           const row=await load(c,workspace,id,true);
@@ -74,7 +73,7 @@ export function createHistoricalRepository(executor) {
     },
     async history(headers,workspace,id,{beforeRevision=null,limit=50}={}) {
       uuid(workspace);uuid(id);if(beforeRevision!==null)expected(beforeRevision);if(!Number.isInteger(limit)||limit<1||limit>100)reject();
-      return executor.run(headers,{workspaceId:workspace,recordId:id},async c=>{
+      return executor.run(headers,{workspaceId:workspace},async c=>{
         validateHistorical((await load(c,workspace,id)).payload);
         const rows=(await c.query('SELECT version::text,payload,changed_at FROM garden_private.record_revisions WHERE workspace_id=$1::uuid AND record_id=$2::uuid AND ($3::bigint IS NULL OR version<$3::bigint) ORDER BY version DESC LIMIT $4::integer',[workspace,id,beforeRevision,limit+1])).rows;
         const output=[];for(const row of rows.slice(0,limit)){const value=row.payload.recordType?validateHistorical(row.payload):null;if(value)await references(c,workspace,value);output.push({revision:row.version,record:value,changedAt:row.changed_at});}return {versions:output,nextBeforeRevision:rows.length>limit?output.at(-1).revision:null};
