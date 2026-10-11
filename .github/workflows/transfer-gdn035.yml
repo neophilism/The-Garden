@@ -1,0 +1,43 @@
+name: Garden GDN035 source materialization
+on:
+  push:
+    branches: [data/gdn-035-historical-entities]
+    paths: [.github/workflows/transfer-gdn035.yml]
+permissions:
+  contents: write
+concurrency:
+  group: garden-gdn035-source-materialization
+  cancel-in-progress: false
+jobs:
+  source:
+    if: github.repository == 'neophilism/The-Garden' && github.ref == 'refs/heads/data/gdn-035-historical-entities'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Materialize, check and commit exact source without cloud mutations
+        env:
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          set -eu
+          python3 .transfer/gdn035/apply.py
+          python3 scripts/validate_plan.py
+          python3 scripts/sync_roadmap.py
+          python3 scripts/reconcile_roadmap.py
+          python3 -m unittest discover -s tests/plan -q
+          python3 -m unittest discover -s tests/architecture -q
+          python3 -m unittest discover -s tests/database -q
+          node --test tests/application/*.test.mjs tests/environment/*.test.mjs tests/access/*.test.mjs tests/data/*.test.mjs
+          git rm -r .transfer/gdn035 .github/workflows/transfer-gdn035.yml
+          test "$(git ls-remote origin refs/heads/data/gdn-035-historical-entities | cut -f1)" = "$EXPECTED_HEAD"
+          git config user.name 'Garden repository automation'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'GDN-035: materialize typed historical records, RLS history and synthetic acceptance tests'
+          git push origin HEAD:refs/heads/data/gdn-035-historical-entities
