@@ -12,3 +12,10 @@ node_modules/
 .next/
 __pycache__/
 *.pyc
+
+# Garden Next.js workspaces
+**/.next/
+**/out/
+**/*.tsbuildinfo
+.env.*
+!.env.example
