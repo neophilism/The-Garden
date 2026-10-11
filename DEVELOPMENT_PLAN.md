@@ -1,3 +1,5 @@
+> **Canonical PR roadmap:** [registry/roadmap.json](registry/roadmap.json). Original planning detail follows; edit the registry file for all PR totals and mappings.
+
 # The Garden: Comprehensive Website Development Plan
 
 **Version 1.0 | 10 October 2026 | Planning baseline GARDEN-WEB-PLAN-001**

@@ -1,4 +1,4 @@
-{"sourceRepository":"neophilism/The-Garden","roadmapVersion":1,"mappingRevision":6,"mapping_policy":"Observed actual PR numbers only. Bootstrap #1, provider inventory #11 and follow-up #17 excluded. A mapping alone is not completion; open PRs remain open.","conditional_items":"GDN-197 through GDN-210; no legal authority","last_verified":"2026-10-11","pullRequestNumbers":[
+{"sourceRepository":"neophilism/The-Garden","roadmapVersion":1,"mappingRevision":6,"mapping_policy":"Observed actual PR numbers only. Bootstrap #1, provider inventory #11 and follow-up #17 excluded. A mapping alone is not completion; open PRs remain open.","conditional_items":"GDN-197 through GDN-210; no legal authority","last_verified":"2026-10-11","_canonicalRoadmap":"registry/roadmap.json","_notice":"Historical mapping evidence; edit canonical PR roadmap for planned work.","pullRequestNumbers":[
 2,3,4,5,6,7,9,8,10,12,
 null,13,14,null,15,16,null,null,null,null,
 18,null,19,null,null,null,null,null,null,null,
