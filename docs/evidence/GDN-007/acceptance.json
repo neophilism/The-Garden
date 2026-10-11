@@ -1,0 +1,13 @@
+{
+  "work_item_id": "GDN-007",
+  "status": "commissioning_and_static_rules_complete_expert_review_pending",
+  "criteria": {
+    "GDN-007-AC01": "ten public launch routes enumerate claims, sources, and required independent expert roles",
+    "GDN-007-AC02": "archive/generated reconstruction/conceptual/family media types require distinct provenance and rights review",
+    "GDN-007-AC03": "six independent review gates remain unassigned, never fabricated"
+  },
+  "tests": "11 static tests including fiscal claims, rights bypass, fabricated review and missing citations",
+  "independent_review": "not_performed",
+  "public_assets_licensed": 0,
+  "production_ready": false
+}
