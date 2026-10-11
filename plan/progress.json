@@ -1,10 +1,10 @@
 {
   "current_scope_items": 196,
   "conditional_items": 14,
-  "remote_prs_opened": 20,
-  "verified_merged_items": 20,
+  "remote_prs_opened": 21,
+  "verified_merged_items": 21,
   "production_verified_items": 0,
   "current_scope_weight": 608,
   "conditional_weight": 46,
-  "note": "20 engineering items have observed merge and exact-head CI evidence. GDN-038 is a candidate. Review, historical verification, source-viewer integration, production and Engine Room live readback remain unverified."
+  "note": "21 engineering items have observed merge and exact-head CI evidence. GDN-037 is a candidate. Review, historical verification, source-viewer integration, production and Engine Room live readback remain unverified."
 }

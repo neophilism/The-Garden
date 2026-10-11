@@ -411,7 +411,10 @@
       "sourceItemId": "GDN-038",
       "applicability": "current_scope",
       "scope": "Implement edition/page/region/timecode locators, text quotes and positions bound to exact content hashes. Preserve original page labels alongside digital ordinals.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        24
+      ]
     },
     {
       "id": "GDN-039",
