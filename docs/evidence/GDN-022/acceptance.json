@@ -1,0 +1,18 @@
+{
+  "work_item_id": "GDN-022",
+  "implementation": "candidate_unmounted_session_security",
+  "accepted": false,
+  "production_verified": false,
+  "independent_review": "not_performed",
+  "local_unit_tests": {"passed": 78, "failed": 0, "skipped": 0},
+  "criteria": {
+    "GDN-022-AC01": "Own-session/all-device SQL revocation, cross-instance reads and cross-tab browser checks implemented; exact-head CI pending.",
+    "GDN-022-AC02": "Trusted verifier proof, current enrolled key, fixed five-minute lifetime and separate action authority; real ceremony CI pending.",
+    "GDN-022-AC03": "Password recovery preserves factors and cannot reenroll or authorize sensitive actions; live recovery and race CI pending."
+  },
+  "capability": "user-verified passkeys; no password-only privileged fallback",
+  "physical_authenticators_tested": false,
+  "cloud_schema_changed": false,
+  "runtime_endpoints_mounted": false,
+  "remaining": ["exact-head CI and fresh browser evidence", "independent security review", "physical-device and cross-browser ceremony testing", "staging activation and safe pool capacity", "live HTTPS verification"]
+}

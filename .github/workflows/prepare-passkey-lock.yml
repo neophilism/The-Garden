@@ -1,10 +1,13 @@
-name: Garden reviewed passkey lock preparation
+name: Garden one-time reviewed dependency lock
 on:
   push:
     branches: [security/gdn-022-passkey-assurance]
     paths: [.github/workflows/prepare-passkey-lock.yml]
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: garden-gdn022-lock-once
+  cancel-in-progress: false
 jobs:
   lock:
     if: github.repository == 'neophilism/The-Garden' && github.actor == 'neophilism' && github.ref == 'refs/heads/security/gdn-022-passkey-assurance'
@@ -13,24 +16,31 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          persist-credentials: false
+          ref: ${{ github.sha }}
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '24'
           package-manager-cache: false
-      - name: Resolve the exact reviewed passkey version without lifecycle scripts
+      - name: Resolve exact reviewed plugin without upgrading existing packages or running scripts
         run: |
           set -eu
+          cp package-lock.json "$RUNNER_TEMP/garden-original-lock.json"
           npm install --package-lock-only --ignore-scripts --save-exact --no-audit @better-auth/passkey@1.7.7 --workspace=@garden/research
-          node --input-type=module -e "import fs from 'node:fs'; const p=JSON.parse(fs.readFileSync('apps/research/package.json')); const l=JSON.parse(fs.readFileSync('package-lock.json')); if(p.dependencies['@better-auth/passkey']!=='1.7.7'||l.packages['node_modules/@better-auth/passkey'].version!=='1.7.7') throw Error('Dependency version mismatch');"
-          git diff -- apps/research/package.json package-lock.json > passkey-lock.diff
-      - name: Preserve the candidate lock for source review; no repository mutation
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: garden-passkey-lock-${{ github.run_id }}
-          path: |
-            package-lock.json
-            apps/research/package.json
-            passkey-lock.diff
-          if-no-files-found: error
-          retention-days: 7
+          python3 .github/prepare-gdn022.py
+          python3 scripts/sync_roadmap.py --write
+          python3 scripts/reconcile_roadmap.py
+          python3 scripts/validate_plan.py
+          node --test apps/research/identity/*.test.mjs
+      - name: Commit reviewed candidate lock and remove one-time preparation files
+        env:
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          set -eu
+          actual=$(git ls-remote origin refs/heads/security/gdn-022-passkey-assurance | cut -f1)
+          test "$actual" = "$EXPECTED_HEAD"
+          rm .github/workflows/prepare-passkey-lock.yml .github/prepare-gdn022.py
+          git config user.name 'Garden source preparation'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --all
+          git commit -m 'GDN-022: retain exact passkey lock and observed roadmap evidence'
+          git push origin HEAD:refs/heads/security/gdn-022-passkey-assurance
