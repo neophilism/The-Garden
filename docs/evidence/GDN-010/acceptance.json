@@ -1,20 +1,18 @@
 {
-  "work_item_id":"GDN-010",
-  "status":"implemented_under_verification",
-  "accepted":false,
-  "production_verified":false,
-  "criteria":{
-    "GDN-010-AC01":"Policy and static-export negative fixtures pass; initial browser CI failed on real accessibility defects, demonstrating nontrivial enforcement.",
-    "GDN-010-AC02":"Parsed workflow policy requires read-only verification permissions, no credential persistence and no secret references; fork-event mutation fixtures reject elevated variants.",
-    "GDN-010-AC03":"CI artifacts identify checkout SHA, PR head, runtime and dependency-lock digests."
-  },
-  "first_browser_run":"https://github.com/neophilism/The-Garden/actions/runs/38099077789",
-  "first_run_head":"b20951d49a8fe8ef741d2b0074f189a07da523e4",
-  "first_browser_result":{"passed":12,"failed":27,"skipped":0,"distinct_defect_classes":3},
-  "corrections":["Increase copper-label contrast on paper, white and mist backgrounds.","Align researcher link accessible name with visible label.","Place preheader notice inside the banner landmark and make the skip-link target focusable."],
-  "supply_chain_result":"Passed initial CI policy, two npm audits and CycloneDX inventory generation; this is not proof of absence of unknown vulnerabilities.",
-  "fresh_browser_result":"pending",
-  "independent_security_review":"not_performed",
-  "inclusive_accessibility_review":"not_performed",
-  "render_deployment":"not_performed"
+ "work_item_id":"GDN-010","status":"merged_with_ci_and_browser_verification","accepted":false,"production_verified":false,
+ "tested_head_sha":"c19065616ba3ca2006459eb5b74ad14448679dec","tested_merge_sha":"33f6db6cc1c22a8795a5fe100ada53d6d53a37cc","merge_sha":"04e8d5cb23938e6a15db7403c50026eeeff5ff9c",
+ "criteria":{
+  "GDN-010-AC01":"Failure canaries and initial real browser failures demonstrate error detection. Corrected final suite passed without skips or rule exclusions.",
+  "GDN-010-AC02":"Parsed CI policy requires read-only permissions, no persisted credentials and no secret references; elevated variants are rejected.",
+  "GDN-010-AC03":"Retained artifacts bind checkout/PR SHA, runtime, locks, screenshots and full test/audit reports."
+ },
+ "first_browser_run":"https://github.com/neophilism/The-Garden/actions/runs/38099077789",
+ "first_browser_result":{"passed":12,"failed":27,"skipped":0,"distinct_defect_classes":3},
+ "corrections":["Copper text contrast","Accessible researcher-link name","Preheader landmark and focusable skip target"],
+ "final_repository_ci":"https://github.com/neophilism/The-Garden/actions/runs/38099475661",
+ "final_quality_ci":"https://github.com/neophilism/The-Garden/actions/runs/38099475704",
+ "final_browser_result":{"passed":39,"failed":0,"skipped":0,"flaky":0},
+ "browser_artifact_id":11686919735,"browser_artifact_sha256":"c059649a75e7fd88665fb20b24454c58a1136b7dcf203b3b81f601fce72da4ac",
+ "visual_review":"Limited author inspection of final mobile homepage and desktop funding screenshots; not independent user review.",
+ "independent_security_review":"not_performed","inclusive_accessibility_review":"not_performed","render_deployment":"not_performed"
 }

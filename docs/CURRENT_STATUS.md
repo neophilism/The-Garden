@@ -1,23 +1,25 @@
 # Current execution status
 
-The approved baseline remains GARDEN-WEB-PLAN-001: 196 current public/research items plus 14 legally conditional governmental items. Current observations are in `plan/execution.json`; baseline statuses are historical, not a second progress numerator.
+GARDEN-WEB-PLAN-001 remains 196 current public/research items plus 14 legally conditional items. The immutable baseline is not a second progress numerator; read `plan/execution.json` and `plan/progress.json` for observed engineering state.
 
-## Implemented and merged
+## Merged and checked
 
-GDN-001 through GDN-009 have mapped, merged engineering PRs with recorded passing CI. GDN-009 is GitHub PR #10, merge `78c7e9a5b2b4d3b79ef4d55b9b6d29f3bcb79c4d`. It adds runnable public/research Next.js applications, a public-only shared domain package and an inactive worker scaffold. Public output is a nine-page static orientation preview. Authentication, research intake, corpus search and government functions remain disabled or unimplemented.
+GDN-001 through GDN-010 have mapped engineering merges with recorded passing CI. GDN-009 / PR #10 adds the runnable public/research Next.js foundation. GDN-010 / PR #12 fixes three actual accessibility defects and adds read-only quality, advisory audit, inventory, lint, browser and negative-fixture gates. Its final 39 browser cases passed with zero failures, skips or flakes in Chromium desktop/mobile and Firefox. Final quality CI: https://github.com/neophilism/The-Garden/actions/runs/38099475704 ; merge 04e8d5cb23938e6a15db7403c50026eeeff5ff9c.
 
-Bootstrap PR #1 and provider-inventory PR #11 are not planned-feature completions. No feature has independent production acceptance. Actual Engine Room ingestion and dashboard readback are unverified despite a compatible checked-in manifest and explicit PR mapping.
+Bootstrap #1 and provider inventory #11 are excluded from planned implementation progress. No independent security/content acceptance or live production capability is claimed. The nine public pages are a preproduction orientation preview, not the atlas, full legislative library or researcher workspace.
 
 ## Active work
 
-GDN-010, PR #12, adds browser/accessibility, supply-chain, source-lint and workflow-policy checks. Initial browser CI ran 39 cases: 12 passed and 27 failed due to three shared accessibility issues. The failures are being corrected without exclusions. Supply-chain/policy CI passed. Fresh final-head CI, review of screenshots and mergeability must pass before merge. See `docs/testing/quality-gates.md` and `docs/evidence/GDN-010/acceptance.json`.
+GDN-012 / PR #13 implements isolated local, CI, preview, staging and production configuration. Both Next config modules invoke the guard. 52 local environment/CLI tests passed; pinned runtime/build/browser CI is being verified. Read `docs/architecture/environment-isolation.md`. Real credentials, application roles, new services and migrations are not created by this code.
 
-## Providers and deployment
+GDN-011 requires actual GitHub branch-rules administration, which the current connector does not expose as a write action. The five implemented check names are listed in `docs/testing/quality-gates.md`. Never infer enforcement from a JSON proposal or a green check.
 
-Neon The Garden / royal-union-78374030 / br-curly-band-b5aatp1e / neondb is accessible and has no user tables. It remains unchanged. Render's account is connected; the active tool requires explicit selection of Phillip's workspace before further operations. The designated project is prj-db57f92jnfac739ghic0. Project membership/service placement remains unverified and the connector cannot specify a project when creating a service. Do not create outside the owner's requested project or substitute an unrelated resource.
+## Providers and remaining gates
 
-No hosting purchases, database migrations or application deployments were made. Public release and protected research activation retain legal/editorial, image-rights, consent, accessibility and independent security gates. The announced upcoming Next.js security release must be assessed before production readiness is claimed.
+Neon The Garden / royal-union-78374030 / br-curly-band-b5aatp1e / neondb is accessible, has no user tables and remains unchanged. Render is connected, but its tool requires explicit confirmation of Phillip's workspace before selecting it. The designated project is prj-db57f92jnfac739ghic0; project-aware site creation/placement is not exposed by the available connector. No service was created in a substitute project or workspace.
+
+No new spending, provider mutation or deployment was performed. Protected research, AI, donations and government functions remain disabled. Actual Engine Room ingestion and dashboard readback remain unverified; compatible source manifests and actual PR mappings are committed. The announced upcoming Next.js security release still requires assessment before production readiness.
 
 ## Continue
 
-Read AGENTS.md, the plan, actual main/open PR state and current CI. Finish GDN-010 before referencing its checks in branch rules. GDN-012 environment isolation is independently dependency-ready after GDN-005/GDN-009; prepare and test it while respecting unverified provider scope and spending gates. Do not replay the baseline importer over evolving files.
+Inspect current main, open PRs and exact-head CI; finish GDN-012 without assuming completion of GDN-011. Next dependencies are actual branch-rule enforcement, authorized Neon staging/migration-role foundation and authorized storage. Maintain data, privacy, rights, review and spending gates. Do not replay the baseline importer over evolving files.
