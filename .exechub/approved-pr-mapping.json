@@ -1,7 +1,7 @@
 {
   "sourceRepository": "neophilism/The-Garden",
   "roadmapVersion": 1,
-  "mappingRevision": 16,
+  "mappingRevision": 17,
   "mapping_policy": "Observed actual PR numbers only. Bootstrap #1, provider inventory #11 and follow-up #17 excluded. A mapping alone is not completion; open PRs remain open. Maintenance #30 excluded.",
   "conditional_items": "GDN-197 through GDN-210; no legal authority",
   "last_verified": "2026-10-11",
@@ -46,7 +46,7 @@
     23,
     25,
     24,
-    null,
+    31,
     null,
     null,
     null,

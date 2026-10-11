@@ -2,7 +2,7 @@
 
 ## Current engineering checkpoint (11 October 2026)
 
-GDN-031 / PR #29 is merged at `476ab0b8aff861f52f766d114cbf0a3bc2faa783`, followed by numeric revision-history maintenance #30 at `61d38aa5642988e7d275c9f0856b6fb806440281`. Both passed all six final-head workflows. There are 26 mapped engineering merges and no independently accepted or production-verified capabilities. GDN-039 scoped-review workflow is the current candidate. See `docs/CURRENT_STATUS.md` and the exact PR evidence. Earlier checkpoints below are historical.
+GDN-039 / PR #31 is merged at `9d286f168cb24d51178f020da60d1b462c277275` with all six final-head workflows successful. There are 27 mapped engineering merges and no independently accepted or production-verified capabilities. GDN-040 adds a structured editorial-content compiler and safe, unmounted preview; see [the content contract](docs/editorial/structured-content.md) and `docs/CURRENT_STATUS.md`. Earlier checkpoints below are historical.
 
 
 A public-information and historical-research platform under development.
