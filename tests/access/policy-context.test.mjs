@@ -1,16 +1,24 @@
+import {roleProbe} from '../security/database-role-fixture.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createPolicyExecutor,PolicyError} from '../../apps/research/access/policy-context.mjs';
 const W='11111111-1111-4111-8111-111111111111',R='22222222-2222-4222-8222-222222222222',TOKEN='a'.repeat(64);
 function fixture({issuerFault,researchFault,invalidIssuer={},invalidResearch={},viewer}={}){
  const calls=[];const identity={viewer:viewer??(async()=>({id:'alice',verified:true}))};
- const pool=kind=>({connect:async()=>({query:async(sql,args)=>{calls.push({kind,sql,args});const fault=kind==='issuer'?issuerFault:researchFault;if(fault?.(sql))throw Error('must-not-leak');if(sql.startsWith('SELECT current_user'))return{rows:[{login_role:kind+'_login',current_role:kind+'_login',elevated:false,migration_member:false,membership_admin_member:false,publisher_member:false,worker_member:false,consent_admin_member:false,issuer_member:kind==='issuer',research_member:kind==='research',...(kind==='issuer'?invalidIssuer:invalidResearch)}]};if(sql.includes('issue_policy_ticket'))return{rows:[{ticket:TOKEN}]};return{rows:[]};},release:destroy=>calls.push({kind,destroy})})});
+ const pool=kind=>({connect:async()=>{
+  const observe=roleProbe(kind+'_login',kind==='issuer'?invalidIssuer:invalidResearch);
+  return {query:async(sql,args)=>{
+   calls.push({kind,sql,args});const fault=kind==='issuer'?issuerFault:researchFault;
+   if(fault?.(sql))throw Error('must-not-leak');const guarded=observe(sql,args);if(guarded)return guarded;
+   if(sql.includes('issue_policy_ticket'))return{rows:[{ticket:TOKEN}]};return{rows:[]};
+  },release:destroy=>calls.push({kind,destroy})};
+ }});
  const issuerPool=pool('issuer'),researchPool=pool('research');return{calls,identity,issuerPool,researchPool,executor:createPolicyExecutor({identity,issuerPool,researchPool})};
 }
 test('bind uses a private issuer ticket and never a request GUC',async()=>{const f=fixture();const result=await f.executor.run(new Headers(),{workspaceId:W,recordId:R},async c=>(await c.query('SELECT test')).rows);assert.deepEqual(result,[]);const issuance=f.calls.find(x=>x.sql?.includes('issue_policy_ticket'));assert.deepEqual(issuance.args,[W,'alice','read',R]);assert.ok(!f.calls.some(x=>x.sql?.includes('set_config')));assert.ok(f.calls.some(x=>x.sql?.includes('clear_policy_context')));assert.ok(f.calls.some(x=>x.sql?.includes('invalidate_policy_ticket')));});
 test('same pool for issuer and researcher is rejected',()=>{const f=fixture();assert.throws(()=>createPolicyExecutor({identity:f.identity,issuerPool:f.issuerPool,researchPool:f.issuerPool}));});
-for(const [field,value] of [['elevated',true],['elevated','false'],['migration_member',true],['membership_admin_member',true],['publisher_member',true],['worker_member',true],['consent_admin_member',true],['issuer_member',true],['current_role','garden_research']])test('runtime login with unsafe '+field+' rejected',async()=>{const f=fixture({invalidResearch:{[field]:value}});let called=false;await assert.rejects(f.executor.run(new Headers(),{workspaceId:W},async()=>{called=true;}),PolicyError);assert.equal(called,false);assert.ok(f.calls.some(x=>x.kind==='research'&&x.destroy===true));});
-test('issuer login cannot also query research data',async()=>{const f=fixture({invalidIssuer:{research_member:true}});await assert.rejects(f.executor.run(new Headers(),{workspaceId:W},async()=>{}),PolicyError);assert.ok(!f.calls.some(x=>x.sql?.includes('issue_policy_ticket')));});
+for(const [field,value] of [['elevated',true],['elevated','false'],['conflicting',true],['can_set',false],['inherited',true],['owns_objects',true],['unsafe_capability',true],['login_enabled',false],['current_role','garden_research']])test('runtime login with unsafe '+field+' rejected',async()=>{const f=fixture({invalidResearch:{[field]:value}});let called=false;await assert.rejects(f.executor.run(new Headers(),{workspaceId:W},async()=>{called=true;}),PolicyError);assert.equal(called,false);assert.ok(f.calls.some(x=>x.kind==='research'&&x.destroy===true));});
+test('issuer login cannot also query research data',async()=>{const f=fixture({invalidIssuer:{conflicting:true}});await assert.rejects(f.executor.run(new Headers(),{workspaceId:W},async()=>{}),PolicyError);assert.ok(!f.calls.some(x=>x.sql?.includes('issue_policy_ticket')));});
 for(const actor of [null,{id:'alice',verified:false},{id:'alice',verified:'true'},{id:'',verified:true}])test('unverified actor is denied before connecting '+JSON.stringify(actor),async()=>{const f=fixture({viewer:async()=>actor});await assert.rejects(f.executor.run(new Headers(),{workspaceId:W},async()=>{}),PolicyError);assert.equal(f.calls.length,0);});
 test('identity outage is redacted',async()=>{const f=fixture({viewer:async()=>{throw Error('identity-secret');}});await assert.rejects(f.executor.run(new Headers(),{workspaceId:W},async()=>{}),e=>e instanceof PolicyError&&!e.message.includes('secret'));});
 test('changed identity causes rollback and no result return',async()=>{let n=0;const f=fixture({viewer:async()=>({id:++n===1?'alice':'bob',verified:true})});await assert.rejects(f.executor.run(new Headers(),{workspaceId:W},async()=>({private:'value'})),PolicyError);assert.ok(f.calls.some(x=>x.kind==='research'&&x.sql==='ROLLBACK'));});
@@ -18,3 +26,11 @@ test('failed work retires its ticket even after rollback',async()=>{const f=fixt
 test('failed rollback destroys pooled connection',async()=>{const f=fixture({researchFault:sql=>sql==='ROLLBACK'});await assert.rejects(f.executor.run(new Headers(),{workspaceId:W},async()=>{throw Error();}),PolicyError);assert.ok(f.calls.some(x=>x.kind==='research'&&x.destroy===true));});
 test('cleanup failure cannot return successful protected result',async()=>{const f=fixture({issuerFault:sql=>sql.includes('invalidate_policy_ticket')});await assert.rejects(f.executor.run(new Headers(),{workspaceId:W},async()=>({secret:true})),PolicyError);});
 for(const options of [{workspaceId:'not-a-uuid'},{workspaceId:W,action:'admin'},{workspaceId:W,recordId:'../record'}])test('invalid policy input denied '+JSON.stringify(options),async()=>{const f=fixture();await assert.rejects(f.executor.run(new Headers(),options,async()=>{}),PolicyError);assert.equal(f.calls.length,0);});
+
+test('role revocation before transaction commit suppresses protected result',async()=>{
+ const f=fixture({invalidResearch:({checks})=>checks>1?{can_set:false}:{}});
+ await assert.rejects(f.executor.run(new Headers(),{workspaceId:W},async()=>({private:'canary'})),PolicyError);
+ assert.ok(f.calls.some(x=>x.kind==='research'&&x.sql==='ROLLBACK'));
+ assert.ok(!f.calls.some(x=>x.kind==='research'&&x.sql==='COMMIT'));
+ assert.ok(f.calls.some(x=>x.kind==='research'&&x.destroy===true));
+});

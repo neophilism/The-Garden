@@ -1,3 +1,4 @@
+import {assertDatabaseCapability,DatabaseCapabilityError} from './database-role.mjs';
 import {ConsentError} from '../../../packages/domain/src/consent/purpose.mjs';
 import {UUID} from './roles.mjs';
 const deny=()=>{throw new ConsentError();};
@@ -15,22 +16,17 @@ export function createPermittedUseTransactions({pool,kind,authorize,enabled=()=>
    if(kind==='preservation'?(purposes.length!==1||purposes[0]!=='preservation'):purposes.some(x=>!['public-display','name-attribution','promotional-endorsement'].includes(x)))deny();
    const scope=Object.freeze({workspaceId,recordId,requestId,purposes:Object.freeze([...purposes].sort())});
    const check=async()=>{if(await enabled()!==true||await authorize(context,scope)!==true)deny();};
-   let c,bad=false;
+   let c,login,bad=false;
    try{
     await check();c=await pool.connect();
-    const rows=(await c.query(`SELECT current_user::text AS current_role,session_user::text AS login_role,
-      (r.rolsuper OR r.rolbypassrls OR r.rolcreaterole OR r.rolcreatedb OR r.rolreplication OR r.rolinherit) AS elevated,
-      pg_has_role(session_user,$1::text,'MEMBER') AS permitted_role,
-      EXISTS(SELECT 1 FROM unnest(ARRAY['garden_migrator','garden_research','garden_context_issuer','garden_membership_admin','garden_consent_admin','garden_publisher','garden_worker']) n WHERE n<>$1 AND pg_has_role(session_user,n,'MEMBER')) AS conflicting
-      FROM pg_roles r WHERE r.rolname=session_user`,[role])).rows;
-    const r=rows[0];if(rows.length!==1||!r.login_role||r.current_role!==r.login_role||r.elevated!==false||r.permitted_role!==true||r.conflicting!==false){bad=true;deny();}
+    login=await assertDatabaseCapability(c,role);
     await c.query('BEGIN');await c.query('SET LOCAL ROLE '+role);await c.query("SET LOCAL statement_timeout='5s'");await c.query("SET LOCAL idle_in_transaction_session_timeout='10s'");
     const admit=async()=>{
      const result=(await c.query(kind==='publication'?'SELECT garden_control.admit_publication_use($1::uuid,$2::uuid,$3::uuid,$4::text[]) AS receipt':'SELECT garden_control.admit_preservation_use($1::uuid,$2::uuid,$3::uuid) AS receipt',kind==='publication'?[workspaceId,recordId,requestId,scope.purposes]:[workspaceId,recordId,requestId])).rows;
      if(result.length!==1||result[0].receipt?.allowed!==true||result[0].receipt?.requestId!==requestId||result[0].receipt?.publicationApproved!==false)deny();
     };
-    await admit();const value=await work(c);await check();await admit();await c.query('COMMIT');return value;
-   }catch{try{if(c)await c.query('ROLLBACK');}catch{bad=true;}deny();}finally{c?.release(bad);}
+    await admit();const value=await work(c);await check();await admit();await assertDatabaseCapability(c,role,{activeRole:true,login});await c.query('COMMIT');return value;
+   }catch(error){if(error instanceof DatabaseCapabilityError)bad=true;try{if(c)await c.query('ROLLBACK');}catch{bad=true;}deny();}finally{c?.release(bad);}
   }
  });
 }

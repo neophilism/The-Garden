@@ -12,7 +12,7 @@
     "services/workers"
   ],
   "scripts": {
-    "test": "node --test tests/application/*.test.mjs tests/environment/*.test.mjs tests/access/*.test.mjs tests/data/*.test.mjs",
+    "test": "node --test tests/application/*.test.mjs tests/environment/*.test.mjs tests/access/*.test.mjs tests/data/*.test.mjs tests/security/*.test.mjs",
     "build:public": "npm run build --workspace=@garden/public",
     "build:research": "npm run build --workspace=@garden/research",
     "typecheck": "npm run typecheck --workspaces --if-present && tsc -p config/tsconfig.json",

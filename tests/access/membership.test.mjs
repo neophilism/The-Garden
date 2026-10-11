@@ -1,3 +1,4 @@
+import {roleProbe} from '../security/database-role-fixture.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {randomBytes} from 'node:crypto';
@@ -32,7 +33,16 @@ const origin='https://research.example.invalid';
 function request(path='/api/research/membership/request',body={workspaceId:W,policyDigest:P},headers={}){return new Request(origin+path,{method:'POST',headers:{origin,'content-type':'application/json',...headers},body:typeof body==='string'?body:JSON.stringify(body)});}
 test('bounded HTTP adapter connects to actual membership service',async()=>{const f=fixture();const response=await createMembershipHandler({service:f.service,origin})(request());assert.equal(response.status,200);assert.equal(response.headers.get('cache-control'),'no-store');assert.equal((await response.json()).canPublish,false);});
 for(const entry of [['bad origin',()=>request(undefined,undefined,{origin:'https://evil.invalid'})],['wrong MIME',()=>request(undefined,undefined,{'content-type':'text/plain'})],['invalid JSON',()=>request(undefined,'{')],['excess bytes',()=>request(undefined,'x'.repeat(5000))],['extra path',()=>request('/api/research/membership/issue')],['query',()=>request('/api/research/membership/request?role=admin')],['GET',()=>new Request(origin+'/api/research/membership/request',{headers:{origin}})]])test('HTTP denies '+entry[0],async()=>{const f=fixture();const r=await createMembershipHandler({service:f.service,origin})(entry[1]());assert.equal(r.status,403);assert.equal(f.calls.length,0);});
-test('database adapter binds values and rolls back before pool reuse',async()=>{const calls=[];const c={query:async(sql,args)=>{calls.push({sql,args});if(sql.startsWith('SELECT'))throw Error('password=must-not-leak');return{rows:[]};},release:destroy=>calls.push({destroy})};const repository=createMembershipRepository({connect:async()=>c});await assert.rejects(repository.request(W,actor.id,P,null),e=>e.message==='Membership storage unavailable');assert.equal(calls[1].sql,'SET LOCAL ROLE garden_research');assert.equal(calls.at(-2).sql,'ROLLBACK');assert.equal(calls.at(-1).destroy,false);assert.deepEqual(calls[3].args,[W,actor.id,P,null]);});
+test('database adapter binds values and rolls back before pool reuse',async()=>{
+ const calls=[],observe=roleProbe('membership_login');
+ const c={query:async(sql,args)=>{calls.push({sql,args});const guarded=observe(sql,args);if(guarded)return guarded;
+  if(sql.startsWith('SELECT'))throw Error('password=must-not-leak');return{rows:[]};},release:destroy=>calls.push({destroy})};
+ const repository=createMembershipRepository({connect:async()=>c});
+ await assert.rejects(repository.request(W,actor.id,P,null),e=>e.message==='Membership storage unavailable');
+ assert.ok(calls.some(x=>x.sql==='SET LOCAL ROLE garden_research'));
+ assert.equal(calls.at(-2).sql,'ROLLBACK');assert.equal(calls.at(-1).destroy,false);
+ assert.deepEqual(calls.find(x=>x.sql?.includes('request_membership')).args,[W,actor.id,P,null]);
+});
 test('rollback failure destroys connection',async()=>{let destroyed;const c={query:async()=>{throw Error('fail');},release:v=>{destroyed=v;}};await assert.rejects(createMembershipRepository({connect:async()=>c}).read(W,actor.id));assert.equal(destroyed,true);});
 
 test('auditor is a separate read capability, not an administrator or publisher',()=>{assert.equal(can(member(['auditor']),'audit.inspect'),true);assert.equal(can(member(['administrator']),'audit.inspect'),false);assert.equal(can(member(['auditor']),'membership.manage'),false);});
