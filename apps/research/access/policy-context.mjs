@@ -10,11 +10,12 @@ const ROLE_CHECK = `SELECT current_user::text AS current_role,session_user::text
  pg_has_role(session_user,'garden_research','MEMBER') AS research_member,
  pg_has_role(session_user,'garden_membership_admin','MEMBER') AS membership_admin_member,
  pg_has_role(session_user,'garden_publisher','MEMBER') AS publisher_member,
- pg_has_role(session_user,'garden_worker','MEMBER') AS worker_member
+ pg_has_role(session_user,'garden_worker','MEMBER') AS worker_member,
+ pg_has_role(session_user,'garden_consent_admin','MEMBER') AS consent_admin_member
  FROM pg_roles r WHERE r.rolname=session_user`;
 async function checkRole(client,kind) {
  const rows=(await client.query(ROLE_CHECK)).rows;if(rows?.length!==1)deny();const r=rows[0];
- if(typeof r.login_role!=='string'||!r.login_role||r.current_role!==r.login_role||r.elevated!==false||r.migration_member!==false||r.membership_admin_member!==false||r.publisher_member!==false||r.worker_member!==false||r.issuer_member!==(kind==='issuer')||r.research_member!==(kind==='research'))deny();
+ if(typeof r.login_role!=='string'||!r.login_role||r.current_role!==r.login_role||r.elevated!==false||r.migration_member!==false||r.membership_admin_member!==false||r.publisher_member!==false||r.worker_member!==false||r.consent_admin_member!==false||r.issuer_member!==(kind==='issuer')||r.research_member!==(kind==='research'))deny();
 }
 /** These pools must have different login credentials and disjoint SET ROLE capabilities. */
 export function createPolicyExecutor({identity,issuerPool,researchPool}) {

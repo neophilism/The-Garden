@@ -41,6 +41,11 @@
       "id": "0008_atomic_claims",
       "file": "0008_atomic_claims.sql",
       "sha256": "f2578cb9b4755ccddb3d87f6d83c715f21dffa71d65b2bf059cd0b42ee16fe47"
+    },
+    {
+      "id": "0009_purpose_consent",
+      "file": "0009_purpose_consent.sql",
+      "sha256": "ff49fa5baa2bf92b8d537e4daf115facd7e1baedd913e49ca9dac387776f7312"
     }
   ]
 }

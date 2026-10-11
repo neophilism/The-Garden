@@ -1,3 +1,4 @@
+import {allowSyntheticResearchUse} from './consent-test-fixture.mjs';
 import assert from 'node:assert/strict';
 import {randomBytes,randomUUID} from 'node:crypto';
 import {mkdir,writeFile} from 'node:fs/promises';
@@ -40,7 +41,7 @@ try{
  for(const [label,classification,state,workspace] of [['readable','research','active',W],['unclassified','unclassified','active',W],['licensed','licensed','active',W],['personal','personal','active',W],['sealed','sealed','active',W],['government','government','active',W],['quarantine','research','quarantined',W],['withdrawn','research','withdrawn',W],['bob-only','research','active',W],['cross-workspace','research','active',OTHER]]){
   ids[label]=randomUUID();
   const payload=classification==='sealed'?{}:{label,synthetic:true};
-  await admin.query("INSERT INTO garden_private.record_envelopes(id,workspace_id,owner_subject_id,classification,state,payload) VALUES($1,$2,'owner',$3,$4,$5)",[ids[label],workspace,classification,state,payload]);
+  await admin.query("INSERT INTO garden_private.record_envelopes(id,workspace_id,owner_subject_id,classification,state,payload) VALUES($1,$2,'owner',$3,$4,$5)",[ids[label],workspace,classification,state,payload]);await allowSyntheticResearchUse(admin,workspace,ids[label]);
   if(workspace===W){
    for(const subject of label==='bob-only'?['bob']:['owner',...Object.keys(ROLE_CAPABILITIES)]){
     await admin.query("INSERT INTO garden_control.record_grants(workspace_id,record_id,subject_id,can_read,can_write,purpose,expires_at) VALUES($1,$2,$3,true,true,'research',clock_timestamp()+interval '30 days')",[W,ids[label],subject]);

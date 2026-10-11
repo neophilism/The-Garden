@@ -1,3 +1,4 @@
+import {allowSyntheticResearchUse} from './consent-test-fixture.mjs';
 import assert from 'node:assert/strict';
 import {randomBytes,randomUUID} from 'node:crypto';
 import {mkdir,writeFile} from 'node:fs/promises';
@@ -25,7 +26,7 @@ try{
  for(const subject of ['owner','bob','no-grant'])await admin.query("INSERT INTO garden_control.access_members(workspace_id,subject_id,state,policy_sha256) VALUES($1,$2,'active',$3)",[W,subject,policy]);
  for(const subject of ['owner','bob','no-grant'])await admin.query("INSERT INTO garden_control.access_roles(workspace_id,subject_id,role,issued_by,expires_at) VALUES($1,$2,'researcher','owner',clock_timestamp()+interval '30 days')",[W,subject]);
  for(const [id,subject] of [[ids.readable,'owner'],[ids['bob-only'],'bob']]){
-  await admin.query("INSERT INTO garden_private.record_envelopes(id,workspace_id,owner_subject_id,classification,state) VALUES($1,$2,'owner','research','active')",[id,W]);
+  await admin.query("INSERT INTO garden_private.record_envelopes(id,workspace_id,owner_subject_id,classification,state) VALUES($1,$2,'owner','research','active')",[id,W]);await allowSyntheticResearchUse(admin,W,id);
   await admin.query("INSERT INTO garden_control.record_grants(workspace_id,record_id,subject_id,can_read,can_write,purpose,expires_at) VALUES($1,$2,$3,true,false,'research',clock_timestamp()+interval '30 days')",[W,id,subject]);
  }
  // GDN-025: real SQL authorization plus the real archive adapter. The object

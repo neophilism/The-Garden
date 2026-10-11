@@ -402,7 +402,10 @@
       "sourceItemId": "GDN-037",
       "applicability": "current_scope",
       "scope": "Store atomic source claims, historical interpretations and policy statements separately, with supporting/contradicting evidence and every public placement.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        25
+      ]
     },
     {
       "id": "GDN-038",
