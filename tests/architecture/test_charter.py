@@ -53,7 +53,12 @@ class CharterTests(unittest.TestCase):
         self.assertEqual(targets['neon']['project_id'], 'royal-union-78374030')
         self.assertEqual(targets['neon']['branch_id'], 'br-curly-band-b5aatp1e')
         self.assertFalse(targets['spending']['incremental_spend_authorized'])
-        self.assertEqual(targets['render']['provider_inspection'], 'not_performed')
+        self.assertEqual(targets['render']['provider_inspection'], 'workspace_inventory_inspected')
+        self.assertEqual(targets['neon']['provider_inspection'], 'project_and_branch_verified')
+        self.assertFalse(targets['render']['garden_service_observed'])
+        self.assertFalse(targets['render']['target_project_membership_verified'])
+        self.assertFalse(targets['neon']['application_schema_present'])
+        self.assertFalse(targets['spending']['create_billable_resources'])
     def test_bootstrap_has_no_false_work_item_mapping(self):
         execution = json.loads((ROOT/'plan/execution.json').read_text())
         bootstrap = next(o for o in execution['observations'] if o['kind'] == 'bootstrap_merge')
