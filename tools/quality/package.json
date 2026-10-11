@@ -1,0 +1,12 @@
+{
+  "name": "garden-quality-tools",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=24 <25"},
+  "scripts": {"test:browser": "playwright test"},
+  "devDependencies": {
+    "@playwright/test": "1.64.0",
+    "axe-core": "4.14.0"
+  }
+}
