@@ -6,7 +6,7 @@
   },
   "X02": {
     "title": "Canonical End-To-End-Everywhere standard",
-    "status": "canonical_standard_repository_located_adoption_and_assessment_open",
+    "status": "canonical_revision_pinned_document_mapped_unassessed",
     "need": "Actual controlled document/repository revision and reusable security engine contract. A proposed crosswalk is not canonical conformance."
   },
   "X03": {
