@@ -67,12 +67,20 @@
       "production": "not_applicable_to_document"
     },
     "GDN-004": {
-      "implementation": "pr_open_integrations_and_approved_manifest",
+      "implementation": "merged_integration_discovery_manifest",
       "github_pr_number": 5,
+      "github_merge_sha": "2350f0523c9ab5accebbaec147da7548af9109f4",
       "accepted": false,
-      "engine_room_registration": "not_verified",
+      "engine_room_live_sync": "unverified",
       "independent_review": "not_performed",
       "production": "not_deployed"
+    },
+    "GDN-005": {
+      "implementation": "open_pr_contract_and_static_tests",
+      "github_pr_number": 6,
+      "accepted": false,
+      "independent_review": "not_performed",
+      "runtime_security": "not_implemented"
     }
   },
   "production_verified_items": 0,
