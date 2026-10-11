@@ -11,19 +11,20 @@ if(process.env.CI!=='true'||process.env.GARDEN_IDENTITY_TEST!=='ephemeral-ci'||p
 const base={host:'127.0.0.1',port:5432,database:'neondb',user:'postgres',password:process.env.PGPASSWORD};
 const admin=new pg.Pool({...base,max:3});let migration,runtime,locks,app,browser,http;
 const mailbox=[],checks=[],record=name=>{checks.push({name,result:'pass'});console.log('CHECK '+checks.length+': '+name);};
-const origin='http://127.0.0.1:3118',secret=randomBytes(48).toString('base64url'),rolePassword=randomBytes(24).toString('hex');
+// WebAuthn RP IDs are domain names, not IP literals; networking stays loopback.
+const origin='http://localhost:3118',secret=randomBytes(48).toString('base64url'),rolePassword=randomBytes(24).toString('hex');
 const account={email:'passkey-'+randomBytes(5).toString('hex')+'@example.invalid',password:randomBytes(24).toString('base64url')};
 let permit=false,suspended=false;
 const cookieHeader=cookies=>cookies.map(c=>c.name+'='+c.value).join('; ');
 const nodeRequest=async(path,body,cookie='')=>app.handle(new Request(origin+'/api/auth'+path,{method:body===undefined?'GET':'POST',headers:{origin,'x-garden-request':'1','content-type':'application/json',...(cookie?{cookie}:{})},...(body===undefined?{}:{body:JSON.stringify(body)})}));
 const view=async(context)=>app.viewer(new Headers({cookie:cookieHeader(await context.cookies())}));
 const fetchOn=async(page,path,body)=>page.evaluate(async({path,body})=>{
- const response=await fetch('/api/auth'+path,{method:body===undefined?'GET':'POST',headers:{'x-garden-request':'1',...(body===undefined?{}:{'content-type':'application/json'})},...(body===undefined?{}:{body:JSON.stringify(body)})});return{status:response.status,body:await response.json()};
+ const response=await fetch('/api/auth'+path,{method:body===undefined?'GET':'POST',headers:{'x-garden-request':'1',...(body===undefined?{}:{'content-type':'application/json'})},...(body===undefined?{}:{body:JSON.stringify(body)}),signal:AbortSignal.timeout(15000)});return{status:response.status,body:await response.json()};
 },{path,body});
-const clientCall=async(page,method,args=[])=>page.evaluate(async({method,args})=>{const {createSessionClient}=await import('/session-client.mjs');const client=createSessionClient();try{return await client[method](...args);}finally{client.dispose();}},{method,args});
+const clientCall=async(page,method,args=[])=>page.evaluate(async({method,args})=>{const {createSessionClient}=await import('/session-client.mjs');const client=createSessionClient();try{return await client[method](...args,AbortSignal.timeout(15000));}finally{client.dispose();}},{method,args});
 const authenticate=async(page,patch={})=>page.evaluate(async patch=>{
- const opts=await fetch('/api/auth/passkey/generate-authenticate-options',{headers:{'x-garden-request':'1'}}).then(r=>r.json());
- const key=await navigator.credentials.get({publicKey:PublicKeyCredential.parseRequestOptionsFromJSON({...opts,...patch})});return key.toJSON();
+ const opts=await fetch('/api/auth/passkey/generate-authenticate-options',{headers:{'x-garden-request':'1'},signal:AbortSignal.timeout(15000)}).then(r=>r.json());
+ const key=await navigator.credentials.get({publicKey:PublicKeyCredential.parseRequestOptionsFromJSON({...opts,...patch}),signal:AbortSignal.timeout(15000)});return key.toJSON();
 },patch);
 const addAuthenticator=async(page)=>{const cdp=await page.context().newCDPSession(page);await cdp.send('WebAuthn.enable');const {authenticatorId}=await cdp.send('WebAuthn.addVirtualAuthenticator',{options:{protocol:'ctap2',transport:'internal',hasResidentKey:true,hasUserVerification:true,isUserVerified:true,automaticPresenceSimulation:true}});return{cdp,id:authenticatorId};};
 try{
@@ -43,7 +44,7 @@ try{
  const files=new Map([['/session-client.mjs',new URL('./session-client.mjs',import.meta.url)],['/security-panel.mjs',new URL('./security-panel.mjs',import.meta.url)],['/security-panel.css',new URL('../components/security-panel.css',import.meta.url)]]);
  http=createServer(async(req,res)=>{
   try{
-   if(req.headers.host!=='127.0.0.1:3118'){res.writeHead(400);res.end();return;}
+   if(req.headers.host!=='localhost:3118'){res.writeHead(400);res.end();return;}
    if(req.url==='/'&&req.method==='GET'){
     res.writeHead(200,{'Content-Type':'text/html','Cache-Control':'no-store'});res.end('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Synthetic Garden security acceptance</title><link rel="stylesheet" href="/security-panel.css"></head><body><main><h1>Research account</h1><section id="security" class="security-panel" aria-label="Account security"></section></main><script type="module">import {mountSecurityPanel} from "/security-panel.mjs";mountSecurityPanel(document.getElementById("security"));</script></body></html>');return;
    }
@@ -107,8 +108,6 @@ try{
  let freshHeaders=new Headers({cookie:cookieHeader(await first.cookies())});
  assert.equal(await app.authorizePrivileged(freshHeaders,'consent.administer',async()=>{suspended=true;return true;}),false);suspended=false;record('suspension between authorization checks fails closed');
  await clientCall(other,'revokeAll');assert.equal(await view(first),null);assert.equal(await view(second),null);record('all-device revocation removes sessions across identity instances');
- // Serialize reset against a pending password login. In either lock order the
- // old proof cannot leave a usable session after the reset completes.
  await nodeRequest('/request-password-reset',{email:account.email,redirectTo:origin+'/reset'});reset=mailbox.filter(m=>m.kind==='password-reset'&&m.to===account.email).at(-1);
  const latestPassword=randomBytes(24).toString('base64url');const [racingLogin,racingReset]=await Promise.all([nodeRequest('/sign-in/email',account),nodeRequest('/reset-password',{token:reset.token,newPassword:latestPassword})]);assert.equal(racingReset.status,200);
  const racingCookie=racingLogin.headers.getSetCookie().map(x=>x.split(';')[0]).join('; ');assert.equal(await app.viewer(new Headers({cookie:racingCookie})),null);record('concurrent old-password login and recovery leave no surviving pre-reset session');
