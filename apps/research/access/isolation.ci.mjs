@@ -64,6 +64,8 @@ try{
  const issuer=await login('garden_matrix_issuer_ci','garden_context_issuer'),research=await login('garden_matrix_query_ci','garden_research'),auditor=await login('garden_matrix_auditor_ci','garden_audit_reader'),worker=await login('garden_matrix_worker_ci','garden_worker');
  const executor=createPolicyExecutor({identity,issuerPool:issuer,researchPool:research}),repository=createRecordRepository(executor);
  for(const workspace of [W,OTHER])await admin.query('INSERT INTO garden_control.access_workspaces(id,name,policy_sha256,enabled) VALUES($1,$2,$3,true)',[workspace,'Synthetic isolation matrix',policy]);
+ // Issuers are workspace members too; retain the production foreign key.
+ await admin.query("INSERT INTO garden_control.access_members(workspace_id,subject_id,state,policy_sha256) VALUES($1,'matrix-fixture','active',$2)",[W,policy]);
  for(const role of registry.roles){
   await admin.query("INSERT INTO garden_control.access_members(workspace_id,subject_id,state,policy_sha256) VALUES($1,$2,'active',$3)",[W,role,policy]);
   await admin.query("INSERT INTO garden_control.access_roles(workspace_id,subject_id,role,issued_by,expires_at) VALUES($1,$2,$2,'matrix-fixture',clock_timestamp()+interval '1 hour')",[W,role]);
