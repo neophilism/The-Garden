@@ -45,3 +45,10 @@ test("preview is nonindexable, no external tracking libraries or user intake",()
  assert.doesNotMatch(read("apps/public/app/layout.tsx"),/google-analytics|gtag|pixel|posthog|<script|<form/i);
  assert.ok(existsSync("apps/public/app/globals.css"));
 });
+test("public navigation does not point to private Library records or missing sign-in anchors",()=>{
+ assert.doesNotMatch(read("packages/domain/src/index.ts"),/chatgpt\.com\/api\/library/);
+ const layout=read("apps/public/app/layout.tsx");
+ assert.doesNotMatch(layout,/href="#workspace-notice"/);
+ assert.match(layout,/href="\/research\/" aria-label="Researcher sign-in not yet available"/);
+ assert.match(read("apps/public/app/[section]/page.tsx"),/page.sourceNote/);
+});

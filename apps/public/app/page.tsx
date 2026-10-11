@@ -26,7 +26,7 @@ export default function Home(){
     </section>
     <section className="section mist">
       <div className="wrap split">
-        <div><p className="eyebrow">The proposed process</p><h2>A pathway, not a promise.</h2><p>The draft proposes a historical census, voluntary participation, community constitutions, and conditional agreements with states. It cannot confer rights, citizenship or commercial privileges before legislation and authorized processes exist.</p><Link className="text-link" href="/legislation/">Read the actual draft Act <span aria-hidden="true">→</span></Link></div>
+        <div><p className="eyebrow">The proposed process</p><h2>A pathway, not a promise.</h2><p>The draft proposes a historical census, voluntary participation, community constitutions, and conditional agreements with states. It cannot confer rights, citizenship or commercial privileges before legislation and authorized processes exist.</p><Link className="text-link" href="/legislation/">Explore the legislative proposal <span aria-hidden="true">→</span></Link></div>
         <div className="steps" aria-label="Four proposed steps">
           {["Historical evidence and correction","Voluntary descendant participation","Self-governing institutions","Negotiated opportunities and accountability"].map((label,i)=><div key={label} className="step"><b>{String(i+1).padStart(2,"0")}</b><span>{label}</span></div>)}
         </div>

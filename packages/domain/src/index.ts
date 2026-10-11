@@ -7,6 +7,7 @@ export type PublicPage = {
   paragraphs: readonly string[];
   cautions: readonly string[];
   sourceHref?: string;
+  sourceNote?: string;
   sourceLabel?: string;
   status: "proposal" | "research-planned" | "participation-planned";
 };
@@ -22,7 +23,7 @@ export const PUBLIC_PAGES: readonly PublicPage[] = [
       "Oversight, independent accounting, privacy and meaningful appeals would require implementing processes and genuine review."
     ],
     cautions:["Proposed law, not existing authorization.","Constitutional and legislative-counsel review remains outstanding."],
-    sourceHref:"https://chatgpt.com/api/library/files/libfile_37ef09d116408191878054e76404c37f/download",sourceLabel:"Proposed Garden Act, version 1.0",status:"proposal"
+    sourceNote:"Source: Proposed Garden Act v1.0, September 28, 2026. The full text is not yet published in this preview. Private Library links are not public citations.",status:"proposal"
   },
   {
     slug:"history",navLabel:"History & Atlas",eyebrow:"Recovering fuller histories",
@@ -34,7 +35,7 @@ export const PUBLIC_PAGES: readonly PublicPage[] = [
       "Disagreement, displacement, transformation and historical continuity all require their own evidence and should not be collapsed into a single predetermined outcome."
     ],
     cautions:["The existing atlas is an incomplete working research edition, not a verified comprehensive canon.","Unverified images and generated reconstructions are not presented as archival evidence."],
-    sourceHref:"https://chatgpt.com/api/library/files/libfile_d78074aef3a4819191bfc9c5465f4b2b/download",sourceLabel:"Working atlas, version 1.29-alpha (provisional)",status:"research-planned"
+    sourceNote:"Source: Not From Nowhere, Working Research Edition 1.29-alpha, October 9, 2026. Public release of the corpus awaits record-level review and rights clearance.",status:"research-planned"
   },
   {
     slug:"research",navLabel:"Research",eyebrow:"Open evidence · accountable scholarship",
@@ -58,19 +59,19 @@ export const PUBLIC_PAGES: readonly PublicPage[] = [
       "Reproducible scenarios and independent fiscal assessment are required before quantitative savings or revenue projections can be published."
     ],
     cautions:["No audited program receipts or expenditures exist; this is a proposed federal program.","An expected repayment is not equivalent to no fiscal exposure."],
-    sourceHref:"https://chatgpt.com/api/library/files/libfile_37ef09d116408191878054e76404c37f/download",sourceLabel:"Read the fiscal provisions in the draft Act",status:"proposal"
+    sourceNote:"Source: Proposed Garden Act v1.0, September 28, 2026. The full text is not yet published in this preview. Private Library links are not public citations.",status:"proposal"
   },
   {
-    slug:"legislation",navLabel:"Legislation",eyebrow:"Read the actual draft",
+    slug:"legislation",navLabel:"Legislation",eyebrow:"The legislative proposal",
     title:"The proposed Garden Act",
-    introduction:"This is a legislative proposal, not enacted federal law. Read its definitions, governing structure and limitations before forming a conclusion.",
+    introduction:"This is a legislative proposal, not enacted federal law. Its definitions, governing structure and limitations require examination before forming a conclusion.",
     paragraphs:[
       "The draft proposes voluntary descendant-founded nations, distinct domestic governmental powers, a historical census, intergovernmental compacts and conditional economic opportunities.",
       "Its references to the Mohegan and Mashantucket Pequot governments provide an institutional analogy, not automatic recognition as an Indian tribe or automatic possession of treaty rights.",
       "Constitutional questions, fiscal provisions and implementing regulations require specialist review and possible legislative revision."
     ],
     cautions:["Draft v1.0 dated September 28, 2026.","Legislative counsel and independent legal review not yet completed."],
-    sourceHref:"https://chatgpt.com/api/library/files/libfile_37ef09d116408191878054e76404c37f/download",sourceLabel:"Read the complete legislative draft",status:"proposal"
+    sourceNote:"Source: Proposed Garden Act v1.0, September 28, 2026. The full text is not yet published in this preview. Private Library links are not public citations.",status:"proposal"
   },
   {
     slug:"questions",navLabel:"Questions & objections",eyebrow:"Serious questions deserve serious answers",
@@ -82,7 +83,7 @@ export const PUBLIC_PAGES: readonly PublicPage[] = [
       "How will public founding expenditures and possible failure to recover them be reported? Would alternative remedies be more effective?",
       "These are live questions, not manufactured objections. The website will retain independent legal, fiscal and scholarly responses as they become available."
     ],
-    cautions:["Independent expert analysis is in progress, not certified complete.","Criticism and new historical evidence should remain inspectable even when they challenge the proposed policy."],status:"proposal"
+    cautions:["Independent expert analysis is pending, not certified complete.","Criticism and new historical evidence should remain inspectable even when they challenge the proposed policy."],status:"proposal"
   },
   {
     slug:"participate",navLabel:"Participate",eyebrow:"Questions · scholarship · voluntary contribution",

@@ -21,6 +21,7 @@ export default async function SectionPage({params}:{params:Promise<{section:stri
     <div className="section wrap reading">
       {page.paragraphs.map((text,index)=><p key={index}>{text}</p>)}
       {page.cautions.length>0&&<aside aria-label="Limitations and review status" className="caution"><h2>What remains uncertain</h2><ul>{page.cautions.map(note=><li key={note}>{note}</li>)}</ul></aside>}
+      {page.sourceNote&&<p className="source-note">{page.sourceNote}</p>}
       {page.sourceHref&&<p><a className="text-link" href={page.sourceHref}>{page.sourceLabel??"Consult the source"} <span aria-hidden="true">↗</span></a></p>}
       <p><Link className="text-link" href="/">← Return to the overview</Link></p>
     </div>
