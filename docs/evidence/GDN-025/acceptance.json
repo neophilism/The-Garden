@@ -1,0 +1,22 @@
+{
+  "work_item": "GDN-025",
+  "implementation": "candidate",
+  "criteria": {
+    "GDN-025-AC01": "Permission-filtered SQL feeds records, counts, facets, snippets and allowlisted secondary projections. Denied and absent byte routes use the same response.",
+    "GDN-025-AC02": "Thirty-second signed application-proxy URLs bind verified subject, workspace, purpose, exact record/object version, operation and optional range/selector.",
+    "GDN-025-AC03": "Archive acquisition is followed by fresh identity, RLS, version and capability checks before constructing a response."
+  },
+  "local_delivery_tests_passed": 53,
+  "local_all_access_tests_passed": 118,
+  "tests": [
+    "tests/access/delivery.test.mjs",
+    "apps/research/access/delivery.ci.mjs"
+  ],
+  "github_ci": "pending",
+  "neon_migration_applied": false,
+  "public_route_enabled": false,
+  "real_object_transport_verified": false,
+  "independent_review": "not_performed",
+  "accepted": false,
+  "production_verified": false
+}

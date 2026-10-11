@@ -4,1106 +4,217 @@
   "version": 1,
   "planVerified": true,
   "plannedPrCount": 210,
-  "sourceFiles": [
-    ".exechub/project.yml",
-    "DEVELOPMENT_PLAN.md",
-    ".exechub/approved-pr-mapping.json"
-  ],
+  "sourceFiles": [".exechub/project.yml", "DEVELOPMENT_PLAN.md", ".exechub/approved-pr-mapping.json"],
   "milestones": [
-    {
-      "id": "GDN-001",
-      "title": "Decisions, evidence and charter — approved work package 1 of 8",
-      "origin": "original",
-      "pullRequests": [
-        2
-      ]
-    },
-    {
-      "id": "GDN-002",
-      "title": "Decisions, evidence and charter — approved work package 2 of 8",
-      "origin": "original",
-      "pullRequests": [
-        3
-      ]
-    },
-    {
-      "id": "GDN-003",
-      "title": "Decisions, evidence and charter — approved work package 3 of 8",
-      "origin": "original",
-      "pullRequests": [
-        4
-      ]
-    },
-    {
-      "id": "GDN-004",
-      "title": "Decisions, evidence and charter — approved work package 4 of 8",
-      "origin": "original",
-      "pullRequests": [
-        5
-      ]
-    },
-    {
-      "id": "GDN-005",
-      "title": "Decisions, evidence and charter — approved work package 5 of 8",
-      "origin": "original",
-      "pullRequests": [
-        6
-      ]
-    },
-    {
-      "id": "GDN-006",
-      "title": "Decisions, evidence and charter — approved work package 6 of 8",
-      "origin": "original",
-      "pullRequests": [
-        7
-      ]
-    },
-    {
-      "id": "GDN-007",
-      "title": "Decisions, evidence and charter — approved work package 7 of 8",
-      "origin": "original",
-      "pullRequests": [
-        9
-      ]
-    },
-    {
-      "id": "GDN-008",
-      "title": "Decisions, evidence and charter — approved work package 8 of 8",
-      "origin": "original",
-      "pullRequests": [
-        8
-      ]
-    },
-    {
-      "id": "GDN-009",
-      "title": "Delivery infrastructure — approved work package 1 of 12",
-      "origin": "original",
-      "pullRequests": [
-        10
-      ]
-    },
-    {
-      "id": "GDN-010",
-      "title": "Delivery infrastructure — approved work package 2 of 12",
-      "origin": "original",
-      "pullRequests": [
-        12
-      ]
-    },
-    {
-      "id": "GDN-011",
-      "title": "Delivery infrastructure — approved work package 3 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-012",
-      "title": "Delivery infrastructure — approved work package 4 of 12",
-      "origin": "original",
-      "pullRequests": [
-        13
-      ]
-    },
-    {
-      "id": "GDN-013",
-      "title": "Delivery infrastructure — approved work package 5 of 12",
-      "origin": "original",
-      "pullRequests": [
-        14
-      ]
-    },
-    {
-      "id": "GDN-014",
-      "title": "Delivery infrastructure — approved work package 6 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-015",
-      "title": "Delivery infrastructure — approved work package 7 of 12",
-      "origin": "original",
-      "pullRequests": [
-        15
-      ]
-    },
-    {
-      "id": "GDN-016",
-      "title": "Delivery infrastructure — approved work package 8 of 12",
-      "origin": "original",
-      "pullRequests": [
-        16
-      ]
-    },
-    {
-      "id": "GDN-017",
-      "title": "Delivery infrastructure — approved work package 9 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-018",
-      "title": "Delivery infrastructure — approved work package 10 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-019",
-      "title": "Delivery infrastructure — approved work package 11 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-020",
-      "title": "Delivery infrastructure — approved work package 12 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-021",
-      "title": "Identity and privacy — approved work package 1 of 14",
-      "origin": "original",
-      "pullRequests": [
-        18
-      ]
-    },
-    {
-      "id": "GDN-022",
-      "title": "Identity and privacy — approved work package 2 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-023",
-      "title": "Identity and privacy — approved work package 3 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-024",
-      "title": "Identity and privacy — approved work package 4 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-025",
-      "title": "Identity and privacy — approved work package 5 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-026",
-      "title": "Identity and privacy — approved work package 6 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-027",
-      "title": "Identity and privacy — approved work package 7 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-028",
-      "title": "Identity and privacy — approved work package 8 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-029",
-      "title": "Identity and privacy — approved work package 9 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-030",
-      "title": "Identity and privacy — approved work package 10 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-031",
-      "title": "Identity and privacy — approved work package 11 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-032",
-      "title": "Identity and privacy — approved work package 12 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-033",
-      "title": "Identity and privacy — approved work package 13 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-034",
-      "title": "Identity and privacy — approved work package 14 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-035",
-      "title": "Canonical data and migration — approved work package 1 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-036",
-      "title": "Canonical data and migration — approved work package 2 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-037",
-      "title": "Canonical data and migration — approved work package 3 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-038",
-      "title": "Canonical data and migration — approved work package 4 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-039",
-      "title": "Canonical data and migration — approved work package 5 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-040",
-      "title": "Canonical data and migration — approved work package 6 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-041",
-      "title": "Canonical data and migration — approved work package 7 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-042",
-      "title": "Canonical data and migration — approved work package 8 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-043",
-      "title": "Canonical data and migration — approved work package 9 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-044",
-      "title": "Canonical data and migration — approved work package 10 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-045",
-      "title": "Canonical data and migration — approved work package 11 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-046",
-      "title": "Canonical data and migration — approved work package 12 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-047",
-      "title": "Canonical data and migration — approved work package 13 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-048",
-      "title": "Canonical data and migration — approved work package 14 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-049",
-      "title": "Public storytelling and orientation — approved work package 1 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-050",
-      "title": "Public storytelling and orientation — approved work package 2 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-051",
-      "title": "Public storytelling and orientation — approved work package 3 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-052",
-      "title": "Public storytelling and orientation — approved work package 4 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-053",
-      "title": "Public storytelling and orientation — approved work package 5 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-054",
-      "title": "Public storytelling and orientation — approved work package 6 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-055",
-      "title": "Public storytelling and orientation — approved work package 7 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-056",
-      "title": "Public storytelling and orientation — approved work package 8 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-057",
-      "title": "Public storytelling and orientation — approved work package 9 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-058",
-      "title": "Public storytelling and orientation — approved work package 10 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-059",
-      "title": "Public storytelling and orientation — approved work package 11 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-060",
-      "title": "Public storytelling and orientation — approved work package 12 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-061",
-      "title": "Public storytelling and orientation — approved work package 13 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-062",
-      "title": "Public storytelling and orientation — approved work package 14 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-063",
-      "title": "Public storytelling and orientation — approved work package 15 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-064",
-      "title": "Public storytelling and orientation — approved work package 16 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-065",
-      "title": "Policy and fiscal explanation — approved work package 1 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-066",
-      "title": "Policy and fiscal explanation — approved work package 2 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-067",
-      "title": "Policy and fiscal explanation — approved work package 3 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-068",
-      "title": "Policy and fiscal explanation — approved work package 4 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-069",
-      "title": "Policy and fiscal explanation — approved work package 5 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-070",
-      "title": "Policy and fiscal explanation — approved work package 6 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-071",
-      "title": "Policy and fiscal explanation — approved work package 7 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-072",
-      "title": "Policy and fiscal explanation — approved work package 8 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-073",
-      "title": "Policy and fiscal explanation — approved work package 9 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-074",
-      "title": "Policy and fiscal explanation — approved work package 10 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-075",
-      "title": "Policy and fiscal explanation — approved work package 11 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-076",
-      "title": "Policy and fiscal explanation — approved work package 12 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-077",
-      "title": "Archival source viewing — approved work package 1 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-078",
-      "title": "Archival source viewing — approved work package 2 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-079",
-      "title": "Archival source viewing — approved work package 3 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-080",
-      "title": "Archival source viewing — approved work package 4 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-081",
-      "title": "Archival source viewing — approved work package 5 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-082",
-      "title": "Archival source viewing — approved work package 6 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-083",
-      "title": "Archival source viewing — approved work package 7 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-084",
-      "title": "Archival source viewing — approved work package 8 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-085",
-      "title": "Archival source viewing — approved work package 9 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-086",
-      "title": "Archival source viewing — approved work package 10 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-087",
-      "title": "Archival source viewing — approved work package 11 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-088",
-      "title": "Archival source viewing — approved work package 12 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-089",
-      "title": "Atlas and search — approved work package 1 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-090",
-      "title": "Atlas and search — approved work package 2 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-091",
-      "title": "Atlas and search — approved work package 3 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-092",
-      "title": "Atlas and search — approved work package 4 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-093",
-      "title": "Atlas and search — approved work package 5 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-094",
-      "title": "Atlas and search — approved work package 6 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-095",
-      "title": "Atlas and search — approved work package 7 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-096",
-      "title": "Atlas and search — approved work package 8 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-097",
-      "title": "Atlas and search — approved work package 9 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-098",
-      "title": "Atlas and search — approved work package 10 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-099",
-      "title": "Atlas and search — approved work package 11 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-100",
-      "title": "Atlas and search — approved work package 12 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-101",
-      "title": "Atlas and search — approved work package 13 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-102",
-      "title": "Atlas and search — approved work package 14 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-103",
-      "title": "Atlas and search — approved work package 15 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-104",
-      "title": "Atlas and search — approved work package 16 of 16",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-105",
-      "title": "Research collaboration — approved work package 1 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-106",
-      "title": "Research collaboration — approved work package 2 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-107",
-      "title": "Research collaboration — approved work package 3 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-108",
-      "title": "Research collaboration — approved work package 4 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-109",
-      "title": "Research collaboration — approved work package 5 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-110",
-      "title": "Research collaboration — approved work package 6 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-111",
-      "title": "Research collaboration — approved work package 7 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-112",
-      "title": "Research collaboration — approved work package 8 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-113",
-      "title": "Research collaboration — approved work package 9 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-114",
-      "title": "Research collaboration — approved work package 10 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-115",
-      "title": "Research collaboration — approved work package 11 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-116",
-      "title": "Research collaboration — approved work package 12 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-117",
-      "title": "Research collaboration — approved work package 13 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-118",
-      "title": "Research collaboration — approved work package 14 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-119",
-      "title": "Research collaboration — approved work package 15 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-120",
-      "title": "Research collaboration — approved work package 16 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-121",
-      "title": "Research collaboration — approved work package 17 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-122",
-      "title": "Research collaboration — approved work package 18 of 18",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-123",
-      "title": "Editorial and imagery — approved work package 1 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-124",
-      "title": "Editorial and imagery — approved work package 2 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-125",
-      "title": "Editorial and imagery — approved work package 3 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-126",
-      "title": "Editorial and imagery — approved work package 4 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-127",
-      "title": "Editorial and imagery — approved work package 5 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-128",
-      "title": "Editorial and imagery — approved work package 6 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-129",
-      "title": "Editorial and imagery — approved work package 7 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-130",
-      "title": "Editorial and imagery — approved work package 8 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-131",
-      "title": "Editorial and imagery — approved work package 9 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-132",
-      "title": "Editorial and imagery — approved work package 10 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-133",
-      "title": "Editorial and imagery — approved work package 11 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-134",
-      "title": "Editorial and imagery — approved work package 12 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-135",
-      "title": "Community and consent — approved work package 1 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-136",
-      "title": "Community and consent — approved work package 2 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-137",
-      "title": "Community and consent — approved work package 3 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-138",
-      "title": "Community and consent — approved work package 4 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-139",
-      "title": "Community and consent — approved work package 5 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-140",
-      "title": "Community and consent — approved work package 6 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-141",
-      "title": "Community and consent — approved work package 7 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-142",
-      "title": "Community and consent — approved work package 8 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-143",
-      "title": "Community and consent — approved work package 9 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-144",
-      "title": "Community and consent — approved work package 10 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-145",
-      "title": "Community and consent — approved work package 11 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-146",
-      "title": "Community and consent — approved work package 12 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-147",
-      "title": "Community and consent — approved work package 13 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-148",
-      "title": "Community and consent — approved work package 14 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-149",
-      "title": "Education and civic access — approved work package 1 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-150",
-      "title": "Education and civic access — approved work package 2 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-151",
-      "title": "Education and civic access — approved work package 3 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-152",
-      "title": "Education and civic access — approved work package 4 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-153",
-      "title": "Education and civic access — approved work package 5 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-154",
-      "title": "Education and civic access — approved work package 6 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-155",
-      "title": "Education and civic access — approved work package 7 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-156",
-      "title": "Education and civic access — approved work package 8 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-157",
-      "title": "Education and civic access — approved work package 9 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-158",
-      "title": "Education and civic access — approved work package 10 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-159",
-      "title": "Education and civic access — approved work package 11 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-160",
-      "title": "Education and civic access — approved work package 12 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-161",
-      "title": "Analysis and optional AI — approved work package 1 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-162",
-      "title": "Analysis and optional AI — approved work package 2 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-163",
-      "title": "Analysis and optional AI — approved work package 3 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-164",
-      "title": "Analysis and optional AI — approved work package 4 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-165",
-      "title": "Analysis and optional AI — approved work package 5 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-166",
-      "title": "Analysis and optional AI — approved work package 6 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-167",
-      "title": "Analysis and optional AI — approved work package 7 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-168",
-      "title": "Analysis and optional AI — approved work package 8 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-169",
-      "title": "Analysis and optional AI — approved work package 9 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-170",
-      "title": "Analysis and optional AI — approved work package 10 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-171",
-      "title": "Analysis and optional AI — approved work package 11 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-172",
-      "title": "Analysis and optional AI — approved work package 12 of 12",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-173",
-      "title": "Administration and transparent operations — approved work package 1 of 10",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-174",
-      "title": "Administration and transparent operations — approved work package 2 of 10",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-175",
-      "title": "Administration and transparent operations — approved work package 3 of 10",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-176",
-      "title": "Administration and transparent operations — approved work package 4 of 10",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-177",
-      "title": "Administration and transparent operations — approved work package 5 of 10",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-178",
-      "title": "Administration and transparent operations — approved work package 6 of 10",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-179",
-      "title": "Administration and transparent operations — approved work package 7 of 10",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-180",
-      "title": "Administration and transparent operations — approved work package 8 of 10",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-181",
-      "title": "Administration and transparent operations — approved work package 9 of 10",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-182",
-      "title": "Administration and transparent operations — approved work package 10 of 10",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-183",
-      "title": "Production hardening and release — approved work package 1 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-184",
-      "title": "Production hardening and release — approved work package 2 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-185",
-      "title": "Production hardening and release — approved work package 3 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-186",
-      "title": "Production hardening and release — approved work package 4 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-187",
-      "title": "Production hardening and release — approved work package 5 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-188",
-      "title": "Production hardening and release — approved work package 6 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-189",
-      "title": "Production hardening and release — approved work package 7 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-190",
-      "title": "Production hardening and release — approved work package 8 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-191",
-      "title": "Production hardening and release — approved work package 9 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-192",
-      "title": "Production hardening and release — approved work package 10 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-193",
-      "title": "Production hardening and release — approved work package 11 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-194",
-      "title": "Production hardening and release — approved work package 12 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-195",
-      "title": "Production hardening and release — approved work package 13 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-196",
-      "title": "Production hardening and release — approved work package 14 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-197",
-      "title": "Conditional government, not active — approved work package 1 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-198",
-      "title": "Conditional government, not active — approved work package 2 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-199",
-      "title": "Conditional government, not active — approved work package 3 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-200",
-      "title": "Conditional government, not active — approved work package 4 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-201",
-      "title": "Conditional government, not active — approved work package 5 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-202",
-      "title": "Conditional government, not active — approved work package 6 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-203",
-      "title": "Conditional government, not active — approved work package 7 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-204",
-      "title": "Conditional government, not active — approved work package 8 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-205",
-      "title": "Conditional government, not active — approved work package 9 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-206",
-      "title": "Conditional government, not active — approved work package 10 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-207",
-      "title": "Conditional government, not active — approved work package 11 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-208",
-      "title": "Conditional government, not active — approved work package 12 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-209",
-      "title": "Conditional government, not active — approved work package 13 of 14",
-      "origin": "original"
-    },
-    {
-      "id": "GDN-210",
-      "title": "Conditional government, not active — approved work package 14 of 14",
-      "origin": "original"
-    }
+    {"id":"GDN-001","title":"Decisions, evidence and charter — approved work package 1 of 8","origin":"original","pullRequests":[2]},
+    {"id":"GDN-002","title":"Decisions, evidence and charter — approved work package 2 of 8","origin":"original","pullRequests":[3]},
+    {"id":"GDN-003","title":"Decisions, evidence and charter — approved work package 3 of 8","origin":"original","pullRequests":[4]},
+    {"id":"GDN-004","title":"Decisions, evidence and charter — approved work package 4 of 8","origin":"original","pullRequests":[5]},
+    {"id":"GDN-005","title":"Decisions, evidence and charter — approved work package 5 of 8","origin":"original","pullRequests":[6]},
+    {"id":"GDN-006","title":"Decisions, evidence and charter — approved work package 6 of 8","origin":"original","pullRequests":[7]},
+    {"id":"GDN-007","title":"Decisions, evidence and charter — approved work package 7 of 8","origin":"original","pullRequests":[9]},
+    {"id":"GDN-008","title":"Decisions, evidence and charter — approved work package 8 of 8","origin":"original","pullRequests":[8]},
+    {"id":"GDN-009","title":"Delivery infrastructure — approved work package 1 of 12","origin":"original","pullRequests":[10]},
+    {"id":"GDN-010","title":"Delivery infrastructure — approved work package 2 of 12","origin":"original","pullRequests":[12]},
+    {"id":"GDN-011","title":"Delivery infrastructure — approved work package 3 of 12","origin":"original"},
+    {"id":"GDN-012","title":"Delivery infrastructure — approved work package 4 of 12","origin":"original","pullRequests":[13]},
+    {"id":"GDN-013","title":"Delivery infrastructure — approved work package 5 of 12","origin":"original","pullRequests":[14]},
+    {"id":"GDN-014","title":"Delivery infrastructure — approved work package 6 of 12","origin":"original"},
+    {"id":"GDN-015","title":"Delivery infrastructure — approved work package 7 of 12","origin":"original","pullRequests":[15]},
+    {"id":"GDN-016","title":"Delivery infrastructure — approved work package 8 of 12","origin":"original","pullRequests":[16]},
+    {"id":"GDN-017","title":"Delivery infrastructure — approved work package 9 of 12","origin":"original"},
+    {"id":"GDN-018","title":"Delivery infrastructure — approved work package 10 of 12","origin":"original"},
+    {"id":"GDN-019","title":"Delivery infrastructure — approved work package 11 of 12","origin":"original"},
+    {"id":"GDN-020","title":"Delivery infrastructure — approved work package 12 of 12","origin":"original"},
+    {"id":"GDN-021","title":"Identity and privacy — approved work package 1 of 14","origin":"original","pullRequests":[18]},
+    {"id":"GDN-022","title":"Identity and privacy — approved work package 2 of 14","origin":"original"},
+    {"id":"GDN-023","title":"Identity and privacy — approved work package 3 of 14","origin":"original","pullRequests":[19]},
+    {"id":"GDN-024","title":"Identity and privacy — approved work package 4 of 14","origin":"original","pullRequests":[20]},
+    {"id":"GDN-025","title":"Identity and privacy — approved work package 5 of 14","origin":"original"},
+    {"id":"GDN-026","title":"Identity and privacy — approved work package 6 of 14","origin":"original"},
+    {"id":"GDN-027","title":"Identity and privacy — approved work package 7 of 14","origin":"original"},
+    {"id":"GDN-028","title":"Identity and privacy — approved work package 8 of 14","origin":"original"},
+    {"id":"GDN-029","title":"Identity and privacy — approved work package 9 of 14","origin":"original"},
+    {"id":"GDN-030","title":"Identity and privacy — approved work package 10 of 14","origin":"original"},
+    {"id":"GDN-031","title":"Identity and privacy — approved work package 11 of 14","origin":"original"},
+    {"id":"GDN-032","title":"Identity and privacy — approved work package 12 of 14","origin":"original"},
+    {"id":"GDN-033","title":"Identity and privacy — approved work package 13 of 14","origin":"original"},
+    {"id":"GDN-034","title":"Identity and privacy — approved work package 14 of 14","origin":"original"},
+    {"id":"GDN-035","title":"Canonical data and migration — approved work package 1 of 14","origin":"original"},
+    {"id":"GDN-036","title":"Canonical data and migration — approved work package 2 of 14","origin":"original"},
+    {"id":"GDN-037","title":"Canonical data and migration — approved work package 3 of 14","origin":"original"},
+    {"id":"GDN-038","title":"Canonical data and migration — approved work package 4 of 14","origin":"original"},
+    {"id":"GDN-039","title":"Canonical data and migration — approved work package 5 of 14","origin":"original"},
+    {"id":"GDN-040","title":"Canonical data and migration — approved work package 6 of 14","origin":"original"},
+    {"id":"GDN-041","title":"Canonical data and migration — approved work package 7 of 14","origin":"original"},
+    {"id":"GDN-042","title":"Canonical data and migration — approved work package 8 of 14","origin":"original"},
+    {"id":"GDN-043","title":"Canonical data and migration — approved work package 9 of 14","origin":"original"},
+    {"id":"GDN-044","title":"Canonical data and migration — approved work package 10 of 14","origin":"original"},
+    {"id":"GDN-045","title":"Canonical data and migration — approved work package 11 of 14","origin":"original"},
+    {"id":"GDN-046","title":"Canonical data and migration — approved work package 12 of 14","origin":"original"},
+    {"id":"GDN-047","title":"Canonical data and migration — approved work package 13 of 14","origin":"original"},
+    {"id":"GDN-048","title":"Canonical data and migration — approved work package 14 of 14","origin":"original"},
+    {"id":"GDN-049","title":"Public storytelling and orientation — approved work package 1 of 16","origin":"original"},
+    {"id":"GDN-050","title":"Public storytelling and orientation — approved work package 2 of 16","origin":"original"},
+    {"id":"GDN-051","title":"Public storytelling and orientation — approved work package 3 of 16","origin":"original"},
+    {"id":"GDN-052","title":"Public storytelling and orientation — approved work package 4 of 16","origin":"original"},
+    {"id":"GDN-053","title":"Public storytelling and orientation — approved work package 5 of 16","origin":"original"},
+    {"id":"GDN-054","title":"Public storytelling and orientation — approved work package 6 of 16","origin":"original"},
+    {"id":"GDN-055","title":"Public storytelling and orientation — approved work package 7 of 16","origin":"original"},
+    {"id":"GDN-056","title":"Public storytelling and orientation — approved work package 8 of 16","origin":"original"},
+    {"id":"GDN-057","title":"Public storytelling and orientation — approved work package 9 of 16","origin":"original"},
+    {"id":"GDN-058","title":"Public storytelling and orientation — approved work package 10 of 16","origin":"original"},
+    {"id":"GDN-059","title":"Public storytelling and orientation — approved work package 11 of 16","origin":"original"},
+    {"id":"GDN-060","title":"Public storytelling and orientation — approved work package 12 of 16","origin":"original"},
+    {"id":"GDN-061","title":"Public storytelling and orientation — approved work package 13 of 16","origin":"original"},
+    {"id":"GDN-062","title":"Public storytelling and orientation — approved work package 14 of 16","origin":"original"},
+    {"id":"GDN-063","title":"Public storytelling and orientation — approved work package 15 of 16","origin":"original"},
+    {"id":"GDN-064","title":"Public storytelling and orientation — approved work package 16 of 16","origin":"original"},
+    {"id":"GDN-065","title":"Policy and fiscal explanation — approved work package 1 of 12","origin":"original"},
+    {"id":"GDN-066","title":"Policy and fiscal explanation — approved work package 2 of 12","origin":"original"},
+    {"id":"GDN-067","title":"Policy and fiscal explanation — approved work package 3 of 12","origin":"original"},
+    {"id":"GDN-068","title":"Policy and fiscal explanation — approved work package 4 of 12","origin":"original"},
+    {"id":"GDN-069","title":"Policy and fiscal explanation — approved work package 5 of 12","origin":"original"},
+    {"id":"GDN-070","title":"Policy and fiscal explanation — approved work package 6 of 12","origin":"original"},
+    {"id":"GDN-071","title":"Policy and fiscal explanation — approved work package 7 of 12","origin":"original"},
+    {"id":"GDN-072","title":"Policy and fiscal explanation — approved work package 8 of 12","origin":"original"},
+    {"id":"GDN-073","title":"Policy and fiscal explanation — approved work package 9 of 12","origin":"original"},
+    {"id":"GDN-074","title":"Policy and fiscal explanation — approved work package 10 of 12","origin":"original"},
+    {"id":"GDN-075","title":"Policy and fiscal explanation — approved work package 11 of 12","origin":"original"},
+    {"id":"GDN-076","title":"Policy and fiscal explanation — approved work package 12 of 12","origin":"original"},
+    {"id":"GDN-077","title":"Archival source viewing — approved work package 1 of 12","origin":"original"},
+    {"id":"GDN-078","title":"Archival source viewing — approved work package 2 of 12","origin":"original"},
+    {"id":"GDN-079","title":"Archival source viewing — approved work package 3 of 12","origin":"original"},
+    {"id":"GDN-080","title":"Archival source viewing — approved work package 4 of 12","origin":"original"},
+    {"id":"GDN-081","title":"Archival source viewing — approved work package 5 of 12","origin":"original"},
+    {"id":"GDN-082","title":"Archival source viewing — approved work package 6 of 12","origin":"original"},
+    {"id":"GDN-083","title":"Archival source viewing — approved work package 7 of 12","origin":"original"},
+    {"id":"GDN-084","title":"Archival source viewing — approved work package 8 of 12","origin":"original"},
+    {"id":"GDN-085","title":"Archival source viewing — approved work package 9 of 12","origin":"original"},
+    {"id":"GDN-086","title":"Archival source viewing — approved work package 10 of 12","origin":"original"},
+    {"id":"GDN-087","title":"Archival source viewing — approved work package 11 of 12","origin":"original"},
+    {"id":"GDN-088","title":"Archival source viewing — approved work package 12 of 12","origin":"original"},
+    {"id":"GDN-089","title":"Atlas and search — approved work package 1 of 16","origin":"original"},
+    {"id":"GDN-090","title":"Atlas and search — approved work package 2 of 16","origin":"original"},
+    {"id":"GDN-091","title":"Atlas and search — approved work package 3 of 16","origin":"original"},
+    {"id":"GDN-092","title":"Atlas and search — approved work package 4 of 16","origin":"original"},
+    {"id":"GDN-093","title":"Atlas and search — approved work package 5 of 16","origin":"original"},
+    {"id":"GDN-094","title":"Atlas and search — approved work package 6 of 16","origin":"original"},
+    {"id":"GDN-095","title":"Atlas and search — approved work package 7 of 16","origin":"original"},
+    {"id":"GDN-096","title":"Atlas and search — approved work package 8 of 16","origin":"original"},
+    {"id":"GDN-097","title":"Atlas and search — approved work package 9 of 16","origin":"original"},
+    {"id":"GDN-098","title":"Atlas and search — approved work package 10 of 16","origin":"original"},
+    {"id":"GDN-099","title":"Atlas and search — approved work package 11 of 16","origin":"original"},
+    {"id":"GDN-100","title":"Atlas and search — approved work package 12 of 16","origin":"original"},
+    {"id":"GDN-101","title":"Atlas and search — approved work package 13 of 16","origin":"original"},
+    {"id":"GDN-102","title":"Atlas and search — approved work package 14 of 16","origin":"original"},
+    {"id":"GDN-103","title":"Atlas and search — approved work package 15 of 16","origin":"original"},
+    {"id":"GDN-104","title":"Atlas and search — approved work package 16 of 16","origin":"original"},
+    {"id":"GDN-105","title":"Research collaboration — approved work package 1 of 18","origin":"original"},
+    {"id":"GDN-106","title":"Research collaboration — approved work package 2 of 18","origin":"original"},
+    {"id":"GDN-107","title":"Research collaboration — approved work package 3 of 18","origin":"original"},
+    {"id":"GDN-108","title":"Research collaboration — approved work package 4 of 18","origin":"original"},
+    {"id":"GDN-109","title":"Research collaboration — approved work package 5 of 18","origin":"original"},
+    {"id":"GDN-110","title":"Research collaboration — approved work package 6 of 18","origin":"original"},
+    {"id":"GDN-111","title":"Research collaboration — approved work package 7 of 18","origin":"original"},
+    {"id":"GDN-112","title":"Research collaboration — approved work package 8 of 18","origin":"original"},
+    {"id":"GDN-113","title":"Research collaboration — approved work package 9 of 18","origin":"original"},
+    {"id":"GDN-114","title":"Research collaboration — approved work package 10 of 18","origin":"original"},
+    {"id":"GDN-115","title":"Research collaboration — approved work package 11 of 18","origin":"original"},
+    {"id":"GDN-116","title":"Research collaboration — approved work package 12 of 18","origin":"original"},
+    {"id":"GDN-117","title":"Research collaboration — approved work package 13 of 18","origin":"original"},
+    {"id":"GDN-118","title":"Research collaboration — approved work package 14 of 18","origin":"original"},
+    {"id":"GDN-119","title":"Research collaboration — approved work package 15 of 18","origin":"original"},
+    {"id":"GDN-120","title":"Research collaboration — approved work package 16 of 18","origin":"original"},
+    {"id":"GDN-121","title":"Research collaboration — approved work package 17 of 18","origin":"original"},
+    {"id":"GDN-122","title":"Research collaboration — approved work package 18 of 18","origin":"original"},
+    {"id":"GDN-123","title":"Editorial and imagery — approved work package 1 of 12","origin":"original"},
+    {"id":"GDN-124","title":"Editorial and imagery — approved work package 2 of 12","origin":"original"},
+    {"id":"GDN-125","title":"Editorial and imagery — approved work package 3 of 12","origin":"original"},
+    {"id":"GDN-126","title":"Editorial and imagery — approved work package 4 of 12","origin":"original"},
+    {"id":"GDN-127","title":"Editorial and imagery — approved work package 5 of 12","origin":"original"},
+    {"id":"GDN-128","title":"Editorial and imagery — approved work package 6 of 12","origin":"original"},
+    {"id":"GDN-129","title":"Editorial and imagery — approved work package 7 of 12","origin":"original"},
+    {"id":"GDN-130","title":"Editorial and imagery — approved work package 8 of 12","origin":"original"},
+    {"id":"GDN-131","title":"Editorial and imagery — approved work package 9 of 12","origin":"original"},
+    {"id":"GDN-132","title":"Editorial and imagery — approved work package 10 of 12","origin":"original"},
+    {"id":"GDN-133","title":"Editorial and imagery — approved work package 11 of 12","origin":"original"},
+    {"id":"GDN-134","title":"Editorial and imagery — approved work package 12 of 12","origin":"original"},
+    {"id":"GDN-135","title":"Community and consent — approved work package 1 of 14","origin":"original"},
+    {"id":"GDN-136","title":"Community and consent — approved work package 2 of 14","origin":"original"},
+    {"id":"GDN-137","title":"Community and consent — approved work package 3 of 14","origin":"original"},
+    {"id":"GDN-138","title":"Community and consent — approved work package 4 of 14","origin":"original"},
+    {"id":"GDN-139","title":"Community and consent — approved work package 5 of 14","origin":"original"},
+    {"id":"GDN-140","title":"Community and consent — approved work package 6 of 14","origin":"original"},
+    {"id":"GDN-141","title":"Community and consent — approved work package 7 of 14","origin":"original"},
+    {"id":"GDN-142","title":"Community and consent — approved work package 8 of 14","origin":"original"},
+    {"id":"GDN-143","title":"Community and consent — approved work package 9 of 14","origin":"original"},
+    {"id":"GDN-144","title":"Community and consent — approved work package 10 of 14","origin":"original"},
+    {"id":"GDN-145","title":"Community and consent — approved work package 11 of 14","origin":"original"},
+    {"id":"GDN-146","title":"Community and consent — approved work package 12 of 14","origin":"original"},
+    {"id":"GDN-147","title":"Community and consent — approved work package 13 of 14","origin":"original"},
+    {"id":"GDN-148","title":"Community and consent — approved work package 14 of 14","origin":"original"},
+    {"id":"GDN-149","title":"Education and civic access — approved work package 1 of 12","origin":"original"},
+    {"id":"GDN-150","title":"Education and civic access — approved work package 2 of 12","origin":"original"},
+    {"id":"GDN-151","title":"Education and civic access — approved work package 3 of 12","origin":"original"},
+    {"id":"GDN-152","title":"Education and civic access — approved work package 4 of 12","origin":"original"},
+    {"id":"GDN-153","title":"Education and civic access — approved work package 5 of 12","origin":"original"},
+    {"id":"GDN-154","title":"Education and civic access — approved work package 6 of 12","origin":"original"},
+    {"id":"GDN-155","title":"Education and civic access — approved work package 7 of 12","origin":"original"},
+    {"id":"GDN-156","title":"Education and civic access — approved work package 8 of 12","origin":"original"},
+    {"id":"GDN-157","title":"Education and civic access — approved work package 9 of 12","origin":"original"},
+    {"id":"GDN-158","title":"Education and civic access — approved work package 10 of 12","origin":"original"},
+    {"id":"GDN-159","title":"Education and civic access — approved work package 11 of 12","origin":"original"},
+    {"id":"GDN-160","title":"Education and civic access — approved work package 12 of 12","origin":"original"},
+    {"id":"GDN-161","title":"Analysis and optional AI — approved work package 1 of 12","origin":"original"},
+    {"id":"GDN-162","title":"Analysis and optional AI — approved work package 2 of 12","origin":"original"},
+    {"id":"GDN-163","title":"Analysis and optional AI — approved work package 3 of 12","origin":"original"},
+    {"id":"GDN-164","title":"Analysis and optional AI — approved work package 4 of 12","origin":"original"},
+    {"id":"GDN-165","title":"Analysis and optional AI — approved work package 5 of 12","origin":"original"},
+    {"id":"GDN-166","title":"Analysis and optional AI — approved work package 6 of 12","origin":"original"},
+    {"id":"GDN-167","title":"Analysis and optional AI — approved work package 7 of 12","origin":"original"},
+    {"id":"GDN-168","title":"Analysis and optional AI — approved work package 8 of 12","origin":"original"},
+    {"id":"GDN-169","title":"Analysis and optional AI — approved work package 9 of 12","origin":"original"},
+    {"id":"GDN-170","title":"Analysis and optional AI — approved work package 10 of 12","origin":"original"},
+    {"id":"GDN-171","title":"Analysis and optional AI — approved work package 11 of 12","origin":"original"},
+    {"id":"GDN-172","title":"Analysis and optional AI — approved work package 12 of 12","origin":"original"},
+    {"id":"GDN-173","title":"Administration and transparent operations — approved work package 1 of 10","origin":"original"},
+    {"id":"GDN-174","title":"Administration and transparent operations — approved work package 2 of 10","origin":"original"},
+    {"id":"GDN-175","title":"Administration and transparent operations — approved work package 3 of 10","origin":"original"},
+    {"id":"GDN-176","title":"Administration and transparent operations — approved work package 4 of 10","origin":"original"},
+    {"id":"GDN-177","title":"Administration and transparent operations — approved work package 5 of 10","origin":"original"},
+    {"id":"GDN-178","title":"Administration and transparent operations — approved work package 6 of 10","origin":"original"},
+    {"id":"GDN-179","title":"Administration and transparent operations — approved work package 7 of 10","origin":"original"},
+    {"id":"GDN-180","title":"Administration and transparent operations — approved work package 8 of 10","origin":"original"},
+    {"id":"GDN-181","title":"Administration and transparent operations — approved work package 9 of 10","origin":"original"},
+    {"id":"GDN-182","title":"Administration and transparent operations — approved work package 10 of 10","origin":"original"},
+    {"id":"GDN-183","title":"Production hardening and release — approved work package 1 of 14","origin":"original"},
+    {"id":"GDN-184","title":"Production hardening and release — approved work package 2 of 14","origin":"original"},
+    {"id":"GDN-185","title":"Production hardening and release — approved work package 3 of 14","origin":"original"},
+    {"id":"GDN-186","title":"Production hardening and release — approved work package 4 of 14","origin":"original"},
+    {"id":"GDN-187","title":"Production hardening and release — approved work package 5 of 14","origin":"original"},
+    {"id":"GDN-188","title":"Production hardening and release — approved work package 6 of 14","origin":"original"},
+    {"id":"GDN-189","title":"Production hardening and release — approved work package 7 of 14","origin":"original"},
+    {"id":"GDN-190","title":"Production hardening and release — approved work package 8 of 14","origin":"original"},
+    {"id":"GDN-191","title":"Production hardening and release — approved work package 9 of 14","origin":"original"},
+    {"id":"GDN-192","title":"Production hardening and release — approved work package 10 of 14","origin":"original"},
+    {"id":"GDN-193","title":"Production hardening and release — approved work package 11 of 14","origin":"original"},
+    {"id":"GDN-194","title":"Production hardening and release — approved work package 12 of 14","origin":"original"},
+    {"id":"GDN-195","title":"Production hardening and release — approved work package 13 of 14","origin":"original"},
+    {"id":"GDN-196","title":"Production hardening and release — approved work package 14 of 14","origin":"original"},
+    {"id":"GDN-197","title":"Conditional government, not active — approved work package 1 of 14","origin":"original"},
+    {"id":"GDN-198","title":"Conditional government, not active — approved work package 2 of 14","origin":"original"},
+    {"id":"GDN-199","title":"Conditional government, not active — approved work package 3 of 14","origin":"original"},
+    {"id":"GDN-200","title":"Conditional government, not active — approved work package 4 of 14","origin":"original"},
+    {"id":"GDN-201","title":"Conditional government, not active — approved work package 5 of 14","origin":"original"},
+    {"id":"GDN-202","title":"Conditional government, not active — approved work package 6 of 14","origin":"original"},
+    {"id":"GDN-203","title":"Conditional government, not active — approved work package 7 of 14","origin":"original"},
+    {"id":"GDN-204","title":"Conditional government, not active — approved work package 8 of 14","origin":"original"},
+    {"id":"GDN-205","title":"Conditional government, not active — approved work package 9 of 14","origin":"original"},
+    {"id":"GDN-206","title":"Conditional government, not active — approved work package 10 of 14","origin":"original"},
+    {"id":"GDN-207","title":"Conditional government, not active — approved work package 11 of 14","origin":"original"},
+    {"id":"GDN-208","title":"Conditional government, not active — approved work package 12 of 14","origin":"original"},
+    {"id":"GDN-209","title":"Conditional government, not active — approved work package 13 of 14","origin":"original"},
+    {"id":"GDN-210","title":"Conditional government, not active — approved work package 14 of 14","origin":"original"}
   ]
 }
