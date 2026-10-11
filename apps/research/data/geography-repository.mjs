@@ -1,4 +1,4 @@
-import {validateGeographicAssertion,GeographyError} from '../../../packages/domain/src/historical/geography.mjs';
+import {validateGeographicAssertion,preserveGeographicIdentity,GeographyError} from '../../../packages/domain/src/historical/geography.mjs';
 import {uuid,validateEntity} from '../../../packages/domain/src/historical/model.mjs';
 import {revision} from '../../../packages/domain/src/historical/locators.mjs';
 import {validateClaimRecord} from '../../../packages/domain/src/historical/claims.mjs';
@@ -35,8 +35,7 @@ export function createGeographyRepository(executor){
   return executor.run(h,{workspaceId:w,action:'write'},async c=>{
    const old=await current(c,w,id,true);if(old.version!==expected)deny();
    if(initial){if(Object.keys(old.payload).length)deny();}else{
-    const before=validateGeographicAssertion(old.payload);
-    if(JSON.stringify(before.subject)!==JSON.stringify(v.subject)||before.context!==v.context||before.sensitivity!==v.sensitivity)deny();
+    preserveGeographicIdentity(old.payload,v);
    }
    await inspectGeographicReferences(c,w,v);
    const r=(await c.query('UPDATE garden_private.record_envelopes SET payload=$4::jsonb WHERE workspace_id=$1::uuid AND id=$2::uuid AND version=$3::bigint RETURNING payload,version::text',[w,id,expected,JSON.stringify(v)])).rows[0];

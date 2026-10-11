@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {randomUUID} from 'node:crypto';
-import {GeographyError,validateGeometry,validateGeographicAssertion,compareTemporalExtents,researchGeographyLayer} from '../../packages/domain/src/historical/geography.mjs';
+import {GeographyError,validateGeometry,validateGeographicAssertion,preserveGeographicIdentity,compareTemporalExtents,researchGeographyLayer} from '../../packages/domain/src/historical/geography.mjs';
 import {geographic,years,square} from './geography-fixtures.mjs';
 import {unknown} from './fixtures.mjs';
 for(const geometry of [{type:'Point',coordinates:[0,0]},{type:'LineString',coordinates:[[0,0],[3,4]]},{type:'Polygon',coordinates:[square()]},{type:'Polygon',coordinates:[square(0,0,10),square(2,2,2).reverse()]},{type:'MultiPolygon',coordinates:[[square()],[square(5,5,1)]]},{type:'MultiPolygon',coordinates:[[square(170,0,10)],[square(-180,0,10)]]}])test('preserves supported bounded geometry '+JSON.stringify(geometry),()=>assert.deepEqual(validateGeometry(geometry),geometry));
@@ -21,3 +21,5 @@ test('a historical map never claims actual overlap from approximate years',()=>{
 test('source spelling and temporally scoped names remain verbatim',()=>{const v=geographic();v.names.push({value:'A\u0301mina العربية',language:null,validDuring:years(1800,1900)});assert.deepEqual(validateGeographicAssertion(v).names,v.names);});
 test('callers cannot mutate returned geometry or force a string flag',()=>{const v=geographic(),before=structuredClone(v),result=validateGeographicAssertion(v);assert(Object.isFrozen(result.geometry.coordinates));assert.deepEqual(v,before);assert.throws(()=>researchGeographyLayer([{record:v,revision:'2'}],{includeModernReference:'true'}));});
 test('duplicate assertion identity cannot inflate a map layer',()=>{const v=geographic();assert.throws(()=>researchGeographyLayer([{record:v,revision:'2'},{record:v,revision:'3'}]));});
+test('JSONB key ordering does not change a subject identity',()=>{const before=geographic(),after=structuredClone(before);before.subject={kind:before.subject.kind,id:before.subject.id,revision:before.subject.revision};after.rationale='Explicit revised rationale';assert.deepEqual(preserveGeographicIdentity(before,after),after);});
+for(const key of ['id','revision','kind'])test('subject '+key+' remains immutable across revisions',()=>{const before=geographic(),after=structuredClone(before);after.subject[key]=key==='id'?randomUUID():key==='revision'?'3':'port';assert.throws(()=>preserveGeographicIdentity(before,after),GeographyError);});

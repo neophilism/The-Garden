@@ -84,6 +84,12 @@ export function compareTemporalExtents(a,b){return guard(()=>{
  if([al,ah,bl,bh].some(x=>x===null))return 'unknown';
  return 'possible-overlap';
 });}
+export function preserveGeographicIdentity(beforeInput,afterInput){return guard(()=>{
+ const before=validateGeographicAssertion(beforeInput),after=validateGeographicAssertion(afterInput);
+ if(before.id!==after.id||before.context!==after.context||before.sensitivity!==after.sensitivity||
+  ['id','revision','kind'].some(key=>before.subject[key]!==after.subject[key]))fail();
+ return after;
+});}
 /** This is a projection of preauthorized research rows, never an auth check.
  * Withhold all sensitive rows, IDs, names and bounds, even in this future-map
  * adapter. A separate restricted case viewer would need its own design. */
