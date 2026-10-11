@@ -26,6 +26,11 @@
       "id": "0005_historical_records",
       "file": "0005_historical_records.sql",
       "sha256": "7d92349869fde52a1c152b9deb7a2d63a524bbb4cf3a736daa3fe322cc624188"
+    },
+    {
+      "id": "0006_archival_sources",
+      "file": "0006_archival_sources.sql",
+      "sha256": "79f3adf798faf45c64b11bde77a11d8d821269a3d246444ad31c581bb549e4d0"
     }
   ]
 }

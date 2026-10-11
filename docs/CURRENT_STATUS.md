@@ -1,10 +1,12 @@
 # Current execution status - 11 October 2026
 
-Eighteen planned engineering items are merged: GDN-001 through GDN-010, GDN-012, GDN-013, GDN-015, GDN-016, GDN-021, GDN-023, GDN-024 and GDN-025. Exact PR heads, merge commits and passing CI are in `plan/execution.json`. Bootstrap #1, provider inventory #11 and queue follow-up #17 are not additional roadmap units. Independent acceptance and production verification remain separate; the 196-current/14-conditional roadmap is unchanged.
+Nineteen planned engineering items are merged: GDN-001 through GDN-010, GDN-012, GDN-013, GDN-015, GDN-016, GDN-021, GDN-023, GDN-024, GDN-025 and GDN-035. Exact PR heads, merge commits and passing CI are in `plan/execution.json`. Bootstrap #1, provider inventory #11 and queue follow-up #17 are not additional roadmap units. Independent acceptance and production verification remain separate; the 196-current/14-conditional roadmap is unchanged.
 
 PR #21 / GDN-025 passed all five exact-head workflows after the canonical-roadmap merge conflict was resolved without losing any scope. Its protected search, projections, exports and bounded private byte delivery remain unmounted; no public research or hosted streaming is claimed.
 
-GDN-035 is a typed historical-data candidate: stable entities/names, relationship constraints, reversible merge decisions, protected version history and real PostgreSQL acceptance tests. It is not yet counted as a merged unit. It does not import or verify historical source material.
+GDN-035 / PR #22 is merged after all six exact-head workflows passed, including the real PostgreSQL entity/history/revocation/concurrency journey. Its 53 historical-domain and repository unit tests include both allowed and denied linked-record reads. No historical source is imported or verified.
+
+GDN-036 is the current archival-source candidate: explicit repository/collection/series/item records, witness/edition/digital representations, append-only conflicting catalog assertions, cycle-free hierarchy and conservative source-lineage comparison. Its PostgreSQL acceptance is pending CI; it is not yet counted as merged.
 
 The public application remains a nine-page preproduction orientation site. Existing browser checks run against local CI builds, not a live Render deployment. The existing Garden staging branch is `br-purple-grass-b5hurfl7`, with three private archive buckets. No original corpus, family data, AI, payments or official governmental functions are enabled.
 

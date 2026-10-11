@@ -1,0 +1,18 @@
+{
+  "work_item": "GDN-036",
+  "implementation": "candidate",
+  "additional_implementation_dependency": "GDN-035",
+  "criteria": {
+    "GDN-036-AC01": "Explicit witness, edition and digital-representation records, exact-byte metadata only on representations.",
+    "GDN-036-AC02": "Application DFS and serialized PostgreSQL trigger both reject hierarchy and derivation cycles.",
+    "GDN-036-AC03": "Lineage reports shared roots and unresolved provenance; no independent-evidence count is inferred."
+  },
+  "new_unit_tests_passed": 38,
+  "local_application_tests_passed": 268,
+  "real_database_checks": "specified executable fixture; pending CI",
+  "accepted": false,
+  "independent_review": "not_performed",
+  "public_route_enabled": false,
+  "neon_migration_applied": false,
+  "production_verified": false
+}

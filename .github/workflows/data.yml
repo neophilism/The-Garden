@@ -55,7 +55,9 @@ jobs:
           python3 scripts/db_migrate.py | psql -X -q -v ON_ERROR_STOP=1
           python3 scripts/db_migrate.py --apply
       - name: Real database entity, history and RLS journey
-        run: node apps/research/data/historical.ci.mjs
+        run: |
+          node apps/research/data/historical.ci.mjs
+          node apps/research/data/sources.ci.mjs
       - name: Preserve synthetic data acceptance evidence
         if: success()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
