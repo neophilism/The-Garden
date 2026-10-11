@@ -493,7 +493,10 @@
       "sourceItemId": "GDN-044",
       "applicability": "current_scope",
       "scope": "Inspect every CP-017 table and map it to raw preservation, normalized destination, legacy snapshot or unresolved recovery status. Define conversion and foreign-key rules.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        35
+      ]
     },
     {
       "id": "GDN-045",

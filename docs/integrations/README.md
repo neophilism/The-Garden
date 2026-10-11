@@ -36,8 +36,8 @@ Use versioned `/api/v1` routes, validated JSON, stable opaque IDs, request IDs, 
 
 Outbox events identify schema, source record/version and classification without embedding sensitive content. Consumers recheck permission at execution, reject unsupported schema, deduplicate and retain safe failure records. Reconcile reordered webhook events against source revision. No public site request should block on Engine Room availability.
 
-## Verified discovery snapshot (2026-10-10)
+## Current engineering checkpoint (2026-10-11)
 
-See [integration-inventory.json](integration-inventory.json). GitHub, Neon and Render are connected, but a provider connection is not a live deployment or an Engine Room write. The Garden has its own empty Neon project/branch and no Render service; no database migrations, private buckets, or Neon Auth integration exist. Render's available create-service tool does not accept an explicit project ID, so placing a service inside the owner-specified Render project requires a project-aware method or separate provider verification. All other services in the shared workspace remain out of scope.
+Initial dated provider observations in [integration-inventory.json](integration-inventory.json) remain historical. They must not be treated as evidence that current application integrations are deployed or working. The available Render creation tool still cannot select the authorized target project; no substitute target or new paid resource was created.
 
-The actual Engine Room repository describes automated import from `.exechub/project.yml` and an explicit `.exechub/approved-pr-mapping.json`. The manifest in this repository uses all 210 approved units, with 196 active and 14 conditional. Only actual GitHub PR IDs #2, #3, and #4 are mapped; PR #1 is bootstrap only, while PR #5 is still open. Engine Room's independent readback remains pending and must not be reported as already synchronized.
+Engine Room's repository contract describes authenticated reconciliation and best-effort public GitHub import. Canonical and legacy source mappings now cover 31 actual merged engineering PRs, including #32 through #35. The live application's ingestion/readback for The Garden remains unverified. No scheduler or administrative synchronization was invoked.

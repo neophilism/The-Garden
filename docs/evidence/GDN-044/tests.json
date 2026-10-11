@@ -7,5 +7,13 @@
   "passed": 25,
   "failed": 0,
   "fixtures": "Coverage, duplicate/missing tables and IDs, count/schema/source drift, key ambiguity, lossy conversion, references and erased recovery limits.",
-  "ci": "Fresh final-head CI pending."
+  "ci": "All six final-head workflows passed at b2b4eb3ef9f656e305f5cc06c033ba0f46b65ec2 before merge.",
+  "ci_workflows": {
+    "repository": 38173488701,
+    "database": 38173488774,
+    "identity": 38173488706,
+    "storage": 38173488700,
+    "historical_data": 38173488693,
+    "quality_browser": 38173488719
+  }
 }
