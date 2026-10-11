@@ -1,0 +1,38 @@
+name: Prepare verified GDN-031 source
+on:
+  push:
+    branches: [security/gdn-031-isolation-matrix]
+    paths: [scripts/prepare-gdn031.py]
+permissions:
+  contents: write
+concurrency:
+  group: garden-gdn031-preparation
+  cancel-in-progress: false
+jobs:
+  prepare:
+    if: github.repository == 'neophilism/The-Garden' && github.ref == 'refs/heads/security/gdn-031-isolation-matrix'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Prepare exact reviewed source and run local contract tests
+        run: |
+          set -eu
+          python3 scripts/prepare-gdn031.py
+          node --test tests/application/*.test.mjs tests/environment/*.test.mjs tests/access/*.test.mjs tests/data/*.test.mjs tests/security/*.test.mjs
+          python3 scripts/verify_policy_routes.py
+          python3 -m unittest discover -s tests/architecture -q
+          rm scripts/prepare-gdn031.py bootstrap/gdn031-0.part bootstrap/gdn031-1.part bootstrap/gdn031-2.part .github/workflows/prepare-gdn031.yml
+          git add --all
+          test "$(git write-tree)" = '86e542a28b86353add4dfe1ab1d314f5023920b0'
+          test "$(git ls-remote origin refs/heads/security/gdn-031-isolation-matrix | cut -f1)" = "$GITHUB_SHA"
+          git config user.name 'Garden source preparation'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'GDN-031: complete scoped authorization matrix and closed database-role isolation'
+          git push origin HEAD:refs/heads/security/gdn-031-isolation-matrix
