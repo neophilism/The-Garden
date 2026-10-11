@@ -28,7 +28,7 @@ function subject(value){
  return value.id;
 }
 function checkpoint(row,workspace){if(!row)fail();return validateCheckpoint({workspaceId:workspace,sequence:row.sequence,hash:row.hash});}
-const ROWS=`SELECT workspace_id::text AS "workspaceId",sequence::text AS sequence,previous_hash AS "previousHash",hash,event_text AS "eventText" FROM garden_control.audit_events`;
+const ROWS=`SELECT workspace_id::text AS "workspaceId",sequence::text AS sequence,previous_hash AS "previousHash",hash,event_text AS "eventText" FROM garden_control.audit_events AS ae`;
 /** No HTTP route is mounted here. The issuer and read pools must use distinct,
  * noninheriting logins. SQL requires a current auditor grant independently of
  * the identity service's cryptographic step-up check. Exports contain opaque
@@ -63,7 +63,7 @@ export function createAuditReader({identity,issuerPool,auditPool,enabled=()=>fal
      }
      if((await at(through.sequence)).hash!==through.hash)fail();
      const from=await at(bounds.after);
-     const entries=(await c.query(ROWS+' WHERE workspace_id=$1::uuid AND sequence>$2::bigint AND sequence<=$3::bigint ORDER BY sequence LIMIT $4',[workspace,bounds.after,through.sequence,bounds.limit])).rows;
+     const entries=(await c.query(ROWS+' WHERE workspace_id=$1::uuid AND sequence>$2::bigint AND sequence<=$3::bigint ORDER BY ae.sequence LIMIT $4',[workspace,bounds.after,through.sequence,bounds.limit])).rows;
      const verified=verifyAuditPage(entries,from);
      if(entries.length===0&&bounds.after!==through.sequence)fail();
      if(subject(await identity.viewer(headers))!==actor||await enabled()!==true)fail();

@@ -15,7 +15,7 @@ const headers=subject=>new Headers({'synthetic-subject':subject});let stepUp=tru
 // Explicit synthetic identity adapter: passkey cryptography is tested separately
 // by the real-browser identity journey. The audit SQL boundary is real here.
 const identity={async viewer(h){return revoked?null:{id:h.get('synthetic-subject'),verified:true};},async authorizePrivileged(h,action,authorize){return stepUp&&!revoked&&action==='audit.inspect'?(await authorize({subjectId:h.get('synthetic-subject'),action})):false;}};
-const rowsSQL=`SELECT workspace_id::text AS "workspaceId",sequence::text,previous_hash AS "previousHash",hash,event_text AS "eventText" FROM garden_control.audit_events WHERE workspace_id=$1 ORDER BY sequence`;
+const rowsSQL=`SELECT workspace_id::text AS "workspaceId",sequence::text,previous_hash AS "previousHash",hash,event_text AS "eventText" FROM garden_control.audit_events AS ae WHERE workspace_id=$1 ORDER BY ae.sequence`;
 let issuer,readerPool,writer,research;
 async function withRole(pool,cap,work){const c=await pool.connect();try{await c.query('BEGIN');await c.query('SET LOCAL ROLE '+cap);const result=await work(c);await c.query('COMMIT');return result;}catch(error){await c.query('ROLLBACK');throw error;}finally{c.release();}}
 try{
@@ -39,7 +39,11 @@ try{
   await admin.query("INSERT INTO garden_control.record_grants(workspace_id,record_id,subject_id,can_read,can_write,purpose,expires_at) VALUES($1,$2,'alice',true,true,'research',clock_timestamp()+interval '30 days')",[W,id]);
   const record={recordType:'source',schemaVersion:1,id,title:SECRET,form:'witness',archivalItemId:null,derivedFrom:[],assertions:[],representation:null};await sources.initialize(headers('alice'),W,id,'1',record);values.push(record);
  }
- let all=(await admin.query(rowsSQL,[W])).rows;verifyAuditPage(all,{workspaceId:W,sequence:'0',hash:GENESIS});
+ let all=(await admin.query(rowsSQL,[W])).rows;
+ assert.ok(all.length>=12,'fixture must exercise multi-digit sequence numbers');
+ assert.deepEqual(all.map(r=>r.sequence),Array.from({length:all.length},(_,i)=>String(i+1)));
+ checked('bigint audit ordering crosses sequence 9 to 10 without lexical reordering');
+ verifyAuditPage(all,{workspaceId:W,sequence:'0',hash:GENESIS});
  assert.ok(all.some(r=>JSON.parse(r.eventText).action==='record.revise'));assert.ok(all.some(r=>JSON.parse(r.eventText).action==='consent.policy'));checked('real research and consent writes append hash-linked structured events in their transaction');
  assert.ok(!JSON.stringify(all).includes(SECRET));assert.ok(!JSON.stringify(all).includes('alice'));assert.ok(!JSON.stringify(all).includes('garden_audit_research_ci'));checked('private source text and raw identity/connection names are excluded from exportable events');
  const aliases=(await admin.query("SELECT workspace_id,alias FROM garden_control.audit_actor_aliases WHERE kind='subject' AND source_reference='alice'")).rows;assert.equal(new Set(aliases.map(x=>x.alias)).size,aliases.length);checked('actor aliases are independently scoped to each workspace');

@@ -42,3 +42,16 @@ test('exception text and opaque request content never enter audit parameters',as
 test('anonymous decision records database origin, not an invented verified actor',async()=>{const f=fixture({viewer:async()=>null});let called=false;const r=await f.decision.decide(H,W,async()=>{called=true;return true;});assert.equal(called,false);assert.equal(r.allowed,false);assert.equal(f.calls.find(x=>x.sql?.includes('record_audit_decision')).args[1],null);});
 test('identity revocation during decision converts it to denied',async()=>{let n=0;const f=fixture({viewer:async()=>++n===1?{id:'auditor',verified:true}:null});assert.equal((await f.decision.decide(H,W,async()=>true)).allowed,false);});
 test('audit write outage cannot release an allowed response',async()=>{const f=fixture({fault:(kind,sql)=>kind==='writer'&&sql.includes('record_audit_decision')});await assert.rejects(()=>f.decision.decide(H,W,async()=>true),AuditError);});
+
+// PostgreSQL ORDER BY prefers a SELECT output alias over an input column.
+// Qualify the stored bigint: sorting the exported sequence::text corrupts pages
+// once a history reaches ten events. The real-PostgreSQL CI exercises this too.
+test('audit exports sort by stored bigint, while retaining exact string sequences',async()=>{
+ const f=fixture();await f.reader.page(H,W);
+ const query=f.calls.find(x=>x.sql?.startsWith('SELECT workspace_id::text'));
+ assert.ok(query);
+ assert.match(query.sql,/sequence::text AS sequence/);
+ assert.match(query.sql,/FROM garden_control\.audit_events AS ae/);
+ assert.match(query.sql,/ORDER BY ae\.sequence LIMIT \$4/);
+ assert.doesNotMatch(query.sql,/ORDER BY sequence(?: |$)/);
+});
