@@ -351,7 +351,10 @@
       "sourceItemId": "GDN-031",
       "applicability": "current_scope",
       "scope": "Build reusable property-based and E2E policy tests for every role/data-class combination and all non-HTML retrieval surfaces.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        29
+      ]
     },
     {
       "id": "GDN-032",

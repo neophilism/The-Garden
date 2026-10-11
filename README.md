@@ -2,7 +2,7 @@
 
 ## Current engineering checkpoint (11 October 2026)
 
-GDN-030 / PR #28 is merged at `7cb417f291011f20f89f66c8a0d2da804b560198` after all six final-head workflows passed. The audit pagination defect was corrected and 21 real PostgreSQL audit checks passed. GDN-031 authorization-isolation work is a candidate until its own CI and merge are verified. See `docs/CURRENT_STATUS.md` and `docs/security/authorization-regression.md`. Earlier checkpoints below are historical, not current production claims.
+GDN-031 / PR #29 is merged at `476ab0b8aff861f52f766d114cbf0a3bc2faa783`, followed by numeric revision-history maintenance #30 at `61d38aa5642988e7d275c9f0856b6fb806440281`. Both passed all six final-head workflows. There are 26 mapped engineering merges and no independently accepted or production-verified capabilities. GDN-039 scoped-review workflow is the current candidate. See `docs/CURRENT_STATUS.md` and the exact PR evidence. Earlier checkpoints below are historical.
 
 
 A public-information and historical-research platform under development.
