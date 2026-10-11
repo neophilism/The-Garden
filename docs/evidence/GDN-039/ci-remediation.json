@@ -1,0 +1,15 @@
+{
+  "scope": "GDN-039 scoped review candidate CI remediation",
+  "failed_head": "88506328bd35c9937cc122d02cd2f4c59393c182",
+  "failures": [
+    {"run_id":38167692670,"cause":"ReviewStatusPanel imported a JavaScript presentation function without an explicit TypeScript return contract.","repair":"Add readonly, exact scoped-review type declarations; retain runtime validation."},
+    {"run_id":38167692672,"cause":"The grant-version test extended expiry but did not advance the version recorded in the assignment receipt.","repair":"Advance the synthetic grant version explicitly; preserve the production version comparison and foreign keys."}
+  ],
+  "prepared_fix_commit": "1db2fa9ea1028315d46157e953bacff7473bf884",
+  "local_review_tests": {"passed":271,"failed":0,"runtime":"Node.js 22.16.0 with experimental type stripping"},
+  "new_postgresql_result":"Pending fresh candidate run; not inferred from unit tests.",
+  "browser_result":"Pending fresh candidate run.",
+  "production_verified":false,
+  "independent_acceptance":false,
+  "cloud_mutations":false
+}
