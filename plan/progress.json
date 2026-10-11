@@ -1,10 +1,10 @@
 {
   "current_scope_items": 196,
   "conditional_items": 14,
-  "remote_prs_opened": 3,
-  "verified_merged_items": 2,
+  "remote_prs_opened": 4,
+  "verified_merged_items": 3,
   "production_verified_items": 0,
   "current_scope_weight": 608,
   "conditional_weight": 46,
-  "note": "Planned items GDN-001 PR #2 and GDN-002 PR #3 merged with passing CI; GDN-003 PR #4 open. Bootstrap #1 excluded from denominator. Accepted independent reviews and all production items remain pending."
+  "note": "GDN-001..003 mapped to merged GitHub PRs #2-#4 with passing exact-head CI. GDN-004 PR #5 open. Bootstrap #1 excluded; review/production acceptance distinct. Conditional 14 not enabled."
 }
