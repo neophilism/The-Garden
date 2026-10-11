@@ -21,8 +21,7 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '24'
-          package-manager-cache: false
-      - name: Materialize, check and commit exact source without cloud mutations
+      - name: Materialize only non-workflow source files
         env:
           EXPECTED_HEAD: ${{ github.sha }}
         run: |
@@ -35,7 +34,8 @@ jobs:
           python3 -m unittest discover -s tests/architecture -q
           python3 -m unittest discover -s tests/database -q
           node --test tests/application/*.test.mjs tests/environment/*.test.mjs tests/access/*.test.mjs tests/data/*.test.mjs
-          git rm -r .transfer/gdn035 .github/workflows/transfer-gdn035.yml
+          git rm -r .transfer/gdn035
+          test -z "$(git diff --cached --name-only -- .github/workflows)"
           test "$(git ls-remote origin refs/heads/data/gdn-035-historical-entities | cut -f1)" = "$EXPECTED_HEAD"
           git config user.name 'Garden repository automation'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
