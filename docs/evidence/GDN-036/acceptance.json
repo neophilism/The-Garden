@@ -1,6 +1,6 @@
 {
   "work_item": "GDN-036",
-  "implementation": "candidate",
+  "implementation": "merged_with_exact_ci",
   "additional_implementation_dependency": "GDN-035",
   "criteria": {
     "GDN-036-AC01": "Explicit witness, edition and digital-representation records, exact-byte metadata only on representations.",
@@ -9,10 +9,14 @@
   },
   "new_unit_tests_passed": 38,
   "local_application_tests_passed": 268,
-  "real_database_checks": "specified executable fixture; pending CI",
+  "real_database_checks": "passed: exact-head historical data workflow",
   "accepted": false,
   "independent_review": "not_performed",
   "public_route_enabled": false,
   "neon_migration_applied": false,
-  "production_verified": false
+  "production_verified": false,
+  "github_pr_number": 23,
+  "github_head_sha": "2c6445f995e05fe608e5a350cab795f49c0cb6c7",
+  "github_merge_sha": "940356a72bc60fb7f484195467e9f157b58feb4c",
+  "ci_url": "https://github.com/neophilism/The-Garden/actions/runs/38129454262"
 }

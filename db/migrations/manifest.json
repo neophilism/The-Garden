@@ -31,6 +31,11 @@
       "id": "0006_archival_sources",
       "file": "0006_archival_sources.sql",
       "sha256": "79f3adf798faf45c64b11bde77a11d8d821269a3d246444ad31c581bb549e4d0"
+    },
+    {
+      "id": "0007_durable_locators",
+      "file": "0007_durable_locators.sql",
+      "sha256": "322b7defc98979fb55d851153ae64d7a7406a405a47c4c83ce5b86a20c596691"
     }
   ]
 }
