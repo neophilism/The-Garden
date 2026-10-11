@@ -1,0 +1,57 @@
+name: Generate and verify Garden npm dependency lock
+on:
+  push:
+    branches: [feature/gdn-009-next-foundation]
+    paths:
+      - .github/workflows/generate-garden-lock.yml
+      - package.json
+      - apps/**
+      - packages/**
+      - services/**
+      - tests/application/**
+permissions:
+  contents: write
+concurrency:
+  group: garden-app-lock-once
+  cancel-in-progress: false
+jobs:
+  lock:
+    if: github.repository == 'neophilism/The-Garden' && github.ref == 'refs/heads/feature/gdn-009-next-foundation'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      NODE_ENV: production
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Generate exact dependency lock from committed manifests
+        run: |
+          test ! -e package-lock.json
+          npm install --package-lock-only --ignore-scripts --no-audit
+          test -s package-lock.json
+          npm ci --no-audit
+      - name: Test all workspaces and exported public HTML
+        run: |
+          npm run check
+          test -s apps/public/out/index.html
+          test -s apps/public/out/funding/index.html
+          test -s apps/public/out/robots.txt
+      - name: Commit lockfile with branch lease, never change other files
+        env:
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          set -eu
+          actual=$(git ls-remote origin refs/heads/feature/gdn-009-next-foundation | cut -f1)
+          test "$actual" = "$EXPECTED_HEAD"
+          git config user.name 'Garden dependency automation'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add package-lock.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'build(GDN-009): lock tested Next.js workspace dependencies'
+          git push origin HEAD:refs/heads/feature/gdn-009-next-foundation
