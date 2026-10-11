@@ -1,4 +1,4 @@
-"""Bounded exact-byte preparation of locally reviewed GDN-031 source changes."""
+"""Bounded exact-byte preparation; workflow changes are committed separately by the authorized repository connection."""
 from pathlib import Path, PurePosixPath
 import base64, hashlib, json, lzma
 ROOT=Path(__file__).resolve().parents[1]
@@ -18,6 +18,9 @@ for item in entries:
     assert name not in seen and path.resolve().is_relative_to(ROOT)
     assert not any(p.is_symlink() for p in (path,*path.parents))
     seen.add(name)
+    if name in {'.github/workflows/ci.yml','.github/workflows/identity.yml'}:
+        assert hashlib.sha256(path.read_bytes()).hexdigest()==item['after'],name
+        continue
     if item['before'] is None:
         assert not path.exists(),name
         old=''
@@ -33,4 +36,4 @@ for item in entries:
     prepared.append((path,result))
 for path,data in prepared:
     path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
-print('Prepared 32 source files; every before/after digest verified; no cloud operations.')
+print('Prepared 30 ordinary files and verified two separately authorized workflow files; no cloud operations.')

@@ -63,6 +63,8 @@ jobs:
         run: node apps/research/access/delivery.ci.mjs
       - name: Purpose-specific consent and withdrawal races
         run: node apps/research/access/consent.ci.mjs
+      - name: Complete role, record class, route, replay and revocation matrix
+        run: node apps/research/access/isolation.ci.mjs
       - name: Real-browser passkeys, step-up, device revocation and recovery
         run: node apps/research/identity/sessions.ci.mjs
       - name: Preserve safe lifecycle evidence and generated synthetic schema
