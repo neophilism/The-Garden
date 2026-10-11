@@ -2,30 +2,42 @@
   "schema_version": 1,
   "project": "the-garden",
   "repository": "neophilism/The-Garden",
-  "authorization_basis": "Owner supplied these exact target URLs and requested continued development in this conversation on 2026-10-10.",
+  "authorization_basis": "Owner supplied exact targets 2026-10-10; authenticated provider inventory rechecked 2026-10-10.",
   "render": {
     "project_id": "prj-db57f92jnfac739ghic0",
+    "workspace_id": "tea-db23jkks728c73av263g",
     "console_url": "https://dashboard.render.com/project/prj-db57f92jnfac739ghic0",
-    "connection_status": "not_connected",
-    "provider_inspection": "not_performed",
+    "connection_status": "connected_read_only_verified",
+    "provider_inspection": "workspace_inventory_inspected",
+    "garden_service_observed": false,
+    "target_project_membership_verified": false,
     "service_id": null,
     "environment": null
   },
   "neon": {
     "project_id": "royal-union-78374030",
+    "project_name": "The Garden",
     "branch_id": "br-curly-band-b5aatp1e",
+    "branch_name": "production",
     "console_url": "https://console.neon.tech/app/projects/royal-union-78374030/branches/br-curly-band-b5aatp1e",
-    "connection_status": "not_connected",
-    "provider_inspection": "not_performed",
-    "database_name": null,
-    "role_name": null
+    "connection_status": "connected_read_only_verified",
+    "provider_inspection": "project_and_branch_verified",
+    "region": "aws-us-east-2",
+    "database_name": "neondb",
+    "role_name": null,
+    "branch_is_default": true,
+    "branch_protected": false,
+    "application_schema_present": false
   },
-  "spending": {"incremental_spend_authorized": false, "create_billable_resources": false},
+  "spending": {
+    "incremental_spend_authorized": false,
+    "create_billable_resources": false
+  },
   "constraints": [
-    "Inspect the exact named project and branch after authenticated connection.",
-    "Do not inherit credentials or databases from another project.",
-    "Do not modify source research or import private data through this manifest.",
-    "Supplied IDs are authorized targets, not proof that resources exist or are deployed.",
-    "Do not allocate billable resources without a separate spending authorization."
+    "Do not alter the default production branch without a reviewed migration and recovery plan.",
+    "Never share other applications' Render services or Neon data/credentials.",
+    "No billable resources may be created without an explicit budget authorization.",
+    "No private historical corpus or family records may be committed to GitHub.",
+    "A verified provider connection is not an application deployment or security certification."
   ]
 }
