@@ -24,5 +24,6 @@ function scan(dir) {
     }
   }
 }
-for (const dir of ['apps', 'packages', 'services', '.github']) scan(dir);
+for (const dir of ['apps', 'packages', 'services', '.github', 'config']) scan(dir);
+if(credentialFindings(read('scripts/check-environment.mjs')).length)throw Error('Credential-shaped value in configuration CLI');
 console.log('CI permissions, immutable action pins, dependency locks and bounded credential checks passed. Not runtime security certification.');
