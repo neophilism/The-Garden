@@ -252,7 +252,10 @@
       "sourceItemId": "GDN-022",
       "applicability": "current_scope",
       "scope": "Configure secure session cookies, CSRF protections, session rotation, passkey/MFA support and step-up authentication for sensitive actions.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        27
+      ]
     },
     {
       "id": "GDN-023",

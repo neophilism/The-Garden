@@ -63,3 +63,7 @@ GDN-036 is merged in PR #23. GDN-038 is the current unmounted source-locator can
 ## Session-security continuation
 
 GDN-029 is merged in PR #26. GDN-022 is the unmounted session/passkey candidate: [session and recovery contract](docs/security/sessions-and-step-up.md). The real verification gates and current mappings are in the execution registry, not inferred from this note.
+
+## Audit-ledger continuation
+
+GDN-022 is merged in PR #27 with all six workflows passing, 88 identity unit tests and 27 real-browser/PostgreSQL checks. GDN-030 is the unmounted audit candidate: [audit contract](docs/security/audit-ledger.md). Exact mappings and independent/deployment gates remain in the execution registry. No live audit service or external checkpoint operator is claimed.
