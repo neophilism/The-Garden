@@ -1,0 +1,27 @@
+{
+  "name": "the-garden",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "workspaces": [
+    "apps/public",
+    "apps/research",
+    "packages/domain",
+    "services/workers"
+  ],
+  "scripts": {
+    "test": "node --test tests/application/*.test.mjs",
+    "build:public": "npm run build --workspace=@garden/public",
+    "build:research": "npm run build --workspace=@garden/research",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "check": "npm run test && npm run typecheck && npm run build:public && npm run build:research"
+  },
+  "devDependencies": {
+    "typescript": "6.0.2",
+    "@types/node": "24.9.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0"
+  }
+}
