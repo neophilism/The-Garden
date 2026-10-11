@@ -1,1 +1,10 @@
-{"current_scope_items":196,"conditional_items":14,"remote_prs_opened":16,"verified_merged_items":16,"production_verified_items":0,"current_scope_weight":608,"conditional_weight":46,"note":"16 engineering items merged with exact-head CI. GDN-024 is a candidate, not yet mapped to an actual PR. Bootstrap #1, inventory #11 and queue follow-up #17 are excluded. Independent acceptance and production are unverified."}
+{
+  "current_scope_items": 196,
+  "conditional_items": 14,
+  "remote_prs_opened": 17,
+  "verified_merged_items": 17,
+  "production_verified_items": 0,
+  "current_scope_weight": 608,
+  "conditional_weight": 46,
+  "note": "17 engineering items merged with observed exact-head CI. GDN-025 is a candidate, not counted as merged or independently accepted. Bootstrap #1, inventory #11 and queue follow-up #17 are excluded. Production and Engine Room live readback remain unverified."
+}

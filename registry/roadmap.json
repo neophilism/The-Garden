@@ -261,7 +261,10 @@
       "sourceItemId": "GDN-023",
       "applicability": "current_scope",
       "scope": "Implement organization/workspace membership, role grants, training tasks, expertise claims and accountable reviewer assignments. Community historians need no institutional credential to contribute.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        19
+      ]
     },
     {
       "id": "GDN-024",
@@ -270,7 +273,10 @@
       "sourceItemId": "GDN-024",
       "applicability": "current_scope",
       "scope": "Enforce tenant/workspace and record policies with non-owner runtime roles and transaction-local identity. Test owner bypass and background-worker contexts explicitly.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        20
+      ]
     },
     {
       "id": "GDN-025",
