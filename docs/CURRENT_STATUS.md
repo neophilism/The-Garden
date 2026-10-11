@@ -1,15 +1,12 @@
-# Current verified project status — 2026-10-10
+# Garden execution status — 2026-10-10
 
-## GitHub engineering
-Bootstrap [PR #1](https://github.com/neophilism/The-Garden/pull/1) restored planning files and is deliberately excluded from the 210-item planned roadmap.
-GDN-001 through GDN-006 have actual merged [PRs #2–#7](https://github.com/neophilism/The-Garden/pulls?q=is%3Apr+is%3Amerged), with passing exact-head CI. **GDN-008 [PR #8](https://github.com/neophilism/The-Garden/pull/8)** is open, adding an executable reconciliation check to keep the PR denominator, mapped PRs, merge evidence, and feature coverage aligned. GDN-007 remains planned. None of these constitute verified production capabilities or independent scholarly/security assessment.
+**Merged:** GDN-001 through GDN-008, each with an actual GitHub PR and passing exact-head CI: PRs #2–#9 (GDN-007 maps to #9; GDN-008 maps to #8). Bootstrap PR #1 is excluded from the 210-item work-item denominator. Reviews and production feature verification remain separate.
+**Open:** [GDN-009 PR #10](https://github.com/neophilism/The-Garden/pull/10): separate Next.js static public and closed research workspaces. The dependency lockfile, app build and independent runtime review are pending; the site has not been deployed.
 
-## Resources
-- GitHub: repository write and merge verified.
-- Neon project `royal-union-78374030` named The Garden; production branch `br-curly-band-b5aatp1e`; database `neondb` had zero tables at last inspection; no mutations made.
-- Render: authenticated workspace `tea-db23jkks728c73av263g`. Exact user-provided Garden project `prj-db57f92jnfac739ghic0` has no Garden service listed in workspace inventory. Available create-service tool cannot specify project ID; deployment not attempted in another project.
-- Engine Room: approved `.exechub/project.yml` and exact `.exechub/approved-pr-mapping.json` now exist; actual registration, progress-bar observation and health ingestion remain unverified.
-- E2EESA source revision `ddfbd40c47d13890ebb81ea91c81fe329417058e` pinned at document-level scope; independent conformance and encrypted production gates still pending.
+**Research:** Four saved CP-017 component archives verified via SHA-256/CRC; CORE SQLite integrity check OK. No family records, original research or unreviewed archive imagery are publicly exposed. Historical, fiscal, legal and permissions reviews remain outstanding.
 
-## Cautions
-Four CP-017 research ZIPs passed checksums, CRC and canonical SQLite read-only integrity; this does not certify historical interpretations or rights. Personal/family source intake, AI processing and governmental workflows remain disabled until their separate gates pass. No additional paid services or background work initiated.
+**Hosting:** Render workspace connected, owner-designated project `prj-db57f92jnfac739ghic0`, no Garden service. Available create-service tool lacks project placement. No deployment or new cost. Neon project `royal-union-78374030`, branch `br-curly-band-b5aatp1e` remains empty/unused. Engine Room manifest and mapping committed, but actual live Garden registration not verified.
+
+**Security:** Canonical E2EESA at exact SHA `ddfbd40c47d13890ebb81ea91c81fe329417058e` subject-area mapping only. Separate review of announced Next.js October 14 security update needed before production release. Site has no login, uploads or payments; planned governmental functions remain disabled.
+
+See `plan/execution.json`, `plan/progress.json`, `.exechub/approved-pr-mapping.json`, `docs/architecture/next-foundation.md`.

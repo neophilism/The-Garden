@@ -100,8 +100,28 @@
       "production_verified": false
     },
     "GDN-008": {
-      "implementation": "pr_open_awaiting_exact_ci",
+      "implementation": "merged_dependency_and_progress_validator",
       "github_pr_number": 8,
+      "github_merge_sha": "7932bab5dbf5492270dc4c59bc599461215aa114",
+      "github_head_sha": "746cd66d905a8dbe16b96ebddd148af36c0a1821",
+      "ci_url": "https://github.com/neophilism/The-Garden/actions/runs/38097708309",
+      "accepted": false,
+      "independent_review": "not_performed",
+      "production_verified": false
+    },
+    "GDN-007": {
+      "implementation": "merged_editorial_review_contract",
+      "github_pr_number": 9,
+      "github_merge_sha": "ba59a29cbe5399c5a96f0bda2a9139588754643f",
+      "github_head_sha": "8b57225d0c0668ac8830bc7b15d244dfe057fb47",
+      "ci_url": "https://github.com/neophilism/The-Garden/actions/runs/38097741149",
+      "accepted": false,
+      "independent_review": "not_performed",
+      "production_verified": false
+    },
+    "GDN-009": {
+      "implementation": "application_pr_open_dependency_lock_and_ci_pending",
+      "github_pr_number": 10,
       "accepted": false,
       "independent_review": "not_performed",
       "production_verified": false
@@ -109,10 +129,10 @@
   },
   "production_verified_items": 0,
   "engine_room": {
-    "registration": "unverified",
-    "sync": "unverified",
+    "registration": "not_verified",
+    "sync": "not_verified",
     "manifest_in_repo": true,
-    "mapped_planned_units": 7
+    "mapped_planned_units": 9
   },
   "environment": "not_deployed"
 }

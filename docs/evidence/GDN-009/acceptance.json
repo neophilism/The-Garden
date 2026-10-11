@@ -1,0 +1,17 @@
+{
+  "work_item_id": "GDN-009",
+  "status": "application_scaffold_pending_ci_lockfile_and_deployment",
+  "profile": "application",
+  "criteria": {
+    "GDN-009-AC01": "fresh clone npm ci / npm run check and two Next builds; exact GitHub CI pending",
+    "GDN-009-AC02": "public build is static export, requires no research database or secrets; researcher app separately deployed, disabled",
+    "GDN-009-AC03": "Node24 / Next16.4.0 / React19.3.0 / TypeScript6.0.2 pinned, npm lockfile generation pending"
+  },
+  "tests": "Node --test / strict typecheck / public+research Next builds / archive-sensitive canary",
+  "remote_ci": "pending",
+  "production_website": "not_deployed",
+  "security_assessment": "not_performed",
+  "next_security_release_review": "Next.js announced October 14 upstream security update; production gate until assessed",
+  "research_workflows": "not_enabled",
+  "authorization": "No new Render site or Neon migration"
+}
