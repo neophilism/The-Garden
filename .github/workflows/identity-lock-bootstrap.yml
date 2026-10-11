@@ -1,0 +1,70 @@
+name: Garden identity dependency bootstrap
+on:
+  push:
+    branches: [identity/gdn-021-account-lifecycle]
+    paths:
+      - .github/workflows/identity-lock-bootstrap.yml
+      - apps/research/identity/**
+      - apps/research/package.json
+permissions:
+  contents: write
+concurrency:
+  group: garden-identity-lock-bootstrap
+  cancel-in-progress: false
+jobs:
+  lock:
+    if: github.repository == 'neophilism/The-Garden' && github.ref == 'refs/heads/identity/gdn-021-account-lifecycle'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:18.6-bookworm
+        env:
+          POSTGRES_DB: neondb
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: garden-identity-ci-only
+        ports:
+          - 127.0.0.1:5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PGHOST: 127.0.0.1
+      PGUSER: postgres
+      PGPASSWORD: garden-identity-ci-only
+      GARDEN_IDENTITY_TEST: ephemeral-ci
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Generate dependency lock and install exact result
+        run: |
+          set -eu
+          npm install --package-lock-only --include=dev --ignore-scripts --no-audit
+          npm ci --include=dev --no-audit
+      - name: Test identity lifecycle before committing dependency state
+        run: |
+          set -eu
+          npm run test:identity --workspace=@garden/research
+          node apps/research/identity/lifecycle.ci.mjs
+          npm run check
+      - name: Commit only verified lock, provided branch has not changed
+        env:
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          set -eu
+          actual=$(git ls-remote origin refs/heads/identity/gdn-021-account-lifecycle | cut -f1)
+          test "$actual" = "$EXPECTED_HEAD"
+          git config user.name 'Garden dependency automation'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add package-lock.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'build(GDN-021): lock tested identity provider dependencies'
+          git push origin HEAD:refs/heads/identity/gdn-021-account-lifecycle
