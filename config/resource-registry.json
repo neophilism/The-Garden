@@ -1,0 +1,21 @@
+{
+  "schema_version":1,
+  "repository":"neophilism/The-Garden",
+  "authorization_reference":"Owner-supplied Garden resource identifiers, 2026-10-10",
+  "render_project_id":"prj-db57f92jnfac739ghic0",
+  "render_workspace_id":"tea-db23jkks728c73av263g",
+  "render_workspace_confirmed":false,
+  "neon_project_id":"royal-union-78374030",
+  "production_branch_id":"br-curly-band-b5aatp1e",
+  "research_activation_review":null,
+  "environments":{
+    "local":{"branch_id":null,"database":null,"role":null,"hosts":["localhost","127.0.0.1","[::1]"],"render_service_id":null},
+    "ci":{"branch_id":null,"database":null,"role":null,"hosts":["localhost","127.0.0.1","[::1]"],"render_service_id":null},
+    "preview":{"branch_id":null,"database":null,"role":null,"hosts":[],"render_service_id":null},
+    "staging":{"branch_id":null,"database":null,"role":null,"hosts":[],"render_service_id":null},
+    "production":{"branch_id":"br-curly-band-b5aatp1e","database":"neondb","role":null,"hosts":["ep-blue-pine-b50s0k0x.c-7.us-east-2.aws.neon.tech","ep-blue-pine-b50s0k0x-pooler.c-7.us-east-2.aws.neon.tech"],"render_service_id":null}
+  },
+  "spending_authorizations":[],
+  "free_provisioning_evidence":[],
+  "note":"Identifiers are not credentials. No application role, staging branch, Render service, spending approval or research activation is inferred. Runtime inspection and deployment remain separate evidence gates."
+}

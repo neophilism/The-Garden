@@ -20,11 +20,12 @@ function scan(dir){for(const name of readdirSync(join(root,dir))){
   if(path.startsWith('apps/public/')&&ts.isImportDeclaration(node)&&ts.isStringLiteral(node.moduleSpecifier)){
     const spec=node.moduleSpecifier.text;
     if(/(?:research|workers|node:fs|node:child_process)/.test(spec))errors.push(path+': public/private import boundary');
-    if(spec.startsWith('.')&&!resolve(root,dir,spec).startsWith(join(root,'apps/public')+'/'))errors.push(path+': relative import leaves public app');
+    const buildGuard=path==='apps/public/next.config.mjs'&&spec==='../../config/validate-process.mjs';
+    if(spec.startsWith('.')&&!buildGuard&&!resolve(root,dir,spec).startsWith(join(root,'apps/public')+'/'))errors.push(path+': relative import leaves public app');
   }
   ts.forEachChild(node,visit);
  }
  visit(source);
 }}
-for(const dir of ['apps','packages','services'])scan(dir);
+for(const dir of ['apps','packages','services','config'])scan(dir);
 if(errors.length){console.error(errors.join('\n'));process.exitCode=1;}else console.log('TypeScript syntax, explicit-any and public-import/sink lint passed (narrow scope).');

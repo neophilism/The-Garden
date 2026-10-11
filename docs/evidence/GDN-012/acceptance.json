@@ -1,0 +1,11 @@
+{
+ "work_item_id":"GDN-012","status":"implemented_pending_remote_verification","accepted":false,"production_verified":false,
+ "criteria":{
+  "GDN-012-AC01":"Repository registry stores IDs, null bindings and references only. Test values are synthetic; real credential retrieval is not used.",
+  "GDN-012-AC02":"Provisioning dry-run denies missing/expired/mismatched spending or free-allowance evidence. No provider mutation occurred.",
+  "GDN-012-AC03":"Both Next config modules invoke a guard rejecting cross-environment credentials and production-branch reuse."
+ },
+ "local_tests":{"environment_and_cli":52,"failures":0,"skipped":0,"runtime":"Node 22 compatibility test with native type stripping; required Node 24 CI pending"},
+ "local_typecheck":"TypeScript 5.8.3 strict preliminary check passed; pinned TypeScript 6.0.2 CI pending",
+ "provider_mutations":false,"spending_authorizations":[],"live_enforcement":"not_deployed","independent_review":"not_performed"
+}
