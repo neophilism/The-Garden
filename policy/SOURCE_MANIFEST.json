@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 4,
   "updated": "2026-10-12",
   "source_repository": "neophilism/The-Garden",
   "pattern": "neophilism/The-Cornerstone/policy/SOURCE_MANIFEST.json",
@@ -185,7 +185,9 @@
       "sha256": "20624af1eb6127822a9fa47332de85e2383c0d6b6b6501ab1d4f485dd5e85e84",
       "location": "ChatGPT Library (authorized access only)",
       "transfer_status": "not_in_repository",
-      "reason": "Original manuscript exceeds GitHub standard 100 MiB file limit; requires verified Git LFS transfer"
+      "reason": "Original manuscript exceeds GitHub standard 100 MiB file limit; requires verified Git LFS transfer",
+      "original_bytes_verified_on": "2026-10-12",
+      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
     },
     {
       "filename": "registry_African-Tribal-Nations_atlas_v1-30-alpha_2026-10-10.docx",
@@ -194,7 +196,9 @@
       "sha256": "558d174ca136bcaa0ad1d1999a3c2844261782c7017b6ad826be4133ba4f67e9",
       "location": "ChatGPT Library (authorized access only)",
       "transfer_status": "not_in_repository",
-      "reason": "GitHub connector rejected binary transfer; do not claim committed"
+      "reason": "GitHub connector rejected binary transfer; do not claim committed",
+      "original_bytes_verified_on": "2026-10-12",
+      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
     },
     {
       "filename": "Not-From-Nowhere_Work-Log_v1-18_2026-10-10.md",
@@ -203,7 +207,9 @@
       "sha256": "2b0732a9d0c1232314c6c17775d08f609fc27f2b9eabd2ac333e0d9ab4328c85",
       "location": "ChatGPT Library (authorized access only)",
       "transfer_status": "not_in_repository",
-      "reason": "GitHub connector rejected source transfer"
+      "reason": "GitHub connector rejected source transfer",
+      "original_bytes_verified_on": "2026-10-12",
+      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
     },
     {
       "filename": "Not-From-Nowhere_Research-Corpus_v1-18_CONTENTS.txt",
@@ -212,7 +218,9 @@
       "sha256": "07e2cd6bace1d39b5d0b64cd95f0c9748643b742a92ee27ee6e79f382dff7e8b",
       "location": "ChatGPT Library (authorized access only)",
       "transfer_status": "not_in_repository",
-      "reason": "Not transferred; raw archive remains separately held"
+      "reason": "Not transferred; raw archive remains separately held",
+      "original_bytes_verified_on": "2026-10-12",
+      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
     },
     {
       "filename": "audit_CP-018_2026-10-10.json",
@@ -221,7 +229,9 @@
       "sha256": "88c5a93d2d8d746888cefc8d55c26896ccb061467210d3727f07479420c6409a",
       "location": "ChatGPT Library (authorized access only)",
       "transfer_status": "not_in_repository",
-      "reason": "Not transferred; retain private indexed copy"
+      "reason": "Not transferred; retain private indexed copy",
+      "original_bytes_verified_on": "2026-10-12",
+      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
     },
     {
       "filename": "page_inspection_ledger_CP-018_2026-10-10.json",
@@ -230,7 +240,9 @@
       "sha256": "794121bc928d392b98ae23669852ad39bdd0e59dba70b4ac32e97ff2f5b17b65",
       "location": "ChatGPT Library (authorized access only)",
       "transfer_status": "not_in_repository",
-      "reason": "GitHub connector rejected source transfer"
+      "reason": "GitHub connector rejected source transfer",
+      "original_bytes_verified_on": "2026-10-12",
+      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
     },
     {
       "filename": "validation_Not-From-Nowhere_Current-Work_CP-018_2026-10-10.json",
@@ -239,7 +251,9 @@
       "sha256": "56609505d410c8e99c1120f9bf887733c7af5ba7be0ec2b12f5badf115974a06",
       "location": "ChatGPT Library (authorized access only)",
       "transfer_status": "not_in_repository",
-      "reason": "Not transferred; retained in Library"
+      "reason": "Not transferred; retained in Library",
+      "original_bytes_verified_on": "2026-10-12",
+      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
     },
     {
       "filename": "Not-From-Nowhere_Research-Corpus_v1-18_CORE_2026-10-10.zip",
@@ -248,7 +262,9 @@
       "sha256": "5e2ee9d4b675d69d152d0e1b5fedcca0ded133b2bfd6e989e31fd6218aea4dd5",
       "location": "ChatGPT Library (authorized access only)",
       "transfer_status": "not_in_repository",
-      "reason": "Large binary archive; LFS-capable transfer required"
+      "reason": "Large binary archive; LFS-capable transfer required",
+      "original_bytes_verified_on": "2026-10-12",
+      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
     },
     {
       "filename": "Not-From-Nowhere_Research-Corpus_v1-18_EXPORTS_2026-10-10.zip",
@@ -257,7 +273,9 @@
       "sha256": "761c591c3555d518b8c0d6e0507993873d250dcaa90f1370fb511f61ada1e37a",
       "location": "ChatGPT Library (authorized access only)",
       "transfer_status": "not_in_repository",
-      "reason": "Large binary archive; LFS-capable transfer required"
+      "reason": "Large binary archive; LFS-capable transfer required",
+      "original_bytes_verified_on": "2026-10-12",
+      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
     },
     {
       "filename": "Not-From-Nowhere_Research-Corpus_v1-18_SOURCES_2026-10-10.zip",
@@ -266,7 +284,9 @@
       "sha256": "d583c932b10756a9418bb37eae767ad6537105521030229788afee0a77bef195",
       "location": "ChatGPT Library (authorized access only)",
       "transfer_status": "not_in_repository",
-      "reason": "Large binary archive exceeds standard GitHub limit; LFS-capable transfer required"
+      "reason": "Large binary archive exceeds standard GitHub limit; LFS-capable transfer required",
+      "original_bytes_verified_on": "2026-10-12",
+      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
     },
     {
       "filename": "Not-From-Nowhere_Research-Corpus_v1-18_RECOVERY_2026-10-10.zip",
@@ -275,21 +295,29 @@
       "sha256": "0625c0549e93d563531485625e538cd71babffed6bfa3744453b4709dbc25d07",
       "location": "ChatGPT Library (authorized access only)",
       "transfer_status": "not_in_repository",
-      "reason": "Large binary archive; LFS-capable transfer required"
+      "reason": "Large binary archive; LFS-capable transfer required",
+      "original_bytes_verified_on": "2026-10-12",
+      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
     },
     {
       "filename": "Not-From-Nowhere_Current-Work_CP-018_2026-10-10.zip",
       "library_file_id": "libfile_c58b0f342b0c819180cb32ebe75aad19",
       "location": "ChatGPT Library (authorized access only)",
       "transfer_status": "not_in_repository",
-      "reason": "Portable snapshot remains in Library; large archive not transferred"
+      "reason": "Portable snapshot remains in Library; large archive not transferred",
+      "bytes": 229393484,
+      "sha256": "2ccd4fb8b62accb1e67724401f651827208eca9adfb87daeff142c3cb85b1496",
+      "original_bytes_verified_on": "2026-10-12",
+      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
     }
   ],
   "transfer_rules": {
     "small_document_check": "python3 scripts/verify_policy_sources.py --check",
     "large_archive_import": "See historical-research/LARGE_ARCHIVES.md; LFS costs and access must be authorized; no plain Git objects above platform limits",
     "privacy": "The repository is public. Exclude third-party records, family data, rights-restricted scans and sensitive intake absent explicit source-specific authorization.",
-    "recovery": "CP-018 not fully equivalent to preceding historical editions; see corpus manifest and research handoff"
+    "recovery": "CP-018 not fully equivalent to preceding historical editions; see corpus manifest and research handoff",
+    "external_original_verification": "python3 scripts/verify_policy_archives.py --source-dir <authorized-folder> --require-all",
+    "verification_scope": "All 12 external originals were materialized and their SHA-256 digests and sizes independently checked on 2026-10-12; none of these 12 original files is in Git."
   },
   "repository_visibility_checked_at": "2026-10-12"
 }

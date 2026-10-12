@@ -17,7 +17,7 @@
 
 ## What remains outside Git
 
-The 219 MB illustrated Atlas book, four original corpus ZIP archives, African nations registry and some audit/work-log/contents files are **not committed**. Their exact filenames, Library identifiers and checksums (where available) are in [the source manifest](../SOURCE_MANIFEST.json), under `external_materials`. [Large-source transfer guidance](LARGE_ARCHIVES.md) describes the appropriate LFS workflow.
+The 219 MB illustrated Atlas book, four original corpus ZIP archives, African nations registry and some audit/work-log/contents files are **not committed**. All 12 external originals had their unchanged bytes independently reverified locally on 12 October 2026; see [the integrity evidence](EXTERNAL_ORIGINALS_INTEGRITY_2026-10-12.json). Their exact filenames, Library identifiers and checksums (where available) are in [the source manifest](../SOURCE_MANIFEST.json), under `external_materials`. [Large-source transfer guidance](LARGE_ARCHIVES.md) describes the appropriate LFS workflow.
 
 The owner's decision to allow a public policy repository is reflected in this organization. It does not imply that third-party photographs, records, private family testimony or other copyrighted or sensitive evidence may be indiscriminately republished. Any later public site release of those originals requires source-specific review. Research claims, transcriptions and disputed identities retain their uncertainty regardless of whether this working folder is publicly accessible.
 
