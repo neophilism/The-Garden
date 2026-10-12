@@ -45,6 +45,23 @@
       },
       "mapped_work_items": [],
       "note": "Numeric history ordering correction for GDN-035/036/038. No new roadmap unit or production acceptance."
+    },
+    {
+      "kind": "engineering_followup_merge",
+      "pr_number": 39,
+      "url": "https://github.com/neophilism/The-Garden/pull/39",
+      "github_head_sha": "fcbf577f836fc1b78719d032d9b674804e920a92",
+      "github_merge_sha": "12f9e1ff02dbf3349caa4f587c9c354d15ba0ba3",
+      "ci_workflows": {
+        "repository": 38252313671,
+        "database": 38252313624,
+        "identity": 38252313693,
+        "storage": 38252313716,
+        "historical_data": 38252313630,
+        "quality_browser": 38252313632
+      },
+      "mapped_work_items": [],
+      "note": "GDN-045 read-only diagnostic follow-up. Six exact-head workflows and nine checks succeeded. No additional roadmap completion or live ingestion inferred; private source reports excluded from GitHub."
     }
   ],
   "work_items": {
@@ -524,6 +541,17 @@
       "production_verified": false,
       "independent_review": "not_performed",
       "note": "All six exact-head workflows and nine checks succeeded before GitHub reported clean mergeability and confirmed merge. Controlled >400 MB extraction, crash recovery and real PostgreSQL audit integration passed. No historical source ingestion or review/publication inferred."
+    },
+    "GDN-077": {
+      "implementation": "in_review",
+      "github_pr_number": 40,
+      "github_head_sha": null,
+      "github_merge_sha": null,
+      "ci_url": null,
+      "accepted": false,
+      "production_verified": false,
+      "independent_review": "not_performed",
+      "note": "Durable resumable quarantine uploads, receipt panel and GDN-045 registry handoff. Exact-head CI and normal GitHub review required before merge; hosted activation remains separate."
     }
   },
   "production_verified_items": 0,
@@ -534,5 +562,5 @@
     "mapped_planned_units": 32
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-12T12:27:09.625894+00:00"
+  "observed_at_utc": "2026-10-12T13:23:30.113814+00:00"
 }

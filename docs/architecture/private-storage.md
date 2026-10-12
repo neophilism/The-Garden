@@ -9,3 +9,7 @@ No caller may inject the authorizer, review service, backend, signer or object m
 `node --test tests/storage/*.test.mjs` runs 22 local transport/permission/integrity tests using synthetic in-memory storage and Response fixtures. This is not a completed provider upload/download integration. Actual provider conditional-write support, signed-header compatibility, multipart interruption/resume, version restore, external anonymous denial, customer key management and deployment are still unverified. Files above 8 MiB are deliberately rejected until streaming/multipart controls exist. Do not ingest the large research ZIPs through this adapter yet.
 
 Application-level immutable references are not S3 Object Lock or a guarantee against provider administrators changing bytes. Hash verification detects modified bytes; access policies, backups and independent security review remain necessary. No E2EE or security certification is claimed. The HTTP adapter cannot be exposed as a public upload API without the later identity, rights, malware and publication gates.
+
+## Resumable offline admission
+
+GDN-077 adds a separate private filesystem/SQLite upload repository, bounded chunks and audited admission. It does not enlarge this adapter's 8 MiB limit or implement provider multipart transfer. Completed SQLite uploads can resolve into the offline staging contract; the namespace reference is explicitly labelled private offline quarantine. See [the runbook](../runbooks/resumable-uploads.md).

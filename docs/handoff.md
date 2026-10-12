@@ -1,5 +1,11 @@
 # Handoff to the next developer or AI agent
 
+## Resumable intake implementation (12 October 2026)
+
+GDN-077 adds owner-bound, checksummed uploads with durable pause/resume, quota reservation, crash recovery, private quarantine receipts and a trusted handoff to GDN-045. The contributor panel distinguishes bytes received from research review and publication. [Runbook](runbooks/resumable-uploads.md); [acceptance evidence](evidence/GDN-077/acceptance.json). Implementation is under review in [PR #40](https://github.com/neophilism/The-Garden/pull/40) and remains disabled/unmounted; hosted activation and independent acceptance are not claimed.
+
+The read-only preflight follow-up merged as [PR #39](https://github.com/neophilism/The-Garden/pull/39) at `12f9e1ff02dbf3349caa4f587c9c354d15ba0ba3`, after six workflows and nine checks passed on `fcbf577f836fc1b78719d032d9b674804e920a92`. Real-source development reports remain private. GDN-077 tests use generated data; no historical source has been uploaded through this capability or promoted into research records.
+
 ## Current continuation: 12 October 2026
 
 The sections below describing an uncreated repository are historical planning-baseline statements. Current authority is `docs/CURRENT_STATUS.md`, `plan/execution.json` and actual GitHub evidence. GDN-045 adds the unmounted offline importer in `services/workers/import/stage.py` with a server admission adapter in `services/workers/src/corpus-staging.mjs`. Start with `docs/runbooks/corpus-staging.md`, its exact activation boundaries and `docs/evidence/GDN-045/`. No real corpus ingestion or production deployment is implied by the implementation. Continue via normal checked-head PRs; never infer historical or rights approval from stored source labels.

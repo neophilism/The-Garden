@@ -1,0 +1,7 @@
+{
+  "work_item_id": "GDN-077",
+  "verified": false,
+  "url": null,
+  "service_id": null,
+  "scope": "Local and ephemeral CI synthetic fixtures only. No hosted uploads or operational corpus migration."
+}

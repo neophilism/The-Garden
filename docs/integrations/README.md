@@ -45,3 +45,9 @@ Engine Room's repository contract describes authenticated reconciliation and bes
 ## GDN-045 registration (12 October 2026)
 
 Canonical and compatibility source mappings now include confirmed GDN-045 / PR #37: 32 mapped PRs and 32 confirmed engineering merges; all six exact-head workflows passed. Live Engine Room ingestion/readback remains unverified. The offline staging adapter creates no provider resources and has no production authorization/storage binding.
+
+## GDN-077 integration under review
+
+Resumable uploads reuse the existing audited-decision service and provide an actual private source-registry resolver for the offline staging worker. The ephemeral PostgreSQL CI handoff verifies parent decision receipts and absence of research-record promotion. No provider upload, route activation or live Engine Room synchronization is implied. GDN-045 follow-up PR #39 is confirmed merged and does not add a roadmap unit.
+
+The observed GDN-077 mapping is PR #40, under review: 33 mapped PRs and 32 confirmed engineering merges. Canonical and compatibility mappings agree. Live Engine Room readback remains unverified.

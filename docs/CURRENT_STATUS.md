@@ -1,10 +1,16 @@
 # Current continuation — 12 October 2026
 
+## Resumable intake implementation (12 October 2026)
+
+GDN-077 adds owner-bound, checksummed uploads with durable pause/resume, quota reservation, crash recovery, private quarantine receipts and a trusted handoff to GDN-045. The contributor panel distinguishes bytes received from research review and publication. [Runbook](runbooks/resumable-uploads.md); [acceptance evidence](evidence/GDN-077/acceptance.json). Implementation is under review in [PR #40](https://github.com/neophilism/The-Garden/pull/40) and remains disabled/unmounted; hosted activation and independent acceptance are not claimed.
+
+The read-only preflight follow-up merged as [PR #39](https://github.com/neophilism/The-Garden/pull/39) at `12f9e1ff02dbf3349caa4f587c9c354d15ba0ba3`, after six workflows and nine checks passed on `fcbf577f836fc1b78719d032d9b674804e920a92`. Real-source development reports remain private. GDN-077 tests use generated data; no historical source has been uploaded through this capability or promoted into research records.
+
 ## Read-only corpus preflight
 
 A bounded operator diagnostic now measures actual staging payload and storage classes using the importer serializer. It verifies the pinned source and complete schema/count contract without creating staging rows, copying values into reports or activating hosted ingestion. Results from privately authorized corpus inspection remain restricted operational evidence. See [the preflight runbook](runbooks/corpus-preflight.md).
 
-Use real-source measurements to provision separately accepted private staging capacity; archive size alone is insufficient. GDN-077 resumable quarantine uploads is the next dependency-ready implementation. Historical review, rights clearance, normalization and public release remain separate.
+Use real-source measurements to provision separately accepted private staging capacity; archive size alone is insufficient. GDN-077 resumable quarantine uploads is under review. GDN-078 repository links and bibliographic intake becomes dependency-ready after its merge. Historical review, rights clearance, normalization and public release remain separate.
 
 ## GDN-045 implementation — PR #37 merged
 

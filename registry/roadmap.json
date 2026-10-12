@@ -796,7 +796,10 @@
       "sourceItemId": "GDN-077",
       "applicability": "current_scope",
       "scope": "Implement chunked uploads, checksums, quotas, pause/resume and clear contributor receipts for allowed file types.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        40
+      ]
     },
     {
       "id": "GDN-078",

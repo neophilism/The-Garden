@@ -1,10 +1,13 @@
 import assert from 'node:assert/strict';
 import {randomBytes,randomUUID} from 'node:crypto';
-import {mkdir,writeFile,mkdtemp,rm} from 'node:fs/promises';
+import {mkdir,writeFile,readFile,mkdtemp,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import pg from 'pg';
+import {DatabaseSync} from 'node:sqlite';
+import {createResumableUploads} from '../../../services/workers/src/resumable-uploads.mjs';
+import {createPrivateUploadRepository} from '../../../services/workers/src/upload-repository.mjs';
 import {createAuditReader,createAuditedDecision} from './audit.mjs';
 import {createPolicyExecutor} from './policy-context.mjs';
 import {createSourceRepository} from '../data/source-repository.mjs';
@@ -96,6 +99,43 @@ try{
   for(const receipt of receipts)assert.equal((await admin.query("SELECT count(*)::integer AS n FROM garden_control.audit_events WHERE workspace_id=$1 AND event_text::jsonb->>'requestId'=$2 AND event_text::jsonb->>'action'='access.allow'",[W,receipt])).rows[0].n,1);
   checked('offline staging rechecks actual audited identity decisions, records commit receipts and leaves operational records unchanged');
  }finally{revoked=false;await rm(stagingRoot,{recursive:true,force:true});}
+ // GDN-077: actual private filesystem/SQLite upload ledger + PostgreSQL
+ // decision receipts + actual staging subprocess, with synthetic source grants.
+ const uploadRoot=await mkdtemp(join(tmpdir(),'garden-audit-upload-'));
+ let uploadRepository;
+ try{
+  const sourceDir=join(uploadRoot,'generated-source'),quarantineDir=join(uploadRoot,'private-uploads');
+  await mkdir(sourceDir,{mode:0o700});await mkdir(quarantineDir,{mode:0o700});
+  const fixture=JSON.parse(execFileSync('/usr/bin/python3',['tests/import/staging_fixture.py',sourceDir,'5']).toString());
+  const bytes=await readFile(fixture.source_path);
+  uploadRepository=createPrivateUploadRepository({root:quarantineDir,workspaceQuotaBytes:1024*1024,ownerQuotaBytes:1024*1024});
+  let uploadAllowed=true;
+  const uploads=createResumableUploads({decisions,repository:uploadRepository,enabled:()=>true,
+   authorize:async(facts,request)=>uploadAllowed&&facts.subjectId==='alice'&&(!request.sourceRef||request.sourceRef.sha256===fixture.source_ref.sha256)});
+  const spec={uploadId:randomUUID(),sourceId:fixture.source_ref.sourceId,version:fixture.source_ref.version,
+   sha256:fixture.source_ref.sha256,size:bytes.length,declaredType:'application/vnd.sqlite3'};
+  const beforeRecords=(await admin.query('SELECT count(*)::integer AS n FROM garden_private.record_envelopes')).rows[0].n;
+  await uploads.start(headers('alice'),W,spec);
+  uploadAllowed=false;await assert.rejects(()=>uploads.chunk(headers('alice'),W,{uploadId:spec.uploadId,index:0,bytes,sha256:spec.sha256}));uploadAllowed=true;
+  assert.equal((await uploads.status(headers('alice'),W,{uploadId:spec.uploadId,afterIndex:-1})).receivedChunks,0);
+  await uploads.chunk(headers('alice'),W,{uploadId:spec.uploadId,index:0,bytes,sha256:spec.sha256});
+  const receipt=await uploads.finalize(headers('alice'),W,{uploadId:spec.uploadId});
+  assert.equal(receipt.publiclyAccessible,false);assert.equal(receipt.malware,'unavailable');
+  const staged=createCorpusStaging({decisions,enabled:()=>true,
+   authorize:async(facts,request)=>facts.subjectId==='alice'&&request.sourceRef.sha256===spec.sha256,
+   resolveSource:uploadRepository.resolveSource,
+   extract:createOfflineStagingWorker({loadContracts:async()=>({mapping:fixture.mapping,inventory:fixture.inventory})})});
+  const result=await staged.stage(headers('alice'),W,{runId:randomUUID(),sourceRef:receipt.sourceRef});
+  assert.equal(result.rows,5);assert.equal(result.historicalReview,'unreviewed');
+  const ledger=new DatabaseSync(join(quarantineDir,'uploads.sqlite'),{readOnly:true});
+  try{
+   const committed=ledger.prepare('SELECT payload FROM upload_events').all().map(r=>JSON.parse(r.payload)).filter(e=>['session-created','chunk-received','finalized-quarantined'].includes(e.kind));
+   assert.equal(committed.length,3);
+   for(const event of committed)assert.equal((await admin.query("SELECT count(*)::integer AS n FROM garden_control.audit_events WHERE workspace_id=$1 AND event_text::jsonb->>'requestId'=$2 AND event_text::jsonb->>'action'='access.allow'",[W,event.requestId])).rows[0].n,1);
+  }finally{ledger.close();}
+  assert.equal((await admin.query('SELECT count(*)::integer AS n FROM garden_private.record_envelopes')).rows[0].n,beforeRecords);
+  checked('resumable upload commits bind real PostgreSQL decisions and hand off to quarantined staging without operational record promotion');
+ }finally{if(uploadRepository)await uploadRepository.close();await rm(uploadRoot,{recursive:true,force:true});}
  const original=all[0];await admin.query('ALTER TABLE garden_control.audit_events DISABLE TRIGGER immutable_audit_events');
  try{await admin.query("UPDATE garden_control.audit_events SET hash=repeat('1',64) WHERE workspace_id=$1 AND sequence=1",[W]);await assert.rejects(()=>audit.page(headers('auditor'),W),AuditError);}
  finally{await admin.query('UPDATE garden_control.audit_events SET hash=$2 WHERE workspace_id=$1 AND sequence=1',[W,original.hash]);await admin.query('ALTER TABLE garden_control.audit_events ENABLE TRIGGER immutable_audit_events');}
