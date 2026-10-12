@@ -245,3 +245,24 @@ test('revoked session creation leaves no unreserved upload directories',async t=
  const f=await fixture(t);f.hook(op=>{if(op.action==='upload:start'&&op.phase==='commit')f.allow(false);});
  await assert.rejects(f.start);assert.deepEqual(await readdir(f.root),['uploads.sqlite']);
 });
+
+test('content-duplicate receipt is confined to the same owner and workspace',async t=>{
+ const f=await fixture(t,{bytes:source(128)}),first=await f.all();
+ assert.equal(first.duplicateOfUploadId,null);
+ const unique=()=>({...f.input,uploadId:randomUUID(),sourceId:randomUUID(),version:randomUUID()});
+ async function accept(input,workspace=workspaceId){
+  const start=await f.api.start({},workspace,input);
+  assert.equal(start.duplicateOfUploadId,null,'a claimed hash is not a verified duplicate');
+  await f.api.chunk({},workspace,{uploadId:input.uploadId,index:0,sha256:hash(f.bytes),bytes:f.bytes});
+  return f.api.finalize({},workspace,{uploadId:input.uploadId});
+ }
+ const second=await accept(unique());
+ assert.equal(second.duplicateOfUploadId,first.uploadId);
+ const replay=await f.api.finalize({},workspaceId,{uploadId:second.uploadId});
+ assert.equal(replay.duplicateOfUploadId,first.uploadId);
+ f.actor('other-contributor');
+ const otherOwner=await accept(unique());assert.equal(otherOwner.duplicateOfUploadId,null);
+ f.actor('synthetic-owner');
+ const otherWorkspace=await accept(unique(),randomUUID());assert.equal(otherWorkspace.duplicateOfUploadId,null);
+ assert.equal((await f.status()).duplicateOfUploadId,null);
+});

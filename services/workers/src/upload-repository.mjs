@@ -107,6 +107,13 @@ export function createPrivateUploadRepository({root,workspaceQuotaBytes,ownerQuo
   run('INSERT INTO upload_events VALUES(?,?,?,?,?)',sequence,row.uploadId,payload,previous,hash(previous+'\n'+payload));
  }
  function receipt(row,afterIndex=-1){
+  // Report exact-byte duplicates only within this contributor's own workspace.
+  // Never reveal cross-contributor matches or infer a historical duplicate.
+  let duplicateOfUploadId=null;
+  if(row.state==='complete-quarantined'){
+   duplicateOfUploadId=one("SELECT uploadId FROM upload_sessions WHERE workspaceId=? AND subjectId=? AND sha256=? AND size=? AND declaredType=? AND state='complete-quarantined' AND uploadId<>? ORDER BY createdMs,uploadId LIMIT 1",
+    row.workspaceId,row.subjectId,row.sha256,row.size,row.declaredType,row.uploadId)?.uploadId??null;
+  }
   const counts=one('SELECT count(*) AS n,coalesce(sum(size),0) AS bytes FROM upload_chunks WHERE uploadId=?',row.uploadId);
   const chunks=db.prepare('SELECT chunkIndex AS "index",size,sha256 FROM upload_chunks WHERE uploadId=? AND chunkIndex>? ORDER BY chunkIndex LIMIT 128').all(row.uploadId,afterIndex);
   const head=one('SELECT hash FROM upload_events WHERE uploadId=? ORDER BY sequence DESC LIMIT 1',row.uploadId)?.hash??ZERO;
@@ -116,6 +123,7 @@ export function createPrivateUploadRepository({root,workspaceQuotaBytes,ownerQuo
    chunks:chunks.map(c=>Object.freeze({...c})),nextAfterIndex:chunks.length===128?chunks.at(-1).index:null,
    expiresMs:row.expiresMs,auditHead:head,bytesVerified:row.state==='complete-quarantined',
    sourceRef:row.state==='complete-quarantined'?uploadSourceRef(row):null,
+   duplicateOfUploadId,
    storageLocation:'private-offline-quarantine',malware:'unavailable',historicalReview:'unreviewed',rights:'unreviewed',
    publicationApproved:false,publiclyAccessible:false});
  }

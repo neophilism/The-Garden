@@ -25,12 +25,15 @@ export function UploadReceiptPanel({receipt}:{receipt:unknown}){
   r.bytesVerified!==(state==='complete-quarantined')||r.historicalReview!=='unreviewed'||r.rights!=='unreviewed'||
   r.publiclyAccessible!==false||r.publicationApproved!==false||
   (state==='complete-quarantined'&&(r.receivedBytes!==r.expectedBytes||r.receivedChunks!==r.totalChunks))||
-  (state==='purged'&&(r.receivedBytes!==0||r.receivedChunks!==0)))throw Error('Invalid upload receipt');
+  (state==='purged'&&(r.receivedBytes!==0||r.receivedChunks!==0))||
+  (r.duplicateOfUploadId!=null&&(state!=='complete-quarantined'||typeof r.duplicateOfUploadId!=='string'||
+   !/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/.test(r.duplicateOfUploadId))))throw Error('Invalid upload receipt');
  const [title,notice]=STATES[state];
  return <section aria-labelledby={heading} style={{border:'1px solid #c3d0c7',borderRadius:12,padding:'1.25rem',maxWidth:'38rem',overflowWrap:'anywhere'}}>
   <h2 id={heading}>{title}</h2><p>{notice}</p>
   {state!=='purged'&&<><progress aria-label="Upload bytes received" aria-describedby={hint} max={r.expectedBytes} value={r.receivedBytes} style={{width:'100%'}}/><p id={hint}>{bytes(r.receivedBytes)} of {bytes(r.expectedBytes)} received · {r.receivedChunks} of {r.totalChunks} parts</p></>}
   <p>Receipt <code>{r.uploadId}</code></p>
+  {r.duplicateOfUploadId!=null&&<p>These bytes match another upload you submitted in this workspace: <code>{r.duplicateOfUploadId}</code>. This is not a historical verification.</p>}
   <p>Uploading does not establish historical accuracy or permission to publish.</p>
  </section>;
 }

@@ -16,7 +16,7 @@ Compose `createResumableUploads` with the existing durable audited-decision serv
 | `abort` | None | Abandoned parts retained until expiry |
 | `expire` | None | Authorized cleanup of expired, unaccepted parts |
 
-Upload, source and version identifiers are opaque UUIDs. The declared full-file SHA-256, exact byte size, media type and owner are immutable. A second upload cannot claim an existing source/version. `sourceRef` is absent until finalization commits. A partial upload never appears in the research source registry.
+Upload, source and version identifiers are opaque UUIDs. The declared full-file SHA-256, exact byte size, media type and owner are immutable. A second upload cannot claim an existing source/version. Following verification, receipts flag a byte-identical completed upload only when it belongs to the same authenticated contributor and workspace; other contributors' and workspaces' digests and upload IDs remain undisclosed. This is a SHA-256 content match, not historical source deduplication or permission to reuse another person's submission. `sourceRef` is absent until finalization commits. A partial upload never appears in the research source registry.
 
 Admission first checks workspace/upload authority; `session-bound` and subsequent gates additionally carry the authoritative stored source reference. The authorizer must enforce source grants there. Renew permission during byte verification, at each assembled chunk, immediately before commit and before returning the receipt. An allow decision is not an operation-completion receipt. This module does not supply production identity credentials, source grants or privileged-operator assurance.
 

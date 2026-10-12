@@ -27,7 +27,13 @@ for(const state of ['receiving','paused','complete-quarantined','aborted','expir
  await page.addScriptTag({path:require.resolve('axe-core/axe.min.js')});const axe=await page.evaluate(()=>window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa','best-practice']}}));
  await info.attach('upload-receipt-axe',{body:JSON.stringify(axe),contentType:'application/json'});expect(axe.violations).toEqual([]);
 });
+test('scoped duplicate receipt identifies bytes without implying review or sharing',async({page})=>{
+ await page.setContent(markup({...receipt('complete-quarantined'),duplicateOfUploadId:'bbbbbbbb-bbbb-4bbb-bbbb-bbbbbbbbbbbb'}));
+ await expect(page.locator('main')).toContainText('These bytes match another upload you submitted in this workspace');
+ await expect(page.locator('main')).toContainText('not a historical verification');
+ await expect(page.locator('a,button,input,form')).toHaveCount(0);
+});
 test('contradictory and forged upload statuses are refused',()=>{
- for(const patch of [{bytesVerified:true},{historicalReview:'verified'},{publiclyAccessible:true},{receivedBytes:9999999},{state:'published'},{uploadId:'<img onerror=alert(1)>'}])expect(()=>markup({...receipt(),...patch})).toThrow('Invalid upload receipt');
+ for(const patch of [{bytesVerified:true},{historicalReview:'verified'},{publiclyAccessible:true},{receivedBytes:9999999},{state:'published'},{uploadId:'<img onerror=alert(1)>'},{duplicateOfUploadId:'not-a-uuid'}])expect(()=>markup({...receipt(),...patch})).toThrow('Invalid upload receipt');
  expect(()=>markup({...receipt('complete-quarantined'),receivedChunks:1})).toThrow('Invalid upload receipt');
 });

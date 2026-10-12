@@ -7,12 +7,14 @@
   "criteria": {
     "GDN-077-AC01": "Only a committed full size/hash/header verification creates a quarantine reference. Partial, paused, revoked, interrupted or expired sessions expose no accepted source.",
     "GDN-077-AC02": "Authenticated subject/workspace/source binding is checked before storage access and at current audited gates; takeover and changed-manifest replays reject.",
-    "GDN-077-AC03": "Each part and assembled original are rehashed; the GDN-045 handoff rechecks original bytes and the reviewed schema independently. Malware and historical/rights review remain unperformed."
+    "GDN-077-AC03": "Each part and assembled original are rehashed; the GDN-045 handoff rechecks original bytes and the reviewed schema independently. Malware and historical/rights review remain unperformed.",
+    "GDN-077-AC04": "Byte-identical completed sources are reported only to the same owner and workspace after full verification. No other contributor or workspace identity leaks through duplicate receipts."
   },
   "test_ids": {
     "GDN-077-T01": "Out-of-order parts, pause/resume, durable reopen, exact replay, actual subprocess SIGKILL before chunk/finalize commit and successful recovery.",
     "GDN-077-T02": "Per-part/whole digest, MIME header, body/source limits, reservation/session/in-flight quotas, corrupted stored bytes, unsafe modes and symlinks.",
-    "GDN-077-T03": "Owner/workspace takeover, disabled capability, current source grants, identity changes, cancellation, commit-time revocation and durable audit failures."
+    "GDN-077-T03": "Owner/workspace takeover, disabled capability, current source grants, identity changes, cancellation, commit-time revocation and durable audit failures.",
+    "GDN-077-T04": "Same-owner content duplicate receipt, denied cross-contributor/workspace duplicate disclosure and rejection of contradictory receipt states."
   },
   "activation": "Default-disabled unmounted service, offline repository and read-only receipt component. No provider upload or mounted HTTP endpoint.",
   "real_corpus_uploaded": false,
