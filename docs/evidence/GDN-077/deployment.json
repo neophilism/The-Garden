@@ -1,0 +1,8 @@
+{
+  "work_item_id": "GDN-077",
+  "deployed": false,
+  "provider_mutations": false,
+  "enabled": false,
+  "real_corpus_uploaded": false,
+  "reason": "Code and generated-fixture integration only. Hosted identity/source grants, isolated encrypted capacity, transport controls, restore and independent assessment remain activation requirements."
+}

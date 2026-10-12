@@ -1,0 +1,12 @@
+{
+  "work_item_id": "GDN-077",
+  "synthetic_only": true,
+  "suites": [
+    {"command": "node --test tests/storage/*.test.mjs", "passed": 91, "failed": 0},
+    {"command": "python3 -I -m unittest discover -s tests/import -v", "passed": 63, "failed": 0},
+    {"command": "npm run check (clean allowlisted environment)", "passed": 1190, "failed": 0, "typecheck": "pass", "public_build": "pass", "disabled_research_build": "pass"}
+  ],
+  "ci": "All six workflows and the actual PostgreSQL audit handoff must pass on the exact submitted head before merge.",
+  "browser": "Committed receipt component tests added for desktop/mobile accessibility and contradictory-state rejection; local browser execution blocked by unavailable browser binaries and the network download restriction; exact-head CI must execute them.",
+  "fixture_storage": "Generated temporary SQLite files and synthetic upload bytes only. No historical source in tests or CI."
+}

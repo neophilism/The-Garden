@@ -1,0 +1,27 @@
+{
+  "work_item_id": "GDN-077",
+  "implementation": "local_implementation_pending_exact_head_ci",
+  "accepted": false,
+  "production_verified": false,
+  "independent_review": "not_performed",
+  "criteria": {
+    "GDN-077-AC01": "Only a committed full size/hash/header verification creates a quarantine reference. Partial, paused, revoked, interrupted or expired sessions expose no accepted source.",
+    "GDN-077-AC02": "Authenticated subject/workspace/source binding is checked before storage access and at current audited gates; takeover and changed-manifest replays reject.",
+    "GDN-077-AC03": "Each part and assembled original are rehashed; the GDN-045 handoff rechecks original bytes and the reviewed schema independently. Malware and historical/rights review remain unperformed."
+  },
+  "test_ids": {
+    "GDN-077-T01": "Out-of-order parts, pause/resume, durable reopen, exact replay, actual subprocess SIGKILL before chunk/finalize commit and successful recovery.",
+    "GDN-077-T02": "Per-part/whole digest, MIME header, body/source limits, reservation/session/in-flight quotas, corrupted stored bytes, unsafe modes and symlinks.",
+    "GDN-077-T03": "Owner/workspace takeover, disabled capability, current source grants, identity changes, cancellation, commit-time revocation and durable audit failures."
+  },
+  "activation": "Default-disabled unmounted service, offline repository and read-only receipt component. No provider upload or mounted HTTP endpoint.",
+  "real_corpus_uploaded": false,
+  "historical_claims_verified": 0,
+  "limitations": [
+    "Real identity/source-purpose grants, encrypted isolated storage, disk/body/rate limits and independent assessment are activation gates.",
+    "Provider multipart/conditional upload and hosted network behavior remain unimplemented/unverified; the existing 8 MiB adapter is unchanged.",
+    "A matching header is not a malware or parser clearance. All uploads remain private quarantine.",
+    "Filesystem administrators remain trusted and local audit chains are not independently anchored.",
+    "No historical verification, rights clearance, public publication or operational research-record promotion."
+  ]
+}
