@@ -1,0 +1,52 @@
+{
+  "checkpoint": "CP-018",
+  "bundle": "Corpus 1.18",
+  "components": {
+    "CORE": {
+      "name": "Not-From-Nowhere_Research-Corpus_v1-18_CORE_2026-10-10.zip",
+      "size_bytes": 87179396,
+      "sha256": "5e2ee9d4b675d69d152d0e1b5fedcca0ded133b2bfd6e989e31fd6218aea4dd5",
+      "members": 23,
+      "bad_member": null,
+      "crc_pass": true
+    },
+    "EXPORTS": {
+      "name": "Not-From-Nowhere_Research-Corpus_v1-18_EXPORTS_2026-10-10.zip",
+      "size_bytes": 50901152,
+      "sha256": "761c591c3555d518b8c0d6e0507993873d250dcaa90f1370fb511f61ada1e37a",
+      "members": 111,
+      "bad_member": null,
+      "crc_pass": true
+    },
+    "SOURCES": {
+      "name": "Not-From-Nowhere_Research-Corpus_v1-18_SOURCES_2026-10-10.zip",
+      "size_bytes": 177563297,
+      "sha256": "d583c932b10756a9418bb37eae767ad6537105521030229788afee0a77bef195",
+      "members": 221,
+      "bad_member": null,
+      "crc_pass": true
+    },
+    "RECOVERY": {
+      "name": "Not-From-Nowhere_Research-Corpus_v1-18_RECOVERY_2026-10-10.zip",
+      "size_bytes": 40788741,
+      "sha256": "0625c0549e93d563531485625e538cd71babffed6bfa3744453b4709dbc25d07",
+      "members": 5,
+      "bad_member": null,
+      "crc_pass": true
+    }
+  },
+  "database": {
+    "size_bytes": 410923008,
+    "sha256": "a5754efe9abdbd61a883d30667c12c511ab2263e1c606b696634258156158a07",
+    "integrity_check": "ok",
+    "foreign_key_check_rows": 0,
+    "table": 109,
+    "index": 186,
+    "trigger": 0
+  },
+  "exports": {
+    "queryable_user_tables": 108,
+    "total_rows": 969596
+  },
+  "status": "verified working checkpoint; not final certification"
+}
