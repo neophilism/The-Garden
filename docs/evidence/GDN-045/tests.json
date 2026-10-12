@@ -36,6 +36,18 @@
       "failed": 0
     }
   ],
-  "ci": "Pending exact-head GitHub workflows. Final result must come from GitHub, not this local record.",
-  "fixture_storage": "Temporary generated files only; original historical corpus not accessed."
+  "ci": "All six exact-head workflows and nine checks passed before confirmed merge.",
+  "fixture_storage": "Temporary generated files only; original historical corpus not accessed.",
+  "tested_head_sha": "f406e0c1fba421c5be8e3ab87d40b46e278d7374",
+  "confirmed_merge_sha": "5b883434c0711d8f423d7c576d74ecade013d543",
+  "ci_workflows": {
+    "repository": 38248675766,
+    "database": 38248675746,
+    "storage": 38248676100,
+    "historical_data": 38248675906,
+    "quality_browser": 38248675936,
+    "identity": 38248675751
+  },
+  "real_postgres_audit_checks": 22,
+  "offline_audit_integration": "Actual audited-decision service and real subprocess; synthetic source grant and identity adapter; operational research record count unchanged."
 }

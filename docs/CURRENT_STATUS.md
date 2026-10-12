@@ -1,14 +1,14 @@
 # Current continuation — 12 October 2026
 
-## GDN-045 implementation — PR #37 open
+## GDN-045 implementation — PR #37 merged
 
-The resumable offline staging worker is implemented with controlled fixtures and remains default-disabled/unmounted. It verifies exact source hash/size, schema and counts; preserves typed cells and source/table/row coordinates; atomically commits batches, checkpoints and linked audit evidence; and resumes without duplicating committed rows. All outputs remain private quarantine. Read [the runbook](runbooks/corpus-staging.md) and [acceptance evidence](evidence/GDN-045/acceptance.json). [PR #37](https://github.com/neophilism/The-Garden/pull/37) is open; exact final-head CI and merge are pending. Integration status is recorded in `plan/execution.json`; live activation is not claimed.
+The resumable offline staging worker is merged with controlled fixtures and remains default-disabled/unmounted. It verifies exact source hash/size, schema and counts; preserves typed cells and source/table/row coordinates; atomically commits batches, checkpoints and linked audit evidence; and resumes without duplicating committed rows. All outputs remain private quarantine. Read [the runbook](runbooks/corpus-staging.md) and [acceptance evidence](evidence/GDN-045/acceptance.json). [PR #37](https://github.com/neophilism/The-Garden/pull/37) merged at `5b883434c0711d8f423d7c576d74ecade013d543` after all six workflows and nine checks passed on `f406e0c1fba421c5be8e3ab87d40b46e278d7374`. GitHub reported clean mergeability. Integration status is recorded in `plan/execution.json`; live activation is not claimed.
 
 Actual historical ingestion, operational PostgreSQL promotion, historical verification, rights/consent clearance and public release have not occurred. The existing 8 MiB inspector/storage limits are unchanged. The offline production source registry, isolated encrypted volume, real authorization/scanner configuration and independent assessment remain activation prerequisites.
 
 ## Verified baseline
 
-GDN-044 / PR #35 is merged at `3cfd7584fee08cc87d0fffc0fac839b5e9d73913`. There are 31 mapped engineering merges. Independent acceptance and production verification remain unperformed; maintenance PRs do not add roadmap units.
+GDN-045 / PR #37 is merged at `5b883434c0711d8f423d7c576d74ecade013d543`. There are 32 mapped engineering merges. Independent acceptance and production verification remain unperformed; maintenance PRs do not add roadmap units.
 
 | Work item | PR | Final tested head | Confirmed merge |
 | --- | --- | --- | --- |
@@ -16,6 +16,7 @@ GDN-044 / PR #35 is merged at `3cfd7584fee08cc87d0fffc0fac839b5e9d73913`. There 
 | GDN-095 sourced geographic assertions | #33 | `75b64e576dff4021cd0a6b98b155735e1305ddaa` | `d55a3ea953c6b009945bb572817f30dd5040f65a` |
 | GDN-041 read-only import quarantine | #34 | `3d9401e3d5a05320bf14275de58c67a354dea68d` | `d789ed5e440a19d07a35f8a3fdfa8863b9d76d54` |
 | GDN-044 explicit source-table mapping | #35 | `b2b4eb3ef9f656e305f5cc06c033ba0f46b65ec2` | `3cfd7584fee08cc87d0fffc0fac839b5e9d73913` |
+| GDN-045 resumable corpus staging | #37 | `f406e0c1fba421c5be8e3ab87d40b46e278d7374` | `5b883434c0711d8f423d7c576d74ecade013d543` |
 
 All six workflows passed for each final tested head: repository, database, identity, storage, historical data and quality/browser. Full run IDs and limitations are recorded in `plan/execution.json` and each work item's evidence. PR #33's PostgreSQL JSONB-order identity bug was corrected and all checks rerun before merging.
 
@@ -25,7 +26,7 @@ Editorial previews bind structured content to exact policy drafts, claim revisio
 
 ## Next dependency-ready work
 
-GDN-045's implementation candidate is described above. Real ingestion remains a separately authorized acceptance operation: revalidate original hashes and locations from `docs/sources/baseline-artifacts.json`, preserve immutable bytes, reconcile every table/row and retained issue, and do not commit corpus bytes or replay historical migrations. Do not start dependent normalization solely because raw staging tests pass.
+GDN-045's merged implementation is described above. Real ingestion remains a separately authorized acceptance operation: revalidate original hashes and locations from `docs/sources/baseline-artifacts.json`, preserve immutable bytes, reconcile every table/row and retained issue, and do not commit corpus bytes or replay historical migrations. Do not start dependent normalization solely because raw staging tests pass.
 
 GDN-077 resumable uploads is also dependency-ready for implementation. Identity/source authorization, exact owner/digest/size binding, quotas, interrupted chunks, quarantine and real provider behavior must be verified before mounting endpoints. Existing storage buckets do not satisfy those activation gates.
 
