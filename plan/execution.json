@@ -505,6 +505,14 @@
       "production_verified": false,
       "independent_review": "not_performed",
       "note": "All six final-head workflows passed before confirmed GitHub merge. Mapping covers recorded schema only; no source rows imported or historical review inferred."
+    },
+    "GDN-045": {
+      "implementation": "pull_request_open",
+      "accepted": false,
+      "production_verified": false,
+      "independent_review": "not_performed",
+      "note": "PR #37 implements offline quarantined staging. Local synthetic checks pass; exact final-head CI and merge pending. No real corpus ingestion or production/historical acceptance.",
+      "github_pr_number": 37
     }
   },
   "production_verified_items": 0,
@@ -512,7 +520,7 @@
     "registration": "not_verified",
     "sync": "not_verified",
     "manifest_in_repo": true,
-    "mapped_planned_units": 31
+    "mapped_planned_units": 32
   },
   "environment": "staging_synthetic_only_no_application_deployment",
   "observed_at_utc": "2026-10-11T20:48:16.676501+00:00"

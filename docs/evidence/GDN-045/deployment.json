@@ -1,0 +1,8 @@
+{
+  "work_item_id": "GDN-045",
+  "deployed": false,
+  "provider_mutations": false,
+  "worker_enabled": false,
+  "real_corpus_ingested": false,
+  "reason": "Implementation-only operation; real ingestion, offline production storage/authorization, OS isolation, encrypted volumes, independent review and live restore remain separate gates."
+}

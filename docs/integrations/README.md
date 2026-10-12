@@ -41,3 +41,7 @@ Outbox events identify schema, source record/version and classification without 
 Initial dated provider observations in [integration-inventory.json](integration-inventory.json) remain historical. They must not be treated as evidence that current application integrations are deployed or working. The available Render creation tool still cannot select the authorized target project; no substitute target or new paid resource was created.
 
 Engine Room's repository contract describes authenticated reconciliation and best-effort public GitHub import. Canonical and legacy source mappings now cover 31 actual merged engineering PRs, including #32 through #35. The live application's ingestion/readback for The Garden remains unverified. No scheduler or administrative synchronization was invoked.
+
+## GDN-045 registration (12 October 2026)
+
+Canonical and compatibility source mappings now include GDN-045 / PR #37 as open: 32 mapped PRs, 31 confirmed engineering merges. Live Engine Room ingestion/readback remains unverified. The offline staging adapter creates no provider resources and has no production authorization/storage binding.

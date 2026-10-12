@@ -1,0 +1,41 @@
+{
+  "work_item_id": "GDN-045",
+  "synthetic_only": true,
+  "suites": [
+    {
+      "command": "python3 -I -m unittest discover -s tests/import -v",
+      "passed": 51,
+      "failed": 0
+    },
+    {
+      "command": "node --test tests/storage/*.test.mjs",
+      "passed": 58,
+      "failed": 0
+    },
+    {
+      "command": "npm run check (clean allowlisted environment)",
+      "passed": 1190,
+      "failed": 0,
+      "typecheck": "pass",
+      "public_build": "pass",
+      "disabled_research_build": "pass"
+    },
+    {
+      "command": "python -m unittest discover -s tests/architecture -v",
+      "passed": 103,
+      "failed": 0
+    },
+    {
+      "command": "python -m unittest discover -s tests/migration -v",
+      "passed": 25,
+      "failed": 0
+    },
+    {
+      "command": "python -m unittest discover -s tests/plan -v",
+      "passed": 21,
+      "failed": 0
+    }
+  ],
+  "ci": "Pending exact-head GitHub workflows. Final result must come from GitHub, not this local record.",
+  "fixture_storage": "Temporary generated files only; original historical corpus not accessed."
+}

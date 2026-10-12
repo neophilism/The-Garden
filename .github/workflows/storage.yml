@@ -24,5 +24,5 @@ jobs:
           package-manager-cache: false
       - name: Read/write integrity and access rejection tests
         run: node --test tests/storage/*.test.mjs
-      - name: Bounded read-only import fixtures
+      - name: Read-only inventory, resumable corpus staging and bounded large-source fixtures
         run: python3 -I -m unittest discover -s tests/import -v

@@ -1,5 +1,9 @@
 # Handoff to the next developer or AI agent
 
+## Current continuation: 12 October 2026
+
+The sections below describing an uncreated repository are historical planning-baseline statements. Current authority is `docs/CURRENT_STATUS.md`, `plan/execution.json` and actual GitHub evidence. GDN-045 adds the unmounted offline importer in `services/workers/import/stage.py` with a server admission adapter in `services/workers/src/corpus-staging.mjs`. Start with `docs/runbooks/corpus-staging.md`, its exact activation boundaries and `docs/evidence/GDN-045/`. No real corpus ingestion or production deployment is implied by the implementation. Continue via normal checked-head PRs; never infer historical or rights approval from stored source labels.
+
 ## What is complete in this package
 
 A comprehensive planning baseline and local validation tooling. The actual CORE artifact was checksum-verified and its read-only SQLite schema/row inventory inspected; the 106-table disposition is a proposed migration map. Read validation reports for checks actually executed. This is not an implemented website or proof that historical content is correct.

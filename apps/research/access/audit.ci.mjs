@@ -1,12 +1,16 @@
 import assert from 'node:assert/strict';
 import {randomBytes,randomUUID} from 'node:crypto';
-import {mkdir,writeFile} from 'node:fs/promises';
+import {mkdir,writeFile,mkdtemp,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {execFileSync} from 'node:child_process';
 import pg from 'pg';
 import {createAuditReader,createAuditedDecision} from './audit.mjs';
 import {createPolicyExecutor} from './policy-context.mjs';
 import {createSourceRepository} from '../data/source-repository.mjs';
 import {allowSyntheticResearchUse} from './consent-test-fixture.mjs';
 import {AuditError,GENESIS,verifyAuditPage,verifyExternalCheckpoint} from '../../../packages/domain/src/audit/ledger.mjs';
+import {createCorpusStaging,createOfflineStagingWorker} from '../../../services/workers/src/corpus-staging.mjs';
 if(process.env.CI!=='true'||process.env.GARDEN_IDENTITY_TEST!=='ephemeral-ci'||process.env.PGHOST!=='127.0.0.1'||process.env.PGUSER!=='postgres')throw Error('Audit fixtures require ephemeral CI');
 const config={host:'127.0.0.1',port:5432,database:'neondb',user:'postgres',password:process.env.PGPASSWORD,max:3};
 const admin=new pg.Pool(config),pools=[],checks=[],W=randomUUID(),OTHER=randomUUID(),policy='c'.repeat(64),SECRET='PRIVATE-ORAL-HISTORY-CANARY';
@@ -69,6 +73,29 @@ try{
  for(const sql of ['UPDATE garden_control.audit_events SET hash=hash','DELETE FROM garden_control.audit_events','TRUNCATE garden_control.audit_events'])await assert.rejects(()=>withRole(readerPool,'garden_audit_reader',c=>c.query(sql)),e=>e.code==='42501');checked('auditor runtime has no history mutation authority');
  const allowed=await decisions.decide(headers('alice'),W,async()=>true),denied=await decisions.decide(headers('alice'),W,async()=>{throw Error(SECRET);});assert.equal(allowed.allowed,true);assert.equal(denied.allowed,false);assert.equal(allowed.operationPerformed,false);
  all=(await admin.query(rowsSQL,[W])).rows;assert.equal(JSON.stringify(all).includes(SECRET),false);assert.ok(all.some(x=>JSON.parse(x.eventText).reasonCode==='authorization-denied'));checked('server allow/deny decisions are redacted and do not assert operation execution');
+ // Real audited decision service + actual offline subprocess. The source grant
+ // is synthetic; this does not activate a production storage/authorization adapter.
+ const stagingRoot=await mkdtemp(join(tmpdir(),'garden-audit-staging-'));
+ try{
+  const fixture=JSON.parse(execFileSync('/usr/bin/python3',['tests/import/staging_fixture.py',stagingRoot],{maxBuffer:1024*1024}).toString());
+  const extract=createOfflineStagingWorker({loadContracts:async()=>({mapping:fixture.mapping,inventory:fixture.inventory})});
+  let denyCommit=true;
+  const staging=createCorpusStaging({decisions,extract,enabled:()=>true,
+   authorize:async(facts,request)=>{if(denyCommit&&request.phase==='commit-batch')revoked=true;return facts.subjectId==='alice'&&request.sourceRef.sha256===fixture.source_ref.sha256;},
+   resolveSource:async()=>({workspaceId:W,sourceRef:fixture.source_ref,sourcePath:fixture.source_path,stagingDirectory:fixture.staging_directory,format:'sqlite',classification:'restricted_research',quarantine:{disposition:'quarantined',released:false,malware:'unavailable'}})});
+  const input={runId:fixture.run_id,sourceRef:fixture.source_ref};
+  const recordsBefore=(await admin.query('SELECT count(*)::integer AS n FROM garden_private.record_envelopes')).rows[0].n;
+  await assert.rejects(()=>staging.stage(headers('alice'),W,input));revoked=false;denyCommit=false;
+  const result=await staging.stage(headers('alice'),W,input);
+  assert.equal(result.status,'complete-quarantined');assert.equal(result.rows,600);assert.equal(result.publicationApproved,false);
+  assert.equal((await admin.query('SELECT count(*)::integer AS n FROM garden_private.record_envelopes')).rows[0].n,recordsBefore);
+  const receipts=JSON.parse(execFileSync('/usr/bin/python3',['-c',
+   'import json,sqlite3,sys; d=sqlite3.connect(sys.argv[1]); print(json.dumps([json.loads(r[0])["authorization_request_id"] for r in d.execute("SELECT payload FROM audit") if json.loads(r[0])["kind"]=="batch-committed"]))',
+   join(fixture.staging_directory,'staging.sqlite')]).toString());
+  assert.equal(receipts.length,3);assert.ok(receipts.every(value=>typeof value==='string'));
+  for(const receipt of receipts)assert.equal((await admin.query("SELECT count(*)::integer AS n FROM garden_control.audit_events WHERE workspace_id=$1 AND event_text::jsonb->>'requestId'=$2 AND event_text::jsonb->>'action'='access.allow'",[W,receipt])).rows[0].n,1);
+  checked('offline staging rechecks actual audited identity decisions, records commit receipts and leaves operational records unchanged');
+ }finally{revoked=false;await rm(stagingRoot,{recursive:true,force:true});}
  const original=all[0];await admin.query('ALTER TABLE garden_control.audit_events DISABLE TRIGGER immutable_audit_events');
  try{await admin.query("UPDATE garden_control.audit_events SET hash=repeat('1',64) WHERE workspace_id=$1 AND sequence=1",[W]);await assert.rejects(()=>audit.page(headers('auditor'),W),AuditError);}
  finally{await admin.query('UPDATE garden_control.audit_events SET hash=$2 WHERE workspace_id=$1 AND sequence=1',[W,original.hash]);await admin.query('ALTER TABLE garden_control.audit_events ENABLE TRIGGER immutable_audit_events');}
