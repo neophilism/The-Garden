@@ -1,0 +1,34 @@
+{
+  "work_item": "GDN-078",
+  "observed_date": "2026-10-12",
+  "scope": "unmounted local bibliographic intake with generated fixtures",
+  "implementation": "candidate_pending_git_ci_and_merge",
+  "local_checks": {
+    "command": "node --test tests/data/bibliography.test.mjs tests/storage/bibliographic-intake.test.mjs",
+    "node_version": "v22.16.0",
+    "passed": 60,
+    "failed": 0,
+    "notes": "Local tests use Node's experimental built-in SQLite API; exact-head GitHub CI uses the repository's Node 24."
+  },
+  "acceptance": {
+    "GDN-078-AC01": "Generated RIS/BibTeX/CSL/manual inputs stay discovery-only, preserve raw metadata, and never become reviewed source claims.",
+    "GDN-078-AC02": "License, access, source locator and provider are explicit. Access denied, robots denied, timeout and rate limits return no new source record.",
+    "GDN-078-AC03": "All dedup results are nonautomatic hints; decisions are append-only with explicit supersession and reviewer reason."
+  },
+  "source_data": "synthetic_only",
+  "external_network_calls": 0,
+  "real_historical_source_ingested": false,
+  "research_endpoints_mounted": false,
+  "independent_security_assessment": "not_performed",
+  "privacy_and_rights_approval": "not_performed",
+  "production_deployed": false,
+  "production_verified": false,
+  "current_commit": null,
+  "ci_workflow_runs": [],
+  "limitations": [
+    "No real provider API credentials, subscriptions or live lookup executed.",
+    "No real archival originals imported to bibliographic store.",
+    "Private durable SQLite is a local service adapter, not multiuser hosted acceptance.",
+    "Full source licensing, original historical inspection and data authorization remain separate."
+  ]
+}
