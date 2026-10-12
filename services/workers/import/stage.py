@@ -581,6 +581,12 @@ def stage(config, authorize):
         validate_contract(mapping, inventory)
         require(ref['sha256'] == mapping['source_database_sha256'] and
                 ref['size'] == mapping['source_database_bytes'], 'source-contract-mismatch')
+        # Check before opening any writable journal: a mistaken trusted storage
+        # binding must never point a staging DB, lock or rollback journal at the
+        # original artifact itself.
+        original_path = Path(config['source_path']).resolve()
+        output_directory = Path(config['staging_directory']).resolve()
+        require(not original_path.is_relative_to(output_directory), 'source-output-overlap')
         store = Store(config['staging_directory'])
         # Completed technical extraction is still quarantined. Never expose a
         # partially replayed, interrupted, conflicted or revoked attempt as done.

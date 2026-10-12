@@ -381,6 +381,18 @@ class StagingTests(unittest.TestCase):
         self.run_stage()
         self.assertEqual(len(self.rows()),600)
 
+    def test_source_inside_staging_directory_is_never_opened_for_writes(self):
+        for name in ('staging.sqlite','staging.sqlite-journal','lock','original.sqlite'):
+            with tempfile.TemporaryDirectory() as directory:
+                config = fixture(directory)
+                original = Path(config['source_path']).read_bytes()
+                overlap = Path(config['staging_directory'])/name
+                Path(config['source_path']).rename(overlap)
+                config['source_path'] = str(overlap)
+                with self.assertRaisesRegex(stage.Rejected,'source-output-overlap'):
+                    stage.stage(config,lambda p:True)
+                self.assertEqual(overlap.read_bytes(),original)
+
 
 if __name__ == '__main__':
     unittest.main()

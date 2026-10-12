@@ -4,7 +4,7 @@
   "suites": [
     {
       "command": "python3 -I -m unittest discover -s tests/import -v",
-      "passed": 50,
+      "passed": 51,
       "failed": 0
     },
     {
