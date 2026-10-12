@@ -1,16 +1,19 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "updated": "2026-10-12",
   "source_repository": "neophilism/The-Garden",
   "pattern": "neophilism/The-Cornerstone/policy/SOURCE_MANIFEST.json",
-  "repository_visibility_verified": "private",
-  "owner_requested_private_source_storage": true,
+  "repository_visibility_verified": "public",
   "publication": {
-    "repo_privacy_is_not_publication_approval": true,
+    "repository_public": true,
+    "owner_authorized_policy_and_legislation_publication": true,
+    "historical_working_artifacts_publicly_accessible_in_repository": true,
+    "third_party_source_reuse_review_required": true,
     "historical_assertions_independently_verified": false,
     "rights_consent_and_image_clearance_pending": true,
     "proposed_legislation_enacted": false,
-    "web_publication_approved": false
+    "public_website_release_separately_controlled": true,
+    "note": "Public source control does not certify historical facts, consent, image licenses, governmental authority, or publication of third-party archival originals."
   },
   "source_files": [
     {
@@ -21,7 +24,7 @@
       "category": "legislation",
       "role": "Editable bill text",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_owner_authored_policy_reference"
     },
     {
       "path": "policy/legislation/Garden_Act_v1-0_2026-09-28.tex",
@@ -31,7 +34,7 @@
       "category": "legislation",
       "role": "Editable original LaTeX bill",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_owner_authored_policy_reference"
     },
     {
       "path": "policy/legislation/Garden_Act_v1-0_2026-09-28.docx",
@@ -41,7 +44,7 @@
       "category": "legislation",
       "role": "Word bill, unchanged original binary",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_owner_authored_policy_reference"
     },
     {
       "path": "policy/legislation/Garden_Act_Source-and-Drafting-Notes_v1-0_2026-09-28.md",
@@ -51,7 +54,7 @@
       "category": "legislation-support",
       "role": "Editable drafting notes",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_owner_authored_policy_reference"
     },
     {
       "path": "policy/legislation/Garden_Act_Source-and-Drafting-Notes_v1-0_2026-09-28.html",
@@ -61,7 +64,7 @@
       "category": "legislation-support",
       "role": "HTML drafting notes, unchanged original",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_owner_authored_policy_reference"
     },
     {
       "path": "policy/supporting/garden.docx",
@@ -71,7 +74,7 @@
       "category": "original-policy",
       "role": "Original Garden policy, Word",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_owner_authored_policy_reference"
     },
     {
       "path": "policy/historical-research/Not-From-Nowhere_Resume-Here.md",
@@ -81,7 +84,7 @@
       "category": "research-handoff",
       "role": "CP-018 research continuation notes",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_working_research_reference_not_certified"
     },
     {
       "path": "policy/historical-research/CORPUS-BUNDLE-MANIFEST_CP-018_2026-10-10.json",
@@ -91,7 +94,7 @@
       "category": "corpus-manifest",
       "role": "Four-component corpus manifest",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_working_research_reference_not_certified"
     },
     {
       "path": "policy/historical-research/apparatus_Not-From-Nowhere_atlas_v1-30-alpha_2026-10-10.docx",
@@ -101,7 +104,7 @@
       "category": "research-companion",
       "role": "Apparatus, unchanged original Word",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_working_research_reference_not_certified"
     },
     {
       "path": "policy/historical-research/correction-log_Not-From-Nowhere_atlas_v1-30-alpha_2026-10-10.docx",
@@ -111,7 +114,7 @@
       "category": "research-companion",
       "role": "Correction log, unchanged original Word",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_working_research_reference_not_certified"
     },
     {
       "path": "policy/historical-research/image-budget_Not-From-Nowhere_atlas_v1-30-alpha_2026-10-10.docx",
@@ -121,7 +124,7 @@
       "category": "research-companion",
       "role": "Image rights/budget, unchanged original Word",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_working_research_reference_not_certified"
     },
     {
       "path": "policy/historical-research/guide_Not-From-Nowhere_file-system_v1-30-alpha_2026-10-10.docx",
@@ -131,7 +134,7 @@
       "category": "research-companion",
       "role": "File-system guide, unchanged original Word",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_working_research_reference_not_certified"
     },
     {
       "path": "policy/historical-research/guide_Not-From-Nowhere_LATEST_2026-10-11.html",
@@ -141,7 +144,7 @@
       "category": "historical-index",
       "role": "Saved master index; software section is an older snapshot",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_working_research_reference_not_certified"
     },
     {
       "path": "policy/historical-research/Not-From-Nowhere_Current-Documents_CP-018.json",
@@ -151,7 +154,7 @@
       "category": "historical-index",
       "role": "Current-documents machine registry, CP-018",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_working_research_reference_not_certified"
     },
     {
       "path": "policy/historical-research/integration-manifest_v1-30-alpha_2026-10-10.json",
@@ -161,7 +164,7 @@
       "category": "research-provenance",
       "role": "CP-018 document/database integrity manifest",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_working_research_reference_not_certified"
     },
     {
       "path": "policy/historical-research/Not-From-Nowhere_Research-Corpus_v1-18_Validation.json",
@@ -171,7 +174,7 @@
       "category": "research-provenance",
       "role": "Corpus 1.18 validation snapshot",
       "content_identity": "original bytes verified by matching Git blob digest",
-      "publication_status": "internal source only"
+      "publication_status": "public_working_research_reference_not_certified"
     }
   ],
   "external_materials": [
@@ -285,7 +288,8 @@
   "transfer_rules": {
     "small_document_check": "python3 scripts/verify_policy_sources.py --check",
     "large_archive_import": "See historical-research/LARGE_ARCHIVES.md; LFS costs and access must be authorized; no plain Git objects above platform limits",
-    "privacy": "Review contributor access and prevent private historical documents from entering static/public site bundles",
+    "privacy": "The repository is public. Exclude third-party records, family data, rights-restricted scans and sensitive intake absent explicit source-specific authorization.",
     "recovery": "CP-018 not fully equivalent to preceding historical editions; see corpus manifest and research handoff"
-  }
+  },
+  "repository_visibility_checked_at": "2026-10-12"
 }

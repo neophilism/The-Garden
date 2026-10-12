@@ -1,9 +1,7 @@
-# Garden supporting documentation
+# Supporting Garden policy documents
 
-The original Garden policy is preserved here as [garden.docx](garden.docx).
+The [original Garden policy (.docx)](garden.docx) is preserved here byte-for-byte as a public source document.
 
-Related source directories: [proposed legislation](../legislation/README.md), [historical research](../historical-research/README.md), [source checksum and pending-transfer inventory](../SOURCE_MANIFEST.json).
+Related collections: [Garden Act and legislative sources](../legislation/README.md), [historical research](../historical-research/README.md), [source manifest and missing-file ledger](../SOURCE_MANIFEST.json).
 
-For project planning and research governance, read the [product charter](../../docs/product/charter.md), [historical research charter](../../docs/sources/research-charter.md), [editorial review requirements](../../docs/editorial/commissioning-and-review.md), and [current engineering status](../../docs/CURRENT_STATUS.md).
-
-Private repository access is distinct from approval to redistribute third-party sources or publish private historical materials on the public Garden website.
+The [product charter](../../docs/product/charter.md), [research charter](../../docs/sources/research-charter.md), and [editorial review instructions](../../docs/editorial/commissioning-and-review.md) define separate requirements for website publication of historical evidence. Current engineering progress is recorded in [docs/CURRENT_STATUS.md](../../docs/CURRENT_STATUS.md). Proposed policy is not enacted law.

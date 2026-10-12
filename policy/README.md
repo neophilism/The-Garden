@@ -1,39 +1,23 @@
-# The Garden — source documents
+# The Garden — source document library
 
-The Garden now follows the [Cornerstone `policy/` source-library pattern](https://github.com/neophilism/The-Cornerstone/tree/main/policy): policy originals, legislation, research companions, a cryptographic `SOURCE_MANIFEST.json`, and separate implementation/verification documentation.
+Organized after [The Cornerstone's source library](https://github.com/neophilism/The-Cornerstone/tree/main/policy), with the original documents kept separate from software implementation, a source checksum inventory, and explicit version and review states.
 
-**Repository visibility checked:** private on 12 October 2026. These are source documents for authorized collaborators, **not automatically approved public website content**. Independent historical, consent, licensing, legal and editorial decisions remain separate.
+The Garden repository is **public**. Its policy and proposed legislation are intentionally available for public reading. Historical working documents in this directory are also accessible, but a repository file does not automatically establish independent historical verification, third-party licensing, family consent or permission to republish the original archival evidence on the website.
 
-## Authoritative entry points
+## Documents
 
-- [Garden legislation and drafting materials](legislation/README.md): original Word bill, LaTeX, Markdown and legislative source/drafting notes.
-- [Historical research working checkpoint](historical-research/README.md): CP-018 / Atlas 1.30-alpha, apparatus, corrections, image budget, file-system guide, saved indexes, and corpus manifests.
-- [Supporting documents](supporting/README.md): original Garden policy and supporting architecture/charter references.
-- [Full source and custody inventory](SOURCE_MANIFEST.json): byte-exact source checksums, Library provenance and untransferred originals.
-- [Large-document transfer runbook](historical-research/LARGE_ARCHIVES.md): Git LFS procedure and validation for the illustrated manuscript and corpus packages.
-- [Current engineering status](../docs/CURRENT_STATUS.md): implementation/CI/deployment, **not** the historic CP-018 manuscript's version.
+| Collection | Contents | Status |
+| --- | --- | --- |
+| [Legislation](legislation/README.md) | Garden Act v1.0 (.docx, .md, .tex) and source/drafting notes (.md, .html) | Public policy proposal; not enacted |
+| [Historical research](historical-research/README.md) | CP-018 / Atlas 1.30-alpha apparatus, corrections, image budget, file-system guide, research handoff, indexes, corpus manifests | Publicly accessible working research; not certified |
+| [Supporting sources](supporting/README.md) | Original Garden policy Word document and charter/development crosswalk | Public policy source |
+| [SOURCE_MANIFEST.json](SOURCE_MANIFEST.json) | Original filenames, byte counts, SHA-256 checksums, provenance, missing originals and release distinctions | Versioned integrity inventory |
+| [Large-source transfer procedure](historical-research/LARGE_ARCHIVES.md) | Git LFS and checksum verification for oversized manuscript and corpus bundles | Pending work |
 
-## Repository layout
+## Latest-file and preservation rules
 
-```text
-policy/
-  README.md
-  SOURCE_MANIFEST.json
-  legislation/         original Garden Act .docx/.md/.tex and notes
-  historical-research/ original CP-018 companions and manifests
-  supporting/          original Garden policy and source references
-```
+This source index is the **current GitHub entry point** for the files already transferred. The Library's October 11 `guide_Not-From-Nowhere_LATEST.html` is retained as a dated historical-research checkpoint, not as a live index of every new engineering PR. The authoritative development status is at [docs/CURRENT_STATUS.md](../docs/CURRENT_STATUS.md). Checkpoints and corrections are kept as distinct source versions rather than silently overwritten.
 
-The historical working book is **not yet wholly present** in Git. Its original illustrated Word file is 219,069,956 bytes, exceeding GitHub's ordinary 100 MiB file limit. The four 1.18 corpus ZIPs require an appropriate verified large-file transfer; additional small files that were rejected by the current GitHub connector are recorded rather than silently omitted. See the manifest's `external_materials` for exact names, source IDs, hashes where available and transfer status. **Do not mistake the archival manifest for the actual archive or a complete corpus migration.**
+The original illustrated manuscript (219,069,956 bytes), all four corpus ZIPs, the African nations registry and some smaller records remain listed under `external_materials` in the manifest. **They have not been uploaded or imported to the platform.** Large originals require a reproducible, checksum-verified Git LFS or protected source-custody transfer; do not create unbacked pointers or assume historical import on the basis of an inventory.
 
-The Library's saved `guide_Not-From-Nowhere_LATEST.html` file was copied as a versioned snapshot, not as a guaranteed live link to the latest software. For development activity use the repository's current-status and execution registries.
-
-## Updating sources
-
-1. Make sure this repository stays private and collaborators have narrowly scoped access.
-2. Preserve original filenames and bytes. Keep archived versions and reasoned corrections separately; never overwrite unreviewed historical evidence.
-3. For new original bytes, add a manifest entry with SHA-256, byte count, role, provenance and review state. Run `python3 scripts/verify_policy_sources.py --check`.
-4. For large files, follow the LFS runbook only after confirming available Git LFS capacity and any additional costs.
-5. Treat research, translation, cataloguing, editorial approval, policy argument and actual web publication as different permission and verification states.
-
-Other research integrity guidance: [research charter](../docs/sources/research-charter.md), [review states](../docs/research/scoped-review-states.md), [editorial review](../docs/editorial/commissioning-and-review.md). Public-source archival availability is not a grant of rights for redistribution.
+When adding sources, preserve exact original bytes, update the manifest and run `python3 scripts/verify_policy_sources.py --check`. Distinguish owner-authored public policy documents, provisional scholarship, third-party evidence, and independently approved public site content. See [research charter](../docs/sources/research-charter.md), [editorial review](../docs/editorial/commissioning-and-review.md), and [research review states](../docs/research/scoped-review-states.md).
