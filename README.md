@@ -88,3 +88,7 @@ GDN-029 is merged in PR #26. GDN-022 is the unmounted session/passkey candidate:
 ## Audit-ledger continuation
 
 GDN-022 is merged in PR #27 with all six workflows passing, 88 identity unit tests and 27 real-browser/PostgreSQL checks. GDN-030 is the unmounted audit candidate: [audit contract](docs/security/audit-ledger.md). Exact mappings and independent/deployment gates remain in the execution registry. No live audit service or external checkpoint operator is claimed.
+
+## End-to-End Everywhere progress
+
+The canonical [security/e2eesa-status.json](security/e2eesa-status.json) records standard implementation, complete testing and independent expert review separately. Engine Room reads it automatically from GitHub. All initial stages are pending; existing profile locks and approved decisions remain authoritative. Read [adoption and independent-account instructions](docs/E2EESA_ADOPTION.md), and run `python3 scripts/validate_e2eesa_status.py`. Record validation does not establish product security or certification.
