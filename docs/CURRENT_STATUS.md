@@ -1,5 +1,11 @@
 # Current continuation — 12 October 2026
 
+## Read-only corpus preflight
+
+A bounded operator diagnostic now measures actual staging payload and storage classes using the importer serializer. It verifies the pinned source and complete schema/count contract without creating staging rows, copying values into reports or activating hosted ingestion. Results from privately authorized corpus inspection remain restricted operational evidence. See [the preflight runbook](runbooks/corpus-preflight.md).
+
+Use real-source measurements to provision separately accepted private staging capacity; archive size alone is insufficient. GDN-077 resumable quarantine uploads is the next dependency-ready implementation. Historical review, rights clearance, normalization and public release remain separate.
+
 ## GDN-045 implementation — PR #37 merged
 
 The resumable offline staging worker is merged with controlled fixtures and remains default-disabled/unmounted. It verifies exact source hash/size, schema and counts; preserves typed cells and source/table/row coordinates; atomically commits batches, checkpoints and linked audit evidence; and resumes without duplicating committed rows. All outputs remain private quarantine. Read [the runbook](runbooks/corpus-staging.md) and [acceptance evidence](evidence/GDN-045/acceptance.json). [PR #37](https://github.com/neophilism/The-Garden/pull/37) merged at `5b883434c0711d8f423d7c576d74ecade013d543` after all six workflows and nine checks passed on `f406e0c1fba421c5be8e3ab87d40b46e278d7374`. GitHub reported clean mergeability. Integration status is recorded in `plan/execution.json`; live activation is not claimed.

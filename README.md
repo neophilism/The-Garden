@@ -1,5 +1,11 @@
 # The Garden
 
+## Read-only corpus preflight
+
+A bounded operator diagnostic now measures actual staging payload and storage classes using the importer serializer. It verifies the pinned source and complete schema/count contract without creating staging rows, copying values into reports or activating hosted ingestion. Results from privately authorized corpus inspection remain restricted operational evidence. See [the preflight runbook](docs/runbooks/corpus-preflight.md).
+
+Use real-source measurements to provision separately accepted private staging capacity; archive size alone is insufficient. GDN-077 resumable quarantine uploads is the next dependency-ready implementation. Historical review, rights clearance, normalization and public release remain separate.
+
 ## Offline corpus staging merged (12 October 2026)
 
 GDN-045 / [PR #37](https://github.com/neophilism/The-Garden/pull/37) merged after all six final-head workflows passed. It implements a default-disabled, unmounted offline staging importer, with memory-bounded SQLite extraction, exact typed lineage, atomic checkpoints, replay/conflict detection and audited authorization gates. [Operating contract and limits](docs/runbooks/corpus-staging.md). Validation uses generated fixtures, including a 422,723,584-byte database; no historical corpus was ingested, normalized, verified or published. Independent and live acceptance remain separate.
