@@ -1,4 +1,10 @@
-# Current continuation — 11 October 2026
+# Current continuation — 12 October 2026
+
+## GDN-045 implementation candidate
+
+The resumable offline staging worker is implemented with controlled fixtures and remains default-disabled/unmounted. It verifies exact source hash/size, schema and counts; preserves typed cells and source/table/row coordinates; atomically commits batches, checkpoints and linked audit evidence; and resumes without duplicating committed rows. All outputs remain private quarantine. Read [the runbook](runbooks/corpus-staging.md) and [acceptance evidence](evidence/GDN-045/acceptance.json). GitHub integration status is recorded in `plan/execution.json`; this note does not claim a merge or live activation.
+
+Actual historical ingestion, operational PostgreSQL promotion, historical verification, rights/consent clearance and public release have not occurred. The existing 8 MiB inspector/storage limits are unchanged. The offline production source registry, isolated encrypted volume, real authorization/scanner configuration and independent assessment remain activation prerequisites.
 
 ## Verified baseline
 
@@ -19,7 +25,7 @@ Editorial previews bind structured content to exact policy drafts, claim revisio
 
 ## Next dependency-ready work
 
-GDN-045 can implement the idempotent raw corpus staging importer using the now-merged quarantine and mapping contracts. Before a real import, revalidate exact authorized source bytes, use read-only extraction, preserve typed cells and stable source/table/row coordinates, and verify batch resume/replay/conflict handling. The current 8 MiB inspector must not be used for the 396 MiB corpus database or large bundles. Original hashes and saved source locations are in `docs/sources/baseline-artifacts.json`; do not commit corpus bytes or rerun historical migrations.
+GDN-045's implementation candidate is described above. Real ingestion remains a separately authorized acceptance operation: revalidate original hashes and locations from `docs/sources/baseline-artifacts.json`, preserve immutable bytes, reconcile every table/row and retained issue, and do not commit corpus bytes or replay historical migrations. Do not start dependent normalization solely because raw staging tests pass.
 
 GDN-077 resumable uploads is also dependency-ready for implementation. Identity/source authorization, exact owner/digest/size binding, quotas, interrupted chunks, quarantine and real provider behavior must be verified before mounting endpoints. Existing storage buckets do not satisfy those activation gates.
 

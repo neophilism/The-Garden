@@ -1,0 +1,35 @@
+{
+  "work_item_id": "GDN-045",
+  "implementation": "local_candidate",
+  "accepted": false,
+  "production_verified": false,
+  "independent_review": "not_performed",
+  "criteria": {
+    "GDN-045-AC01": "Controlled SQLite and typed-export replay preserves all original coordinates without duplicate rows or batches, including retries with a new authorized run ID.",
+    "GDN-045-AC02": "Actual subprocess SIGKILL inside a batch transaction preserves prior committed rows and resumes after SQLite recovery; commit-time revocation also rolls back rows, checkpoint and batch evidence together.",
+    "GDN-045-AC03": "Same-key, binding, schema, audit, row-lineage and checkpoint conflicts reject without overwriting existing raw evidence; all outcomes remain quarantined."
+  },
+  "test_ids": {
+    "GDN-045-T01": "Table/schema/count reconciliation, source hashes, binding/catalog evidence and negative drift fixtures.",
+    "GDN-045-T02": "NULL, empty strings, embedded NUL, Unicode, UTF-16, invalid text bytes, BLOB, signed int64, binary64, malformed/duplicate-key JSON text and inherited verified labels.",
+    "GDN-045-T03": "SIGKILL, transactional denial, audit write failure, checkpoint tampering, duplicate replay and new run identity."
+  },
+  "source_evidence": "Generated controlled fixtures only; no historical corpus bytes inspected or ingested in GDN-045.",
+  "historical_source_rows_ingested": 0,
+  "historical_claims_verified": 0,
+  "scale_fixture": {
+    "source_bytes": 422723584,
+    "rows": 6400,
+    "worker_address_space_limit_mib": 256,
+    "observed_peak_rss_kib": 37600,
+    "measurement_scope": "Local generated fixture; runtime-specific observation, not a bound on every deployment."
+  },
+  "activation": "Default-disabled, no mounted route, no cloud schema/provider mutations, no production storage adapter.",
+  "limitations": [
+    "Offline source registry, source authorization, encrypted isolated worker/storage, scanner handling and live recovery require separate acceptance.",
+    "Cell/row/profile limits fail closed; real corpus compatibility has not been established by generated fixtures.",
+    "No normalized or operational PostgreSQL records, reference resolution, historical approval, rights clearance or public release.",
+    "Local audit chains are not independently anchored or administrator-proof.",
+    "Original CP-011, CP-016 and Marinerito recovery uncertainties remain unresolved."
+  ]
+}

@@ -505,6 +505,13 @@
       "production_verified": false,
       "independent_review": "not_performed",
       "note": "All six final-head workflows passed before confirmed GitHub merge. Mapping covers recorded schema only; no source rows imported or historical review inferred."
+    },
+    "GDN-045": {
+      "implementation": "local_candidate",
+      "accepted": false,
+      "production_verified": false,
+      "independent_review": "not_performed",
+      "note": "Offline resumable quarantine importer implemented against generated fixtures. No real corpus ingestion, normalization, historical verification, rights clearance or publication. Exact-head CI and GitHub integration pending."
     }
   },
   "production_verified_items": 0,

@@ -1,5 +1,9 @@
 # The Garden
 
+## Offline corpus staging candidate (12 October 2026)
+
+GDN-045 implements a default-disabled, unmounted offline staging importer, with memory-bounded SQLite extraction, exact typed lineage, atomic checkpoints, replay/conflict detection and audited authorization gates. [Operating contract and limits](docs/runbooks/corpus-staging.md). Validation uses generated fixtures, including a 422,723,584-byte database; no historical corpus was ingested, normalized, verified or published. Independent and live acceptance remain separate.
+
 ## Current engineering checkpoint (11 October 2026)
 
 GDN-044 / PR #35 is merged at `3cfd7584fee08cc87d0fffc0fac839b5e9d73913`. PRs #32–#35 each passed all six workflows on their final heads before merge. There are 31 mapped engineering merges and no independently accepted or production-verified capabilities. Structured editorial content, sourced geography, import quarantine and the complete recorded source-table mapping are implemented and tested within their documented activation limits. See `docs/CURRENT_STATUS.md` and `plan/execution.json`. Earlier checkpoints below are historical.

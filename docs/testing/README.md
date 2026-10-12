@@ -1,5 +1,7 @@
 # Testing and evidence contract
 
+GDN-045 controlled extraction and storage-boundary coverage runs in the existing storage CI workflow: `python3 -I -m unittest discover -s tests/import -v` and `node --test tests/storage/*.test.mjs`. This includes an actual SIGKILL transaction recovery test and a generated 422,723,584-byte SQLite fixture under a 256 MiB worker address-space cap. See `docs/runbooks/corpus-staging.md` for repeatable commands and acceptance limits; these are synthetic engineering checks, not historical corpus review.
+
 The PR catalog contains 630 individually identified acceptance criteria and 630 specified test scenarios. These are implementation requirements, not executed application tests. Global regression and manual-review obligations apply in addition.
 
 ## Unit and property tests

@@ -1,5 +1,7 @@
 # CP-017 complete table-disposition matrix
 
+GDN-045 adds a separate [offline staging worker and operating contract](../runbooks/corpus-staging.md). Generated fixtures verify typed preservation, atomic batches, replay and recovery. The historical source remains unimported; operational promotion, historical review, rights and release are separate gates.
+
 The executable coverage and drift contract is now [migration-map.json](migration-map.json), with [conversion and reference rules](conversion-rules.md). It pins the recorded table schema and accounts for every column and identifier-reference field. The original domain matrix below remains preserved; no source rows are imported or normalized by either document.
 
 This is a proposed migration mapping over the actually inspected schema. No website migration was executed. Preserve raw rows for every table before normalization; all rows are accounted for here, not certified as historical facts.
