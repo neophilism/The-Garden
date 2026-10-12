@@ -1,0 +1,56 @@
+{
+  "manifest_version": 1,
+  "prepared": "2026-10-12",
+  "model": "The-Cornerstone/policy/SOURCE_MANIFEST.json",
+  "status": "original text transferred; repository publication of derived legislation/research metadata is not legal, scholarly, or archival clearance",
+  "source_files": [
+    {
+      "path": "policy/legislation/Garden_Act_v1-0_2026-09-28.md",
+      "role": "proposed bill editable Markdown",
+      "bytes": 52867,
+      "sha256": "19408127bd669d25590e608d7da6c5654fe6c7f2795f5133fa52350e19a92ba7",
+      "publication_status": "author-controlled legislative proposal; counsel review pending"
+    },
+    {
+      "path": "policy/legislation/Garden_Act_v1-0_2026-09-28.tex",
+      "role": "proposed bill original LaTeX",
+      "bytes": 54579,
+      "sha256": "7533ee873ecf5f13a25aab924cef93bc146b969099a0e633aee6b24ace09b374",
+      "publication_status": "author-controlled legislative proposal; counsel review pending"
+    },
+    {
+      "path": "policy/legislation/Garden_Act_Source-and-Drafting-Notes_v1-0_2026-09-28.md",
+      "role": "legislative research and citations",
+      "bytes": 15787,
+      "sha256": "73e57ec5a83aa8a35fcdbe8f1808ea1ceae747b55598d27c7c82837f2c824ddf",
+      "publication_status": "author-controlled legislative proposal; counsel review pending"
+    },
+    {
+      "path": "policy/historical-research/Not-From-Nowhere_Resume-Here.md",
+      "role": "research continuation handoff; internal checkpoint",
+      "bytes": 3039,
+      "sha256": "8dba5e3a1816a8edadfe06302a7d029155fa4e3520221abb737a4a52add4818d",
+      "publication_status": "working process/metadata only; no historical assertion or archival originals approved"
+    },
+    {
+      "path": "policy/historical-research/CORPUS-BUNDLE-MANIFEST_CP-018_2026-10-10.json",
+      "role": "manifest of privately held archival bundles; not published archive",
+      "bytes": 2577,
+      "sha256": "c8527f7ad4a51b461176fc4dec7c2f080bd835e369549a8749a0cc3a630a6447",
+      "publication_status": "working process/metadata only; no historical assertion or archival originals approved"
+    }
+  ],
+  "private_materials": {
+    "checkpoint": "CP-018",
+    "working_book": "1.30-alpha",
+    "corpus": "1.18",
+    "preservation_location": "Access-controlled ChatGPT Library; consult owner-held latest document index. URLs and family or archival source bytes deliberately not copied here.",
+    "originals_in_git": false,
+    "publication_approved": false,
+    "scholarly_review_complete": false,
+    "rights_and_consent_cleared": false,
+    "source_of_truth": "Original archive packages and their manifests, not this repository",
+    "limits": "Unresolved provenance, historical verification, original-source rights and corpus recovery gates. Published manifests are not acceptance."
+  },
+  "verification": "python3 scripts/verify_policy_sources.py --check"
+}

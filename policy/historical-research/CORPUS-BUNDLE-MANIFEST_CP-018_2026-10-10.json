@@ -1,0 +1,58 @@
+{
+  "checkpoint": "CP-018",
+  "corpus": "1.18",
+  "date": "2026-10-10",
+  "status": "verified four-component working corpus bundle; not a comprehensive-final certification",
+  "assembly": "Extract CORE, EXPORTS, SOURCES and RECOVERY so their corpus_v1_18 roots merge. A single combined ZIP is intentionally not produced because earlier large transfers truncated silently.",
+  "components": [
+    {
+      "component": "CORE",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_CORE_2026-10-10.zip",
+      "library_file_id": "libfile_02e2c7d386588191972728b8b4936027",
+      "file_id": "file_00000000c96482309a68b20d32dd0067",
+      "size_bytes": 87179396,
+      "sha256": "5e2ee9d4b675d69d152d0e1b5fedcca0ded133b2bfd6e989e31fd6218aea4dd5",
+      "zip_crc": "pass"
+    },
+    {
+      "component": "EXPORTS",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_EXPORTS_2026-10-10.zip",
+      "library_file_id": "libfile_44cbc8c7604c8191aa607813dc610f1a",
+      "file_id": "file_000000002db4823082d2dbb72cf87599",
+      "size_bytes": 50901152,
+      "sha256": "761c591c3555d518b8c0d6e0507993873d250dcaa90f1370fb511f61ada1e37a",
+      "zip_crc": "pass",
+      "queryable_user_tables": 108,
+      "rows": 969596
+    },
+    {
+      "component": "SOURCES",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_SOURCES_2026-10-10.zip",
+      "library_file_id": "libfile_391166d323988191a8c627bb80382373",
+      "file_id": "file_00000000b5ac81f896b123d7dc5238cf",
+      "size_bytes": 177563297,
+      "sha256": "d583c932b10756a9418bb37eae767ad6537105521030229788afee0a77bef195",
+      "zip_crc": "pass"
+    },
+    {
+      "component": "RECOVERY",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_RECOVERY_2026-10-10.zip",
+      "library_file_id": "libfile_cb8f55317a888191a8c38d782be4db1b",
+      "file_id": "file_000000005aa081f4b34e372ef583a8cb",
+      "size_bytes": 40788741,
+      "sha256": "0625c0549e93d563531485625e538cd71babffed6bfa3744453b4709dbc25d07",
+      "zip_crc": "pass"
+    }
+  ],
+  "database": {
+    "filename": "research.sqlite",
+    "size_bytes": 410923008,
+    "sha256": "a5754efe9abdbd61a883d30667c12c511ab2263e1c606b696634258156158a07",
+    "integrity_check": "ok",
+    "foreign_key_check_rows": 0,
+    "tables": 109,
+    "indexes": 186,
+    "triggers": 0
+  },
+  "recovery_boundary": "Corpus 1.18 descends only from the exact validated Corpus 1.17 database and bounded CP-018 additions. Original CP-011 schema equivalence, unrecovered CP-016 state and unexported database-only state remain open; no historical migration was replayed."
+}

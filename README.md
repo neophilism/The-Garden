@@ -1,5 +1,9 @@
 # The Garden
 
+## Policy and historical document library
+
+[Policy, legislation, historical research checkpoint and source manifest](policy/README.md) follows The Cornerstone's source-library organization. The Garden Act's editable originals and provenance are available in `policy/legislation/`; CP-018 historical research handoff and corpus component accounting are in `policy/historical-research/`. Restricted archival originals, manuscript images, family records and full research databases are **not** published in this public repository pending scoped research, rights, consent and security reviews. Run `python3 scripts/verify_policy_sources.py --check` to check committed source hashes.
+
 ## Resumable intake implementation (12 October 2026)
 
 GDN-077 adds owner-bound, checksummed uploads with durable pause/resume, quota reservation, crash recovery, private quarantine receipts and a trusted handoff to GDN-045. The contributor panel distinguishes bytes received from research review and publication. [Runbook](docs/runbooks/resumable-uploads.md); [acceptance evidence](docs/evidence/GDN-077/acceptance.json). Implementation is under review in [PR #40](https://github.com/neophilism/The-Garden/pull/40) and remains disabled/unmounted; hosted activation and independent acceptance are not claimed.
