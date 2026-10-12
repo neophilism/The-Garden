@@ -1,0 +1,9 @@
+# Transfer of large original research archives
+
+The Garden repository is public and contains the owner-authored policy sources and selected research working documents. Several originals exceed practical GitHub API upload limits, including the illustrated Atlas working Word manuscript (219,069,956 bytes) and the SOURCES corpus ZIP (177,563,297 bytes). The [source manifest](../SOURCE_MANIFEST.json) lists authoritative filenames, Library IDs, sizes and SHA-256 values.
+
+**GitHub's ordinary per-file Git limit is 100 MiB.** A workstation authorized to read the original Library files and access GitHub can use Git LFS, subject to available repository storage/bandwidth and approval before any new charge. Verify every download against the saved hash and byte count, register the intended extensions with `git lfs track`, stage the .gitattributes with the originals, push both Git commits and LFS objects, then verify through a clean clone with `git lfs pull` and fresh SHA-256 comparisons.
+
+Do not commit a dangling LFS pointer, bypass a size limit by silently recompressing or altering evidence, or represent an archive manifest as the underlying corpus. Retain four separate CORE, EXPORTS, SOURCES and RECOVERY original identities and preserve the known CP-018 recovery warnings. Material that contains private family submissions, rights-restricted scans or sensitive third-party records needs its own access and licensing review even if the repository is public.
+
+The current GitHub connector does not offer a Git LFS binary-upload action. Consequently, the oversized originals have not been transferred. Remaining smaller files are recorded as missing where the connector rejected a transfer; do not mark them complete without checksum-verified readback.

@@ -1,0 +1,374 @@
+{
+  "checkpoint": "CP-018",
+  "updated_at_utc": "2026-10-11T17:30:00+00:00",
+  "index_library_path": "/guide_Not-From-Nowhere_LATEST.html",
+  "scope": "Authoritative Working Research Edition 1.30-alpha and Corpus 1.18 component bundle. Only Gate 1 closed; no comprehensive-final certification.",
+  "documents": [
+    {
+      "label": "Apparatus",
+      "filename": "apparatus_Not-From-Nowhere_atlas_v1-30-alpha_2026-10-10.docx",
+      "library_file_id": "libfile_2ee362d434c48191b55110c3552e89b4",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_2ee362d434c48191b55110c3552e89b4/download",
+      "local_path": "documents/apparatus_Not-From-Nowhere_atlas_v1-30-alpha_2026-10-10.docx"
+    },
+    {
+      "label": "Main atlas",
+      "filename": "book_Not-From-Nowhere_atlas-working-research-edition_v1-30-alpha_2026-10-10.docx",
+      "library_file_id": "libfile_6a20e41d9d108191b0106e63802e95ad",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_6a20e41d9d108191b0106e63802e95ad/download",
+      "local_path": "documents/book_Not-From-Nowhere_atlas-working-research-edition_v1-30-alpha_2026-10-10.docx"
+    },
+    {
+      "label": "Correction log",
+      "filename": "correction-log_Not-From-Nowhere_atlas_v1-30-alpha_2026-10-10.docx",
+      "library_file_id": "libfile_a9c12ccd9a48819187fe395ee83aa4ef",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_a9c12ccd9a48819187fe395ee83aa4ef/download",
+      "local_path": "documents/correction-log_Not-From-Nowhere_atlas_v1-30-alpha_2026-10-10.docx"
+    },
+    {
+      "label": "File-system guide",
+      "filename": "guide_Not-From-Nowhere_file-system_v1-30-alpha_2026-10-10.docx",
+      "library_file_id": "libfile_e5fb3cce5ef48191b6d63c926d7f5a29",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_e5fb3cce5ef48191b6d63c926d7f5a29/download",
+      "local_path": "documents/guide_Not-From-Nowhere_file-system_v1-30-alpha_2026-10-10.docx"
+    },
+    {
+      "label": "Image budget",
+      "filename": "image-budget_Not-From-Nowhere_atlas_v1-30-alpha_2026-10-10.docx",
+      "library_file_id": "libfile_fb8c260c393c81919ecab4db5c86dad4",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_fb8c260c393c81919ecab4db5c86dad4/download",
+      "local_path": "documents/image-budget_Not-From-Nowhere_atlas_v1-30-alpha_2026-10-10.docx"
+    },
+    {
+      "label": "Registry",
+      "filename": "registry_African-Tribal-Nations_atlas_v1-30-alpha_2026-10-10.docx",
+      "library_file_id": "libfile_c619460c21c48191aa006b4ebc49be57",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_c619460c21c48191aa006b4ebc49be57/download",
+      "local_path": "documents/registry_African-Tribal-Nations_atlas_v1-30-alpha_2026-10-10.docx"
+    },
+    {
+      "label": "Integration manifest",
+      "filename": "integration-manifest_v1-30-alpha_2026-10-10.json",
+      "library_file_id": "libfile_eda969b726e88191a8bd7010d51b3664",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_eda969b726e88191a8bd7010d51b3664/download",
+      "local_path": "control/integration-manifest_v1-30-alpha_2026-10-10.json"
+    },
+    {
+      "label": "Corpus bundle manifest",
+      "filename": "CORPUS-BUNDLE-MANIFEST_CP-018_2026-10-10.json",
+      "library_file_id": "libfile_61d3b6e364408191aed2a4c47b6bf790",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_61d3b6e364408191aed2a4c47b6bf790/download",
+      "local_path": "control/CORPUS-BUNDLE-MANIFEST_CP-018_2026-10-10.json"
+    },
+    {
+      "label": "Corpus CORE",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_CORE_2026-10-10.zip",
+      "library_file_id": "libfile_02e2c7d386588191972728b8b4936027",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_02e2c7d386588191972728b8b4936027/download",
+      "local_path": null,
+      "size_bytes": 87179396,
+      "sha256": "5e2ee9d4b675d69d152d0e1b5fedcca0ded133b2bfd6e989e31fd6218aea4dd5"
+    },
+    {
+      "label": "Corpus EXPORTS",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_EXPORTS_2026-10-10.zip",
+      "library_file_id": "libfile_44cbc8c7604c8191aa607813dc610f1a",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_44cbc8c7604c8191aa607813dc610f1a/download",
+      "local_path": null,
+      "size_bytes": 50901152,
+      "sha256": "761c591c3555d518b8c0d6e0507993873d250dcaa90f1370fb511f61ada1e37a"
+    },
+    {
+      "label": "Corpus SOURCES",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_SOURCES_2026-10-10.zip",
+      "library_file_id": "libfile_391166d323988191a8c627bb80382373",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_391166d323988191a8c627bb80382373/download",
+      "local_path": null,
+      "size_bytes": 177563297,
+      "sha256": "d583c932b10756a9418bb37eae767ad6537105521030229788afee0a77bef195"
+    },
+    {
+      "label": "Corpus RECOVERY",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_RECOVERY_2026-10-10.zip",
+      "library_file_id": "libfile_cb8f55317a888191a8c38d782be4db1b",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_cb8f55317a888191a8c38d782be4db1b/download",
+      "local_path": null,
+      "size_bytes": 40788741,
+      "sha256": "0625c0549e93d563531485625e538cd71babffed6bfa3744453b4709dbc25d07"
+    },
+    {
+      "label": "Work log",
+      "filename": "Not-From-Nowhere_Work-Log_v1-18_2026-10-10.md",
+      "library_file_id": "libfile_2f2f9269f99c819187444c7b0612619b",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_2f2f9269f99c819187444c7b0612619b/download",
+      "local_path": "control/Not-From-Nowhere_Work-Log_v1-18_2026-10-10.md"
+    },
+    {
+      "label": "Corpus contents",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_CONTENTS.txt",
+      "library_file_id": "libfile_af46395d92108191a84e9d6175928322",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_af46395d92108191a84e9d6175928322/download",
+      "local_path": "control/Not-From-Nowhere_Research-Corpus_v1-18_CONTENTS.txt"
+    },
+    {
+      "label": "Corpus validation",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_Validation.json",
+      "library_file_id": "libfile_35268de9bd6881918a58778bb60a5576",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_35268de9bd6881918a58778bb60a5576/download",
+      "local_path": "control/Not-From-Nowhere_Research-Corpus_v1-18_Validation.json"
+    },
+    {
+      "label": "Audit",
+      "filename": "audit_CP-018_2026-10-10.json",
+      "library_file_id": "libfile_ccb6c482032c8191bcfcf4ab50648a21",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_ccb6c482032c8191bcfcf4ab50648a21/download",
+      "local_path": "control/audit_CP-018_2026-10-10.json"
+    },
+    {
+      "label": "Page ledger",
+      "filename": "page_inspection_ledger_CP-018_2026-10-10.json",
+      "library_file_id": "libfile_957dd2ea85948191895a92674dc025fa",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_957dd2ea85948191895a92674dc025fa/download",
+      "local_path": "control/page_inspection_ledger_CP-018_2026-10-10.json"
+    },
+    {
+      "label": "Portable package (this archive)",
+      "filename": "Not-From-Nowhere_Current-Work_CP-018_2026-10-10.zip",
+      "library_file_id": "libfile_c58b0f342b0c819180cb32ebe75aad19",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_c58b0f342b0c819180cb32ebe75aad19/download",
+      "local_path": null
+    },
+    {
+      "label": "Package validation",
+      "filename": "validation_Not-From-Nowhere_Current-Work_CP-018_2026-10-10.json",
+      "library_file_id": "libfile_adeb0cf5601081918d66024ff86fc1d7",
+      "download_url": "https://chatgpt.com/api/library/files/libfile_adeb0cf5601081918d66024ff86fc1d7/download",
+      "local_path": null
+    }
+  ],
+  "sequence_boundary": {
+    "accepted": "1-151",
+    "provisional": "152-351",
+    "next_untouched": 352,
+    "divergence_begins": 223
+  },
+  "qa": {
+    "pages": 1765,
+    "visually_reviewed": 51,
+    "not_visually_reviewed": 1714,
+    "all_rendered_and_decoded": true,
+    "actual_reader_link_activation": false
+  },
+  "gates": {
+    "closed": [
+      1
+    ],
+    "in_progress": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "pending": [
+      10
+    ]
+  },
+  "database_recovery_boundary": "Corpus1.18 descends only from the exact validated Corpus1.17 database and bounded CP018 additions. Original CP011 schema equivalence, unrecovered CP016 state and unexported database-only state remain open; no historical migrations were replayed.",
+  "durable_bundle_boundary": "Corpus1.18 is a four-component verified bundle. A single combined ZIP is intentionally not produced because earlier large transfers truncated silently.",
+  "suite_index_updated_at_utc": "2026-10-10T18:30:14.152556+00:00",
+  "garden_website_development": {
+    "plan_id": "GARDEN-WEB-PLAN-001",
+    "version": "1.0",
+    "updated_at_utc": "2026-10-10T18:30:14.152556+00:00",
+    "scope": "Approved v1.0 plan, merged bootstrap and charter PRs, and a tested local public-orientation prototype. Full application and deployment remain incomplete.",
+    "current_scope_prs": 196,
+    "conditional_government_prs": 14,
+    "feature_count": 43,
+    "acceptance_criteria": 630,
+    "specified_future_test_scenarios": 630,
+    "verified_remote_prs": 2,
+    "production_verified_items": 0,
+    "engine_room_sync": "not_verified",
+    "canonical_security_standard": "located; requirement_level_adoption_and_conformance_not_verified",
+    "validation": {
+      "plan_structure": "passed",
+      "validator_unit_tests_passed": 21,
+      "local_reader_checks_passed": 24,
+      "source_tables_accounted": 106,
+      "source_rows_accounted": 923292,
+      "library_readback_hashes": "all_four_passed",
+      "scope_note": "These original preparation checks apply to the v1.0 planning reader, not to the new website prototype. Prototype checks are separately recorded in latest_execution_checkpoint."
+    },
+    "documents": [
+      {
+        "label": "Browser edition",
+        "filename": "Garden_Website_Development_Plan_v1.0_2026-10-10.html",
+        "library_path": "/Garden_Website_Development_Plan_v1.0_2026-10-10.html",
+        "file_id": "file_0000000097f481f6a7e0a561d51e3b24",
+        "library_file_id": "libfile_b56bada0790481918aec6779b545ae49",
+        "download_url": "https://chatgpt.com/api/library/files/libfile_b56bada0790481918aec6779b545ae49/download",
+        "local_path": "Garden_Website_Development_Plan_v1.0_2026-10-10.html",
+        "sha256": "3f7bafebeeb1e57f0cae5f9427b6bb8f290cb889234dc4517b7c4eb2bd8b51f0",
+        "size_bytes": 928140,
+        "status": "saved_and_exact_bytes_readback_verified",
+        "browser_download_link_activation": "not_independently_tested",
+        "description": "Searchable complete plan, PR filters, feature crosswalk and source-table accounting."
+      },
+      {
+        "label": "Editable full plan",
+        "filename": "Garden_Website_Development_Plan_v1.0_2026-10-10.md",
+        "library_path": "/Garden_Website_Development_Plan_v1.0_2026-10-10.md",
+        "file_id": "file_0000000001d881f598730befa144c344",
+        "library_file_id": "libfile_e4e328f131548191aae7618f434c1a5d",
+        "download_url": "https://chatgpt.com/api/library/files/libfile_e4e328f131548191aae7618f434c1a5d/download",
+        "local_path": "Garden_Website_Development_Plan_v1.0_2026-10-10.md",
+        "sha256": "7ad0ce05e120140976edf6ec719091f60f637814675739f85d876c1737c8ffa9",
+        "size_bytes": 635390,
+        "status": "saved_and_exact_bytes_readback_verified",
+        "browser_download_link_activation": "not_independently_tested",
+        "description": "Complete Markdown plan, approximately 75,600 words."
+      },
+      {
+        "label": "Repository-ready package",
+        "filename": "Garden_Website_Repository_Plan_v1.0_2026-10-10.zip",
+        "library_path": "/Garden_Website_Repository_Plan_v1.0_2026-10-10.zip",
+        "file_id": "file_00000000c950820c81b4c487f961f3c2",
+        "library_file_id": "libfile_d5167919193881919613da7a08377965",
+        "download_url": "https://chatgpt.com/api/library/files/libfile_d5167919193881919613da7a08377965/download",
+        "local_path": "Garden_Website_Repository_Plan_v1.0_2026-10-10.zip",
+        "sha256": "23beed9b45e48fd11b5ee09cf3e5611717bf5502cdfd58731bd20d920d22a1c8",
+        "size_bytes": 1402894,
+        "status": "saved_and_exact_bytes_readback_verified",
+        "browser_download_link_activation": "not_independently_tested",
+        "description": "277-file handoff bundle: PR specs, plan JSON, ADRs, migration map, scripts, tests, evidence and runbooks."
+      },
+      {
+        "label": "Machine-readable PR plan",
+        "filename": "Garden_Website_PR_Plan_v1.0_2026-10-10.json",
+        "library_path": "/Garden_Website_PR_Plan_v1.0_2026-10-10.json",
+        "file_id": "file_0000000070a481f9aadad077751e0ecf",
+        "library_file_id": "libfile_a899058a4e7c8191b40fce294043a6d9",
+        "download_url": "https://chatgpt.com/api/library/files/libfile_a899058a4e7c8191b40fce294043a6d9/download",
+        "local_path": "Garden_Website_PR_Plan_v1.0_2026-10-10.json",
+        "sha256": "ec20b6836be47e11bc5dfd286ece14662bc1d407fc94085aa5380f78229541e2",
+        "size_bytes": 849723,
+        "status": "saved_and_exact_bytes_readback_verified",
+        "browser_download_link_activation": "not_independently_tested",
+        "description": "210 planned items, 960 dependency edges, 43 functions, release gates and truthful initial progress."
+      },
+      {
+        "label": "Local public-orientation preview",
+        "filename": "Garden_Public_Orientation_Preview_2026-10-10.html",
+        "library_path": "/Garden_Public_Orientation_Preview_2026-10-10.html",
+        "file_id": "file_00000000531c81f6ac172ceabd1c8b5d",
+        "library_file_id": "libfile_3366d6ed29f881918cd8cdcea7dc8a00",
+        "download_url": "https://chatgpt.com/api/library/files/libfile_3366d6ed29f881918cd8cdcea7dc8a00/download",
+        "local_path": "Garden_Public_Orientation_Preview_2026-10-10.html",
+        "sha256": "3f3c10163465b6873839ef9382d08cef3e7ee8c78c3d985332faaca1d5e78a06",
+        "size_bytes": 32882,
+        "status": "saved_library_upload_succeeded",
+        "browser_download_link_activation": "not_independently_tested",
+        "description": "Self-contained design preview. Browser rendering and interactions remain unverified; not a deployed site."
+      },
+      {
+        "label": "Tested prototype source",
+        "filename": "Garden_Public_Orientation_Source_2026-10-10.zip",
+        "library_path": "/Garden_Public_Orientation_Source_2026-10-10.zip",
+        "file_id": "file_00000000362c81f9899bba3bd6a0f2e2",
+        "library_file_id": "libfile_f708279de3448191b806b173e93ef73d",
+        "download_url": "https://chatgpt.com/api/library/files/libfile_f708279de3448191b806b173e93ef73d/download",
+        "local_path": "Garden_Public_Orientation_Source_2026-10-10.zip",
+        "sha256": "2896ec1771cdb8af14b1f997d0b3a0836b47ee58ce313af67879be9eec5b26fb",
+        "size_bytes": 39533,
+        "status": "saved_library_upload_succeeded",
+        "browser_download_link_activation": "not_independently_tested",
+        "description": "17-file isolated source/handoff package. 20 Node tests pass, including a fresh extraction. No application deployment."
+      },
+      {
+        "label": "Implementation checkpoint",
+        "filename": "Garden_Implementation_Checkpoint_2026-10-10.md",
+        "library_path": "/Garden_Implementation_Checkpoint_2026-10-10.md",
+        "file_id": "file_00000000622881f5a7cdf079b61f9d99",
+        "library_file_id": "libfile_28db118c9e3c8191835f04655be653b2",
+        "download_url": "https://chatgpt.com/api/library/files/libfile_28db118c9e3c8191835f04655be653b2/download",
+        "local_path": "Garden_Implementation_Checkpoint_2026-10-10.md",
+        "sha256": "81286ec973a872491e6e18c41907339316dc5b3e8fb21900f5e2ec6e2d00bbeb",
+        "size_bytes": 4157,
+        "status": "saved_library_upload_succeeded",
+        "browser_download_link_activation": "not_independently_tested",
+        "description": "Verified PR observations, exact hosting targets, access restrictions and dependency-aware continuation."
+      }
+    ],
+    "research_checkpoint_note": "CP-017 research edition, dates, source documents, gates and recovery limits unchanged.",
+    "remote_merged_pr_numbers": [
+      1,
+      2
+    ],
+    "fully_accepted_planned_work_items": 0,
+    "git_write_access": "restricted_by_current_app_session_policy",
+    "latest_execution_checkpoint": {
+      "id": "GARDEN-WEB-CP-001",
+      "recorded_at_utc": "2026-10-10T18:30:14.152556+00:00",
+      "prototype_version": "0.1.0",
+      "local_node_tests": {
+        "passed": 20,
+        "failed": 0,
+        "skipped": 0
+      },
+      "fresh_zip_extraction_tests": "passed",
+      "syntax_checks": "passed",
+      "browser_checks": "blocked_by_administrative_policy",
+      "visual_inspection": "not_performed",
+      "deployment": "not_performed",
+      "independent_charter_review": "outstanding",
+      "remote_observations": [
+        {
+          "number": 1,
+          "url": "https://github.com/neophilism/The-Garden/pull/1",
+          "merged": true,
+          "tested_head": "fedf621f2b6acc738684cf13b0c3e2d4ac0410e4",
+          "merge_commit": "ae4e04ce000afaeea24e3936a9feb45489ceb127",
+          "scope": "approved text baseline import, not implemented application"
+        },
+        {
+          "number": 2,
+          "url": "https://github.com/neophilism/The-Garden/pull/2",
+          "merged": true,
+          "tested_head": "a3ffa6605e2cd10da25e46a76cd407fa6a54097e",
+          "merge_commit": "84995389795271438c61f14ea629c412d3814c5b",
+          "ci_run_id": 38074685541,
+          "ci_conclusion": "success",
+          "scope": "GDN-001 charter and feature responsibility contracts",
+          "independent_document_review": "outstanding",
+          "accepted": false
+        }
+      ],
+      "runtime_targets": {
+        "repository": "neophilism/The-Garden",
+        "render": {
+          "project_id": "prj-db57f92jnfac739ghic0",
+          "console_url": "https://dashboard.render.com/project/prj-db57f92jnfac739ghic0",
+          "connection": "not_connected",
+          "service_id": null,
+          "inspection": "not_performed"
+        },
+        "neon": {
+          "project_id": "royal-union-78374030",
+          "branch_id": "br-curly-band-b5aatp1e",
+          "console_url": "https://console.neon.tech/app/projects/royal-union-78374030/branches/br-curly-band-b5aatp1e",
+          "connection": "not_connected",
+          "database_name": null,
+          "role_name": null,
+          "inspection": "not_performed"
+        },
+        "incremental_spending_authorized": false,
+        "database_mutations_performed": false,
+        "deployment_performed": false
+      }
+    }
+  }
+}
