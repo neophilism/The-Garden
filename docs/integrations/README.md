@@ -49,3 +49,5 @@ Canonical and compatibility source mappings now include confirmed GDN-045 / PR #
 ## GDN-077 integration under review
 
 Resumable uploads reuse the existing audited-decision service and provide an actual private source-registry resolver for the offline staging worker. The ephemeral PostgreSQL CI handoff verifies parent decision receipts and absence of research-record promotion. No provider upload, route activation or live Engine Room synchronization is implied. GDN-045 follow-up PR #39 is confirmed merged and does not add a roadmap unit.
+
+The observed GDN-077 mapping is PR #40, under review: 33 mapped PRs and 32 confirmed engineering merges. Canonical and compatibility mappings agree. Live Engine Room readback remains unverified.

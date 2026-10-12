@@ -1,6 +1,6 @@
 {
   "work_item_id": "GDN-077",
-  "implementation": "local_implementation_pending_exact_head_ci",
+  "implementation": "in_review",
   "accepted": false,
   "production_verified": false,
   "independent_review": "not_performed",
@@ -23,5 +23,6 @@
     "A matching header is not a malware or parser clearance. All uploads remain private quarantine.",
     "Filesystem administrators remain trusted and local audit chains are not independently anchored.",
     "No historical verification, rights clearance, public publication or operational research-record promotion."
-  ]
+  ],
+  "github_pr_number": 40
 }
