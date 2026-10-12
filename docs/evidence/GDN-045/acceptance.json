@@ -1,6 +1,6 @@
 {
   "work_item_id": "GDN-045",
-  "implementation": "pull_request_open",
+  "implementation": "merged_with_exact_ci",
   "accepted": false,
   "production_verified": false,
   "independent_review": "not_performed",
@@ -21,8 +21,10 @@
     "source_bytes": 422723584,
     "rows": 6400,
     "worker_address_space_limit_mib": 256,
-    "observed_peak_rss_kib": 37828,
-    "measurement_scope": "Local generated fixture; runtime-specific observation, not a bound on every deployment."
+    "observed_peak_rss_kib": 38128,
+    "measurement_scope": "Local generated fixture; runtime-specific observation, not a bound on every deployment.",
+    "ci_peak_rss_kib": 44620,
+    "ci_head_sha": "f406e0c1fba421c5be8e3ab87d40b46e278d7374"
   },
   "activation": "Default-disabled, no mounted route, no cloud schema/provider mutations, no production storage adapter.",
   "limitations": [
@@ -32,5 +34,24 @@
     "Local audit chains are not independently anchored or administrator-proof.",
     "Original CP-011, CP-016 and Marinerito recovery uncertainties remain unresolved."
   ],
-  "github_pr_number": 37
+  "github_pr_number": 37,
+  "github": {
+    "implementation": "merged_with_exact_ci",
+    "github_pr_number": 37,
+    "github_head_sha": "f406e0c1fba421c5be8e3ab87d40b46e278d7374",
+    "github_merge_sha": "5b883434c0711d8f423d7c576d74ecade013d543",
+    "ci_url": "https://github.com/neophilism/The-Garden/actions/runs/38248675766",
+    "ci_workflows": {
+      "repository": 38248675766,
+      "database": 38248675746,
+      "storage": 38248676100,
+      "historical_data": 38248675906,
+      "quality_browser": 38248675936,
+      "identity": 38248675751
+    },
+    "accepted": false,
+    "production_verified": false,
+    "independent_review": "not_performed",
+    "note": "All six exact-head workflows and nine checks succeeded before GitHub reported clean mergeability and confirmed merge. Controlled >400 MB extraction, crash recovery and real PostgreSQL audit integration passed. No historical source ingestion or review/publication inferred."
+  }
 }

@@ -44,4 +44,4 @@ Engine Room's repository contract describes authenticated reconciliation and bes
 
 ## GDN-045 registration (12 October 2026)
 
-Canonical and compatibility source mappings now include GDN-045 / PR #37 as open: 32 mapped PRs, 31 confirmed engineering merges. Live Engine Room ingestion/readback remains unverified. The offline staging adapter creates no provider resources and has no production authorization/storage binding.
+Canonical and compatibility source mappings now include confirmed GDN-045 / PR #37: 32 mapped PRs and 32 confirmed engineering merges; all six exact-head workflows passed. Live Engine Room ingestion/readback remains unverified. The offline staging adapter creates no provider resources and has no production authorization/storage binding.

@@ -1,6 +1,6 @@
 # ADR 0014: offline, transactional historical corpus quarantine
 
-Status: GDN-045 implementation candidate; independent and live acceptance pending.
+Status: GDN-045 implementation merged in PR #37; independent and live acceptance pending.
 
 Keep the 8 MiB limits of the GDN-041 inspector and storage transport. Use a separate Linux/Python offline worker with bounded reads and a private SQLite staging journal, admitted through the existing audited decision-service interface. The server resolves authorized references to prepositioned, quiescent original bytes and a private staging directory. Requests never provide paths, schemas, grants or parser commands. No application endpoint is mounted.
 
