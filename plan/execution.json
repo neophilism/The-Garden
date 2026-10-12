@@ -543,15 +543,15 @@
       "note": "All six exact-head workflows and nine checks succeeded before GitHub reported clean mergeability and confirmed merge. Controlled >400 MB extraction, crash recovery and real PostgreSQL audit integration passed. No historical source ingestion or review/publication inferred."
     },
     "GDN-077": {
-      "implementation": "in_review",
+      "implementation": "merged",
       "github_pr_number": 40,
-      "github_head_sha": null,
-      "github_merge_sha": null,
-      "ci_url": null,
+      "github_head_sha": "6a9f29b9e1321ffc59861538f09ec0bf1e7c9466",
+      "github_merge_sha": "9053666876ed0a870e28ef55373dc2ae9f895e55",
+      "ci_url": "https://github.com/neophilism/The-Garden/pull/40/checks",
       "accepted": false,
       "production_verified": false,
       "independent_review": "not_performed",
-      "note": "Durable resumable quarantine uploads, receipt panel and GDN-045 registry handoff. Exact-head CI and normal GitHub review required before merge; hosted activation remains separate."
+      "note": "Six exact-head workflows and all nine checks passed before GitHub confirmed mergeability and squash merge. Offline resumable quarantine only; real provider, independent security, source grants and production acceptance unverified. Scope-safe SHA-256 duplicate receipt added."
     }
   },
   "production_verified_items": 0,
@@ -559,8 +559,8 @@
     "registration": "not_verified",
     "sync": "not_verified",
     "manifest_in_repo": true,
-    "mapped_planned_units": 32
+    "mapped_planned_units": 33
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-12T13:23:30.113814+00:00"
+  "observed_at_utc": "2026-10-12"
 }
