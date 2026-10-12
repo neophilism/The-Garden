@@ -264,5 +264,5 @@ test('content-duplicate receipt is confined to the same owner and workspace',asy
  const otherOwner=await accept(unique());assert.equal(otherOwner.duplicateOfUploadId,null);
  f.actor('synthetic-owner');
  const otherWorkspace=await accept(unique(),randomUUID());assert.equal(otherWorkspace.duplicateOfUploadId,null);
- assert.equal((await f.status()).duplicateOfUploadId,null);
+ assert.equal((await f.status()).duplicateOfUploadId,second.uploadId);
 });
