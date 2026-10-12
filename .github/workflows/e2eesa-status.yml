@@ -1,0 +1,19 @@
+name: E2EESA status record
+on:
+  pull_request:
+    paths: ['security/**', 'scripts/validate_e2eesa_status.py', 'docs/E2EESA_ADOPTION.md', 'README.md']
+  push:
+    branches: [main]
+    paths: ['security/**', 'scripts/validate_e2eesa_status.py', 'docs/E2EESA_ADOPTION.md', 'README.md']
+permissions:
+  contents: read
+jobs:
+  status-record:
+    name: Status record integrity (not product certification)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - run: python3 scripts/validate_e2eesa_status.py
