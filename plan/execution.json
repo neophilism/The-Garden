@@ -562,5 +562,5 @@
     "mapped_planned_units": 33
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-12"
+  "observed_at_utc": "2026-10-12T13:34:00+00:00"
 }
