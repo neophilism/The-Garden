@@ -2,7 +2,7 @@
 
 ## Policy and historical document library
 
-[Policy, legislation, historical research checkpoint and source manifest](policy/README.md) follows The Cornerstone's source-library organization. The Garden Act's editable originals and provenance are available in `policy/legislation/`; CP-018 historical research handoff and corpus component accounting are in `policy/historical-research/`. Restricted archival originals, manuscript images, family records and full research databases are **not** published in this public repository pending scoped research, rights, consent and security reviews. Run `python3 scripts/verify_policy_sources.py --check` to check committed source hashes.
+[Policy, legislation, historical research checkpoint and source manifest](policy/README.md) follows The Cornerstone's source-library organization. The Garden Act's editable originals and provenance are available in `policy/legislation/`; CP-018 historical research companions and source integrity manifests are in `policy/historical-research/`. This repository is **private**. The illustrated Atlas manuscript, full research databases and large ZIP components have not yet been transferred; they need a verified Git LFS import. Source control is not automatic permission to publish protected material on the public Garden website. Run `python3 scripts/verify_policy_sources.py --check` to check committed source hashes.
 
 ## Resumable intake implementation (12 October 2026)
 
