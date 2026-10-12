@@ -16,17 +16,17 @@ class PolicySourceTests(unittest.TestCase):
 
     def test_public_policy_and_research_are_distinguished(self):
         manifest = json.loads(verifier.MANIFEST.read_text(encoding="utf-8"))
-        self.assertEqual(manifest["manifest_version"], 4)
+        self.assertEqual(manifest["manifest_version"], 5)
         self.assertEqual(manifest["repository_visibility_verified"], "public")
         self.assertTrue(manifest["publication"]["owner_authorized_policy_and_legislation_publication"])
         self.assertFalse(manifest["publication"]["historical_assertions_independently_verified"])
         self.assertFalse(manifest["publication"]["proposed_legislation_enacted"])
-        self.assertEqual(len(manifest["source_files"]), 16)
-        self.assertEqual(len({item["path"] for item in manifest["source_files"]}), 16)
+        self.assertEqual(len(manifest["source_files"]), 22)
+        self.assertEqual(len({item["path"] for item in manifest["source_files"]}), 22)
         for item in manifest["source_files"]:
             self.assertEqual(len(item["sha256"]), 64)
             self.assertTrue(item["path"].startswith("policy/"))
-        self.assertEqual(len(manifest["external_materials"]), 12)
+        self.assertEqual(len(manifest["external_materials"]), 6)
         self.assertTrue(all(isinstance(x.get("bytes"), int) and len(x.get("sha256", "")) == 64 for x in manifest["external_materials"]))
         self.assertTrue(all(item["transfer_status"] == "not_in_repository" for item in manifest["external_materials"]))
 

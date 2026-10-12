@@ -14,10 +14,16 @@
 - [Research integration manifest (.json)](integration-manifest_v1-30-alpha_2026-10-10.json)
 - [Four-component corpus manifest (.json)](CORPUS-BUNDLE-MANIFEST_CP-018_2026-10-10.json)
 - [Corpus validation snapshot (.json)](Not-From-Nowhere_Research-Corpus_v1-18_Validation.json)
+- [African nations research registry (.docx)](registry_African-Tribal-Nations_atlas_v1-30-alpha_2026-10-10.docx)
+- [Research work log (.md)](Not-From-Nowhere_Work-Log_v1-18_2026-10-10.md)
+- [Corpus member inventory (.txt)](Not-From-Nowhere_Research-Corpus_v1-18_CONTENTS.txt)
+- [CP-018 historical audit (.json)](audit_CP-018_2026-10-10.json)
+- [Page inspection ledger (.json)](page_inspection_ledger_CP-018_2026-10-10.json)
+- [Portable package validation (.json)](validation_Not-From-Nowhere_Current-Work_CP-018_2026-10-10.json)
 
 ## What remains outside Git
 
-The 219 MB illustrated Atlas book, four original corpus ZIP archives, African nations registry and some audit/work-log/contents files are **not committed**. All 12 external originals had their unchanged bytes independently reverified locally on 12 October 2026; see [the integrity evidence](EXTERNAL_ORIGINALS_INTEGRITY_2026-10-12.json). Their exact filenames, Library identifiers and checksums (where available) are in [the source manifest](../SOURCE_MANIFEST.json), under `external_materials`. [Large-source transfer guidance](LARGE_ARCHIVES.md) describes the appropriate LFS workflow.
+Only the 219 MB illustrated Atlas book, four original corpus ZIP archives and the 229 MB portable checkpoint ZIP remain outside Git. All 12 files that were initially external were independently reverified against their unchanged original bytes on 12 October 2026; six smaller files are now committed. See [the dated integrity evidence](EXTERNAL_ORIGINALS_INTEGRITY_2026-10-12.json). The six still-external originals' exact filenames, Library identifiers and checksums are in [the source manifest](../SOURCE_MANIFEST.json), under `external_materials`. [Large-source transfer guidance](LARGE_ARCHIVES.md) describes the appropriate LFS workflow.
 
 The owner's decision to allow a public policy repository is reflected in this organization. It does not imply that third-party photographs, records, private family testimony or other copyrighted or sensitive evidence may be indiscriminately republished. Any later public site release of those originals requires source-specific review. Research claims, transcriptions and disputed identities retain their uncertainty regardless of whether this working folder is publicly accessible.
 

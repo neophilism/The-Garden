@@ -1,5 +1,5 @@
 {
-  "manifest_version": 4,
+  "manifest_version": 5,
   "updated": "2026-10-12",
   "source_repository": "neophilism/The-Garden",
   "pattern": "neophilism/The-Cornerstone/policy/SOURCE_MANIFEST.json",
@@ -175,6 +175,72 @@
       "role": "Corpus 1.18 validation snapshot",
       "content_identity": "original bytes verified by matching Git blob digest",
       "publication_status": "public_working_research_reference_not_certified"
+    },
+    {
+      "path": "policy/historical-research/registry_African-Tribal-Nations_atlas_v1-30-alpha_2026-10-10.docx",
+      "bytes": 122237,
+      "sha256": "558d174ca136bcaa0ad1d1999a3c2844261782c7017b6ad826be4133ba4f67e9",
+      "library_file_id": "libfile_c619460c21c48191aa006b4ebc49be57",
+      "category": "research-companion",
+      "role": "African nations research registry",
+      "content_identity": "exact original bytes cross-checked with Library and Git blob SHA-1 e5c31755f38ca8e18c3991cdb37cb4b334d68830",
+      "publication_status": "public_working_research_reference_not_certified",
+      "original_bytes_verified_on": "2026-10-12"
+    },
+    {
+      "path": "policy/historical-research/Not-From-Nowhere_Work-Log_v1-18_2026-10-10.md",
+      "bytes": 6374,
+      "sha256": "2b0732a9d0c1232314c6c17775d08f609fc27f2b9eabd2ac333e0d9ab4328c85",
+      "library_file_id": "libfile_2f2f9269f99c819187444c7b0612619b",
+      "category": "research-companion",
+      "role": "Chronological research work log",
+      "content_identity": "exact original bytes cross-checked with Library and Git blob SHA-1 8d924020b728e79dc8bac3384d9ddfebda29664b",
+      "publication_status": "public_working_research_reference_not_certified",
+      "original_bytes_verified_on": "2026-10-12"
+    },
+    {
+      "path": "policy/historical-research/Not-From-Nowhere_Research-Corpus_v1-18_CONTENTS.txt",
+      "bytes": 53143,
+      "sha256": "07e2cd6bace1d39b5d0b64cd95f0c9748643b742a92ee27ee6e79f382dff7e8b",
+      "library_file_id": "libfile_af46395d92108191a84e9d6175928322",
+      "category": "research-companion",
+      "role": "Historical source archive member inventory",
+      "content_identity": "exact original bytes cross-checked with Library and Git blob SHA-1 e07e354c4987a03287d7ecfeeb2b932b8a08d1f9",
+      "publication_status": "public_working_research_reference_not_certified",
+      "original_bytes_verified_on": "2026-10-12"
+    },
+    {
+      "path": "policy/historical-research/audit_CP-018_2026-10-10.json",
+      "bytes": 6783,
+      "sha256": "88c5a93d2d8d746888cefc8d55c26896ccb061467210d3727f07479420c6409a",
+      "library_file_id": "libfile_ccb6c482032c8191bcfcf4ab50648a21",
+      "category": "research-companion",
+      "role": "Historical working edition audit summary",
+      "content_identity": "exact original bytes cross-checked with Library and Git blob SHA-1 6bbfdca5c06ffa677fa3e984c1d50248dfa44452",
+      "publication_status": "public_working_research_reference_not_certified",
+      "original_bytes_verified_on": "2026-10-12"
+    },
+    {
+      "path": "policy/historical-research/page_inspection_ledger_CP-018_2026-10-10.json",
+      "bytes": 1216,
+      "sha256": "794121bc928d392b98ae23669852ad39bdd0e59dba70b4ac32e97ff2f5b17b65",
+      "library_file_id": "libfile_957dd2ea85948191895a92674dc025fa",
+      "category": "research-companion",
+      "role": "Page-level review ledger",
+      "content_identity": "exact original bytes cross-checked with Library and Git blob SHA-1 18fbeea1c6f03ddfbd2fd388ac13390932886b95",
+      "publication_status": "public_working_research_reference_not_certified",
+      "original_bytes_verified_on": "2026-10-12"
+    },
+    {
+      "path": "policy/historical-research/validation_Not-From-Nowhere_Current-Work_CP-018_2026-10-10.json",
+      "bytes": 490,
+      "sha256": "56609505d410c8e99c1120f9bf887733c7af5ba7be0ec2b12f5badf115974a06",
+      "library_file_id": "libfile_adeb0cf5601081918d66024ff86fc1d7",
+      "category": "research-companion",
+      "role": "Portable research package validation",
+      "content_identity": "exact original bytes cross-checked with Library and Git blob SHA-1 2b9238c3563bec992521bfd73cede41e98b28eb7",
+      "publication_status": "public_working_research_reference_not_certified",
+      "original_bytes_verified_on": "2026-10-12"
     }
   ],
   "external_materials": [
@@ -186,72 +252,6 @@
       "location": "ChatGPT Library (authorized access only)",
       "transfer_status": "not_in_repository",
       "reason": "Original manuscript exceeds GitHub standard 100 MiB file limit; requires verified Git LFS transfer",
-      "original_bytes_verified_on": "2026-10-12",
-      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
-    },
-    {
-      "filename": "registry_African-Tribal-Nations_atlas_v1-30-alpha_2026-10-10.docx",
-      "library_file_id": "libfile_c619460c21c48191aa006b4ebc49be57",
-      "bytes": 122237,
-      "sha256": "558d174ca136bcaa0ad1d1999a3c2844261782c7017b6ad826be4133ba4f67e9",
-      "location": "ChatGPT Library (authorized access only)",
-      "transfer_status": "not_in_repository",
-      "reason": "GitHub connector rejected binary transfer; do not claim committed",
-      "original_bytes_verified_on": "2026-10-12",
-      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
-    },
-    {
-      "filename": "Not-From-Nowhere_Work-Log_v1-18_2026-10-10.md",
-      "library_file_id": "libfile_2f2f9269f99c819187444c7b0612619b",
-      "bytes": 6374,
-      "sha256": "2b0732a9d0c1232314c6c17775d08f609fc27f2b9eabd2ac333e0d9ab4328c85",
-      "location": "ChatGPT Library (authorized access only)",
-      "transfer_status": "not_in_repository",
-      "reason": "GitHub connector rejected source transfer",
-      "original_bytes_verified_on": "2026-10-12",
-      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
-    },
-    {
-      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_CONTENTS.txt",
-      "library_file_id": "libfile_af46395d92108191a84e9d6175928322",
-      "bytes": 53143,
-      "sha256": "07e2cd6bace1d39b5d0b64cd95f0c9748643b742a92ee27ee6e79f382dff7e8b",
-      "location": "ChatGPT Library (authorized access only)",
-      "transfer_status": "not_in_repository",
-      "reason": "Not transferred; raw archive remains separately held",
-      "original_bytes_verified_on": "2026-10-12",
-      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
-    },
-    {
-      "filename": "audit_CP-018_2026-10-10.json",
-      "library_file_id": "libfile_ccb6c482032c8191bcfcf4ab50648a21",
-      "bytes": 6783,
-      "sha256": "88c5a93d2d8d746888cefc8d55c26896ccb061467210d3727f07479420c6409a",
-      "location": "ChatGPT Library (authorized access only)",
-      "transfer_status": "not_in_repository",
-      "reason": "Not transferred; retain private indexed copy",
-      "original_bytes_verified_on": "2026-10-12",
-      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
-    },
-    {
-      "filename": "page_inspection_ledger_CP-018_2026-10-10.json",
-      "library_file_id": "libfile_957dd2ea85948191895a92674dc025fa",
-      "bytes": 1216,
-      "sha256": "794121bc928d392b98ae23669852ad39bdd0e59dba70b4ac32e97ff2f5b17b65",
-      "location": "ChatGPT Library (authorized access only)",
-      "transfer_status": "not_in_repository",
-      "reason": "GitHub connector rejected source transfer",
-      "original_bytes_verified_on": "2026-10-12",
-      "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
-    },
-    {
-      "filename": "validation_Not-From-Nowhere_Current-Work_CP-018_2026-10-10.json",
-      "library_file_id": "libfile_adeb0cf5601081918d66024ff86fc1d7",
-      "bytes": 490,
-      "sha256": "56609505d410c8e99c1120f9bf887733c7af5ba7be0ec2b12f5badf115974a06",
-      "location": "ChatGPT Library (authorized access only)",
-      "transfer_status": "not_in_repository",
-      "reason": "Not transferred; retained in Library",
       "original_bytes_verified_on": "2026-10-12",
       "original_verification_method": "local SHA-256 and size compared against materialized Library original; not imported into Git"
     },
@@ -316,8 +316,8 @@
     "large_archive_import": "See historical-research/LARGE_ARCHIVES.md; LFS costs and access must be authorized; no plain Git objects above platform limits",
     "privacy": "The repository is public. Exclude third-party records, family data, rights-restricted scans and sensitive intake absent explicit source-specific authorization.",
     "recovery": "CP-018 not fully equivalent to preceding historical editions; see corpus manifest and research handoff",
-    "external_original_verification": "python3 scripts/verify_policy_archives.py --source-dir <authorized-folder> --require-all",
-    "verification_scope": "All 12 external originals were materialized and their SHA-256 digests and sizes independently checked on 2026-10-12; none of these 12 original files is in Git."
+    "external_original_verification": "python3 scripts/verify_policy_archives.py --source-dir <authorized-folder> --require-all (for the six still external)",
+    "verification_scope": "Twelve originally external CP-018 files rechecked by SHA-256 and size on 2026-10-12. Six smaller originals are now in Git; six oversized original files remain external. No corpus staging/normalization or scholarly certification."
   },
   "repository_visibility_checked_at": "2026-10-12"
 }

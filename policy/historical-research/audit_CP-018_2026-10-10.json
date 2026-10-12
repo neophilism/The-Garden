@@ -1,0 +1,253 @@
+{
+  "checkpoint": "CP-018",
+  "edition": "1.30-alpha",
+  "date": "2026-10-10",
+  "documents": {
+    "apparatus": {
+      "name": "apparatus_Not-From-Nowhere_atlas_v1-30-alpha_2026-10-10.docx",
+      "size_bytes": 290633,
+      "sha256": "20669809d4edde9ec2ba8ca5990b4e63d0d58fbcdc9fe7706f33cd457f512392",
+      "structural": {
+        "zip_crc_pass": true,
+        "xml_relationship_parts_parsed": 23,
+        "companion_targets_v1_30": 0,
+        "stale_companion_targets_v1_29": 0
+      },
+      "accessibility": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    "book": {
+      "name": "book_Not-From-Nowhere_atlas-working-research-edition_v1-30-alpha_2026-10-10.docx",
+      "size_bytes": 219069956,
+      "sha256": "20624af1eb6127822a9fa47332de85e2383c0d6b6b6501ab1d4f485dd5e85e84",
+      "structural": {
+        "zip_crc_pass": true,
+        "xml_relationship_parts_parsed": 23,
+        "companion_targets_v1_30": 43,
+        "stale_companion_targets_v1_29": 0
+      },
+      "accessibility": {
+        "high": 0,
+        "medium": 2,
+        "low": 0
+      }
+    },
+    "correction_log": {
+      "name": "correction-log_Not-From-Nowhere_atlas_v1-30-alpha_2026-10-10.docx",
+      "size_bytes": 80646,
+      "sha256": "cad71eae95b86e44472e1f84cdd1d9993a33330623405e3c6538e7f2e15a7411",
+      "structural": {
+        "zip_crc_pass": true,
+        "xml_relationship_parts_parsed": 22,
+        "companion_targets_v1_30": 0,
+        "stale_companion_targets_v1_29": 0
+      },
+      "accessibility": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    "guide": {
+      "name": "guide_Not-From-Nowhere_file-system_v1-30-alpha_2026-10-10.docx",
+      "size_bytes": 45742,
+      "sha256": "f80a0c5fb45363cdd810997b23fd3d1d37935d981e02dfdc48f39b9a110de454",
+      "structural": {
+        "zip_crc_pass": true,
+        "xml_relationship_parts_parsed": 22,
+        "companion_targets_v1_30": 0,
+        "stale_companion_targets_v1_29": 0
+      },
+      "accessibility": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    "image_budget": {
+      "name": "image-budget_Not-From-Nowhere_atlas_v1-30-alpha_2026-10-10.docx",
+      "size_bytes": 82126,
+      "sha256": "a3d4113ad75aff770761c6da0ca6173f6ef3252fe439546eee0ddbeb7bfbac83",
+      "structural": {
+        "zip_crc_pass": true,
+        "xml_relationship_parts_parsed": 22,
+        "companion_targets_v1_30": 0,
+        "stale_companion_targets_v1_29": 0
+      },
+      "accessibility": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    "registry": {
+      "name": "registry_African-Tribal-Nations_atlas_v1-30-alpha_2026-10-10.docx",
+      "size_bytes": 122237,
+      "sha256": "558d174ca136bcaa0ad1d1999a3c2844261782c7017b6ad826be4133ba4f67e9",
+      "structural": {
+        "zip_crc_pass": true,
+        "xml_relationship_parts_parsed": 23,
+        "companion_targets_v1_30": 0,
+        "stale_companion_targets_v1_29": 0
+      },
+      "accessibility": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    }
+  },
+  "book_media": {
+    "inherited_media_members": 591,
+    "current_media_members": 596,
+    "inherited_byte_identical": 591,
+    "image_placements": 620,
+    "nonempty_alt_descriptions": 620
+  },
+  "relationships": {
+    "edition_1_30_targets": 43,
+    "stale_1_29_targets": 0
+  },
+  "render_and_review": {
+    "checkpoint": "CP-018",
+    "edition": "1.30-alpha",
+    "date": "2026-10-10",
+    "rendered_page_counts": {
+      "book": 1273,
+      "apparatus": 273,
+      "registry": 65,
+      "guide": 7,
+      "image_budget": 89,
+      "correction_log": 58
+    },
+    "rendered_and_decoded_total": 1765,
+    "actually_visually_reviewed": {
+      "book": [
+        1,
+        1256,
+        1257,
+        1258,
+        1259,
+        1260,
+        1261,
+        1262,
+        1263,
+        1264,
+        1265,
+        1266,
+        1267,
+        1268,
+        1269,
+        1270,
+        1271,
+        1272,
+        1273
+      ],
+      "apparatus": [
+        1,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273
+      ],
+      "registry": [
+        1,
+        64,
+        65
+      ],
+      "guide": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "image_budget": [
+        1,
+        86,
+        87,
+        88,
+        89
+      ],
+      "correction_log": [
+        1,
+        57,
+        58
+      ]
+    },
+    "actually_visually_reviewed_total": 51,
+    "not_visually_reviewed_total": 1714,
+    "boundary": "Rendering and decoding are not visual review. Only the enumerated exact final pages were visually inspected."
+  },
+  "database": {
+    "size_bytes": 410923008,
+    "sha256": "a5754efe9abdbd61a883d30667c12c511ab2263e1c606b696634258156158a07",
+    "integrity_check": "ok",
+    "foreign_key_check_rows": 0,
+    "table": 109,
+    "index": 186,
+    "trigger": 0
+  },
+  "database_counts": {
+    "tasks": 194,
+    "research_files": 134,
+    "page_inspections": 119,
+    "reading_records": 42,
+    "sources": 1033,
+    "provisional_sequence_rows": 200,
+    "edition_units": 43788,
+    "edition_definitions": 93,
+    "edition_distinct_codes": 92,
+    "edition_lexical_occurrences": 2352
+  },
+  "exports": {
+    "queryable_user_tables": 108,
+    "total_rows": 969596
+  },
+  "derivatives": [
+    {
+      "filename": "image_Marinerito_TNA_rows327-333_FO315-33-page9_1831_v1-30_2026-10-10.jpg",
+      "sha256": "84f4cf5258be483d542741e3a83fe59fb159ecc1acb8ddb25e07dbdfae32992f",
+      "page": 9
+    },
+    {
+      "filename": "image_Marinerito_TNA_rows334-351_FO315-33-page10_1831_v1-30_2026-10-10.jpg",
+      "sha256": "a7f4cb74fcfce26f31b14bce21170a39a5214990fac27a8b53a5231c42cb6dbb",
+      "page": 10
+    },
+    {
+      "filename": "image_Marinerito_SLPA_rows327-333_SLR39552-39927-page23_1831_v1-30_2026-10-10.jpg",
+      "sha256": "962396eea6303359d004d134e25744acdfe2d77c86069046bf824282c006901f",
+      "page": 23
+    },
+    {
+      "filename": "image_Marinerito_SLPA_rows334-351_SLR39552-39927-page25_1831_v1-30_2026-10-10.jpg",
+      "sha256": "5ab98b7d9e49a56e2831339fbbd331a65e4ee30645baca5de5c25a08f77d1561",
+      "page": 25
+    },
+    {
+      "filename": "image_Marinerito_SLPA_remarks334-351_SLR39552-39927-page26_1831_v1-30_2026-10-10.jpg",
+      "sha256": "31e79da553ae8efd4b5144222e1649d23eff13834de6a4c2d0bdb105ca70a92f",
+      "page": 26
+    }
+  ],
+  "limits": [
+    "Actual reader cross-file activation remains pending.",
+    "Full factual, provenance, relevance, rights, accessibility and every-page audits remain open.",
+    "Only Gate 1 is closed; Gates 2\u20139 are in progress and Gate 10 is pending."
+  ]
+}
