@@ -1,8 +1,8 @@
 # Current continuation — 12 October 2026
 
-## GDN-045 implementation candidate
+## GDN-045 implementation — PR #37 open
 
-The resumable offline staging worker is implemented with controlled fixtures and remains default-disabled/unmounted. It verifies exact source hash/size, schema and counts; preserves typed cells and source/table/row coordinates; atomically commits batches, checkpoints and linked audit evidence; and resumes without duplicating committed rows. All outputs remain private quarantine. Read [the runbook](runbooks/corpus-staging.md) and [acceptance evidence](evidence/GDN-045/acceptance.json). GitHub integration status is recorded in `plan/execution.json`; this note does not claim a merge or live activation.
+The resumable offline staging worker is implemented with controlled fixtures and remains default-disabled/unmounted. It verifies exact source hash/size, schema and counts; preserves typed cells and source/table/row coordinates; atomically commits batches, checkpoints and linked audit evidence; and resumes without duplicating committed rows. All outputs remain private quarantine. Read [the runbook](runbooks/corpus-staging.md) and [acceptance evidence](evidence/GDN-045/acceptance.json). [PR #37](https://github.com/neophilism/The-Garden/pull/37) is open; exact final-head CI and merge are pending. Integration status is recorded in `plan/execution.json`; live activation is not claimed.
 
 Actual historical ingestion, operational PostgreSQL promotion, historical verification, rights/consent clearance and public release have not occurred. The existing 8 MiB inspector/storage limits are unchanged. The offline production source registry, isolated encrypted volume, real authorization/scanner configuration and independent assessment remain activation prerequisites.
 

@@ -1,6 +1,6 @@
 {
   "work_item_id": "GDN-045",
-  "implementation": "local_candidate",
+  "implementation": "pull_request_open",
   "accepted": false,
   "production_verified": false,
   "independent_review": "not_performed",
@@ -21,7 +21,7 @@
     "source_bytes": 422723584,
     "rows": 6400,
     "worker_address_space_limit_mib": 256,
-    "observed_peak_rss_kib": 37600,
+    "observed_peak_rss_kib": 37828,
     "measurement_scope": "Local generated fixture; runtime-specific observation, not a bound on every deployment."
   },
   "activation": "Default-disabled, no mounted route, no cloud schema/provider mutations, no production storage adapter.",
@@ -31,5 +31,6 @@
     "No normalized or operational PostgreSQL records, reference resolution, historical approval, rights clearance or public release.",
     "Local audit chains are not independently anchored or administrator-proof.",
     "Original CP-011, CP-016 and Marinerito recovery uncertainties remain unresolved."
-  ]
+  ],
+  "github_pr_number": 37
 }

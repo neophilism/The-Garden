@@ -505,7 +505,10 @@
       "sourceItemId": "GDN-045",
       "applicability": "current_scope",
       "scope": "Import exact SQLite and valid export representations into immutable legacy staging, preserving typed cells, NULLs, raw JSON and edition namespaces.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        37
+      ]
     },
     {
       "id": "GDN-046",
