@@ -2,9 +2,9 @@
   "current_scope_items": 196,
   "conditional_items": 14,
   "remote_prs_opened": 33,
-  "verified_merged_items": 32,
+  "verified_merged_items": 33,
   "production_verified_items": 0,
   "current_scope_weight": 608,
   "conditional_weight": 46,
-  "note": "33 mapped engineering PRs: 32 confirmed merges and GDN-077 / PR #40 under review. Independent acceptance and production verification remain unperformed; maintenance/follow-up PRs are not additional roadmap units."
+  "note": "33 mapped engineering PRs and 33 confirmed merges, including GDN-077 / PR #40. Nine exact-head checks passed. Independent acceptance and production verification remain unperformed; maintenance/follow-up PRs do not add roadmap units."
 }

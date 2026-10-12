@@ -1,6 +1,6 @@
 {
   "work_item_id": "GDN-077",
-  "implementation": "in_review",
+  "implementation": "merged",
   "accepted": false,
   "production_verified": false,
   "independent_review": "not_performed",
@@ -26,5 +26,9 @@
     "Filesystem administrators remain trusted and local audit chains are not independently anchored.",
     "No historical verification, rights clearance, public publication or operational research-record promotion."
   ],
-  "github_pr_number": 40
+  "github_pr_number": 40,
+  "github_final_tested_head": "6a9f29b9e1321ffc59861538f09ec0bf1e7c9466",
+  "github_merge_sha": "9053666876ed0a870e28ef55373dc2ae9f895e55",
+  "exact_head_checks_passed": 9,
+  "exact_head_workflows_passed": 6
 }

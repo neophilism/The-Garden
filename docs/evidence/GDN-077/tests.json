@@ -2,11 +2,33 @@
   "work_item_id": "GDN-077",
   "synthetic_only": true,
   "suites": [
-    {"command": "node --test tests/storage/*.test.mjs", "passed": 91, "failed": 0},
-    {"command": "python3 -I -m unittest discover -s tests/import -v", "passed": 63, "failed": 0},
-    {"command": "npm run check (clean allowlisted environment)", "passed": 1190, "failed": 0, "typecheck": "pass", "public_build": "pass", "disabled_research_build": "pass"}
+    {
+      "command": "node --test tests/storage/*.test.mjs",
+      "passed": 91,
+      "failed": 0
+    },
+    {
+      "command": "python3 -I -m unittest discover -s tests/import -v",
+      "passed": 63,
+      "failed": 0
+    },
+    {
+      "command": "npm run check (clean allowlisted environment)",
+      "passed": 1190,
+      "failed": 0,
+      "typecheck": "pass",
+      "public_build": "pass",
+      "disabled_research_build": "pass"
+    }
   ],
-  "ci": "All six workflows, the real PostgreSQL audit handoff and scoped content duplicate receipt tests must pass on the exact submitted head before merge.",
+  "ci": "All six workflows and nine checks completed successfully on final PR #40 head, including PostgreSQL audit linkage, storage, identity, historical and browser checks. Independently deployed behavior is not verified.",
   "browser": "Committed receipt component tests added for desktop/mobile accessibility and contradictory-state rejection; local browser execution blocked by unavailable browser binaries and the network download restriction; exact-head CI must execute them.",
-  "fixture_storage": "Generated temporary SQLite files and synthetic upload bytes only. No historical source in tests or CI."
+  "fixture_storage": "Generated temporary SQLite files and synthetic upload bytes only. No historical source in tests or CI.",
+  "github_final_tested_head": "6a9f29b9e1321ffc59861538f09ec0bf1e7c9466",
+  "exact_head_ci": {
+    "workflows": 6,
+    "checks": 9,
+    "result": "success",
+    "url": "https://github.com/neophilism/The-Garden/pull/40/checks"
+  }
 }
