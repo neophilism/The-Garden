@@ -4,6 +4,10 @@
 
 [Policy, legislation, historical research checkpoint and source manifest](policy/README.md) follows The Cornerstone's source-library organization. The Garden Act's editable originals and provenance are available in `policy/legislation/`; CP-018 historical research companions and source integrity manifests are in `policy/historical-research/`. The repository is **public** and the owner-authored Garden policy and legislation are public reference documents. The illustrated Atlas manuscript and five large research ZIP packages have not yet been transferred; they need a verified Git LFS or separate custody import. Six additional smaller CP-018 research files, including the African nations registry, are now committed with exact original-byte verification. Public access to working scholarship does not certify its historical claims or grant rights to third-party original evidence. Run `python3 scripts/verify_policy_sources.py --check` to check committed source hashes.
 
+## Bibliographic and archival source continuation (12 October 2026)
+
+[GDN-078 bibliographic discovery intake](docs/data/bibliographic-intake.md) is merged in [PR #48](https://github.com/neophilism/The-Garden/pull/48) with all nine exact-head checks passing. RIS, BibTeX, CSL JSON and manual metadata can be registered as private, owner-scoped **discovery leads**, with attribution, provider access/license statements and reversible duplicate decisions. This remains disabled/unmounted until real identity, provider and storage acceptance. The original CP-018 archive components were also profiled read-only for their actual file formats; see [the format/custody profile](docs/runbooks/cp018-archive-format-profile.md). No corpus content was imported or published in the app.
+
 ## Resumable intake implementation (12 October 2026)
 
 GDN-077 adds owner-bound, checksummed uploads with durable pause/resume, quota reservation, crash recovery, private quarantine receipts and a trusted handoff to GDN-045. The contributor panel distinguishes bytes received from research review and publication. [Runbook](docs/runbooks/resumable-uploads.md); [acceptance evidence](docs/evidence/GDN-077/acceptance.json). [PR #40](https://github.com/neophilism/The-Garden/pull/40) merged at `9053666876ed0a870e28ef55373dc2ae9f895e55` after all six workflows and nine checks passed on exact head `6a9f29b9e1321ffc59861538f09ec0bf1e7c9466`. The implementation remains disabled/unmounted; hosted activation and independent acceptance are not claimed.
@@ -14,7 +18,7 @@ The read-only preflight follow-up merged as [PR #39](https://github.com/neophili
 
 A bounded operator diagnostic now measures actual staging payload and storage classes using the importer serializer. It verifies the pinned source and complete schema/count contract without creating staging rows, copying values into reports or activating hosted ingestion. Results from privately authorized corpus inspection remain restricted operational evidence. See [the preflight runbook](docs/runbooks/corpus-preflight.md).
 
-Use real-source measurements to provision separately accepted private staging capacity; archive size alone is insufficient. GDN-077 resumable quarantine uploads is merged but disabled/unmounted. GDN-078 repository links and bibliographic intake is now the next dependency-ready work item. Historical review, rights clearance, normalization and public release remain separate.
+Use real-source measurements to provision separately accepted private staging capacity; archive size alone is insufficient. GDN-077 resumable quarantine uploads is merged but disabled/unmounted. GDN-078 bibliographic intake is merged but disabled/unmounted. GDN-085 source acquisition queue is the next dependency-ready software candidate. Historical review, rights clearance, normalization and public release remain separate.
 
 ## Offline corpus staging merged (12 October 2026)
 

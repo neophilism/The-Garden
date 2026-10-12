@@ -1,0 +1,126 @@
+{
+  "profile_version": 1,
+  "collection": "CP-018 research corpus v1.18",
+  "component_profiles": [
+    {
+      "component": "CORE",
+      "archive_bytes": 87179396,
+      "sha256": "5e2ee9d4b675d69d152d0e1b5fedcca0ded133b2bfd6e989e31fd6218aea4dd5",
+      "members": 23,
+      "expanded_bytes": 411079362,
+      "compressed_member_bytes": 87175370,
+      "file_suffix_counts": {
+        ".json": 5,
+        ".md": 14,
+        ".ndjson": 1,
+        ".sqlite": 1,
+        ".txt": 2
+      },
+      "small_json_root_types": {
+        "object": 5
+      },
+      "json_root_field_set_hash_prefix_counts": {
+        "0ef3bf4f11a003f1": 1,
+        "4a39f8ddc3bf6d7f": 1,
+        "4aa63cd8f29b28a9": 1,
+        "85ae5a29b4d59419": 1,
+        "95c5ea846f85638e": 1
+      },
+      "ndjson_line_count": 25,
+      "ndjson_final_unterminated_lines": 0,
+      "source_record_values_read_into_output": false,
+      "archive_members_extracted": 0
+    },
+    {
+      "component": "EXPORTS",
+      "archive_bytes": 50901152,
+      "sha256": "761c591c3555d518b8c0d6e0507993873d250dcaa90f1370fb511f61ada1e37a",
+      "members": 111,
+      "expanded_bytes": 425464951,
+      "compressed_member_bytes": 50880950,
+      "file_suffix_counts": {
+        ".json": 2,
+        ".ndjson": 108,
+        ".txt": 1
+      },
+      "small_json_root_types": {
+        "object": 2
+      },
+      "json_root_field_set_hash_prefix_counts": {
+        "4aa63cd8f29b28a9": 1,
+        "885c52bbfc73e7d1": 1
+      },
+      "ndjson_line_count": 969596,
+      "ndjson_final_unterminated_lines": 0,
+      "source_record_values_read_into_output": false,
+      "archive_members_extracted": 0
+    },
+    {
+      "component": "SOURCES",
+      "archive_bytes": 177563297,
+      "sha256": "d583c932b10756a9418bb37eae767ad6537105521030229788afee0a77bef195",
+      "members": 221,
+      "expanded_bytes": 181019273,
+      "compressed_member_bytes": 177507805,
+      "file_suffix_counts": {
+        ".html": 2,
+        ".jpg": 96,
+        ".json": 16,
+        ".pdf": 4,
+        ".png": 102,
+        ".txt": 1
+      },
+      "small_json_root_types": {
+        "array": 2,
+        "object": 14
+      },
+      "json_root_field_set_hash_prefix_counts": {
+        "1bca8bd816a9a834": 1,
+        "2e621fb35911d49c": 5,
+        "30a1597ed75fa5a5": 2,
+        "4aa63cd8f29b28a9": 1,
+        "a4439473e5f56a8f": 2,
+        "a9d637ec1994d084": 1,
+        "a9f4430d580bc23f": 1,
+        "d26cfadf91c574fe": 1
+      },
+      "ndjson_line_count": 0,
+      "ndjson_final_unterminated_lines": 0,
+      "source_record_values_read_into_output": false,
+      "archive_members_extracted": 0
+    },
+    {
+      "component": "RECOVERY",
+      "archive_bytes": 40788741,
+      "sha256": "0625c0549e93d563531485625e538cd71babffed6bfa3744453b4709dbc25d07",
+      "members": 5,
+      "expanded_bytes": 242093282,
+      "compressed_member_bytes": 40787837,
+      "file_suffix_counts": {
+        ".json": 3,
+        ".sqlite": 1,
+        ".txt": 1
+      },
+      "small_json_root_types": {
+        "object": 3
+      },
+      "json_root_field_set_hash_prefix_counts": {
+        "35e5a4ab9aa271bb": 1,
+        "4aa63cd8f29b28a9": 1,
+        "a1cc700853fdf6ae": 1
+      },
+      "ndjson_line_count": 0,
+      "ndjson_final_unterminated_lines": 0,
+      "source_record_values_read_into_output": false,
+      "archive_members_extracted": 0
+    }
+  ],
+  "total_members": 360,
+  "total_ndjson_lines": 969621,
+  "limitations": [
+    "Counts file containers and lines; does not classify historical claims or count independent witnesses.",
+    "JSON shape hashes reveal no record values; .ndjson lines are not parsed, validated, or promoted.",
+    "The archive source files remain external to GitHub and to the Garden staging database.",
+    "No unzip extraction, database import, external network requests, or historical migrations performed."
+  ]
+}

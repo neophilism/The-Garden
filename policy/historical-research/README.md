@@ -28,3 +28,7 @@ Only the 219 MB illustrated Atlas book, four original corpus ZIP archives and th
 The owner's decision to allow a public policy repository is reflected in this organization. It does not imply that third-party photographs, records, private family testimony or other copyrighted or sensitive evidence may be indiscriminately republished. Any later public site release of those originals requires source-specific review. Research claims, transcriptions and disputed identities retain their uncertainty regardless of whether this working folder is publicly accessible.
 
 See [research charter](../../docs/sources/research-charter.md), [independent review](../../docs/research/scoped-review-states.md) and [editorial review](../../docs/editorial/commissioning-and-review.md).
+
+## Read-only actual-corpus format evidence
+
+The four original CP-018 corpus ZIP archives were verified by byte size and SHA-256, then profiled *without extraction or import*. See [the aggregate file-type/shape evidence](../../docs/evidence/CP-018/READ_ONLY_SOURCE_FORMAT_PROFILE_2026-10-12.json) and [reproduction runbook](../../docs/runbooks/cp018-archive-format-profile.md). These aggregates do not count historical people, polity records, independent witnesses, or rights-cleared illustrations.
