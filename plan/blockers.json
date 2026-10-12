@@ -21,7 +21,7 @@
   },
   "X05": {
     "title": "Neon authorization",
-    "status": "neon_project_branch_verified_empty_db_auth_disabled_storage_no_buckets",
+    "status": "neon_project_staging_branch_and_three_private_buckets_reverified_auth_and_migrations_not_reverified",
     "need": "Project-specific authorized resource IDs, roles, connection scopes, extension capability and recovery policy. No unrelated project database reuse."
   },
   "X06": {
@@ -41,7 +41,7 @@
   },
   "X09": {
     "title": "Full research artifacts and item rights",
-    "status": "four_corpus_components_integrity_verified_companions_and_rights_open",
+    "status": "four_components_and_cp017_bytes_revalidated_read_only_full_scan_companions_rights_and_ingestion_open",
     "need": "All four components and six current documents must be revalidated at import; only CORE byte/schema checks were performed in preparing this plan. Item rights and research review remain open."
   },
   "X10": {
