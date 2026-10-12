@@ -1,0 +1,13 @@
+{
+  "checkpoint": "CP-018",
+  "filename": "Not-From-Nowhere_Current-Work_CP-018_2026-10-10.zip",
+  "size_bytes": 229393484,
+  "sha256": "2ccd4fb8b62accb1e67724401f651827208eca9adfb87daeff142c3cb85b1496",
+  "members": 69,
+  "zip_crc_pass": true,
+  "bad_member": null,
+  "reviewed_page_pngs": 51,
+  "corpus_components_separate": true,
+  "corpus_bundle_manifest_library_file_id": "libfile_61d3b6e364408191aed2a4c47b6bf790",
+  "status": "verified working checkpoint; not final certification"
+}
