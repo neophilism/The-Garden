@@ -1,0 +1,269 @@
+version: 2.1
+
+# Complete native CircleCI equivalent for these required workflows:
+# ci.yml, quality.yml, storage.yml, database.yml, data.yml,
+# identity.yml, and E2EESA status integrity. No quality gate omitted.
+jobs:
+  plan-architecture-storage:
+    docker:
+      - image: cimg/node:24.21.0
+    resource_class: medium
+    environment:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - checkout
+      - run:
+          name: Verify charter, baseline, roadmap and negative fixtures
+          command: |
+            python3 scripts/validate_plan.py
+            python3 -m unittest discover -s tests/plan -v
+            python3 scripts/validate_charter.py
+            python3 scripts/sync_roadmap.py
+            python3 scripts/verify_policy_routes.py
+            python3 scripts/validate_migration_map.py
+            python3 -m unittest discover -s tests/architecture -v
+            python3 -m unittest discover -s tests/migration -v
+      - run:
+          name: Storage and import protection
+          command: |
+            node --test tests/storage/*.test.mjs
+            python3 -I -m unittest discover -s tests/import -v
+      - run:
+          name: E2EESA evidence integrity (not security certification)
+          command: python3 scripts/validate_e2eesa_status.py
+
+  application-and-supply-chain:
+    docker:
+      - image: cimg/node:24.21.0
+    resource_class: large
+    environment:
+      CI: "true"
+      NEXT_TELEMETRY_DISABLED: "1"
+      NODE_ENV: production
+    steps:
+      - checkout
+      - run:
+          name: Enforce dependency lockfile
+          command: test -s package-lock.json
+      - run:
+          name: Install exact application and quality tool dependencies
+          command: |
+            npm ci --include=dev --ignore-scripts --no-audit
+            npm ci --prefix tools/quality --ignore-scripts --no-audit
+      - run:
+          name: All domain unit tests, types, application builds
+          command: npm run check
+      - run:
+          name: Inspect export for indexing and secret leakage
+          command: |
+            test -s apps/public/out/index.html
+            test -s apps/public/out/robots.txt
+            grep -qi 'History deserves' apps/public/out/index.html
+            grep -qi 'funding' apps/public/out/funding/index.html
+            grep -qi 'Disallow: /' apps/public/out/robots.txt
+            ! grep -riE 'DATABASE_URL|IDENTITY_CLIENT_SECRET|GITHUB_APP_PRIVATE_KEY' apps/public/out
+            python3 scripts/verify_public_export.py
+      - run:
+          name: Supply chain, lint, policy, canary and regression checks
+          command: |
+            node tools/quality/write-evidence.mjs
+            node tools/quality/verify-policy.mjs
+            node tools/quality/lint.mjs
+            node --test tools/quality/unit/*.test.mjs
+            python3 -m unittest discover -s tests/quality -v
+            python3 scripts/reconcile_roadmap.py
+      - run:
+          name: Audit complete application dependencies
+          command: npm audit --audit-level=high --json > application-audit.json
+      - run:
+          name: Audit quality-tool dependencies
+          command: npm audit --prefix tools/quality --audit-level=high --json > tooling-audit.json
+      - run:
+          name: Produce resolved CycloneDX SBOM
+          command: npm sbom --sbom-format=cyclonedx > application-sbom.json
+      - store_artifacts:
+          path: application-audit.json
+      - store_artifacts:
+          path: tooling-audit.json
+      - store_artifacts:
+          path: application-sbom.json
+      - store_artifacts:
+          path: apps/public/out
+
+  browser-and-accessibility:
+    docker:
+      - image: cimg/node:24.21.0-browsers
+    resource_class: large
+    environment:
+      CI: "true"
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - checkout
+      - run:
+          name: Lock application and quality dependencies
+          command: |
+            npm ci --include=dev --ignore-scripts --no-audit
+            npm ci --prefix tools/quality --ignore-scripts --no-audit
+      - run:
+          name: Preserve test-source environment evidence
+          command: node tools/quality/write-evidence.mjs
+      - run:
+          name: Install both browser engines
+          command: cd tools/quality && npx --no-install playwright install --with-deps chromium firefox
+      - run:
+          name: Build public and research applications
+          command: npm run check
+      - run:
+          name: Verify actual exported static pages
+          command: python3 scripts/verify_public_export.py
+      - run:
+          name: Browser journeys, responsive checks, accessibility and failure canaries
+          command: npm run test:browser --prefix tools/quality
+      - store_artifacts:
+          path: tools/quality/test-results
+      - store_artifacts:
+          path: tools/quality/playwright-report
+
+  database-foundation:
+    docker:
+      - image: cimg/node:24.21.0
+      - image: cimg/postgres:18.6
+        environment:
+          POSTGRES_DB: neondb
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: garden-ci-synthetic-only
+    resource_class: medium
+    environment:
+      GARDEN_DB_TARGET: ci
+      PGHOST: 127.0.0.1
+      PGPORT: "5432"
+      PGDATABASE: neondb
+      PGUSER: postgres
+      PGPASSWORD: garden-ci-synthetic-only
+    steps:
+      - checkout
+      - run:
+          name: Install PostgreSQL client for real SQL assertions
+          command: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - run:
+          name: Planner, worker and database negative fixtures
+          command: |
+            python3 -m unittest discover -s tests/database -v
+            node --test tests/jobs/*.test.mjs
+      - run:
+          name: Idempotent atomic migrations twice
+          command: |
+            python3 scripts/db_migrate.py --apply
+            python3 scripts/db_migrate.py --apply
+      - run:
+          name: PostgreSQL role, jobs, consumer, membership and concurrency
+          command: |
+            psql -X -w -f tests/database/roles.sql
+            psql -X -w -f tests/database/jobs.sql
+            psql -X -w -f tests/database/consumer.sql
+            psql -X -w -f tests/database/membership.sql
+            python3 tests/database/concurrency.py
+            psql -X -w -Atc 'select version()'
+
+  historical-data:
+    docker:
+      - image: cimg/node:24.21.0
+      - image: cimg/postgres:18.6
+        environment:
+          POSTGRES_DB: neondb
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: garden-data-ci-only
+    resource_class: large
+    environment:
+      GARDEN_DB_TARGET: ci
+      PGHOST: 127.0.0.1
+      PGPORT: "5432"
+      PGDATABASE: neondb
+      PGUSER: postgres
+      PGPASSWORD: garden-data-ci-only
+      GARDEN_IDENTITY_TEST: ephemeral-ci
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - checkout
+      - run:
+          name: Install locked packages and PostgreSQL client
+          command: |
+            sudo apt-get update && sudo apt-get install -y postgresql-client
+            npm ci --include=dev --no-audit
+      - run:
+          name: Typed-domain and review regression suite
+          command: node --test tests/data/*.test.mjs tests/review/*.test.mjs
+      - run:
+          name: Apply checksum-locked migrations and verify replay
+          command: |
+            python3 scripts/db_migrate.py | psql -X -q -v ON_ERROR_STOP=1
+            python3 scripts/db_migrate.py --apply
+      - run:
+          name: Real database history, source, claims, RLS and geography journeys
+          command: |
+            node apps/research/data/historical.ci.mjs
+            node apps/research/data/sources.ci.mjs
+            node apps/research/data/locators.ci.mjs
+            node apps/research/data/claims.ci.mjs
+            node apps/research/access/audit.ci.mjs
+            node apps/research/review/reviews.ci.mjs
+            node apps/research/data/geography.ci.mjs
+      - store_artifacts:
+          path: data-evidence
+
+  identity-lifecycle:
+    docker:
+      - image: cimg/node:24.21.0-browsers
+      - image: cimg/postgres:18.6
+        environment:
+          POSTGRES_DB: neondb
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: garden-identity-ci-only
+    resource_class: large
+    environment:
+      CI: "true"
+      PGHOST: 127.0.0.1
+      GARDEN_DB_TARGET: ci
+      PGPORT: "5432"
+      PGDATABASE: neondb
+      PGUSER: postgres
+      PGPASSWORD: garden-identity-ci-only
+      GARDEN_IDENTITY_TEST: ephemeral-ci
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - checkout
+      - run:
+          name: Install locked application and browser toolchain
+          command: |
+            npm ci --include=dev --no-audit
+            npm ci --prefix tools/quality --ignore-scripts --no-audit
+            cd tools/quality && npx playwright install --with-deps chromium
+      - run:
+          name: Identity configuration and route rejection
+          command: npm run test:identity --workspace=@garden/research
+      - run:
+          name: Apply actual membership migrations
+          command: python3 scripts/db_migrate.py --apply
+      - run:
+          name: DB login, recovery, revocation, suspension, RLS and delivery
+          command: |
+            node apps/research/identity/lifecycle.ci.mjs
+            node apps/research/access/rls.ci.mjs
+            node apps/research/access/delivery.ci.mjs
+            node apps/research/access/consent.ci.mjs
+            node apps/research/access/isolation.ci.mjs
+      - run:
+          name: Real-browser passkeys, step-up, device revocation and recovery
+          command: node apps/research/identity/sessions.ci.mjs
+      - store_artifacts:
+          path: identity-evidence
+
+workflows:
+  all-required-checks:
+    jobs:
+      - plan-architecture-storage
+      - application-and-supply-chain
+      - browser-and-accessibility
+      - database-foundation
+      - historical-data
+      - identity-lifecycle
