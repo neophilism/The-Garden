@@ -1,0 +1,116 @@
+{
+  "evidence_type": "local_original_byte_integrity",
+  "observed_date": "2026-10-12",
+  "repository": "neophilism/The-Garden",
+  "source_checkpoint": "CP-018",
+  "source_media": "ChatGPT Library originals materialized read-only to an isolated local working directory",
+  "method": "SHA-256 over complete original file contents plus exact byte-size comparison",
+  "verified_count": 12,
+  "git_imported_count": 0,
+  "historical_claims_verified": false,
+  "rights_and_consent_cleared": false,
+  "originals": [
+    {
+      "filename": "book_Not-From-Nowhere_atlas-working-research-edition_v1-30-alpha_2026-10-10.docx",
+      "bytes": 219069956,
+      "sha256": "20624af1eb6127822a9fa47332de85e2383c0d6b6b6501ab1d4f485dd5e85e84",
+      "library_file_id": "libfile_6a20e41d9d108191b0106e63802e95ad",
+      "byte_integrity": "matched_recorded_original",
+      "repository_transfer_status": "not_in_repository"
+    },
+    {
+      "filename": "registry_African-Tribal-Nations_atlas_v1-30-alpha_2026-10-10.docx",
+      "bytes": 122237,
+      "sha256": "558d174ca136bcaa0ad1d1999a3c2844261782c7017b6ad826be4133ba4f67e9",
+      "library_file_id": "libfile_c619460c21c48191aa006b4ebc49be57",
+      "byte_integrity": "matched_recorded_original",
+      "repository_transfer_status": "not_in_repository"
+    },
+    {
+      "filename": "Not-From-Nowhere_Work-Log_v1-18_2026-10-10.md",
+      "bytes": 6374,
+      "sha256": "2b0732a9d0c1232314c6c17775d08f609fc27f2b9eabd2ac333e0d9ab4328c85",
+      "library_file_id": "libfile_2f2f9269f99c819187444c7b0612619b",
+      "byte_integrity": "matched_recorded_original",
+      "repository_transfer_status": "not_in_repository"
+    },
+    {
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_CONTENTS.txt",
+      "bytes": 53143,
+      "sha256": "07e2cd6bace1d39b5d0b64cd95f0c9748643b742a92ee27ee6e79f382dff7e8b",
+      "library_file_id": "libfile_af46395d92108191a84e9d6175928322",
+      "byte_integrity": "matched_recorded_original",
+      "repository_transfer_status": "not_in_repository"
+    },
+    {
+      "filename": "audit_CP-018_2026-10-10.json",
+      "bytes": 6783,
+      "sha256": "88c5a93d2d8d746888cefc8d55c26896ccb061467210d3727f07479420c6409a",
+      "library_file_id": "libfile_ccb6c482032c8191bcfcf4ab50648a21",
+      "byte_integrity": "matched_recorded_original",
+      "repository_transfer_status": "not_in_repository"
+    },
+    {
+      "filename": "page_inspection_ledger_CP-018_2026-10-10.json",
+      "bytes": 1216,
+      "sha256": "794121bc928d392b98ae23669852ad39bdd0e59dba70b4ac32e97ff2f5b17b65",
+      "library_file_id": "libfile_957dd2ea85948191895a92674dc025fa",
+      "byte_integrity": "matched_recorded_original",
+      "repository_transfer_status": "not_in_repository"
+    },
+    {
+      "filename": "validation_Not-From-Nowhere_Current-Work_CP-018_2026-10-10.json",
+      "bytes": 490,
+      "sha256": "56609505d410c8e99c1120f9bf887733c7af5ba7be0ec2b12f5badf115974a06",
+      "library_file_id": "libfile_adeb0cf5601081918d66024ff86fc1d7",
+      "byte_integrity": "matched_recorded_original",
+      "repository_transfer_status": "not_in_repository"
+    },
+    {
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_CORE_2026-10-10.zip",
+      "bytes": 87179396,
+      "sha256": "5e2ee9d4b675d69d152d0e1b5fedcca0ded133b2bfd6e989e31fd6218aea4dd5",
+      "library_file_id": "libfile_02e2c7d386588191972728b8b4936027",
+      "byte_integrity": "matched_recorded_original",
+      "repository_transfer_status": "not_in_repository"
+    },
+    {
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_EXPORTS_2026-10-10.zip",
+      "bytes": 50901152,
+      "sha256": "761c591c3555d518b8c0d6e0507993873d250dcaa90f1370fb511f61ada1e37a",
+      "library_file_id": "libfile_44cbc8c7604c8191aa607813dc610f1a",
+      "byte_integrity": "matched_recorded_original",
+      "repository_transfer_status": "not_in_repository"
+    },
+    {
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_SOURCES_2026-10-10.zip",
+      "bytes": 177563297,
+      "sha256": "d583c932b10756a9418bb37eae767ad6537105521030229788afee0a77bef195",
+      "library_file_id": "libfile_391166d323988191a8c627bb80382373",
+      "byte_integrity": "matched_recorded_original",
+      "repository_transfer_status": "not_in_repository"
+    },
+    {
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-18_RECOVERY_2026-10-10.zip",
+      "bytes": 40788741,
+      "sha256": "0625c0549e93d563531485625e538cd71babffed6bfa3744453b4709dbc25d07",
+      "library_file_id": "libfile_cb8f55317a888191a8c38d782be4db1b",
+      "byte_integrity": "matched_recorded_original",
+      "repository_transfer_status": "not_in_repository"
+    },
+    {
+      "filename": "Not-From-Nowhere_Current-Work_CP-018_2026-10-10.zip",
+      "bytes": 229393484,
+      "sha256": "2ccd4fb8b62accb1e67724401f651827208eca9adfb87daeff142c3cb85b1496",
+      "library_file_id": "libfile_c58b0f342b0c819180cb32ebe75aad19",
+      "byte_integrity": "matched_recorded_original",
+      "repository_transfer_status": "not_in_repository"
+    }
+  ],
+  "limits": [
+    "No external archives were uploaded to GitHub in this validation.",
+    "Verification does not prove historical accuracy, licensing, originality of a third-party record, or release approval.",
+    "Do not replay historic database migrations or infer people from source rows."
+  ],
+  "reproduction": "python3 scripts/verify_policy_archives.py --source-dir <authorized-originals-dir> --require-all --output <report.json>"
+}
