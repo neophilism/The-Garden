@@ -435,7 +435,9 @@
       "id": "GDN-030",
       "title": "Tamper-evident audit and sensitive-action ledger",
       "origin": "original",
-      "prs": [],
+      "prs": [
+        28
+      ],
       "sourceItemId": "GDN-030",
       "applicability": "current_scope",
       "scope": "Record authorization, review, publication, consent and administrative events in append-only structured audit with integrity verification and redacted payloads.",
@@ -448,7 +450,9 @@
       "id": "GDN-031",
       "title": "Authorization abuse and isolation regression suite",
       "origin": "original",
-      "prs": [],
+      "prs": [
+        29
+      ],
       "sourceItemId": "GDN-031",
       "applicability": "current_scope",
       "scope": "Build reusable property-based and E2E policy tests for every role/data-class combination and all non-HTML retrieval surfaces.",
@@ -560,7 +564,9 @@
       "id": "GDN-039",
       "title": "Independent research, rights and publication states",
       "origin": "original",
-      "prs": [],
+      "prs": [
+        31
+      ],
       "sourceItemId": "GDN-039",
       "applicability": "current_scope",
       "scope": "Implement separate status axes for acquisition, transcription, evidentiary review, rights, consent, accessibility and publication. Record actor and scope of each review.",
@@ -573,7 +579,9 @@
       "id": "GDN-040",
       "title": "Structured editorial content and policy versions",
       "origin": "original",
-      "prs": [],
+      "prs": [
+        32
+      ],
       "sourceItemId": "GDN-040",
       "applicability": "current_scope",
       "scope": "Define typed pages, explanation levels, callouts, definitions, policy provisions and citations. Separate advocacy interpretation from research claims and effective draft versions.",
@@ -586,7 +594,9 @@
       "id": "GDN-041",
       "title": "Import quarantine and content inventory service",
       "origin": "original",
-      "prs": [],
+      "prs": [
+        34
+      ],
       "sourceItemId": "GDN-041",
       "applicability": "current_scope",
       "scope": "Build read-only ingestion manifests, content-type verification, malware/quota checks and quarantine. Record source bytes, transformation lineage and denied access.",
@@ -625,7 +635,9 @@
       "id": "GDN-044",
       "title": "Explicit mapping of all 106 source tables",
       "origin": "original",
-      "prs": [],
+      "prs": [
+        35
+      ],
       "sourceItemId": "GDN-044",
       "applicability": "current_scope",
       "scope": "Inspect every CP-017 table and map it to raw preservation, normalized destination, legacy snapshot or unresolved recovery status. Define conversion and foreign-key rules.",
@@ -638,7 +650,9 @@
       "id": "GDN-045",
       "title": "Idempotent corpus staging importer",
       "origin": "original",
-      "prs": [],
+      "prs": [
+        37
+      ],
       "sourceItemId": "GDN-045",
       "applicability": "current_scope",
       "scope": "Import exact SQLite and valid export representations into immutable legacy staging, preserving typed cells, NULLs, raw JSON and edition namespaces.",
@@ -1054,7 +1068,9 @@
       "id": "GDN-077",
       "title": "Secure resumable source uploads",
       "origin": "original",
-      "prs": [],
+      "prs": [
+        40
+      ],
       "sourceItemId": "GDN-077",
       "applicability": "current_scope",
       "scope": "Implement chunked uploads, checksums, quotas, pause/resume and clear contributor receipts for allowed file types.",
@@ -1067,7 +1083,9 @@
       "id": "GDN-078",
       "title": "Repository links and bibliographic intake",
       "origin": "original",
-      "prs": [],
+      "prs": [
+        48
+      ],
       "sourceItemId": "GDN-078",
       "applicability": "current_scope",
       "scope": "Add manual repository records and import of common bibliographic formats, DOI/catalog metadata and citations with conservative matching.",
@@ -1288,7 +1306,9 @@
       "id": "GDN-095",
       "title": "Historical geography and uncertainty data layer",
       "origin": "original",
-      "prs": [],
+      "prs": [
+        33
+      ],
       "sourceItemId": "GDN-095",
       "applicability": "current_scope",
       "scope": "Model sourced geographic assertions, changing names/boundaries and approximate locations without treating modern states as historical polities.",
