@@ -808,7 +808,10 @@
       "sourceItemId": "GDN-078",
       "applicability": "current_scope",
       "scope": "Add manual repository records and import of common bibliographic formats, DOI/catalog metadata and citations with conservative matching.",
-      "source": "plan/plan.json"
+      "source": "plan/plan.json",
+      "pullRequests": [
+        48
+      ]
     },
     {
       "id": "GDN-079",
