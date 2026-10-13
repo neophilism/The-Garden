@@ -10,35 +10,35 @@ class CanonicalRoadmapTests(unittest.TestCase):
     def setUp(self):
         self.plan=json.loads((ROOT/"plan/plan.json").read_text())
         self.execution=json.loads((ROOT/"plan/execution.json").read_text())
-        self.canonical=json.loads((ROOT/"registry/roadmap.json").read_text())
+        self.canonical=json.loads((ROOT/"registry/prs.json").read_text())
     def test_real_mapping_is_synchronized(self):
         self.assertEqual(module.reconcile(self.canonical,self.plan,self.execution),self.canonical)
     def test_preserves_unrelated_fields(self):
         self.canonical["owner_note"]="preserve me"
         result=module.reconcile(self.canonical,self.plan,self.execution)
         self.assertEqual(result["owner_note"],"preserve me")
-        self.assertEqual([x["title"] for x in result["milestones"]],[x["title"] for x in self.canonical["milestones"]])
-        self.assertNotIn("completed",result["milestones"][0])
+        self.assertEqual([x["title"] for x in result["units"]],[x["title"] for x in self.canonical["units"]])
+        self.assertNotIn("completed",result["units"][0])
     def test_missing_mapping_is_filled_only_from_observation(self):
-        self.canonical["milestones"][0].pop("pullRequests",None)
-        self.assertEqual(module.reconcile(self.canonical,self.plan,self.execution)["milestones"][0]["pullRequests"],[2])
+        self.canonical["units"][0].pop("prs",None)
+        self.assertEqual(module.reconcile(self.canonical,self.plan,self.execution)["units"][0]["prs"],[2])
     def test_conflict_denied(self):
-        self.canonical["milestones"][0]["pullRequests"]=[999]
+        self.canonical["units"][0]["prs"]=[999]
         with self.assertRaises(ValueError):module.reconcile(self.canonical,self.plan,self.execution)
     def test_missing_evidence_denied(self):
-        self.canonical["milestones"][40]["pullRequests"]=[999]
+        self.canonical["units"][40]["prs"]=[999]
         with self.assertRaises(ValueError):module.reconcile(self.canonical,self.plan,self.execution)
     def test_wrong_repository_denied(self):
         self.canonical["repository"]="other/repo"
         with self.assertRaises(ValueError):module.reconcile(self.canonical,self.plan,self.execution)
     def test_conditional_activation_denied(self):
-        self.canonical["milestones"][196]["pullRequests"]=[999]
+        self.canonical["units"][196]["prs"]=[999]
         with self.assertRaises(ValueError):module.reconcile(self.canonical,self.plan,self.execution)
     def test_changed_total_denied(self):
         self.canonical["plannedPrCount"]+=1
         with self.assertRaises(ValueError):module.reconcile(self.canonical,self.plan,self.execution)
     def test_changed_id_denied(self):
-        self.canonical["milestones"][1]["id"]="NOT-GDN"
+        self.canonical["units"][1]["id"]="NOT-GDN"
         with self.assertRaises(ValueError):module.reconcile(self.canonical,self.plan,self.execution)
     def test_boolean_number_denied(self):
         self.execution["work_items"]["GDN-001"]["github_pr_number"]=True
