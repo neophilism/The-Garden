@@ -2,7 +2,7 @@
   "work_item": "GDN-078",
   "observed_date": "2026-10-12",
   "scope": "unmounted local bibliographic intake with generated fixtures",
-  "implementation": "candidate_pending_git_ci_and_merge",
+  "implementation": "merged_with_exact_ci_not_accepted",
   "local_checks": {
     "command": "node --test tests/data/bibliography.test.mjs tests/storage/bibliographic-intake.test.mjs",
     "node_version": "v22.16.0",
@@ -23,12 +23,47 @@
   "privacy_and_rights_approval": "not_performed",
   "production_deployed": false,
   "production_verified": false,
-  "current_commit": null,
-  "ci_workflow_runs": [],
+  "current_commit": "cd29f6fbfff4d979472e89001ec1af9aa3f7856d",
+  "ci_workflow_runs": [
+    {
+      "name": "repository",
+      "id": 38324530903,
+      "result": "success"
+    },
+    {
+      "name": "database",
+      "id": 38324530858,
+      "result": "success"
+    },
+    {
+      "name": "storage",
+      "id": 38324530875,
+      "result": "success"
+    },
+    {
+      "name": "historical-data",
+      "id": 38324530902,
+      "result": "success"
+    },
+    {
+      "name": "quality-browser",
+      "id": 38324530873,
+      "result": "success"
+    },
+    {
+      "name": "identity",
+      "id": 38324530923,
+      "result": "success"
+    }
+  ],
   "limitations": [
     "No real provider API credentials, subscriptions or live lookup executed.",
     "No real archival originals imported to bibliographic store.",
     "Private durable SQLite is a local service adapter, not multiuser hosted acceptance.",
     "Full source licensing, original historical inspection and data authorization remain separate."
-  ]
+  ],
+  "github_pr_number": 48,
+  "github_merge_sha": "9c5b9903d1438ed980de600d53c03a5719530cd8",
+  "ci_checks_passed": 9,
+  "ci_checks_failed": 0
 }

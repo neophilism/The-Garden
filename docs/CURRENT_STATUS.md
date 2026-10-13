@@ -1,5 +1,13 @@
 # Current continuation — 12 October 2026
 
+## Bibliographic intake and actual corpus format profile — 12 October 2026
+
+GDN-078 / [PR #48](https://github.com/neophilism/The-Garden/pull/48) merged at `9c5b9903d1438ed980de600d53c03a5719530cd8` following six successful exact-head workflows and nine checks on `cd29f6fbfff4d979472e89001ec1af9aa3f7856d`. It adds bounded RIS, BibTeX, CSL and manual bibliographic intake, auditable private acquisition candidates, conservative DOI lookup adapters, and append-only/reversible duplicate decisions. The authenticated research API, actual provider connectors and operational storage remain disabled/unmounted; 60 synthetic local tests passed. See [the intake runbook](data/bibliographic-intake.md) and [evidence](evidence/GDN-078/acceptance.json). No independent historical, rights or security acceptance is asserted.
+
+The four immutable CP-018 v1.18 archives were independently hashed and read-only profiled in the authorized working environment: 360 ZIP file members, including 109 NDJSON files, 198 JPEG/PNG files, four PDFs and two SQLite databases. The 969,621 NDJSON lines are **not** the same measure as the 923,292 recorded database table rows or as independent historical evidence. Original data was not extracted, copied to GitHub or imported into the Garden staging database. Reproduction and aggregate-only evidence: [CP-018 profiling runbook](runbooks/cp018-archive-format-profile.md). Six oversized original files remain outside GitHub and are tracked in [issue #47](https://github.com/neophilism/The-Garden/issues/47).
+
+After GDN-078, GDN-085's source acquisition queue is dependency-ready for default-disabled implementation without initiating paid services or unsolicited contact. Other ready items still have activation gates, including legal access, deployment placement or rights clearance.
+
 ## Resumable intake implementation (12 October 2026)
 
 GDN-077 adds owner-bound, checksummed uploads with durable pause/resume, quota reservation, crash recovery, private quarantine receipts and a trusted handoff to GDN-045. The contributor panel distinguishes bytes received from research review and publication. [Runbook](runbooks/resumable-uploads.md); [acceptance evidence](evidence/GDN-077/acceptance.json). [PR #40](https://github.com/neophilism/The-Garden/pull/40) merged at `9053666876ed0a870e28ef55373dc2ae9f895e55` after all six workflows and nine checks passed on exact head `6a9f29b9e1321ffc59861538f09ec0bf1e7c9466`. The implementation remains disabled/unmounted; hosted activation and independent acceptance are not claimed.
@@ -10,7 +18,7 @@ The read-only preflight follow-up merged as [PR #39](https://github.com/neophili
 
 A bounded operator diagnostic now measures actual staging payload and storage classes using the importer serializer. It verifies the pinned source and complete schema/count contract without creating staging rows, copying values into reports or activating hosted ingestion. Results from privately authorized corpus inspection remain restricted operational evidence. See [the preflight runbook](runbooks/corpus-preflight.md).
 
-Use real-source measurements to provision separately accepted private staging capacity; archive size alone is insufficient. GDN-077 resumable quarantine uploads is merged but disabled/unmounted. GDN-078 repository links and bibliographic intake is now the next dependency-ready work item. Historical review, rights clearance, normalization and public release remain separate.
+Use real-source measurements to provision separately accepted private staging capacity; archive size alone is insufficient. GDN-077 resumable quarantine uploads is merged but disabled/unmounted. GDN-078 bibliographic intake is merged and unmounted; GDN-085's source acquisition queue is the next low-infrastructure dependency-ready implementation candidate. Historical review, rights clearance, normalization and public release remain separate.
 
 ## GDN-045 implementation — PR #37 merged
 
@@ -20,7 +28,7 @@ Actual historical ingestion, operational PostgreSQL promotion, historical verifi
 
 ## Verified baseline
 
-GDN-045 / PR #37 is merged at `5b883434c0711d8f423d7c576d74ecade013d543`. There are 33 mapped engineering merges. Independent acceptance and production verification remain unperformed; maintenance PRs do not add roadmap units.
+GDN-045 / PR #37 is merged at `5b883434c0711d8f423d7c576d74ecade013d543`. There are 34 mapped engineering merges. Independent acceptance and production verification remain unperformed; maintenance PRs do not add roadmap units.
 
 | Work item | PR | Final tested head | Confirmed merge |
 | --- | --- | --- | --- |
@@ -41,7 +49,7 @@ Editorial previews bind structured content to exact policy drafts, claim revisio
 
 GDN-045's merged implementation is described above. Real ingestion remains a separately authorized acceptance operation: revalidate original hashes and locations from `docs/sources/baseline-artifacts.json`, preserve immutable bytes, reconcile every table/row and retained issue, and do not commit corpus bytes or replay historical migrations. Do not start dependent normalization solely because raw staging tests pass.
 
-GDN-077 resumable uploads is merged and inactive. GDN-078 is dependency-ready for implementation. Identity/source authorization, exact owner/digest/size binding, quotas, interrupted chunks, quarantine and real provider behavior must be verified before mounting endpoints. Existing storage buckets do not satisfy those activation gates.
+GDN-077 resumable uploads is merged and inactive. GDN-078 is merged and disabled/unmounted; GDN-085 is dependency-ready for offline development. Identity/source authorization, exact owner/digest/size binding, quotas, interrupted chunks, quarantine and real provider behavior must be verified before mounting endpoints. Existing storage buckets do not satisfy those activation gates.
 
 ## Deployment state
 

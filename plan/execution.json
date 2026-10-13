@@ -552,6 +552,26 @@
       "production_verified": false,
       "independent_review": "not_performed",
       "note": "Six exact-head workflows and all nine checks passed before GitHub confirmed mergeability and squash merge. Offline resumable quarantine only; real provider, independent security, source grants and production acceptance unverified. Scope-safe SHA-256 duplicate receipt added."
+    },
+    "GDN-078": {
+      "implementation": "merged_with_exact_ci",
+      "github_pr_number": 48,
+      "github_head_sha": "cd29f6fbfff4d979472e89001ec1af9aa3f7856d",
+      "github_merge_sha": "9c5b9903d1438ed980de600d53c03a5719530cd8",
+      "ci_url": "https://github.com/neophilism/The-Garden/pull/48/checks",
+      "ci_workflows": {
+        "repository": 38324530903,
+        "database": 38324530858,
+        "storage": 38324530875,
+        "historical_data": 38324530902,
+        "quality_browser": 38324530873,
+        "identity": 38324530923
+      },
+      "tests_local_synthetic": 60,
+      "accepted": false,
+      "production_verified": false,
+      "independent_review": "not_performed",
+      "note": "Six exact-head workflows/nine checks passed and GitHub confirmed merge. Bounded bibliographic discovery-only intake, private owner-scoped SQLite, DOI adapter and reversible metadata matching; no operational provider, API mount, real ingestion or acceptance."
     }
   },
   "production_verified_items": 0,
@@ -559,8 +579,8 @@
     "registration": "not_verified",
     "sync": "not_verified",
     "manifest_in_repo": true,
-    "mapped_planned_units": 33
+    "mapped_planned_units": 34
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-12T13:34:00+00:00"
+  "observed_at_utc": "2026-10-12T23:56:24+00:00"
 }

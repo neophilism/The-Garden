@@ -1,6 +1,6 @@
 # GDN-078 — repository links and bibliographic intake
 
-Status: implementation candidate, unmounted/default disabled. Date: 12 October 2026.
+Status: merged in PR #48; unmounted/default disabled, not independently accepted. Date: 12 October 2026.
 
 ## Purpose and provenance
 

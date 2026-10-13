@@ -1,6 +1,6 @@
 # ADR 0016 — bibliographic leads are not archival source records
 
-Status: proposed; GDN-078 implementation under review (12 October 2026).
+Status: accepted engineering decision for merged GDN-078; operational activation and independent acceptance pending (12 October 2026).
 
 Do not conflate a citation, an archive catalog entry or a DOI record with a directly inspected source or an independently verified historical claim. Model an `acquisition_candidate` separately from GDN-036 archival units/sources and GDN-037 claims. Keep submitted raw metadata, normalized search hints, exact SHA-256, and provider/license/access/locator claims. Never automatically merge same-title or matching-DOI editions. Require human reversible decisions with append-only history.
 
