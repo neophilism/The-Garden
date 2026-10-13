@@ -1,0 +1,41 @@
+{
+  "work_item": "GDN-085",
+  "observed_date": "2026-10-12",
+  "phase": "implementation_candidate_unmounted",
+  "source_dependency": {
+    "GDN-023": "merged",
+    "GDN-029": "merged",
+    "GDN-036": "merged",
+    "GDN-078": "PR #48 merged at 9c5b9903d1438ed980de600d53c03a5719530cd8"
+  },
+  "local_tests": {
+    "command": "node --test tests/data/acquisition-tasks.test.mjs tests/storage/acquisition-queue.test.mjs",
+    "node": "v22.16.0",
+    "passed": 85,
+    "failed": 0,
+    "note": "Local fixtures; CI Node 24 and exact-head check still required"
+  },
+  "acceptance": {
+    "GDN-085-AC01": "Named owner, immutable request history, trusted second-person approval and budget bound before a contact receipt",
+    "GDN-085-AC02": "Access refused, catalog not found and lawful offline leads remain distinct, none proving historical nonexistence",
+    "GDN-085-AC03": "Canonical trusted route, durable denial ledgers and unique same-route contact receipt block replay/evasion in synthetic tests"
+  },
+  "local_operations_performed": {
+    "real_research_records_created": 0,
+    "live_repository_contact": false,
+    "outbound_emails": 0,
+    "provider_crawls": 0,
+    "payments": 0,
+    "new_paid_resources": 0,
+    "production_mutations": 0
+  },
+  "limitations": [
+    "Local storage has no shared production API or mounted identity service",
+    "Canonical route and authority verification are trusted integration obligations; test adapters are synthetic",
+    "Human contact receipts are attestations, not independent provider acknowledgments",
+    "No provider permissions, fee quotes or spending authority was verified in a live system",
+    "No independent security, rights, historical or deployment acceptance was performed"
+  ],
+  "verified_merge_sha": null,
+  "ci": "pending"
+}
