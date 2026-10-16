@@ -1,5 +1,93 @@
 {
- "observed_at":"2026-10-11T07:21:00Z","project_id":"royal-union-78374030","branch_id":"br-purple-grass-b5hurfl7","branch_name":"garden-staging","parent_branch_id":"br-curly-band-b5aatp1e","database":"neondb","endpoint_id":"ep-round-recipe-b5mlz2vw","schema_version":"0001_foundation","schema_sha256":"7ba727f1d96d342853a75670ecf4313275e72fb53674188c2e27690e246cf52e",
- "group_roles":["garden_migrator","garden_public","garden_research","garden_publisher"],"all_roles_nologin_and_nobypassrls":true,"public_private_usage":false,"research_private_visible_rows":0,"public_probe_visible_rows":1,"runtime_ddl_privilege":false,"production_changed":false,"historical_records_imported":0,"external_client_tls_verified":false,
- "tls_note":"MCP SQL session pg_stat_ssl reported false; internal proxy SQL is not external client TLS proof. Connection planner requires verify-full and channel_binding=require. No production credentials issued.","independent_security_review":"not_performed","cost_basis":"Existing free_v3 project; branch 2 of 10; staging compute fixed 0.25 CU, no paid tier selected. Account limits still apply."
+  "observed_at": "2026-10-16T14:59:36.955936+00:00",
+  "project_id": "royal-union-78374030",
+  "branch_id": "br-purple-grass-b5hurfl7",
+  "branch_name": "garden-staging",
+  "parent_branch_id": "br-curly-band-b5aatp1e",
+  "database": "neondb",
+  "endpoint_id": "ep-round-recipe-b5mlz2vw",
+  "schema_version": "0012_geographic_assertions",
+  "schema_sha256": "a89296c1a1c05d1abee04d06706a5a7f4e9d4c197dbe6ef74d7a33e8cd7636f8",
+  "group_roles": [
+    "garden_migrator",
+    "garden_public",
+    "garden_research",
+    "garden_publisher"
+  ],
+  "all_roles_nologin_and_nobypassrls": true,
+  "public_private_usage": false,
+  "research_private_visible_rows": 0,
+  "public_probe_visible_rows": 1,
+  "runtime_ddl_privilege": false,
+  "production_changed": false,
+  "historical_records_imported": 0,
+  "external_client_tls_verified": false,
+  "tls_note": "MCP SQL session pg_stat_ssl reported false; internal proxy SQL is not external client TLS proof. Connection planner requires verify-full and channel_binding=require. No production credentials issued.",
+  "independent_security_review": "not_performed",
+  "cost_basis": "Existing free_v3 project; branch 2 of 10; staging compute fixed 0.25 CU, no paid tier selected. Account limits still apply.",
+  "migrations": [
+    {
+      "id": "0001_foundation",
+      "file": "0001_foundation.sql",
+      "sha256": "7ba727f1d96d342853a75670ecf4313275e72fb53674188c2e27690e246cf52e"
+    },
+    {
+      "id": "0002_jobs",
+      "file": "0002_jobs.sql",
+      "sha256": "3c5a0fa7579aee8ad19d5cf7471a3c0cfcda677961328766f55cb8b71c691f90"
+    },
+    {
+      "id": "0003_membership",
+      "file": "0003_membership.sql",
+      "sha256": "a3a85fdfbd7102af0f1b8c110b274756104d1a188970063062936d08f84f2e9d"
+    },
+    {
+      "id": "0004_policy_context",
+      "file": "0004_policy_context.sql",
+      "sha256": "ce2d084065efc930255d4bb3e46080d65fb8cadf8ef72c1520b10b27bac6e4dd"
+    },
+    {
+      "id": "0005_historical_records",
+      "file": "0005_historical_records.sql",
+      "sha256": "7d92349869fde52a1c152b9deb7a2d63a524bbb4cf3a736daa3fe322cc624188"
+    },
+    {
+      "id": "0006_archival_sources",
+      "file": "0006_archival_sources.sql",
+      "sha256": "79f3adf798faf45c64b11bde77a11d8d821269a3d246444ad31c581bb549e4d0"
+    },
+    {
+      "id": "0007_durable_locators",
+      "file": "0007_durable_locators.sql",
+      "sha256": "322b7defc98979fb55d851153ae64d7a7406a405a47c4c83ce5b86a20c596691"
+    },
+    {
+      "id": "0008_atomic_claims",
+      "file": "0008_atomic_claims.sql",
+      "sha256": "f2578cb9b4755ccddb3d87f6d83c715f21dffa71d65b2bf059cd0b42ee16fe47"
+    },
+    {
+      "id": "0009_purpose_consent",
+      "file": "0009_purpose_consent.sql",
+      "sha256": "ff49fa5baa2bf92b8d537e4daf115facd7e1baedd913e49ca9dac387776f7312"
+    },
+    {
+      "id": "0010_audit_ledger",
+      "file": "0010_audit_ledger.sql",
+      "sha256": "658e8adc7764e90b7cc51e3ee6fb49925913c31d5d114aae70f13561862dbe75"
+    },
+    {
+      "id": "0011_scoped_reviews",
+      "file": "0011_scoped_reviews.sql",
+      "sha256": "beae0f820608c605182622c3a0c3aab6debc00841d01d6c1e1cedd5bb13a7000"
+    },
+    {
+      "id": "0012_geographic_assertions",
+      "file": "0012_geographic_assertions.sql",
+      "sha256": "a89296c1a1c05d1abee04d06706a5a7f4e9d4c197dbe6ef74d7a33e8cd7636f8"
+    }
+  ],
+  "private_tables_without_forced_rls": 0,
+  "rollout_source_sha": "c4f7dcd544a3871d0821119654819460fdf38de3",
+  "rollout": "Existing merged migrations 0003 through 0012 applied atomically to the owner-designated isolated staging branch after validating binding and existing checksums. No corpus imported. Initial connector multi-command error rolled back; SQL statements were then parsed and submitted in one transaction."
 }

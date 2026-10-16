@@ -1,0 +1,15 @@
+{
+  "observed_at": "2026-10-16T14:59:36.955936+00:00",
+  "repository": "neophilism/The-Garden",
+  "merge_sha": "34a671165adff09d7d9fb1997324ac3b571b7a74",
+  "provider": "Render",
+  "workspace_id": "tea-db23jkks728c73av263g",
+  "requested_service": "garden-public-staging",
+  "requested_plan": "free",
+  "outcome": "provider_rejected",
+  "provider_message": "Hobby Tier is limited to 25 services",
+  "service_id": null,
+  "url": null,
+  "live_verification": "not_possible_no_service_created",
+  "human_review_is_blocker": false
+}

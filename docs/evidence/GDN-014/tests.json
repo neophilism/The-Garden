@@ -1,0 +1,18 @@
+{
+  "pr": 53,
+  "pr_head_sha": "e718bd373b590a4948723832231e1c243cdcea13",
+  "check_runs": "https://github.com/neophilism/The-Garden/pull/53/checks",
+  "all_ten_check_runs": "success",
+  "source_binding": "The workflow source/runtime artifacts record the exact checkout and PR head. This record does not relabel a synthetic merge checkout as the PR head.",
+  "local_tests": [
+    "HTTP serving and traversal/symlink/method canaries",
+    "No header/query/body/path canaries in operational events",
+    "Both services start and restart",
+    "Wrong environment and source refuse startup",
+    "103 architecture tests",
+    "Unit/type/public/research builds",
+    "Application and tooling audit: zero known vulnerabilities"
+  ],
+  "online_verification": false,
+  "independent_human_audit": "pending_final_follow_up"
+}

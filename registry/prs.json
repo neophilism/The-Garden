@@ -12,7 +12,7 @@
   "scopeNote": "Exact 210 work package titles and scopes recovered from plan/plan.json; the last 14 are contingent governmental scope, not activated powers or deployed features. PR links come only from existing reviewed historical mappings.",
   "schemaVersion": 1,
   "roadmapVersion": 2,
-  "observedAt": "2026-10-11T17:41:28.823Z",
+  "observedAt": "2026-10-16T15:00:51.796Z",
   "units": [
     {
       "id": "GDN-001",
@@ -218,7 +218,10 @@
       "source": "plan/plan.json",
       "dependsOn": [],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "contributingPrs": [
+        53
+      ]
     },
     {
       "id": "GDN-015",
@@ -261,7 +264,10 @@
       "source": "plan/plan.json",
       "dependsOn": [],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "contributingPrs": [
+        53
+      ]
     },
     {
       "id": "GDN-018",
@@ -2814,6 +2820,21 @@
     }
   ],
   "pullRequests": [
+    {
+      "id": 4890137409,
+      "number": 53,
+      "title": "Prepare Garden staging runtime and health verification",
+      "url": "https://github.com/neophilism/The-Garden/pull/53",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-16T14:54:17Z",
+      "updatedAt": "2026-10-16T14:57:56Z",
+      "closedAt": "2026-10-16T14:57:56Z",
+      "mergedAt": "2026-10-16T14:57:56Z",
+      "headSha": "e718bd373b590a4948723832231e1c243cdcea13",
+      "baseRef": "main",
+      "mergeCommitSha": "34a671165adff09d7d9fb1997324ac3b571b7a74"
+    },
     {
       "id": 4820967259,
       "number": 27,
