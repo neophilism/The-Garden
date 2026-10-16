@@ -16,13 +16,13 @@
   },
   "X04": {
     "title": "Render authorization",
-    "status": "render_workspace_connected_no_garden_service_project_attachment_unsupported_by_tool",
-    "need": "Authorized workspace/service identities, deployment rights, DNS ownership and budget. Do not provision new paid resources without authority."
+    "status": "authorized_test_deploy_rejected_hobby_25_service_limit",
+    "need": "2026-10-16: Render rejected garden-public-staging on the free plan: Hobby Tier is limited to 25 services. No service was created. Free capacity or separately authorized paid capacity is required; do not delete unrelated services. Project attachment also remains unverified."
   },
   "X05": {
     "title": "Neon authorization",
-    "status": "neon_project_staging_branch_and_three_private_buckets_reverified_auth_and_migrations_not_reverified",
-    "need": "Project-specific authorized resource IDs, roles, connection scopes, extension capability and recovery policy. No unrelated project database reuse."
+    "status": "staging_migrations_0001_through_0012_and_rls_verified",
+    "need": "Isolated garden-staging branch verified and all 12 merged migrations applied. Public role cannot use the private schema; research role without context sees zero envelopes; every private table has forced RLS. Runtime application roles, identity schema and external client TLS still need connection/testing."
   },
   "X06": {
     "title": "Storage, identity, key and notification providers",
@@ -32,7 +32,7 @@
   "X07": {
     "title": "Expert and community review",
     "status": "assignments_not_verified",
-    "need": "Qualified historical, source-language, rights, fiscal, legal, accessibility, safeguarding and independent security reviewers for relevant release gates."
+    "need": "Historical, language, rights, fiscal, legal and safeguarding review remains scoped to content/publication. Independent human security review is a final follow-up under the owner policy, not a development or deployment blocker."
   },
   "X08": {
     "title": "Incremental costs",
