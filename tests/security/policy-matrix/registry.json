@@ -1,9 +1,36 @@
 {
   "version": 1,
-  "roles": ["contributor", "transcriber", "translator", "researcher", "reviewer", "editor", "rights_reviewer", "community_adviser", "moderator", "auditor", "administrator"],
-  "classifications": ["unclassified", "research", "licensed", "personal", "sealed", "government"],
-  "states": ["active", "quarantined", "withdrawn"],
-  "grants": ["current", "missing", "revoked"],
+  "roles": [
+    "contributor",
+    "transcriber",
+    "translator",
+    "researcher",
+    "reviewer",
+    "editor",
+    "rights_reviewer",
+    "community_adviser",
+    "moderator",
+    "auditor",
+    "administrator"
+  ],
+  "classifications": [
+    "unclassified",
+    "research",
+    "licensed",
+    "personal",
+    "sealed",
+    "government"
+  ],
+  "states": [
+    "active",
+    "quarantined",
+    "withdrawn"
+  ],
+  "grants": [
+    "current",
+    "missing",
+    "revoked"
+  ],
   "surfaces": {
     "record": "implemented-unmounted",
     "snippet": "implemented-unmounted",
@@ -26,10 +53,30 @@
   "routes": [
     {
       "file": "apps/research/app/api/health/route.ts",
-      "methods": ["GET"],
+      "methods": [
+        "GET"
+      ],
       "access": "public-readiness-no-data",
       "test": "tools/quality/browser/public.spec.mjs",
       "case": "disabled research health exposes no account or private record data"
+    },
+    {
+      "file": "apps/research/app/api/live/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "access": "public-readiness-no-data",
+      "test": "tools/quality/browser/public.spec.mjs",
+      "case": "research liveness identifies the build without granting access"
+    },
+    {
+      "file": "apps/research/app/api/ready/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "access": "public-readiness-no-data",
+      "test": "tools/quality/browser/public.spec.mjs",
+      "case": "research readiness reports unavailable dependencies without data"
     }
   ],
   "limitation": "This is a registration and executed regression contract, not proof that every possible side channel is covered. AI, indexing and public projection are checked for absence, not functionality. Test fixtures never mount research APIs in the deployed application."

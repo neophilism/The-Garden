@@ -1,5 +1,7 @@
 # The Garden
 
+Runnable test deployment: see [staging setup and verification](docs/runbooks/staging.md). `npm run check` builds both surfaces; `npm start` serves the public export, and `PORT=3001 npm run start:research` starts the isolated research shell. Live private research requires the remaining runtime integration; human review is deferred to final acceptance.
+
 ## Policy and historical document library
 
 [Policy, legislation, historical research checkpoint and source manifest](policy/README.md) follows The Cornerstone's source-library organization. The Garden Act's editable originals and provenance are available in `policy/legislation/`; CP-018 historical research companions and source integrity manifests are in `policy/historical-research/`. The repository is **public** and the owner-authored Garden policy and legislation are public reference documents. The illustrated Atlas manuscript and five large research ZIP packages have not yet been transferred; they need a verified Git LFS or separate custody import. Six additional smaller CP-018 research files, including the African nations registry, are now committed with exact original-byte verification. Public access to working scholarship does not certify its historical claims or grant rights to third-party original evidence. Run `python3 scripts/verify_policy_sources.py --check` to check committed source hashes.

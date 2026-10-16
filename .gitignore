@@ -19,3 +19,4 @@ __pycache__/
 **/test-results/
 **/playwright-report/
 quality-environment.json
+config/build-release.json

@@ -1,9 +1,13 @@
 import { test, expect } from '@playwright/test';
 import { createRequire } from 'node:module';
+import { readFileSync } from 'node:fs';
 const require=createRequire(import.meta.url);
+const axeSource=readFileSync(require.resolve('axe-core/axe.min.js'),'utf8');
 const routes=['/','/how-it-works/','/history/','/research/','/funding/','/legislation/','/questions/','/participate/','/about/'];
 async function scan(page){
- await page.addScriptTag({path:require.resolve('axe-core/axe.min.js')});
+ // Execute the test instrumentation through the debugger; do not weaken the
+ // deployed CSP just to allow an inline accessibility scanner.
+ await page.evaluate(axeSource);
  return page.evaluate(async()=>window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa','best-practice']}}));
 }
 for(const route of routes)test('public route '+route,async({page,context},info)=>{
@@ -53,6 +57,21 @@ test('accessibility canary detects an unlabeled control',async({page})=>{
  await page.evaluate(()=>{const b=document.createElement('button');b.id='synthetic-unlabelled-canary';document.querySelector('main').append(b);});
  const result=await scan(page);
  expect(result.violations.some(v=>v.id==='button-name')).toBe(true);
+});
+test('research liveness identifies the build without granting access',async({request})=>{
+ const response=await request.get('http://127.0.0.1:4174/api/live');
+ expect(response.status()).toBe(200);
+ const data=await response.json();
+ expect(data.sha).toMatch(/^[a-f0-9]{40}$/);expect(data.private_record_access).toBe(false);
+ expect(data.status).toBe('alive');expect(data.service).toBe('research');
+ expect(response.headers()['cache-control']).toBe('no-store');
+ expect(Object.keys(data).sort()).toEqual(['environment','private_record_access','project','service','sha','status']);
+});
+test('research readiness reports unavailable dependencies without data',async({request})=>{
+ const response=await request.get('http://127.0.0.1:4174/api/ready');
+ expect(response.status()).toBe(503);
+ expect(await response.json()).toEqual({service:'research',status:'not_ready',dependencies:{identity:'not_configured',database:'not_connected',storage:'not_connected'},private_record_access:false});
+ expect(response.headers()['cache-control']).toBe('no-store');
 });
 test('research health fails closed and does not expose credentials',async({request})=>{
  const response=await request.get('http://127.0.0.1:4174/api/health');

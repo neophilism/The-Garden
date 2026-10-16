@@ -8,7 +8,7 @@ All twelve existing Garden proposed security domains now link to their subject-a
 
 Garden's rights, consent, archival parser and historical-publication constraints require additional application-specific controls beyond messaging-oriented protocol requirements. Authentication, sealed key custody, public projections and data lifecycle must each be separately assessed on the actual deployed service.
 
-Active blockers: secure source/contributor production, sealed E2EE, and governmental workflows remain disabled until the required independent reviews, exact profile-resolution evidence, and legal authority exist. A nonsensitive, public-only prototype may proceed through ordinary engineering gates.
+Owner policy (2026-10-13, reaffirmed 2026-10-16): independent human review and certification are deferred follow-up work, not development or deployment prerequisites. Perform AI-assisted source review and substantive automated/adversarial tests, fix actual findings, and preserve evidence. Missing implemented controls, profile-resolution evidence, credentials or legal authority remain concrete capability limits. See AGENTS.md.
 
 Validate the machine-readable record locally with:
 
