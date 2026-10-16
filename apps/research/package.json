@@ -1,21 +1,22 @@
 {
- "name": "@garden/research",
- "version": "0.1.0",
- "private": true,
- "type": "module",
- "scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "typecheck": "tsc --noEmit",
-  "test:identity": "node --test identity/*.test.mjs"
- },
- "dependencies": {
-  "@better-auth/passkey": "1.7.7",
-  "@garden/domain": "file:../../packages/domain",
-  "better-auth": "1.7.7",
-  "next": "16.4.0",
-  "pg": "8.23.1",
-  "react": "19.3.0",
-  "react-dom": "19.3.0"
- }
+  "name": "@garden/research",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "typecheck": "tsc --noEmit",
+    "test:identity": "node --test identity/*.test.mjs",
+    "start": "next start --hostname 0.0.0.0"
+  },
+  "dependencies": {
+    "@better-auth/passkey": "1.7.7",
+    "@garden/domain": "file:../../packages/domain",
+    "better-auth": "1.7.7",
+    "next": "16.4.0",
+    "pg": "8.23.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  }
 }

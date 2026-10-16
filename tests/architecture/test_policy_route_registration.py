@@ -16,7 +16,7 @@ class PolicyRegistrationTests(unittest.TestCase):
         for name,text in files.items():
             p=root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(text)
     def test_current_registry(self):
-        self.assertEqual(m.inspect()['registered_routes'],1)
+        self.assertEqual(m.inspect()['registered_routes'],3)
     def test_empty_test_cannot_pass(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);self.fixture(root);(root/'tests/browser.mjs').write_text('')

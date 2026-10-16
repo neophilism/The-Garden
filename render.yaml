@@ -1,0 +1,39 @@
+# Apply to The Garden project in the owner-designated workspace. No database is
+# created and no secret is shared between surfaces. These services are free.
+services:
+  - type: web
+    name: garden-public-staging
+    runtime: node
+    plan: free
+    region: ohio
+    branch: main
+    autoDeployTrigger: 'off'
+    buildCommand: npm ci --include=dev --ignore-scripts --no-audit --no-fund && npm run build:public
+    startCommand: npm start
+    healthCheckPath: /api/live
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+      - key: GARDEN_ENV
+        value: staging
+      - key: NEXT_TELEMETRY_DISABLED
+        value: '1'
+  - type: web
+    name: garden-research-staging
+    runtime: node
+    plan: free
+    region: ohio
+    branch: main
+    autoDeployTrigger: 'off'
+    buildCommand: npm ci --include=dev --ignore-scripts --no-audit --no-fund && npm run build:research
+    startCommand: npm run start:research
+    healthCheckPath: /api/live
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+      - key: GARDEN_ENV
+        value: staging
+      - key: ENABLE_RESEARCH
+        value: 'false'
+      - key: NEXT_TELEMETRY_DISABLED
+        value: '1'

@@ -10,7 +10,7 @@ export default defineConfig({
   {name:'firefox-desktop',use:{...devices['Desktop Firefox']}}
  ],
  webServer:[
-  {command:'python3 -m http.server 4173 --bind 127.0.0.1 --directory ../../apps/public/out',url:'http://127.0.0.1:4173',reuseExistingServer:false,timeout:30000},
+  {command:'PORT=4173 node ../../scripts/serve-public.mjs',url:'http://127.0.0.1:4173',reuseExistingServer:false,timeout:30000},
   {command:'node ../../node_modules/next/dist/bin/next start ../../apps/research --hostname 127.0.0.1 --port 4174',url:'http://127.0.0.1:4174',reuseExistingServer:false,timeout:30000}
  ]
 });

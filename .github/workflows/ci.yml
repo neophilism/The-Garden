@@ -75,6 +75,8 @@ jobs:
         run: npm ci --include=dev --no-audit
       - name: Unit, type and executable build checks
         run: npm run check
+      - name: Start, restart and verify both deployment processes
+        run: node tools/quality/runtime-smoke.mjs
       - name: Confirm static public output, nonindexable preview and no leaks
         run: |
           set -eu

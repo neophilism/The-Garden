@@ -12,12 +12,14 @@
     "services/workers"
   ],
   "scripts": {
-    "test": "node --test tests/application/*.test.mjs tests/environment/*.test.mjs tests/access/*.test.mjs tests/data/*.test.mjs tests/security/*.test.mjs tests/review/*.test.mjs",
-    "build:public": "npm run build --workspace=@garden/public",
-    "build:research": "npm run build --workspace=@garden/research",
+    "test": "node --test tests/application/*.test.mjs tests/environment/*.test.mjs tests/access/*.test.mjs tests/data/*.test.mjs tests/security/*.test.mjs tests/review/*.test.mjs tests/runtime/*.test.mjs",
+    "build:public": "node scripts/write-release.mjs && npm run build --workspace=@garden/public",
+    "build:research": "node scripts/write-release.mjs && npm run build --workspace=@garden/research",
     "typecheck": "npm run typecheck --workspaces --if-present && tsc -p config/tsconfig.json",
     "check": "npm run test && npm run typecheck && npm run build:public && npm run build:research",
-    "check:environment": "node scripts/check-environment.mjs"
+    "check:environment": "node scripts/check-environment.mjs",
+    "start": "node scripts/serve-public.mjs",
+    "start:research": "npm run start --workspace=@garden/research"
   },
   "devDependencies": {
     "typescript": "6.0.2",
