@@ -1,0 +1,293 @@
+{
+  "schema_version": 1,
+  "work_item": "GDN-024",
+  "pr_number": 70,
+  "updated_at": "2026-10-17T16:08:08.547628+00:00",
+  "attempts": [
+    {
+      "schema_version": 1,
+      "observation": "first PR70 attempt; required data gate failed; no merge",
+      "recorded_at_utc": "2026-10-17T16:05:30.751Z",
+      "repository": "neophilism/The-Garden",
+      "pr_number": 70,
+      "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+      "base_sha": "3dc436db71ec24616a8b24eb6a78e2d3612eb297",
+      "tested_merge_sha": "8714e379052645b32d2c87dc271c31eb8c032ef5",
+      "tree_sha": "47a46bef40579b020872d3c1484857d5cec187d3",
+      "tested_parents": [
+        "3dc436db71ec24616a8b24eb6a78e2d3612eb297",
+        "fccf3ddd6903d47d1357fd6504e29dacf191885e"
+      ],
+      "checks": [
+        {
+          "id": 117439216984,
+          "name": "supply-chain-and-policy",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547416/job/117439216984",
+          "app_id": 15368
+        },
+        {
+          "id": 117439216739,
+          "name": "browser-and-accessibility",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547416/job/117439216739",
+          "app_id": 15368
+        },
+        {
+          "id": 117439215813,
+          "name": "archive-storage-boundaries",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547528/job/117439215813",
+          "app_id": 15368
+        },
+        {
+          "id": 117439215508,
+          "name": "historical-data-contracts",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547450/job/117439215508",
+          "app_id": 15368
+        },
+        {
+          "id": 117439215500,
+          "name": "Status record integrity (not product certification)",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547521/job/117439215500",
+          "app_id": 15368
+        },
+        {
+          "id": 117439215483,
+          "name": "identity-lifecycle",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547361/job/117439215483",
+          "app_id": 15368
+        },
+        {
+          "id": 117439215403,
+          "name": "architecture-contracts",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547405/job/117439215403",
+          "app_id": 15368
+        },
+        {
+          "id": 117439215330,
+          "name": "plan-validation",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547405/job/117439215330",
+          "app_id": 15368
+        },
+        {
+          "id": 117439215136,
+          "name": "application-build",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547405/job/117439215136",
+          "app_id": 15368
+        },
+        {
+          "id": 117439215119,
+          "name": "database-foundation",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547377/job/117439215119",
+          "app_id": 15368
+        }
+      ],
+      "workflows": [
+        {
+          "id": 39047547521,
+          "path": ".github/workflows/e2eesa-status.yml",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "success",
+          "attempt": 1,
+          "event": "pull_request",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547521"
+        },
+        {
+          "id": 39047547377,
+          "path": ".github/workflows/database.yml",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "success",
+          "attempt": 1,
+          "event": "pull_request",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547377"
+        },
+        {
+          "id": 39047547528,
+          "path": ".github/workflows/storage.yml",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "success",
+          "attempt": 1,
+          "event": "pull_request",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547528"
+        },
+        {
+          "id": 39047547405,
+          "path": ".github/workflows/ci.yml",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "success",
+          "attempt": 1,
+          "event": "pull_request",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547405"
+        },
+        {
+          "id": 39047547361,
+          "path": ".github/workflows/identity.yml",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "success",
+          "attempt": 1,
+          "event": "pull_request",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547361"
+        },
+        {
+          "id": 39047547450,
+          "path": ".github/workflows/data.yml",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "failure",
+          "attempt": 1,
+          "event": "pull_request",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547450"
+        },
+        {
+          "id": 39047547416,
+          "path": ".github/workflows/quality.yml",
+          "head_sha": "fccf3ddd6903d47d1357fd6504e29dacf191885e",
+          "status": "completed",
+          "conclusion": "success",
+          "attempt": 1,
+          "event": "pull_request",
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39047547416"
+        }
+      ],
+      "data_source_receipts": [
+        {
+          "event": "pull_request",
+          "job": "data",
+          "parent_shas": [
+            "3dc436db71ec24616a8b24eb6a78e2d3612eb297",
+            "fccf3ddd6903d47d1357fd6504e29dacf191885e"
+          ],
+          "repository": "neophilism/The-Garden",
+          "run_attempt": "1",
+          "schema_version": 1,
+          "tested_sha": "8714e379052645b32d2c87dc271c31eb8c032ef5",
+          "workflow_ref": "neophilism/The-Garden/.github/workflows/data.yml@refs/pull/70/merge",
+          "workflow_run_id": "39047547450"
+        }
+      ],
+      "preceding_result_lines": [
+        "2026-10-17T16:01:20.4161718Z PASS: 24 real PostgreSQL historical-record checks",
+        "2026-10-17T16:01:21.4873784Z PASS: 20 real PostgreSQL source checks",
+        "2026-10-17T16:01:22.0706351Z PASS: 18 real PostgreSQL locator checks",
+        "2026-10-17T16:01:23.1641082Z PASS: 18 real PostgreSQL claim checks",
+        "2026-10-17T16:01:24.5834221Z PASS: 23 real PostgreSQL audit checks",
+        "2026-10-17T16:01:26.5130706Z PASS: 14 real PostgreSQL scoped-review checks",
+        "2026-10-17T16:01:27.8013520Z PASS: 16 real PostgreSQL geographic checks",
+        "2026-10-17T16:01:40.0703268Z PASS: 22 real PostgreSQL encrypted-content persistence and authority checks",
+        "2026-10-17T16:01:58.5914274Z PASS: 22 real PostgreSQL lifecycle request checks",
+        "2026-10-17T16:02:48.6504348Z PASS: 32 real PostgreSQL lifecycle control checks"
+      ],
+      "workspace_groups_completed": 0,
+      "failure": {
+        "code": "55P03",
+        "file": "apps/research/access/policy-workspace-gate.ci.mjs",
+        "line": 114,
+        "query": "SELECT id FROM garden_private.record_envelopes WHERE id=$1 FOR UPDATE NOWAIT",
+        "interpretation": "The new fixture row probe conflicts with a legitimate KEY SHARE held by the consent policy revision foreign key, before any workspace scenario can complete. The source writer was observed at the workspace advisory wait before bind/graph/row statements."
+      },
+      "correction": {
+        "scope": "CI fixture only",
+        "query": "SELECT id FROM garden_private.record_envelopes WHERE id=$1 FOR NO KEY UPDATE NOWAIT",
+        "reason": "Compatible with the consent foreign-key KEY SHARE, while still conflicting with source writer UPDATE/NO KEY UPDATE/SHARE row locks. Existing exact backend/blocker, graph, zero-context and row-count assertions remain required.",
+        "reference": "https://www.postgresql.org/docs/18/explicit-locking.html#LOCKING-ROWS"
+      },
+      "limits": {
+        "actual_new_workspace_groups_passed": false,
+        "merged": false,
+        "runtime_source_change_for_fixture_correction": false,
+        "production_verified": false
+      },
+      "data_log_sha256": "db381a8b538b44740eccb1644b7c1bcc934cdbb4cc9b7928a46b15fd2fda37eb",
+      "identity_log_sha256": "045def3bae31ae2d1b8b8521e7b714f8401a1dfec02e40b74459b062b02033a9",
+      "log_scope": "Exact decoded GitHub job text saved by the monitoring peer, including terminal LF; not the original compressed transport bytes."
+    }
+  ],
+  "corrections": [
+    {
+      "source_commit": "b3ff9943bf1a655c6e7ec628025da2a4587a40da",
+      "source_tree": "bd16afb1d1f7ccc5b351698c65c4cb9ee98edc3d",
+      "changed_paths": [
+        "apps/research/access/policy-workspace-gate.ci.mjs"
+      ],
+      "verification": {
+        "parent": "302783f56f1e4b4c5d589c9ef866d8ad34a2e025",
+        "fixture_sha256": "5fd1ce1050a883b4b3c8ce1bc7989ea908661e91c839dd09afd6e6d6ed851bdb",
+        "prior_fixture_sha256": "bb424df436ce0d5c7172c3e58f1b6dd6733e7e8664095186a1508738fbbcc923",
+        "only_probe_lock_strength_and_comment_changed": true,
+        "runtime_sha256": "9afc389a825fba0fb82e5a7a5b49e32ac38faf651f69087973ca25c67bc357fa",
+        "started_at": "2026-10-17T16:07:11.506307+00:00",
+        "ended_at": "2026-10-17T16:07:11.676555+00:00",
+        "wall_seconds": 0.1702593110003363,
+        "command": [
+          "node",
+          "--test",
+          "--test-reporter=spec",
+          "tests/access/policy-workspace-gate.test.mjs",
+          "tests/access/policy-context.test.mjs",
+          "tests/access/policy-identity-boundaries.test.mjs"
+        ],
+        "environment_keys": [
+          "CI",
+          "HOME",
+          "NEXT_TELEMETRY_DISABLED",
+          "NODE_ENV",
+          "PATH"
+        ],
+        "counts": {
+          "tests": 48,
+          "pass": 48,
+          "fail": 0,
+          "skipped": 0
+        },
+        "log_sha256": "0fb2d3e5aa6149a9c11da60fc12242e4d74b20ef74ca4ee230179b4d1484be19",
+        "syntax": "passed",
+        "diff_check": "passed",
+        "real_postgresql": "required rerun, not executed locally",
+        "full_app_rerun": false
+      },
+      "verification_sha256": "56e84316bb9294a0ef32448cdbdf00345a4ed1241de2cb017bbe7c5401b308eb",
+      "full_app_rerun": false,
+      "actual_postgresql": "Required current-head CI; not executed locally",
+      "scope": "Only the row-probe lock strength and its explanatory comment changed. Runtime policy ordering, 11 groups, exact backend/blocker wait, zero bound context, graph probe and row-count assertions remain unchanged."
+    }
+  ],
+  "latest_status": "first_fixture_failure_corrected_required_current_source_ci_pending",
+  "limits": {
+    "all_workspace_groups_passed": false,
+    "merged": false,
+    "production_verified": false
+  }
+}

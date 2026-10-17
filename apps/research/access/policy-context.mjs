@@ -23,6 +23,10 @@ export function createPolicyExecutor({identity,issuerPool,researchPool}) {
    try{
     c=await researchPool.connect();try{login=await checkRole(c,'research');}catch{bad=true;deny();}await c.query('BEGIN');await c.query('SET LOCAL ROLE garden_research');
     await c.query("SET LOCAL statement_timeout='5s'");await c.query("SET LOCAL idle_in_transaction_session_timeout='10s'");
+    // The issuer has committed. Take the common consent/review workspace gate
+    // before binding locks the ticket row or repository code locks graph/records.
+    // COMMIT/ROLLBACK releases this transaction lock before issuer retirement.
+    await c.query('SELECT pg_advisory_xact_lock(144729,hashtext($1::text))',[workspace]);
     await c.query('SELECT garden_control.bind_policy_context($1::text)',[ticket]);
     // Only trusted repository code receives this connection, never a request-provided query.
     value=await work(c);

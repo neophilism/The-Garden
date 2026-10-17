@@ -22,9 +22,37 @@ The executor revalidates the authenticated subject after the trusted repository 
 
 Identity closure or a cleanup failure after successful COMMIT is an indeterminate delivery outcome: return no protected result, do not assume the write rolled back, and do not blindly retry non-idempotent writes. Later operation IDs and audit controls must preserve this distinction. These identity refreshes do not make an external identity service and PostgreSQL atomic, do not add a last-instant database grant/consent check after retirement, and do not establish delivery-tombstone serialization.
 
+## Outer workspace transaction gate
+
+The trusted `createPolicyExecutor` acquires the existing **exclusive transaction advisory lock** before binding its policy context:
+
+```sql
+SELECT pg_advisory_xact_lock(144729,hashtext($1::text))
+```
+
+The parameter is the server-validated, normalized workspace UUID. Consent administration, scoped-review mutations and encrypted-content authorization already use this key. The gate is a coordination lock, not a permission decision: membership, grants, classification, consent, scope and ticket expiry still require their existing checks. It creates no context, endpoint, tombstone or provider activation.
+
+The order is issuer transaction commit and release; research transaction begin, role/capability and timeout setup; workspace gate; policy binding; repository graph/record work; existing identity and cleanup checks; main COMMIT or ROLLBACK; connection release; issuer retirement; final identity refresh. The issuer therefore holds no unfinished mint transaction while the main transaction waits. A gate waiter has not yet locked the ticket row, so its subsequent binding checks the current ticket and membership using the existing SQL. A gate error follows the same rollback, connection-destruction and ticket-retirement paths as other transaction failures. No separate advisory unlock is issued: PostgreSQL releases this lock at transaction end, before issuer retirement.
+
+For typed source writes, this establishes workspace gate → source-graph advisory lock → record locks. Review functions can reacquire the same exclusive transaction lock on their existing connection. Do not change the outer gate to a shared lock and then upgrade inside existing functions. Concurrent work in one workspace is serialized for the whole trusted transaction; unrelated workspace keys remain independent, although PostgreSQL's existing `hashtext` key can conservatively collide.
+
+Trusted repository callbacks must use their provided transaction and must not await a second same-workspace gated transaction on another connection. In particular, awaiting consent withdrawal inside a research callback would wait on the research transaction itself. Concurrent withdrawal instead completes after the earlier gated transaction ends; a later research transaction observes the withdrawn permission. Direct owner updates that do not use this coordination key retain their existing next-statement RLS behavior. Long callbacks can delay consent administration; the existing five-second statement and ten-second idle-transaction timeouts remain unchanged.
+
+This is an application-executor prerequisite for later lifecycle work. It does not change `bind_policy_context`, serialize arbitrary SQL callers, prevent an owner from bypassing the fixed host, enumerate retained dependencies, implement record tombstones, or remove material. The absence of a last database authority check after issuer retirement also remains explicit. A future tombstone transaction needs its own always-on SQL denial, compatible lock order, independently authorized metadata context and final delivery admission.
+
 ## Evidence, rollout and recovery
 
 `tests/access/policy-context.test.mjs` tests policy-executor rejection, connection destruction, cleanup and identity changes. `apps/research/access/rls.ci.mjs` exercises actual PostgreSQL with disjoint non-owner logins, ten role types on one reused backend, no-context/GUC spoofing, write restrictions, owner and worker denial, revocation, ticket expiry/replay, rollback and cleanup. The additional `tests/access/policy-identity-boundaries.test.mjs` covers 18 cleanup/commit/release/retirement and identity-outage cases. Six added PostgreSQL groups distinguish actual rollback from committed writes when the synthetic identity adapter closes at those boundaries. Synthetic records are marked as such. Identity-lifecycle CI records source-bound observations; [the identity-boundary evidence](../evidence/GDN-024/identity-boundary-tests.json) preserves the local checkpoint and links the later verified PR68 merge and actual 39-group PostgreSQL result.
+
+`tests/access/policy-workspace-gate.test.mjs` adds ordering, pending-lock, cancellation/rollback, failed-rollback and issuer-commit tests. Run it with the two existing policy suites:
+
+```sh
+node --test tests/access/policy-workspace-gate.test.mjs tests/access/policy-context.test.mjs tests/access/policy-identity-boundaries.test.mjs
+```
+
+`apps/research/access/policy-workspace-gate.ci.mjs` is an acceptance journey for the disposable PostgreSQL CI service, after checksum-verified migrations. It observes exact backend waits with `pg_stat_activity` and `pg_blocking_pids`; tests source ordering against actual consent, review and encrypted-preparation transactions; checks ticket, record-grant and natural consent expiry after waits; exercises cancellation and membership changes; and verifies lock release before retirement without mislabeling a committed write when final identity delivery fails. Its loopback/environment guard refuses other database targets. Synthetic key catalog handles exercise SQL admission only; no key provider or encryption operation is called. The existing consent journey also uses an observed two-transaction withdrawal race instead of awaiting a competing transaction inside its blocker.
+
+The new PostgreSQL journey is **unverified until its required CI actually executes**. On success it writes `data-evidence/policy-workspace-gate-results.json` with the tested SHA and explicit false tombstone, erasure and production claims. Local unit or source checks cannot substitute for that receipt. The CI database owns the retained synthetic fixtures; the journey does not disable immutability, delete its history, or reuse a retained cloud database.
 
 No public endpoint, real researcher account, cloud schema migration or private corpus is activated. The existing production-denying migration runner remains unchanged. Deploy only to an authorized synthetic test environment after all required exact-head CI passes; perform independent security and actual hosted TLS/login/pool verification before sensitive data. Roll back activation/application code while retaining successful records. Do not bypass FORCE RLS or delete research to make a test pass.
 

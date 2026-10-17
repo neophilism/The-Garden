@@ -1,0 +1,1421 @@
+{
+  "schema_version": 1,
+  "work_item": "GDN-032",
+  "kind": "verified-isolated-staging-lifecycle-controls",
+  "recorded_at": "2026-10-17T15:55:17.650Z",
+  "target": {
+    "projectId": "royal-union-78374030",
+    "branchId": "br-purple-grass-b5hurfl7",
+    "databaseName": "neondb",
+    "environment": "staging",
+    "session_role": "neondb_owner"
+  },
+  "source": {
+    "merged_commit": "3dc436db71ec24616a8b24eb6a78e2d3612eb297",
+    "reviewed_source_commit": "b29f333032b2a659570240aec5bbf39852d9e900",
+    "migration_sha256": "b934cd39c5313fb855d9096829e540a35bae30fc1610722798149d044098648a",
+    "manifest_sha256": "d54478303a768aa5413b2ca4c446a9d0cbc689d07ad5b3b2286aa7e93cd224e8",
+    "exact_merged_bytes_verified": true
+  },
+  "prepared_bundle": {
+    "sha256": "3088b8c5168bd1f894bcc81bb1090ed7a598116ad784a42f923d7f2c97260606",
+    "review_sha256": "3a35bbddba345b1360159c7c3ce76420dd7d275be259d368c03f55baaa80e4f0",
+    "migration_statements": 63,
+    "atomic_transaction_statements": 79
+  },
+  "preflight": {
+    "observed_at": "2026-10-17T15:50:47.261Z",
+    "target": {
+      "projectId": "royal-union-78374030",
+      "branchId": "br-purple-grass-b5hurfl7",
+      "databaseName": "neondb",
+      "environment": "staging",
+      "session_role": "neondb_owner"
+    },
+    "branch": {
+      "id": "br-purple-grass-b5hurfl7",
+      "name": "garden-staging",
+      "default": false,
+      "current_state": "ready"
+    },
+    "database": {
+      "database_name": "neondb",
+      "session_user": "neondb_owner",
+      "current_user": "garden_migrator",
+      "server_version": "18.6 (653b019)"
+    },
+    "binding": {
+      "singleton": true,
+      "repository": "neophilism/The-Garden",
+      "environment": "staging",
+      "project_id": "royal-union-78374030",
+      "branch_id": "br-purple-grass-b5hurfl7",
+      "database_name": "neondb"
+    },
+    "history": [
+      {
+        "migration_id": "0001_foundation",
+        "sha256": "7ba727f1d96d342853a75670ecf4313275e72fb53674188c2e27690e246cf52e",
+        "applied_at": "2026-10-11T07:19:27.073Z"
+      },
+      {
+        "migration_id": "0002_jobs",
+        "sha256": "3c5a0fa7579aee8ad19d5cf7471a3c0cfcda677961328766f55cb8b71c691f90",
+        "applied_at": "2026-10-11T07:55:50.763Z"
+      },
+      {
+        "migration_id": "0003_membership",
+        "sha256": "a3a85fdfbd7102af0f1b8c110b274756104d1a188970063062936d08f84f2e9d",
+        "applied_at": "2026-10-16T14:57:03.951Z"
+      },
+      {
+        "migration_id": "0004_policy_context",
+        "sha256": "ce2d084065efc930255d4bb3e46080d65fb8cadf8ef72c1520b10b27bac6e4dd",
+        "applied_at": "2026-10-16T14:57:04.014Z"
+      },
+      {
+        "migration_id": "0005_historical_records",
+        "sha256": "7d92349869fde52a1c152b9deb7a2d63a524bbb4cf3a736daa3fe322cc624188",
+        "applied_at": "2026-10-16T14:57:04.067Z"
+      },
+      {
+        "migration_id": "0006_archival_sources",
+        "sha256": "79f3adf798faf45c64b11bde77a11d8d821269a3d246444ad31c581bb549e4d0",
+        "applied_at": "2026-10-16T14:57:04.094Z"
+      },
+      {
+        "migration_id": "0007_durable_locators",
+        "sha256": "322b7defc98979fb55d851153ae64d7a7406a405a47c4c83ce5b86a20c596691",
+        "applied_at": "2026-10-16T14:57:04.114Z"
+      },
+      {
+        "migration_id": "0008_atomic_claims",
+        "sha256": "f2578cb9b4755ccddb3d87f6d83c715f21dffa71d65b2bf059cd0b42ee16fe47",
+        "applied_at": "2026-10-16T14:57:04.156Z"
+      },
+      {
+        "migration_id": "0009_purpose_consent",
+        "sha256": "ff49fa5baa2bf92b8d537e4daf115facd7e1baedd913e49ca9dac387776f7312",
+        "applied_at": "2026-10-16T14:57:04.245Z"
+      },
+      {
+        "migration_id": "0010_audit_ledger",
+        "sha256": "658e8adc7764e90b7cc51e3ee6fb49925913c31d5d114aae70f13561862dbe75",
+        "applied_at": "2026-10-16T14:57:04.333Z"
+      },
+      {
+        "migration_id": "0011_scoped_reviews",
+        "sha256": "beae0f820608c605182622c3a0c3aab6debc00841d01d6c1e1cedd5bb13a7000",
+        "applied_at": "2026-10-16T14:57:04.410Z"
+      },
+      {
+        "migration_id": "0012_geographic_assertions",
+        "sha256": "a89296c1a1c05d1abee04d06706a5a7f4e9d4c197dbe6ef74d7a33e8cd7636f8",
+        "applied_at": "2026-10-16T14:57:04.425Z"
+      },
+      {
+        "migration_id": "0013_encrypted_content",
+        "sha256": "1fb1eb5adc7b2adced769cf91f8fd99af841f86ed98132d12922e07549b19964",
+        "applied_at": "2026-10-17T14:19:14.992Z"
+      },
+      {
+        "migration_id": "0014_lifecycle_requests",
+        "sha256": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c",
+        "applied_at": "2026-10-17T14:51:20.443Z"
+      }
+    ],
+    "requester_counts": [
+      {
+        "kind": "cases",
+        "rows": 0
+      },
+      {
+        "kind": "contexts",
+        "rows": 0
+      },
+      {
+        "kind": "events",
+        "rows": 0
+      },
+      {
+        "kind": "heads",
+        "rows": 0
+      },
+      {
+        "kind": "payloads",
+        "rows": 0
+      },
+      {
+        "kind": "tickets",
+        "rows": 0
+      }
+    ],
+    "controls_absent": {
+      "controls_role_exists": false,
+      "controls_registry_exists": false
+    },
+    "audit": {
+      "audit_body_sha256": "c7959845ee94528d1165ec926844beac2eb995af6c24fadd043c235eb0c75367"
+    },
+    "read_only": true,
+    "preflight_verified": true,
+    "apply_performed": false
+  },
+  "application": {
+    "started_at": "2026-10-17T15:54:45.615Z",
+    "finished_at": "2026-10-17T15:54:50.928Z",
+    "adapter_returned_success": true,
+    "statement_result_count": 79,
+    "observed_applied_at": "2026-10-17T15:54:50.689Z",
+    "atomic_postconditions_passed": true,
+    "retry_performed": false
+  },
+  "readback": {
+    "observed_at": "2026-10-17T15:55:17.650Z",
+    "read_only": true,
+    "database": {
+      "database_name": "neondb",
+      "session_user": "neondb_owner",
+      "current_user": "garden_migrator",
+      "server_version": "18.6 (653b019)"
+    },
+    "binding": {
+      "singleton": true,
+      "repository": "neophilism/The-Garden",
+      "environment": "staging",
+      "project_id": "royal-union-78374030",
+      "branch_id": "br-purple-grass-b5hurfl7",
+      "database_name": "neondb"
+    },
+    "history": [
+      {
+        "migration_id": "0001_foundation",
+        "sha256": "7ba727f1d96d342853a75670ecf4313275e72fb53674188c2e27690e246cf52e",
+        "applied_at": "2026-10-11T07:19:27.073Z"
+      },
+      {
+        "migration_id": "0002_jobs",
+        "sha256": "3c5a0fa7579aee8ad19d5cf7471a3c0cfcda677961328766f55cb8b71c691f90",
+        "applied_at": "2026-10-11T07:55:50.763Z"
+      },
+      {
+        "migration_id": "0003_membership",
+        "sha256": "a3a85fdfbd7102af0f1b8c110b274756104d1a188970063062936d08f84f2e9d",
+        "applied_at": "2026-10-16T14:57:03.951Z"
+      },
+      {
+        "migration_id": "0004_policy_context",
+        "sha256": "ce2d084065efc930255d4bb3e46080d65fb8cadf8ef72c1520b10b27bac6e4dd",
+        "applied_at": "2026-10-16T14:57:04.014Z"
+      },
+      {
+        "migration_id": "0005_historical_records",
+        "sha256": "7d92349869fde52a1c152b9deb7a2d63a524bbb4cf3a736daa3fe322cc624188",
+        "applied_at": "2026-10-16T14:57:04.067Z"
+      },
+      {
+        "migration_id": "0006_archival_sources",
+        "sha256": "79f3adf798faf45c64b11bde77a11d8d821269a3d246444ad31c581bb549e4d0",
+        "applied_at": "2026-10-16T14:57:04.094Z"
+      },
+      {
+        "migration_id": "0007_durable_locators",
+        "sha256": "322b7defc98979fb55d851153ae64d7a7406a405a47c4c83ce5b86a20c596691",
+        "applied_at": "2026-10-16T14:57:04.114Z"
+      },
+      {
+        "migration_id": "0008_atomic_claims",
+        "sha256": "f2578cb9b4755ccddb3d87f6d83c715f21dffa71d65b2bf059cd0b42ee16fe47",
+        "applied_at": "2026-10-16T14:57:04.156Z"
+      },
+      {
+        "migration_id": "0009_purpose_consent",
+        "sha256": "ff49fa5baa2bf92b8d537e4daf115facd7e1baedd913e49ca9dac387776f7312",
+        "applied_at": "2026-10-16T14:57:04.245Z"
+      },
+      {
+        "migration_id": "0010_audit_ledger",
+        "sha256": "658e8adc7764e90b7cc51e3ee6fb49925913c31d5d114aae70f13561862dbe75",
+        "applied_at": "2026-10-16T14:57:04.333Z"
+      },
+      {
+        "migration_id": "0011_scoped_reviews",
+        "sha256": "beae0f820608c605182622c3a0c3aab6debc00841d01d6c1e1cedd5bb13a7000",
+        "applied_at": "2026-10-16T14:57:04.410Z"
+      },
+      {
+        "migration_id": "0012_geographic_assertions",
+        "sha256": "a89296c1a1c05d1abee04d06706a5a7f4e9d4c197dbe6ef74d7a33e8cd7636f8",
+        "applied_at": "2026-10-16T14:57:04.425Z"
+      },
+      {
+        "migration_id": "0013_encrypted_content",
+        "sha256": "1fb1eb5adc7b2adced769cf91f8fd99af841f86ed98132d12922e07549b19964",
+        "applied_at": "2026-10-17T14:19:14.992Z"
+      },
+      {
+        "migration_id": "0014_lifecycle_requests",
+        "sha256": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c",
+        "applied_at": "2026-10-17T14:51:20.443Z"
+      },
+      {
+        "migration_id": "0015_lifecycle_controls",
+        "sha256": "b934cd39c5313fb855d9096829e540a35bae30fc1610722798149d044098648a",
+        "applied_at": "2026-10-17T15:54:50.689Z"
+      }
+    ],
+    "role": {
+      "rolname": "garden_lifecycle_admin",
+      "rolcanlogin": false,
+      "rolinherit": false,
+      "rolsuper": false,
+      "rolcreatedb": false,
+      "rolcreaterole": false,
+      "rolreplication": false,
+      "rolbypassrls": false
+    },
+    "membership": [
+      {
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "admin_option": true,
+        "inherit_option": false,
+        "set_option": false
+      },
+      {
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "admin_option": false,
+        "inherit_option": false,
+        "set_option": true
+      }
+    ],
+    "parent_roles": [],
+    "tables": [
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_authority_evidence",
+        "owner": "garden_migrator",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true
+      },
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_control_contexts",
+        "owner": "garden_migrator",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true
+      },
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_control_delivery_checks",
+        "owner": "garden_migrator",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true
+      },
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_control_tickets",
+        "owner": "garden_migrator",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true
+      },
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_evidence_heads",
+        "owner": "garden_migrator",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true
+      },
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_grant_heads",
+        "owner": "garden_migrator",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true
+      },
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_operation_registry",
+        "owner": "garden_migrator",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true
+      },
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_operator_grants",
+        "owner": "garden_migrator",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true
+      },
+      {
+        "nspname": "garden_private",
+        "relname": "lifecycle_control_events",
+        "owner": "garden_migrator",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true
+      },
+      {
+        "nspname": "garden_private",
+        "relname": "lifecycle_control_heads",
+        "owner": "garden_migrator",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true
+      },
+      {
+        "nspname": "garden_private",
+        "relname": "lifecycle_control_payloads",
+        "owner": "garden_migrator",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true
+      },
+      {
+        "nspname": "garden_private",
+        "relname": "lifecycle_control_scope_heads",
+        "owner": "garden_migrator",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true
+      }
+    ],
+    "table_counts": [
+      {
+        "table_name": "garden_control.lifecycle_authority_evidence",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_control_contexts",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_control_delivery_checks",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_control_tickets",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_evidence_heads",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_grant_heads",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_operation_registry",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_operator_grants",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.lifecycle_control_events",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.lifecycle_control_heads",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.lifecycle_control_payloads",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.lifecycle_control_scope_heads",
+        "row_count": "0"
+      }
+    ],
+    "policies": [
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_authority_evidence",
+        "polname": "lifecycle_control_owner",
+        "polcmd": "*",
+        "polpermissive": true,
+        "roles": [
+          "garden_migrator"
+        ],
+        "using_expression": "true",
+        "check_expression": "true"
+      },
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_control_contexts",
+        "polname": "lifecycle_control_owner",
+        "polcmd": "*",
+        "polpermissive": true,
+        "roles": [
+          "garden_migrator"
+        ],
+        "using_expression": "true",
+        "check_expression": "true"
+      },
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_control_delivery_checks",
+        "polname": "lifecycle_control_owner",
+        "polcmd": "*",
+        "polpermissive": true,
+        "roles": [
+          "garden_migrator"
+        ],
+        "using_expression": "true",
+        "check_expression": "true"
+      },
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_control_tickets",
+        "polname": "lifecycle_control_owner",
+        "polcmd": "*",
+        "polpermissive": true,
+        "roles": [
+          "garden_migrator"
+        ],
+        "using_expression": "true",
+        "check_expression": "true"
+      },
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_evidence_heads",
+        "polname": "lifecycle_control_owner",
+        "polcmd": "*",
+        "polpermissive": true,
+        "roles": [
+          "garden_migrator"
+        ],
+        "using_expression": "true",
+        "check_expression": "true"
+      },
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_grant_heads",
+        "polname": "lifecycle_control_owner",
+        "polcmd": "*",
+        "polpermissive": true,
+        "roles": [
+          "garden_migrator"
+        ],
+        "using_expression": "true",
+        "check_expression": "true"
+      },
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_operation_registry",
+        "polname": "lifecycle_control_owner",
+        "polcmd": "*",
+        "polpermissive": true,
+        "roles": [
+          "garden_migrator"
+        ],
+        "using_expression": "true",
+        "check_expression": "true"
+      },
+      {
+        "nspname": "garden_control",
+        "relname": "lifecycle_operator_grants",
+        "polname": "lifecycle_control_owner",
+        "polcmd": "*",
+        "polpermissive": true,
+        "roles": [
+          "garden_migrator"
+        ],
+        "using_expression": "true",
+        "check_expression": "true"
+      },
+      {
+        "nspname": "garden_private",
+        "relname": "lifecycle_control_events",
+        "polname": "lifecycle_control_owner",
+        "polcmd": "*",
+        "polpermissive": true,
+        "roles": [
+          "garden_migrator"
+        ],
+        "using_expression": "true",
+        "check_expression": "true"
+      },
+      {
+        "nspname": "garden_private",
+        "relname": "lifecycle_control_heads",
+        "polname": "lifecycle_control_owner",
+        "polcmd": "*",
+        "polpermissive": true,
+        "roles": [
+          "garden_migrator"
+        ],
+        "using_expression": "true",
+        "check_expression": "true"
+      },
+      {
+        "nspname": "garden_private",
+        "relname": "lifecycle_control_payloads",
+        "polname": "lifecycle_control_owner",
+        "polcmd": "*",
+        "polpermissive": true,
+        "roles": [
+          "garden_migrator"
+        ],
+        "using_expression": "true",
+        "check_expression": "true"
+      },
+      {
+        "nspname": "garden_private",
+        "relname": "lifecycle_control_scope_heads",
+        "polname": "lifecycle_control_owner",
+        "polcmd": "*",
+        "polpermissive": true,
+        "roles": [
+          "garden_migrator"
+        ],
+        "using_expression": "true",
+        "check_expression": "true"
+      }
+    ],
+    "functions": [
+      {
+        "proname": "bind_lifecycle_control_context",
+        "signature": "garden_control.bind_lifecycle_control_context(text,text)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "0664bc8e9d891c0c8f20cf1f4dc3d3fd6057b4e9f7705d5a272cd35c316661e5",
+        "runtime_execute": [
+          "garden_lifecycle_admin"
+        ]
+      },
+      {
+        "proname": "check_lifecycle_control_context",
+        "signature": "garden_control.check_lifecycle_control_context()",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "8ab141719bac6be477137a9ee78508b6012302af8ce60e85c568704089af19e2",
+        "runtime_execute": [
+          "garden_lifecycle_admin"
+        ]
+      },
+      {
+        "proname": "clear_lifecycle_control_context",
+        "signature": "garden_control.clear_lifecycle_control_context()",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "f4ec57947aafc076b619359ace481a745fee1c90a6864435dc518e5b80833c48",
+        "runtime_execute": [
+          "garden_lifecycle_admin"
+        ]
+      },
+      {
+        "proname": "commit_lifecycle_control",
+        "signature": "garden_control.commit_lifecycle_control(jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "e80245f22c6d666cad76ae2a672589a33c730133ef10e4625fc84c21d5f3d5fe",
+        "runtime_execute": [
+          "garden_lifecycle_admin"
+        ]
+      },
+      {
+        "proname": "complete_lifecycle_control",
+        "signature": "garden_control.complete_lifecycle_control(jsonb,jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "412959dde08983408dd45a6381da894cdf113fa50391f9b475bf0cf2b63e0911",
+        "runtime_execute": []
+      },
+      {
+        "proname": "finish_lifecycle_control_delivery",
+        "signature": "garden_control.finish_lifecycle_control_delivery(text,text)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "f11eef97b13968702b62ff0ec23b9e37a2884a7b02be409c525897fa6157dff8",
+        "runtime_execute": [
+          "garden_context_issuer"
+        ]
+      },
+      {
+        "proname": "invalidate_lifecycle_control_ticket",
+        "signature": "garden_control.invalidate_lifecycle_control_ticket(text)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "ae8daa48091a4cb60957a3d30a6dd2fbb221d17b4aa4bb54a2df0c08643abe2c",
+        "runtime_execute": [
+          "garden_context_issuer"
+        ]
+      },
+      {
+        "proname": "issue_lifecycle_control_ticket",
+        "signature": "garden_control.issue_lifecycle_control_ticket(uuid,text,text,text,jsonb,timestamp with time zone,integer,xid8)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "6dddb56f73ee3e71c33f3523e0d4a6857201de4d6ac0b5299de4576b69675ee1",
+        "runtime_execute": [
+          "garden_context_issuer"
+        ]
+      },
+      {
+        "proname": "lifecycle_control_authority",
+        "signature": "garden_control.lifecycle_control_authority(garden_control.lifecycle_control_tickets,uuid,bigint)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "702ec08b84bcec27627c8e41a00d6f68bccccf3d2dc5bcfdb422c1e18c01e218",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_canonical",
+        "signature": "garden_control.lifecycle_control_canonical(jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=pg_catalog"
+        ],
+        "body_sha256": "e2678785515f865048207099ee69c9bcaea4da0b7abb208672c8da641b44af07",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_command_fingerprint",
+        "signature": "garden_control.lifecycle_control_command_fingerprint(uuid,text,text,jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=pg_catalog"
+        ],
+        "body_sha256": "61499cbc9809691994541ae6f487e62e205bfa2a26a5bad2c1b2864a949f5fc0",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_commit_fresh",
+        "signature": "garden_control.lifecycle_control_commit_fresh()",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "a779a819404be928bfef16c52ffb67a9044c49b0c2f7b5b86f92e45cd44f8653",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_consent_deadline",
+        "signature": "garden_control.lifecycle_control_consent_deadline(uuid,uuid,timestamp with time zone,timestamp with time zone)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "9a736ea4b3f5654ecce17750fcb755a68eb0c27b2db91edc0ac1e87251a1a7b0",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_delivery",
+        "signature": "garden_control.lifecycle_control_delivery()",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "1d16e0f26afe26264cbe6668f2058cbe7eb651a124864b82c48987ea1930b30a",
+        "runtime_execute": [
+          "garden_lifecycle_admin"
+        ]
+      },
+      {
+        "proname": "lifecycle_control_delivery_fresh",
+        "signature": "garden_control.lifecycle_control_delivery_fresh()",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "c52e71641d1ec3665d771481ae15bb58f1d0f1bb82fb3517aebcd3edd49a1e47",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_digest",
+        "signature": "garden_control.lifecycle_control_digest(text,text)",
+        "owner": "garden_migrator",
+        "lanname": "sql",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=pg_catalog"
+        ],
+        "body_sha256": "dc911195b73d4ae0f132f35366c202ea731d409d2f89e7c0752d21fd9d2ea1ef",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_intent_fingerprint",
+        "signature": "garden_control.lifecycle_control_intent_fingerprint(uuid,text,jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=pg_catalog"
+        ],
+        "body_sha256": "4a5d00a919088e6118cd93784a6765d9eeed4808fb9c64682152b40a5f3459da",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_iso",
+        "signature": "garden_control.lifecycle_control_iso(timestamp with time zone)",
+        "owner": "garden_migrator",
+        "lanname": "sql",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=pg_catalog"
+        ],
+        "body_sha256": "7fbd7eb51ce8bf9eecb5a9a8e138d100a52d5044f31b8a6646b63ad73d01fc59",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_json",
+        "signature": "garden_control.lifecycle_control_json(text,jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=pg_catalog"
+        ],
+        "body_sha256": "85160efe96df8b7108b89eedaa61b08114b6308be74890219543e50ac85098cf",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_operation_fingerprint",
+        "signature": "garden_control.lifecycle_control_operation_fingerprint(uuid,text,jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=pg_catalog"
+        ],
+        "body_sha256": "20ed95cd42d0d0f940bfe639d1aca9ecb17c2ae273fddd333f6516e3daf3333b",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_proof",
+        "signature": "garden_control.lifecycle_control_proof(garden_control.lifecycle_control_tickets,jsonb,jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "sql",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=pg_catalog"
+        ],
+        "body_sha256": "ce58d6d3905e3207af840f539f8c5b1687f70ff3772d100c44d1385768f4ebd8",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_read_fingerprint",
+        "signature": "garden_control.lifecycle_control_read_fingerprint(uuid,text,jsonb,uuid)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=pg_catalog"
+        ],
+        "body_sha256": "77eb25ad633bdccd4445ef3f0c6bd02da8d7921090d49b97bf057bb5ef1eb321",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_result_fingerprint",
+        "signature": "garden_control.lifecycle_control_result_fingerprint(jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "sql",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=pg_catalog"
+        ],
+        "body_sha256": "eb308e50fff9a066c17908b8bbad52b6596df5ae420cf8ccbff5c722c9c96e58",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_revision",
+        "signature": "garden_control.lifecycle_control_revision(jsonb,boolean)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=pg_catalog"
+        ],
+        "body_sha256": "f020944a49088bda1571ed37215c56d996190154b6a7db348123a60f237f191e",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_scope_snapshot",
+        "signature": "garden_control.lifecycle_control_scope_snapshot(jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "7f5e91ab74021aa8eedca26455669650ba85e45900adc0c7e279076c5999d4b5",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_snapshot",
+        "signature": "garden_control.lifecycle_control_snapshot(uuid,uuid,bigint)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "414e48cc614a26551b3a8ac530e5058203ac947f7965a8afa99b2f7c6c3b6409",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_status",
+        "signature": "garden_control.lifecycle_control_status(jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "ac349d49b01a30437243294dab95f6f7bb100c30cbab6c8814ffc51b7bd7af83",
+        "runtime_execute": [
+          "garden_lifecycle_admin"
+        ]
+      },
+      {
+        "proname": "lifecycle_control_ticket",
+        "signature": "garden_control.lifecycle_control_ticket(text,jsonb,boolean)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "f766d7a82327bd5d6996fa6a8647c933f58592e5da03cab02ddde3a072b0e5b6",
+        "runtime_execute": []
+      },
+      {
+        "proname": "lifecycle_control_time",
+        "signature": "garden_control.lifecycle_control_time(text)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=pg_catalog"
+        ],
+        "body_sha256": "33cd43415f3b65bc92ffd70b306a4e1f27eec4aefb3ec5b67d58804f88fc3a5b",
+        "runtime_execute": []
+      },
+      {
+        "proname": "prepare_lifecycle_control",
+        "signature": "garden_control.prepare_lifecycle_control(jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "712d1fbcde029ddb3ba47ba94e5738a32d6d3ff04a8bc250faa8c482a69d5e19",
+        "runtime_execute": [
+          "garden_lifecycle_admin"
+        ]
+      },
+      {
+        "proname": "record_lifecycle_evidence",
+        "signature": "garden_control.record_lifecycle_evidence(jsonb,text)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "9797f96789c5b616307e75bc368c89a83341581215beb90ac5a5afe368235179",
+        "runtime_execute": []
+      },
+      {
+        "proname": "record_lifecycle_operator_grant",
+        "signature": "garden_control.record_lifecycle_operator_grant(jsonb,text)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "c045828a10c8a93a0f78a3fa585e022e5c7af35894f771192098998376a2e3d5",
+        "runtime_execute": []
+      },
+      {
+        "proname": "recover_lifecycle_control",
+        "signature": "garden_control.recover_lifecycle_control(jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "24350046b995f4d189b832eb977e0ecc18a3e65fb3e20326155f4132dcc30bf9",
+        "runtime_execute": [
+          "garden_lifecycle_admin"
+        ]
+      },
+      {
+        "proname": "register_lifecycle_request_operation",
+        "signature": "garden_control.register_lifecycle_request_operation()",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "475ba664ada2666e69a383821b464117e4ecb37c3d5002ac5e442c184640ee43",
+        "runtime_execute": []
+      }
+    ],
+    "triggers": [
+      {
+        "relation": "garden_control.lifecycle_authority_evidence",
+        "tgname": "immutable_lifecycle_control",
+        "function_name": "garden_control.audit_immutable()",
+        "tgtype": 27,
+        "tgenabled": "O",
+        "tgdeferrable": false,
+        "tginitdeferred": false,
+        "no_condition": true,
+        "tgnargs": 0,
+        "argument_bytes": 0,
+        "update_columns": ""
+      },
+      {
+        "relation": "garden_control.lifecycle_authority_evidence",
+        "tgname": "immutable_lifecycle_control_truncate",
+        "function_name": "garden_control.audit_immutable()",
+        "tgtype": 34,
+        "tgenabled": "O",
+        "tgdeferrable": false,
+        "tginitdeferred": false,
+        "no_condition": true,
+        "tgnargs": 0,
+        "argument_bytes": 0,
+        "update_columns": ""
+      },
+      {
+        "relation": "garden_control.lifecycle_control_contexts",
+        "tgname": "lifecycle_control_commit_fresh",
+        "function_name": "garden_control.lifecycle_control_commit_fresh()",
+        "tgtype": 5,
+        "tgenabled": "O",
+        "tgdeferrable": true,
+        "tginitdeferred": true,
+        "no_condition": true,
+        "tgnargs": 0,
+        "argument_bytes": 0,
+        "update_columns": ""
+      },
+      {
+        "relation": "garden_control.lifecycle_control_delivery_checks",
+        "tgname": "lifecycle_control_delivery_fresh",
+        "function_name": "garden_control.lifecycle_control_delivery_fresh()",
+        "tgtype": 5,
+        "tgenabled": "O",
+        "tgdeferrable": true,
+        "tginitdeferred": true,
+        "no_condition": true,
+        "tgnargs": 0,
+        "argument_bytes": 0,
+        "update_columns": ""
+      },
+      {
+        "relation": "garden_control.lifecycle_operation_registry",
+        "tgname": "immutable_lifecycle_control",
+        "function_name": "garden_control.audit_immutable()",
+        "tgtype": 27,
+        "tgenabled": "O",
+        "tgdeferrable": false,
+        "tginitdeferred": false,
+        "no_condition": true,
+        "tgnargs": 0,
+        "argument_bytes": 0,
+        "update_columns": ""
+      },
+      {
+        "relation": "garden_control.lifecycle_operation_registry",
+        "tgname": "immutable_lifecycle_control_truncate",
+        "function_name": "garden_control.audit_immutable()",
+        "tgtype": 34,
+        "tgenabled": "O",
+        "tgdeferrable": false,
+        "tginitdeferred": false,
+        "no_condition": true,
+        "tgnargs": 0,
+        "argument_bytes": 0,
+        "update_columns": ""
+      },
+      {
+        "relation": "garden_control.lifecycle_operator_grants",
+        "tgname": "immutable_lifecycle_control",
+        "function_name": "garden_control.audit_immutable()",
+        "tgtype": 27,
+        "tgenabled": "O",
+        "tgdeferrable": false,
+        "tginitdeferred": false,
+        "no_condition": true,
+        "tgnargs": 0,
+        "argument_bytes": 0,
+        "update_columns": ""
+      },
+      {
+        "relation": "garden_control.lifecycle_operator_grants",
+        "tgname": "immutable_lifecycle_control_truncate",
+        "function_name": "garden_control.audit_immutable()",
+        "tgtype": 34,
+        "tgenabled": "O",
+        "tgdeferrable": false,
+        "tginitdeferred": false,
+        "no_condition": true,
+        "tgnargs": 0,
+        "argument_bytes": 0,
+        "update_columns": ""
+      },
+      {
+        "relation": "garden_private.lifecycle_control_events",
+        "tgname": "immutable_lifecycle_control_event",
+        "function_name": "garden_control.audit_immutable()",
+        "tgtype": 27,
+        "tgenabled": "O",
+        "tgdeferrable": false,
+        "tginitdeferred": false,
+        "no_condition": true,
+        "tgnargs": 0,
+        "argument_bytes": 0,
+        "update_columns": ""
+      },
+      {
+        "relation": "garden_private.lifecycle_control_events",
+        "tgname": "immutable_lifecycle_control_event_truncate",
+        "function_name": "garden_control.audit_immutable()",
+        "tgtype": 34,
+        "tgenabled": "O",
+        "tgdeferrable": false,
+        "tginitdeferred": false,
+        "no_condition": true,
+        "tgnargs": 0,
+        "argument_bytes": 0,
+        "update_columns": ""
+      },
+      {
+        "relation": "garden_private.lifecycle_request_events",
+        "tgname": "register_lifecycle_request_operation",
+        "function_name": "garden_control.register_lifecycle_request_operation()",
+        "tgtype": 7,
+        "tgenabled": "O",
+        "tgdeferrable": false,
+        "tginitdeferred": false,
+        "no_condition": true,
+        "tgnargs": 0,
+        "argument_bytes": 0,
+        "update_columns": ""
+      }
+    ],
+    "requester_global_fk": {
+      "conname": "lifecycle_request_global_operation",
+      "convalidated": true,
+      "definition": "FOREIGN KEY (operation_id, workspace_id, request_id, fingerprint) REFERENCES garden_control.lifecycle_operation_registry(operation_id, workspace_id, object_id, fingerprint)"
+    },
+    "audit": {
+      "body_sha256": "681a44b229a9927a3aeae8f414d2a5c3516cbe9e39f1eee5042e30b2caf0a172",
+      "owner": "garden_migrator",
+      "prosecdef": true,
+      "proacl": "{garden_migrator=X/garden_migrator}"
+    },
+    "runtime_raw_table_grants": [],
+    "private_tables_without_forced_rls": 0,
+    "unexpected_table_acl_grantees": [],
+    "runtime_function_grants": [
+      {
+        "proname": "bind_lifecycle_control_context",
+        "grantee": "garden_lifecycle_admin",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "check_lifecycle_control_context",
+        "grantee": "garden_lifecycle_admin",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "clear_lifecycle_control_context",
+        "grantee": "garden_lifecycle_admin",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "commit_lifecycle_control",
+        "grantee": "garden_lifecycle_admin",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "finish_lifecycle_control_delivery",
+        "grantee": "garden_context_issuer",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "invalidate_lifecycle_control_ticket",
+        "grantee": "garden_context_issuer",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "issue_lifecycle_control_ticket",
+        "grantee": "garden_context_issuer",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "lifecycle_control_delivery",
+        "grantee": "garden_lifecycle_admin",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "lifecycle_control_status",
+        "grantee": "garden_lifecycle_admin",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "prepare_lifecycle_control",
+        "grantee": "garden_lifecycle_admin",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "recover_lifecycle_control",
+        "grantee": "garden_lifecycle_admin",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      }
+    ]
+  },
+  "verification": {
+    "comparisons": {
+      "result_shape": true,
+      "history": true,
+      "prior_ledger": true,
+      "binding": true,
+      "identity": true,
+      "role": true,
+      "memberships": true,
+      "tables": true,
+      "empty_tables": true,
+      "policies": true,
+      "functions": true,
+      "triggers": true,
+      "global_fk": true,
+      "audit": true,
+      "table_permissions": true,
+      "function_grants": true
+    },
+    "all15_history_hashes_match": true,
+    "prior14_ledger_rows_unchanged": true,
+    "tables_owned_and_forced_rls": 12,
+    "new_tables_empty": 12,
+    "exact_function_bodies": 34,
+    "issuer_functions": 3,
+    "administrator_functions": 8,
+    "owner_only_functions": 23,
+    "exact_triggers": 11,
+    "normalization": "PostgreSQL regprocedure renders the source alias timestamptz as timestamp with time zone for three signatures. The initial coordinator text comparison flagged that representation difference; the final comparison expands only that alias, and all arguments, bodies, owners, search paths and grants match. No SQL or provider state was changed for this comparison."
+  },
+  "limits": {
+    "production_verified": false,
+    "hosted_activation": false,
+    "real_keys_or_authorities_provisioned": false,
+    "corpus_processed": false,
+    "requester_decisions": false,
+    "tombstones": false,
+    "physical_erasure": false,
+    "external_human_security_audit": false
+  },
+  "independent_ai_readback": {
+    "scope": "Independent post-commit staging schema readback, not hosted activation or production acceptance",
+    "recordedAt": "2026-10-17T15:58:15.104624+00:00",
+    "startedAt": "2026-10-17T15:55:35.475Z",
+    "finishedAt": "2026-10-17T15:55:40.320Z",
+    "target": {
+      "projectId": "royal-union-78374030",
+      "branchId": "br-purple-grass-b5hurfl7",
+      "databaseName": "neondb",
+      "environment": "staging",
+      "session_role": "neondb_owner"
+    },
+    "verifiedMergedCommit": "3dc436db71ec24616a8b24eb6a78e2d3612eb297",
+    "bundleSha256": "3088b8c5168bd1f894bcc81bb1090ed7a598116ad784a42f923d7f2c97260606",
+    "rawObservationSha256": "1ff0e47b08323cd6d2342f06459f1cc5f22f5930cc185d95ab8a1581c68e1022",
+    "expectedSnapshotSha256": "c06ce056263c044f44bad7d4196a77855220574a3902693af361d386b859f629",
+    "comparisonScriptSha256": "1d603f52449043a8e18c43afec990017e1291d3b4b883730e9ea185f875b094d",
+    "providerCalls": 1,
+    "providerRetries": 0,
+    "providerMutationsPerformed": false,
+    "readOnlyTransactionStatementCount": 19,
+    "checks": [
+      {
+        "check": "Exact target and owner role",
+        "passed": true
+      },
+      {
+        "check": "01 Read-only transaction setup returned successfully",
+        "passed": true
+      },
+      {
+        "check": "02 Scoped migrator role setup returned successfully",
+        "passed": true
+      },
+      {
+        "check": "03 Database, session, current role and server match preflight",
+        "passed": true
+      },
+      {
+        "check": "04 Exact staging deployment binding",
+        "passed": true
+      },
+      {
+        "check": "05 Exact fifteen migration IDs and hashes",
+        "passed": true
+      },
+      {
+        "check": "05 Existing fourteen migration rows and timestamps unchanged",
+        "passed": true
+      },
+      {
+        "check": "05 New migration timestamp lies inside parent-reported apply interval",
+        "passed": true
+      },
+      {
+        "check": "06 New capability has every login/inheritance/bypass/admin flag disabled",
+        "passed": true
+      },
+      {
+        "check": "07 Exact two-row owner membership multiset",
+        "passed": true
+      },
+      {
+        "check": "08 New capability inherits no parent role",
+        "passed": true
+      },
+      {
+        "check": "09 Exact twelve table owners and forced RLS flags",
+        "passed": true
+      },
+      {
+        "check": "10 All twelve tables empty, including operation backfill registry",
+        "passed": true
+      },
+      {
+        "check": "11 Exact twelve owner-only RLS policies",
+        "passed": true
+      },
+      {
+        "check": "12 Exact thirty-four function signatures, owners, language, definer flags, search paths, body hashes and runtime grants",
+        "passed": true
+      },
+      {
+        "check": "13 Exact eleven immutable/register/deferred trigger definitions",
+        "passed": true
+      },
+      {
+        "check": "14 Exact validated request-to-global-operation foreign key",
+        "passed": true
+      },
+      {
+        "check": "15 Exact audit replacement hash, owner, definer flag and current owner-only EXECUTE ACL",
+        "passed": true
+      },
+      {
+        "check": "16 No effective raw table privilege across twelve runtime capabilities",
+        "passed": true
+      },
+      {
+        "check": "17 No private table lacking enabled and forced RLS",
+        "passed": true
+      },
+      {
+        "check": "18 No new-table ACL grantee other than owner",
+        "passed": true
+      },
+      {
+        "check": "19 Exact eleven non-owner EXECUTE grants without grant options",
+        "passed": true
+      },
+      {
+        "check": "Issuer/admin/owner-only function counts",
+        "passed": true
+      },
+      {
+        "check": "Verified merge contains exact V4 migration and manifest bytes",
+        "passed": true
+      }
+    ],
+    "passed": true,
+    "differences": [],
+    "counts": {
+      "migrations": 15,
+      "newTables": 12,
+      "newTableRows": 0,
+      "ownerPolicies": 12,
+      "newFunctions": 34,
+      "triggers": 11,
+      "runtimeFunctionGrants": 11,
+      "runtimeRawTablePrivileges": 0,
+      "foreignTableACLs": 0,
+      "privateTablesWithoutForcedRLS": 0
+    },
+    "auditACL": {
+      "currentObserved": "{garden_migrator=X/garden_migrator}",
+      "priorSeparateACLSnapshotAvailable": false,
+      "preservationBoundary": "The parent-reported successful reviewed transaction compared old and new ACLs in its postguard. This independent read verifies the current owner-only ACL; supplied prior read-only snapshots contain the old audit body hash only."
+    },
+    "limits": [
+      "These catalog and empty-table observations do not provision runtime logins, seed authority/controls, activate routes or establish hosted deletion/export enforcement.",
+      "The twelve new tables are independently counted under their migrator owner policy. Prior requester counts were zero in the supplied preflight; this exact nineteen-statement readback does not separately recount the six older requester tables.",
+      "Production was not queried or changed. GDN011 source/commit was not modified."
+    ],
+    "source_observation_sha256": "6f35c64001ccbe661030e8f13bad463c6589c9e80b2d94d2b9e9b740d1a9c445"
+  }
+}

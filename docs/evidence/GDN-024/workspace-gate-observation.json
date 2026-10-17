@@ -1,0 +1,467 @@
+{
+  "schema_version": 1,
+  "work_item": "GDN-024",
+  "contributing_work_items": [
+    "GDN-025",
+    "GDN-032"
+  ],
+  "kind": "policy-workspace-lock-ordering",
+  "recorded_at": "2026-10-17T15:59:08.066435+00:00",
+  "tested_source_commit": "c96cbb8a82a283c40f42f328adb126d6fdb1ab3f",
+  "tested_source_tree": "ec267c7a52fc19e60be2cce8aca0d265370ceec5",
+  "verified_base_commit": "3dc436db71ec24616a8b24eb6a78e2d3612eb297",
+  "source_files": {
+    ".github/workflows/data.yml": "c9b173ec667f5e49daa047ee43c84fc8ff18d0d76fb33a36bff0dd2aae9b8ca6",
+    "apps/research/access/consent.ci.mjs": "cf5db0cd3b7629b567b1be9dff32d93dda75208b1cf5dfe0394e5c49a0023740",
+    "apps/research/access/policy-context.mjs": "9afc389a825fba0fb82e5a7a5b49e32ac38faf651f69087973ca25c67bc357fa",
+    "apps/research/access/policy-workspace-gate.ci.mjs": "bb424df436ce0d5c7172c3e58f1b6dd6733e7e8664095186a1508738fbbcc923",
+    "docs/architecture/policy-context.md": "901a0b023eafafcd375fcb508c6a1b83207f38fd501cd1d62d2c25ce111679ba",
+    "tests/access/policy-workspace-gate.test.mjs": "4abca7ceecbabf9652a5b7cfa33b84208bc20069da23fd0d91d04901795cd7e6"
+  },
+  "source_scope": "The six-file source/workflow integration was checked before adding subsequent documentation and the preceding PR69 merge/staging evidence. Required CI must still verify the final published merge tree.",
+  "implemented": [
+    "Acquire the existing exclusive workspace advisory transaction lock after BEGIN/role/timeouts and before policy binding, source graph or record locks.",
+    "Issuer ticket creation commits/releases before the main transaction waits. Main commit/rollback and release precede issuer ticket retirement.",
+    "Normalize the already-validated workspace UUID before taking its lock.",
+    "Preserve current post-wait policy/record/consent decisions and the prior identity cleanup/final-delivery fences.",
+    "The consent race fixture observes a separate withdrawal waiting for the research transaction, then verifies subsequent research denial."
+  ],
+  "full_local_check": {
+    "commit": "c96cbb8a82a283c40f42f328adb126d6fdb1ab3f",
+    "tree": "ec267c7a52fc19e60be2cce8aca0d265370ceec5",
+    "verified_base": "3dc436db71ec24616a8b24eb6a78e2d3612eb297",
+    "branch": "security/policy-workspace-gate-integration-20261017",
+    "environment_keys": [
+      "CI",
+      "HOME",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "PATH"
+    ],
+    "environment_values": {
+      "NODE_ENV": "production",
+      "CI": "true",
+      "NEXT_TELEMETRY_DISABLED": "1"
+    },
+    "node": "v24.19.0",
+    "npm": "11.9.0",
+    "started_at": "2026-10-17T15:56:09.236067+00:00",
+    "tracked_source_manifest_sha256": "981ecf9f2a407a82260c1be5bde7347a6ed09765a2152b20476df227af32355b",
+    "source_sha256": {
+      "package-lock.json": "2fabb52e8fc285ab23a1fdc4d4c0f29fced57e2e7181a018b1147694731a5a5b",
+      "package.json": "03b2a6d98673453f56c46387028e2baecc5d1f1a89b74d2becb6c2e2dd771cb7",
+      ".github/workflows/data.yml": "c9b173ec667f5e49daa047ee43c84fc8ff18d0d76fb33a36bff0dd2aae9b8ca6",
+      "apps/research/access/policy-context.mjs": "9afc389a825fba0fb82e5a7a5b49e32ac38faf651f69087973ca25c67bc357fa",
+      "apps/research/access/policy-workspace-gate.ci.mjs": "bb424df436ce0d5c7172c3e58f1b6dd6733e7e8664095186a1508738fbbcc923",
+      "apps/research/access/consent.ci.mjs": "cf5db0cd3b7629b567b1be9dff32d93dda75208b1cf5dfe0394e5c49a0023740",
+      "tests/access/policy-workspace-gate.test.mjs": "4abca7ceecbabf9652a5b7cfa33b84208bc20069da23fd0d91d04901795cd7e6",
+      "tests/access/policy-context.test.mjs": "7729ce50598749f68a8ee4c7d3e57dbbcc88a0b9324567570ca099d5d550f64a",
+      "tests/access/policy-identity-boundaries.test.mjs": "3df2e22583e847115f2cc636d20875febf606259f99c4166acc354eceaf41a6f",
+      "docs/architecture/policy-context.md": "901a0b023eafafcd375fcb508c6a1b83207f38fd501cd1d62d2c25ce111679ba"
+    },
+    "phases": [
+      {
+        "name": "install",
+        "command": [
+          "npm",
+          "ci",
+          "--include=dev",
+          "--no-audit"
+        ],
+        "started_at": "2026-10-17T15:56:09.236447+00:00",
+        "log": "/workspace/scratch/7d1434690aca/workspace-gate-integration-evidence/install.log",
+        "ended_at": "2026-10-17T15:56:15.698346+00:00",
+        "wall_seconds": 6.461862719999772,
+        "exit_code": 0,
+        "log_sha256": "b9bf2efc51492c008e3586c668f3037b0894da98cd017b68a99ed3f9c93a5c06"
+      },
+      {
+        "name": "full-check",
+        "command": [
+          "npm",
+          "run",
+          "check"
+        ],
+        "started_at": "2026-10-17T15:56:15.698835+00:00",
+        "log": "/workspace/scratch/7d1434690aca/workspace-gate-integration-evidence/full-check.log",
+        "ended_at": "2026-10-17T15:56:34.493043+00:00",
+        "wall_seconds": 18.794228087999727,
+        "exit_code": 0,
+        "log_sha256": "e6c8b55b0002a637996a3a83dfe6665efb20fc6b979a90c3a475b86509efd06d"
+      }
+    ],
+    "real_postgresql": false,
+    "new_postgresql_groups": {
+      "count": 11,
+      "status": "required CI, not executed locally"
+    },
+    "provider_actions": false,
+    "ended_at": "2026-10-17T15:56:34.493622+00:00",
+    "wall_seconds": 25.257188384000983,
+    "all_phases_passed": true,
+    "node_modules_owned": true,
+    "tracked_changes_before_generated_restoration": [
+      "apps/public/next-env.d.ts",
+      "apps/research/next-env.d.ts"
+    ],
+    "test_counts": {
+      "tests": 1883,
+      "suites": 0,
+      "pass": 1883,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "typecheck_and_build_exit": "passed as part of complete chained check",
+    "build_output_manifest_hashes": {
+      "config/build-release.json": {
+        "sha256": "e566541fa9eeb17f989c243ac8e3eefff369793159426d224aa48341bc3e51df",
+        "bytes": 51
+      },
+      "apps/public/.next/BUILD_ID": {
+        "sha256": "cf23bada0d464782b150b9d3aa0894889f983e9fd9cbea193a697aa73506d451",
+        "bytes": 21
+      },
+      "apps/public/.next/build-manifest.json": {
+        "sha256": "d7d3a66b2555da78218cb9a7feeb1eed318d22608b0a36211195abfe2a42049a",
+        "bytes": 1766
+      },
+      "apps/public/.next/routes-manifest.json": {
+        "sha256": "d7f99d9b7e0148f182191cabafc0548db6ea8f7b60bc08384a5e30699661cc15",
+        "bytes": 2366
+      },
+      "apps/public/.next/prerender-manifest.json": {
+        "sha256": "3cbdd5d819019c960860af11e41fe3a732364435baa04a3cfe164d481babdeb3",
+        "bytes": 9971
+      },
+      "apps/public/.next/required-server-files.json": {
+        "sha256": "7da59736f2132fed407c0a30bba2729c23cdb6140a0a44c416a7cc50b3b66b20",
+        "bytes": 10704
+      },
+      "apps/research/.next/BUILD_ID": {
+        "sha256": "c63a3b17bca8471667a92e4e81d49322ba7d77a5f0b0f5091075c8991c4e90e1",
+        "bytes": 21
+      },
+      "apps/research/.next/build-manifest.json": {
+        "sha256": "52e17ba9c6b0d2ae4907060ae0a76eac37377174f6c6bc0a2f5b5a310dc72bd5",
+        "bytes": 1561
+      },
+      "apps/research/.next/routes-manifest.json": {
+        "sha256": "414c885b286bbd4906b1f4c4f60df706af97b809c4e7103ade5aafb6f5ccce01",
+        "bytes": 2142
+      },
+      "apps/research/.next/prerender-manifest.json": {
+        "sha256": "90dc584258c5fe37c824ad56f5124ab5b44b093cc11f4fe0785e4a863552aad3",
+        "bytes": 3257
+      },
+      "apps/research/.next/required-server-files.json": {
+        "sha256": "0015694bd3c816bd55134f55ceb87c8d1fc7f8dbb8af17a35c7c1686a9ff6850",
+        "bytes": 10684
+      }
+    },
+    "generated_restoration": {
+      "inspected": true,
+      "paths": [
+        "apps/public/next-env.d.ts",
+        "apps/research/next-env.d.ts"
+      ],
+      "diff": "/workspace/scratch/7d1434690aca/workspace-gate-integration-evidence/generated-next-env.diff",
+      "diff_sha256": "1496ba91cdf923f55f7b4236a3f1ec988234afb716ec1809120a742a997dab56",
+      "restored_to_commit": "c96cbb8a82a283c40f42f328adb126d6fdb1ab3f"
+    },
+    "tracked_source_after_restoration_sha256": "981ecf9f2a407a82260c1be5bde7347a6ed09765a2152b20476df227af32355b",
+    "worktree_clean": true,
+    "final_verified_at": "2026-10-17T15:57:04.089849+00:00",
+    "typechecks": {
+      "public": "passed",
+      "research": "passed",
+      "domain": "passed",
+      "workers": "passed",
+      "root_config": "passed"
+    },
+    "builds": {
+      "public": "passed",
+      "research": "passed"
+    },
+    "runtime": {
+      "node": "v24.19.0",
+      "npm": "11.9.0"
+    },
+    "planning": {
+      "structure": "passed",
+      "unit_tests": 30,
+      "logs": {
+        "plan-validation.log": "5d180891974a57dcb85e70e7fc24666f5e5d30166ea37bb9696d87bab1233d33",
+        "plan-tests.log": "00a6d746a4a1b9eb0a146b3993a135f810d46a0e6445fe63461d3ce04092e3ce"
+      }
+    },
+    "capture_script_sha256": "fd28175dbb43c4c57be41d37a083e5455701d82b965bf1fb6353c280d4efd421",
+    "build_ids": {
+      "public": "5x7FGxVJ2EwtaTSWdPQlT",
+      "research": "pBMJXALVzA6QPdYKUxtZm"
+    }
+  },
+  "full_observation_sha256": "5aad27e9b9d731e154248dfbe8e7ffa4406c4d79f22025d740893d9e91072c39",
+  "focused_verification": {
+    "commit": "6054a8eaba6aeacb76fe62ac1f8082502f3aad58",
+    "tree": "aa78816c344db829cfc16b69b48e8a7104febe8e",
+    "base": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+    "source_sha256": {
+      "apps/research/access/policy-context.mjs": "9afc389a825fba0fb82e5a7a5b49e32ac38faf651f69087973ca25c67bc357fa",
+      "apps/research/access/policy-workspace-gate.ci.mjs": "bb424df436ce0d5c7172c3e58f1b6dd6733e7e8664095186a1508738fbbcc923",
+      "apps/research/access/consent.ci.mjs": "cf5db0cd3b7629b567b1be9dff32d93dda75208b1cf5dfe0394e5c49a0023740",
+      "tests/access/policy-workspace-gate.test.mjs": "4abca7ceecbabf9652a5b7cfa33b84208bc20069da23fd0d91d04901795cd7e6",
+      "docs/architecture/policy-context.md": "a08d937f2e17a9d46bf3272b8f926a60f73ae4d2a1485eb3a50065cef8985463",
+      "tests/access/policy-context.test.mjs": "7729ce50598749f68a8ee4c7d3e57dbbcc88a0b9324567570ca099d5d550f64a",
+      "tests/access/policy-identity-boundaries.test.mjs": "3df2e22583e847115f2cc636d20875febf606259f99c4166acc354eceaf41a6f"
+    },
+    "command": [
+      "node",
+      "--test",
+      "--test-reporter=spec",
+      "tests/access/policy-workspace-gate.test.mjs",
+      "tests/access/policy-context.test.mjs",
+      "tests/access/policy-identity-boundaries.test.mjs"
+    ],
+    "environment_keys": [
+      "CI",
+      "HOME",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "PATH"
+    ],
+    "node": "v24.19.0",
+    "started_at": "2026-10-17T15:40:37.582836+00:00",
+    "ended_at": "2026-10-17T15:40:37.732372+00:00",
+    "wall_seconds": 0.14951714900053048,
+    "exit_code": 0,
+    "counts": {
+      "tests": 48,
+      "pass": 48,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "log": "/workspace/scratch/7d1434690aca/workspace-gate-local-evidence/focused-6054a8e.log",
+    "log_sha256": "63e27252ac2af41e1f10f8cfeeb23ab41afad08b3013be8880907a004f3a1f94",
+    "syntax_checks": "4 passed",
+    "diff_check": "passed",
+    "new_regressions_on_verified_base": {
+      "tests": 5,
+      "pass": 1,
+      "fail": 4,
+      "log": "/tmp/garden-policy-workspace-gate-red.log",
+      "log_sha256": "278245c44504371c37905a7e3cb846db096df7c5b718a3fcb8a77ce003eef304"
+    },
+    "fixture_checks": {
+      "source": "/workspace/scratch/7d1434690aca/garden-policy-workspace-gate/apps/research/access/policy-workspace-gate.ci.mjs",
+      "sha256": "bb424df436ce0d5c7172c3e58f1b6dd6733e7e8664095186a1508738fbbcc923",
+      "checks": 21,
+      "pass": true,
+      "database_connections": 0,
+      "real_postgresql": false,
+      "limits": "VM/fake-pool fixture and guard checks only; no SQL was executed."
+    },
+    "fixture_checker_sha256": "5353aed870d7f2310b7689a83448d469f7373e3efa6e3b6dda4b33679be59de5",
+    "independent_review": {
+      "path": "/workspace/scratch/7d1434690aca/workspace-gate-peer/review.json",
+      "sha256": "2aae9844c700f9afdbddb0b16a73e3bf42a3c9b4606b59c457ba6eb289c4d32a"
+    },
+    "plan_structure": "passed",
+    "plan_unit_tests": 30,
+    "full_npm_check": "not run; root owns integration check",
+    "new_postgresql_journey": {
+      "groups": 11,
+      "status": "not executed locally",
+      "required_workflow_wiring": "node apps/research/access/policy-workspace-gate.ci.mjs",
+      "artifact": "data-evidence/policy-workspace-gate-results.json"
+    },
+    "production_verified": false,
+    "tombstone_enforcement": false,
+    "provider_calls": false,
+    "environment_values": {
+      "NODE_ENV": "production",
+      "CI": "true",
+      "NEXT_TELEMETRY_DISABLED": "1"
+    },
+    "worktree_clean": true,
+    "supersedes": {
+      "observation": "verification-6054a8e-superseded-locale.json",
+      "reason": "Python locale coercion inserted LC_CTYPE into the earlier child environment. This run passes an explicit five-key child environment."
+    }
+  },
+  "focused_observation_sha256": "48420207ab6909f6285d39884aee337f5a020632cc80e6aa2f9ba106ea16efde",
+  "independent_ai_review": {
+    "kind": "independent-policy-workspace-gate-review",
+    "reviewedAt": "2026-10-17T15:38:25.568352+00:00",
+    "worktree": "/workspace/scratch/7d1434690aca/garden-policy-workspace-gate",
+    "baseCommit": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+    "workingTreeReview": true,
+    "sourceSha256": {
+      "apps/research/access/policy-context.mjs": "9afc389a825fba0fb82e5a7a5b49e32ac38faf651f69087973ca25c67bc357fa",
+      "apps/research/access/policy-workspace-gate.ci.mjs": "bb424df436ce0d5c7172c3e58f1b6dd6733e7e8664095186a1508738fbbcc923",
+      "apps/research/access/consent.ci.mjs": "cf5db0cd3b7629b567b1be9dff32d93dda75208b1cf5dfe0394e5c49a0023740",
+      "tests/access/policy-workspace-gate.test.mjs": "4abca7ceecbabf9652a5b7cfa33b84208bc20069da23fd0d91d04901795cd7e6",
+      "docs/architecture/policy-context.md": "a08d937f2e17a9d46bf3272b8f926a60f73ae4d2a1485eb3a50065cef8985463"
+    },
+    "result": "pass_no_remaining_concrete_source_finding",
+    "checks": {
+      "issuerCommitsAndReleasesBeforeMainWorkspaceWait": true,
+      "workspaceLockPrecedesTicketRowBindAndRepositoryLocks": true,
+      "sameExclusiveKeyAsExistingConsentReviewEncryption": true,
+      "mainCommitOrRollbackAndReleasePrecedeIssuerRetirement": true,
+      "priorIdentityAndIndeterminateWriteSemanticsPreserved": true,
+      "actualPgScenariosReviewed": 11,
+      "exactBackendAndBlockingPidObservedByFixtures": true,
+      "ticketGrantConsentExpiryAfterWaitCoveredByAuthoredJourney": true,
+      "newConsentFixtureUsesObservedIndependentTransactions": true,
+      "directOwnerRlsRevocationTestsRemainUnchanged": true,
+      "runtimeSourceChangeSinceIndependent48OnlyOneCommentWord": true,
+      "bothCiScriptsParse": true,
+      "gitDiffCheckPass": true,
+      "fiveSourceFixtureShapesValidate": true
+    },
+    "resolvedFindings": [
+      {
+        "kind": "ci_helper_failed_commit",
+        "original": "Failed COMMIT marked the helper closed and released without attempting rollback.",
+        "fixed": "Attempts rollback; destroys if rollback fails; propagates failure."
+      },
+      {
+        "kind": "ci_helper_failed_rollback",
+        "original": "Failed rollback released without destroy.",
+        "fixed": "Destroys the failed connection and propagates failure."
+      },
+      {
+        "kind": "ci_trace_setup",
+        "original": "Failed initial PID lookup leaked a checked-out client.",
+        "fixed": "Releases/destroys the client and propagates failure."
+      }
+    ],
+    "independentTests": {
+      "originalNewTests": {
+        "tests": 5,
+        "pass": 1,
+        "fail": 4
+      },
+      "patchedFocused": {
+        "tests": 48,
+        "pass": 48,
+        "fail": 0,
+        "skipped": 0
+      },
+      "sameThreeExtractedHelperCanaries": "original cleanup booleans false; corrected cleanup booleans true; exactly one release",
+      "evidence": {
+        "verification.json": {
+          "path": "/workspace/scratch/7d1434690aca/workspace-gate-peer/verification.json",
+          "sha256": "6cb9e9cdf0b32c3a7e833db278ef2222d2466cc860752c6c9515078e901fbe02"
+        },
+        "draft-helper-cleanup.json": {
+          "path": "/workspace/scratch/7d1434690aca/workspace-gate-peer/draft-helper-cleanup.json",
+          "sha256": "4224b21fb499ba3214b620445bc11359e71ba86e3b21f8d94838db7fb4aa6870"
+        },
+        "fixed-helper-cleanup.json": {
+          "path": "/workspace/scratch/7d1434690aca/workspace-gate-peer/fixed-helper-cleanup.json",
+          "sha256": "32f74433ad545d9b2ea1c73d0b9eecbe6e7d7d3609fb5f1bf458df8168fe88c8"
+        }
+      }
+    },
+    "limits": [
+      "Actual PostgreSQL journey was source-reviewed and syntax-checked, not executed by this reviewer.",
+      "Root must wire the new journey explicitly into required CI after reviewed migrations; no workflow mutation was made here.",
+      "This is a trusted-host transaction-order prerequisite, not SQL enforcement for arbitrary callers or a new tombstone/erasure feature.",
+      "The final database-revocation gap after retirement remains documented; this patch preserves identity delivery checks.",
+      "Author is preparing the exact commit and committed-source focused rerun."
+    ],
+    "postgresExecuted": false,
+    "providerCalls": 0,
+    "repositoryEditsByReviewer": false,
+    "commitsByReviewer": 0
+  },
+  "independent_ai_review_sha256": "2aae9844c700f9afdbddb0b16a73e3bf42a3c9b4606b59c457ba6eb289c4d32a",
+  "counting_note": "The five new unit tests are included in both the 48 focused and 1883 full-suite cases; four reproduced the earlier missing gate and one existing issuer-failure safeguard already passed. Fake-pool/fixture checks are not PostgreSQL execution. Original focused documentation hash differs after clean integration of the current main documentation; all runtime/test hashes match and the final six-file source hashes are recorded above.",
+  "postgresql_ci": {
+    "status": "authored_and_wired_pending_execution",
+    "path": "apps/research/access/policy-workspace-gate.ci.mjs",
+    "sha256": "bb424df436ce0d5c7172c3e58f1b6dd6733e7e8664095186a1508738fbbcc923",
+    "groups": 11,
+    "workflow": ".github/workflows/data.yml",
+    "workflow_sha256": "c9b173ec667f5e49daa047ee43c84fc8ff18d0d76fb33a36bff0dd2aae9b8ca6",
+    "artifact": "data-evidence/policy-workspace-gate-results.json",
+    "database": "disposable loopback PostgreSQL18.6",
+    "scope": "Observe exact blocker/backend and advisory waits, other-workspace progress, source/review/encryption ordering, ticket/grant/consent expiry, membership version changes, cancellation and release-before-retirement.",
+    "authored_backend_wait_observations": true,
+    "results_observed": false
+  },
+  "required_remote_ci": {
+    "status": "pending_publication",
+    "checks": 10,
+    "workflows": 7
+  },
+  "limits": {
+    "new_migration": false,
+    "new_provider_mutation": false,
+    "production_verified": false,
+    "new_completed_unit": false,
+    "tombstone_enforcement": false,
+    "physical_erasure": false,
+    "atomic_external_identity_database_revocation": false,
+    "direct_privileged_sql_serialized_by_host": false,
+    "default_feature_activation": false
+  },
+  "remaining": [
+    "The coarse exclusive lock serializes cooperating research work within one workspace. Repository callbacks must use the supplied connection; awaiting a separate gated transaction while holding the lock can self-block.",
+    "This trusted-host ordering fix does not add current database consent/tombstone validation after ticket retirement, does not change direct privileged SQL entry points, and does not establish an atomic network delivery boundary."
+  ],
+  "latest_fixture_correction": {
+    "source_commit": "b3ff9943bf1a655c6e7ec628025da2a4587a40da",
+    "source_tree": "bd16afb1d1f7ccc5b351698c65c4cb9ee98edc3d",
+    "changed_paths": [
+      "apps/research/access/policy-workspace-gate.ci.mjs"
+    ],
+    "verification": {
+      "parent": "302783f56f1e4b4c5d589c9ef866d8ad34a2e025",
+      "fixture_sha256": "5fd1ce1050a883b4b3c8ce1bc7989ea908661e91c839dd09afd6e6d6ed851bdb",
+      "prior_fixture_sha256": "bb424df436ce0d5c7172c3e58f1b6dd6733e7e8664095186a1508738fbbcc923",
+      "only_probe_lock_strength_and_comment_changed": true,
+      "runtime_sha256": "9afc389a825fba0fb82e5a7a5b49e32ac38faf651f69087973ca25c67bc357fa",
+      "started_at": "2026-10-17T16:07:11.506307+00:00",
+      "ended_at": "2026-10-17T16:07:11.676555+00:00",
+      "wall_seconds": 0.1702593110003363,
+      "command": [
+        "node",
+        "--test",
+        "--test-reporter=spec",
+        "tests/access/policy-workspace-gate.test.mjs",
+        "tests/access/policy-context.test.mjs",
+        "tests/access/policy-identity-boundaries.test.mjs"
+      ],
+      "environment_keys": [
+        "CI",
+        "HOME",
+        "NEXT_TELEMETRY_DISABLED",
+        "NODE_ENV",
+        "PATH"
+      ],
+      "counts": {
+        "tests": 48,
+        "pass": 48,
+        "fail": 0,
+        "skipped": 0
+      },
+      "log_sha256": "0fb2d3e5aa6149a9c11da60fc12242e4d74b20ef74ca4ee230179b4d1484be19",
+      "syntax": "passed",
+      "diff_check": "passed",
+      "real_postgresql": "required rerun, not executed locally",
+      "full_app_rerun": false
+    },
+    "verification_sha256": "56e84316bb9294a0ef32448cdbdf00345a4ed1241de2cb017bbe7c5401b308eb",
+    "full_app_rerun": false,
+    "actual_postgresql": "Required current-head CI; not executed locally",
+    "scope": "Only the row-probe lock strength and its explanatory comment changed. Runtime policy ordering, 11 groups, exact backend/blocker wait, zero bound context, graph probe and row-count assertions remain unchanged.",
+    "ci_history": "docs/evidence/GDN-024/workspace-gate-ci-observation.json",
+    "note": "The original full local check above binds the prior CI fixture. This subsequent narrow fixture correction has separate focused evidence, and requires fresh published merge-tree CI."
+  }
+}

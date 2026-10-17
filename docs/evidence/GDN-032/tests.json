@@ -400,5 +400,25 @@
     "unit_complete": false,
     "production_verified": false,
     "note": "Earlier fields retain their dated requester checkpoint; this separate record describes the locally tested durable-control candidate."
+  },
+  "latest_verified_controls": {
+    "observed_at": "2026-10-17T15:57:56.380937+00:00",
+    "merge_sha": "3dc436db71ec24616a8b24eb6a78e2d3612eb297",
+    "merge_evidence": "docs/evidence/GDN-032/controls-merge-observation.json",
+    "staging_evidence": "docs/evidence/GDN-032/controls-staging-observation.json",
+    "head_sha": "2be7201402f8440c2db936fa336085820c2ccc51",
+    "tested_merge_sha": "aef11a46163971df0c07206864fc1de15abb3156",
+    "tree_sha": "81e65a59d0609a4292e44282880b2d6e3bde3635",
+    "required_checks_passed": 10,
+    "workflows_passed": 7,
+    "authenticated_source_receipts": 10,
+    "actual_application_tests_passed": 1878,
+    "actual_browser_tests_passed": 108,
+    "actual_controls_postgresql_groups_passed": 32,
+    "isolated_staging_migration": "0015_lifecycle_controls",
+    "isolated_staging_verified": true,
+    "unit_complete": false,
+    "production_verified": false,
+    "note": "Earlier candidate/local/pending fields preserve their dated original source checkpoint. This later record establishes the final required CI, guarded merge and isolated schema rollout. No mounted endpoint, real authority, post-withdrawal metadata access or physical removal is asserted."
   }
 }
