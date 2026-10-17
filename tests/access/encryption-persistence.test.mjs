@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
-import {createEncryptionPersistence,createEncryptedContentService,encryptionRequestDigest,EncryptionPersistenceError} from '../../apps/research/access/encryption-persistence.mjs';
+import {createEncryptionPersistence,createEncryptedContentService,encryptionRequestDigest,encryptionDeliveryFingerprint,EncryptionPersistenceError} from '../../apps/research/access/encryption-persistence.mjs';
 import {roleProbe} from '../security/database-role-fixture.mjs';
 import {createPersistenceKeys,PERSISTENCE_CANARY,persistenceId} from '../security/encryption-persistence-fixture.mjs';
 import {envelopeDigest} from '../../services/workers/src/trusted-encryption.mjs';
@@ -10,14 +10,16 @@ const W=persistenceId(1),R=persistenceId(2),V=persistenceId(3),H=new Headers();
 const valid={workspaceId:W,recordId:R,recordRevision:'1',contentVersionId:V};
 
 function fixture({enabled=()=>true,viewer,role={},queryHook}={}){
- const calls=[];
+ const calls=[];let latestResult;
+ const wireAdmission=()=>({subjectId:'synthetic-researcher',expiresAt:new Date(Date.now()+30000).toISOString(),resultFingerprint:encryptionDeliveryFingerprint(latestResult)});
  const identity={async viewer(headers){calls.push({kind:'identity'});return viewer?viewer(headers):{id:'synthetic-researcher',verified:true};}};
  function pool(kind){return {async connect(){
   calls.push({kind,connected:true});const observe=roleProbe('encryption_'+kind+'_login',role[kind]??{});
   return {async query(sql,args){
-   calls.push({kind,sql,args});if(queryHook){const value=await queryHook({kind,sql,args});if(value)return value;}
+   calls.push({kind,sql,args});if(queryHook){const value=await queryHook({kind,sql,args});if(value){if(value.rows?.[0]?.result)latestResult=value.rows[0].result;return value;}}
    const guarded=observe(sql,args);if(guarded)return guarded;
-   if(sql.includes('issue_policy_ticket'))return {rows:[{ticket:'a'.repeat(64),token:'a'.repeat(64)}]};
+   if(sql.includes('issue_policy_ticket'))return {rows:[{ticket:'a'.repeat(64)}]};
+   if(sql.includes('encrypted_delivery_admission')||sql.includes('finish_encrypted_delivery'))return {rows:[{admission:wireAdmission()}]};
    return {rows:[]};
   },release:bad=>calls.push({kind,released:true,bad})};
  }};}
@@ -84,7 +86,7 @@ test('operation readback rejects missing, malformed and caller-extended request 
 for(const kind of ['issuer','encryption'])test(kind+' rejects inherited, mixed, elevated and object-owning SQL capabilities',async()=>{
  for(const unsafe of [{elevated:true},{inherited:true},{conflicting:true},{owns_objects:true},{expected:false},{can_set:false},{unsafe_capability:true}]){
   const f=fixture({role:{[kind]:unsafe}});await denied(()=>f.repository.prepare(H,valid));
-  assert.equal(f.calls.some(call=>call.sql?.includes('prepare_encrypted_content')),false);
+  assert.equal(f.calls.some(call=>call.sql?.includes('prepare_encrypted_delivery')),false);
   assert.ok(f.calls.some(call=>call.kind===kind&&call.released&&call.bad),JSON.stringify(unsafe));
  }
 });
@@ -96,7 +98,7 @@ test('unsafe issuer never passes a policy ticket to the encryption pool',async()
 
 test('database exceptions are redacted and rollback failure destroys the connection',async()=>{
  const f=fixture({queryHook:async({kind,sql})=>{
-  if(kind==='encryption'&&(sql.includes('prepare_encrypted_content')||sql==='ROLLBACK'))throw Error('PRIVATE-DATABASE-PASSWORD-CANARY');
+  if(kind==='encryption'&&(sql.includes('prepare_encrypted_delivery')||sql==='ROLLBACK'))throw Error('PRIVATE-DATABASE-PASSWORD-CANARY');
  }});
  await denied(()=>f.repository.prepare(H,valid));
  assert.ok(f.calls.some(call=>call.kind==='encryption'&&call.sql==='ROLLBACK'));
@@ -147,8 +149,8 @@ function successfulResult(request){
 test('repository closure during ticket retirement denies a completed load',async()=>{
  const request=await encryptedRequest(),{metadata}=successfulResult(request);let active=true,retirements=0;
  const f=fixture({enabled:()=>active,queryHook:async({kind,sql})=>{
-  if(kind==='encryption'&&sql.includes('load_encrypted_content'))return {rows:[{result:metadata}]};
-  if(kind==='issuer'&&sql.includes('invalidate_policy_ticket')){active=false;retirements++;}
+  if(kind==='encryption'&&sql.includes('load_encrypted_delivery'))return {rows:[{result:metadata}]};
+  if(kind==='issuer'&&sql.includes('finish_encrypted_delivery')){active=false;retirements++;}
  }});
  await denied(()=>f.repository.load(H,valid));assert.equal(retirements,1);
  assert.equal(f.calls.filter(call=>call.kind==='encryption'&&call.sql==='COMMIT').length,1);
@@ -157,15 +159,15 @@ test('repository closure during ticket retirement denies a completed load',async
 test('committed-write closure during ticket retirement retains only exact unconfirmed recovery',async()=>{
  const request=await encryptedRequest(),{receipt}=successfulResult(request);let active=true,retirements=0;
  const f=fixture({enabled:()=>active,queryHook:async({kind,sql})=>{
-  if(kind==='encryption'&&(sql.includes('commit_encrypted_content')||sql.includes('encrypted_content_receipt')))return {rows:[{result:receipt}]};
-  if(kind==='issuer'&&sql.includes('invalidate_policy_ticket')&&++retirements===1)active=false;
+  if(kind==='encryption'&&(sql.includes('commit_encrypted_delivery')||sql.includes('recover_encrypted_delivery')))return {rows:[{result:receipt}]};
+  if(kind==='issuer'&&sql.includes('finish_encrypted_delivery')&&++retirements===1)active=false;
  }});
  let uncertain;await assert.rejects(()=>f.repository.commit(H,request),error=>{uncertain=error;return error instanceof EncryptionPersistenceError;});
  assert.equal(uncertain.commitOutcome,'unconfirmed');assert.ok(Object.isFrozen(uncertain.recovery));
  assert.deepEqual(uncertain.recovery,{workspaceId:W,recordId:R,operationId:request.operationId,requestDigest:encryptionRequestDigest(request)});
  assert.equal(f.calls.some(call=>call.kind==='encryption'&&call.sql==='ROLLBACK'),false,'the committed write is not reported as rolled back');
- active=true;assert.deepEqual(await f.repository.receipt(H,uncertain.recovery),receipt);
- assert.equal(f.calls.filter(call=>call.kind==='encryption'&&call.sql?.includes('commit_encrypted_content')).length,1);
+ active=true;assert.deepEqual((await f.repository.receipt(H,uncertain.recovery)).value,receipt);
+ assert.equal(f.calls.filter(call=>call.kind==='encryption'&&call.sql?.includes('commit_encrypted_delivery')).length,1);
 });
 
 test('actual crypto composition cannot deliver plaintext if final load closes its repository during retirement',async t=>{
@@ -175,8 +177,8 @@ test('actual crypto composition cannot deliver plaintext if final load closes it
  const request={operationId:persistenceId(4),...valid,keyPolicyGeneration:'1',expectedGeneration:'0',expectedDigest:null,envelope};
  const {metadata}=successfulResult(request);let active=true,retirements=0,owned;
  const f=fixture({enabled:()=>active,queryHook:async({kind,sql})=>{
-  if(kind==='encryption'&&sql.includes('load_encrypted_content'))return {rows:[{result:metadata}]};
-  if(kind==='issuer'&&sql.includes('invalidate_policy_ticket')&&++retirements===2)active=false;
+  if(kind==='encryption'&&sql.includes('load_encrypted_delivery'))return {rows:[{result:metadata}]};
+  if(kind==='issuer'&&sql.includes('finish_encrypted_delivery')&&++retirements===2)active=false;
  }});
  const service=createEncryptedContentService({repository:f.repository,enabled:()=>true,
   encryption:{encrypt:crypto.encrypt,rewrap:crypto.rewrap,async decrypt(...args){owned=await crypto.decrypt(...args);return owned;}}});

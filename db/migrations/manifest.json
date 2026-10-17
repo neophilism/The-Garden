@@ -76,6 +76,11 @@
       "id": "0015_lifecycle_controls",
       "file": "0015_lifecycle_controls.sql",
       "sha256": "b934cd39c5313fb855d9096829e540a35bae30fc1610722798149d044098648a"
+    },
+    {
+      "id": "0016_encrypted_delivery",
+      "file": "0016_encrypted_delivery.sql",
+      "sha256": "45c02c496935b5f1377e94461d7460715cf80668c5af83703e10a0e9dcd089a6"
     }
   ]
 }

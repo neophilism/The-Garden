@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {createEncryptedContentService,encryptionRequestDigest,EncryptionPersistenceError} from '../../apps/research/access/encryption-persistence.mjs';
+import {createEncryptedContentService,encryptionRequestDigest,encryptionDeliveryFingerprint,EncryptionPersistenceError} from '../../apps/research/access/encryption-persistence.mjs';
 import {envelopeDigest} from '../../services/workers/src/trusted-encryption.mjs';
 import {createPersistenceKeys,PERSISTENCE_CANARY,persistenceId} from '../security/encryption-persistence-fixture.mjs';
 
@@ -16,19 +16,21 @@ function fixture(){
  const metadata=()=>({...target,context:{...context},keyBinding:keyBinding(),keyPolicyGeneration:policyGeneration,
   head:current?{generation,digest:envelopeDigest(current)}:null,envelope:current?structuredClone(current):null});
  async function check(action,input){calls.push({action,input:structuredClone(input)});await hook(action,input);if(!allowed)throw new EncryptionPersistenceError();}
+ const wire=value=>({value,admission:{subjectId:'synthetic-researcher',expiresAt:new Date(Date.now()+30000).toISOString(),resultFingerprint:encryptionDeliveryFingerprint(value)}});
  const repository={
-  async prepare(headers,input){await check('prepare',input);return metadata();},
-  async load(headers,input){await check('load',input);if(!current)throw new EncryptionPersistenceError();return metadata();},
+  async verifyIdentity(headers,expected){if(!allowed||expected!=='synthetic-researcher')throw new EncryptionPersistenceError();return expected;},
+  async prepare(headers,input){await check('prepare',input);return wire(metadata());},
+  async load(headers,input){await check('load',input);if(!current)throw new EncryptionPersistenceError();return wire(metadata());},
   async commit(headers,input){
    await check('commit',input);if(commitFailure)throw commitFailure;
    const requestDigest=encryptionRequestDigest(input),prior=committed.get(input.operationId);
-   if(prior){if(prior.requestDigest!==requestDigest)throw new EncryptionPersistenceError();return prior;}
+   if(prior){if(prior.requestDigest!==requestDigest)throw new EncryptionPersistenceError();return wire(prior);}
    if(input.expectedGeneration!==generation||input.expectedDigest!==(current?envelopeDigest(current):null)||input.keyPolicyGeneration!==policyGeneration)throw new EncryptionPersistenceError();
    current=structuredClone(input.envelope);generation=(BigInt(generation)+1n).toString();
    const receipt={operationId:input.operationId,requestDigest,...target,generation,envelopeDigest:envelopeDigest(current),previousDigest:input.expectedDigest,keyVersion:current.keyVersion,auditSequence:generation,committed:true};
-   committed.set(input.operationId,receipt);return structuredClone(receipt);
+   committed.set(input.operationId,receipt);return wire(structuredClone(receipt));
   },
-  async receipt(headers,input){await check('receipt',input);const value=committed.get(input.operationId);if(!value||value.requestDigest!==input.requestDigest)throw new EncryptionPersistenceError();return structuredClone(value);}
+  async receipt(headers,input){await check('receipt',input);const value=committed.get(input.operationId);if(!value||value.requestDigest!==input.requestDigest)throw new EncryptionPersistenceError();return wire(structuredClone(value));}
  };
  function service(extra={}){
   const crypto=keys.component({workspaceId:W,objectId:R,versionId:V,environment:'ci',dataClass:'restricted_research',purpose:'research'},{writeVersion});
