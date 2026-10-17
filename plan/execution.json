@@ -149,6 +149,32 @@
       ],
       "evidence": "docs/evidence/GDN-026/persistence-merge-observation.json",
       "note": "All ten checks across seven workflows passed with authenticated source receipts; 22 actual PostgreSQL persistence scenarios passed. Additive 0013 was subsequently applied and independently read back on existing isolated staging. Crypto host remains unmounted, no keys or encrypted records were provisioned, and no additional unit or production verification is claimed."
+    },
+    {
+      "kind": "maintenance_merge",
+      "pr_number": 65,
+      "url": "https://github.com/neophilism/The-Garden/pull/65",
+      "github_head_sha": "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b",
+      "github_merge_sha": "bff5048543ee336162ff01e306cf56d3a656e36c",
+      "mapped_work_items": [],
+      "contributing_work_items": [
+        "GDN-008"
+      ],
+      "evidence": "docs/evidence/GDN-008/persistence-status-merge.json",
+      "note": "Ten required checks across seven workflows passed with authenticated source receipts. Records verified PR64 persistence, staging 0013 and current provider limits; no additional completed unit."
+    },
+    {
+      "kind": "engineering_followup_merge",
+      "pr_number": 66,
+      "url": "https://github.com/neophilism/The-Garden/pull/66",
+      "github_head_sha": "75e999f122428fa2f8ef7c7a6ae13598e6b06d00",
+      "github_merge_sha": "9a82d74da36e5d3da07ff0e939e5f71a95fe23e4",
+      "mapped_work_items": [],
+      "contributing_work_items": [
+        "GDN-032"
+      ],
+      "evidence": "docs/evidence/GDN-032/requester-merge-observation.json",
+      "note": "Ten required checks across seven workflows passed with authenticated source receipts, including all 22 actual PostgreSQL requester groups. Additive 0014 was subsequently applied atomically and independently read back on existing isolated staging after a corrected deployment-only owner-membership postguard. Pending/cancelled request persistence and pure retention contracts remain unmounted and partial; no completed unit or production verification is claimed."
     }
   ],
   "work_items": {
@@ -737,5 +763,5 @@
     "mapped_planned_units": 37
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-17T14:19:48Z"
+  "observed_at_utc": "2026-10-17T14:53:13Z"
 }

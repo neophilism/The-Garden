@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "work_item": "GDN-032",
+  "recorded_at": "2026-10-17T14:53:13Z",
+  "phase": "retained-dependency-inventory-component",
+  "unit_complete": false,
+  "production_verified": false,
+  "source": {
+    "tested_commit": "eb3c871e812fcd6270dc01f83c8dffe02178f13d",
+    "tested_tree": "4db163945d126c8adcb81a9702c629ad7e98c8ee",
+    "verified_base": "9a82d74da36e5d3da07ff0e939e5f71a95fe23e4",
+    "files": {
+      "packages/domain/src/lifecycle/dependencies.mjs": "8329274ea38c74cdaed83164b52fff374229f9f0347234fe5ab249deb4db9a59",
+      "tests/security/lifecycle-dependencies.test.mjs": "40f067111b16175e7845a1b335c55af1bc40fde2d449cf77922c48863773d946",
+      "docs/security/lifecycle-dependencies.md": "69c0269014e04e6e6c7d03dd909166eca360b7e19515bfa5eecf09bfa6cd169a"
+    },
+    "root_cherry_pick_tree_matches": true
+  },
+  "implementation": [
+    "Owned bounded canonical payload and manifest digests",
+    "Typed metadata edges for all ten current historical payload profiles",
+    "Exact/current revision references and explicit unresolved provenance",
+    "Complete retained-manifest binding and bounded reverse dependency fixed point",
+    "Explicit incomplete results for missing, changed, unsupported, foreign or over-limit inventory"
+  ],
+  "limits": {
+    "max_revisions": 512,
+    "max_edges": 8192,
+    "max_records": 512,
+    "max_depth": 64
+  },
+  "authority_boundary": "The component consumes a supplied retained manifest; it does not authenticate the manifest, establish record authority, inspect all physical material, or authorize deletion. Review-impact edges are not literal-copy or erasure authority.",
+  "full_check": {
+    "profile": "garden-local-check-observation-v1",
+    "head": "eb3c871e812fcd6270dc01f83c8dffe02178f13d",
+    "tree": "4db163945d126c8adcb81a9702c629ad7e98c8ee",
+    "startedAt": "2026-10-17T14:49:03.192079+00:00",
+    "runtime": {
+      "node": "v24.19.0",
+      "npm": "11.9.0",
+      "platform": "Linux-6.18.55-x86_64-with-glibc2.39"
+    },
+    "environmentKeys": [
+      "HOME",
+      "PATH",
+      "NODE_ENV",
+      "CI",
+      "NEXT_TELEMETRY_DISABLED"
+    ],
+    "fixedEnvironment": {
+      "NODE_ENV": "production",
+      "CI": "true",
+      "NEXT_TELEMETRY_DISABLED": "1"
+    },
+    "ownNodeModules": true,
+    "sourceHashesBefore": {
+      "package.json": "03b2a6d98673453f56c46387028e2baecc5d1f1a89b74d2becb6c2e2dd771cb7",
+      "package-lock.json": "2fabb52e8fc285ab23a1fdc4d4c0f29fced57e2e7181a018b1147694731a5a5b",
+      "packages/domain/src/lifecycle/dependencies.mjs": "8329274ea38c74cdaed83164b52fff374229f9f0347234fe5ab249deb4db9a59",
+      "tests/security/lifecycle-dependencies.test.mjs": "40f067111b16175e7845a1b335c55af1bc40fde2d449cf77922c48863773d946",
+      "docs/security/lifecycle-dependencies.md": "69c0269014e04e6e6c7d03dd909166eca360b7e19515bfa5eecf09bfa6cd169a",
+      "packages/domain/src/historical/model.mjs": "a80137111f8ca84d1e6fc68f2ff6b06ebe2d8511ea2b5cc3a5c564499f453db8",
+      "packages/domain/src/historical/locators.mjs": "d6584bca996cab0d02ad4609a62d8061bf708b174ecbef9e4656066678487c3f",
+      "packages/domain/src/historical/sources.mjs": "c49a25738242abaf51835624a4bae979b94db0795b24152e6e9b5b66dd67b724",
+      "packages/domain/src/historical/claims.mjs": "ae57b406da89c3bd349fc05ce7ae0573dd085b2d5fb87ce11204c7c4bccf05e5",
+      "packages/domain/src/historical/geography.mjs": "f3f136b20d9ef3537e10c2ad29edae73e61465ba539b4b730e697f75956bb61c"
+    },
+    "generatedDeclarationHashesBefore": {
+      "apps/public/next-env.d.ts": "ad4d5f5650c49907bf3cb65cbf1a590b9569ba93c707c0586264aded70ad89c9",
+      "apps/research/next-env.d.ts": "ad4d5f5650c49907bf3cb65cbf1a590b9569ba93c707c0586264aded70ad89c9"
+    },
+    "phases": [
+      {
+        "name": "install",
+        "command": [
+          "npm",
+          "ci",
+          "--include=dev",
+          "--ignore-scripts",
+          "--no-audit",
+          "--no-fund"
+        ],
+        "startedAt": "2026-10-17T14:49:03.276244+00:00",
+        "finishedAt": "2026-10-17T14:49:09.014243+00:00",
+        "durationSeconds": 5.738,
+        "exitCode": 0,
+        "logFile": "install.log",
+        "logSha256": "b9bf2efc51492c008e3586c668f3037b0894da98cd017b68a99ed3f9c93a5c06"
+      },
+      {
+        "name": "check",
+        "command": [
+          "npm",
+          "run",
+          "check"
+        ],
+        "startedAt": "2026-10-17T14:49:09.014770+00:00",
+        "finishedAt": "2026-10-17T14:49:26.500291+00:00",
+        "durationSeconds": 17.486,
+        "exitCode": 0,
+        "logFile": "check.log",
+        "logSha256": "b8b30a4ee3be1ae3f7ff84f0ca1d4bede2eb03d47ecd4c9ceb68b3b492c30316"
+      }
+    ],
+    "scope": "Local exact-source application check; not provider, migration, deployment or production verification",
+    "finishedAt": "2026-10-17T14:49:26.501175+00:00",
+    "headAfter": "eb3c871e812fcd6270dc01f83c8dffe02178f13d",
+    "treeAfter": "4db163945d126c8adcb81a9702c629ad7e98c8ee",
+    "sourceHashesAfter": {
+      "package.json": "03b2a6d98673453f56c46387028e2baecc5d1f1a89b74d2becb6c2e2dd771cb7",
+      "package-lock.json": "2fabb52e8fc285ab23a1fdc4d4c0f29fced57e2e7181a018b1147694731a5a5b",
+      "packages/domain/src/lifecycle/dependencies.mjs": "8329274ea38c74cdaed83164b52fff374229f9f0347234fe5ab249deb4db9a59",
+      "tests/security/lifecycle-dependencies.test.mjs": "40f067111b16175e7845a1b335c55af1bc40fde2d449cf77922c48863773d946",
+      "docs/security/lifecycle-dependencies.md": "69c0269014e04e6e6c7d03dd909166eca360b7e19515bfa5eecf09bfa6cd169a",
+      "packages/domain/src/historical/model.mjs": "a80137111f8ca84d1e6fc68f2ff6b06ebe2d8511ea2b5cc3a5c564499f453db8",
+      "packages/domain/src/historical/locators.mjs": "d6584bca996cab0d02ad4609a62d8061bf708b174ecbef9e4656066678487c3f",
+      "packages/domain/src/historical/sources.mjs": "c49a25738242abaf51835624a4bae979b94db0795b24152e6e9b5b66dd67b724",
+      "packages/domain/src/historical/claims.mjs": "ae57b406da89c3bd349fc05ce7ae0573dd085b2d5fb87ce11204c7c4bccf05e5",
+      "packages/domain/src/historical/geography.mjs": "f3f136b20d9ef3537e10c2ad29edae73e61465ba539b4b730e697f75956bb61c"
+    },
+    "sourceHashesUnchanged": true,
+    "trackedStatusBeforeGeneratedRestore": "M apps/public/next-env.d.ts\n M apps/research/next-env.d.ts",
+    "testCounts": {
+      "tests": 1767,
+      "suites": 0,
+      "pass": 1767,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "fullCheckPassed": true,
+    "scriptStagesObserved": {
+      "test": true,
+      "typecheck": true,
+      "build:public": true,
+      "build:research": true
+    },
+    "generatedDeclarationRestore": {
+      "inspectedDiff": "generated-next-env.diff",
+      "diffSha256": "1496ba91cdf923f55f7b4236a3f1ec988234afb716ec1809120a742a997dab56",
+      "paths": [
+        "apps/public/next-env.d.ts",
+        "apps/research/next-env.d.ts"
+      ],
+      "source": "HEAD",
+      "restoredAt": "2026-10-17T14:49:49.410928+00:00",
+      "hashesAfter": {
+        "apps/public/next-env.d.ts": "ad4d5f5650c49907bf3cb65cbf1a590b9569ba93c707c0586264aded70ad89c9",
+        "apps/research/next-env.d.ts": "ad4d5f5650c49907bf3cb65cbf1a590b9569ba93c707c0586264aded70ad89c9"
+      },
+      "matchesPreBuild": true
+    },
+    "finalTrackedStatus": "clean",
+    "typechecks": {
+      "workspacePublic": "pass",
+      "workspaceResearch": "pass",
+      "workspaceDomain": "pass",
+      "workspaceWorkers": "pass",
+      "rootConfig": "pass"
+    },
+    "builds": {
+      "public": {
+        "result": "pass",
+        "staticPagesGenerated": 12
+      },
+      "research": {
+        "result": "pass",
+        "staticPagesGenerated": 5
+      }
+    }
+  },
+  "focused_check": {
+    "observedAt": "2026-10-17T14:47:24.483986+00:00",
+    "head": "eb3c871e812fcd6270dc01f83c8dffe02178f13d",
+    "tree": "4db163945d126c8adcb81a9702c629ad7e98c8ee",
+    "verifiedBase": "9a82d74da36e5d3da07ff0e939e5f71a95fe23e4",
+    "command": "node --test --test-reporter=spec tests/security/lifecycle-dependencies.test.mjs",
+    "counts": {
+      "tests": 50,
+      "pass": 50,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "files": {
+      "packages/domain/src/lifecycle/dependencies.mjs": "8329274ea38c74cdaed83164b52fff374229f9f0347234fe5ab249deb4db9a59",
+      "tests/security/lifecycle-dependencies.test.mjs": "40f067111b16175e7845a1b335c55af1bc40fde2d449cf77922c48863773d946",
+      "docs/security/lifecycle-dependencies.md": "69c0269014e04e6e6c7d03dd909166eca360b7e19515bfa5eecf09bfa6cd169a"
+    },
+    "logSha256": "b35cc46fcc919cd26bc8e91e0bb7d8a5ebe88f7fbcb49cf3200ec1d324c35fe9",
+    "limits": [
+      "Synthetic pure-domain tests only",
+      "No PostgreSQL/index/authority/provider verification"
+    ]
+  },
+  "independent_ai_review": {
+    "reviewer": "contributor_program",
+    "outcome": "no unresolved concrete finding",
+    "human_audit": false,
+    "original_checkpoint": "The peer ran at bff5048543ee336162ff01e306cf56d3a656e36c with the new component uncommitted. Its exact component, tests and five imported validator hashes equal the final rebased tested commit; the old checkpoint is not relabeled as a test of the new commit.",
+    "focused_execution": {
+      "kind": "focused",
+      "command": [
+        "node",
+        "--test",
+        "--test-reporter=spec",
+        "tests/security/lifecycle-dependencies.test.mjs"
+      ],
+      "head": "bff5048543ee336162ff01e306cf56d3a656e36c",
+      "started": "2026-10-17T14:46:28.723344+00:00",
+      "finished": "2026-10-17T14:46:28.908740+00:00",
+      "exit_code": 0,
+      "before": {
+        "packages/domain/src/lifecycle/dependencies.mjs": "8329274ea38c74cdaed83164b52fff374229f9f0347234fe5ab249deb4db9a59",
+        "tests/security/lifecycle-dependencies.test.mjs": "40f067111b16175e7845a1b335c55af1bc40fde2d449cf77922c48863773d946",
+        "packages/domain/src/historical/model.mjs": "a80137111f8ca84d1e6fc68f2ff6b06ebe2d8511ea2b5cc3a5c564499f453db8",
+        "packages/domain/src/historical/sources.mjs": "c49a25738242abaf51835624a4bae979b94db0795b24152e6e9b5b66dd67b724",
+        "packages/domain/src/historical/locators.mjs": "d6584bca996cab0d02ad4609a62d8061bf708b174ecbef9e4656066678487c3f",
+        "packages/domain/src/historical/claims.mjs": "ae57b406da89c3bd349fc05ce7ae0573dd085b2d5fb87ce11204c7c4bccf05e5",
+        "packages/domain/src/historical/geography.mjs": "f3f136b20d9ef3537e10c2ad29edae73e61465ba539b4b730e697f75956bb61c"
+      },
+      "after": {
+        "packages/domain/src/lifecycle/dependencies.mjs": "8329274ea38c74cdaed83164b52fff374229f9f0347234fe5ab249deb4db9a59",
+        "tests/security/lifecycle-dependencies.test.mjs": "40f067111b16175e7845a1b335c55af1bc40fde2d449cf77922c48863773d946",
+        "packages/domain/src/historical/model.mjs": "a80137111f8ca84d1e6fc68f2ff6b06ebe2d8511ea2b5cc3a5c564499f453db8",
+        "packages/domain/src/historical/sources.mjs": "c49a25738242abaf51835624a4bae979b94db0795b24152e6e9b5b66dd67b724",
+        "packages/domain/src/historical/locators.mjs": "d6584bca996cab0d02ad4609a62d8061bf708b174ecbef9e4656066678487c3f",
+        "packages/domain/src/historical/claims.mjs": "ae57b406da89c3bd349fc05ce7ae0573dd085b2d5fb87ce11204c7c4bccf05e5",
+        "packages/domain/src/historical/geography.mjs": "f3f136b20d9ef3537e10c2ad29edae73e61465ba539b4b730e697f75956bb61c"
+      },
+      "source_stable": true,
+      "environment_keys": [
+        "PATH",
+        "LANG",
+        "TZ",
+        "TMPDIR",
+        "NODE_ENV"
+      ],
+      "log_path": "/tmp/garden-lifecycle-dependencies-peer-focused.log",
+      "log_sha256": "4cc9038a3a592dbdb7820158e4ef272ec5b57b3c934e44e34ac8adaa38948886",
+      "provider_calls": 0,
+      "repository_edits": 0
+    },
+    "canary_execution": {
+      "kind": "canaries",
+      "command": [
+        "node",
+        "/tmp/garden-lifecycle-dependencies-peer-canaries.mjs"
+      ],
+      "head": "bff5048543ee336162ff01e306cf56d3a656e36c",
+      "started": "2026-10-17T14:46:29.481804+00:00",
+      "finished": "2026-10-17T14:46:29.786382+00:00",
+      "exit_code": 0,
+      "before": {
+        "packages/domain/src/lifecycle/dependencies.mjs": "8329274ea38c74cdaed83164b52fff374229f9f0347234fe5ab249deb4db9a59",
+        "tests/security/lifecycle-dependencies.test.mjs": "40f067111b16175e7845a1b335c55af1bc40fde2d449cf77922c48863773d946",
+        "packages/domain/src/historical/model.mjs": "a80137111f8ca84d1e6fc68f2ff6b06ebe2d8511ea2b5cc3a5c564499f453db8",
+        "packages/domain/src/historical/sources.mjs": "c49a25738242abaf51835624a4bae979b94db0795b24152e6e9b5b66dd67b724",
+        "packages/domain/src/historical/locators.mjs": "d6584bca996cab0d02ad4609a62d8061bf708b174ecbef9e4656066678487c3f",
+        "packages/domain/src/historical/claims.mjs": "ae57b406da89c3bd349fc05ce7ae0573dd085b2d5fb87ce11204c7c4bccf05e5",
+        "packages/domain/src/historical/geography.mjs": "f3f136b20d9ef3537e10c2ad29edae73e61465ba539b4b730e697f75956bb61c"
+      },
+      "after": {
+        "packages/domain/src/lifecycle/dependencies.mjs": "8329274ea38c74cdaed83164b52fff374229f9f0347234fe5ab249deb4db9a59",
+        "tests/security/lifecycle-dependencies.test.mjs": "40f067111b16175e7845a1b335c55af1bc40fde2d449cf77922c48863773d946",
+        "packages/domain/src/historical/model.mjs": "a80137111f8ca84d1e6fc68f2ff6b06ebe2d8511ea2b5cc3a5c564499f453db8",
+        "packages/domain/src/historical/sources.mjs": "c49a25738242abaf51835624a4bae979b94db0795b24152e6e9b5b66dd67b724",
+        "packages/domain/src/historical/locators.mjs": "d6584bca996cab0d02ad4609a62d8061bf708b174ecbef9e4656066678487c3f",
+        "packages/domain/src/historical/claims.mjs": "ae57b406da89c3bd349fc05ce7ae0573dd085b2d5fb87ce11204c7c4bccf05e5",
+        "packages/domain/src/historical/geography.mjs": "f3f136b20d9ef3537e10c2ad29edae73e61465ba539b4b730e697f75956bb61c"
+      },
+      "source_stable": true,
+      "environment_keys": [
+        "PATH",
+        "LANG",
+        "TZ",
+        "TMPDIR",
+        "NODE_ENV"
+      ],
+      "log_path": "/tmp/garden-lifecycle-dependencies-peer-canaries.log",
+      "log_sha256": "d9fe94dafdf3ae02be4909ab9cc57a2feb1375e9111629d852cf510b30a01af9",
+      "provider_calls": 0,
+      "repository_edits": 0,
+      "canary_script_sha256": "59e0f04b3d4afc2e7db5cf4036feb3908d7bc00978d9b9efa22903a7865b5e6d"
+    },
+    "canary_groups_passed": 32,
+    "canary_scope": [
+      "Twenty seeded independent graph-closure oracles",
+      "Independent Python canonical hash vector",
+      "Exact/current revision pins and review-impact directions",
+      "Manifest substitutions and retained-head changes",
+      "Proxy, accessor, hidden, cross-realm and cyclic input denial with zero callbacks",
+      "No raw payload or erasure-authority leakage"
+    ]
+  },
+  "counting_note": "The 50 focused tests are included in the 1767-test full suite. The separate 32 peer canary groups overlap behavior and are not added as distinct coverage. The unchanged separate identity assurance suite was not rerun.",
+  "remote_ci": {
+    "status": "pending for this new candidate",
+    "required_checks": 10,
+    "workflows": 7
+  },
+  "not_established": [
+    "Privileged database dependency index or authenticated manifest source",
+    "Current control/inventory serialization at a hosted boundary",
+    "Requester acceptance, delivery tombstones or derivative removal",
+    "Complete provider/backup/plaintext material inventory",
+    "Physical erasure, public-copy removal or restore enforcement"
+  ]
+}

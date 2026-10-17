@@ -18,5 +18,18 @@
   "production_verified": false,
   "local_evidence": "tests.json",
   "local_scope": "Synthetic local test success and both application builds are source verification; they are not deployment, database integration or live behavior evidence.",
-  "future_verification": "Record actual provider target, deployed source and migration checksum, timestamp, private endpoint behavior, authorized/denied cases, current feature state and exact recovery before changing these flags. Full GDN-032 acceptance additionally requires real tombstone/removal/hold/restore enforcement."
+  "future_verification": "Record actual provider target, deployed source and migration checksum, timestamp, private endpoint behavior, authorized/denied cases, current feature state and exact recovery before changing these flags. Full GDN-032 acceptance additionally requires real tombstone/removal/hold/restore enforcement.",
+  "latest_verified_followup": {
+    "observed_at": "2026-10-17T14:53:13Z",
+    "kind": "later-source-bound-observation",
+    "note": "The original fields above retain their dated pre-publication candidate scope; use these later records for actual CI, merge and isolated schema status. No hosted requester or disposal effect is established.",
+    "requester_merge": "docs/evidence/GDN-032/requester-merge-observation.json",
+    "requester_ci": "docs/evidence/GDN-032/requester-ci-observation.json",
+    "requester_staging": "docs/evidence/GDN-032/requester-staging-observation.json",
+    "dependency_component": "docs/evidence/GDN-032/dependencies-observation.json",
+    "actual_postgresql_requester_groups_passed": 22,
+    "staging_migration_count": 14,
+    "unit_complete": false,
+    "production_verified": false
+  }
 }
