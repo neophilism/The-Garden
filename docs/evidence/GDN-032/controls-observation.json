@@ -655,5 +655,14 @@
   "default_enabled": false,
   "route_mounted": false,
   "historical_records_processed": 0,
-  "real_controls_created": 0
+  "real_controls_created": 0,
+  "latest_ci_followup": {
+    "recorded_at": "2026-10-17T15:34:54.371559+00:00",
+    "evidence": "docs/evidence/GDN-032/controls-ci-observation.json",
+    "note": "The original locally tested source hit a PostgreSQL migration parser failure. Two added expression parentheses correct it; all required checks are being rerun. The original local/source and unexecuted staging-bundle observations remain historical.",
+    "migration_sha256": "b934cd39c5313fb855d9096829e540a35bae30fc1610722798149d044098648a",
+    "source_commit": "b29f333032b2a659570240aec5bbf39852d9e900",
+    "unit_complete": false,
+    "production_verified": false
+  }
 }

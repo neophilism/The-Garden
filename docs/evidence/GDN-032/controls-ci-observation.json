@@ -1,0 +1,617 @@
+{
+  "schema_version": 1,
+  "work_item": "GDN-032",
+  "kind": "source-bound-actual-github-ci-observations",
+  "recorded_at": "2026-10-17T15:32:03.002Z",
+  "attempts": [
+    {
+      "observed_at": "2026-10-17T15:32:03.002Z",
+      "pr": 69,
+      "url": "https://github.com/neophilism/The-Garden/pull/69",
+      "head_sha": "dcad7a3dfc3c98ad9060e3546f93f12b7197aa4e",
+      "base_sha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+      "tested_merge_sha": "8ec069bb4ae8a3c2d4e5ff2c035dde673ee902d9",
+      "tested_tree_sha": "29cef1df3f81e334748a43ff9bf68dd02c584171",
+      "migration_sha256": "05ae09ad8fbd7464742e3ef55606e0ebd260554309d0a04bac083474f1ea2785",
+      "manifest_sha256": "b57aad531fce39f185c44dc16684337412fa5b715f69ae85106507de2c999dae",
+      "postgresql_version": "18.6",
+      "failure": {
+        "phase": "apply migrations",
+        "function": "garden_control.prepare_lifecycle_control(jsonb)",
+        "message": "syntax error at end of input",
+        "statement_character": 1744,
+        "function_line": 16,
+        "condition": "The inline CASE expression in an IF condition was not parenthesized at the PL/pgSQL expression boundary.",
+        "controls_scenario_groups_executed": 0,
+        "other_database_journeys": "not reached"
+      },
+      "jobs": [
+        {
+          "id": 117432688851,
+          "name": "database-foundation",
+          "run": 39045288563,
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39045288563/job/117432688851",
+          "conclusion": "failure",
+          "source_receipts": [
+            {
+              "event": "pull_request",
+              "job": "database",
+              "parent_shas": [
+                "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+                "dcad7a3dfc3c98ad9060e3546f93f12b7197aa4e"
+              ],
+              "repository": "neophilism/The-Garden",
+              "run_attempt": "1",
+              "schema_version": 1,
+              "tested_sha": "8ec069bb4ae8a3c2d4e5ff2c035dde673ee902d9",
+              "workflow_ref": "neophilism/The-Garden/.github/workflows/database.yml@refs/pull/69/merge",
+              "workflow_run_id": "39045288563"
+            }
+          ],
+          "retained_decoded_log_sha256": "bd10b3980a377fcd2c1664fc62fd725332fccda1ba63ef166ee93404b9c99cae",
+          "retained_log_scope": "Decoded job text retained with a terminating newline; not the provider zip archive bytes."
+        },
+        {
+          "id": 117432688842,
+          "name": "historical-data-contracts",
+          "run": 39045288606,
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39045288606/job/117432688842",
+          "conclusion": "failure",
+          "source_receipts": [
+            {
+              "event": "pull_request",
+              "job": "data",
+              "parent_shas": [
+                "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+                "dcad7a3dfc3c98ad9060e3546f93f12b7197aa4e"
+              ],
+              "repository": "neophilism/The-Garden",
+              "run_attempt": "1",
+              "schema_version": 1,
+              "tested_sha": "8ec069bb4ae8a3c2d4e5ff2c035dde673ee902d9",
+              "workflow_ref": "neophilism/The-Garden/.github/workflows/data.yml@refs/pull/69/merge",
+              "workflow_run_id": "39045288606"
+            }
+          ],
+          "retained_decoded_log_sha256": "e28e43e067051eae7bf231b221d68a37bc61ac2966f7723d571975097cd2a77f",
+          "retained_log_scope": "Decoded job text retained with a terminating newline; not the provider zip archive bytes."
+        },
+        {
+          "id": 117432689108,
+          "name": "identity-lifecycle",
+          "run": 39045288608,
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39045288608/job/117432689108",
+          "conclusion": "failure",
+          "source_receipts": [
+            {
+              "event": "pull_request",
+              "job": "identity",
+              "parent_shas": [
+                "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+                "dcad7a3dfc3c98ad9060e3546f93f12b7197aa4e"
+              ],
+              "repository": "neophilism/The-Garden",
+              "run_attempt": "1",
+              "schema_version": 1,
+              "tested_sha": "8ec069bb4ae8a3c2d4e5ff2c035dde673ee902d9",
+              "workflow_ref": "neophilism/The-Garden/.github/workflows/identity.yml@refs/pull/69/merge",
+              "workflow_run_id": "39045288608"
+            }
+          ],
+          "retained_decoded_log_sha256": "dd6d12017f5214dad65b1e667698f418d55acae8e12f0bfea1fe39804719e3a9",
+          "retained_log_scope": "Decoded job text retained with a terminating newline; not the provider zip archive bytes."
+        }
+      ],
+      "checks_at_observation": [
+        {
+          "name": "archive-storage-boundaries",
+          "id": 117432689262,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "architecture-contracts",
+          "id": 117432689138,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "application-build",
+          "id": 117432689110,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "identity-lifecycle",
+          "id": 117432689108,
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        {
+          "name": "supply-chain-and-policy",
+          "id": 117432689003,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "plan-validation",
+          "id": 117432688952,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "browser-and-accessibility",
+          "id": 117432688933,
+          "status": "in_progress",
+          "conclusion": null
+        },
+        {
+          "name": "database-foundation",
+          "id": 117432688851,
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        {
+          "name": "historical-data-contracts",
+          "id": 117432688842,
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        {
+          "name": "Status record integrity (not product certification)",
+          "id": 117432688759,
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "checks_observed_at": "2026-10-17T15:31:21.189Z",
+      "other_observed_results": {
+        "application_tests_passed": 1878,
+        "public_build_static_pages": 12,
+        "research_build_static_pages": 5,
+        "identity_unit_tests_passed": 89,
+        "data_unit_tests_passed": 832,
+        "note": "Successful unit/build results do not establish a successful migration or PostgreSQL controls behavior.",
+        "browser_tests_passed": 108,
+        "browser_source_receipts": [
+          {
+            "event": "pull_request",
+            "job": "browser",
+            "parent_shas": [
+              "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+              "dcad7a3dfc3c98ad9060e3546f93f12b7197aa4e"
+            ],
+            "repository": "neophilism/The-Garden",
+            "run_attempt": "1",
+            "schema_version": 1,
+            "tested_sha": "8ec069bb4ae8a3c2d4e5ff2c035dde673ee902d9",
+            "workflow_ref": "neophilism/The-Garden/.github/workflows/quality.yml@refs/pull/69/merge",
+            "workflow_run_id": "39045288577"
+          }
+        ]
+      },
+      "merge_performed": false,
+      "staging_performed": false,
+      "prepared_staging_bundle": {
+        "sha256": "ddac9dac9d8e716aeacc73b6e491fccfc7044cd8e80804af54d9ac977043818c",
+        "status": "superseded_unexecuted_requires_rebuild_after_source_correction"
+      },
+      "completed_checks": [
+        {
+          "name": "archive-storage-boundaries",
+          "id": 117432689262,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "architecture-contracts",
+          "id": 117432689138,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "application-build",
+          "id": 117432689110,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "identity-lifecycle",
+          "id": 117432689108,
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        {
+          "name": "supply-chain-and-policy",
+          "id": 117432689003,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "plan-validation",
+          "id": 117432688952,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "browser-and-accessibility",
+          "id": 117432688933,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "database-foundation",
+          "id": 117432688851,
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        {
+          "name": "historical-data-contracts",
+          "id": 117432688842,
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        {
+          "name": "Status record integrity (not product certification)",
+          "id": 117432688759,
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "completed_checks_observed_at": "2026-10-17T15:33:01.705Z",
+      "completed_check_totals": {
+        "success": 7,
+        "failure": 3
+      }
+    }
+  ],
+  "latest_status": "syntax_corrected_required_ci_pending",
+  "unit_complete": false,
+  "production_verified": false,
+  "corrections": [
+    {
+      "recorded_at": "2026-10-17T15:34:43.069295+00:00",
+      "parser": "v8.6",
+      "postgresql_parser": [
+        18,
+        6
+      ],
+      "old_sql_sha256": "05ae09ad8fbd7464742e3ef55606e0ebd260554309d0a04bac083474f1ea2785",
+      "new_sql_sha256": "b934cd39c5313fb855d9096829e540a35bae30fc1610722798149d044098648a",
+      "new_sql_bytes": 93389,
+      "new_manifest_sha256": "d54478303a768aa5413b2ca4c446a9d0cbc689d07ad5b3b2286aa7e93cd224e8",
+      "correction": "Two parentheses delimit the inline CASE expression inside prepare_lifecycle_control IF; no condition, action, authority or transaction semantics changed.",
+      "sql_statements_passed": 63,
+      "plpgsql_passed": 29,
+      "plpgsql_unsupported": 2,
+      "syntax_errors": 0,
+      "results": [
+        {
+          "index": 0,
+          "sql": "pass"
+        },
+        {
+          "index": 1,
+          "sql": "pass"
+        },
+        {
+          "index": 2,
+          "sql": "pass"
+        },
+        {
+          "index": 3,
+          "sql": "pass"
+        },
+        {
+          "index": 4,
+          "sql": "pass"
+        },
+        {
+          "index": 5,
+          "sql": "pass"
+        },
+        {
+          "index": 6,
+          "sql": "pass"
+        },
+        {
+          "index": 7,
+          "sql": "pass"
+        },
+        {
+          "index": 8,
+          "sql": "pass"
+        },
+        {
+          "index": 9,
+          "sql": "pass"
+        },
+        {
+          "index": 10,
+          "sql": "pass"
+        },
+        {
+          "index": 11,
+          "sql": "pass"
+        },
+        {
+          "index": 12,
+          "sql": "pass"
+        },
+        {
+          "index": 13,
+          "sql": "pass"
+        },
+        {
+          "index": 14,
+          "sql": "pass"
+        },
+        {
+          "index": 15,
+          "sql": "pass"
+        },
+        {
+          "index": 16,
+          "sql": "pass"
+        },
+        {
+          "index": 17,
+          "sql": "pass"
+        },
+        {
+          "index": 18,
+          "sql": "pass"
+        },
+        {
+          "index": 19,
+          "sql": "pass"
+        },
+        {
+          "index": 20,
+          "sql": "pass"
+        },
+        {
+          "index": 21,
+          "sql": "pass",
+          "function": "garden_control.register_lifecycle_request_operation",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 22,
+          "sql": "pass"
+        },
+        {
+          "index": 23,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_time",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 24,
+          "sql": "pass"
+        },
+        {
+          "index": 25,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_revision",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 26,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_json",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 27,
+          "sql": "pass"
+        },
+        {
+          "index": 28,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_intent_fingerprint",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 29,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_command_fingerprint",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 30,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_operation_fingerprint",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 31,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_read_fingerprint",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 32,
+          "sql": "pass",
+          "function": "garden_control.record_lifecycle_evidence",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 33,
+          "sql": "pass",
+          "function": "garden_control.record_lifecycle_operator_grant",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 34,
+          "sql": "pass",
+          "function": "garden_control.issue_lifecycle_control_ticket",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 35,
+          "sql": "pass",
+          "function": "garden_control.bind_lifecycle_control_context",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 36,
+          "sql": "pass",
+          "function": "garden_control.invalidate_lifecycle_control_ticket",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 37,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_ticket",
+          "plpgsql": "standalone_namespace_resolution_unsupported",
+          "message": "Not implemented (LookupExplicitNamespace only supports pg_catalog and public)"
+        },
+        {
+          "index": 38,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_authority",
+          "plpgsql": "standalone_namespace_resolution_unsupported",
+          "message": "Not implemented (LookupExplicitNamespace only supports pg_catalog and public)"
+        },
+        {
+          "index": 39,
+          "sql": "pass"
+        },
+        {
+          "index": 40,
+          "sql": "pass",
+          "function": "garden_control.complete_lifecycle_control",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 41,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_consent_deadline",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 42,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_canonical",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 43,
+          "sql": "pass"
+        },
+        {
+          "index": 44,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_snapshot",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 45,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_scope_snapshot",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 46,
+          "sql": "pass",
+          "function": "garden_control.prepare_lifecycle_control",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 47,
+          "sql": "pass",
+          "function": "garden_control.commit_lifecycle_control",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 48,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_status",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 49,
+          "sql": "pass",
+          "function": "garden_control.recover_lifecycle_control",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 50,
+          "sql": "pass",
+          "function": "garden_control.check_lifecycle_control_context",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 51,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_delivery",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 52,
+          "sql": "pass",
+          "function": "garden_control.clear_lifecycle_control_context",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 53,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_commit_fresh",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 54,
+          "sql": "pass"
+        },
+        {
+          "index": 55,
+          "sql": "pass",
+          "function": "garden_control.lifecycle_control_delivery_fresh",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 56,
+          "sql": "pass"
+        },
+        {
+          "index": 57,
+          "sql": "pass",
+          "function": "garden_control.finish_lifecycle_control_delivery",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 58,
+          "sql": "pass",
+          "function": "garden_control.append_audit_event",
+          "plpgsql": "pass"
+        },
+        {
+          "index": 59,
+          "sql": "pass"
+        },
+        {
+          "index": 60,
+          "sql": "pass"
+        },
+        {
+          "index": 61,
+          "sql": "pass"
+        },
+        {
+          "index": 62,
+          "sql": "pass"
+        }
+      ],
+      "actual_postgresql_execution": false,
+      "limit": "This standalone parser cannot resolve two custom-schema signatures and does not execute functions or prove permission/transaction behavior. Actual PostgreSQL CI remains required.",
+      "observation_sha256": "756b704b95894a3562654dd6f557a7ed044e8459b770936ebee89d13a2d613ac",
+      "source_commit": "b29f333032b2a659570240aec5bbf39852d9e900",
+      "source_tree": "06fff7e1d79ab6799876ac00f8ef54affe5d000b",
+      "migration_planner_tests_passed": 18,
+      "prior_migrations_0001_to_0014_unchanged": true,
+      "full_application_retest": "Not rerun locally for the SQL-only correction; prior1878 local/CI results retain their original source scope, and every required GitHub check will rerun on the amended head."
+    }
+  ],
+  "updated_at": "2026-10-17T15:34:54.371559+00:00"
+}

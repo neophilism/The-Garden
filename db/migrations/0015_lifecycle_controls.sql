@@ -594,7 +594,7 @@ BEGIN
  target:=COALESCE(intent#>>'{command,ruleId}',intent#>>'{command,holdId}')::uuid;
  snapshot:=garden_control.lifecycle_control_scope_snapshot(intent->'scope');
  SELECT r INTO current_record FROM jsonb_array_elements(snapshot->'records') r WHERE COALESCE(r#>>'{event,command,ruleId}',r#>>'{placement,command,holdId}')=target::text;
- IF current_record IS NOT NULL AND current_record->>'kind'<>CASE WHEN t.action='lifecycle.retention-rule' THEN 'retention-rule' ELSE 'hold-record' END OR current_record IS NULL AND EXISTS(SELECT 1 FROM garden_private.lifecycle_control_events WHERE workspace_id=t.workspace_id AND control_id=target) THEN RAISE EXCEPTION 'Lifecycle control unavailable'; END IF;
+ IF current_record IS NOT NULL AND current_record->>'kind'<>(CASE WHEN t.action='lifecycle.retention-rule' THEN 'retention-rule' ELSE 'hold-record' END) OR current_record IS NULL AND EXISTS(SELECT 1 FROM garden_private.lifecycle_control_events WHERE workspace_id=t.workspace_id AND control_id=target) THEN RAISE EXCEPTION 'Lifecycle control unavailable'; END IF;
  IF t.action='lifecycle.hold-release' AND current_record IS NULL THEN RAISE EXCEPTION 'Lifecycle control unavailable'; END IF;
  result:=jsonb_build_object('scope',intent->'scope','controlRevision',snapshot->>'controlRevision','current',current_record,'grant',auth->'grant','authority',garden_control.lifecycle_control_proof(t,auth->'grant',intent),'intentFingerprint',t.fingerprint);
  auth:=jsonb_set(auth,'{expiresAt}',to_jsonb(LEAST((auth->>'expiresAt')::timestamptz,(intent#>>'{command,reviewBy}')::timestamptz,COALESCE((intent#>>'{command,expiresAt}')::timestamptz,(auth->>'expiresAt')::timestamptz))));
