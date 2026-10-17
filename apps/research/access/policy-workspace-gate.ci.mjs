@@ -111,7 +111,9 @@ try{
   const probe=await begin(admin);
   try{
    assert.equal((await probe.client.query("SELECT pg_try_advisory_xact_lock(hashtextextended('garden/source-graph/'||$1::text,0)) AS acquired",[W])).rows[0].acquired,true);
-   assert.equal((await probe.client.query('SELECT id FROM garden_private.record_envelopes WHERE id=$1 FOR UPDATE NOWAIT',[id])).rows.length,1);
+   // The consent policy FK may hold KEY SHARE; that is compatible with this
+   // probe, while a conflicting source-writer row lock must still prevent it.
+   assert.equal((await probe.client.query('SELECT id FROM garden_private.record_envelopes WHERE id=$1 FOR NO KEY UPDATE NOWAIT',[id])).rows.length,1);
   }finally{await probe.finish();}
   assert.equal((await records.find(headers,OTHER,otherId)).id,otherId);
   await consentTx.finish(true);assert.equal((await success(initialize)).revision,'2');

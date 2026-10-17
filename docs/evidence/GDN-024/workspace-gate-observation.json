@@ -414,5 +414,54 @@
   "remaining": [
     "The coarse exclusive lock serializes cooperating research work within one workspace. Repository callbacks must use the supplied connection; awaiting a separate gated transaction while holding the lock can self-block.",
     "This trusted-host ordering fix does not add current database consent/tombstone validation after ticket retirement, does not change direct privileged SQL entry points, and does not establish an atomic network delivery boundary."
-  ]
+  ],
+  "latest_fixture_correction": {
+    "source_commit": "b3ff9943bf1a655c6e7ec628025da2a4587a40da",
+    "source_tree": "bd16afb1d1f7ccc5b351698c65c4cb9ee98edc3d",
+    "changed_paths": [
+      "apps/research/access/policy-workspace-gate.ci.mjs"
+    ],
+    "verification": {
+      "parent": "302783f56f1e4b4c5d589c9ef866d8ad34a2e025",
+      "fixture_sha256": "5fd1ce1050a883b4b3c8ce1bc7989ea908661e91c839dd09afd6e6d6ed851bdb",
+      "prior_fixture_sha256": "bb424df436ce0d5c7172c3e58f1b6dd6733e7e8664095186a1508738fbbcc923",
+      "only_probe_lock_strength_and_comment_changed": true,
+      "runtime_sha256": "9afc389a825fba0fb82e5a7a5b49e32ac38faf651f69087973ca25c67bc357fa",
+      "started_at": "2026-10-17T16:07:11.506307+00:00",
+      "ended_at": "2026-10-17T16:07:11.676555+00:00",
+      "wall_seconds": 0.1702593110003363,
+      "command": [
+        "node",
+        "--test",
+        "--test-reporter=spec",
+        "tests/access/policy-workspace-gate.test.mjs",
+        "tests/access/policy-context.test.mjs",
+        "tests/access/policy-identity-boundaries.test.mjs"
+      ],
+      "environment_keys": [
+        "CI",
+        "HOME",
+        "NEXT_TELEMETRY_DISABLED",
+        "NODE_ENV",
+        "PATH"
+      ],
+      "counts": {
+        "tests": 48,
+        "pass": 48,
+        "fail": 0,
+        "skipped": 0
+      },
+      "log_sha256": "0fb2d3e5aa6149a9c11da60fc12242e4d74b20ef74ca4ee230179b4d1484be19",
+      "syntax": "passed",
+      "diff_check": "passed",
+      "real_postgresql": "required rerun, not executed locally",
+      "full_app_rerun": false
+    },
+    "verification_sha256": "56e84316bb9294a0ef32448cdbdf00345a4ed1241de2cb017bbe7c5401b308eb",
+    "full_app_rerun": false,
+    "actual_postgresql": "Required current-head CI; not executed locally",
+    "scope": "Only the row-probe lock strength and its explanatory comment changed. Runtime policy ordering, 11 groups, exact backend/blocker wait, zero bound context, graph probe and row-count assertions remain unchanged.",
+    "ci_history": "docs/evidence/GDN-024/workspace-gate-ci-observation.json",
+    "note": "The original full local check above binds the prior CI fixture. This subsequent narrow fixture correction has separate focused evidence, and requires fresh published merge-tree CI."
+  }
 }
