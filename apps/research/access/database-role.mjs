@@ -4,7 +4,7 @@
  */
 export const RUNTIME_DATABASE_CAPABILITIES = Object.freeze([
  'garden_public','garden_research','garden_context_issuer','garden_membership_admin',
- 'garden_consent_admin','garden_publisher','garden_worker','garden_audit_reader','garden_audit_writer'
+ 'garden_consent_admin','garden_publisher','garden_worker','garden_audit_reader','garden_audit_writer','garden_encryption'
 ]);
 export class DatabaseCapabilityError extends Error {
  constructor(){super('Database capability unavailable');this.code='database_capability_unavailable';}

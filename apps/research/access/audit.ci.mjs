@@ -25,6 +25,19 @@ const identity={async viewer(h){return revoked?null:{id:h.get('synthetic-subject
 const rowsSQL=`SELECT workspace_id::text AS "workspaceId",sequence::text,previous_hash AS "previousHash",hash,event_text AS "eventText" FROM garden_control.audit_events AS ae WHERE workspace_id=$1 ORDER BY ae.sequence`;
 let issuer,readerPool,writer,research;
 async function withRole(pool,cap,work){const c=await pool.connect();try{await c.query('BEGIN');await c.query('SET LOCAL ROLE '+cap);const result=await work(c);await c.query('COMMIT');return result;}catch(error){await c.query('ROLLBACK');throw error;}finally{c.release();}}
+// These destructive probes never commit, even if a guard unexpectedly permits
+// the statement or its expected-error assertion fails. Use one pinned client.
+async function rejectedMutation(pool,role,sql,expected){
+ const client=await pool.connect();
+ try{await client.query('BEGIN');if(role)await client.query('SET LOCAL ROLE '+role);await assert.rejects(()=>client.query(sql),expected);}
+ finally{try{await client.query('ROLLBACK');}finally{client.release();}}
+}
+const immutableError=error=>error.code==='P0001'&&error.message==='Audit history is append-only';
+async function retainedState(){
+ const tables=['garden_control.audit_events','garden_control.audit_heads','garden_private.encrypted_content_versions','garden_private.encrypted_envelope_revisions','garden_private.encrypted_material','garden_private.encrypted_content_heads'];
+ return(await admin.query(tables.map(table=>`SELECT '${table}' AS table_name,count(*)::text AS count,
+  encode(sha256(convert_to(COALESCE(string_agg(to_jsonb(r)::text,E'\\n' ORDER BY to_jsonb(r)::text COLLATE "C"),''),'UTF8')),'hex') AS sha256 FROM ${table} AS r`).join(' UNION ALL ')+' ORDER BY table_name')).rows;
+}
 try{
  for(const [name,cap] of [['garden_audit_issuer_ci','garden_context_issuer'],['garden_audit_reader_ci','garden_audit_reader'],['garden_audit_writer_ci','garden_audit_writer'],['garden_audit_research_ci','garden_research']]){
   const password=randomBytes(32).toString('hex');await admin.query(`CREATE ROLE ${name} LOGIN NOINHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS PASSWORD '${password}'`);await admin.query(`GRANT ${cap} TO ${name} WITH INHERIT FALSE, SET TRUE`);
@@ -72,8 +85,18 @@ try{
  const before=(await admin.query('SELECT sequence::text,hash FROM garden_control.audit_heads WHERE workspace_id=$1',[W])).rows[0];
  await assert.rejects(()=>executor.run(headers('alice'),{workspaceId:W,action:'write'},async c=>{await c.query('UPDATE garden_private.record_envelopes SET payload=jsonb_set(payload,\'{title}\',\'"rolled-back"\') WHERE id=$1',[values[0].id]);throw Error('force rollback');}));
  assert.deepEqual((await admin.query('SELECT sequence::text,hash FROM garden_control.audit_heads WHERE workspace_id=$1',[W])).rows[0],before);checked('rolled-back record changes leave neither an audit entry nor a sequence hole');
- for(const sql of ['UPDATE garden_control.audit_events SET hash=hash','DELETE FROM garden_control.audit_events','TRUNCATE garden_control.audit_events'])await assert.rejects(()=>admin.query(sql),e=>e.code==='P0001');checked('update, delete and truncate are blocked even for an ordinary owner operation');
- for(const sql of ['UPDATE garden_control.audit_events SET hash=hash','DELETE FROM garden_control.audit_events','TRUNCATE garden_control.audit_events'])await assert.rejects(()=>withRole(readerPool,'garden_audit_reader',c=>c.query(sql)),e=>e.code==='42501');checked('auditor runtime has no history mutation authority');
+ const retainedBefore=await retainedState();
+ assert.ok(retainedBefore.some(row=>row.table_name==='garden_control.audit_events'&&BigInt(row.count)>0n));
+ for(const sql of ['UPDATE garden_control.audit_events SET hash=hash','DELETE FROM garden_control.audit_events'])await rejectedMutation(admin,null,sql,immutableError);
+ await rejectedMutation(admin,null,'TRUNCATE garden_control.audit_events',error=>error.code==='0A000'&&error.message==='cannot truncate a table referenced in a foreign key constraint'&&error.detail==='Table "encrypted_envelope_revisions" references "audit_events".');
+ // The direct TRUNCATE is rejected before triggers by the receipt FK. CASCADE
+ // explicitly reaches the append-only trigger without removing that FK.
+ await rejectedMutation(admin,null,'TRUNCATE garden_control.audit_events CASCADE',immutableError);
+ assert.deepEqual(await retainedState(),retainedBefore);
+ checked('owner update/delete and cascading truncate reach the append-only trigger; direct truncate reaches the receipt FK; retained state is unchanged');
+ for(const sql of ['UPDATE garden_control.audit_events SET hash=hash','DELETE FROM garden_control.audit_events','TRUNCATE garden_control.audit_events','TRUNCATE garden_control.audit_events CASCADE'])await rejectedMutation(readerPool,'garden_audit_reader',sql,error=>error.code==='42501'&&error.message==='permission denied for table audit_events');
+ assert.deepEqual(await retainedState(),retainedBefore);
+ checked('auditor runtime has no history mutation authority and all rejected probes preserve ledger, receipt, material and head state');
  const allowed=await decisions.decide(headers('alice'),W,async()=>true),denied=await decisions.decide(headers('alice'),W,async()=>{throw Error(SECRET);});assert.equal(allowed.allowed,true);assert.equal(denied.allowed,false);assert.equal(allowed.operationPerformed,false);
  all=(await admin.query(rowsSQL,[W])).rows;assert.equal(JSON.stringify(all).includes(SECRET),false);assert.ok(all.some(x=>JSON.parse(x.eventText).reasonCode==='authorization-denied'));checked('server allow/deny decisions are redacted and do not assert operation execution');
  // Real audited decision service + actual offline subprocess. The source grant
