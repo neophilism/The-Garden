@@ -123,6 +123,32 @@
       ],
       "evidence": "docs/evidence/GDN-026/merge-observation.json",
       "note": "Ten successful checks across seven workflows with authenticated source receipts. Bounded trusted-processing encryption component remains unmounted; database persistence, provider integration and custody remain incomplete. No additional completed roadmap unit."
+    },
+    {
+      "kind": "maintenance_merge",
+      "pr_number": 63,
+      "url": "https://github.com/neophilism/The-Garden/pull/63",
+      "github_head_sha": "3b27816590c484b8f3999766f9d4ed237a212bb7",
+      "github_merge_sha": "0b53bf9b66f6e9fd4aa090959c24c23e9e372947",
+      "mapped_work_items": [],
+      "contributing_work_items": [
+        "GDN-008"
+      ],
+      "evidence": "docs/evidence/GDN-008/dependency-reconciliation-merge.json",
+      "note": "All ten checks across seven workflows passed with authenticated source receipts. Restores 960 approved dependency edges and exact graph validation; no additional completed unit or live Engine Room ingestion."
+    },
+    {
+      "kind": "engineering_followup_merge",
+      "pr_number": 64,
+      "url": "https://github.com/neophilism/The-Garden/pull/64",
+      "github_head_sha": "4b930b67c380b812d0b44d494dca9d3067ba33fd",
+      "github_merge_sha": "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
+      "mapped_work_items": [],
+      "contributing_work_items": [
+        "GDN-026"
+      ],
+      "evidence": "docs/evidence/GDN-026/persistence-merge-observation.json",
+      "note": "All ten checks across seven workflows passed with authenticated source receipts; 22 actual PostgreSQL persistence scenarios passed. Additive 0013 was subsequently applied and independently read back on existing isolated staging. Crypto host remains unmounted, no keys or encrypted records were provisioned, and no additional unit or production verification is claimed."
     }
   ],
   "work_items": {
@@ -711,5 +737,5 @@
     "mapped_planned_units": 37
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-17T13:28:24.948Z"
+  "observed_at_utc": "2026-10-17T14:19:48Z"
 }

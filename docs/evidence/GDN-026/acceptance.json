@@ -37,5 +37,25 @@
   "github_pr_number": 62,
   "github_head_sha": "bb7197076d930c0b5532d178c7292ae0d877ae00",
   "github_merge_sha": "b2a7fe6c1c3a8b9c257f14791e52d90f9b8451d3",
-  "merge_evidence": "docs/evidence/GDN-026/merge-observation.json"
+  "merge_evidence": "docs/evidence/GDN-026/merge-observation.json",
+  "record_scope": "Original dated component/candidate observation retained. latest_verified_followup records the current PR64 and schema-only staging outcome without relabeling the original tests or runtime limitations.",
+  "latest_verified_followup": {
+    "recorded_at": "2026-10-17T14:19:48Z",
+    "pr_number": 64,
+    "head_sha": "4b930b67c380b812d0b44d494dca9d3067ba33fd",
+    "tested_merge_sha": "36ee244733f27bd4205c882c8c16a6d3b94ce82c",
+    "merge_sha": "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
+    "all_required_checks_passed": true,
+    "postgres_scenarios_passed": 22,
+    "atomic_rotation_and_audit": "verified_in_disposable_PostgreSQL18.6_CI",
+    "staging_schema": "0013_applied_and_independently_read_back",
+    "staging_keys_and_content": "none",
+    "route_mounted": false,
+    "provider_configured": false,
+    "key_retirement": "not_implemented",
+    "production_verified": false,
+    "merge_evidence": "docs/evidence/GDN-026/persistence-merge-observation.json",
+    "ci_evidence": "docs/evidence/GDN-026/persistence-ci-observation.json",
+    "staging_evidence": "docs/evidence/GDN-026/persistence-staging-observation.json"
+  }
 }
