@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "work_item": "GDN-032",
+  "observation": "initial_actual_postgresql_attempt_and_narrow_assertion_correction",
+  "repository": "neophilism/The-Garden",
+  "pr_number": 66,
+  "initial_head_sha": "737e2de4f0c0ad1316f93275c9b586ab5a45071a",
+  "base_sha": "bff5048543ee336162ff01e306cf56d3a656e36c",
+  "tested_merge_sha": "f600add7450ad13f421667917aa0c3ccab051b37",
+  "workflow_run_id": 39041593529,
+  "workflow_run_attempt": 1,
+  "job_id": 117422028677,
+  "job_url": "https://github.com/neophilism/The-Garden/actions/runs/39041593529/job/117422028677",
+  "failed_at_utc": "2026-10-17T14:40:57Z",
+  "result": "failure",
+  "step": "Real database requester lifecycle and atomic audit journey",
+  "completed_lifecycle_groups": 15,
+  "total_authored_groups": 22,
+  "actual_postgresql_version": "18.6",
+  "failure": {
+    "file": "apps/research/access/lifecycle-requests.ci.mjs",
+    "line": 536,
+    "code": "ERR_ASSERTION",
+    "actual": [
+      "fingerprint",
+      "operationId"
+    ],
+    "expected_before_fix": [
+      "operationId",
+      "fingerprint"
+    ],
+    "reason": "Sorted actual recovery keys were compared with an unsorted expected array."
+  },
+  "correction": {
+    "description": "Sort the same two expected key names lexically. The exact-key assertion remains intact; no keys were added or removed, no assertions skipped and no runtime or SQL changed.",
+    "previous_source_sha256": "d76b59bbf3e8a554564f22d81a10d6f5445d71eed938866c30c881a53f9442d5",
+    "corrected_source_sha256": "aa9bdede17101056652c916df204440998dc1e10d1d65634c2c33b13958d7080",
+    "migration_sha256": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c",
+    "runtime_and_migration_unchanged": true,
+    "complete_current_head_ci_required": true
+  },
+  "source_receipt": {
+    "event": "pull_request",
+    "job": "data",
+    "parent_shas": [
+      "bff5048543ee336162ff01e306cf56d3a656e36c",
+      "737e2de4f0c0ad1316f93275c9b586ab5a45071a"
+    ],
+    "repository": "neophilism/The-Garden",
+    "run_attempt": "1",
+    "schema_version": 1,
+    "tested_sha": "f600add7450ad13f421667917aa0c3ccab051b37",
+    "workflow_ref": "neophilism/The-Garden/.github/workflows/data.yml@refs/pull/66/merge",
+    "workflow_run_id": "39041593529"
+  },
+  "rerun_status": "pending_after_source_publication",
+  "staging_0014_applied": false,
+  "production_verified": false
+}

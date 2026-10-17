@@ -533,7 +533,7 @@ try{
    if(action==='submit')await lostApp.submit(H('alice'),command);else await lostApp.cancel(H('alice'),cancelInput);
    assert.fail('a lost COMMIT acknowledgement must not be reported as confirmed');
   }catch(error){assert.ok(error instanceof LifecycleRequestOutcomeUnknownError);uncertain=error;}
-  assert.equal(lost,true);assert.deepEqual(Object.keys(uncertain.recovery).sort(),['operationId','fingerprint']);
+  assert.equal(lost,true);assert.deepEqual(Object.keys(uncertain.recovery).sort(),['fingerprint','operationId']);
   assert.ok(Object.isFrozen(uncertain.recovery));assert.equal(uncertain.recovery.operationId,action==='submit'?command.operationId:cancelInput.operationId);
   const recovered=await app.recover(H('alice'),uncertain.recovery);
   assertReceipt(recovered,{...command,state:action==='submit'?'pending':'cancelled',revision:action==='submit'?'1':'2'});
