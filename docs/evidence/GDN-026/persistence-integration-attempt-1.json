@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "plannedUnit": "GDN-026",
+  "recordedAt": "2026-10-17T13:52:49.735594+00:00",
+  "phase": "first_postgres_integration_attempt_and_bounded_test_correction",
+  "pullRequest": "https://github.com/neophilism/The-Garden/pull/64",
+  "sourceBinding": {
+    "headCommit": "ddf6218162bb3a689af6d07762556a4404b70c68",
+    "baseCommit": "0b53bf9b66f6e9fd4aa090959c24c23e9e372947",
+    "testedMergeCommit": "16a08c269853bb7743b574c31e4daccba05c7d03",
+    "headSourceTree": "38eceee5cfd636fa0ea293aa66ddaf4d0fc83f8e",
+    "localEquivalentCommit": "50dd40783165cd8687748a59097a27c21c05a696",
+    "bindingEvidence": "Both job logs contain GARDEN_CI_SOURCE receipts naming the tested merge commit and both exact parents.",
+    "event": "pull_request",
+    "runAttempt": 1
+  },
+  "databaseFoundation": {
+    "runId": 39037835383,
+    "jobId": 117411140829,
+    "url": "https://github.com/neophilism/The-Garden/actions/runs/39037835383/job/117411140829",
+    "check": "database-foundation",
+    "conclusion": "success",
+    "postgres": "18.6 (Debian 18.6-1.pgdg12+2)",
+    "verified": [
+      "checksum-locked migrations applied twice",
+      "database permission, escalation, force-RLS, idempotency and role-reset checks"
+    ],
+    "limit": "Successful DDL and foundation checks do not establish the new encrypted-content journey."
+  },
+  "historicalDataAttempt": {
+    "runId": 39037835387,
+    "jobId": 117411140634,
+    "url": "https://github.com/neophilism/The-Garden/actions/runs/39037835387/job/117411140634",
+    "check": "historical-data-contracts",
+    "conclusion": "failure",
+    "postgres": "18.6 (Debian 18.6-1.pgdg12+2)",
+    "node": "v24.21.0",
+    "migrationsTwice": "passed",
+    "failedStep": {
+      "number": 9,
+      "name": "Real database entity, history and RLS journey"
+    },
+    "failure": {
+      "observedAt": "2026-10-17T13:48:15Z",
+      "file": "apps/research/access/audit.ci.mjs",
+      "line": 75,
+      "assertionExpectedSqlstate": "P0001",
+      "actualSqlstate": "0A000",
+      "message": "cannot truncate a table referenced in a foreign key constraint",
+      "detail": "Table \"encrypted_envelope_revisions\" references \"audit_events\".",
+      "cause": "The new immutable receipt foreign key rejects a direct audit-events TRUNCATE before the append-only trigger runs. The existing test expected only the later trigger error."
+    },
+    "skippedSteps": [
+      {
+        "number": 10,
+        "name": "Real database encrypted material, authorization and rotation journey"
+      },
+      {
+        "number": 11,
+        "name": "Preserve synthetic data acceptance evidence"
+      }
+    ],
+    "encryptedPersistenceJourneyVerified": false
+  },
+  "correction": {
+    "baseCommit": "50dd40783165cd8687748a59097a27c21c05a696",
+    "sourceFiles": [
+      {
+        "path": "apps/research/access/audit.ci.mjs",
+        "beforeSha256": "8b03f6ade302d2ab1bac007624d6cb8bdb7836a23ef19d8c2839fd2c52472123",
+        "correctedSha256": "12090bd4d831884501ca2a79d98175fed532aa0297022dfdf2ab45020284fa7b"
+      },
+      {
+        "path": "apps/research/access/encryption-persistence.ci.mjs",
+        "beforeSha256": "de4eb87ca94030e3ff8563dca2d6e25b74fe07c7725e889122142a5b2b6f6f34",
+        "correctedSha256": "496951e919a82f19220779be2171208b5bdd807a55f8eedaff439cf548bb6a9f"
+      }
+    ],
+    "changes": [
+      "Preserve direct audit TRUNCATE denial with exact 0A000 foreign-key message and receipt-to-ledger detail.",
+      "Add audit TRUNCATE CASCADE probe requiring P0001 and the exact append-only trigger message.",
+      "Put affected audit owner and runtime mutation probes in pinned-client transactions whose finally always rolls back, including unexpected success or assertion failure.",
+      "Tighten new content-version and envelope-revision UPDATE/DELETE/TRUNCATE tests to exact trigger or referring-table foreign-key errors; add CASCADE trigger probes.",
+      "Compare only row counts and SHA256 snapshots for the ledger, audit heads and four encrypted tables before and after probes; encrypted metadata probes require populated retained rows."
+    ],
+    "relatedProbeInspection": {
+      "auditRuntime": "Retains exact 42501 table-permission denial and now always rolls back; includes direct and cascading truncate.",
+      "recordRls": "Existing rls.ci.mjs truncate probe is a runtime privilege-denial check, not an owner P0001 expectation; no change.",
+      "metadata": "Previously accepted arbitrary rejection; now distinguishes exact FK errors from P0001 trigger errors."
+    },
+    "runtimeOrSchemaChanged": false,
+    "oldMigrationChanged": false,
+    "originalLocalEvidencePreserved": "docs/evidence/GDN-026/persistence.json"
+  },
+  "localVerification": {
+    "runtime": "v24.19.0",
+    "syntax": [
+      {
+        "command": "node --check apps/research/access/audit.ci.mjs",
+        "result": "passed"
+      },
+      {
+        "command": "node --check apps/research/access/encryption-persistence.ci.mjs",
+        "result": "passed"
+      }
+    ],
+    "whitespace": {
+      "command": "git diff --check",
+      "result": "passed"
+    },
+    "auditUnitTests": {
+      "command": "node --test --test-isolation=none --test-reporter=tap tests/access/audit.test.mjs tests/data/audit.test.mjs tests/data/audit-export.test.mjs",
+      "passed": 103,
+      "failed": 0,
+      "skipped": 0,
+      "limit": "Existing audit component/domain tests; the corrected PostgreSQL mutation probes are not executed by this command."
+    },
+    "correctedPostgresProbes": "not_run_locally; required fresh isolated CI"
+  },
+  "review": {
+    "kind": "independent_read_only_AI_source_review_not_human_audit",
+    "status": "passed_no_new_concrete_source_blocker",
+    "sourceHashesMatched": true,
+    "helperControlFlowCanaries": {
+      "passed": 8,
+      "failed": 0,
+      "cases": [
+        "expected rejection",
+        "wrong SQLSTATE",
+        "wrong error message",
+        "unexpected mutation success"
+      ],
+      "observed": "Both extracted actual helpers always rolled back and released the pinned client, with no COMMIT.",
+      "limit": "In-memory control-flow probes; not a PostgreSQL execution claim."
+    },
+    "actualPostgresRerunRequired": true
+  },
+  "nextGate": {
+    "status": "fresh_remote_checks_required_after_publication",
+    "requirements": [
+      "all required checks on the corrected exact head and merge source",
+      "historical-data-contracts completes both the existing audit journey and the new encrypted-content journey"
+    ],
+    "reuseOldGreenChecksAsNewHeadEvidence": false
+  },
+  "scope": {
+    "fixture": "Generated records and keys in ephemeral CI only; guarded loopback PostgreSQL service.",
+    "providerMutated": false,
+    "retainedStagingMutated": false,
+    "realCorpusUsed": false,
+    "liveKeyCustodyActivated": false,
+    "unitFullyComplete": false,
+    "productionVerified": false
+  }
+}

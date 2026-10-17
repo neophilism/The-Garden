@@ -31,6 +31,19 @@ async function transaction(pool,role,work){
  const client=await pool.connect();try{await client.query('BEGIN');if(role)await client.query('SET LOCAL ROLE '+role);const result=await work(client);await client.query('COMMIT');return result;}
  catch(error){await client.query('ROLLBACK');throw error;}finally{client.release();}
 }
+// Guard probes always roll back on the same client, including unexpected
+// success or an assertion failure. No owner mutation under test can commit.
+async function rejectedOwnerMutation(sql,args,expected){
+ const client=await admin.connect();
+ try{await client.query('BEGIN');await assert.rejects(()=>client.query(sql,args),expected);}
+ finally{try{await client.query('ROLLBACK');}finally{client.release();}}
+}
+const immutableError=error=>error.code==='P0001'&&error.message==='Audit history is append-only';
+async function retainedState(){
+ const tables=['garden_control.audit_events','garden_control.audit_heads',...PRIVATE.map(table=>'garden_private.'+table)];
+ return(await admin.query(tables.map(table=>`SELECT '${table}' AS table_name,count(*)::text AS count,
+  encode(sha256(convert_to(COALESCE(string_agg(to_jsonb(r)::text,E'\\n' ORDER BY to_jsonb(r)::text COLLATE "C"),''),'UTF8')),'hex') AS sha256 FROM ${table} AS r`).join(' UNION ALL ')+' ORDER BY table_name')).rows;
+}
 function interceptedPool(pool,intercept){
  return {async connect(){const client=await pool.connect();return {query:async(sql,args)=>intercept(client,sql,args),release:bad=>client.release(bad)};}};
 }
@@ -169,9 +182,16 @@ try{
 
  const schema=(await admin.query("SELECT table_name,column_name FROM information_schema.columns WHERE table_schema='garden_private' AND table_name IN ('encrypted_content_versions','encrypted_envelope_revisions')")).rows;
  assert.equal(schema.some(row=>['wrapped_key','ciphertext','nonce','tag'].includes(row.column_name)),false);
- for(const table of ['encrypted_content_versions','encrypted_envelope_revisions'])for(const command of ['UPDATE garden_private.'+table+' SET workspace_id=workspace_id WHERE workspace_id=$1','DELETE FROM garden_private.'+table+' WHERE workspace_id=$1'])await assert.rejects(()=>admin.query(command,[W]));
- for(const table of ['encrypted_content_versions','encrypted_envelope_revisions'])await assert.rejects(()=>admin.query('TRUNCATE garden_private.'+table));
- check('immutable version and rotation metadata contain no wrapped DEK or ciphertext and reject ordinary rewrite/delete/truncate');
+ const retainedBefore=await retainedState();
+ for(const table of PRIVATE)assert.ok(retainedBefore.some(row=>row.table_name==='garden_private.'+table&&BigInt(row.count)>0n),'immutable probes require populated metadata, material and heads');
+ for(const table of ['encrypted_content_versions','encrypted_envelope_revisions']){
+  for(const command of ['UPDATE garden_private.'+table+' SET workspace_id=workspace_id WHERE workspace_id=$1','DELETE FROM garden_private.'+table+' WHERE workspace_id=$1'])await rejectedOwnerMutation(command,[W],immutableError);
+  const references=table==='encrypted_content_versions'?['encrypted_envelope_revisions']:['encrypted_material','encrypted_content_heads'];
+  await rejectedOwnerMutation('TRUNCATE garden_private.'+table,[],error=>error.code==='0A000'&&error.message==='cannot truncate a table referenced in a foreign key constraint'&&references.some(reference=>error.detail===`Table "${reference}" references "${table}".`));
+  await rejectedOwnerMutation('TRUNCATE garden_private.'+table+' CASCADE',[],immutableError);
+ }
+ assert.deepEqual(await retainedState(),retainedBefore);
+ check('immutable metadata excludes wrapped DEKs/ciphertext; direct truncate reaches exact FKs, rewrite/delete/cascading truncate reach append-only triggers, and populated retained state is unchanged');
 
  const same=await record(W),sameRequest=await prepared(same),sameResults=await Promise.all([repo.commit(H('alice'),sameRequest),repo.commit(H('alice'),sameRequest)]);
  assert.deepEqual(sameResults[0],sameResults[1]);assert.deepEqual(await committedState(same,sameRequest.operationId),{versions:1,revisions:1,material:1,heads:1,commit_events:1});
