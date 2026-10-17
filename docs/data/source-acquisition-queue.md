@@ -1,6 +1,6 @@
 # GDN-085 — private archival source-acquisition queue
 
-**State:** implementation proposed for review, unmounted and disabled by default. This is an offline research-workflow foundation, not an email sender, payment processor, network crawler, record-verification engine or hosted research service.
+**State:** implementation merged in PR #50, unmounted and disabled by default. This is an offline research-workflow foundation, not an email sender, payment processor, network crawler, record-verification engine or hosted research service.
 
 ## Purpose
 

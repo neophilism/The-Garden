@@ -1,10 +1,10 @@
 {
   "current_scope_items": 196,
   "conditional_items": 14,
-  "remote_prs_opened": 34,
-  "verified_merged_items": 34,
+  "remote_prs_opened": 35,
+  "verified_merged_items": 35,
   "production_verified_items": 0,
   "current_scope_weight": 608,
   "conditional_weight": 46,
-  "note": "34 mapped engineering PRs with 34 verified implementation merges, including GDN-078 / PR #48. Public-source maintenance PRs are separate from roadmap units. Independent acceptance and production verification remain unperformed."
+  "note": "35 mapped engineering units have verified implementation merges, including GDN-085 / PR #50. Runtime PR #53 contributes to GDN-014/GDN-017 but live acceptance is incomplete. Maintenance PRs add no units; production verification remains zero."
 }

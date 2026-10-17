@@ -1,3 +1,11 @@
+## Verified continuation — 17 October 2026
+
+GDN-085 / [PR #50](https://github.com/neophilism/The-Garden/pull/50) is merged; all six workflows on head `374f7933a4fde8767ca2bf7aba27db1b62d943b5` were reverified successful. The acquisition queue remains private, offline and unmounted. The canonical registry and compatibility mapping now record **35 merged engineering units**, with no production-verified capabilities. PR #53 contributes runtime work to GDN-014/GDN-017 and is not counted as their completed live acceptance. PR #55 is merged after nine passing exact-head checks, aligning the release plan with the owner policy: external human security review is deferred follow-up.
+
+All twelve staging database migrations and the observed Render 25-service capacity rejection are recorded in [the October 16 handoff](SESSION_2026-10-16.md). No Garden Render service or hosted research activation is claimed. Existing private-deployment intent does not authorize public release of research material. Dependency-ready implementation includes trusted-processing encryption, image reconciliation and the optional contributor program; external activation requirements remain scoped to each capability.
+
+Earlier dated sections below are historical checkpoints, not current counts.
+
 # Current continuation — 12 October 2026
 
 ## Bibliographic intake and actual corpus format profile — 12 October 2026

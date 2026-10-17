@@ -1,6 +1,6 @@
 # Planning authority and live observations
 
-`registry/roadmap.json` is the canonical PR roadmap introduced by the concurrent owner-side update. Its stable work IDs, approved total and mappings are preserved. `plan.json` retains the complete approved v1.0 specification, dependencies, feature mappings, weights and acceptance criteria; its initial status fields are historical. `execution.json` records actual observed GitHub and acceptance evidence. No progress is inferred from an unverified title or numerical coincidence.
+`registry/prs.json` is the sole canonical PR registry. `registry/roadmap.json` is a retired redirect. Its stable work IDs, approved total and mappings are preserved. `plan.json` retains the complete approved v1.0 specification, dependencies, feature mappings, weights and acceptance criteria; its initial status fields are historical. `execution.json` records actual observed GitHub and acceptance evidence. No progress is inferred from an unverified title or numerical coincidence.
 
 Run `python3 scripts/sync_roadmap.py` to check canonical mappings against observations. `--write` fills only nonconflicting observed mappings and preserves unrelated canonical fields. Missing evidence, changed totals/order, conflicting mappings, duplicate PR attribution and conditional-government activation fail closed. This is local reconciliation, not proof that Engine Room has ingested a change.
 

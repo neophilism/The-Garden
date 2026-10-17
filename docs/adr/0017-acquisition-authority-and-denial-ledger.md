@@ -1,6 +1,6 @@
 # ADR 0017: explicit authority and canonical routes for source acquisition
 
-Date: 12 October 2026. Status: GDN-085 proposed implementation; production acceptance pending.
+Date: 12 October 2026. Status: GDN-085 merged implementation; production acceptance pending.
 
 ## Decision
 
