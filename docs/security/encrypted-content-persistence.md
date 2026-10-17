@@ -23,24 +23,27 @@ Environment is checked against `garden_control.deployment_binding`, including re
 | `garden_private.encrypted_material` | Ciphertext, nonce, authentication tag and wrapped DEK for one generation | Append through commit function |
 | `garden_private.encrypted_content_heads` | Current generation and canonical digest | Compare-and-swap through commit function |
 
-All six tables force row-level security and grant no table operations to the encryption runtime. Private material is a child of immutable receipts; receipts do not require material to remain forever. A future GDN-032 remover can target a precise material generation without rewriting successful commit history. This change contains no purge function or grant that authorizes runtime deletion or truncation. Backups may still contain material, and deleting a shared class wrapping key is not per-record erasure.
+All six content/key tables force row-level security and grant no table operations to the encryption runtime. Private material is a child of immutable receipts; receipts do not require material to remain forever. A future GDN-032 remover can target a precise material generation without rewriting successful commit history. This change contains no purge function or grant that authorizes runtime deletion or truncation. Backups may still contain material, and deleting a shared class wrapping key is not per-record erasure.
 
 Key metadata starts empty. Operators must not seed real key handles until the actual provider contract, isolated custody, credentials, authorization and recovery have been accepted. Metadata changes use closed audit actions without key values. Key-version identities cannot be reassigned or deleted; access is withdrawn using policy/revocation. Binding updates advance their policy generation. A binding generation covers its binding row; key-version read/write/revocation/validity is also checked directly on every operation.
 
 ## Fixed repository API
 
-`apps/research/access/encryption-persistence.mjs` exports `createEncryptionPersistence`, `createEncryptedContentService`, `encryptionRequestDigest`, and `EncryptionPersistenceError`.
+`apps/research/access/encryption-persistence.mjs` exports `createEncryptionPersistence`, `createEncryptedContentService`, `encryptionRequestDigest`, `encryptionDeliveryFingerprint`, and `EncryptionPersistenceError`.
 
 Construct the repository with `{identity, issuerPool, encryptionPool, environment, enabled}`. The issuer and encryption pools must have distinct verified noninheriting logins. The environment is `ci` or `staging`; `enabled` must synchronously return literal `true`. Async/truthy predicates do not enable work. The module captures dependency methods and validates plain objects, exact fields, canonical lowercase UUIDs, decimal-string revisions, hashes and bounded envelopes before sending SQL.
 
 | Method | Input after `headers` | Result |
 | --- | --- | --- |
-| `prepare` | `{workspaceId, recordId, recordRevision, contentVersionId?}` | Current authoritative metadata and key binding; mints the UUID if omitted, without creating a database mapping yet |
-| `load` | `{workspaceId, recordId, recordRevision, contentVersionId}` | Same metadata plus current envelope and head after fresh read authorization |
-| `commit` | Exact candidate described below | Immutable receipt, returned only after COMMIT and cleanup succeed |
-| `receipt` | `{workspaceId, recordId, operationId, requestDigest}` | Exact prior commit receipt after fresh write authority and actor matching |
+| `prepare` | `{workspaceId, recordId, recordRevision, contentVersionId?}` | Private delivery wrapper around current metadata; mints the UUID if omitted, without creating a content mapping |
+| `load` | `{workspaceId, recordId, recordRevision, contentVersionId}` | Private delivery wrapper around metadata, envelope and head after fresh read authorization |
+| `commit` | Exact candidate described below | Private delivery wrapper around an immutable receipt after COMMIT, fresh database completion validation and cleanup |
+| `receipt` | `{workspaceId, recordId, operationId, requestDigest}` | Private delivery wrapper around an exact historical receipt after current write authority and actor matching |
+| `verifyIdentity` | Expected subject ID | Same subject after a fresh verified-identity read; it cannot widen SQL authority |
 
-Preparation/load returns exactly `{workspaceId, recordId, recordRevision, contentVersionId, context, keyBinding, keyPolicyGeneration, head, envelope}`. `head` is `null` for a new identity or `{generation, digest}` for an existing one. `envelope` is null only for a new identity. The key binding contains repository, environment, provider ID, data class, key reference, write version and allowed read versions. This is not a bearer capability and must not be cached as permission.
+Each of the four data methods returns exactly `{value, admission: {subjectId, expiresAt, resultFingerprint}}`. This private wrapper is required; an old raw result or missing deadline is rejected. `expiresAt` is an exact UTC millisecond instant and the canonical result fingerprint binds the entire validated value. The service strips this metadata before returning a public value. An optional third `expectedSubject` argument narrows each method to a principal already established by the service; it cannot authorize an unverified identity.
+
+The preparation/load `value` contains exactly `{workspaceId, recordId, recordRevision, contentVersionId, context, keyBinding, keyPolicyGeneration, head, envelope}`. `head` is `null` for a new identity or `{generation, digest}` for an existing one. `envelope` is null only for a new identity. The key binding contains repository, environment, provider ID, data class, key reference, write version and allowed read versions. This is not a bearer capability and must not be cached as permission.
 
 The commit request contains exactly:
 
@@ -78,7 +81,9 @@ The service exposes:
 
 No provider or component decision/audit callback executes inside the mutation transaction. Prepared crypto may finish and subsequently fail CAS or authorization; its key-use completion is not a storage success. Provider/key loss never causes a plaintext fallback. A successful caller-owned plaintext buffer remains the caller's responsibility. Clearing reachable JavaScript buffers cannot erase provider copies, native crypto memory, backups, logs or crash dumps.
 
-The last database load is an authorization observation, not an atomic lease on future HTTP bytes. No HTTP stream, downstream release channel, request-wide timeout or transport is implemented here. Mounted delivery must preserve current policy and bounded buffering at its own boundary.
+The service pins the subject from its first private wrapper and requires every later wrapper and identity verification to match. It takes the minimum of all captured database deadlines; later validation cannot extend an earlier deadline. It verifies identity again after the final repository await, then checks subject, feature/cancellation state and deadline synchronously before return. On decrypt it clears the crypto-owned plaintext before the last fence and clears the newly allocated return buffer if that fence fails.
+
+The last database revocation point is the final completion transaction's COMMIT. The final verified-identity read is a separate observation; neither is an atomic lease on future HTTP bytes. Natural expiry remains bounded through the service's final fence, assuming synchronized host/database clocks. No HTTP stream, downstream release channel or transport is implemented here. A later database revocation cannot be detected without another database observation. Mounted delivery must preserve current policy and bounded buffering at its own boundary.
 
 ## Authorization, locks and audit
 
@@ -90,7 +95,23 @@ SQL takes the existing workspace consent advisory lock `(144729, hashtext(worksp
 
 The audit head is acquired last. `encryption.persist` / `encryption.rewrap` uses outcome `succeeded`, references the actual record/revision, and shares the operation UUID with the immutable private receipt. Material, head, receipt and audit event all commit or roll back together. The domain audit validator and SQL append function both include these actions; export can verify the resulting pages. Raw/wrapped keys, ciphertext, plaintext and arbitrary provider messages are not audit fields.
 
-Never call `createAuditedDecision` through its separate pool after this transaction holds the workspace audit head. It can wait on the caller's own lock. Similarly, policy-ticket invalidation through the issuer pool runs only after COMMIT/ROLLBACK because binding locks the ticket row. Repository activation is checked again after that asynchronous cleanup tail; closure during retirement denies final reads and preserves uncertain-write recovery information.
+Never call `createAuditedDecision` through its separate pool after this transaction holds the workspace audit head. It can wait on the caller's own lock. Similarly, policy-ticket invalidation through the issuer pool runs only after COMMIT/ROLLBACK because binding locks the ticket row. Repository activation, pinned identity and captured deadlines are checked after the asynchronous completion/cleanup tail. Closure before main COMMIT prevents the write; closure after an attempted or completed COMMIT preserves exact uncertain-write recovery information.
+
+## Additive delivery completion (0016)
+
+`0016_encrypted_delivery.sql` preserves all earlier migration bytes, content rows and successful audit/receipt semantics. It adds two forced-RLS, owner-only tables: `encrypted_delivery_contexts` stores only the original policy-token hash, main PID/xid, actor, phase, scope, operation/result digests, key metadata and deadline; `encrypted_delivery_checks` is transient final-transaction metadata. Neither stores plaintext, ciphertext or wrapped keys. No new runtime role or broad table privilege is introduced.
+
+The encryption capability exposes `prepare_encrypted_delivery`, `load_encrypted_delivery`, `commit_encrypted_delivery`, `recover_encrypted_delivery`, `encrypted_delivery_admission` and `clear_encrypted_delivery`. Its old direct prepare/load/commit/receipt/check/clear grants are revoked; owner-defined wrappers still call the immutable 0013 functions. The issuer receives only fixed finish/invalidate entry points. Role, RLS and owned fixed-query boundaries remain in force.
+
+The main executor takes the existing workspace advisory lock before binding the policy token. Every successful data operation records a completion bound to that actual main PID/xid and exact token. It checks the returned result fingerprint and captured deadline, keeps the policy context until a deferred read/write COMMIT gate has executed, and checks identity after clear immediately before COMMIT. SQL captures the minimum of the ticket, record grant, selected role, relevant key-policy/version and inherited-consent deadlines. The consent calculation reuses the verified bounded 0015 helper, including alternative grants, required subjects and representative expiry.
+
+After the main connection has released its locks, `finish_encrypted_delivery(token, resultFingerprint)` derives actor/scope/phase only from a committed closed completion. It takes the workspace lock, issues and binds a **fresh** policy token on the issuer's own PID/xid, rechecks current authority, and recomputes the exact current result. Preparation/load require the same current content head and key metadata; commit acknowledgment requires its pinned key policy and exact immutable receipt. Historical recovery requires current record/revision/write/consent authority and the original actor, but no current head equality, readable key or provider call.
+
+The finish transaction retires original and fresh tokens and deletes its transient check row. A deferred trigger still holds the captured deadline and checks current consent at COMMIT. Grant/status/key/head locks remain held to that point. No provider, separate-pool decision or audit callback runs while these locks are held. The original mutation's semantic success audit stays atomic with its content/head/receipt.
+
+A lost ticket-issuance acknowledgment retains the captured token for cleanup. Any connection with an uncertain COMMIT is discarded; successful main COMMIT followed by failed completion, identity or delivery does not become a fictitious rollback. Retirement failure cannot release protected output and can leave a closed completion and its ticket until a successful cleanup retry. The isolated CI journey includes a case for that retained state, exact operation recovery under a fresh ticket, and explicit cleanup retry. Expired leftover completion metadata is unusable; this change does not introduce or verify an automatic cleanup scheduler.
+
+The fixed executors always set constraints deferred and never accept caller SQL. PostgreSQL allows a compromised SQL login to change constraint timing, and database owners remain trusted. The new gates are not a claim of protection against arbitrary transaction statements, whole-database rollback or malicious provider custody.
 
 ## Uncertain commit and retries
 
@@ -109,7 +130,7 @@ Identical-candidate repository retries can return the existing receipt after cur
 
 ## Migration, test and rollout limits
 
-Migration `0013_encrypted_content.sql` is additive and checksum locked. It preserves migrations 0001–0012 and copies the effective 0011 audit append behavior with only four added closed actions. The migration seeds no key binding, content, credential, or provider. Existing staging is verified separately; applying this file is not proof of a working encryption service.
+Migrations `0013_encrypted_content.sql` and `0016_encrypted_delivery.sql` are additive and checksum locked. The original 0013 preserves migrations 0001–0012 and copies the effective 0011 audit append behavior with only four added closed actions. The 0016 delivery addition preserves migrations 0001–0015 and does not replace any audit function. The migration seeds no key binding, content, credential, or provider. Existing staging is verified separately; applying this file is not proof of a working encryption service.
 
 The new local tests use generated keys and bytes. The explicit `encryption-persistence.ci.mjs` journey runs against the existing disposable PostgreSQL CI service, exercising actual SQL/RLS/locking/CAS/audit and serialized ciphertext recovery. Source-bound evidence distinguishes tests executed locally, pending remote CI, and any later isolated staging migration verification. The disposable CI role/seed/teardown fixture must not run against the retained staging database.
 

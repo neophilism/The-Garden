@@ -377,5 +377,19 @@
     }
   },
   "integrated_observation_sha256": "70ff2fa4fff60d905c3b8665dbaafb62511ddc8ec5e1ef0d7c6d56842310f97f",
-  "integrated_scope_note": "Exact source integrated on verified PR70 before this subsequent evidence/status update. All 1,921 application assertions, five typecheck targets and both builds passed with unchanged source and owned locked dependencies; required published-source CI remains pending."
+  "integrated_scope_note": "Exact source integrated on verified PR70 before this subsequent evidence/status update. All 1,921 application assertions, five typecheck targets and both builds passed with unchanged source and owned locked dependencies; required published-source CI remains pending.",
+  "verified_merge_followup": {
+    "pr_number": 71,
+    "merge_sha": "72789692f70994fb0d3cf37698fa34858d956a9a",
+    "tree_sha": "cb8ef0846d8d010e39b7e4ade77f1cad23117f50",
+    "confirmed_at": "2026-10-17T16:21:52.597Z",
+    "evidence": "docs/evidence/GDN-011/enforcement-merge-observation.json",
+    "required_checks": 10,
+    "workflows": 7,
+    "application_tests": 1921,
+    "browser_tests": 108,
+    "server_enforcement": false,
+    "unattended_executor_eligible": false,
+    "production_verified": false
+  }
 }

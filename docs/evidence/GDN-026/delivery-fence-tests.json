@@ -1,0 +1,576 @@
+{
+  "schemaVersion": 1,
+  "unit": "GDN-026",
+  "scope": "Additive encrypted-content completion and delivery fences; partial engineering contribution",
+  "recordedAt": "2026-10-17T16:14:21.104636+00:00",
+  "verifiedBase": {
+    "commit": "3dc436db71ec24616a8b24eb6a78e2d3612eb297",
+    "tree": "81e65a59d0609a4292e44282880b2d6e3bde3635"
+  },
+  "sourceSha256": {
+    "apps/research/access/encryption-persistence.mjs": "20cbb9f437f8737c7acc55828da68263f46ce479962725389785711999c51fa7",
+    "db/migrations/0016_encrypted_delivery.sql": "45c02c496935b5f1377e94461d7460715cf80668c5af83703e10a0e9dcd089a6",
+    "db/migrations/manifest.json": "8da543a23e830c73e2a5572da6b005f7fb483dc122352886a3e6007a0a13859a",
+    "tests/access/encryption-delivery.test.mjs": "0699c4a2adbd03ae377c9e39d06d8647fed7e4fc6d58ee388b928c80b81b0c15",
+    "tests/security/encryption-delivery-fixture.mjs": "be6b253d3ea335583328de7cbf6af553939acefdaa1deb22fb92f9962d88965d",
+    "tests/access/encryption-persistence.test.mjs": "c6d4347fb66dded3cd4673d6cd194ababd34f50e7b843c05a8b44b11ccafe09f",
+    "tests/access/encrypted-content-service.test.mjs": "91be98d84dedc0855744690aaf0408d72f4ac7fcdc42f22e8b3f801b1b7e3c20",
+    "docs/security/encrypted-content-persistence.md": "06b3a8c76e33acfbab6573d71870686d9a5e3c2c8636f86ca25655f175d2b4a4"
+  },
+  "originalCanary": {
+    "source": {
+      "head": "3dc436db71ec24616a8b24eb6a78e2d3612eb297",
+      "tree": "81e65a59d0609a4292e44282880b2d6e3bde3635",
+      "sourceFiles": {
+        "docs/security/encrypted-content-persistence.md": {
+          "sha256": "db41d67ca63b89366836adc07cc1e9756c36b5c52f5f28c918a18a5c0666f0d5",
+          "bytes": 16028
+        },
+        "db/migrations/0013_encrypted_content.sql": {
+          "sha256": "1fb1eb5adc7b2adced769cf91f8fd99af841f86ed98132d12922e07549b19964",
+          "bytes": 43773
+        },
+        "tests/security/database-role-fixture.mjs": {
+          "sha256": "078bd3f9cc8ed7aa5ffde6724d6013167f1bf36979c9eb9d1d34a3b1eb172fe4",
+          "bytes": 678
+        },
+        "tests/security/encryption-persistence-fixture.mjs": {
+          "sha256": "7d8cc11367e5e5abbfc9eab71cbb21a39ed2831b75c987a61797be308016f99a",
+          "bytes": 3575
+        },
+        "services/workers/src/trusted-encryption.mjs": {
+          "sha256": "11a2b4104630314646c1d6f62c5976a4edb6134d1cea00609c5dc372547ff1fc",
+          "bytes": 16859
+        },
+        "apps/research/access/encryption-persistence.mjs": {
+          "sha256": "1c11d1e50af959d32c1f19a3a3569c282dc64e6253d69894f208bab09d827a14",
+          "bytes": 18421
+        },
+        "apps/research/access/database-role.mjs": {
+          "sha256": "4297280fc04f21d945135ef341f47ec6e5ee6e3341f8783a7a391e4019ee0286",
+          "bytes": 3243
+        }
+      }
+    },
+    "canary": {
+      "sha256": "c6714b6f595a61033f2e8e4db0b98383402a6a66f93a0d0afebfa71d1c9e4234",
+      "resultSha256": "e835b84a819794fdb00231b076d0048761f3d7028731e1bfb1555984b00bebd4",
+      "start": "2026-10-17T16:03:32.248Z",
+      "finish": "2026-10-17T16:03:32.285Z",
+      "cases": 13,
+      "oracleFailures": 7
+    },
+    "findings": [
+      {
+        "id": "identity-tail",
+        "scope": "Actual repository, service and crypto; synthetic identity/SQL",
+        "observed": [
+          "Final load clear: plaintext returned after identity closure",
+          "Final load retirement: plaintext returned after identity closure",
+          "Final write clear: durable write and normal receipt despite prior identity closure",
+          "Final write retirement: normal receipt instead of denial/exact recovery after identity closure"
+        ],
+        "oracleQualification": "The initial canary marks pre-COMMIT identity closure as requiring unconfirmed denial. The repair should more strongly prevent COMMIT and report known rollback when a fresh identity check can run before COMMIT."
+      },
+      {
+        "id": "deadline-tail",
+        "scope": "Source-confirmed absent propagation; SQL authority modeled, no actual PostgreSQL timing test",
+        "observed": [
+          "Authority deadline expires during final load identity await and plaintext returns",
+          "Authority deadline expires during final load retirement and plaintext returns",
+          "Modeled DB revocation during retirement does not trigger another authority query"
+        ]
+      }
+    ],
+    "passingControls": [
+      "Healthy store/decrypt",
+      "Feature closure during final load denies and owned plaintext is wiped",
+      "Feature closure after write COMMIT retains exact recovery",
+      "Lost COMMIT acknowledgement retains exact recovery; recovery makes no provider call",
+      "Known pre-COMMIT failure has no durable write or recovery"
+    ],
+    "limits": [
+      "No PostgreSQL server or provider used",
+      "All keys and plaintext are synthetic and reachable key/plaintext buffers are wiped",
+      "Post-COMMIT revocation is distinguished from captured natural expiry",
+      "Existing docs disclaim an atomic future HTTP-byte lease; the demonstrated gaps occur inside this service before it returns"
+    ]
+  },
+  "regressions": {
+    "baseline": {
+      "command": [
+        "node",
+        "--test",
+        "--test-isolation=none",
+        "--test-reporter=tap",
+        "--test-name-pattern=identity closes at|identity closure after write clear|identity closure after durable write|a different valid principal",
+        "tests/access/encryption-delivery.test.mjs"
+      ],
+      "start": "2026-10-17T16:13:49.588401+00:00",
+      "finish": "2026-10-17T16:13:49.704016+00:00",
+      "exitCode": 1,
+      "logSha256": "1822872ca23f743f86010210c4e9e36beb4a650f70a55307fea9f2f2c78842e5",
+      "counts": {
+        "tests": "6",
+        "pass": "0",
+        "fail": "6",
+        "skipped": "0"
+      },
+      "sourceHashes": {
+        "apps/research/access/encryption-persistence.mjs": "1c11d1e50af959d32c1f19a3a3569c282dc64e6253d69894f208bab09d827a14",
+        "tests/access/encryption-delivery.test.mjs": "0699c4a2adbd03ae377c9e39d06d8647fed7e4fc6d58ee388b928c80b81b0c15",
+        "tests/security/encryption-delivery-fixture.mjs": "be6b253d3ea335583328de7cbf6af553939acefdaa1deb22fb92f9962d88965d"
+      }
+    },
+    "candidate": {
+      "command": [
+        "node",
+        "--test",
+        "--test-isolation=none",
+        "--test-reporter=tap",
+        "tests/access/encryption-delivery.test.mjs",
+        "tests/access/encryption-persistence.test.mjs",
+        "tests/access/encrypted-content-service.test.mjs",
+        "tests/security/trusted-encryption.test.mjs"
+      ],
+      "start": "2026-10-17T16:13:49.704761+00:00",
+      "finish": "2026-10-17T16:13:50.105022+00:00",
+      "exitCode": 0,
+      "logSha256": "ae23d4e8178bf4ca55fdb3abe220a5491423ac53ce642c58ea08e24c58e3e0ac",
+      "counts": {
+        "tests": "106",
+        "pass": "106",
+        "fail": "0",
+        "skipped": "0"
+      },
+      "sourceHashes": {
+        "apps/research/access/encryption-persistence.mjs": "20cbb9f437f8737c7acc55828da68263f46ce479962725389785711999c51fa7",
+        "tests/access/encryption-delivery.test.mjs": "0699c4a2adbd03ae377c9e39d06d8647fed7e4fc6d58ee388b928c80b81b0c15",
+        "tests/security/encryption-delivery-fixture.mjs": "be6b253d3ea335583328de7cbf6af553939acefdaa1deb22fb92f9962d88965d"
+      }
+    }
+  },
+  "parser": {
+    "sha256": "45c02c496935b5f1377e94461d7460715cf80668c5af83703e10a0e9dcd089a6",
+    "parser": "v8.6",
+    "statements": 27,
+    "procedural": [
+      {
+        "index": 4,
+        "status": "pass"
+      },
+      {
+        "index": 6,
+        "status": "unsupported-or-error",
+        "error": "Not implemented (LookupExplicitNamespace only supports pg_catalog and public)"
+      },
+      {
+        "index": 7,
+        "status": "unsupported-or-error",
+        "error": "Not implemented (LookupExplicitNamespace only supports pg_catalog and public)"
+      },
+      {
+        "index": 8,
+        "status": "pass"
+      },
+      {
+        "index": 9,
+        "status": "pass"
+      },
+      {
+        "index": 10,
+        "status": "pass"
+      },
+      {
+        "index": 11,
+        "status": "pass"
+      },
+      {
+        "index": 12,
+        "status": "pass"
+      },
+      {
+        "index": 13,
+        "status": "unsupported-or-error",
+        "error": "Not implemented (LookupExplicitNamespace only supports pg_catalog and public)"
+      },
+      {
+        "index": 14,
+        "status": "pass"
+      },
+      {
+        "index": 15,
+        "status": "pass"
+      },
+      {
+        "index": 16,
+        "status": "pass"
+      },
+      {
+        "index": 18,
+        "status": "pass"
+      },
+      {
+        "index": 19,
+        "status": "pass"
+      },
+      {
+        "index": 21,
+        "status": "pass"
+      },
+      {
+        "index": 23,
+        "status": "pass"
+      }
+    ]
+  },
+  "mandatoryPlanChecks": {
+    "structure": "passed",
+    "unitTests": 30,
+    "observedAt": "2026-10-17T16:05:57Z"
+  },
+  "currentStatus": {
+    "localTargetedTests": "106 passed: 26 new plus 32 existing persistence/service plus 48 crypto",
+    "actualPostgreSQL": "33-group journey authored and syntax checked; actual execution pending required CI",
+    "fullApplicationCheck": "pending",
+    "remoteCI": "pending",
+    "staging0016": "not applied",
+    "production": "not activated",
+    "provider": "no live keys, provider actions or data",
+    "independentReview": "106 focused tests independently passed; root bounded source review also clear"
+  },
+  "limits": [
+    "Original13 cases use real JS repository/host/crypto and synthetic SQL; they do not establish PostgreSQL timing.",
+    "Six identical identity/principal assertions fail on preserved verified69 and pass in candidate; known pre-COMMIT closure now proves rollback without recovery.",
+    "Post-COMMIT revocation linearizes at final issuer COMMIT; identity is checked separately; no atomic network delivery claim.",
+    "Host/database clock synchronization is required for propagated natural-expiry fences.",
+    "Historical recovery remains current-authorized immutable receipt lookup; no current-key/head requirement.",
+    "Deferred timing requires the fixed executors; arbitrary SQL login and database owner remain explicit trust boundaries.",
+    "Mapped complete engineering units remain37 and production-verified units0."
+  ],
+  "implementationCheckpoint": {
+    "commit": "7f2bfdb284418c85d1e2e1db974fd0b350490c53",
+    "tree": "7629b16e1921416237525bbb0387a462c36821ef",
+    "preservedOriginalTests": true
+  },
+  "independentReview": {
+    "reviewer": "contributor_program",
+    "recordedAt": "2026-10-17T16:18:41.761454+00:00",
+    "scope": "AI-assisted independent bounded source review and 106 focused tests; no PostgreSQL execution",
+    "sourceCommit": "7f2bfdb284418c85d1e2e1db974fd0b350490c53",
+    "sourceTree": "7629b16e1921416237525bbb0387a462c36821ef",
+    "coreHashes": {
+      "apps/research/access/encryption-persistence.mjs": "20cbb9f437f8737c7acc55828da68263f46ce479962725389785711999c51fa7",
+      "db/migrations/0016_encrypted_delivery.sql": "45c02c496935b5f1377e94461d7460715cf80668c5af83703e10a0e9dcd089a6"
+    },
+    "verdict": "No additional concrete blocker found in the bounded source and existing-test review.",
+    "reviewSha256": "fbcac6fe0a4532ca9b40d7137feab8614158024b15a89d1de0ae36551372396d",
+    "testObservationSha256": "79557607b14ddf7b849a24a282b6be0237d1e52cb65026da8aee169b8069a74b",
+    "testLogSha256": "7e3f4326a814e368df4db2785aaf2f2ba085f5bce4cfd74a5974b746dd4e5d9c",
+    "counts": {
+      "tests": 106,
+      "suites": 0,
+      "pass": 106,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "observations": [
+      "The service pins the first admitted subject; subsequent fixed repository calls receive it as a narrowing requirement before work and final verification retains it.",
+      "The main transaction keeps policy context for its deferred gate, releases its client before finish, and finish derives a new policy ticket from the committed completion.",
+      "The earliest main/final database deadline is carried through the private wrapper and the last awaited host identity check, with a synchronous final fence.",
+      "Failure after attempted COMMIT or after an acknowledged durable write returns only a sanitized exact recovery reference; pre-COMMIT identity closure rolls back and exposes no recovery.",
+      "The final issuer transaction rechecks exact result and current authority, retires both tokens, and retains deferred time/consent checks through COMMIT.",
+      "Historical receipt recovery remains key-independent; content read/prepare completion is bound to current material/head and key policy.",
+      "The output-copy regression clears both reachable plaintext buffers when the final synchronous fence denies."
+    ]
+  },
+  "leadSourceReview": {
+    "reviewer": "root",
+    "scope": "Independent bounded source-only review of frozen 7f2bfdb runtime, all 0016 functions/ACLs and documented architecture limits",
+    "verdict": "No additional concrete blocker found; actor/result/deadline binding, fresh issuer context, revoked old entry points and historical recovery checked",
+    "actualPostgreSQL": false
+  },
+  "postgresqlHarness": {
+    "path": "apps/research/access/encryption-persistence.ci.mjs",
+    "sha256": "24c046e7136f4f94d81137466df70089b540659a267e03d19d2d429937bdfdc2",
+    "groups": 33,
+    "retainedGroups": 22,
+    "newGroups": 11,
+    "authoredBy": "image_reconciliation",
+    "handoffSha256": "0a7449c3c9203d82145b7cc88c467bab6426f10c94681964471c0141990a5e87",
+    "helperRun": {
+      "start": "2026-10-17T16:19:51.438368+00:00",
+      "end": "2026-10-17T16:19:51.613503+00:00",
+      "seconds": 0.17514492299960693,
+      "exit_code": 0,
+      "environment_keys": [
+        "CI",
+        "HOME",
+        "NEXT_TELEMETRY_DISABLED",
+        "NODE_ENV",
+        "PATH"
+      ],
+      "log_sha256": "7c03fc8b8bd584e315c320e38464023e436ea43eda0e8314f0ce77ef3292a73f",
+      "node": "v24.19.0",
+      "real_postgresql": false
+    },
+    "helperTests": {
+      "passed": 24,
+      "failed": 0,
+      "skipped": 0,
+      "report_sha256": "aacd5f94154e052fbbda8187c41014a5b8f190ba6782f6c9adfcce1b9afcc06e",
+      "source_sha256": "a0356eb9fe1eefe08eddbced62b1cdec1b4f6b3390410abaa2e09449a2f9f37c"
+    },
+    "syntaxPassed": true,
+    "actualPostgreSQL": "pending required CI",
+    "scopeLimits": [
+      "Only the owned CI script was edited.",
+      "Fake-I/O helper tests do not validate actual SQL, locking, RLS or migration effects.",
+      "No full application check was duplicated; root/lead will verify the final integrated source once.",
+      "Intentional retirement failure retains one closed completion until explicit cleanup retry; no automatic crash reaper or production delivery claim."
+    ]
+  },
+  "integration": {
+    "recordedAt": "2026-10-17T16:21:42.889943+00:00",
+    "verifiedPredecessor": {
+      "commit": "933880907295e1003f29f5658b3310eae69d5ab7",
+      "tree": "f7e918283c43d6957d14ea73861696755d3d4880"
+    },
+    "rebase": "clean; runtime, 0016 and all previously reviewed tests retain their exact hashes",
+    "workspaceFixture": {
+      "path": "apps/research/access/policy-workspace-gate.ci.mjs",
+      "verifiedPredecessorSha256": "5fd1ce1050a883b4b3c8ce1bc7989ea908661e91c839dd09afd6e6d6ed851bdb",
+      "sha256": "320186841c507cc7fb86828759f42001d4a71a7a48a9308e649157c7e004d810",
+      "change": "Use fixed encrypted prepare/clear/invalidate entry points for discarded metadata; preserve review/source workspace-lock probes and cleanup",
+      "actualPostgreSQL": "pending required CI",
+      "independentReview": {
+        "reviewer": "image_reconciliation",
+        "reviewSha256": "8bf3f87207dde7e2799c5311420a1da558656c937980bad161f5577cc09d801b",
+        "verdict": "No concrete issue in exact four-call adapter; review path, blocking and graph assertions, and corrected NO KEY UPDATE probe retained",
+        "actualPostgreSQL": false
+      }
+    },
+    "priorMigrations": {
+      "count": 15,
+      "allBytesEqualVerified69And70": true
+    },
+    "localChecks": {
+      "planStructure": "passed at 2026-10-17T16:21:30.822759Z",
+      "planUnitTests": 30,
+      "workspaceFixtureSyntax": "passed",
+      "diffWhitespace": "passed",
+      "fullApplicationCheck": "pending"
+    },
+    "sourceSha256": {
+      "apps/research/access/encryption-persistence.mjs": "20cbb9f437f8737c7acc55828da68263f46ce479962725389785711999c51fa7",
+      "db/migrations/0016_encrypted_delivery.sql": "45c02c496935b5f1377e94461d7460715cf80668c5af83703e10a0e9dcd089a6",
+      "db/migrations/manifest.json": "8da543a23e830c73e2a5572da6b005f7fb483dc122352886a3e6007a0a13859a",
+      "tests/access/encryption-delivery.test.mjs": "0699c4a2adbd03ae377c9e39d06d8647fed7e4fc6d58ee388b928c80b81b0c15",
+      "tests/security/encryption-delivery-fixture.mjs": "be6b253d3ea335583328de7cbf6af553939acefdaa1deb22fb92f9962d88965d",
+      "tests/access/encryption-persistence.test.mjs": "c6d4347fb66dded3cd4673d6cd194ababd34f50e7b843c05a8b44b11ccafe09f",
+      "tests/access/encrypted-content-service.test.mjs": "91be98d84dedc0855744690aaf0408d72f4ac7fcdc42f22e8b3f801b1b7e3c20",
+      "docs/security/encrypted-content-persistence.md": "0ff346e1248a3bdb547cc8bf15ae4dc54ec8f1240a3c12a4364fab2e6fa64403",
+      "apps/research/access/encryption-persistence.ci.mjs": "24c046e7136f4f94d81137466df70089b540659a267e03d19d2d429937bdfdc2",
+      "apps/research/access/policy-workspace-gate.ci.mjs": "320186841c507cc7fb86828759f42001d4a71a7a48a9308e649157c7e004d810"
+    },
+    "publicationPredecessor": {
+      "commit": "72789692f70994fb0d3cf37698fa34858d956a9a",
+      "tree": "cb8ef0846d8d010e39b7e4ade77f1cad23117f50",
+      "parent": "933880907295e1003f29f5658b3310eae69d5ab7",
+      "verification": "Root verified PR71 required checks, source receipts and merge; exact signed commit/tree/parent inspected locally"
+    },
+    "postRebasePreservation": {
+      "observedAt": "2026-10-17T16:22:47.206626+00:00",
+      "sourceFiles": 10,
+      "allListedHashesUnchanged": true,
+      "priorMigrations": 15,
+      "allPriorMigrationBytesUnchanged": true,
+      "applicationTestsRerun": false,
+      "fullExactSourceCheck": "pending root verification"
+    }
+  },
+  "integrated_local_full_check": {
+    "observation": {
+      "commit": "96051fc1baa4279f7cd38bbd302dbfa8196a5d10",
+      "tree": "9e838aece444664f8cc39a7585079c752cc7f3a7",
+      "verified_base": "72789692f70994fb0d3cf37698fa34858d956a9a",
+      "branch": "security/gdn-026-delivery-fence-20261017",
+      "worktree": "/workspace/scratch/7d1434690aca/garden-encryption-delivery-fence",
+      "environment_keys": [
+        "CI",
+        "HOME",
+        "NEXT_TELEMETRY_DISABLED",
+        "NODE_ENV",
+        "PATH"
+      ],
+      "environment_values": {
+        "NODE_ENV": "production",
+        "CI": "true",
+        "NEXT_TELEMETRY_DISABLED": "1"
+      },
+      "node": "v24.19.0",
+      "npm": "11.9.0",
+      "started_at": "2026-10-17T16:23:06.872641+00:00",
+      "tracked_source_manifest": "/workspace/scratch/7d1434690aca/encryption-delivery-integration-evidence/tracked-source-before.json",
+      "tracked_source_manifest_sha256": "dfa837120bdfed1aa1de4038d4ed80035d3447c279431ddb83575e5bc2a36026",
+      "source_sha256": {
+        "apps/research/access/encryption-persistence.ci.mjs": "24c046e7136f4f94d81137466df70089b540659a267e03d19d2d429937bdfdc2",
+        "apps/research/access/encryption-persistence.mjs": "20cbb9f437f8737c7acc55828da68263f46ce479962725389785711999c51fa7",
+        "apps/research/access/policy-workspace-gate.ci.mjs": "320186841c507cc7fb86828759f42001d4a71a7a48a9308e649157c7e004d810",
+        "db/migrations/0016_encrypted_delivery.sql": "45c02c496935b5f1377e94461d7460715cf80668c5af83703e10a0e9dcd089a6",
+        "db/migrations/manifest.json": "8da543a23e830c73e2a5572da6b005f7fb483dc122352886a3e6007a0a13859a",
+        "docs/delivery/merge-policy.json": "26e6e23213b484e953ec7f0bb6937f867ef61babeda1ec2f4108b372a7f5f831",
+        "docs/evidence/GDN-026/delivery-fence-tests.json": "85534d408ba735a17fc57053e0b80a38cedb87c373b905eb73a73eecad84c8bc",
+        "docs/security/encrypted-content-persistence.md": "0ff346e1248a3bdb547cc8bf15ae4dc54ec8f1240a3c12a4364fab2e6fa64403",
+        "package-lock.json": "2fabb52e8fc285ab23a1fdc4d4c0f29fced57e2e7181a018b1147694731a5a5b",
+        "package.json": "03b2a6d98673453f56c46387028e2baecc5d1f1a89b74d2becb6c2e2dd771cb7",
+        "tests/access/encrypted-content-service.test.mjs": "91be98d84dedc0855744690aaf0408d72f4ac7fcdc42f22e8b3f801b1b7e3c20",
+        "tests/access/encryption-delivery.test.mjs": "0699c4a2adbd03ae377c9e39d06d8647fed7e4fc6d58ee388b928c80b81b0c15",
+        "tests/access/encryption-persistence.test.mjs": "c6d4347fb66dded3cd4673d6cd194ababd34f50e7b843c05a8b44b11ccafe09f",
+        "tests/security/encryption-delivery-fixture.mjs": "be6b253d3ea335583328de7cbf6af553939acefdaa1deb22fb92f9962d88965d"
+      },
+      "phases": [
+        {
+          "name": "full-check",
+          "command": [
+            "npm",
+            "run",
+            "check"
+          ],
+          "started_at": "2026-10-17T16:23:06.875522+00:00",
+          "log": "/workspace/scratch/7d1434690aca/encryption-delivery-integration-evidence/full-check.log",
+          "ended_at": "2026-10-17T16:23:25.613535+00:00",
+          "wall_seconds": 18.73798457200064,
+          "exit_code": 0,
+          "log_sha256": "0c347768087946de6f236697fd61c74023254f6a775be03f1c133f9ecfe08fbc"
+        }
+      ],
+      "real_postgresql": false,
+      "postgresql_status": "Required published-source CI; not executed locally",
+      "provider_actions": false,
+      "reuse_owned_dependencies": true,
+      "capture_script_sha256": "fdbd5d382e990d35abebf6f27490a8d89b46a822a211fe69d4df571ff637a61e",
+      "ended_at": "2026-10-17T16:23:25.614208+00:00",
+      "wall_seconds": 18.738727626998298,
+      "all_phases_passed": true,
+      "node_modules_owned": true,
+      "tracked_changes_before_generated_restoration": [
+        "apps/public/next-env.d.ts",
+        "apps/research/next-env.d.ts"
+      ],
+      "test_counts": {
+        "tests": 1947,
+        "suites": 0,
+        "pass": 1947,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "typecheck_and_build_exit": "passed as part of complete chained check",
+      "build_output_manifest_hashes": {
+        "config/build-release.json": {
+          "sha256": "566eb362afce7571bbba866a16a1af46e88a16f3775200d8e99b846b8b86d7a1",
+          "bytes": 51
+        },
+        "apps/public/.next/BUILD_ID": {
+          "sha256": "196d2e5ce1b198545350daea779a1b3ba5a3f65d85b356d2b08c13931c7bed42",
+          "bytes": 21
+        },
+        "apps/public/.next/build-manifest.json": {
+          "sha256": "87463e20bf7724f31e29a9d020c5e6e3a560b16d5686b937e5f5c59f8fa6746a",
+          "bytes": 1766
+        },
+        "apps/public/.next/routes-manifest.json": {
+          "sha256": "d7f99d9b7e0148f182191cabafc0548db6ea8f7b60bc08384a5e30699661cc15",
+          "bytes": 2366
+        },
+        "apps/public/.next/prerender-manifest.json": {
+          "sha256": "088edde6d4ca163e1843487d4d6c0c901e0649ea014928703d9dc1124c80b89d",
+          "bytes": 9971
+        },
+        "apps/public/.next/required-server-files.json": {
+          "sha256": "16d344d39ebdeeba066b6370fd85518a6aaf99f7e103f3c225f2e2b21a8cbef7",
+          "bytes": 10672
+        },
+        "apps/research/.next/BUILD_ID": {
+          "sha256": "8ec3c6baac9c2e7df045ffcff1343b5185f2f80842d8871efc2917b0098c8a9e",
+          "bytes": 21
+        },
+        "apps/research/.next/build-manifest.json": {
+          "sha256": "2222b2b6cb21562dea25dbe87cf18ba24c675e7053a61e5ee8952a6ed04b0297",
+          "bytes": 1561
+        },
+        "apps/research/.next/routes-manifest.json": {
+          "sha256": "414c885b286bbd4906b1f4c4f60df706af97b809c4e7103ade5aafb6f5ccce01",
+          "bytes": 2142
+        },
+        "apps/research/.next/prerender-manifest.json": {
+          "sha256": "49533b6fc1bc1e5e533521879a66825605b2246dc5dda9be3f661f4d6ac6459c",
+          "bytes": 3257
+        },
+        "apps/research/.next/required-server-files.json": {
+          "sha256": "f38bfab662edf3e5c85b60fa1da518bc40814a57fb0eabd462b4c4f7e644127c",
+          "bytes": 10652
+        }
+      },
+      "generated_restoration": {
+        "paths": [
+          "apps/public/next-env.d.ts",
+          "apps/research/next-env.d.ts"
+        ],
+        "source": "exact checked HEAD",
+        "all_tracked_hashes_match_before": true,
+        "repository_clean_before_evidence": true
+      },
+      "typecheck_targets": [
+        "@garden/public",
+        "@garden/research",
+        "@garden/domain",
+        "@garden/workers",
+        "config/tsconfig.json"
+      ],
+      "static_prerender_route_counts": {
+        "public": 12,
+        "research": 4
+      },
+      "execution_context": "Authorized normal process support for the required nested Node test processes; five-key child environment and unchanged test commands."
+    },
+    "observation_sha256": "b414d9b2aeb126c59090533dd415edb910875ee3abf84d358a91f7f88cf77d66",
+    "note": "This check ran before these evidence-only updates, at the exact source commit and tree above. Actual PostgreSQL and published-source CI remain separate pending gates."
+  },
+  "independent_root_source_review": {
+    "observation": {
+      "schemaVersion": 1,
+      "kind": "independent-root-source-review",
+      "observedAt": "2026-10-17T16:20:29.341211+00:00",
+      "commit": "7f2bfdb284418c85d1e2e1db974fd0b350490c53",
+      "files": {
+        "apps/research/access/encryption-persistence.mjs": "20cbb9f437f8737c7acc55828da68263f46ce479962725389785711999c51fa7",
+        "db/migrations/0016_encrypted_delivery.sql": "45c02c496935b5f1377e94461d7460715cf80668c5af83703e10a0e9dcd089a6",
+        "docs/security/encrypted-content-persistence.md": "06b3a8c76e33acfbab6573d71870686d9a5e3c2c8636f86ca25655f175d2b4a4"
+      },
+      "findings": [],
+      "reviewed": [
+        "actor pin before subsequent mutations",
+        "minimum database deadline across final issuer and host awaits",
+        "main connection and locks released before fresh issuer PID/xid context",
+        "exact committed completion-derived scope, actor, phase and result revalidation",
+        "legacy runtime function revocations and owner-only completion tables",
+        "known rollback versus uncertain write recovery",
+        "crypto-owned and failed output-copy zeroization",
+        "historical receipt recovery without readable key",
+        "documented last database observation and trusted clock limits"
+      ],
+      "limits": {
+        "sourceReviewOnly": true,
+        "rootAdditionalTestsRun": false,
+        "actualPostgresVerified": false,
+        "migrationApplied": false
+      }
+    },
+    "observation_sha256": "43df43968d5473f8e9c7934c4b1482f1f290254c2ecfb33df205fcbb0b6a3d5c"
+  }
+}

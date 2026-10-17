@@ -230,6 +230,19 @@
       ],
       "evidence": "docs/evidence/GDN-024/workspace-gate-merge-observation.json",
       "note": "Ten required checks across seven workflows passed with exact source receipts, including 11 actual PostgreSQL workspace-ordering groups, 1,883 application tests and 108 browser tests. The fixed research executor acquires the common workspace gate before policy, graph and row locks. The initial consent-FK probe conflict and fixture correction remain recorded. No migration, completed unit or production activation."
+    },
+    {
+      "kind": "engineering_followup_merge",
+      "pr_number": 71,
+      "url": "https://github.com/neophilism/The-Garden/pull/71",
+      "github_head_sha": "a89dab29b2ba255da381bd7cc32a6a2290b0eb7b",
+      "github_merge_sha": "72789692f70994fb0d3cf37698fa34858d956a9a",
+      "mapped_work_items": [],
+      "contributing_work_items": [
+        "GDN-011"
+      ],
+      "evidence": "docs/evidence/GDN-011/enforcement-merge-observation.json",
+      "note": "Every trusted check must be represented by its exact GitHub App binding and administrator enforcement must be explicit. Ten required checks across seven workflows passed with authenticated source receipts; 1,921 application and 108 browser tests passed. This is read-only evaluator hardening. Current main remains unprotected and the connector lacks Administration access, so unattended eligibility stays false. No migration, completed unit or production activation."
     }
   ],
   "work_items": {
@@ -818,5 +831,5 @@
     "mapped_planned_units": 37
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-17T16:15:17.398859+00:00"
+  "observed_at_utc": "2026-10-17T16:21:52.597Z"
 }

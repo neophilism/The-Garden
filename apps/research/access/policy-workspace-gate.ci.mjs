@@ -43,7 +43,7 @@ async function begin(pool,role=null){
 }
 async function transaction(pool,role,work){const tx=await begin(pool,role);try{const value=await work(tx.client);await tx.finish(true);return value;}finally{await tx.finish();}}
 const issue=(w,id,action='read')=>transaction(pools.issuer,'garden_context_issuer',async c=>(await c.query('SELECT garden_control.issue_policy_ticket($1,$2,$3,$4) AS ticket',[w,'alice',action,id])).rows[0].ticket);
-const retire=token=>transaction(pools.issuer,'garden_context_issuer',c=>c.query('SELECT garden_control.invalidate_policy_ticket($1)',[token]));
+const retire=(token,encryption=false)=>transaction(pools.issuer,'garden_context_issuer',c=>c.query(encryption?'SELECT garden_control.invalidate_encrypted_delivery($1)':'SELECT garden_control.invalidate_policy_ticket($1)',[token]));
 function traced(pool,{before=async()=>{},after=async()=>{}}={}){
  const state={pid:null,calls:[]};
  state.pool={async connect(){const client=await pool.connect();
@@ -139,6 +139,8 @@ try{
  // The existing SQL review gate and encrypted preparation gate are exercised on
  // separate non-owner sessions. They use raw fixed SQL here to isolate their own
  // established gate from the newly added host gate; no arbitrary endpoint exists.
+ // Prepared metadata is discarded here. Its completion is invalidated after the
+ // main COMMIT; only the separate encryption journey tests protected delivery.
  await admin.query("INSERT INTO garden_control.encryption_key_versions(workspace_id,environment,data_class,provider_id,key_ref,key_version,can_read,can_write,not_before,expires_at) VALUES($1,'ci','restricted_research','synthetic-workspace-gate','garden/ci/workspace-gate','v1',true,true,clock_timestamp()-interval '1 minute',clock_timestamp()+interval '1 hour')",[W]);
  await admin.query("INSERT INTO garden_control.encryption_key_bindings(workspace_id,repository,environment,data_class,provider_id,key_ref,write_version,enabled,expires_at) VALUES($1,'neophilism/The-Garden','ci','restricted_research','synthetic-workspace-gate','garden/ci/workspace-gate','v1',true,clock_timestamp()+interval '1 hour')",[W]);
  let version='3';
@@ -149,14 +151,14 @@ try{
    await tx.client.query('SELECT garden_control.bind_policy_context($1)',[token]);
    if(kind==='review')await tx.client.query('SELECT garden_control.register_review_scope($1,$2,$3,$4)',[W,randomUUID(),id,version]);
    else{
-    const prepared=(await tx.client.query("SELECT garden_control.prepare_encrypted_content($1,$2,$3,$4,'ci') AS result",[W,id,version,randomUUID()])).rows[0].result;
+    const prepared=(await tx.client.query("SELECT garden_control.prepare_encrypted_delivery($1,$2,$3,$4,'ci') AS result",[W,id,version,randomUUID()])).rows[0].result;
     assert.equal(prepared.recordRevision,version);assert.equal(prepared.head,null);assert.equal(prepared.envelope,null);
    }
    const query=traced(pools.query);pending=settled(createSourceRepository(executor(query.pool)).revise(headers,W,id,version,{...source(id),title:'Synthetic '+kind+' ordering'}));
    await blocked(query,tx.pid,GATE,pending);assert.ok(!query.calls.some(sql=>sql.includes('bind_policy_context')||sql===GRAPH));
-   await tx.client.query('SELECT garden_control.clear_policy_context()');await tx.finish(true);
+   await tx.client.query(kind==='encryption'?'SELECT garden_control.clear_encrypted_delivery()':'SELECT garden_control.clear_policy_context()');await tx.finish(true);
    version=(BigInt(version)+1n).toString();assert.equal((await success(pending)).revision,version);
-  }finally{await tx.finish();await retire(token);if(pending)await pending.promise;}
+  }finally{await tx.finish();await retire(token,kind==='encryption');if(pending)await pending.promise;}
   await clean(W);check(kind+' SQL admission holds the same workspace gate before a competing source writer');
  }
  const reviewId=await createReviewRepository(executor()).register(headers,W,id,version);
