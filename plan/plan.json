@@ -1163,7 +1163,7 @@
     "X07": {
       "title": "Expert and community review",
       "status": "assignments_not_verified",
-      "need": "Qualified historical, source-language, rights, fiscal, legal, accessibility, safeguarding and independent security reviewers for relevant release gates."
+      "need": "Qualified historical, source-language, rights, fiscal, legal, accessibility and safeguarding review for applicable publication decisions; AI-assisted source/security review and applicable tests for software release, with independent expert security review deferred as follow-up."
     },
     "X08": {
       "title": "Incremental costs",
@@ -3270,7 +3270,7 @@
         "F40",
         "F41"
       ],
-      "scope": "Configure actual repository rulesets, required checks, merge queue when available and safe automated PR chaining. Preserve genuine independent review requirements.",
+      "scope": "Configure repository rulesets, required checks, merge queue where available and safe automated PR chaining. Preserve appropriate editorial/legal separation of duties; AI-assisted security review is permitted and independent paid security review is not a prerequisite.",
       "acceptance_criteria": [
         {
           "id": "GDN-011-AC01",
@@ -19954,7 +19954,7 @@
         }
       ],
       "contract": "security_release_report maps findings to fixes, retests and canonical control evidence.",
-      "rollout": "Budget/access gate for external review; do not label proposed controls certified or silently self-certify.",
+      "rollout": "External expert assessment and certification remain pending follow-up, never a development or deployment gate solely for lack of an auditor; do not falsely certify controls.",
       "status": "planned",
       "github_pr_number": null,
       "github_url": null,
