@@ -1,0 +1,2781 @@
+{
+  "schema_version": 1,
+  "work_item": "GDN-026",
+  "kind": "verified-isolated-staging-encrypted-delivery",
+  "recorded_at": "2026-10-17T16:39:46.317Z",
+  "target": {
+    "projectId": "royal-union-78374030",
+    "branchId": "br-purple-grass-b5hurfl7",
+    "databaseName": "neondb",
+    "environment": "staging",
+    "session_role": "neondb_owner"
+  },
+  "source": {
+    "merged_commit": "688756a243dfa56d2eae05d091d72e2c7266fd8f",
+    "tree": "ef53ddabc845cee88f63fbb9eb1b86bb4169ea55",
+    "sole_parent": "72789692f70994fb0d3cf37698fa34858d956a9a",
+    "migration_sha256": "45c02c496935b5f1377e94461d7460715cf80668c5af83703e10a0e9dcd089a6",
+    "manifest_sha256": "8da543a23e830c73e2a5572da6b005f7fb483dc122352886a3e6007a0a13859a",
+    "exact_merged_bytes_verified": true,
+    "all_sixteen_migration_files_match_merged_manifest": true
+  },
+  "prepared_bundle": {
+    "sha256": "3ff0b9946d3589b070a8fa85c557ffc1e4eb5914565df14bd29909faca2e88f2",
+    "builder_sha256": "522c6f22793ac6ae3f22b2b95c4541f08fdfd144f37b92daaf3b3a68b5191d9e",
+    "final_binding_review_sha256": "5d3d2298c216b1ac8fbe5e537e1ae26292b8d1ef40d640c4f0009c164688df26",
+    "migration_statements": 27,
+    "atomic_transaction_statements": 41,
+    "readback_statements": 23,
+    "reviewed_v2_sql_unchanged": true
+  },
+  "preflight": {
+    "started_at": "2026-10-17T16:30:37.069Z",
+    "ended_at": "2026-10-17T16:31:16.206Z",
+    "identity": {
+      "database_name": "neondb",
+      "session_user": "neondb_owner",
+      "current_user": "garden_migrator",
+      "server_version": "18.6 (653b019)"
+    },
+    "binding": {
+      "singleton": true,
+      "repository": "neophilism/The-Garden",
+      "environment": "staging",
+      "project_id": "royal-union-78374030",
+      "branch_id": "br-purple-grass-b5hurfl7",
+      "database_name": "neondb"
+    },
+    "history": [
+      {
+        "migration_id": "0001_foundation",
+        "sha256": "7ba727f1d96d342853a75670ecf4313275e72fb53674188c2e27690e246cf52e",
+        "applied_at": "2026-10-11T07:19:27.073Z"
+      },
+      {
+        "migration_id": "0002_jobs",
+        "sha256": "3c5a0fa7579aee8ad19d5cf7471a3c0cfcda677961328766f55cb8b71c691f90",
+        "applied_at": "2026-10-11T07:55:50.763Z"
+      },
+      {
+        "migration_id": "0003_membership",
+        "sha256": "a3a85fdfbd7102af0f1b8c110b274756104d1a188970063062936d08f84f2e9d",
+        "applied_at": "2026-10-16T14:57:03.951Z"
+      },
+      {
+        "migration_id": "0004_policy_context",
+        "sha256": "ce2d084065efc930255d4bb3e46080d65fb8cadf8ef72c1520b10b27bac6e4dd",
+        "applied_at": "2026-10-16T14:57:04.014Z"
+      },
+      {
+        "migration_id": "0005_historical_records",
+        "sha256": "7d92349869fde52a1c152b9deb7a2d63a524bbb4cf3a736daa3fe322cc624188",
+        "applied_at": "2026-10-16T14:57:04.067Z"
+      },
+      {
+        "migration_id": "0006_archival_sources",
+        "sha256": "79f3adf798faf45c64b11bde77a11d8d821269a3d246444ad31c581bb549e4d0",
+        "applied_at": "2026-10-16T14:57:04.094Z"
+      },
+      {
+        "migration_id": "0007_durable_locators",
+        "sha256": "322b7defc98979fb55d851153ae64d7a7406a405a47c4c83ce5b86a20c596691",
+        "applied_at": "2026-10-16T14:57:04.114Z"
+      },
+      {
+        "migration_id": "0008_atomic_claims",
+        "sha256": "f2578cb9b4755ccddb3d87f6d83c715f21dffa71d65b2bf059cd0b42ee16fe47",
+        "applied_at": "2026-10-16T14:57:04.156Z"
+      },
+      {
+        "migration_id": "0009_purpose_consent",
+        "sha256": "ff49fa5baa2bf92b8d537e4daf115facd7e1baedd913e49ca9dac387776f7312",
+        "applied_at": "2026-10-16T14:57:04.245Z"
+      },
+      {
+        "migration_id": "0010_audit_ledger",
+        "sha256": "658e8adc7764e90b7cc51e3ee6fb49925913c31d5d114aae70f13561862dbe75",
+        "applied_at": "2026-10-16T14:57:04.333Z"
+      },
+      {
+        "migration_id": "0011_scoped_reviews",
+        "sha256": "beae0f820608c605182622c3a0c3aab6debc00841d01d6c1e1cedd5bb13a7000",
+        "applied_at": "2026-10-16T14:57:04.410Z"
+      },
+      {
+        "migration_id": "0012_geographic_assertions",
+        "sha256": "a89296c1a1c05d1abee04d06706a5a7f4e9d4c197dbe6ef74d7a33e8cd7636f8",
+        "applied_at": "2026-10-16T14:57:04.425Z"
+      },
+      {
+        "migration_id": "0013_encrypted_content",
+        "sha256": "1fb1eb5adc7b2adced769cf91f8fd99af841f86ed98132d12922e07549b19964",
+        "applied_at": "2026-10-17T14:19:14.992Z"
+      },
+      {
+        "migration_id": "0014_lifecycle_requests",
+        "sha256": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c",
+        "applied_at": "2026-10-17T14:51:20.443Z"
+      },
+      {
+        "migration_id": "0015_lifecycle_controls",
+        "sha256": "b934cd39c5313fb855d9096829e540a35bae30fc1610722798149d044098648a",
+        "applied_at": "2026-10-17T15:54:50.689Z"
+      }
+    ],
+    "roles": [
+      {
+        "name": "garden_audit_reader",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_audit_writer",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_consent_admin",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_context_issuer",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_encryption",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_lifecycle_admin",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_lifecycle_requester",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_membership_admin",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_migrator",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_public",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_publisher",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_research",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_worker",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      }
+    ],
+    "memberships": [
+      {
+        "set": false,
+        "role": "garden_migrator",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_migrator",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_research",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_research",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_public",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_public",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_publisher",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_publisher",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_worker",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_worker",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_membership_admin",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_membership_admin",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_context_issuer",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_context_issuer",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_consent_admin",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_consent_admin",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_audit_reader",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_audit_reader",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_audit_writer",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_audit_writer",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_encryption",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_encryption",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_lifecycle_requester",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_lifecycle_requester",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_lifecycle_admin",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_lifecycle_admin",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      }
+    ],
+    "oldFunctions": [
+      {
+        "signature": "garden_control.check_encrypted_commit(uuid,text)",
+        "encryption_execute": true,
+        "body_sha256": "51797ec40272e9028b153fd53d593481fd6de3861f0cae160e726e9ae8de521b",
+        "proacl": "{garden_migrator=X/garden_migrator,garden_encryption=X/garden_migrator}"
+      },
+      {
+        "signature": "garden_control.clear_policy_context()",
+        "encryption_execute": true,
+        "body_sha256": "2d9d9b27b99ce8f130e5814ea1950ff044de091cdfe05c35c887625077dec1c6",
+        "proacl": "{garden_migrator=X/garden_migrator,garden_research=X/garden_migrator,garden_audit_reader=X/garden_migrator,garden_encryption=X/garden_migrator}"
+      },
+      {
+        "signature": "garden_control.commit_encrypted_content(jsonb)",
+        "encryption_execute": true,
+        "body_sha256": "425b230dfb394049da8bbdb0591b1c511811f6a49b7b16bd63b58ebe51f3466b",
+        "proacl": "{garden_migrator=X/garden_migrator,garden_encryption=X/garden_migrator}"
+      },
+      {
+        "signature": "garden_control.encrypted_content_receipt(uuid,uuid,uuid,text)",
+        "encryption_execute": true,
+        "body_sha256": "dffae96a588c34dbaead65c7afe74293e9fffcf73ad18f3a6b83ecbe73e4f28f",
+        "proacl": "{garden_migrator=X/garden_migrator,garden_encryption=X/garden_migrator}"
+      },
+      {
+        "signature": "garden_control.load_encrypted_content(uuid,uuid,bigint,uuid,text)",
+        "encryption_execute": true,
+        "body_sha256": "8a1af4beb9f03345d151fa2dbf63bfe787148548734fa3b521b2fc89449108a4",
+        "proacl": "{garden_migrator=X/garden_migrator,garden_encryption=X/garden_migrator}"
+      },
+      {
+        "signature": "garden_control.prepare_encrypted_content(uuid,uuid,bigint,uuid,text)",
+        "encryption_execute": true,
+        "body_sha256": "dc1cb094fc5e3077ed2330cfad26d9f022297d4c88e4188af99b30a5ebaedc9c",
+        "proacl": "{garden_migrator=X/garden_migrator,garden_encryption=X/garden_migrator}"
+      }
+    ],
+    "audit": {
+      "signature": "garden_control.append_audit_event(uuid,text,text,text,text,bigint,text,uuid)",
+      "owner": "garden_migrator",
+      "prosecdef": true,
+      "body_sha256": "681a44b229a9927a3aeae8f414d2a5c3516cbe9e39f1eee5042e30b2caf0a172",
+      "proacl": "{garden_migrator=X/garden_migrator}"
+    },
+    "relations": [
+      {
+        "name": "garden_control.encrypted_delivery_checks",
+        "actual": null
+      },
+      {
+        "name": "garden_control.encrypted_delivery_contexts",
+        "actual": null
+      },
+      {
+        "name": "garden_control.encrypted_delivery_expiry",
+        "actual": null
+      }
+    ],
+    "functions": [],
+    "counts": [
+      {
+        "table_name": "garden_control.encryption_key_bindings",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.encryption_key_versions",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_authority_evidence",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_control_contexts",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_control_delivery_checks",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_control_tickets",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_evidence_heads",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_grant_heads",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_operation_registry",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_operator_grants",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.encrypted_content_heads",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.encrypted_content_versions",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.encrypted_envelope_revisions",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.encrypted_material",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.lifecycle_control_events",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.lifecycle_control_heads",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.lifecycle_control_payloads",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.lifecycle_control_scope_heads",
+        "row_count": "0"
+      }
+    ],
+    "verified": true,
+    "read_only": true,
+    "applied": false
+  },
+  "application": {
+    "started_at": "2026-10-17T16:37:47.762Z",
+    "finished_at": "2026-10-17T16:37:58.068Z",
+    "adapter_returned_success": true,
+    "statement_result_count": 41,
+    "observed_applied_at": "2026-10-17T16:37:57.663Z",
+    "atomic_preconditions_and_postconditions_passed": true,
+    "retry_performed": false
+  },
+  "readback": {
+    "started_at": "2026-10-17T16:38:07.471Z",
+    "observed_at": "2026-10-17T16:38:11.450Z",
+    "read_only": true,
+    "database": {
+      "database_name": "neondb",
+      "session_user": "neondb_owner",
+      "current_user": "garden_migrator",
+      "server_version": "18.6 (653b019)"
+    },
+    "binding": {
+      "singleton": true,
+      "repository": "neophilism/The-Garden",
+      "environment": "staging",
+      "project_id": "royal-union-78374030",
+      "branch_id": "br-purple-grass-b5hurfl7",
+      "database_name": "neondb"
+    },
+    "history": [
+      {
+        "migration_id": "0001_foundation",
+        "sha256": "7ba727f1d96d342853a75670ecf4313275e72fb53674188c2e27690e246cf52e",
+        "applied_at": "2026-10-11T07:19:27.073Z"
+      },
+      {
+        "migration_id": "0002_jobs",
+        "sha256": "3c5a0fa7579aee8ad19d5cf7471a3c0cfcda677961328766f55cb8b71c691f90",
+        "applied_at": "2026-10-11T07:55:50.763Z"
+      },
+      {
+        "migration_id": "0003_membership",
+        "sha256": "a3a85fdfbd7102af0f1b8c110b274756104d1a188970063062936d08f84f2e9d",
+        "applied_at": "2026-10-16T14:57:03.951Z"
+      },
+      {
+        "migration_id": "0004_policy_context",
+        "sha256": "ce2d084065efc930255d4bb3e46080d65fb8cadf8ef72c1520b10b27bac6e4dd",
+        "applied_at": "2026-10-16T14:57:04.014Z"
+      },
+      {
+        "migration_id": "0005_historical_records",
+        "sha256": "7d92349869fde52a1c152b9deb7a2d63a524bbb4cf3a736daa3fe322cc624188",
+        "applied_at": "2026-10-16T14:57:04.067Z"
+      },
+      {
+        "migration_id": "0006_archival_sources",
+        "sha256": "79f3adf798faf45c64b11bde77a11d8d821269a3d246444ad31c581bb549e4d0",
+        "applied_at": "2026-10-16T14:57:04.094Z"
+      },
+      {
+        "migration_id": "0007_durable_locators",
+        "sha256": "322b7defc98979fb55d851153ae64d7a7406a405a47c4c83ce5b86a20c596691",
+        "applied_at": "2026-10-16T14:57:04.114Z"
+      },
+      {
+        "migration_id": "0008_atomic_claims",
+        "sha256": "f2578cb9b4755ccddb3d87f6d83c715f21dffa71d65b2bf059cd0b42ee16fe47",
+        "applied_at": "2026-10-16T14:57:04.156Z"
+      },
+      {
+        "migration_id": "0009_purpose_consent",
+        "sha256": "ff49fa5baa2bf92b8d537e4daf115facd7e1baedd913e49ca9dac387776f7312",
+        "applied_at": "2026-10-16T14:57:04.245Z"
+      },
+      {
+        "migration_id": "0010_audit_ledger",
+        "sha256": "658e8adc7764e90b7cc51e3ee6fb49925913c31d5d114aae70f13561862dbe75",
+        "applied_at": "2026-10-16T14:57:04.333Z"
+      },
+      {
+        "migration_id": "0011_scoped_reviews",
+        "sha256": "beae0f820608c605182622c3a0c3aab6debc00841d01d6c1e1cedd5bb13a7000",
+        "applied_at": "2026-10-16T14:57:04.410Z"
+      },
+      {
+        "migration_id": "0012_geographic_assertions",
+        "sha256": "a89296c1a1c05d1abee04d06706a5a7f4e9d4c197dbe6ef74d7a33e8cd7636f8",
+        "applied_at": "2026-10-16T14:57:04.425Z"
+      },
+      {
+        "migration_id": "0013_encrypted_content",
+        "sha256": "1fb1eb5adc7b2adced769cf91f8fd99af841f86ed98132d12922e07549b19964",
+        "applied_at": "2026-10-17T14:19:14.992Z"
+      },
+      {
+        "migration_id": "0014_lifecycle_requests",
+        "sha256": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c",
+        "applied_at": "2026-10-17T14:51:20.443Z"
+      },
+      {
+        "migration_id": "0015_lifecycle_controls",
+        "sha256": "b934cd39c5313fb855d9096829e540a35bae30fc1610722798149d044098648a",
+        "applied_at": "2026-10-17T15:54:50.689Z"
+      },
+      {
+        "migration_id": "0016_encrypted_delivery",
+        "sha256": "45c02c496935b5f1377e94461d7460715cf80668c5af83703e10a0e9dcd089a6",
+        "applied_at": "2026-10-17T16:37:57.663Z"
+      }
+    ],
+    "roles": [
+      {
+        "name": "garden_audit_reader",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_audit_writer",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_consent_admin",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_context_issuer",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_encryption",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_lifecycle_admin",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_lifecycle_requester",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_membership_admin",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_migrator",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_public",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_publisher",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_research",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      },
+      {
+        "name": "garden_worker",
+        "login": false,
+        "super": false,
+        "config": null,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "createrole": false,
+        "validUntil": null,
+        "replication": false,
+        "connectionLimit": -1
+      }
+    ],
+    "memberships": [
+      {
+        "set": false,
+        "role": "garden_migrator",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_migrator",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_research",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_research",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_public",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_public",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_publisher",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_publisher",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_worker",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_worker",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_membership_admin",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_membership_admin",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_context_issuer",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_context_issuer",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_consent_admin",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_consent_admin",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_audit_reader",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_audit_reader",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_audit_writer",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_audit_writer",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_encryption",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_encryption",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_lifecycle_requester",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_lifecycle_requester",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      },
+      {
+        "set": false,
+        "role": "garden_lifecycle_admin",
+        "admin": true,
+        "member": "neondb_owner",
+        "grantor": "cloud_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "garden_lifecycle_admin",
+        "admin": false,
+        "member": "neondb_owner",
+        "grantor": "neondb_owner",
+        "inherit": false
+      }
+    ],
+    "tables": [
+      {
+        "nspname": "garden_control",
+        "relname": "encrypted_delivery_checks",
+        "owner": "garden_migrator",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true
+      },
+      {
+        "nspname": "garden_control",
+        "relname": "encrypted_delivery_contexts",
+        "owner": "garden_migrator",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true
+      }
+    ],
+    "table_counts": [
+      {
+        "table_name": "garden_control.encrypted_delivery_checks",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.encrypted_delivery_contexts",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_authority_evidence",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_control_contexts",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_control_delivery_checks",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_control_tickets",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_evidence_heads",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_grant_heads",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_operation_registry",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.lifecycle_operator_grants",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.lifecycle_control_events",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.lifecycle_control_heads",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.lifecycle_control_payloads",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.lifecycle_control_scope_heads",
+        "row_count": "0"
+      }
+    ],
+    "columns": [
+      {
+        "relation": "garden_control.encrypted_delivery_checks",
+        "attname": "backend_pid",
+        "type": "integer",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_checks",
+        "attname": "transaction_id",
+        "type": "xid8",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_checks",
+        "attname": "workspace_id",
+        "type": "uuid",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_checks",
+        "attname": "record_id",
+        "type": "uuid",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_checks",
+        "attname": "expires_at",
+        "type": "timestamp with time zone",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "token_hash",
+        "type": "bytea",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "backend_pid",
+        "type": "integer",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "transaction_id",
+        "type": "xid8",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "workspace_id",
+        "type": "uuid",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "subject_id",
+        "type": "text",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "record_id",
+        "type": "uuid",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "record_revision",
+        "type": "bigint",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "content_version_id",
+        "type": "uuid",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "environment",
+        "type": "text",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "phase",
+        "type": "text",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "operation_id",
+        "type": "uuid",
+        "attnotnull": false,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "request_digest",
+        "type": "text",
+        "attnotnull": false,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "key_policy_generation",
+        "type": "bigint",
+        "attnotnull": false,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "key_binding",
+        "type": "jsonb",
+        "attnotnull": false,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "result_fingerprint",
+        "type": "text",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "authority_expires_at",
+        "type": "timestamp with time zone",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "completed_at",
+        "type": "timestamp with time zone",
+        "attnotnull": true,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "attname": "closed_at",
+        "type": "timestamp with time zone",
+        "attnotnull": false,
+        "atthasdef": false,
+        "attidentity": "",
+        "attgenerated": ""
+      }
+    ],
+    "policies": [
+      {
+        "relation": "garden_control.encrypted_delivery_checks",
+        "polname": "encrypted_delivery_owner",
+        "polcmd": "*",
+        "polpermissive": true,
+        "roles": [
+          "garden_migrator"
+        ],
+        "using_expression": "true",
+        "check_expression": "true"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "polname": "encrypted_delivery_owner",
+        "polcmd": "*",
+        "polpermissive": true,
+        "roles": [
+          "garden_migrator"
+        ],
+        "using_expression": "true",
+        "check_expression": "true"
+      }
+    ],
+    "functions": [
+      {
+        "proname": "check_encrypted_delivery_row",
+        "signature": "garden_control.check_encrypted_delivery_row(garden_control.encrypted_delivery_contexts)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "8f8542a2bb97021854cc94cfef3fac9495dc7bc46436ce072112b004e5cbb665",
+        "runtime_execute": []
+      },
+      {
+        "proname": "clear_encrypted_delivery",
+        "signature": "garden_control.clear_encrypted_delivery()",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "2bfcabb20a72274f428743f3e090d4723bba9232fb3f1b407bcf5ebf96ae3a58",
+        "runtime_execute": [
+          "garden_encryption"
+        ]
+      },
+      {
+        "proname": "commit_encrypted_delivery",
+        "signature": "garden_control.commit_encrypted_delivery(jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "aad4d386bd0a1fe5f30cc91f10f4be74d1b089d7c4d2f68f20eba0d349353b83",
+        "runtime_execute": [
+          "garden_encryption"
+        ]
+      },
+      {
+        "proname": "complete_encrypted_delivery",
+        "signature": "garden_control.complete_encrypted_delivery(text,text,jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "02a8a443ef8f54f7e9b2438a3815e8053d8e3ea3a949f3614842cb74e1038134",
+        "runtime_execute": []
+      },
+      {
+        "proname": "current_encrypted_delivery",
+        "signature": "garden_control.current_encrypted_delivery()",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "eb94fe10f2d7f42790152c54cfe28c2fc54d0ef2f2458233c73566b401865e93",
+        "runtime_execute": []
+      },
+      {
+        "proname": "encrypted_delivery_admission",
+        "signature": "garden_control.encrypted_delivery_admission()",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "f95ca0702426c3bc2765e55faf01b5286ba5bb7704a0f0068edec910315496b1",
+        "runtime_execute": [
+          "garden_encryption"
+        ]
+      },
+      {
+        "proname": "encrypted_delivery_commit_fresh",
+        "signature": "garden_control.encrypted_delivery_commit_fresh()",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "3ce5d0b62070268b6b273332a90373c7bd29e1d9f2ac51ea5e99353204dd21f2",
+        "runtime_execute": []
+      },
+      {
+        "proname": "encrypted_delivery_fingerprint",
+        "signature": "garden_control.encrypted_delivery_fingerprint(jsonb)",
+        "owner": "garden_migrator",
+        "lanname": "sql",
+        "prosecdef": false,
+        "proconfig": [
+          "search_path=pg_catalog"
+        ],
+        "body_sha256": "4985b88b57a4e6bcf5afeaadd2308d87a147f7e569e9bd281e61ae4a9ac0d934",
+        "runtime_execute": []
+      },
+      {
+        "proname": "encrypted_delivery_finish_fresh",
+        "signature": "garden_control.encrypted_delivery_finish_fresh()",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "4453794996e2cbd1ef688a661b0808d66b5b3908aa7fc872bcc2e516ab2ebc12",
+        "runtime_execute": []
+      },
+      {
+        "proname": "encrypted_delivery_value",
+        "signature": "garden_control.encrypted_delivery_value(garden_control.encrypted_delivery_contexts)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "d636e8bdecb3d07540439452ff5735f0c1b1d5e8b54aed2af40db29d0fceeeae",
+        "runtime_execute": []
+      },
+      {
+        "proname": "finish_encrypted_delivery",
+        "signature": "garden_control.finish_encrypted_delivery(text,text)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "d9d4d602cae57d74fc587c9891491de9044acadb83b99daa4196a482b3c65429",
+        "runtime_execute": [
+          "garden_context_issuer"
+        ]
+      },
+      {
+        "proname": "invalidate_encrypted_delivery",
+        "signature": "garden_control.invalidate_encrypted_delivery(text)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "d9f6f62544a6bed7148f9a30e319c25f47e010c58b2b24beb9e9a38a48c530af",
+        "runtime_execute": [
+          "garden_context_issuer"
+        ]
+      },
+      {
+        "proname": "load_encrypted_delivery",
+        "signature": "garden_control.load_encrypted_delivery(uuid,uuid,bigint,uuid,text)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "8e3b5eb55d3ea8af8315fec26d00c6526c09829ed9856d9edcd0fedde2151ab5",
+        "runtime_execute": [
+          "garden_encryption"
+        ]
+      },
+      {
+        "proname": "prepare_encrypted_delivery",
+        "signature": "garden_control.prepare_encrypted_delivery(uuid,uuid,bigint,uuid,text)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "85257c16abc436897dd56033688ae87a80f8056f5d6ba5e09365942ac21281f8",
+        "runtime_execute": [
+          "garden_encryption"
+        ]
+      },
+      {
+        "proname": "recover_encrypted_delivery",
+        "signature": "garden_control.recover_encrypted_delivery(uuid,uuid,uuid,text,text)",
+        "owner": "garden_migrator",
+        "lanname": "plpgsql",
+        "prosecdef": true,
+        "proconfig": [
+          "search_path=pg_catalog, garden_control, pg_temp"
+        ],
+        "body_sha256": "7f1a9bcbdec230245d97e62b8d7216cd3ebef6679ac2783cdb3dfc145f894eca",
+        "runtime_execute": [
+          "garden_encryption"
+        ]
+      }
+    ],
+    "function_acls": [
+      {
+        "proname": "check_encrypted_delivery_row",
+        "grantee": "garden_migrator",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "clear_encrypted_delivery",
+        "grantee": "garden_encryption",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "clear_encrypted_delivery",
+        "grantee": "garden_migrator",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "commit_encrypted_delivery",
+        "grantee": "garden_encryption",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "commit_encrypted_delivery",
+        "grantee": "garden_migrator",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "complete_encrypted_delivery",
+        "grantee": "garden_migrator",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "current_encrypted_delivery",
+        "grantee": "garden_migrator",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "encrypted_delivery_admission",
+        "grantee": "garden_encryption",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "encrypted_delivery_admission",
+        "grantee": "garden_migrator",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "encrypted_delivery_commit_fresh",
+        "grantee": "garden_migrator",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "encrypted_delivery_fingerprint",
+        "grantee": "garden_migrator",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "encrypted_delivery_finish_fresh",
+        "grantee": "garden_migrator",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "encrypted_delivery_value",
+        "grantee": "garden_migrator",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "finish_encrypted_delivery",
+        "grantee": "garden_context_issuer",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "finish_encrypted_delivery",
+        "grantee": "garden_migrator",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "invalidate_encrypted_delivery",
+        "grantee": "garden_context_issuer",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "invalidate_encrypted_delivery",
+        "grantee": "garden_migrator",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "load_encrypted_delivery",
+        "grantee": "garden_encryption",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "load_encrypted_delivery",
+        "grantee": "garden_migrator",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "prepare_encrypted_delivery",
+        "grantee": "garden_encryption",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "prepare_encrypted_delivery",
+        "grantee": "garden_migrator",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "recover_encrypted_delivery",
+        "grantee": "garden_encryption",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      },
+      {
+        "proname": "recover_encrypted_delivery",
+        "grantee": "garden_migrator",
+        "grantor": "garden_migrator",
+        "privilege_type": "EXECUTE",
+        "is_grantable": false
+      }
+    ],
+    "triggers": [
+      {
+        "relation": "garden_control.encrypted_delivery_checks",
+        "tgname": "encrypted_delivery_finish_fresh",
+        "function_name": "garden_control.encrypted_delivery_finish_fresh()",
+        "tgtype": 5,
+        "tgenabled": "O",
+        "tgdeferrable": true,
+        "tginitdeferred": true,
+        "no_condition": true,
+        "tgnargs": 0,
+        "argument_bytes": 0,
+        "update_columns": ""
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "tgname": "encrypted_delivery_commit_fresh",
+        "function_name": "garden_control.encrypted_delivery_commit_fresh()",
+        "tgtype": 5,
+        "tgenabled": "O",
+        "tgdeferrable": true,
+        "tginitdeferred": true,
+        "no_condition": true,
+        "tgnargs": 0,
+        "argument_bytes": 0,
+        "update_columns": ""
+      }
+    ],
+    "constraints": [
+      {
+        "relation": "garden_control.encrypted_delivery_checks",
+        "conname": "encrypted_delivery_checks_backend_pid_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL backend_pid"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_checks",
+        "conname": "encrypted_delivery_checks_expires_at_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL expires_at"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_checks",
+        "conname": "encrypted_delivery_checks_pkey",
+        "contype": "p",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "PRIMARY KEY (backend_pid, transaction_id)"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_checks",
+        "conname": "encrypted_delivery_checks_record_id_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL record_id"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_checks",
+        "conname": "encrypted_delivery_checks_transaction_id_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL transaction_id"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_checks",
+        "conname": "encrypted_delivery_checks_workspace_id_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL workspace_id"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_checks",
+        "conname": "encrypted_delivery_finish_fresh",
+        "contype": "t",
+        "convalidated": true,
+        "condeferrable": true,
+        "condeferred": true,
+        "definition": "TRIGGER DEFERRABLE INITIALLY DEFERRED"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_commit_fresh",
+        "contype": "t",
+        "convalidated": true,
+        "condeferrable": true,
+        "condeferred": true,
+        "definition": "TRIGGER DEFERRABLE INITIALLY DEFERRED"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_authority_expires_at_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL authority_expires_at"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_backend_pid_check",
+        "contype": "c",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "CHECK ((backend_pid > 0))"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_backend_pid_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL backend_pid"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_backend_pid_transaction_id_key",
+        "contype": "u",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "UNIQUE (backend_pid, transaction_id)"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_check",
+        "contype": "c",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "CHECK ((authority_expires_at > completed_at))"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_check1",
+        "contype": "c",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "CHECK ((((phase = ANY (ARRAY['prepare'::text, 'load'::text])) AND (operation_id IS NULL) AND (request_digest IS NULL)) OR ((phase = ANY (ARRAY['commit'::text, 'recover'::text])) AND (operation_id IS NOT NULL) AND (request_digest IS NOT NULL) AND (request_digest ~ '^[0-9a-f]{64}$'::text))))"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_check2",
+        "contype": "c",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "CHECK ((((phase = 'recover'::text) AND (key_policy_generation IS NULL) AND (key_binding IS NULL)) OR ((phase <> 'recover'::text) AND (key_policy_generation IS NOT NULL) AND (key_policy_generation > 0) AND (key_binding IS NOT NULL) AND (jsonb_typeof(key_binding) = 'object'::text))))"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_completed_at_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL completed_at"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_content_version_id_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL content_version_id"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_environment_check",
+        "contype": "c",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "CHECK ((environment = ANY (ARRAY['ci'::text, 'staging'::text])))"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_environment_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL environment"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_phase_check",
+        "contype": "c",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "CHECK ((phase = ANY (ARRAY['prepare'::text, 'load'::text, 'commit'::text, 'recover'::text])))"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_phase_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL phase"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_pkey",
+        "contype": "p",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "PRIMARY KEY (token_hash)"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_record_id_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL record_id"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_record_revision_check",
+        "contype": "c",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "CHECK ((record_revision > 0))"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_record_revision_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL record_revision"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_result_fingerprint_check",
+        "contype": "c",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "CHECK ((result_fingerprint ~ '^[0-9a-f]{64}$'::text))"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_result_fingerprint_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL result_fingerprint"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_subject_id_check",
+        "contype": "c",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "CHECK (((length(subject_id) >= 1) AND (length(subject_id) <= 128)))"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_subject_id_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL subject_id"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_token_hash_fkey",
+        "contype": "f",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "FOREIGN KEY (token_hash) REFERENCES garden_control.policy_tickets(token_hash)"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_token_hash_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL token_hash"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_transaction_id_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL transaction_id"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_workspace_id_fkey",
+        "contype": "f",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "FOREIGN KEY (workspace_id) REFERENCES garden_control.access_workspaces(id)"
+      },
+      {
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "conname": "encrypted_delivery_contexts_workspace_id_not_null",
+        "contype": "n",
+        "convalidated": true,
+        "condeferrable": false,
+        "condeferred": false,
+        "definition": "NOT NULL workspace_id"
+      }
+    ],
+    "runtime_table_column_privileges": [],
+    "nonowner_table_acls": [],
+    "old_entrypoints": [
+      {
+        "signature": "garden_control.check_encrypted_commit(uuid,text)",
+        "encryption_execute": false,
+        "body_sha256": "51797ec40272e9028b153fd53d593481fd6de3861f0cae160e726e9ae8de521b",
+        "proacl": "{garden_migrator=X/garden_migrator}"
+      },
+      {
+        "signature": "garden_control.clear_policy_context()",
+        "encryption_execute": false,
+        "body_sha256": "2d9d9b27b99ce8f130e5814ea1950ff044de091cdfe05c35c887625077dec1c6",
+        "proacl": "{garden_migrator=X/garden_migrator,garden_research=X/garden_migrator,garden_audit_reader=X/garden_migrator}"
+      },
+      {
+        "signature": "garden_control.commit_encrypted_content(jsonb)",
+        "encryption_execute": false,
+        "body_sha256": "425b230dfb394049da8bbdb0591b1c511811f6a49b7b16bd63b58ebe51f3466b",
+        "proacl": "{garden_migrator=X/garden_migrator}"
+      },
+      {
+        "signature": "garden_control.encrypted_content_receipt(uuid,uuid,uuid,text)",
+        "encryption_execute": false,
+        "body_sha256": "dffae96a588c34dbaead65c7afe74293e9fffcf73ad18f3a6b83ecbe73e4f28f",
+        "proacl": "{garden_migrator=X/garden_migrator}"
+      },
+      {
+        "signature": "garden_control.load_encrypted_content(uuid,uuid,bigint,uuid,text)",
+        "encryption_execute": false,
+        "body_sha256": "8a1af4beb9f03345d151fa2dbf63bfe787148548734fa3b521b2fc89449108a4",
+        "proacl": "{garden_migrator=X/garden_migrator}"
+      },
+      {
+        "signature": "garden_control.prepare_encrypted_content(uuid,uuid,bigint,uuid,text)",
+        "encryption_execute": false,
+        "body_sha256": "dc1cb094fc5e3077ed2330cfad26d9f022297d4c88e4188af99b30a5ebaedc9c",
+        "proacl": "{garden_migrator=X/garden_migrator}"
+      }
+    ],
+    "audit": {
+      "signature": "garden_control.append_audit_event(uuid,text,text,text,text,bigint,text,uuid)",
+      "owner": "garden_migrator",
+      "prosecdef": true,
+      "body_sha256": "681a44b229a9927a3aeae8f414d2a5c3516cbe9e39f1eee5042e30b2caf0a172",
+      "proacl": "{garden_migrator=X/garden_migrator}"
+    },
+    "indexes": [
+      {
+        "index_name": "garden_control.encrypted_delivery_checks_pkey",
+        "relation": "garden_control.encrypted_delivery_checks",
+        "indisvalid": true,
+        "indisready": true,
+        "indisunique": true,
+        "definition": "CREATE UNIQUE INDEX encrypted_delivery_checks_pkey ON garden_control.encrypted_delivery_checks USING btree (backend_pid, transaction_id)"
+      },
+      {
+        "index_name": "garden_control.encrypted_delivery_contexts_backend_pid_transaction_id_key",
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "indisvalid": true,
+        "indisready": true,
+        "indisunique": true,
+        "definition": "CREATE UNIQUE INDEX encrypted_delivery_contexts_backend_pid_transaction_id_key ON garden_control.encrypted_delivery_contexts USING btree (backend_pid, transaction_id)"
+      },
+      {
+        "index_name": "garden_control.encrypted_delivery_contexts_pkey",
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "indisvalid": true,
+        "indisready": true,
+        "indisunique": true,
+        "definition": "CREATE UNIQUE INDEX encrypted_delivery_contexts_pkey ON garden_control.encrypted_delivery_contexts USING btree (token_hash)"
+      },
+      {
+        "index_name": "garden_control.encrypted_delivery_expiry",
+        "relation": "garden_control.encrypted_delivery_contexts",
+        "indisvalid": true,
+        "indisready": true,
+        "indisunique": false,
+        "definition": "CREATE INDEX encrypted_delivery_expiry ON garden_control.encrypted_delivery_contexts USING btree (authority_expires_at)"
+      }
+    ],
+    "prior_function_catalog_count": 143
+  },
+  "supplemental_readback": {
+    "started_at": "2026-10-17T16:38:47.977Z",
+    "observed_at": "2026-10-17T16:38:51.688Z",
+    "read_only": true,
+    "prior_encryption_table_counts": [
+      {
+        "table_name": "garden_control.encryption_key_bindings",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_control.encryption_key_versions",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.encrypted_content_heads",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.encrypted_content_versions",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.encrypted_envelope_revisions",
+        "row_count": "0"
+      },
+      {
+        "table_name": "garden_private.encrypted_material",
+        "row_count": "0"
+      }
+    ],
+    "private_tables_without_forced_rls": 0,
+    "function_attributes": [
+      {
+        "signature": "garden_control.check_encrypted_delivery_row(garden_control.encrypted_delivery_contexts)",
+        "provolatile": "v",
+        "proisstrict": false,
+        "result_type": "jsonb"
+      },
+      {
+        "signature": "garden_control.clear_encrypted_delivery()",
+        "provolatile": "v",
+        "proisstrict": false,
+        "result_type": "void"
+      },
+      {
+        "signature": "garden_control.commit_encrypted_delivery(jsonb)",
+        "provolatile": "v",
+        "proisstrict": false,
+        "result_type": "jsonb"
+      },
+      {
+        "signature": "garden_control.complete_encrypted_delivery(text,text,jsonb)",
+        "provolatile": "v",
+        "proisstrict": false,
+        "result_type": "void"
+      },
+      {
+        "signature": "garden_control.current_encrypted_delivery()",
+        "provolatile": "v",
+        "proisstrict": false,
+        "result_type": "garden_control.encrypted_delivery_contexts"
+      },
+      {
+        "signature": "garden_control.encrypted_delivery_admission()",
+        "provolatile": "v",
+        "proisstrict": false,
+        "result_type": "jsonb"
+      },
+      {
+        "signature": "garden_control.encrypted_delivery_commit_fresh()",
+        "provolatile": "v",
+        "proisstrict": false,
+        "result_type": "trigger"
+      },
+      {
+        "signature": "garden_control.encrypted_delivery_fingerprint(jsonb)",
+        "provolatile": "i",
+        "proisstrict": false,
+        "result_type": "text"
+      },
+      {
+        "signature": "garden_control.encrypted_delivery_finish_fresh()",
+        "provolatile": "v",
+        "proisstrict": false,
+        "result_type": "trigger"
+      },
+      {
+        "signature": "garden_control.encrypted_delivery_value(garden_control.encrypted_delivery_contexts)",
+        "provolatile": "v",
+        "proisstrict": false,
+        "result_type": "jsonb"
+      },
+      {
+        "signature": "garden_control.finish_encrypted_delivery(text,text)",
+        "provolatile": "v",
+        "proisstrict": false,
+        "result_type": "jsonb"
+      },
+      {
+        "signature": "garden_control.invalidate_encrypted_delivery(text)",
+        "provolatile": "v",
+        "proisstrict": false,
+        "result_type": "void"
+      },
+      {
+        "signature": "garden_control.load_encrypted_delivery(uuid,uuid,bigint,uuid,text)",
+        "provolatile": "v",
+        "proisstrict": false,
+        "result_type": "jsonb"
+      },
+      {
+        "signature": "garden_control.prepare_encrypted_delivery(uuid,uuid,bigint,uuid,text)",
+        "provolatile": "v",
+        "proisstrict": false,
+        "result_type": "jsonb"
+      },
+      {
+        "signature": "garden_control.recover_encrypted_delivery(uuid,uuid,uuid,text,text)",
+        "provolatile": "v",
+        "proisstrict": false,
+        "result_type": "jsonb"
+      }
+    ]
+  },
+  "verification": {
+    "comparisons": {
+      "adapter_result_count": true,
+      "database_identity": true,
+      "deployment_binding": true,
+      "sixteen_ledger_hashes": true,
+      "prior_fifteen_ledger_timestamps_unchanged": true,
+      "thirteen_roles_exact": true,
+      "twenty_six_memberships_exact": true,
+      "two_table_owners_forced_rls": true,
+      "fourteen_new_and_control_tables_empty": true,
+      "all_twenty_three_columns_exact": true,
+      "two_owner_only_policies": true,
+      "fifteen_function_signatures_bodies_owners_search_paths_runtime_grants": true,
+      "fifteen_volatility_strict_return_types": true,
+      "exact_twenty_three_function_acl_entries": true,
+      "two_deferred_triggers_exact": true,
+      "runtime_raw_table_column_privileges_absent": true,
+      "nonowner_table_acls_absent": true,
+      "six_old_function_bodies_preserved_and_encryption_revoked": true,
+      "six_old_function_other_acls_preserved": true,
+      "audit_body_owner_security_and_acl_unchanged": true,
+      "six_encryption_tables_still_empty": true,
+      "global_private_tables_forced_rls": true,
+      "prior_function_catalog_fresh_shape": true,
+      "all_sixteen_non_null_excluded_constraints_match_reviewed_source": true,
+      "all_eighteen_postgresql_not_null_constraints_match_columns": true,
+      "exact_four_indexes_valid_ready": true
+    },
+    "all16_history_hashes_match": true,
+    "prior15_ledger_rows_unchanged": true,
+    "new_tables_owned_and_forced_rls": 2,
+    "new_tables_empty": 2,
+    "previous_control_tables_empty": 12,
+    "previous_encryption_tables_empty": 6,
+    "exact_function_bodies": 15,
+    "encryption_function_grants": 6,
+    "issuer_function_grants": 2,
+    "owner_only_functions": 7,
+    "exact_triggers": 2,
+    "old_encryption_entrypoints_revoked": 6,
+    "role_catalog_unchanged": true,
+    "audit_body_and_permissions_unchanged": true,
+    "whole_prior_function_catalog_preservation": "The guarded apply transaction captured its exact prestate and required equality after the six intended encryption EXECUTE removals. The external preflight independently captured six legacy function bodies/ACLs plus audit, not the entire 143-function catalog. The fresh complete post-apply inventory is not represented as an independent external before/after comparison.",
+    "normalization": "Only search_path whitespace was normalized when comparing the source to PostgreSQL catalog output; all identifiers, arguments, bodies and privilege bindings were exact. PostgreSQL 18 NOT NULL catalog constraints were checked separately against all eighteen NOT NULL columns."
+  },
+  "limits": {
+    "production_verified": false,
+    "production_changed": false,
+    "hosted_activation": false,
+    "real_keys_or_authorities_provisioned": false,
+    "corpus_processed": false,
+    "metadata_authority": false,
+    "requester_decisions": false,
+    "tombstones": false,
+    "physical_erasure": false,
+    "external_human_security_audit": false
+  },
+  "independent_readback": {
+    "observation": {
+      "schema_version": 1,
+      "status": "independent_postcommit_readback_verified",
+      "recorded_at": "2026-10-17T16:41:04.953035+00:00",
+      "observed_at": {
+        "started": "2026-10-17T16:38:23.481Z",
+        "ended": "2026-10-17T16:38:31.509Z"
+      },
+      "target": {
+        "projectId": "royal-union-78374030",
+        "branchId": "br-purple-grass-b5hurfl7",
+        "databaseName": "neondb",
+        "environment": "staging",
+        "session_role": "neondb_owner"
+      },
+      "source": {
+        "source_root": "/workspace/scratch/7d1434690aca/garden-encryption-delivery-fence",
+        "source_commit": "688756a243dfa56d2eae05d091d72e2c7266fd8f",
+        "migration_sha256": "45c02c496935b5f1377e94461d7460715cf80668c5af83703e10a0e9dcd089a6",
+        "manifest_sha256": "8da543a23e830c73e2a5572da6b005f7fb483dc122352886a3e6007a0a13859a",
+        "migration_bytes": 20472,
+        "source_merged": true,
+        "prior0015_sha256": "b934cd39c5313fb855d9096829e540a35bae30fc1610722798149d044098648a",
+        "all16_files_match_pinned_commit_and_manifest": true,
+        "merged_tree": "ef53ddabc845cee88f63fbb9eb1b86bb4169ea55",
+        "merged_sole_parent": "72789692f70994fb0d3cf37698fa34858d956a9a"
+      },
+      "read_only": true,
+      "provider_transaction_count": 1,
+      "statements_executed": 23,
+      "application_performed_by_this_agent": false,
+      "input_sha256": {
+        "/workspace/scratch/7d1434690aca/stage16-independent-readback/raw-mcp.json": "ba08b4c2d917bdc4e4c712dcbb61de8cd8148e03a303efa6c02240895d228a1c",
+        "/tmp/garden-encrypted-stage16-review-final.json": "3ff0b9946d3589b070a8fa85c557ffc1e4eb5914565df14bd29909faca2e88f2",
+        "/tmp/garden-encrypted-stage16-fresh-preflight.json": "9bb0062f1797497a66cc0076f0dcd602f7e282ef6b42310a6f2f50a96b39b8d6",
+        "/tmp/garden-controls-stage15-verified.json": "658ec9446aa62b23e94b718fec4e731d8cee207ceea9434def7fe8e1c066cde5"
+      },
+      "verifier": {
+        "path": "/workspace/scratch/7d1434690aca/stage16-independent-readback/verify.py",
+        "sha256": "2aaec56a21b60bc89cdb3db71c036a0c20212a5225e14f5dfdc6a36080c26092"
+      },
+      "checks": [
+        {
+          "name": "exact_read_only_request",
+          "status": "pass",
+          "detail": "Exact pinned 23 statements; first statement SET TRANSACTION READ ONLY."
+        },
+        {
+          "name": "complete_transaction_result",
+          "status": "pass",
+          "detail": "All 23 statement results returned; no error or partial-result substitution."
+        },
+        {
+          "name": "database_identity",
+          "status": "pass",
+          "detail": "Exact database, session owner, effective migrator and PostgreSQL version match fresh preflight."
+        },
+        {
+          "name": "deployment_binding",
+          "status": "pass",
+          "detail": "Exact isolated staging project, branch, repository and database binding."
+        },
+        {
+          "name": "migration_history",
+          "status": "pass",
+          "detail": "All 16 ordered hashes match merged source; all 15 prior applied_at values unchanged."
+        },
+        {
+          "name": "role_catalog",
+          "status": "pass",
+          "detail": "Every role flag, configuration and expiry matches the preflight catalog."
+        },
+        {
+          "name": "owner_memberships",
+          "status": "pass",
+          "detail": "Exact complete owner/grantor/admin/inherit/set rows remain unchanged."
+        },
+        {
+          "name": "new_table_protection",
+          "status": "pass",
+          "detail": "Both exact new tables have migrator ownership and enabled, forced RLS."
+        },
+        {
+          "name": "empty_data",
+          "status": "pass",
+          "detail": "Two new delivery tables and twelve retained lifecycle-control tables are empty; encryption material tables are not selected by these 23 statements."
+        },
+        {
+          "name": "column_definitions",
+          "status": "pass",
+          "detail": "All 23 column names, exact types, nullability and absence of defaults/identity/generated expressions match the source contract."
+        },
+        {
+          "name": "owner_only_policies",
+          "status": "pass",
+          "detail": "Exactly one owner-only policy per new table, with exact USING/CHECK expressions."
+        },
+        {
+          "name": "new_function_sources",
+          "status": "pass",
+          "detail": "All 15 exact signatures, prosrc SHA256 values, owners, languages, security modes, search_path and effective runtime execute sets match reviewed merged source."
+        },
+        {
+          "name": "complete_new_function_acls",
+          "status": "pass",
+          "detail": "Exactly fifteen owner ACL entries and eight intended runtime entries; no other grantee or grant option."
+        },
+        {
+          "name": "deferred_triggers",
+          "status": "pass",
+          "detail": "Both exact AFTER INSERT ROW triggers are enabled and initially deferred, with no condition, arguments or update-column restriction."
+        },
+        {
+          "name": "check_constraint_expressions",
+          "status": "pass",
+          "detail": "All nine source CHECK expressions match independently normalized PostgreSQL expressions; only text literal coercion, IN/ANY and BETWEEN expansion are normalized."
+        },
+        {
+          "name": "keys_and_constraint_inventory",
+          "status": "pass",
+          "detail": "Five exact primary/unique/foreign keys, eighteen NOT NULL constraints, nine CHECKs and two trigger constraints; all validated with exact deferral properties."
+        },
+        {
+          "name": "no_runtime_raw_table_privileges",
+          "status": "pass",
+          "detail": "No table or column access for any of the twelve runtime capabilities."
+        },
+        {
+          "name": "no_other_table_acl_grantee",
+          "status": "pass",
+          "detail": "No non-owner table ACL entry, including unknown grantees."
+        },
+        {
+          "name": "six_legacy_revocations",
+          "status": "pass",
+          "detail": "All six exact old bodies are unchanged; only garden_encryption EXECUTE is removed from each ACL, preserving clear_policy_context grants to research and audit reader."
+        },
+        {
+          "name": "audit_preserved",
+          "status": "pass",
+          "detail": "Exact audit signature, owner, security mode, prosrc hash and ACL match the independent fresh preflight."
+        },
+        {
+          "name": "index_inventory",
+          "status": "pass",
+          "detail": "All four exact indexes, their columns, uniqueness and valid/ready flags match source constraints and the explicit expiry index."
+        },
+        {
+          "name": "prior_function_inventory",
+          "status": "pass",
+          "detail": "All 143 current prior-function signatures match the merged migration inventory, with migrator ownership, well-formed retained definition hashes, no PUBLIC EXECUTE or grant options. No external full-catalog prestate was available for independent before/after hash comparison."
+        }
+      ],
+      "verification_groups": 22,
+      "result_row_counts": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        16,
+        1,
+        1,
+        2,
+        14,
+        23,
+        2,
+        15,
+        23,
+        2,
+        34,
+        0,
+        0,
+        6,
+        1,
+        4,
+        1
+      ],
+      "prior_function_catalog_sha256": "69c9e1c13d121a3ec96edc67381d99ec8f88be803e3ce9adccd42dd8d9c2ba98",
+      "limitations": [
+        "Full prior-function preservation was enforced by the reviewed atomic apply pre/post guard; this independent readback has no external pre-apply snapshot of all 143 definition hashes.",
+        "Function volatility/strictness/return type and global pre-existing forced-RLS inventory were guarded during application but not selected by the frozen 23 readback statements; root owns separate supplementary readback.",
+        "The empty-data observation here covers two new delivery and twelve lifecycle-control tables. Root separately checks six encrypted-content/key tables.",
+        "This verifies staged schema and empty retained state; it activates no runtime/provider/key and certifies no production traffic."
+      ]
+    },
+    "observation_sha256": "3243c18b6e91f942e2445970306d9004bb44633d949e2e118365b774dd76066e"
+  },
+  "local_receipt_hashes": {
+    "/tmp/garden-encrypted-stage16-root-readback.json": "397ff353546b24731821989f8409f53db53cefa2c407c5ec723493c228585350",
+    "/tmp/garden-encrypted-stage16-root-supplemental.json": "a4fde0b2ada49af7e405e8f7ff7a5d4f432debb34d265d0af94e71fb45f1bdbd",
+    "/workspace/scratch/7d1434690aca/stage16-independent-readback/raw-mcp.json": "ba08b4c2d917bdc4e4c712dcbb61de8cd8148e03a303efa6c02240895d228a1c",
+    "/workspace/scratch/7d1434690aca/stage16-independent-readback/normalized-results.json": "26cb3ad203411f813ccdd2b86146837aa9e7f164fdcd077cbc61c5214062c10e"
+  },
+  "guard_review_history": {
+    "finding": "The first draft did not require the exact multiset of expected owner/grantor membership rows. V2 requires all twenty-six rows with exact admin/inherit/set flags and rejects omissions, duplicates and drift. The final bundle changes only source/provenance bindings to verified PR72.",
+    "v2_review": {
+      "recordedAt": "2026-10-17T16:28:39.730435+00:00",
+      "reviewer": "garden_deployment_status",
+      "scope": "Independent local exact-source stage16 bundle review; no builder build, SQL execution, cloud query, provider mutation or application source edit",
+      "verdict": "No remaining concrete blocker in the prepared v2 bundle; actual PostgreSQL CI, verified merge, fresh preflight and merged-source rebinding remain required",
+      "source": {
+        "source_root": "/workspace/scratch/7d1434690aca/garden-encryption-delivery-fence",
+        "source_commit": "96051fc1baa4279f7cd38bbd302dbfa8196a5d10",
+        "migration_sha256": "45c02c496935b5f1377e94461d7460715cf80668c5af83703e10a0e9dcd089a6",
+        "manifest_sha256": "8da543a23e830c73e2a5572da6b005f7fb483dc122352886a3e6007a0a13859a",
+        "migration_bytes": 20472,
+        "source_merged": false,
+        "prior0015_sha256": "b934cd39c5313fb855d9096829e540a35bae30fc1610722798149d044098648a",
+        "all16_files_match_pinned_commit_and_manifest": true
+      },
+      "target": {
+        "projectId": "royal-union-78374030",
+        "branchId": "br-purple-grass-b5hurfl7",
+        "databaseName": "neondb",
+        "environment": "staging",
+        "session_role": "neondb_owner"
+      },
+      "bundleSha256": "b0c59215464a7d2e60b5de71b6a24dab075b5710460620cb7e00ea0f226aa141",
+      "builderSha256": "96e3b8fa8fa8db204b86762f90c0a065e88582084ab3b1a65e431298a2724699",
+      "sourcePinSha256": "4748149a7fcf0900a141bade57d1be405a66970fc9c66ac77b66175ed01ac0eb",
+      "splitterSha256": "0dfe0d68053ca44089073bcaa7cef16ec93d79c3c755dad6dff69c5d86b3b399",
+      "previousDraftSha256": "01251f9692b52e428ef2aee68932c48940ad2cc9d242ac8232a3232a948700c9",
+      "changedTransactionIndexes": [
+        9
+      ],
+      "independentMembershipClassification": [
+        {
+          "name": "exact",
+          "expectedAdmission": true,
+          "v2Admission": true
+        },
+        {
+          "name": "missing_owner_row",
+          "expectedAdmission": false,
+          "v2Admission": false
+        },
+        {
+          "name": "duplicate_owner_row",
+          "expectedAdmission": false,
+          "v2Admission": false
+        },
+        {
+          "name": "changed_grantor",
+          "expectedAdmission": false,
+          "v2Admission": false
+        },
+        {
+          "name": "inherited_membership",
+          "expectedAdmission": false,
+          "v2Admission": false
+        },
+        {
+          "name": "changed_admin_flag",
+          "expectedAdmission": false,
+          "v2Admission": false
+        },
+        {
+          "name": "changed_set_flag",
+          "expectedAdmission": false,
+          "v2Admission": false
+        },
+        {
+          "name": "missing_all_rows",
+          "expectedAdmission": false,
+          "v2Admission": false
+        }
+      ],
+      "embeddedMembershipTests": {
+        "accepted_exact_multisets": 2,
+        "rejected_changed_multisets": 23,
+        "prior_guard_accepted_missing_owner_row": true,
+        "postgresql_execution": false,
+        "result": "pass"
+      },
+      "splitterTests": {
+        "positive_cases": 14,
+        "negative_cases": 8,
+        "result": "pass",
+        "postgresql_execution": false
+      },
+      "unchangedV1ByteParserEvidenceSha256": "14b6119d8f4e5d0bcdb4be19df5643664a01985b77410e6640457679ab9cb518",
+      "checks": {
+        "sourceByteLength": 20472,
+        "losslessMigrationStatements": 27,
+        "atomicTransactionStatements": 41,
+        "sameBackendAdapterRequired": true,
+        "oldHistoryExactEntries": 15,
+        "postHistoryExactEntries": 16,
+        "newEmptyOwnerOnlyForcedRlsTables": 2,
+        "newFunctionBodiesMatchingExactSource": 15,
+        "exactNewRuntimeExecuteGrants": 8,
+        "intendedOldExecuteRevocations": 6,
+        "allOtherPriorFunctionDefinitionsAndAclsPreserved": true,
+        "unchangedAuditBodyAndAcl": true,
+        "exactDeferredAfterInsertRowTriggers": 2,
+        "all13RoleOwnerMultisetsGuarded": true,
+        "readOnlyPostCommitQueries": 19,
+        "changedPreguardPostgreSQLParser": "passed"
+      },
+      "limits": [
+        "Existing stage15 observation is historical, not a fresh provider read.",
+        "Expected owner pattern is required for all13 roles and must match fresh target metadata at application time; this review does not independently establish all current role rows.",
+        "Parser and pure classification tests do not prove PostgreSQL execution or adapter atomicity.",
+        "The draft source is unmerged: required actual PostgreSQL CI and verified merge/source-byte comparison precede any apply.",
+        "No key, identity, authority, content, runtime activation or erasure operation is included."
+      ]
+    },
+    "v2_review_sha256": "39f753391e891a66cff3a017ad56826a3c2e4f562a02ed9f7fd065828584db38",
+    "final_binding_review": {
+      "recordedAt": "2026-10-17T16:35:22.287534+00:00",
+      "reviewer": "garden_deployment_status",
+      "verdict": "Final metadata/source rebinding passes mechanical review; execution statements exactly retain reviewed V2",
+      "scope": "Local artifact and Git-object comparison only; no cloud query, SQL apply, build invocation or source edit",
+      "inputs": {
+        "finalBundle": {
+          "path": "/tmp/garden-encrypted-stage16-review-final.json",
+          "sha256": "3ff0b9946d3589b070a8fa85c557ffc1e4eb5914565df14bd29909faca2e88f2"
+        },
+        "finalBuilder": {
+          "path": "/tmp/garden_encrypted_stage16_bundle_final.py",
+          "sha256": "522c6f22793ac6ae3f22b2b95c4541f08fdfd144f37b92daaf3b3a68b5191d9e"
+        },
+        "finalPin": {
+          "path": "/tmp/garden-encrypted-stage16-source-final.json",
+          "sha256": "0c812f00776cfec3b6357b48c7a547e9c7d11b9e081f0652813f52b5cc2c3cd3"
+        },
+        "reviewedV2": {
+          "path": "/tmp/garden-encrypted-stage16-review-v2.json",
+          "sha256": "b0c59215464a7d2e60b5de71b6a24dab075b5710460620cb7e00ea0f226aa141"
+        },
+        "mergeProof": {
+          "path": "/tmp/garden-encryption-pr72-merge-proof.json",
+          "sha256": "7222befef5c7e434a625dff4e013e8631ed9c207f4c013971c8615b5e50b47c3"
+        },
+        "freshPreflight": {
+          "path": "/tmp/garden-encrypted-stage16-fresh-preflight.json",
+          "sha256": "9bb0062f1797497a66cc0076f0dcd602f7e282ef6b42310a6f2f50a96b39b8d6"
+        }
+      },
+      "changedMetadataKeys": [
+        "builder",
+        "format",
+        "fresh_preflight_provenance",
+        "prepared_at",
+        "required_before_apply",
+        "reviewed_execution_source",
+        "source",
+        "status",
+        "verified_merge_provenance"
+      ],
+      "applyStatementsIdentical": 41,
+      "readbackStatementsIdentical": 23,
+      "migrationSlicesIdentical": 27,
+      "verifiedCommit": "688756a243dfa56d2eae05d091d72e2c7266fd8f",
+      "verifiedTree": "ef53ddabc845cee88f63fbb9eb1b86bb4169ea55",
+      "verifiedSoleParent": "72789692f70994fb0d3cf37698fa34858d956a9a",
+      "all16MergedMigrationBlobHashesMatch": true,
+      "proofExactChecks": 10,
+      "proofWorkflows": 7,
+      "proofActualPostgresqlGroups": 33,
+      "rootPreflightObservedAt": "2026-10-17T16:31:16.206Z",
+      "rootPreflightExactPriorHistory": 15,
+      "rootPreflightOwnerRoleRows": 26,
+      "rootPreflightEmptyTables": 18,
+      "sourceMigrationSha256": "45c02c496935b5f1377e94461d7460715cf80668c5af83703e10a0e9dcd089a6",
+      "sourceManifestSha256": "8da543a23e830c73e2a5572da6b005f7fb483dc122352886a3e6007a0a13859a",
+      "applyPerformedByReviewer": false,
+      "limits": [
+        "Root-provided fresh preflight is checked as a pinned observation; reviewer made no new provider query.",
+        "The unchanged in-transaction guards must still succeed on one adapter-owned backend/transaction.",
+        "Root owns application, uncertain-outcome handling and post-COMMIT readback."
+      ]
+    },
+    "final_binding_review_sha256": "5d3d2298c216b1ac8fbe5e537e1ae26292b8d1ef40d640c4f0009c164688df26"
+  }
+}

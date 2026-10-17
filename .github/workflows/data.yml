@@ -73,6 +73,8 @@ jobs:
         run: node apps/research/access/lifecycle-controls.ci.mjs
       - name: Real database workspace gate ordering and expiry journey
         run: node apps/research/access/policy-workspace-gate.ci.mjs
+      - name: Isolated metadata resolver permissions and row locking
+        run: node apps/research/access/lifecycle-hold-metadata-permissions.ci.mjs
       - name: Preserve synthetic data acceptance evidence
         if: success()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

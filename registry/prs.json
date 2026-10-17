@@ -12,7 +12,7 @@
   "scopeNote": "Exact 210 work package titles and scopes recovered from plan/plan.json; the last 14 are contingent governmental scope, not activated powers or deployed features. PR links come only from existing reviewed historical mappings.",
   "schemaVersion": 1,
   "roadmapVersion": 2,
-  "observedAt": "2026-10-17T16:21:52.597Z",
+  "observedAt": "2026-10-17T16:32:46.473Z",
   "units": [
     {
       "id": "GDN-001",
@@ -5552,6 +5552,21 @@
       "headSha": "a89dab29b2ba255da381bd7cc32a6a2290b0eb7b",
       "baseRef": "main",
       "mergeCommitSha": "72789692f70994fb0d3cf37698fa34858d956a9a"
+    },
+    {
+      "id": 4901870580,
+      "number": 72,
+      "title": "Bind encrypted delivery to current authority and exact recovery",
+      "url": "https://github.com/neophilism/The-Garden/pull/72",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T16:27:29Z",
+      "updatedAt": "2026-10-17T16:32:34Z",
+      "closedAt": "2026-10-17T16:32:33Z",
+      "mergedAt": "2026-10-17T16:32:33Z",
+      "headSha": "d36e20b3874b6fca7b0d6ffc7b69ec3721f609cc",
+      "baseRef": "main",
+      "mergeCommitSha": "688756a243dfa56d2eae05d091d72e2c7266fd8f"
     }
   ]
 }

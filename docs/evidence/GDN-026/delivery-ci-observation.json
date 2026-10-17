@@ -1,0 +1,308 @@
+{
+  "observation": {
+    "schema_version": 1,
+    "observation": "Independent actual PR72 data and identity verification, first published head",
+    "recorded_at_utc": "2026-10-17T16:30:37.779490+00:00",
+    "repository": "neophilism/The-Garden",
+    "pr_number": 72,
+    "head_sha": "d36e20b3874b6fca7b0d6ffc7b69ec3721f609cc",
+    "base_sha": "72789692f70994fb0d3cf37698fa34858d956a9a",
+    "head_tree_root_readback": "ef53ddabc845cee88f63fbb9eb1b86bb4169ea55",
+    "encryption_groups_authored": 33,
+    "prior_verified_encryption_groups": 22,
+    "prior_verified_encryption_source": "PR70, not this candidate",
+    "fixture_sha256": "24c046e7136f4f94d81137466df70089b540659a267e03d19d2d429937bdfdc2",
+    "runtime_sha256": "20cbb9f437f8737c7acc55828da68263f46ce479962725389785711999c51fa7",
+    "migration_sha256": "45c02c496935b5f1377e94461d7460715cf80668c5af83703e10a0e9dcd089a6",
+    "jobs": {
+      "data": {
+        "job_id": 117444978799,
+        "run_id": 39049487941,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/neophilism/The-Garden/actions/runs/39049487941/job/117444978799",
+        "log_file": "data-job-117444978799.log",
+        "log_bytes": 474919,
+        "log_sha256": "42bea521c4f349499f28312559fe0cc2c0e7bc0767bae4b62043b4a571f3e2a5",
+        "source_receipt": {
+          "event": "pull_request",
+          "job": "data",
+          "parent_shas": [
+            "72789692f70994fb0d3cf37698fa34858d956a9a",
+            "d36e20b3874b6fca7b0d6ffc7b69ec3721f609cc"
+          ],
+          "repository": "neophilism/The-Garden",
+          "run_attempt": "1",
+          "schema_version": 1,
+          "tested_sha": "08472ad571da1df25cfe5b0d549af2f7dad6f4fa",
+          "workflow_ref": "neophilism/The-Garden/.github/workflows/data.yml@refs/pull/72/merge",
+          "workflow_run_id": "39049487941"
+        },
+        "pass_lines": [
+          "2026-10-17T16:28:01.3227213Z PASS: 24 real PostgreSQL historical-record checks",
+          "2026-10-17T16:28:02.5660430Z PASS: 20 real PostgreSQL source checks",
+          "2026-10-17T16:28:03.2045647Z PASS: 18 real PostgreSQL locator checks",
+          "2026-10-17T16:28:04.4159096Z PASS: 18 real PostgreSQL claim checks",
+          "2026-10-17T16:28:05.8930320Z PASS: 23 real PostgreSQL audit checks",
+          "2026-10-17T16:28:08.1643457Z PASS: 14 real PostgreSQL scoped-review checks",
+          "2026-10-17T16:28:09.5792188Z PASS: 16 real PostgreSQL geographic checks",
+          "2026-10-17T16:29:01.1543908Z PASS: 33 real PostgreSQL encrypted-content persistence and authority checks",
+          "2026-10-17T16:29:19.9159478Z PASS: 22 real PostgreSQL lifecycle request checks",
+          "2026-10-17T16:30:12.5662682Z PASS: 32 real PostgreSQL lifecycle control checks",
+          "2026-10-17T16:30:15.7275427Z PASS: 11 actual PostgreSQL workspace ordering and expiry checks"
+        ],
+        "failed_steps": [],
+        "artifacts": [
+          {
+            "id": 12107207137,
+            "name": "garden-data-39049487941",
+            "size_in_bytes": 14325,
+            "url": "https://api.github.com/repos/neophilism/The-Garden/actions/artifacts/12107207137",
+            "archive_download_url": "https://api.github.com/repos/neophilism/The-Garden/actions/artifacts/12107207137/zip",
+            "expired": false,
+            "created_at": "2026-10-17T16:30:16Z",
+            "expires_at": "2026-11-16T16:30:15Z",
+            "updated_at": "2026-10-17T16:30:16Z",
+            "digest": "sha256:7fa4ed63270afd5bb5fc9efc9b3fbfb7026dda44b41b6fc185e85fea48b84777",
+            "workflow_run": {
+              "id": 39049487941,
+              "repository_id": 1413400176,
+              "head_repository_id": 1413400176,
+              "head_branch": "security/encrypted-delivery-authority-20261017",
+              "head_sha": "d36e20b3874b6fca7b0d6ffc7b69ec3721f609cc"
+            }
+          }
+        ]
+      },
+      "identity": {
+        "job_id": 117444979134,
+        "run_id": 39049488050,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/neophilism/The-Garden/actions/runs/39049488050/job/117444979134",
+        "log_file": "identity-job-117444979134.log",
+        "log_bytes": 143062,
+        "log_sha256": "2d4e5555ceb00752883de6311e83efc49ad8c779dcd44a9ef70145e0e115a0ac",
+        "source_receipt": {
+          "event": "pull_request",
+          "job": "identity",
+          "parent_shas": [
+            "72789692f70994fb0d3cf37698fa34858d956a9a",
+            "d36e20b3874b6fca7b0d6ffc7b69ec3721f609cc"
+          ],
+          "repository": "neophilism/The-Garden",
+          "run_attempt": "1",
+          "schema_version": 1,
+          "tested_sha": "08472ad571da1df25cfe5b0d549af2f7dad6f4fa",
+          "workflow_ref": "neophilism/The-Garden/.github/workflows/identity.yml@refs/pull/72/merge",
+          "workflow_run_id": "39049488050"
+        },
+        "pass_lines": [
+          "2026-10-17T16:28:25.7849859Z PASS: 23 identity lifecycle checks using real ephemeral PostgreSQL; no external emails or production identities",
+          "2026-10-17T16:28:27.0359998Z PASS: 39 live PostgreSQL RLS, role and pool-contamination checks",
+          "2026-10-17T16:28:27.8672417Z PASS: 18 delivery checks with real PostgreSQL and archive adapter",
+          "2026-10-17T16:28:31.7935809Z PASS: 24 real PostgreSQL purpose, consent, RLS and race checks",
+          "2026-10-17T16:28:46.3153687Z PASS: isolation matrix {\"databaseCapabilityPairs\":156,\"roleClassStateGrantCases\":594,\"httpProjectionCases\":330,\"signedByteCases\":198,\"writeRoleClassCases\":66}",
+          "2026-10-17T16:28:50.1181756Z PASS: 29 real-browser session, passkey and recovery checks on ephemeral PostgreSQL. No production or physical-device certification."
+        ],
+        "failed_steps": [],
+        "artifacts": [
+          {
+            "id": 12107485755,
+            "name": "garden-identity-39049488050",
+            "size_in_bytes": 148616,
+            "url": "https://api.github.com/repos/neophilism/The-Garden/actions/artifacts/12107485755",
+            "archive_download_url": "https://api.github.com/repos/neophilism/The-Garden/actions/artifacts/12107485755/zip",
+            "expired": false,
+            "created_at": "2026-10-17T16:28:50Z",
+            "expires_at": "2026-11-16T16:28:50Z",
+            "updated_at": "2026-10-17T16:28:50Z",
+            "digest": "sha256:d9aada262cdc2f806c3c643ec902462ceb3158345f6ad1f479c48585377ee2de",
+            "workflow_run": {
+              "id": 39049488050,
+              "repository_id": 1413400176,
+              "head_repository_id": 1413400176,
+              "head_branch": "security/encrypted-delivery-authority-20261017",
+              "head_sha": "d36e20b3874b6fca7b0d6ffc7b69ec3721f609cc"
+            }
+          }
+        ]
+      }
+    },
+    "limits": [
+      "This observation covers the two assigned jobs; root owns the full required-check and merge guard.",
+      "Authored scenario count is separate from actual completed scenario count.",
+      "Artifact digests are authenticated provider listings, not independently downloaded archive checksums.",
+      "All PostgreSQL, identity, wrapping-key and private-byte fixtures are disposable synthetic CI data.",
+      "No production authority, live provider key, deployment, deletion or certification is claimed."
+    ],
+    "encryption_groups_completed": 33,
+    "encryption_group_results": [
+      {
+        "number": 1,
+        "name": "JavaScript and actual JSONB canonical digests agree despite object-key reordering"
+      },
+      {
+        "number": 2,
+        "name": "stored ciphertext survives PostgreSQL serialization and exact operation retries create one material generation and one succeeded event"
+      },
+      {
+        "number": 3,
+        "name": "PostgreSQL and JavaScript bind owned metadata and receipt results to the same actor, canonical fingerprint and bounded delivery deadline"
+      },
+      {
+        "number": 4,
+        "name": "a head digest cannot diverge from its immutable generation receipt, including an attempted direct synthetic restore"
+      },
+      {
+        "number": 5,
+        "name": "receipt readback requires the original authenticated actor and exact request digest; changed input cannot reuse an operation ID"
+      },
+      {
+        "number": 6,
+        "name": "content-version UUIDs bind to an exact workspace/record/numeric-revision foreign key and cannot alias another record"
+      },
+      {
+        "number": 7,
+        "name": "authoritative classification, active state, exact current revision and reviewed consent are required even for a valid member with a record grant"
+      },
+      {
+        "number": 8,
+        "name": "all 8 tables force RLS; 12 disjoint capabilities deny raw tables, legacy entry points and internal completion helpers, and mixed issuer/content capabilities are rejected"
+      },
+      {
+        "number": 9,
+        "name": "immutable metadata excludes wrapped DEKs/ciphertext; direct truncate reaches exact FKs, rewrite/delete/cascading truncate reach append-only triggers, and populated retained state is unchanged"
+      },
+      {
+        "number": 10,
+        "name": "concurrent identical retries converge, while competing digest-and-generation CAS rotations yield one winner and preserve encrypted content"
+      },
+      {
+        "number": 11,
+        "name": "an older valid head restored beside newer immutable receipts cannot authorize reads, preparation or another rotation"
+      },
+      {
+        "number": 12,
+        "name": "current key-policy generation and the actual deployment environment must match before a prepared envelope can commit"
+      },
+      {
+        "number": 13,
+        "name": "membership, object grant/state and key revocations committed while admission waits prevent all persistence and succeeded events"
+      },
+      {
+        "number": 14,
+        "name": "a consent withdrawal that wins the shared workspace lock prevents a previously prepared encrypted commit"
+      },
+      {
+        "number": 15,
+        "name": "grant, role and key expiry after already-dispatched authority, key-row or audit-head waits rolls back material, head, receipt and commit audit"
+      },
+      {
+        "number": 16,
+        "name": "the repository-owned transaction rechecks the captured authority deadline at actual COMMIT after its SQL function has returned"
+      },
+      {
+        "number": 17,
+        "name": "failure after the mutation function but before COMMIT rolls back its material, metadata, head and succeeded audit event atomically"
+      },
+      {
+        "number": 18,
+        "name": "actual audit insertion failure after content identity insertion rolls back the identity, material, head, receipt and succeeded event"
+      },
+      {
+        "number": 19,
+        "name": "lost COMMIT acknowledgment exposes only a safe unconfirmed recovery binding; fresh readback proves the one committed operation without re-encryption"
+      },
+      {
+        "number": 20,
+        "name": "real stored ciphertext rejects a missing or wrong recovered wrapping key and becomes readable only after the exact synthetic key is recovered"
+      },
+      {
+        "number": 21,
+        "name": "synthetic material removal leaves immutable receipts and shared class keys intact; isolated material restoration must still pass current authorization"
+      },
+      {
+        "number": 22,
+        "name": "restoring older encrypted material into current consent state cannot revive a withdrawn source or its old operation receipt"
+      },
+      {
+        "number": 23,
+        "name": "prepare, load, receipt and exact replay all deny when current authority expires after the function but before actual main COMMIT, without changing retained content or audit"
+      },
+      {
+        "number": 24,
+        "name": "identity or feature closure after final issuer COMMIT suppresses reads and leaves completed writes explicitly unconfirmed with exact recovery"
+      },
+      {
+        "number": 25,
+        "name": "fresh issuer admission observes grant, consent and key revocation after main locks are released; a committed write remains recoverable only under the current required authority"
+      },
+      {
+        "number": 26,
+        "name": "an observed final issuer workspace wait and the issuer COMMIT itself recheck real authority expiry after main commit, then retire both contexts without delivering a stale result"
+      },
+      {
+        "number": 27,
+        "name": "grant, consent and representative deadlines survive the final composed host identity await: decrypt and recovery deny, owned plaintext is cleared, and committed stores retain only an unconfirmed operation handle"
+      },
+      {
+        "number": 28,
+        "name": "the initial authenticated principal remains pinned across real crypto and subsequent SQL calls even when the replacement actor independently has valid record authority"
+      },
+      {
+        "number": 29,
+        "name": "historical-generation receipt recovery remains separate from readable keys, latest wrapper generation and erasable material, while content delivery denies"
+      },
+      {
+        "number": 30,
+        "name": "main completion is bound to its actual PID and xid; uncommitted, cross-context, reused-ticket, wrong-digest and consumed-completion calls deny, while one separate issuer finish retires the exact result"
+      },
+      {
+        "number": 31,
+        "name": "a rolled-back main transaction and an expired original ticket cannot create final delivery authority; explicit retirement clears the bounded policy/completion residue"
+      },
+      {
+        "number": 32,
+        "name": "lost acknowledgment plus a real retirement outage denies delivery, preserves one committed operation and visible bounded residue, and a successful explicit cleanup retry removes it"
+      },
+      {
+        "number": 33,
+        "name": "all new mutation/key-policy events verify in the closed tamper-evident audit catalog without plaintext or pooled ticket residue"
+      }
+    ],
+    "encryption_final_pass_line": "2026-10-17T16:29:01.1543908Z PASS: 33 real PostgreSQL encrypted-content persistence and authority checks",
+    "workspace_groups_completed": 11,
+    "tested_merge_sha": "08472ad571da1df25cfe5b0d549af2f7dad6f4fa"
+  },
+  "observation_sha256": "7065323368cf7f6db53783a6fc31d8573fd8c1be3d8f04888d22f659197f83fd",
+  "verification": {
+    "verified_at_utc": "2026-10-17T16:31:05.009062+00:00",
+    "observation_sha256": "7065323368cf7f6db53783a6fc31d8573fd8c1be3d8f04888d22f659197f83fd",
+    "decoded_log_byte_lengths_equal_tool_results": {
+      "data": 474919,
+      "identity": 143062
+    },
+    "logs": {
+      "data": {
+        "sha256": "42bea521c4f349499f28312559fe0cc2c0e7bc0767bae4b62043b4a571f3e2a5",
+        "bytes": 474919
+      },
+      "identity": {
+        "sha256": "2d4e5555ceb00752883de6311e83efc49ad8c779dcd44a9ef70145e0e115a0ac",
+        "bytes": 143062
+      }
+    },
+    "authenticated_commit_metadata": {
+      "sha": "08472ad571da1df25cfe5b0d549af2f7dad6f4fa",
+      "url": "https://github.com/neophilism/The-Garden/commit/08472ad571da1df25cfe5b0d549af2f7dad6f4fa",
+      "createdAt": "2026-10-17T16:27:30Z",
+      "repository": "neophilism/The-Garden"
+    },
+    "all_receipts_match": true,
+    "actual_encryption_groups": 33,
+    "prior_verified_encryption_groups": 22,
+    "artifact_archive_checksums_verified": false
+  },
+  "verification_sha256": "2d3965ad087fc236b577b1bb0ea6bd4292668cea42f08651a7e85bb0d9821329"
+}

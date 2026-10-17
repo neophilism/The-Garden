@@ -1,0 +1,419 @@
+{
+  "schema_version": 1,
+  "work_item": "GDN-032",
+  "kind": "synthetic-metadata-permission-prerequisite",
+  "recorded_at": "2026-10-17T16:42:58.240435+00:00",
+  "source_checkpoint": {
+    "recordedAt": "2026-10-17T16:42:05.367146+00:00",
+    "commit": "b64dee7c9543da5f2c7188f20a5a203566763051",
+    "tree": "c3c5fbc219302e5e0537ceb3e677446160ad7555",
+    "parent": "a37c2cc43527312d709e768c50b0e3823e95fc51",
+    "clean": true,
+    "paths": [
+      ".github/workflows/data.yml",
+      "apps/research/access/lifecycle-hold-metadata-permissions.ci.mjs"
+    ],
+    "sourceSha256": {
+      "apps/research/access/lifecycle-hold-metadata-permissions.ci.mjs": "47d3a0dd0ae81bf2ed2edd5c62ca4cad337576ad0692763199e3cc2f9c70942a",
+      ".github/workflows/data.yml": "d3a3c8e54e19226c349bdc9ea34e6d96b5c33a8a7e5b4cc90ef88b33bf79e1c1"
+    },
+    "authoredActualPostgresqlGroups": 11,
+    "actualPostgresqlGroupsExecutedLocally": 0,
+    "focusedHelperCounts": {
+      "tests": 22,
+      "pass": 22,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "originalCleanupRegressionCounts": {
+      "tests": 22,
+      "pass": 21,
+      "fail": 1,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "helperObservation": "/workspace/scratch/7d1434690aca/hold-metadata-permissions-verification/final-helper-observation.json",
+    "helperObservationSha256": "d302c42ccaf7654571ee149d352ea034203d34f9f5a6dccdce6c31fde3e0054c",
+    "peerReview": "/workspace/scratch/7d1434690aca/hold-permissions-peer-review/review-final.json",
+    "peerReviewSha256": "45c60408793a23d7213e1bbb4c26eade4933c9916227dde93eaf4592062480d0",
+    "syntaxDiffAndYaml": "passed",
+    "workflowChange": "exact two-line required data-job run step before success evidence upload",
+    "databaseProviderActions": false,
+    "fullApplicationCheck": "root owns final integration check",
+    "limits": [
+      "Permission experiment uses isolated synthetic fixture objects and actual low-privilege CI logins.",
+      "No existing Garden row, policy, role grant, migration or runtime API is modified by the experiment.",
+      "Future identity, purpose-bound authority,0017 completion and hold release implementation remain separate.",
+      "Actual PostgreSQL semantics must pass required CI; no permission gate was relaxed."
+    ]
+  },
+  "source_checkpoint_sha256": "6148edf80c04c1611d84c8bc296cd78bfee580feb18a3adf4846d6689aad1a87",
+  "helper_observation": {
+    "node": "v24.19.0",
+    "environmentKeys": [
+      "CI",
+      "HOME",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "PATH"
+    ],
+    "sourceSha256": "47d3a0dd0ae81bf2ed2edd5c62ca4cad337576ad0692763199e3cc2f9c70942a",
+    "originalSourceSha256": "855ae63615766ac5ad9c328e33ae73afe956ac0349b815e431cf827b4a3bf2b7",
+    "helperSha256": "58cc2f2f29301a390e9332d22efe447cc360cdabbe9280ea5f3b971bfb31e452",
+    "runs": {
+      "red": {
+        "start": "2026-10-17T16:41:12.167820+00:00",
+        "end": "2026-10-17T16:41:12.329462+00:00",
+        "seconds": 0.16164723499969114,
+        "command": [
+          "node",
+          "--test",
+          "--test-reporter=tap",
+          "/workspace/scratch/7d1434690aca/hold-metadata-permissions-verification/helper-tests-red.mjs"
+        ],
+        "exitCode": 1,
+        "counts": {
+          "tests": 22,
+          "pass": 21,
+          "fail": 1,
+          "cancelled": 0,
+          "skipped": 0
+        },
+        "logSha256": "a2fb1f53e12818e601df91786a4f6ed9432d71c27edf18187ac8cd9f45e1c6cd"
+      },
+      "green": {
+        "start": "2026-10-17T16:41:12.329526+00:00",
+        "end": "2026-10-17T16:41:12.475020+00:00",
+        "seconds": 0.14550845000121626,
+        "command": [
+          "node",
+          "--test",
+          "--test-reporter=tap",
+          "/workspace/scratch/7d1434690aca/hold-metadata-permissions-verification/helper-tests.mjs"
+        ],
+        "exitCode": 0,
+        "counts": {
+          "tests": 22,
+          "pass": 22,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0
+        },
+        "logSha256": "9bc9e852125c5b52ae4454c60b9607b4a9b6d9067040fcb13aae4063c9f91b01"
+      }
+    },
+    "actualPostgresql": false,
+    "providerActions": false
+  },
+  "helper_observation_sha256": "d302c42ccaf7654571ee149d352ea034203d34f9f5a6dccdce6c31fde3e0054c",
+  "independent_peer_review": {
+    "reviewed_at": "2026-10-17T16:41:46.106219+00:00",
+    "scope": "Read-only independent review of PR73 synthetic PostgreSQL permission prerequisite; no 0017 source implementation",
+    "base_head": "a37c2cc43527312d709e768c50b0e3823e95fc51",
+    "source": {
+      "path": "/workspace/scratch/7d1434690aca/garden-hold-metadata-integration/apps/research/access/lifecycle-hold-metadata-permissions.ci.mjs",
+      "sha256": "47d3a0dd0ae81bf2ed2edd5c62ca4cad337576ad0692763199e3cc2f9c70942a"
+    },
+    "workflow": {
+      "path": "/workspace/scratch/7d1434690aca/garden-hold-metadata-integration/.github/workflows/data.yml",
+      "sha256": "d3a3c8e54e19226c349bdc9ea34e6d96b5c33a8a7e5b4cc90ef88b33bf79e1c1",
+      "delta": "One fixed CI step after existing workspace-gate journey"
+    },
+    "finding": {
+      "baseline_sha256": "855ae63615766ac5ad9c328e33ae73afe956ac0349b815e431cf827b4a3bf2b7",
+      "description": "Wrong-PID/xid context cleanup coordinates were assigned after awaited INSERT; a modeled committed INSERT with lost acknowledgement left its exact context uncaptured until final schema teardown",
+      "repair": "Capture contextCoordinates before INSERT dispatch; no SQL or permission change"
+    },
+    "independent_verification": {
+      "red_green": {
+        "path": "/workspace/scratch/7d1434690aca/hold-permissions-peer-review/context-lost-ack-red-green.json",
+        "sha256": "60ec54c45fdf9a5504b42d982bf131aec6298836bcfc573ccdcce3af7572fff1",
+        "baseline_lost_ack_remaining": 1,
+        "fixed_lost_ack_remaining": 0,
+        "successful_ack_remaining": 0
+      },
+      "node_syntax": "passed",
+      "git_diff_check": "passed"
+    },
+    "source_review": [
+      "Strict disposable loopback/environment guard; uniquely generated fixture schema/roles; no Garden rows or policies touched",
+      "Nonlogin nonowner resolver has only tested metadata-column SELECT and UPDATE(version); no runtime role membership, table write/truncate privilege or schema CREATE after setup",
+      "Exact PID/xid/login/actor/purpose/target/revision/expiry context is owned separately; caller-set session settings cannot establish admission",
+      "Permissive role-specific policies constrain resolver SELECT/UPDATE to exact context, with false write check; unrelated writer policy cannot apply via membership",
+      "Fixed schema-qualified definer helpers; bounded metadata projection; negative payload/owner/whole-row/predicate/retained-content and mutation probes with exact SQLSTATE/message expectations",
+      "Negative mutation probes always rollback; row digests verify no effects; actual two-transaction FOR SHARE test observes exact backend blocker before reader release",
+      "Finally teardown is bounded to owned synthetic schema and roles; no permission or physical-erasure result inferred for production"
+    ],
+    "pending": [
+      "Actual isolated PostgreSQL 18 execution of the 11 authored groups",
+      "Published-source CI and verified PR73 merge",
+      "Future 0017 purpose authority, production resolver, host and database enforcement"
+    ],
+    "actual_postgresql_executed_by_reviewer": false,
+    "provider_query_or_mutation": false,
+    "source_edited_by_reviewer": false,
+    "verdict": "No remaining concrete blocker in this bounded source/helper review; actual PostgreSQL remains the required next gate"
+  },
+  "independent_peer_review_sha256": "45c60408793a23d7213e1bbb4c26eade4933c9916227dde93eaf4592062480d0",
+  "independent_lost_ack_canary": {
+    "observedAt": "2026-10-17T16:41:32.904Z",
+    "actualPostgreSQL": false,
+    "sourceExtracted": true,
+    "results": [
+      {
+        "path": "/workspace/scratch/7d1434690aca/hold-permissions-peer-review/source-855ae636.mjs",
+        "sourceHash": "855ae63615766ac5ad9c328e33ae73afe956ac0349b815e431cf827b4a3bf2b7",
+        "cases": [
+          {
+            "rejectAck": false,
+            "error": null,
+            "coordinatesCaptured": true,
+            "deleted": [
+              "101:201",
+              "1000101:1000201"
+            ],
+            "remainingRows": 0
+          },
+          {
+            "rejectAck": true,
+            "error": "insert acknowledgement lost",
+            "coordinatesCaptured": false,
+            "deleted": [
+              "101:201"
+            ],
+            "remainingRows": 1
+          }
+        ]
+      },
+      {
+        "path": "/workspace/scratch/7d1434690aca/garden-hold-metadata-integration/apps/research/access/lifecycle-hold-metadata-permissions.ci.mjs",
+        "sourceHash": "47d3a0dd0ae81bf2ed2edd5c62ca4cad337576ad0692763199e3cc2f9c70942a",
+        "cases": [
+          {
+            "rejectAck": false,
+            "error": null,
+            "coordinatesCaptured": true,
+            "deleted": [
+              "101:201",
+              "1000101:1000201"
+            ],
+            "remainingRows": 0
+          },
+          {
+            "rejectAck": true,
+            "error": "insert acknowledgement lost",
+            "coordinatesCaptured": true,
+            "deleted": [
+              "101:201",
+              "1000101:1000201"
+            ],
+            "remainingRows": 0
+          }
+        ]
+      }
+    ],
+    "verdict": "Exact lost-ack cleanup finding resolves without SQL or permission changes"
+  },
+  "root_source_review": {
+    "scope": "All308 original fixture lines plus the final pre-dispatch context-coordinate assignment and exact workflow step. Source-only review; no root PostgreSQL execution.",
+    "reviewed_original_sha256": "855ae63615766ac5ad9c328e33ae73afe956ac0349b815e431cf827b4a3bf2b7",
+    "reviewed_final_sha256": "47d3a0dd0ae81bf2ed2edd5c62ca4cad337576ad0692763199e3cc2f9c70942a",
+    "additional_blocking_findings": 0,
+    "additional_tests": 0
+  },
+  "actual_postgresql_execution": "pending required published-source CI",
+  "limits": {
+    "synthetic_fixture_only": true,
+    "existing_garden_rows_or_policies_changed": false,
+    "purpose_authority_verified": false,
+    "production_metadata_resolver": false,
+    "release_implemented": false,
+    "provider_calls": false,
+    "production_verified": false
+  },
+  "full_integration_check": {
+    "observation": {
+      "commit": "acf953a7a556607aeeda0329a982a54823bf929b",
+      "tree": "b67d6eac31d8c6d6f69b731d1ccb3f6cec3fd2da",
+      "verified_base": "688756a243dfa56d2eae05d091d72e2c7266fd8f",
+      "branch": "security/hold-metadata-integration-20261017",
+      "worktree": "/workspace/scratch/7d1434690aca/garden-hold-metadata-integration",
+      "environment_keys": [
+        "CI",
+        "HOME",
+        "NEXT_TELEMETRY_DISABLED",
+        "NODE_ENV",
+        "PATH"
+      ],
+      "environment_values": {
+        "NODE_ENV": "production",
+        "CI": "true",
+        "NEXT_TELEMETRY_DISABLED": "1"
+      },
+      "node": "v24.19.0",
+      "npm": "11.9.0",
+      "started_at": "2026-10-17T16:43:17.440369+00:00",
+      "tracked_source_manifest": "/workspace/scratch/7d1434690aca/hold-metadata-integration-evidence/tracked-source-before.json",
+      "tracked_source_manifest_sha256": "32db18792f0b22f78ed0f13dfd8b6d4a224c3779de3efdb402a62306b5c01633",
+      "source_sha256": {
+        ".github/workflows/data.yml": "d3a3c8e54e19226c349bdc9ea34e6d96b5c33a8a7e5b4cc90ef88b33bf79e1c1",
+        "README.md": "373bdd4bbde4c2a8f62ac6b9909b34b869c576c07f9807689c106bd5ae65f06e",
+        "apps/research/access/lifecycle-hold-metadata-permissions.ci.mjs": "47d3a0dd0ae81bf2ed2edd5c62ca4cad337576ad0692763199e3cc2f9c70942a",
+        "db/staging-observation.json": "780df2488905df270ce13c8405ef5f1424c7c2f5889cfa71aac867773356582c",
+        "docs/CURRENT_STATUS.md": "c1867f3f24c3444088d3366a56f2f11dfbb805ef63ead95dd8bdb84120f74b20",
+        "docs/delivery/merge-policy.json": "26e6e23213b484e953ec7f0bb6937f867ef61babeda1ec2f4108b372a7f5f831",
+        "docs/evidence/GDN-026/delivery-ci-observation.json": "107b58b7a6af8813d061d5e241e4c7836ad6dbdad12cfbf65027d90dc61ee5c3",
+        "docs/evidence/GDN-026/delivery-fence-tests.json": "a0a2d79ce26f29a7fa1aa8a7d8d201c1a9fcb4ee6b79e15a4c233393112c0b0b",
+        "docs/evidence/GDN-026/delivery-merge-observation.json": "0f45c7f698249c7f038dca7044427bf8c616fbfab5192ace370174828f1cd38f",
+        "docs/evidence/GDN-026/delivery-staging-observation.json": "68479bd115c7eb1b6989fa98c179e3b0be5a2b7d6a3069cae6a67b1925e1b389",
+        "docs/evidence/GDN-032/hold-metadata-permissions-observation.json": "68c941a5b20be7c9a285cc5b764de85931001c79ece204c6effbaebcd50e8d64",
+        "docs/evidence/GDN-032/hold-metadata-protocol-observation.json": "9b58aea2781c8623683784f3f97f052dab930918be2c5aa443e1c2288b2d3ca3",
+        "docs/evidence/GDN-032/hold-metadata-vectors.py": "ad2c24eb85119781df64c48437f4245488ea1742fad9001d2d62cbd62dc0ab39",
+        "docs/handoff.md": "f7a888abdbadfa542417835317d45ba237719d1d38c2259a60783dd7b9d01775",
+        "docs/prs/GDN-026.md": "bb9fbe665a7113feb861be8fb2b48f58c763c46a96614537651e3e33381a6336",
+        "docs/prs/GDN-032.md": "9c7392255108292a53a306afec123b632d7b138192e158d8c0961212f8f5e72d",
+        "docs/security/lifecycle-hold-metadata.md": "453596a0368988a347ae27a46f3abb13eee224abf2a0e221e4cc71d33b27d37a",
+        "package-lock.json": "2fabb52e8fc285ab23a1fdc4d4c0f29fced57e2e7181a018b1147694731a5a5b",
+        "package.json": "03b2a6d98673453f56c46387028e2baecc5d1f1a89b74d2becb6c2e2dd771cb7",
+        "packages/domain/src/lifecycle/hold-metadata-storage.mjs": "a639c0848ee1d0be4f10502295a515c8f2bb54a1996f4b0db5ba5300bc90c043",
+        "plan/blockers.json": "9059f2e611f7a5dd4e008bb191ef6486514fd46a9af49f6159483f4c749866d6",
+        "plan/execution.json": "e84e0df92c8001cbad78f3dc6236b12ce275da21069e7620d586113af17fd5da",
+        "plan/progress.json": "81012cb5048ef4e040c69d6d96e26df4ea4643d95e0133a9086b02b0cc6b58fa",
+        "registry/prs.json": "d31d41d845a4f3fdffe6e9be66ab41be6da37af8ef65ae918289730df66af33e",
+        "tests/security/lifecycle-hold-metadata-storage.test.mjs": "4d73f3ef8f37e6d3830099793d062228d7061e994921191970a54f6e7cba09ae"
+      },
+      "phases": [
+        {
+          "name": "install",
+          "command": [
+            "npm",
+            "ci",
+            "--include=dev",
+            "--no-audit"
+          ],
+          "started_at": "2026-10-17T16:43:17.443543+00:00",
+          "log": "/workspace/scratch/7d1434690aca/hold-metadata-integration-evidence/install.log",
+          "ended_at": "2026-10-17T16:43:23.696062+00:00",
+          "wall_seconds": 6.252485964996595,
+          "exit_code": 0,
+          "log_sha256": "b9bf2efc51492c008e3586c668f3037b0894da98cd017b68a99ed3f9c93a5c06"
+        },
+        {
+          "name": "full-check",
+          "command": [
+            "npm",
+            "run",
+            "check"
+          ],
+          "started_at": "2026-10-17T16:43:23.696573+00:00",
+          "log": "/workspace/scratch/7d1434690aca/hold-metadata-integration-evidence/full-check.log",
+          "ended_at": "2026-10-17T16:43:42.680429+00:00",
+          "wall_seconds": 18.983851656998013,
+          "exit_code": 0,
+          "log_sha256": "2748900caa4cd3b8d96adc54d25fe33c3a7d24350bf522e1ea2069105bc2231a"
+        }
+      ],
+      "real_postgresql": false,
+      "postgresql_status": "Required published-source CI; not executed locally",
+      "provider_actions": false,
+      "reuse_owned_dependencies": false,
+      "capture_script_sha256": "fdbd5d382e990d35abebf6f27490a8d89b46a822a211fe69d4df571ff637a61e",
+      "ended_at": "2026-10-17T16:43:42.681045+00:00",
+      "wall_seconds": 25.237545779997163,
+      "all_phases_passed": true,
+      "node_modules_owned": true,
+      "tracked_changes_before_generated_restoration": [
+        "apps/public/next-env.d.ts",
+        "apps/research/next-env.d.ts"
+      ],
+      "test_counts": {
+        "tests": 1979,
+        "suites": 0,
+        "pass": 1979,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "typecheck_and_build_exit": "passed as part of complete chained check",
+      "build_output_manifest_hashes": {
+        "config/build-release.json": {
+          "sha256": "61778977e7c9765d350a08f5b22b8810536600d79fa0a75e7d8f5e663e3a1857",
+          "bytes": 51
+        },
+        "apps/public/.next/BUILD_ID": {
+          "sha256": "e17ceacf745677e198bb72549d51d051d3df87cfa161125cfc099a01b29adb67",
+          "bytes": 21
+        },
+        "apps/public/.next/build-manifest.json": {
+          "sha256": "481146e4dd851226671584d9f116fa2591c6affc4b5816556d92f5e98187ed3b",
+          "bytes": 1766
+        },
+        "apps/public/.next/routes-manifest.json": {
+          "sha256": "d7f99d9b7e0148f182191cabafc0548db6ea8f7b60bc08384a5e30699661cc15",
+          "bytes": 2366
+        },
+        "apps/public/.next/prerender-manifest.json": {
+          "sha256": "d2fbd26a301cae0eb723714a598f4506c54d42489a533c0b6aac5d69132b4c80",
+          "bytes": 9971
+        },
+        "apps/public/.next/required-server-files.json": {
+          "sha256": "e9d998d7d29e54a92f87937f4f2c6978d7f860a0c4391b97e327bb299958b4ff",
+          "bytes": 10672
+        },
+        "apps/research/.next/BUILD_ID": {
+          "sha256": "31e4a5b0544caf358503dc3f13fb5503e3dc4888f8a2ee683dd84606506919b5",
+          "bytes": 21
+        },
+        "apps/research/.next/build-manifest.json": {
+          "sha256": "81d94b52c7e824cab148dd24297d720cf1f02d7812edb6797db0812e0f5861b6",
+          "bytes": 1561
+        },
+        "apps/research/.next/routes-manifest.json": {
+          "sha256": "414c885b286bbd4906b1f4c4f60df706af97b809c4e7103ade5aafb6f5ccce01",
+          "bytes": 2142
+        },
+        "apps/research/.next/prerender-manifest.json": {
+          "sha256": "f55d0cc25b4a18b8193fe4df1a1aa6072ba5a7e352de1a19a89915423475e9c5",
+          "bytes": 3257
+        },
+        "apps/research/.next/required-server-files.json": {
+          "sha256": "ebb35d6e61815c24e2653413f114b8e0ad2b850dd2e9b24057b2bf827d11b5ca",
+          "bytes": 10652
+        }
+      },
+      "generated_restoration": {
+        "paths": [
+          "apps/public/next-env.d.ts",
+          "apps/research/next-env.d.ts"
+        ],
+        "source": "exact checked HEAD",
+        "all_tracked_hashes_match_before": true,
+        "repository_clean_before_evidence": true
+      },
+      "typecheck_targets": [
+        "@garden/public",
+        "@garden/research",
+        "@garden/domain",
+        "@garden/workers",
+        "config/tsconfig.json"
+      ],
+      "static_prerender_route_counts": {
+        "public": 12,
+        "research": 4
+      },
+      "execution_context": "Authorized normal process support for nested Node tests, five-key environment, own95 locked dependencies and unchanged check commands.",
+      "separate_plan_regression": {
+        "command": "python -B -m unittest discover -s tests/plan -v",
+        "source_commit": "acf953a7a556607aeeda0329a982a54823bf929b",
+        "tests": 30,
+        "passed": 30,
+        "failures": 0,
+        "basis": "Coordinator observed the completed command output and exit0; separate from npm check."
+      }
+    },
+    "observation_sha256": "189fead9e9f408609a9b14ab7dea52d91afd6aebe0e4692fd8f274f4c896d32f",
+    "note": "Complete check ran at this exact source commit/tree before these evidence-only updates. Actual PostgreSQL semantics remain a required separate CI gate."
+  }
+}
