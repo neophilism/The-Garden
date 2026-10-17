@@ -1,0 +1,150 @@
+{
+  "work_item_id": "GDN-047",
+  "observed_at_utc": "2026-10-17T12:51:13.417815+00:00",
+  "scope": "Authorized local immutable/read-only source inspection and four-table comparison; no historical migrations, operational asset writes, rights clearance or publication.",
+  "current_document": {
+    "editionId": "1.33-alpha",
+    "documentId": "cp021-atlas",
+    "sha256": "096a4a74fa6c03d2efbfeac7069dc1fb61918ef5445956d8054d57a641c443b0",
+    "size": 230827832
+  },
+  "scanner_counts": {
+    "mediaMembers": 607,
+    "distinctByteAssets": 607,
+    "storedPlacements": 630,
+    "resolvedPlacements": 630,
+    "renderedPlacements": null
+  },
+  "scanner_manifest_digest": "83541c6c57c4418326540ab0ba06eeca0abc759f5738162c87bc5de5ebbdffd8",
+  "scanner_findings": {
+    "media-member-without-resolved-placement": 1
+  },
+  "constrained_worker_observation": {
+    "matched_direct_scan": true,
+    "authorization_gate_callbacks": 640,
+    "identity_and_audit_scope": "Synthetic operator-test gate callbacks on authorized actual bytes; not live identity/audit acceptance."
+  },
+  "archives": [
+    {
+      "checkpoint": "CP-017",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-17_CORE_2026-10-09.zip",
+      "size_bytes": 86756261,
+      "sha256": "d8bef939c9ef63c4f0e3896f947d79679aae10f3fd62d347ff99f960d8247780",
+      "binding": "Matches repository baseline manifest."
+    },
+    {
+      "checkpoint": "CP-021",
+      "filename": "Not-From-Nowhere_Research-Corpus_v1-21_CORE_2026-10-16.zip",
+      "size_bytes": 88658604,
+      "sha256": "00a10d1afe82509cab14eb0d1521fb402256111b648113b3977bccdd8aa996f1",
+      "binding": "Observed archive digest; contained database bytes match the independently materialized CP-021 contents manifest."
+    }
+  ],
+  "database_observations": [
+    {
+      "checkpoint": "CP-017",
+      "sha256": "3bc3b81b7a2ffaaf2a5a0a072ddf781c8688785aa67b3d6069cca5a9918d3ed0",
+      "size_bytes": 396087296,
+      "counts": {
+        "documents": 12,
+        "assets": 567,
+        "asset_members": 567,
+        "image_placements": 591
+      },
+      "report_digest": "9fe3d67ac0a36f0b214a15f2182b341b75cad5a77493753757f2f8a036165701",
+      "dispositions": {
+        "documents:edition-not-present": 12,
+        "assets:exact-byte-match": 567,
+        "asset_members:edition-not-present": 567,
+        "image_placements:edition-not-present": 591
+      },
+      "findings_by_code": {
+        "edition-not-in-legacy-snapshot": 1,
+        "media-without-exact-legacy-byte-match": 40,
+        "media-metadata-and-rights-unresolved": 607,
+        "placement-without-exact-edition-locator-match": 630,
+        "media-member-without-resolved-placement": 1,
+        "edition-not-present": 1170
+      }
+    },
+    {
+      "checkpoint": "CP-021",
+      "sha256": "bfbe509f8fa785da0f2465a329f3b1812e171afe3697f803a3aa6c10192629cb",
+      "size_bytes": 447717376,
+      "counts": {
+        "documents": 30,
+        "assets": 567,
+        "asset_members": 567,
+        "image_placements": 1221
+      },
+      "report_digest": "34188c9991977f61adc4c348ef2dc7443d8d833a41924b3dce10d53aa3831838",
+      "dispositions": {
+        "documents:edition-not-present": 29,
+        "documents:document-bytes-present": 1,
+        "assets:exact-byte-match": 567,
+        "asset_members:edition-not-present": 567,
+        "image_placements:edition-not-present": 1221
+      },
+      "findings_by_code": {
+        "media-without-exact-legacy-byte-match": 40,
+        "media-metadata-and-rights-unresolved": 607,
+        "placement-without-exact-edition-locator-match": 630,
+        "media-member-without-resolved-placement": 1,
+        "edition-not-present": 1817
+      }
+    }
+  ],
+  "current_byte_comparison": {
+    "media_members": 607,
+    "distinct_byte_assets": 607,
+    "exact_legacy_asset_matches": 567,
+    "current_members_without_legacy_asset_row": 40,
+    "legacy_assets_without_current_byte_match": 0
+  },
+  "cp021_placement_edition_groups": [
+    {
+      "edition": "1.18-alpha",
+      "document_sha256": "cf9f0980830b129b26def46ea0106ee59ff0307517bb8783997e2f040c9a4c38",
+      "placement_rows": 591
+    },
+    {
+      "edition": "1.32-alpha",
+      "document_sha256": "ccb138f7bae756069d98d4ff109dfe5960cf06eb3244d619ae233d4d7e10990a",
+      "placement_rows": 630
+    }
+  ],
+  "current_edition_binding": {
+    "edition": "1.33-alpha",
+    "document_record_present": true,
+    "placement_rows_bound_to_exact_document": 0,
+    "equal_630_count_used_to_retarget_old_rows": false
+  },
+  "source_custody": {
+    "archive_database_members_crc_verified": true,
+    "database_hashes_verified_before_and_after_read": true,
+    "document_hash_verified_before_and_after_scan": true,
+    "only_tables_read": [
+      "documents",
+      "assets",
+      "asset_members",
+      "image_placements"
+    ],
+    "selected_column_names_and_order_match_recorded_cp017_contract": true,
+    "all_original_rowids_preserved_as_exact_decimal_strings": true,
+    "sql_migrations_or_source_writes": false,
+    "restricted_rows_and_reports_committed": false
+  },
+  "review_scope": {
+    "image_budget_annotations_loaded": false,
+    "missing_annotation_means": "Not supplied to this run, not proved absent from the corpus.",
+    "historical_claims_verified": 0,
+    "item_rights_cleared": 0,
+    "operational_asset_rows_written": 0,
+    "public_bytes_released": 0
+  },
+  "limitations": [
+    "Stored placements are XML references, not a rendered pagination count.",
+    "Current 1.33-alpha placement promotion, annotation loading and rights review remain pending.",
+    "Local inspection is not deployed worker, encrypted-volume, live identity or production verification."
+  ]
+}
