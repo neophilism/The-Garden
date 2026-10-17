@@ -62,9 +62,10 @@ export function createImageReconciliation({decisions,authorize,resolveBundle,rep
     const result=await decisions.decide(headers,workspaceId,async facts=>{
      if(signal?.aborted||await enabled()!==true||facts?.workspaceId!==workspaceId||typeof facts.subjectId!=='string'||!facts.subjectId||facts.subjectId.length>128||(principal&&facts.subjectId!==principal.subjectId))return false;
      if(await authorize(facts,{action:'image:'+action,bundleId:spec.bundleId,runId:spec.runId??null,artifactHashes:[...artifactHashes],phase,purpose:'research'})!==true)return false;
+     if(await enabled()!==true||signal?.aborted)return false;
      observed=Object.freeze({workspaceId,subjectId:facts.subjectId});return true;
     });
-    if(result?.allowed!==true||!UUID.test(result.requestId)||!observed)reject();principal=observed;return {...principal,requestId:result.requestId};
+    if(result?.allowed!==true||!UUID.test(result.requestId)||!observed||await enabled()!==true||signal?.aborted)reject();principal=observed;return {...principal,requestId:result.requestId};
    }
    let facts=await gate('resolve-bundle');
    if(action==='detail'){
@@ -113,7 +114,7 @@ export function createReviewedImageByteReader({loadRelease,reviewRelease,readByt
     if(!HASH.test(release.documentSha256)||!HASH.test(release.mediaSha256)||!HASH.test(release.placementId)||release.byteRef?.sha256!==release.mediaSha256)reject();
     const current=imageEvidenceDigest(release);if(binding&&binding!==current)reject();binding=current;
     const review=await reviewRelease(principal,releaseId);
-    if(!imageReleaseEligibility(annotation,review,release).eligible)reject();return structuredClone(release);
+    if(!imageReleaseEligibility(annotation,review,release).eligible||await enabled()!==true)reject();return structuredClone(release);
    }
    const release=await gate('before-read');
    const bytes=await readBytes(principal,release.byteRef);

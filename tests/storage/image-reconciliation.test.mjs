@@ -60,6 +60,35 @@ test('scan and commit gates fail closed and leave no completed private report',a
   const db=new DatabaseSync(join(f.directory,'image-reconciliation.sqlite3'),{readOnly:true});assert.equal(db.prepare('SELECT count(*) n FROM snapshots').get().n,0);db.close();
  }
 });
+for(const cause of ['feature closure','abort'])test(cause+' during commit authorization cannot write the private journal',async t=>{
+ const f=await fixture(t),controller=new AbortController(),journal=join(f.directory,'image-reconciliation.sqlite3'),before=await readFile(journal);
+ let enabled=true,commitCalls=0,commitAuthorizations=0;
+ const service=createImageReconciliation({...f.defaults,enabled:()=>enabled,repository:{...f.repository,commit(...args){commitCalls++;return f.repository.commit(...args);}}});
+ f.hooks.gate=async scope=>{if(scope.phase==='commit'){await Promise.resolve();commitAuthorizations++;if(cause==='abort')controller.abort();else enabled=false;}};
+ await assert.rejects(()=>service.reconcile({},f.workspaceId,f.input,{signal:controller.signal}),{message:'Garden image reconciliation rejected'});
+ assert.equal(commitAuthorizations,1);
+ const db=new DatabaseSync(journal,{readOnly:true});
+ try{
+  assert.deepEqual({commitCalls,snapshots:db.prepare('SELECT count(*) n FROM snapshots').get().n,runs:db.prepare('SELECT count(*) n FROM runs').get().n,attempts:db.prepare('SELECT count(*) n FROM attempts').get().n},
+   {commitCalls:0,snapshots:0,runs:0,attempts:0});
+ }finally{db.close();}
+ assert.equal(f.audit.at(-1),false);assert.deepEqual(await readFile(journal),before);
+});
+for(const cause of ['feature closure','abort'])test(cause+' during commit audit completion cannot write the private journal',async t=>{
+ const f=await fixture(t),controller=new AbortController(),journal=join(f.directory,'image-reconciliation.sqlite3'),before=await readFile(journal);
+ let enabled=true,commitCalls=0,commitAudits=0,phase=null;
+ const service=createImageReconciliation({...f.defaults,enabled:()=>enabled,repository:{...f.repository,commit(...args){commitCalls++;return f.repository.commit(...args);}}});
+ f.hooks.gate=scope=>{phase=scope.phase;};
+ f.hooks.audit=async()=>{const commit=phase==='commit';phase=null;if(commit){await Promise.resolve();commitAudits++;if(cause==='abort')controller.abort();else enabled=false;}};
+ await assert.rejects(()=>service.reconcile({},f.workspaceId,f.input,{signal:controller.signal}),{message:'Garden image reconciliation rejected'});
+ assert.equal(commitAudits,1);
+ const db=new DatabaseSync(journal,{readOnly:true});
+ try{
+  assert.deepEqual({commitCalls,snapshots:db.prepare('SELECT count(*) n FROM snapshots').get().n,runs:db.prepare('SELECT count(*) n FROM runs').get().n,attempts:db.prepare('SELECT count(*) n FROM attempts').get().n},
+   {commitCalls:0,snapshots:0,runs:0,attempts:0});
+ }finally{db.close();}
+ assert.equal(f.audit.at(-1),true);assert.deepEqual(await readFile(journal),before);
+});
 test('receipt and detail delivery recheck bundle and exact evidence-source authorization',async t=>{
  const f=await fixture(t);f.hooks.gate=s=>{if(s.phase==='deliver-receipt')f.deny();};await assert.rejects(()=>f.run());
  const g=await fixture(t),result=await g.run();let received;
@@ -126,6 +155,14 @@ test('post-read revocation, changed metadata, mismatched bytes and length never 
  }
  const g=byteFixture({readBytes:async()=>Buffer.from('tampered')});await assert.rejects(()=>g.read());
  const h=byteFixture();h.release.byteRef.size++;await assert.rejects(()=>h.read());
+});
+test('feature closure during final review denies byte delivery',async()=>{
+ const f=byteFixture();let enabled=true,reviews=0;
+ const reader=createReviewedImageByteReader({...f.options,enabled:()=>enabled,reviewRelease:async(...args)=>{
+  const receipt=await f.options.reviewRelease(...args);if(++reviews===2)enabled=false;return receipt;
+ }});
+ await assert.rejects(()=>reader.read({subjectId:'authorized-publisher'},{releaseId:randomUUID()}),{message:'Garden image reconciliation rejected'});
+ assert.equal(reviews,2);assert.equal(f.readCount(),1);
 });
 test('guard does not accept caller approval flags or caller-selected byte references',async()=>{
  const f=byteFixture(),reader=createReviewedImageByteReader(f.options);

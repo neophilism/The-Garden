@@ -1,17 +1,17 @@
 {
   "work_item_id": "GDN-047",
-  "recorded_at_utc": "2026-10-17T12:51:13.418036+00:00",
-  "github_exact_head_ci": "pending_root_pr",
+  "recorded_at_utc": "2026-10-17T13:02:27.641017+00:00",
+  "github_exact_head_ci": "pending_pr_59_updated_head",
   "tested_source_sha256": {
     "packages/domain/src/historical/image-reconciliation.mjs": "f7be578a477a36d299de11837fc4a221d69314c9e44f0e3c569ec3bb3d17d8a5",
     "services/workers/import/images.py": "2b297f837de3cf9638c38c92dbe92685c52b624f1deab076b0c99a2d837a0ea9",
-    "services/workers/src/image-reconciliation.mjs": "23c0bebd4384906881e09386a690e6a3d190b035801447d871bcc539b1e9f162",
+    "services/workers/src/image-reconciliation.mjs": "c86e09356d47949526a2014472cc8b841d82bf14924fef82299df2132107892f",
     "services/workers/src/image-reconciliation-repository.mjs": "315f8d8151e1852ee1541db538a9ee3759bab6bece4245207c1b7b2fca68c15a",
     "tests/data/image-fixtures.mjs": "639cb8f653d49eb3e09771a7f7882cd307c94297e2be89497e21f3db9ecaff58",
     "tests/data/image-reconciliation.test.mjs": "86245bfdc321083d711af3d99c39e16cc7a2c0365c7629ff4e3395b1acbc1853",
     "tests/import/image_fixture.py": "320ea3ca743c0227526b6bff5bb97032e4fdd98b3848ca3751b56fededc1d41b",
     "tests/import/test_images.py": "dd4e800297451a7f6fdc9cea7bd1afa221ae56e7fb1c06f3f745f5c644a13ae9",
-    "tests/storage/image-reconciliation.test.mjs": "d57faf6dba43e326e5e75801fd9d149ff8eefe828fb1357094551ed507f31e28"
+    "tests/storage/image-reconciliation.test.mjs": "ec08e58e24816bd9617dfb63f352987695e2bb2450a379e104b0463b8c82f071"
   },
   "suites": [
     {
@@ -21,7 +21,7 @@
     },
     {
       "command": "node tests/storage/image-reconciliation.test.mjs",
-      "passed": 17,
+      "passed": 22,
       "failed": 0
     },
     {
@@ -31,17 +31,43 @@
     },
     {
       "command": "python3 scripts/validate_plan.py",
-      "result": "pass"
+      "result": "pass",
+      "recorded_at_utc": "2026-10-17T12:51:13.418036+00:00",
+      "scope": "Earlier plan validation; not rerun for this authorization race fix."
     },
     {
       "command": "python3 -m unittest discover -s tests/plan -v",
       "passed": 30,
-      "failed": 0
+      "failed": 0,
+      "recorded_at_utc": "2026-10-17T12:51:13.418036+00:00",
+      "scope": "Earlier plan validation; not rerun for this authorization race fix."
     }
   ],
-  "focused_tests_passed": 55,
+  "focused_tests_passed": 60,
   "new_test_fixtures": "Generated controlled data only; actual source observations are separate in source-observation.json.",
   "local_runtime_note": "The sandbox sync subprocess API raised EPERM after a child completed, so the new fixture uses async execFile. All new storage integration tests passed with actual Python subprocesses.",
   "test_discovery": "Existing application/storage workflow globs include all three new test groups; no package or CI wiring changes needed.",
-  "real_source_observation": "Read-only CP-021 manuscript plus exact CP-017/CP-021 database tables; source observation and reconciliation outputs retained separately from generated fixtures."
+  "real_source_observation": "Read-only CP-021 manuscript plus exact CP-017/CP-021 database tables; source observation and reconciliation outputs retained separately from generated fixtures.",
+  "authorization_race_regressions": {
+    "base_commit": "660d248e7e02372f50e0f3bfaa26730d80486d7e",
+    "new_tests_failed_before_fix": 3,
+    "new_tests_passed_after_fix": 3,
+    "assertions": [
+      "Feature closure during commit authorization denies before repository.commit; snapshots, runs and attempt events stay empty and journal bytes remain unchanged.",
+      "Abort during commit authorization denies before repository.commit; snapshots, runs and attempt events stay empty and journal bytes remain unchanged.",
+      "Feature closure during the final asynchronous review denies delivery after the guarded byte read."
+    ],
+    "actual_source_observation": "Unchanged; no corpus rescan or data-reconciliation result modified."
+  },
+  "audit_completion_regressions": {
+    "base_commit": "32c0d5e20ef2990fa9cbcddb15351f70a6304359",
+    "new_tests_failed_before_fix": 2,
+    "new_tests_passed_after_fix": 2,
+    "assertions": [
+      "Feature closure during commit-phase audit completion denies before repository.commit; snapshots, runs and attempt events stay empty and journal bytes remain unchanged.",
+      "Abort during commit-phase audit completion denies before repository.commit; snapshots, runs and attempt events stay empty and journal bytes remain unchanged.",
+      "The prior allowed authorization decision remains distinct from operation execution."
+    ],
+    "scope": "Final feature and abort checks after decisions.decide resolves; production audit service and actual corpus observations unchanged."
+  }
 }

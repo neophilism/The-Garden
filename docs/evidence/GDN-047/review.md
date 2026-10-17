@@ -17,6 +17,9 @@ This is implementation/source review with executable negative tests. It is not a
 3. Source grants on document bytes alone would omit evidence embedded in rights and transformation annotations. Admission and detail delivery include the full set of referenced source hashes, including transformation originals.
 4. Raw SQLite coordinate strings must preserve signed 64-bit identity. Out-of-range values and negative zero are refused instead of accepted as a new synthetic coordinate.
 5. Repeated large byte/annotation comparisons were indexed so current-document reconciliation does not repeatedly scan every legacy asset or annotation for every member.
+6. Feature closure or cancellation during asynchronous commit authorization could previously write a private report before delivery was denied. The gate now rechecks the feature and abort signal after authorization. Both regressions assert zero commit calls, empty snapshot/run/attempt tables and unchanged journal bytes.
+7. Feature closure during the byte guard's final asynchronous review could previously return the already-read bytes. The final gate now rechecks the feature immediately before returning the reviewed release; the regression denies delivery after the second review.
+8. The audited-decision service awaits identity and audit writes after evaluating permission. The worker now rechecks the feature and abort signal after that decision resolves. Feature closure and cancellation inside commit-phase audit completion both leave the private journal untouched, even though the earlier authorization decision allowed the request; authorization remains distinct from operation execution.
 
 ## Explicit remaining limits
 
