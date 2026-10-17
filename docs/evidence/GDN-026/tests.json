@@ -1,0 +1,136 @@
+{
+  "work_item": "GDN-026",
+  "recorded_at": "2026-10-17T13:20:02.597035+00:00",
+  "scope": "local source-bound synthetic fixtures, builds and process smoke; no real key provider",
+  "tested_source_commit": "8bc3ab07fbe234972ed65f65a4426fc0813ea86b",
+  "tested_source_tree": "3e704f755bb3c08aba438c0f65bfb27d6f9a93d6",
+  "base_commit": "b8bc6e255378867d8583437d438b20b6ca0d46e0",
+  "source_files": [
+    {
+      "path": "services/workers/src/trusted-encryption.mjs",
+      "bytes": 16859,
+      "sha256": "11a2b4104630314646c1d6f62c5976a4edb6134d1cea00609c5dc372547ff1fc"
+    },
+    {
+      "path": "tests/security/trusted-encryption.test.mjs",
+      "bytes": 29216,
+      "sha256": "a449cf49cb4c8e6d5c562cb504937bf488302a891353a7dc524977f24c94f611"
+    },
+    {
+      "path": "apps/research/access/audit.mjs",
+      "bytes": 6753,
+      "sha256": "6027133978750adffd5e641b447a13abe815f1d174cc03a9ef8e92fad2483331"
+    },
+    {
+      "path": "config/environment.ts",
+      "bytes": 10148,
+      "sha256": "4f898b62bdf62da766cc3e05fe290d7b4e0fc9ce298076596493beffbff625b0"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1164,
+      "sha256": "03b2a6d98673453f56c46387028e2baecc5d1f1a89b74d2becb6c2e2dd771cb7"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 59102,
+      "sha256": "2fabb52e8fc285ab23a1fdc4d4c0f29fced57e2e7181a018b1147694731a5a5b"
+    },
+    {
+      "path": "tools/quality/runtime-smoke.mjs",
+      "bytes": 2758,
+      "sha256": "4dd958d2ec3078379620f98e3dd18f330b33af28e333e213080211d45d1e323d"
+    }
+  ],
+  "focused": {
+    "command": "node --test tests/security/trusted-encryption.test.mjs",
+    "node": "v24.19.0",
+    "tests": 48,
+    "passed": 48,
+    "failed": 0,
+    "also_included_in_full_check": true
+  },
+  "independent_ai_peer": {
+    "command": "node --test --test-isolation=none --test-reporter=tap tests/security/trusted-encryption.test.mjs",
+    "tests": 48,
+    "passed": 48,
+    "failed": 0,
+    "binding": "exact reviewed module and test SHA256 values in source_files; committed unchanged afterward",
+    "confirmed_probe": "copy-then-clear raw-DEK response rejects and reachable reply buffer is zeroed",
+    "human_security_audit": false
+  },
+  "full_check": {
+    "command": "npm run check",
+    "source_commit": "8bc3ab07fbe234972ed65f65a4426fc0813ea86b",
+    "source_commit_after": "8bc3ab07fbe234972ed65f65a4426fc0813ea86b",
+    "started_at": "2026-10-17T13:18:12.752712+00:00",
+    "finished_at": "2026-10-17T13:18:35.210792+00:00",
+    "exit_code": 0,
+    "node": "v24.19.0",
+    "environment_names": [
+      "CI",
+      "HOME",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "PATH"
+    ],
+    "environment_mode": "fresh allowlisted child; no inherited service credentials",
+    "log_sha256": "92d5ac98b54e73df332ea57bde9017ff1e3046398608c2488e1ba76b72aa34ca",
+    "guard_sha256": "4f898b62bdf62da766cc3e05fe290d7b4e0fc9ce298076596493beffbff625b0",
+    "tests": 1444,
+    "passed": 1444,
+    "failed": 0,
+    "typecheck": "passed",
+    "public_build": "passed",
+    "research_build": "passed",
+    "next": "16.4.0"
+  },
+  "runtime_smoke": {
+    "command": "node tools/quality/runtime-smoke.mjs",
+    "source_commit": "8bc3ab07fbe234972ed65f65a4426fc0813ea86b",
+    "started_at": "2026-10-17T13:19:08.042973+00:00",
+    "finished_at": "2026-10-17T13:19:21.635034+00:00",
+    "exit_code": 0,
+    "log_sha256": "b9c6091507d0ab6aa04fc950c62b3fc13cc925b88e3eb482be9525c68137b5ab",
+    "process_runs": 4,
+    "public_start_and_restart": "passed",
+    "research_start_and_restart": "passed",
+    "startup_canary_rejections": 3,
+    "external_https_verified": false
+  },
+  "plan": {
+    "validate_plan": "passed",
+    "command": "python3 -m unittest discover -s tests/plan -q",
+    "tests": 30,
+    "passed": 30,
+    "failed": 0
+  },
+  "install": {
+    "command": "npm ci --include=dev --no-audit --no-fund",
+    "packages_added": 95,
+    "lock_changed": false,
+    "credential_free_child": true
+  },
+  "ci_integration": "Existing npm test security glob includes the new test file; remote exact-head execution remains required before merge.",
+  "followup_commit_scope": "Evidence and two wording-only operational-contract clarifications; no runtime, tests, dependencies or configuration guard changes.",
+  "not_verified": [
+    "live KMS or provider transport/IAM",
+    "provider root custody or retirement",
+    "database envelope persistence/CAS",
+    "atomic authorization and delivery",
+    "deployed backup/restore",
+    "external HTTPS",
+    "E2EESA conformance or certification"
+  ],
+  "post_rebase_verification": {
+    "observed_at_utc": "2026-10-17T13:23:47.505493+00:00",
+    "base_commit": "ecf35d9448424d45436a23f1970dc48fe9b4eadb",
+    "reviewed_source_and_config_hashes_unchanged": true,
+    "command": "node --test tests/security/trusted-encryption.test.mjs",
+    "tests": 48,
+    "passed": 48,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "Repeated exact-source encryption regressions on the PR61 merge base. The final PR requires all current GitHub checks and actual test-merge source receipts."
+  }
+}

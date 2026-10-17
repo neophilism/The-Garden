@@ -1,0 +1,9 @@
+{
+  "work_item": "GDN-026",
+  "recorded_at": "2026-10-17T13:20:02.597035+00:00",
+  "performed": false,
+  "reason": "Component remains unmounted with no real provider or envelope persistence; local process smoke verifies existing shells only.",
+  "url": null,
+  "production_verified": false,
+  "local_evidence": "tests.json"
+}

@@ -1,0 +1,13 @@
+{
+  "work_item": "GDN-026",
+  "recorded_at": "2026-10-17T13:20:02.597035+00:00",
+  "tested_source_commit": "8bc3ab07fbe234972ed65f65a4426fc0813ea86b",
+  "deployed": false,
+  "route_mounted": false,
+  "default_enabled": false,
+  "provider_configured": false,
+  "new_paid_resources": 0,
+  "provider_mutations": 0,
+  "historical_records_processed": 0,
+  "production_verified": false
+}

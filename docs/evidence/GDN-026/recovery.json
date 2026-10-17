@@ -1,0 +1,66 @@
+{
+  "work_item": "GDN-026",
+  "recovered_on": "2026-10-17",
+  "method": "Read-only byte snapshot of eight uncommitted files, copied into an isolated Garden worktree; original source was not modified.",
+  "recovered_files": [
+    {
+      "path": "docs/adr/0018-trusted-encryption-boundary.md",
+      "sha256": "d0135ad9021f6accc73800bd691b7800894c148cc95842c9e019ac9baf1aa908",
+      "bytes": 1541
+    },
+    {
+      "path": "docs/security/trusted-processing-encryption.md",
+      "sha256": "dca4207f61c1544a3f2d5e2c4d45a2531c956a8c70740006e1abedd24b270591",
+      "bytes": 7249
+    },
+    {
+      "path": "services/workers/src/trusted-encryption.mjs",
+      "sha256": "335d71bb83f4d1ef7ef3e298b8415b63bfe3c62aa9d695b076bb2f6ec2cf0cab",
+      "bytes": 13938
+    },
+    {
+      "path": "tests/security/trusted-encryption.test.mjs",
+      "sha256": "588feee395fb6fca65468dc8bec153256534bf35817e2c6fdb8e57edd991c0fe",
+      "bytes": 15131
+    },
+    {
+      "path": "docs/evidence/GDN-026/acceptance.json",
+      "sha256": "c84abb8504811dd4be867a5f613b5d50bd5f7f0ba350fa93d63d6223f1dbf62e",
+      "bytes": 1033
+    },
+    {
+      "path": "docs/evidence/GDN-026/review.md",
+      "sha256": "0520c757e2b82ceca07c1081386a7419be1b0e927d0b6999fc4b0434407ed550",
+      "bytes": 1225
+    },
+    {
+      "path": "docs/evidence/GDN-026/deployment.json",
+      "sha256": "592ddda9d40a096f410de28896dd6fa5a21def1129b4470c5c0414556299dc9c",
+      "bytes": 147
+    },
+    {
+      "path": "docs/evidence/GDN-026/live-verification.json",
+      "sha256": "76f933c6f4827def0c119c5967b8dd213eec8b8f42a4947ad92e9dd17a075420",
+      "bytes": 172
+    }
+  ],
+  "baseline_reexecution": {
+    "command": "node --test tests/security/trusted-encryption.test.mjs",
+    "node": "v24.19.0",
+    "tests": 27,
+    "passed": 27,
+    "failed": 0,
+    "implementation_sha256": "335d71bb83f4d1ef7ef3e298b8415b63bfe3c62aa9d695b076bb2f6ec2cf0cab",
+    "test_sha256": "588feee395fb6fca65468dc8bec153256534bf35817e2c6fdb8e57edd991c0fe",
+    "limit": "The original 27 passing tests missed reproduced security defects; they are not final acceptance evidence."
+  },
+  "prior_build_failure": {
+    "reported_time": "2026-10-17T12:22Z",
+    "basis": "Parent recovery inspection of the earlier continuation",
+    "reason": "Ambient credentials reached the public build and were rejected by its configuration guard.",
+    "resolution": "Full tests/typecheck/both builds rerun successfully in a fresh allowlisted child environment. The guard was preserved and negative configuration tests still pass.",
+    "guard_sha256_unchanged": "4f898b62bdf62da766cc3e05fe290d7b4e0fc9ce298076596493beffbff625b0",
+    "resolved_by_tested_source_commit": "8bc3ab07fbe234972ed65f65a4426fc0813ea86b"
+  },
+  "final_evidence": "tests.json; the corrected 48-test suite and 1,444-test full check replace the recovered old 27-test claim."
+}

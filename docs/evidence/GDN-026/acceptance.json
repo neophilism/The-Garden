@@ -1,0 +1,37 @@
+{
+  "work_item": "GDN-026",
+  "phase": "partial_engineering_contribution_component_tested_unmounted_provider_integration_pending",
+  "recorded_at": "2026-10-17T13:20:02.597035+00:00",
+  "tested_source_commit": "8bc3ab07fbe234972ed65f65a4426fc0813ea86b",
+  "acceptance": {
+    "GDN-026-AC01": {
+      "component": "passed_synthetic_tests",
+      "evidence": "Current record/purpose checks around audit boundaries and key use; safe attempt/completed events; immutable provider pins; denied and cancelled cases release no result.",
+      "live_authorized_provider_use": "not_verified"
+    },
+    "GDN-026-AC02": {
+      "component": "passed_synthetic_tests",
+      "evidence": "Authenticated rewrap retains old envelope and content; canonical predecessor/successor digest receipt; absent/wrong/original recovery key cases; failed new wrap preserves old readability.",
+      "atomic_database_rotation_and_retirement": "not_implemented"
+    },
+    "GDN-026-AC03": {
+      "component": "documented_and_tested",
+      "evidence": "Server/operator plaintext capability disclosed; sealed/public/governmental classes excluded; no E2EE or HSM claim."
+    }
+  },
+  "test_scenarios": {
+    "GDN-026-T01": "provider outage, denied key version, malformed reply, timeout and late cleanup/capacity",
+    "GDN-026-T02": "successful rewrap, new-version permission denial/outage, retained old envelope, no-op and corrupted-payload denial",
+    "GDN-026-T03": "serialized envelope unavailable with missing or wrong old key; original fixture key restores readability"
+  },
+  "evidence": "tests.json",
+  "provider_integration": "not_configured_or_verified",
+  "key_versions_persistence": "not_added",
+  "atomic_rotation_persistence": "host_obligation_not_mounted",
+  "production_verified": false,
+  "historical_records_processed": 0,
+  "external_human_review": "deferred_not_performed",
+  "ai_source_review": "implementation plus separate peer; concrete reproduced findings corrected",
+  "conformance_claim": false,
+  "ci": "remote_exact_head_execution_pending_before_merge"
+}
