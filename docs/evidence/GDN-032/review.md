@@ -1,5 +1,7 @@
 # GDN-032 requester and retention candidate review — 17 October 2026
 
+This document preserves the original pre-publication review checkpoint below. Later [actual PostgreSQL and CI results](requester-ci-observation.json), [verified PR66 merge](requester-merge-observation.json), and [isolated staging 0014 rollout](requester-staging-observation.json) supersede its pending execution/deployment observations. The [retained dependency component evidence](dependencies-observation.json) is a separate later source-bound check. GDN-032 remains partial and unmounted.
+
 GDN-032 remains a **partial engineering contribution**. The candidate implements a
 default-disabled requester host and fixed PostgreSQL repository for pending and
 cancelled deletion/export requests, pure request and retention proposals, and the

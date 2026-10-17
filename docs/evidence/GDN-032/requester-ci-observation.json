@@ -1,0 +1,590 @@
+{
+  "work_item": "GDN-032",
+  "repository": "neophilism/The-Garden",
+  "pull_request": 66,
+  "url": "https://github.com/neophilism/The-Garden/pull/66",
+  "observed_at": "2026-10-17T14:46:52.756Z",
+  "source": {
+    "head_sha": "75e999f122428fa2f8ef7c7a6ae13598e6b06d00",
+    "base_sha": "bff5048543ee336162ff01e306cf56d3a656e36c",
+    "tested_merge_sha": "a967c91050d9402493a94af6ffccea543f8281f4",
+    "head_tree": "b9c898e06601de90d27376a96ceb6f1e83cd9f6a",
+    "tested_merge_tree": "b9c898e06601de90d27376a96ceb6f1e83cd9f6a",
+    "tested_merge_parents": [
+      "bff5048543ee336162ff01e306cf56d3a656e36c",
+      "75e999f122428fa2f8ef7c7a6ae13598e6b06d00"
+    ],
+    "migration_sha256": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c",
+    "lifecycle_ci_sha256": "aa9bdede17101056652c916df204440998dc1e10d1d65634c2c33b13958d7080"
+  },
+  "outcome": {
+    "required_checks_succeeded": 10,
+    "required_checks_failed": 0,
+    "workflow_runs_succeeded": 7,
+    "source_receipts_verified": 10,
+    "receipt_scope": "Each of the ten current-head GitHub Actions checks has exactly one authenticated log receipt bound to its current workflow attempt, the same test merge and both current parents."
+  },
+  "checks": [
+    {
+      "name": "architecture-contracts",
+      "check_id": 117422995802,
+      "app_id": 15368,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-17T14:43:02Z",
+      "completed_at": "2026-10-17T14:43:08Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928421/job/117422995802",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "architecture",
+        "parent_shas": [
+          "bff5048543ee336162ff01e306cf56d3a656e36c",
+          "75e999f122428fa2f8ef7c7a6ae13598e6b06d00"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "a967c91050d9402493a94af6ffccea543f8281f4",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/ci.yml@refs/pull/66/merge",
+        "workflow_run_id": "39041928421"
+      }
+    },
+    {
+      "name": "application-build",
+      "check_id": 117422995744,
+      "app_id": 15368,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-17T14:43:02Z",
+      "completed_at": "2026-10-17T14:44:05Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928421/job/117422995744",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "application",
+        "parent_shas": [
+          "bff5048543ee336162ff01e306cf56d3a656e36c",
+          "75e999f122428fa2f8ef7c7a6ae13598e6b06d00"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "a967c91050d9402493a94af6ffccea543f8281f4",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/ci.yml@refs/pull/66/merge",
+        "workflow_run_id": "39041928421"
+      }
+    },
+    {
+      "name": "plan-validation",
+      "check_id": 117422995675,
+      "app_id": 15368,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-17T14:43:02Z",
+      "completed_at": "2026-10-17T14:43:07Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928421/job/117422995675",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "plan",
+        "parent_shas": [
+          "bff5048543ee336162ff01e306cf56d3a656e36c",
+          "75e999f122428fa2f8ef7c7a6ae13598e6b06d00"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "a967c91050d9402493a94af6ffccea543f8281f4",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/ci.yml@refs/pull/66/merge",
+        "workflow_run_id": "39041928421"
+      }
+    },
+    {
+      "name": "identity-lifecycle",
+      "check_id": 117422995184,
+      "app_id": 15368,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-17T14:43:02Z",
+      "completed_at": "2026-10-17T14:44:35Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928250/job/117422995184",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "identity",
+        "parent_shas": [
+          "bff5048543ee336162ff01e306cf56d3a656e36c",
+          "75e999f122428fa2f8ef7c7a6ae13598e6b06d00"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "a967c91050d9402493a94af6ffccea543f8281f4",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/identity.yml@refs/pull/66/merge",
+        "workflow_run_id": "39041928250"
+      }
+    },
+    {
+      "name": "archive-storage-boundaries",
+      "check_id": 117422995050,
+      "app_id": 15368,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-17T14:43:02Z",
+      "completed_at": "2026-10-17T14:43:25Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928244/job/117422995050",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "storage",
+        "parent_shas": [
+          "bff5048543ee336162ff01e306cf56d3a656e36c",
+          "75e999f122428fa2f8ef7c7a6ae13598e6b06d00"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "a967c91050d9402493a94af6ffccea543f8281f4",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/storage.yml@refs/pull/66/merge",
+        "workflow_run_id": "39041928244"
+      }
+    },
+    {
+      "name": "supply-chain-and-policy",
+      "check_id": 117422995036,
+      "app_id": 15368,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-17T14:43:02Z",
+      "completed_at": "2026-10-17T14:43:15Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928221/job/117422995036",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "policy",
+        "parent_shas": [
+          "bff5048543ee336162ff01e306cf56d3a656e36c",
+          "75e999f122428fa2f8ef7c7a6ae13598e6b06d00"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "a967c91050d9402493a94af6ffccea543f8281f4",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/quality.yml@refs/pull/66/merge",
+        "workflow_run_id": "39041928221"
+      }
+    },
+    {
+      "name": "Status record integrity (not product certification)",
+      "check_id": 117422994983,
+      "app_id": 15368,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-17T14:43:02Z",
+      "completed_at": "2026-10-17T14:43:08Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928269/job/117422994983",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "status-record",
+        "parent_shas": [
+          "bff5048543ee336162ff01e306cf56d3a656e36c",
+          "75e999f122428fa2f8ef7c7a6ae13598e6b06d00"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "a967c91050d9402493a94af6ffccea543f8281f4",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/e2eesa-status.yml@refs/pull/66/merge",
+        "workflow_run_id": "39041928269"
+      }
+    },
+    {
+      "name": "browser-and-accessibility",
+      "check_id": 117422994782,
+      "app_id": 15368,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-17T14:43:02Z",
+      "completed_at": "2026-10-17T14:44:37Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928221/job/117422994782",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "browser",
+        "parent_shas": [
+          "bff5048543ee336162ff01e306cf56d3a656e36c",
+          "75e999f122428fa2f8ef7c7a6ae13598e6b06d00"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "a967c91050d9402493a94af6ffccea543f8281f4",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/quality.yml@refs/pull/66/merge",
+        "workflow_run_id": "39041928221"
+      }
+    },
+    {
+      "name": "historical-data-contracts",
+      "check_id": 117422994775,
+      "app_id": 15368,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-17T14:43:02Z",
+      "completed_at": "2026-10-17T14:44:18Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928170/job/117422994775",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "data",
+        "parent_shas": [
+          "bff5048543ee336162ff01e306cf56d3a656e36c",
+          "75e999f122428fa2f8ef7c7a6ae13598e6b06d00"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "a967c91050d9402493a94af6ffccea543f8281f4",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/data.yml@refs/pull/66/merge",
+        "workflow_run_id": "39041928170"
+      }
+    },
+    {
+      "name": "database-foundation",
+      "check_id": 117422994687,
+      "app_id": 15368,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-17T14:43:02Z",
+      "completed_at": "2026-10-17T14:43:26Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928143/job/117422994687",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "database",
+        "parent_shas": [
+          "bff5048543ee336162ff01e306cf56d3a656e36c",
+          "75e999f122428fa2f8ef7c7a6ae13598e6b06d00"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "a967c91050d9402493a94af6ffccea543f8281f4",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/database.yml@refs/pull/66/merge",
+        "workflow_run_id": "39041928143"
+      }
+    }
+  ],
+  "workflows": [
+    {
+      "id": 39041928269,
+      "name": "E2EESA status record",
+      "path": ".github/workflows/e2eesa-status.yml",
+      "run_attempt": 1,
+      "event": "pull_request",
+      "head_sha": "75e999f122428fa2f8ef7c7a6ae13598e6b06d00",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-17T14:43:00Z",
+      "updated_at": "2026-10-17T14:43:09Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928269"
+    },
+    {
+      "id": 39041928143,
+      "name": "Garden database verification",
+      "path": ".github/workflows/database.yml",
+      "run_attempt": 1,
+      "event": "pull_request",
+      "head_sha": "75e999f122428fa2f8ef7c7a6ae13598e6b06d00",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-17T14:43:00Z",
+      "updated_at": "2026-10-17T14:43:26Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928143"
+    },
+    {
+      "id": 39041928244,
+      "name": "Garden storage verification",
+      "path": ".github/workflows/storage.yml",
+      "run_attempt": 1,
+      "event": "pull_request",
+      "head_sha": "75e999f122428fa2f8ef7c7a6ae13598e6b06d00",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-17T14:43:00Z",
+      "updated_at": "2026-10-17T14:43:25Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928244"
+    },
+    {
+      "id": 39041928421,
+      "name": "Garden repository checks",
+      "path": ".github/workflows/ci.yml",
+      "run_attempt": 1,
+      "event": "pull_request",
+      "head_sha": "75e999f122428fa2f8ef7c7a6ae13598e6b06d00",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-17T14:43:00Z",
+      "updated_at": "2026-10-17T14:44:05Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928421"
+    },
+    {
+      "id": 39041928170,
+      "name": "Garden historical data verification",
+      "path": ".github/workflows/data.yml",
+      "run_attempt": 1,
+      "event": "pull_request",
+      "head_sha": "75e999f122428fa2f8ef7c7a6ae13598e6b06d00",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-17T14:43:00Z",
+      "updated_at": "2026-10-17T14:44:19Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928170"
+    },
+    {
+      "id": 39041928250,
+      "name": "Garden identity verification",
+      "path": ".github/workflows/identity.yml",
+      "run_attempt": 1,
+      "event": "pull_request",
+      "head_sha": "75e999f122428fa2f8ef7c7a6ae13598e6b06d00",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-17T14:43:00Z",
+      "updated_at": "2026-10-17T14:44:36Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928250"
+    },
+    {
+      "id": 39041928221,
+      "name": "Garden quality and browser verification",
+      "path": ".github/workflows/quality.yml",
+      "run_attempt": 1,
+      "event": "pull_request",
+      "head_sha": "75e999f122428fa2f8ef7c7a6ae13598e6b06d00",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-17T14:43:00Z",
+      "updated_at": "2026-10-17T14:44:37Z",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39041928221"
+    }
+  ],
+  "observed_results": {
+    "application": {
+      "tests_passed": 1717,
+      "failed": 0,
+      "skipped": 0,
+      "typechecks": "passed",
+      "public_build": "passed",
+      "research_build": "passed",
+      "release_manifest_sha": "a967c91050d9402493a94af6ffccea543f8281f4",
+      "source": "application-build authenticated job log"
+    },
+    "data": {
+      "typed_domain_tests_passed": 831,
+      "postgresql_checks": {
+        "historical_record": 24,
+        "source": 20,
+        "locator": 18,
+        "claim": 18,
+        "audit": 23,
+        "scoped_review": 14,
+        "geographic": 16,
+        "encrypted_content": 22,
+        "lifecycle_request": 22
+      },
+      "migration_apply_and_repeat": "passed in disposable PostgreSQL workflow",
+      "lifecycle_groups": [
+        {
+          "number": 1,
+          "completed_at": "2026-10-17T14:43:57.5376695Z",
+          "assertion": "a verified nonmember can submit, read and recover an exact own pending request in an inactive research workspace"
+        },
+        {
+          "number": 2,
+          "completed_at": "2026-10-17T14:43:57.6556792Z",
+          "assertion": "actual JSONB and JavaScript agree on quotes, backslashes, Unicode and object order; cancelled status is separate from stable original operation readback"
+        },
+        {
+          "number": 3,
+          "completed_at": "2026-10-17T14:43:57.7624626Z",
+          "assertion": "request IDs and recovery hashes never override current actor, workspace, immutable claim or global operation binding"
+        },
+        {
+          "number": 4,
+          "completed_at": "2026-10-17T14:43:57.7932155Z",
+          "assertion": "known inaccessible and nonexistent record claims both create pending requester receipts without resolving, reading or changing the claimed record"
+        },
+        {
+          "number": 5,
+          "completed_at": "2026-10-17T14:43:57.8616314Z",
+          "assertion": "closing intake preserves authenticated own status, cancellation and exact recovery without reopening a terminal request"
+        },
+        {
+          "number": 6,
+          "completed_at": "2026-10-17T14:43:58.0442320Z",
+          "assertion": "observed concurrent identical submissions converge, global operation and cancellation races have one winner, and operation IDs cannot cross actions or cases"
+        },
+        {
+          "number": 7,
+          "completed_at": "2026-10-17T14:43:58.0921415Z",
+          "assertion": "restoring an older valid pending head beside a retained cancellation denies every read, retry and cancellation until the correct head is restored"
+        },
+        {
+          "number": 8,
+          "completed_at": "2026-10-17T14:43:58.1858463Z",
+          "assertion": "missing separately stored request payload denies status, recovery, exact submission and cancellation without recreation or extra audit; exact synthetic restoration preserves the original receipt"
+        },
+        {
+          "number": 9,
+          "completed_at": "2026-10-17T14:43:58.2055924Z",
+          "assertion": "a head fingerprint without its exact immutable event fails the specific foreign key in an always-rolled-back owner probe, with populated retained state unchanged"
+        },
+        {
+          "number": 10,
+          "completed_at": "2026-10-17T14:43:58.2231648Z",
+          "assertion": "failed retirement leaves a committed PID+xid binding: both committed and rolled-back tokens deny replay on the same backend in a new transaction"
+        },
+        {
+          "number": 11,
+          "completed_at": "2026-10-17T14:43:58.2452779Z",
+          "assertion": "SQL independently binds both PID and xid8, and a redeemed ticket cannot switch action, request, canonical fingerprint or claim kind"
+        },
+        {
+          "number": 12,
+          "completed_at": "2026-10-17T14:43:58.2556437Z",
+          "assertion": "failure after the SQL mutation returns but before COMMIT rolls back private payload, immutable operation, current head and succeeded audit together"
+        },
+        {
+          "number": 13,
+          "completed_at": "2026-10-17T14:43:58.3612228Z",
+          "assertion": "forced real audit insertion failures leave submission absent and cancellation pending, with exact populated ledger and request snapshots unchanged"
+        },
+        {
+          "number": 14,
+          "completed_at": "2026-10-17T14:44:04.5525303Z",
+          "assertion": "actual case and audit-head lock waits cannot extend admission: expiry denies new writes and own-status delivery after the wait"
+        },
+        {
+          "number": 15,
+          "completed_at": "2026-10-17T14:44:15.0580377Z",
+          "assertion": "deferred admission checks run at actual COMMIT for submit, cancel, status, recovery and exact replay after context cleanup, not merely at SQL function return"
+        },
+        {
+          "number": 16,
+          "completed_at": "2026-10-17T14:44:15.2283315Z",
+          "assertion": "real successful COMMIT with a lost acknowledgement returns only an uncertain operation handle; authenticated exact readback confirms one submission or cancellation"
+        },
+        {
+          "number": 17,
+          "completed_at": "2026-10-17T14:44:15.2538075Z",
+          "assertion": "a real repository retirement failure denies acknowledgement, leaves its token unusable, and preserves exact operation recovery"
+        },
+        {
+          "number": 18,
+          "completed_at": "2026-10-17T14:44:15.3017353Z",
+          "assertion": "service, intake, repository and session closure after SQL context cleanup all prevent submission COMMIT and succeeded audit"
+        },
+        {
+          "number": 19,
+          "completed_at": "2026-10-17T14:44:15.3409114Z",
+          "assertion": "closure during post-COMMIT ticket retirement denies final write acknowledgement or status delivery without pretending a committed write rolled back"
+        },
+        {
+          "number": 20,
+          "completed_at": "2026-10-17T14:44:15.5104235Z",
+          "assertion": "all eleven disjoint runtime roles lack raw access to six forced-RLS tables; only issuer can mint/retire and only the dedicated requester can redeem, with all twenty new mixed-capability directions denied"
+        },
+        {
+          "number": 21,
+          "completed_at": "2026-10-17T14:44:15.5379327Z",
+          "assertion": "retained metadata excludes requester and claim payload; exact FK/append-only guards and non-null predecessor checks reject owner probes with every transaction rolled back and all populated state unchanged"
+        },
+        {
+          "number": 22,
+          "completed_at": "2026-10-17T14:44:15.5492041Z",
+          "assertion": "closed audit actions bind stable case IDs separately from operation IDs, verify every succeeded mutation without raw requester/claim values, and leave no pooled ticket or context residue"
+        }
+      ]
+    },
+    "identity": {
+      "unit_tests_passed": 89,
+      "postgresql_lifecycle_checks": 23,
+      "rls_role_pool_checks": 33,
+      "delivery_checks": 18,
+      "consent_and_race_checks": 24,
+      "isolation_matrix": {
+        "databaseCapabilityPairs": 132,
+        "roleClassStateGrantCases": 594,
+        "httpProjectionCases": 330,
+        "signedByteCases": 198,
+        "writeRoleClassCases": 66
+      },
+      "real_browser_session_passkey_recovery_checks": 29,
+      "source": "identity-lifecycle authenticated job log"
+    },
+    "browser_and_accessibility": {
+      "browser_checks_passed": 108,
+      "application_tests_repeated": 1717,
+      "source": "browser-and-accessibility authenticated job log"
+    },
+    "storage": {
+      "javascript_tests_passed": 167,
+      "python_tests_passed": 81
+    },
+    "database_foundation": {
+      "python_tests_passed": 18,
+      "javascript_tests_passed": 14
+    },
+    "plan": {
+      "tests_passed": 30
+    },
+    "architecture": {
+      "architecture_tests_passed": 109,
+      "migration_contract_tests_passed": 31
+    },
+    "supply_chain_policy": {
+      "javascript_tests_passed": 19,
+      "python_tests_passed": 9
+    },
+    "counts_note": "Counts describe separate executions and scenario groups; repeated suites overlap and are not added as unique test coverage."
+  },
+  "data_artifact": {
+    "id": 12104446207,
+    "name": "garden-data-39041928170",
+    "size_in_bytes": 10418,
+    "url": "https://api.github.com/repos/neophilism/The-Garden/actions/artifacts/12104446207",
+    "archive_download_url": "https://api.github.com/repos/neophilism/The-Garden/actions/artifacts/12104446207/zip",
+    "expired": false,
+    "created_at": "2026-10-17T14:44:16Z",
+    "expires_at": "2026-11-16T14:44:15Z",
+    "updated_at": "2026-10-17T14:44:16Z",
+    "digest": "sha256:7896c11446795df0c9962d81d6e4d4273e9dd7499ab75e4a6bcd2b9d6d9a271e",
+    "workflow_run": {
+      "id": 39041928170,
+      "repository_id": 1413400176,
+      "head_repository_id": 1413400176,
+      "head_branch": "security/gdn-032-requester-receipts-20261017",
+      "head_sha": "75e999f122428fa2f8ef7c7a6ae13598e6b06d00"
+    },
+    "content_downloaded_by_monitor": false,
+    "verification_source": "Test counts and assertions were read from the exact job log; artifact metadata was fetched separately."
+  },
+  "earlier_failed_candidate": {
+    "head_sha": "737e2de4f0c0ad1316f93275c9b586ab5a45071a",
+    "checks_succeeded": 9,
+    "checks_failed": 1,
+    "lifecycle_groups_completed": 15,
+    "failed_group": 16,
+    "cause": "Sorted actual recovery keys compared with an unsorted expected array.",
+    "correction": "Expected literal changed to ['fingerprint','operationId']; no runtime or migration change.",
+    "evidence": "pr66-first-attempt-observation.json"
+  },
+  "merged_readback": {
+    "merged": true,
+    "merged_at": "2026-10-17T14:45:37Z",
+    "merge_sha": "9a82d74da36e5d3da07ff0e939e5f71a95fe23e4",
+    "tree": "b9c898e06601de90d27376a96ceb6f1e83cd9f6a",
+    "parents": [
+      "bff5048543ee336162ff01e306cf56d3a656e36c"
+    ],
+    "head_unchanged": true,
+    "base_unchanged": true,
+    "merge_performed_by_monitor": false
+  },
+  "scope": "Read-only current GitHub CI and merge observation. PostgreSQL fixtures are disposable/synthetic; no hosted requester use, actual deletion/export/hold enforcement, production verification or staging provider mutation is claimed.",
+  "production_verified": false,
+  "GDN032_complete": false,
+  "provider_mutations_by_monitor": 0,
+  "source_edits_by_monitor": 0
+}

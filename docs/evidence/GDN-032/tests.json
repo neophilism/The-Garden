@@ -376,5 +376,18 @@
   },
   "counting_note": "The 375 and 117 runs overlap the current full suite. Counts are per execution and must not be added as distinct coverage. The separate 37-test assurance suite is outside npm run check.",
   "raw_logs": "Raw logs and private working-session metadata are not copied into the repository; compact observations, reproducible commands, source hashes and log hashes are retained here.",
-  "production_verified": false
+  "production_verified": false,
+  "latest_verified_followup": {
+    "observed_at": "2026-10-17T14:53:13Z",
+    "kind": "later-source-bound-observation",
+    "note": "The original fields above retain their dated pre-publication candidate scope; use these later records for actual CI, merge and isolated schema status. No hosted requester or disposal effect is established.",
+    "requester_merge": "docs/evidence/GDN-032/requester-merge-observation.json",
+    "requester_ci": "docs/evidence/GDN-032/requester-ci-observation.json",
+    "requester_staging": "docs/evidence/GDN-032/requester-staging-observation.json",
+    "dependency_component": "docs/evidence/GDN-032/dependencies-observation.json",
+    "actual_postgresql_requester_groups_passed": 22,
+    "staging_migration_count": 14,
+    "unit_complete": false,
+    "production_verified": false
+  }
 }

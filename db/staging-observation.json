@@ -1,12 +1,12 @@
 {
-  "observed_at": "2026-10-17T14:19:48Z",
+  "observed_at": "2026-10-17T14:51:42Z",
   "project_id": "royal-union-78374030",
   "branch_id": "br-purple-grass-b5hurfl7",
   "branch_name": "garden-staging",
   "parent_branch_id": "br-curly-band-b5aatp1e",
   "database": "neondb",
-  "schema_version": "0013_encrypted_content",
-  "schema_sha256": "1fb1eb5adc7b2adced769cf91f8fd99af841f86ed98132d12922e07549b19964",
+  "schema_version": "0014_lifecycle_requests",
+  "schema_sha256": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c",
   "server_version": "18.6 (653b019)",
   "deployment_binding": {
     "singleton": true,
@@ -81,117 +81,137 @@
       "id": "0013_encrypted_content",
       "file": "0013_encrypted_content.sql",
       "sha256": "1fb1eb5adc7b2adced769cf91f8fd99af841f86ed98132d12922e07549b19964"
+    },
+    {
+      "id": "0014_lifecycle_requests",
+      "file": "0014_lifecycle_requests.sql",
+      "sha256": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c"
     }
   ],
   "private_tables_without_forced_rls": 0,
-  "encryption_capability": {
-    "name": "garden_encryption",
-    "login": false,
-    "inherit": false,
-    "superuser": false,
-    "bypass_rls": false,
-    "create_role": false,
-    "create_database": false,
-    "replication": false
+  "lifecycle_requester_capability": {
+    "rolname": "garden_lifecycle_requester",
+    "rolcanlogin": false,
+    "rolinherit": false,
+    "rolsuper": false,
+    "rolcreatedb": false,
+    "rolcreaterole": false,
+    "rolreplication": false,
+    "rolbypassrls": false
   },
-  "encryption_structure_security": [
+  "lifecycle_requester_role_membership": [
     {
-      "schema": "garden_control",
-      "table": "encryption_key_bindings",
-      "rls_enabled": true,
-      "rls_forced": true,
-      "encryption_role_has_table_privilege": false
+      "member": "neondb_owner",
+      "grantor": "cloud_admin",
+      "admin_option": true,
+      "inherit_option": false,
+      "set_option": false
     },
     {
-      "schema": "garden_control",
-      "table": "encryption_key_versions",
-      "rls_enabled": true,
-      "rls_forced": true,
-      "encryption_role_has_table_privilege": false
-    },
-    {
-      "schema": "garden_private",
-      "table": "encrypted_content_heads",
-      "rls_enabled": true,
-      "rls_forced": true,
-      "encryption_role_has_table_privilege": false
-    },
-    {
-      "schema": "garden_private",
-      "table": "encrypted_content_versions",
-      "rls_enabled": true,
-      "rls_forced": true,
-      "encryption_role_has_table_privilege": false
-    },
-    {
-      "schema": "garden_private",
-      "table": "encrypted_envelope_revisions",
-      "rls_enabled": true,
-      "rls_forced": true,
-      "encryption_role_has_table_privilege": false
-    },
-    {
-      "schema": "garden_private",
-      "table": "encrypted_material",
-      "rls_enabled": true,
-      "rls_forced": true,
-      "encryption_role_has_table_privilege": false
+      "member": "neondb_owner",
+      "grantor": "neondb_owner",
+      "admin_option": false,
+      "inherit_option": false,
+      "set_option": true
     }
   ],
-  "encryption_role_executable_control_functions": [
-    "garden_control.bind_policy_context(text)",
-    "garden_control.check_encrypted_commit(uuid,text)",
-    "garden_control.clear_policy_context()",
-    "garden_control.commit_encrypted_content(jsonb)",
-    "garden_control.encrypted_content_receipt(uuid,uuid,uuid,text)",
-    "garden_control.load_encrypted_content(uuid,uuid,bigint,uuid,text)",
-    "garden_control.prepare_encrypted_content(uuid,uuid,bigint,uuid,text)"
+  "lifecycle_structure_security": [
+    {
+      "nspname": "garden_control",
+      "relname": "lifecycle_request_contexts",
+      "owner": "garden_migrator",
+      "relrowsecurity": true,
+      "relforcerowsecurity": true
+    },
+    {
+      "nspname": "garden_control",
+      "relname": "lifecycle_request_tickets",
+      "owner": "garden_migrator",
+      "relrowsecurity": true,
+      "relforcerowsecurity": true
+    },
+    {
+      "nspname": "garden_private",
+      "relname": "lifecycle_request_cases",
+      "owner": "garden_migrator",
+      "relrowsecurity": true,
+      "relforcerowsecurity": true
+    },
+    {
+      "nspname": "garden_private",
+      "relname": "lifecycle_request_events",
+      "owner": "garden_migrator",
+      "relrowsecurity": true,
+      "relforcerowsecurity": true
+    },
+    {
+      "nspname": "garden_private",
+      "relname": "lifecycle_request_heads",
+      "owner": "garden_migrator",
+      "relrowsecurity": true,
+      "relforcerowsecurity": true
+    },
+    {
+      "nspname": "garden_private",
+      "relname": "lifecycle_request_payloads",
+      "owner": "garden_migrator",
+      "relrowsecurity": true,
+      "relforcerowsecurity": true
+    }
   ],
-  "new_encryption_structure_counts": {
-    "key_versions": 0,
-    "key_bindings": 0,
-    "content_versions": 0,
-    "envelope_revisions": 0,
-    "material": 0,
-    "heads": 0
+  "new_lifecycle_structure_counts": {
+    "garden_private.lifecycle_request_cases": 0,
+    "garden_private.lifecycle_request_payloads": 0,
+    "garden_private.lifecycle_request_events": 0,
+    "garden_private.lifecycle_request_heads": 0,
+    "garden_control.lifecycle_request_tickets": 0,
+    "garden_control.lifecycle_request_contexts": 0
   },
-  "rollout_source_sha": "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
-  "rollout_evidence": "docs/evidence/GDN-026/persistence-staging-observation.json",
-  "rollout": "Verified merged additive 0013 applied in one transaction after exact deployment-binding and prior 12-checksum guards. Independent read-only post-commit observation matches all 13 manifest hashes, six forced-RLS tables, non-elevated NOLOGIN capability and exactly seven granted API functions. No seed/teardown journey, keys, ciphertext, corpus data, new spending or production changes.",
+  "lifecycle_function_verification": {
+    "migration_count": 14,
+    "source_hashes_match": true,
+    "new_tables": 6,
+    "new_table_rows": 0,
+    "new_functions": 21,
+    "issuer_entry_points": 2,
+    "requester_entry_points": 7,
+    "owner_only_helpers": 12,
+    "all_private_tables_force_rls": true,
+    "new_runtime_raw_table_grants": false,
+    "audit_acl_preserved_by_atomic_postguard": true,
+    "no_runtime_login_provisioned": true
+  },
+  "rollout_source_sha": "9a82d74da36e5d3da07ff0e939e5f71a95fe23e4",
+  "rollout_evidence": "docs/evidence/GDN-032/requester-staging-observation.json",
+  "rollout": "Verified merged additive 0014 applied in one guarded transaction. The first deployment-only postguard rejected Neon's two owner/grantor rows and rolled the entire transaction back; the corrected postguard requires the exact observed two-row multiset. Migration bytes remained unchanged. Separate read-only post-commit observation matches all 14 source hashes, six empty forced-RLS tables, 21 function bodies and exact issuer/requester grants. No CI seed/teardown journey was run on retained staging.",
   "production_changed": false,
   "production_verified": false,
   "historical_records_imported": 0,
+  "real_lifecycle_requests_created": 0,
+  "runtime_requester_login_provisioned": false,
+  "hosted_requester_activated": false,
   "provider_keys_configured": 0,
   "hosted_encryption_activated": false,
   "new_paid_resources": 0,
   "external_client_tls_verified": false,
-  "prior_foundation_observation": {
-    "observed_at": "2026-10-16T14:59:36.955936+00:00",
+  "prior_encryption_observation": {
+    "observed_at": "2026-10-17T14:19:48Z",
     "project_id": "royal-union-78374030",
     "branch_id": "br-purple-grass-b5hurfl7",
     "branch_name": "garden-staging",
     "parent_branch_id": "br-curly-band-b5aatp1e",
     "database": "neondb",
-    "endpoint_id": "ep-round-recipe-b5mlz2vw",
-    "schema_version": "0012_geographic_assertions",
-    "schema_sha256": "a89296c1a1c05d1abee04d06706a5a7f4e9d4c197dbe6ef74d7a33e8cd7636f8",
-    "group_roles": [
-      "garden_migrator",
-      "garden_public",
-      "garden_research",
-      "garden_publisher"
-    ],
-    "all_roles_nologin_and_nobypassrls": true,
-    "public_private_usage": false,
-    "research_private_visible_rows": 0,
-    "public_probe_visible_rows": 1,
-    "runtime_ddl_privilege": false,
-    "production_changed": false,
-    "historical_records_imported": 0,
-    "external_client_tls_verified": false,
-    "tls_note": "MCP SQL session pg_stat_ssl reported false; internal proxy SQL is not external client TLS proof. Connection planner requires verify-full and channel_binding=require. No production credentials issued.",
-    "independent_security_review": "not_performed",
-    "cost_basis": "Existing free_v3 project; branch 2 of 10; staging compute fixed 0.25 CU, no paid tier selected. Account limits still apply.",
+    "schema_version": "0013_encrypted_content",
+    "schema_sha256": "1fb1eb5adc7b2adced769cf91f8fd99af841f86ed98132d12922e07549b19964",
+    "server_version": "18.6 (653b019)",
+    "deployment_binding": {
+      "singleton": true,
+      "repository": "neophilism/The-Garden",
+      "environment": "staging",
+      "project_id": "royal-union-78374030",
+      "branch_id": "br-purple-grass-b5hurfl7",
+      "database_name": "neondb"
+    },
     "migrations": [
       {
         "id": "0001_foundation",
@@ -252,11 +272,189 @@
         "id": "0012_geographic_assertions",
         "file": "0012_geographic_assertions.sql",
         "sha256": "a89296c1a1c05d1abee04d06706a5a7f4e9d4c197dbe6ef74d7a33e8cd7636f8"
+      },
+      {
+        "id": "0013_encrypted_content",
+        "file": "0013_encrypted_content.sql",
+        "sha256": "1fb1eb5adc7b2adced769cf91f8fd99af841f86ed98132d12922e07549b19964"
       }
     ],
     "private_tables_without_forced_rls": 0,
-    "rollout_source_sha": "c4f7dcd544a3871d0821119654819460fdf38de3",
-    "rollout": "Existing merged migrations 0003 through 0012 applied atomically to the owner-designated isolated staging branch after validating binding and existing checksums. No corpus imported. Initial connector multi-command error rolled back; SQL statements were then parsed and submitted in one transaction."
+    "encryption_capability": {
+      "name": "garden_encryption",
+      "login": false,
+      "inherit": false,
+      "superuser": false,
+      "bypass_rls": false,
+      "create_role": false,
+      "create_database": false,
+      "replication": false
+    },
+    "encryption_structure_security": [
+      {
+        "schema": "garden_control",
+        "table": "encryption_key_bindings",
+        "rls_enabled": true,
+        "rls_forced": true,
+        "encryption_role_has_table_privilege": false
+      },
+      {
+        "schema": "garden_control",
+        "table": "encryption_key_versions",
+        "rls_enabled": true,
+        "rls_forced": true,
+        "encryption_role_has_table_privilege": false
+      },
+      {
+        "schema": "garden_private",
+        "table": "encrypted_content_heads",
+        "rls_enabled": true,
+        "rls_forced": true,
+        "encryption_role_has_table_privilege": false
+      },
+      {
+        "schema": "garden_private",
+        "table": "encrypted_content_versions",
+        "rls_enabled": true,
+        "rls_forced": true,
+        "encryption_role_has_table_privilege": false
+      },
+      {
+        "schema": "garden_private",
+        "table": "encrypted_envelope_revisions",
+        "rls_enabled": true,
+        "rls_forced": true,
+        "encryption_role_has_table_privilege": false
+      },
+      {
+        "schema": "garden_private",
+        "table": "encrypted_material",
+        "rls_enabled": true,
+        "rls_forced": true,
+        "encryption_role_has_table_privilege": false
+      }
+    ],
+    "encryption_role_executable_control_functions": [
+      "garden_control.bind_policy_context(text)",
+      "garden_control.check_encrypted_commit(uuid,text)",
+      "garden_control.clear_policy_context()",
+      "garden_control.commit_encrypted_content(jsonb)",
+      "garden_control.encrypted_content_receipt(uuid,uuid,uuid,text)",
+      "garden_control.load_encrypted_content(uuid,uuid,bigint,uuid,text)",
+      "garden_control.prepare_encrypted_content(uuid,uuid,bigint,uuid,text)"
+    ],
+    "new_encryption_structure_counts": {
+      "key_versions": 0,
+      "key_bindings": 0,
+      "content_versions": 0,
+      "envelope_revisions": 0,
+      "material": 0,
+      "heads": 0
+    },
+    "rollout_source_sha": "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
+    "rollout_evidence": "docs/evidence/GDN-026/persistence-staging-observation.json",
+    "rollout": "Verified merged additive 0013 applied in one transaction after exact deployment-binding and prior 12-checksum guards. Independent read-only post-commit observation matches all 13 manifest hashes, six forced-RLS tables, non-elevated NOLOGIN capability and exactly seven granted API functions. No seed/teardown journey, keys, ciphertext, corpus data, new spending or production changes.",
+    "production_changed": false,
+    "production_verified": false,
+    "historical_records_imported": 0,
+    "provider_keys_configured": 0,
+    "hosted_encryption_activated": false,
+    "new_paid_resources": 0,
+    "external_client_tls_verified": false,
+    "prior_foundation_observation": {
+      "observed_at": "2026-10-16T14:59:36.955936+00:00",
+      "project_id": "royal-union-78374030",
+      "branch_id": "br-purple-grass-b5hurfl7",
+      "branch_name": "garden-staging",
+      "parent_branch_id": "br-curly-band-b5aatp1e",
+      "database": "neondb",
+      "endpoint_id": "ep-round-recipe-b5mlz2vw",
+      "schema_version": "0012_geographic_assertions",
+      "schema_sha256": "a89296c1a1c05d1abee04d06706a5a7f4e9d4c197dbe6ef74d7a33e8cd7636f8",
+      "group_roles": [
+        "garden_migrator",
+        "garden_public",
+        "garden_research",
+        "garden_publisher"
+      ],
+      "all_roles_nologin_and_nobypassrls": true,
+      "public_private_usage": false,
+      "research_private_visible_rows": 0,
+      "public_probe_visible_rows": 1,
+      "runtime_ddl_privilege": false,
+      "production_changed": false,
+      "historical_records_imported": 0,
+      "external_client_tls_verified": false,
+      "tls_note": "MCP SQL session pg_stat_ssl reported false; internal proxy SQL is not external client TLS proof. Connection planner requires verify-full and channel_binding=require. No production credentials issued.",
+      "independent_security_review": "not_performed",
+      "cost_basis": "Existing free_v3 project; branch 2 of 10; staging compute fixed 0.25 CU, no paid tier selected. Account limits still apply.",
+      "migrations": [
+        {
+          "id": "0001_foundation",
+          "file": "0001_foundation.sql",
+          "sha256": "7ba727f1d96d342853a75670ecf4313275e72fb53674188c2e27690e246cf52e"
+        },
+        {
+          "id": "0002_jobs",
+          "file": "0002_jobs.sql",
+          "sha256": "3c5a0fa7579aee8ad19d5cf7471a3c0cfcda677961328766f55cb8b71c691f90"
+        },
+        {
+          "id": "0003_membership",
+          "file": "0003_membership.sql",
+          "sha256": "a3a85fdfbd7102af0f1b8c110b274756104d1a188970063062936d08f84f2e9d"
+        },
+        {
+          "id": "0004_policy_context",
+          "file": "0004_policy_context.sql",
+          "sha256": "ce2d084065efc930255d4bb3e46080d65fb8cadf8ef72c1520b10b27bac6e4dd"
+        },
+        {
+          "id": "0005_historical_records",
+          "file": "0005_historical_records.sql",
+          "sha256": "7d92349869fde52a1c152b9deb7a2d63a524bbb4cf3a736daa3fe322cc624188"
+        },
+        {
+          "id": "0006_archival_sources",
+          "file": "0006_archival_sources.sql",
+          "sha256": "79f3adf798faf45c64b11bde77a11d8d821269a3d246444ad31c581bb549e4d0"
+        },
+        {
+          "id": "0007_durable_locators",
+          "file": "0007_durable_locators.sql",
+          "sha256": "322b7defc98979fb55d851153ae64d7a7406a405a47c4c83ce5b86a20c596691"
+        },
+        {
+          "id": "0008_atomic_claims",
+          "file": "0008_atomic_claims.sql",
+          "sha256": "f2578cb9b4755ccddb3d87f6d83c715f21dffa71d65b2bf059cd0b42ee16fe47"
+        },
+        {
+          "id": "0009_purpose_consent",
+          "file": "0009_purpose_consent.sql",
+          "sha256": "ff49fa5baa2bf92b8d537e4daf115facd7e1baedd913e49ca9dac387776f7312"
+        },
+        {
+          "id": "0010_audit_ledger",
+          "file": "0010_audit_ledger.sql",
+          "sha256": "658e8adc7764e90b7cc51e3ee6fb49925913c31d5d114aae70f13561862dbe75"
+        },
+        {
+          "id": "0011_scoped_reviews",
+          "file": "0011_scoped_reviews.sql",
+          "sha256": "beae0f820608c605182622c3a0c3aab6debc00841d01d6c1e1cedd5bb13a7000"
+        },
+        {
+          "id": "0012_geographic_assertions",
+          "file": "0012_geographic_assertions.sql",
+          "sha256": "a89296c1a1c05d1abee04d06706a5a7f4e9d4c197dbe6ef74d7a33e8cd7636f8"
+        }
+      ],
+      "private_tables_without_forced_rls": 0,
+      "rollout_source_sha": "c4f7dcd544a3871d0821119654819460fdf38de3",
+      "rollout": "Existing merged migrations 0003 through 0012 applied atomically to the owner-designated isolated staging branch after validating binding and existing checksums. No corpus imported. Initial connector multi-command error rolled back; SQL statements were then parsed and submitted in one transaction."
+    },
+    "prior_observation_note": "Retained October 16 probes and resource observations below are historical; they were not rerun or relabeled as current runtime/TLS/provider acceptance."
   },
-  "prior_observation_note": "Retained October 16 probes and resource observations below are historical; they were not rerun or relabeled as current runtime/TLS/provider acceptance."
+  "prior_observation_note": "The exact earlier 0013 observation and its nested October 16 foundation probes are preserved below with their original dates. They were not rerun or relabeled as current encryption, runtime, provider or external TLS acceptance."
 }

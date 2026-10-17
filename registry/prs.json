@@ -12,7 +12,7 @@
   "scopeNote": "Exact 210 work package titles and scopes recovered from plan/plan.json; the last 14 are contingent governmental scope, not activated powers or deployed features. PR links come only from existing reviewed historical mappings.",
   "schemaVersion": 1,
   "roadmapVersion": 2,
-  "observedAt": "2026-10-17T14:19:48Z",
+  "observedAt": "2026-10-17T14:53:13Z",
   "units": [
     {
       "id": "GDN-001",
@@ -5447,6 +5447,36 @@
       "headSha": "4b930b67c380b812d0b44d494dca9d3067ba33fd",
       "baseRef": "main",
       "mergeCommitSha": "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b"
+    },
+    {
+      "id": 4900855393,
+      "number": 65,
+      "title": "Record verified persistence, staging rollout and current delivery status",
+      "url": "https://github.com/neophilism/The-Garden/pull/65",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T14:23:37Z",
+      "updatedAt": "2026-10-17T14:29:43Z",
+      "closedAt": "2026-10-17T14:29:43Z",
+      "mergedAt": "2026-10-17T14:29:43Z",
+      "headSha": "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b",
+      "baseRef": "main",
+      "mergeCommitSha": "bff5048543ee336162ff01e306cf56d3a656e36c"
+    },
+    {
+      "id": 4900962109,
+      "number": 66,
+      "title": "Add durable private lifecycle requests and scoped retention contracts",
+      "url": "https://github.com/neophilism/The-Garden/pull/66",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T14:38:11Z",
+      "updatedAt": "2026-10-17T14:45:37Z",
+      "closedAt": "2026-10-17T14:45:37Z",
+      "mergedAt": "2026-10-17T14:45:37Z",
+      "headSha": "75e999f122428fa2f8ef7c7a6ae13598e6b06d00",
+      "baseRef": "main",
+      "mergeCommitSha": "9a82d74da36e5d3da07ff0e939e5f71a95fe23e4"
     }
   ]
 }
