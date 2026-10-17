@@ -263,9 +263,151 @@
         "success": 7,
         "failure": 3
       }
+    },
+    {
+      "observed_at": "2026-10-17T15:38:02.418Z",
+      "pr": 69,
+      "head_sha": "2268802e2b112e99967e93bafb7289570ff1260d",
+      "base_sha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+      "tested_merge_sha": "40296d54aa82942c094715965ee1eff624eee0f6",
+      "tested_tree_sha": "770e725e78f85a1b5e361d37b885412778d363d2",
+      "migration_sha256": "b934cd39c5313fb855d9096829e540a35bae30fc1610722798149d044098648a",
+      "manifest_sha256": "d54478303a768aa5413b2ca4c446a9d0cbc689d07ad5b3b2286aa7e93cd224e8",
+      "actual_migration_result": "pass_applied_and_reapplied_in_PostgreSQL18.6",
+      "database_foundation": {
+        "job": 117433929829,
+        "run": 39045724747,
+        "conclusion": "success",
+        "source_receipts": [
+          {
+            "event": "pull_request",
+            "job": "database",
+            "parent_shas": [
+              "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+              "2268802e2b112e99967e93bafb7289570ff1260d"
+            ],
+            "repository": "neophilism/The-Garden",
+            "run_attempt": "1",
+            "schema_version": 1,
+            "tested_sha": "40296d54aa82942c094715965ee1eff624eee0f6",
+            "workflow_ref": "neophilism/The-Garden/.github/workflows/database.yml@refs/pull/69/merge",
+            "workflow_run_id": "39045724747"
+          }
+        ]
+      },
+      "data_workflow": {
+        "job": 117433930078,
+        "run": 39045724835,
+        "conclusion": "failure",
+        "source_receipts": [
+          {
+            "event": "pull_request",
+            "job": "data",
+            "parent_shas": [
+              "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+              "2268802e2b112e99967e93bafb7289570ff1260d"
+            ],
+            "repository": "neophilism/The-Garden",
+            "run_attempt": "1",
+            "schema_version": 1,
+            "tested_sha": "40296d54aa82942c094715965ee1eff624eee0f6",
+            "workflow_ref": "neophilism/The-Garden/.github/workflows/data.yml@refs/pull/69/merge",
+            "workflow_run_id": "39045724835"
+          }
+        ],
+        "controls_groups_passed": 8,
+        "passed_scenarios": [
+          "LIFECYCLE CONTROL 1: research membership, read permission and reviewed consent alone cannot create a retention control",
+          "LIFECYCLE CONTROL 2: a scoped write grant commits one immutable control and one succeeded audit event but never implies independent inspection authority",
+          "LIFECYCLE CONTROL 3: fresh transport admission and later proposal time preserve the original exact operation receipt; changed reviewed command cannot reuse its ID",
+          "LIFECYCLE CONTROL 4: rule revision and aggregate-control CAS preserve historical receipts while status reports only the current rule head",
+          "LIFECYCLE CONTROL 5: hold release is a separately authorized immutable revision that retains its exact placement and does not claim deletion or restore delivery",
+          "LIFECYCLE CONTROL 6: actual JSONB canonical intent, command, operation and private result digests agree for reordered keys, quotes, backslashes and Unicode actor identifiers",
+          "LIFECYCLE CONTROL 7: two actual blocked control transactions competing for one aggregate revision converge to exactly one committed control",
+          "LIFECYCLE CONTROL 8: identical concurrent commands share the original immutable operation, control revision and audit receipt"
+        ],
+        "failed_scenario": 9,
+        "failure": {
+          "kind": "test_expectation_mismatch",
+          "location": "apps/research/access/lifecycle-controls.ci.mjs:361",
+          "expected_code": "lifecycle_request_unavailable",
+          "actual_code": "lifecycle_request_outcome_unknown",
+          "actual_message": "Lifecycle request unavailable",
+          "cause": "The verified requester host deliberately preserves a frozen exact recovery handle for post-dispatch failures. The new cross-operation-ID test incorrectly expected an ordinary pre-dispatch denial.",
+          "runtime_change_required": false,
+          "correction": "Match the existing uncertainty contract and explicitly assert exact actor-bound recovery plus unchanged retained requester/control/registry/audit state."
+        },
+        "retained_decoded_log_sha256": "55fd95025fe34d2cc18ed9a3c650a01bf5ed1a9068dbbc3847131b332b71c736",
+        "retained_log_scope": "Decoded job text retained with a terminating newline; not the provider zip archive bytes."
+      },
+      "checks_at_observation": [
+        {
+          "id": 117433930624,
+          "name": "supply-chain-and-policy",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 117433930505,
+          "name": "browser-and-accessibility",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 117433930267,
+          "name": "Status record integrity (not product certification)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 117433930155,
+          "name": "architecture-contracts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 117433930108,
+          "name": "plan-validation",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 117433930092,
+          "name": "identity-lifecycle",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 117433930078,
+          "name": "historical-data-contracts",
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        {
+          "id": 117433929897,
+          "name": "archive-storage-boundaries",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 117433929864,
+          "name": "application-build",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 117433929829,
+          "name": "database-foundation",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "merge_performed": false,
+      "staging_performed": false,
+      "all_controls_groups_passed": false
     }
   ],
-  "latest_status": "syntax_corrected_required_ci_pending",
+  "latest_status": "group9_test_expectation_corrected_required_ci_pending",
   "unit_complete": false,
   "production_verified": false,
   "corrections": [
@@ -611,7 +753,35 @@
       "migration_planner_tests_passed": 18,
       "prior_migrations_0001_to_0014_unchanged": true,
       "full_application_retest": "Not rerun locally for the SQL-only correction; prior1878 local/CI results retain their original source scope, and every required GitHub check will rerun on the amended head."
+    },
+    {
+      "recorded_at": "2026-10-17T15:39:52.960695+00:00",
+      "source_commit": "8066e94ea9b25e9c2db87c08751a7b547f35e23c",
+      "source_tree": "e70d281c198cdef527cdf4a078b5db7e918a3d96",
+      "path": "apps/research/access/lifecycle-controls.ci.mjs",
+      "sha256": "ca9a17fc258a003496f9b80bf83427d6f720c95a3105090ae7f30d80a152cd9d",
+      "scope": "CI-only requester/control operation-ID collision assertion correction; no runtime, migration or manifest change.",
+      "changes": [
+        "Require the exact requester OutcomeUnknownError, code and message after dispatch.",
+        "Require exact actor-bound frozen operation/fingerprint recovery and deny authenticated recovery for the rejected collision.",
+        "Compare retained requester, registry, control and audit state in both collision directions."
+      ],
+      "independent_review": "Coordinator reviewed the exact committed diff against the existing requester host contract.",
+      "local_peer_observations": {
+        "provenance": "Separate AI peer tool-output and messages; original logs and inline canary source were not retained as files. This record is not a fresh re-execution.",
+        "source_scope": "Executed before the commit against the exact CI file hash recorded here.",
+        "requester_host_command": "node --test --test-reporter=spec tests/access/lifecycle-requests.test.mjs",
+        "requester_host_tests_passed": 45,
+        "requester_host_tests_skipped": 0,
+        "exact_edited_block_expected_mapping_passed": 1,
+        "wrong_error_recovery_or_effect_canaries_rejected": 6,
+        "canary_scope": "Extracted the edited assertion block, composed it with the real requester host and a rejecting repository, then varied error code/message, frozen recovery, fingerprint, recovery result and retained effect state.",
+        "actual_postgresql_executed": false
+      },
+      "migration_sha256_unchanged": "b934cd39c5313fb855d9096829e540a35bae30fc1610722798149d044098648a",
+      "manifest_sha256_unchanged": "d54478303a768aa5413b2ca4c446a9d0cbc689d07ad5b3b2286aa7e93cd224e8",
+      "required_ci": "pending_amended_head_rerun"
     }
   ],
-  "updated_at": "2026-10-17T15:34:54.371559+00:00"
+  "updated_at": "2026-10-17T15:39:52.960711+00:00"
 }

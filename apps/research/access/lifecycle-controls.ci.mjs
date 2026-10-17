@@ -9,12 +9,13 @@ import pg from 'pg';
 import {createLifecycleControlRepository} from './lifecycle-control-repository.mjs';
 import {createLifecycleControlService} from './lifecycle-controls.mjs';
 import {createLifecycleRequestRepository} from './lifecycle-request-repository.mjs';
-import {createLifecycleRequestService} from './lifecycle-requests.mjs';
+import {createLifecycleRequestService,LifecycleRequestOutcomeUnknownError} from './lifecycle-requests.mjs';
 import {allowSyntheticResearchUse} from './consent-test-fixture.mjs';
 import {ASSURANCE_LIFETIME_MS,sameAssurance} from '../identity/assurance.mjs';
 import {RUNTIME_DATABASE_CAPABILITIES,assertDatabaseCapability,DatabaseCapabilityError} from './database-role.mjs';
 import {GENESIS,verifyAuditPage} from '../../../packages/domain/src/audit/ledger.mjs';
 import {retentionRuleCommandFingerprint} from '../../../packages/domain/src/lifecycle/retention.mjs';
+import {lifecycleRequestFingerprint} from '../../../packages/domain/src/lifecycle/requests.mjs';
 import {controlMethodIntent,lifecycleControlIntentFingerprint,lifecycleControlCommandFingerprint,buildControlCommit,
  lifecycleControlReadFingerprint,lifecycleControlResultFingerprint,controlRecovery,validateControlResult} from '../../../packages/domain/src/lifecycle/control-storage.mjs';
 
@@ -170,8 +171,8 @@ async function reviseAuthority(entry,kind,patch={}){
  return {command,receipt:(await admin.query('SELECT garden_control.'+name+'($1::jsonb,$2::text) AS result',
   [JSON.stringify(command),'synthetic-lifecycle-authority-reviewer'])).rows[0].result};
 }
-async function retainedState(){
- const tables=['garden_control.audit_events','garden_control.audit_heads',...PRIVATE.map(n=>'garden_private.'+n),...CONTROL.map(n=>'garden_control.'+n)];
+async function retainedState(extraTables=[]){
+ const tables=['garden_control.audit_events','garden_control.audit_heads',...PRIVATE.map(n=>'garden_private.'+n),...CONTROL.map(n=>'garden_control.'+n),...extraTables];
  return(await admin.query(tables.map(table=>`SELECT '${table}' AS table_name,count(*)::text AS count,
   encode(sha256(convert_to(COALESCE(string_agg(to_jsonb(r)::text,E'\\n' ORDER BY to_jsonb(r)::text COLLATE "C"),''),'UTF8')),'hex') AS sha256
   FROM ${table} AS r`).join(' UNION ALL ')+' ORDER BY table_name')).rows;
@@ -358,11 +359,24 @@ try{
  assert.deepEqual(await retainedState(),globalBefore);
  const requester=createLifecycleRequestService({identity,workspaceId:W,isEnabled:()=>true,isIntakeEnabled:()=>true,
   repository:createLifecycleRequestRepository({issuerPool:pools.context_issuer,requesterPool:pools.lifecycle_requester,workspaceId:W,environment:'ci',isEnabled:()=>true})});
- await assert.rejects(()=>requester.submit(H('alice'),{operationId:original.operationId,requestId:randomUUID(),kind:'delete',claimedRecordId:scope.recordId}),
+ const requesterTables=['lifecycle_request_cases','lifecycle_request_payloads','lifecycle_request_events','lifecycle_request_heads'].map(n=>'garden_private.'+n);
+ const requesterBefore=await retainedState(requesterTables),rejectedClaim={operationId:original.operationId,requestId:randomUUID(),kind:'delete',claimedRecordId:scope.recordId};
+ let rejectedClaimError;
+ // The requester host conservatively reports an unknown outcome after
+ // dispatch, even when the fixed repository has rejected and rolled back.
+ await assert.rejects(()=>requester.submit(H('alice'),rejectedClaim),error=>{
+  rejectedClaimError=error;return error instanceof LifecycleRequestOutcomeUnknownError&&error.code==='lifecycle_request_outcome_unknown'&&
+   error.message==='Lifecycle request unavailable'&&Object.isFrozen(error.recovery);
+ });
+ assert.deepEqual(rejectedClaimError.recovery,{operationId:rejectedClaim.operationId,fingerprint:lifecycleRequestFingerprint(P,rejectedClaim)});
+ await assert.rejects(()=>requester.recover(H('alice'),rejectedClaimError.recovery),
   error=>error.code==='lifecycle_request_unavailable'&&error.message==='Lifecycle request unavailable');
+ assert.deepEqual(await retainedState(requesterTables),requesterBefore);
  const claimant={operationId:randomUUID(),requestId:randomUUID(),kind:'delete',claimedRecordId:scope.recordId};
  await requester.submit(H('alice'),claimant);
+ const controlCollisionBefore=await retainedState(requesterTables);
  await denied(()=>app.placeHold(H('alice'),{command:holdCommand(scope,{operationId:claimant.operationId}),expectedControlRevision:'4'}));
+ assert.deepEqual(await retainedState(requesterTables),controlCollisionBefore);
  assert.equal((await admin.query('SELECT count(*)::integer AS n FROM garden_control.lifecycle_operation_registry WHERE operation_id=$1',[claimant.operationId])).rows[0].n,1);
  assert.equal((await admin.query('SELECT count(*)::integer AS n FROM garden_private.lifecycle_control_events WHERE operation_id=$1',[claimant.operationId])).rows[0].n,0);
  check('one global immutable operation registry rejects cross-workspace, rule/hold and requester/control ID reuse in both directions');
