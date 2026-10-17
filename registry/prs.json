@@ -12,7 +12,7 @@
   "scopeNote": "Exact 210 work package titles and scopes recovered from plan/plan.json; the last 14 are contingent governmental scope, not activated powers or deployed features. PR links come only from existing reviewed historical mappings.",
   "schemaVersion": 1,
   "roadmapVersion": 2,
-  "observedAt": "2026-10-17T15:56:56.507Z",
+  "observedAt": "2026-10-17T16:11:47.051Z",
   "units": [
     {
       "id": "GDN-001",
@@ -5522,6 +5522,21 @@
       "headSha": "2be7201402f8440c2db936fa336085820c2ccc51",
       "baseRef": "main",
       "mergeCommitSha": "3dc436db71ec24616a8b24eb6a78e2d3612eb297"
+    },
+    {
+      "id": 4901635001,
+      "number": 70,
+      "title": "Acquire workspace gate before research policy and graph locks",
+      "url": "https://github.com/neophilism/The-Garden/pull/70",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T16:00:45Z",
+      "updatedAt": "2026-10-17T16:11:39Z",
+      "closedAt": "2026-10-17T16:11:38Z",
+      "mergedAt": "2026-10-17T16:11:38Z",
+      "headSha": "8e2d129f60ffadbf08c9888109e9a16038637538",
+      "baseRef": "main",
+      "mergeCommitSha": "933880907295e1003f29f5658b3310eae69d5ab7"
     }
   ]
 }

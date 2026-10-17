@@ -1,0 +1,381 @@
+{
+  "work_item": "GDN-011",
+  "component": "Complete server check/app and administrator enforcement evidence",
+  "recorded_at": "2026-10-17T15:49:18.123231+00:00",
+  "acceptance": "partial_local_component",
+  "base_commit_sha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+  "tested_worktree_source_sha256": {
+    "tools/delivery/merge-readiness.mjs": "3d93337bd2a04562871c2dc0cccd9a2d8e62d13fe80f0666886f7349af0e89d3",
+    "tests/runtime/merge-readiness.test.mjs": "408488f8389c41ab0cda5ff92e04efa771ded098d453a2adc8ce49288ee1c3c0",
+    "docs/delivery/merge-policy.json": "26e6e23213b484e953ec7f0bb6937f867ef61babeda1ec2f4108b372a7f5f831",
+    "docs/delivery/autonomous-merges.md": "466b875fdd91be4fde564e516746e7dcc0576da3f7ac34ea547cf05bbb997ca4",
+    "scripts/check-merge-readiness.mjs": "d1b7ec37d6edc139854129b4e08b87c4320426628232f9855eab0b70d05a0752",
+    "scripts/record_ci_source.py": "50258c2ff1b9db1f6e3d1df67908c4de739cc2a6c4500a9bfd64ed5bf64abf5c",
+    "docs/evidence/GDN-011/server-capability-observation-20261017.json": "3cec8548ea649448bc1ba48842c3e81506970810d68c68b79746a5c3c844d7ac",
+    "docs/evidence/GDN-011/enforcement-completeness-review.md": "2828f9a186997b9db8cf8c9d7782446f663c1ca68a815cb7656881604f7b0189"
+  },
+  "change": [
+    "Require every trusted policy check to appear in server required_status_checks.checks with its exact positive GitHub App ID.",
+    "Require the provider GET representation enforce_admins.enabled to be boolean true.",
+    "Return denial receipts for duplicate contexts and malformed required-check/legacy-context collections.",
+    "Keep unsupported rules, current H/B/M source receipts, rerun selection, reviews, conflicts, final digests and no-bypass requests unchanged."
+  ],
+  "canonical_before_fix": {
+    "kind": "Canonical regression run before source fix; expected existing generic denial code retained for invalid app bindings",
+    "startedAt": "2026-10-17T15:47:11.800469+00:00",
+    "base": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+    "sourceSha256": {
+      "tools/delivery/merge-readiness.mjs": "6e67dfdd5c35310446d7f1c377ad5437e39ab4d6cb1cb47654ec0bd1c1fe36de",
+      "tests/runtime/merge-readiness.test.mjs": "408488f8389c41ab0cda5ff92e04efa771ded098d453a2adc8ce49288ee1c3c0",
+      "docs/delivery/merge-policy.json": "26e6e23213b484e953ec7f0bb6937f867ef61babeda1ec2f4108b372a7f5f831",
+      "scripts/check-merge-readiness.mjs": "d1b7ec37d6edc139854129b4e08b87c4320426628232f9855eab0b70d05a0752",
+      "scripts/record_ci_source.py": "50258c2ff1b9db1f6e3d1df67908c4de739cc2a6c4500a9bfd64ed5bf64abf5c"
+    },
+    "command": [
+      "node",
+      "--test",
+      "tests/runtime/merge-readiness.test.mjs"
+    ],
+    "environmentKeys": [
+      "CI",
+      "HOME",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "PATH"
+    ],
+    "nodeVersion": "v24.19.0",
+    "finishedAt": "2026-10-17T15:47:12.154160+00:00",
+    "exitCode": 1,
+    "logSha256": "18842f335a94df51ea5e0eab8f8ab127bb7af0c1653cdf10084afa8feb42d494",
+    "counts": {
+      "tests": 93,
+      "pass": 67,
+      "fail": 26,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    }
+  },
+  "canonical_after_fix": {
+    "kind": "Canonical same-tests run after source fix",
+    "startedAt": "2026-10-17T15:47:17.050310+00:00",
+    "base": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+    "sourceSha256": {
+      "tools/delivery/merge-readiness.mjs": "3d93337bd2a04562871c2dc0cccd9a2d8e62d13fe80f0666886f7349af0e89d3",
+      "tests/runtime/merge-readiness.test.mjs": "408488f8389c41ab0cda5ff92e04efa771ded098d453a2adc8ce49288ee1c3c0",
+      "docs/delivery/merge-policy.json": "26e6e23213b484e953ec7f0bb6937f867ef61babeda1ec2f4108b372a7f5f831",
+      "scripts/check-merge-readiness.mjs": "d1b7ec37d6edc139854129b4e08b87c4320426628232f9855eab0b70d05a0752",
+      "scripts/record_ci_source.py": "50258c2ff1b9db1f6e3d1df67908c4de739cc2a6c4500a9bfd64ed5bf64abf5c"
+    },
+    "command": [
+      "node",
+      "--test",
+      "tests/runtime/merge-readiness.test.mjs"
+    ],
+    "environmentKeys": [
+      "CI",
+      "HOME",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "PATH"
+    ],
+    "nodeVersion": "v24.19.0",
+    "finishedAt": "2026-10-17T15:47:17.459938+00:00",
+    "exitCode": 0,
+    "logSha256": "03add5d08536e7fcbc9d5748d2f22e68fb162fe07bad9f749787b13a39e7444e",
+    "counts": {
+      "tests": 93,
+      "pass": 93,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    }
+  },
+  "test_scope": {
+    "existing_focused_tests_retained": 55,
+    "new_focused_tests": 38,
+    "total_focused_tests": 93,
+    "same_test_source_in_both_runs": true,
+    "new_assertions_failing_before_fix": 26,
+    "before_fix_interpretation": "The 26 failures include affirmative eligibility for weak server policy and missing denial receipts for malformed collections; already-rejected invalid app bindings retain their existing generic denial expectation.",
+    "positive_controls": [
+      "Documented GitHub GET shape with URLs, explicit app bindings and administrator enabled object",
+      "Order-independent check matching",
+      "Empty legacy contexts with all explicit app bindings",
+      "Existing exact PR and merge-group evidence"
+    ],
+    "negative_controls": [
+      "No required checks and legacy names without app bindings",
+      "Each of all ten required policy contexts omitted in turn",
+      "Null, wildcard, zero, wrong, string and absent app IDs",
+      "Malformed and duplicate provider requirement collections",
+      "Missing, false, malformed or request-only administrator enforcement",
+      "Existing stale head/base/merge source, workflow/check reruns, unknown rules, review authority, conflict, bypass, final confirmation and CLI failures"
+    ],
+    "execution_environment": "Node v24.19.0; only HOME, PATH, NODE_ENV=production, CI=true and NEXT_TELEMETRY_DISABLED=1. Authorized ordinary child-process execution was used; no guard or test was disabled."
+  },
+  "additional_checks": [
+    {
+      "command": "python scripts/validate_plan.py",
+      "result": "pass",
+      "observed_at": "2026-10-17T15:45:38.030371+00:00"
+    },
+    {
+      "command": "python -m unittest discover -s tests/plan -v",
+      "result": "pass",
+      "passed": 30,
+      "failed": 0,
+      "observed_on": "2026-10-17"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass",
+      "scope": "Source, tests and operating guide after the source fix."
+    },
+    {
+      "command": "node --check tools/delivery/merge-readiness.mjs",
+      "result": "pass"
+    },
+    {
+      "command": "node --check tests/runtime/merge-readiness.test.mjs",
+      "result": "pass"
+    },
+    {
+      "check": "Source hashes, unchanged trusted policy/CLIs, canonical test-source parity and exact observed main check/app/workflow mapping",
+      "result": "pass"
+    }
+  ],
+  "provider_observation": "docs/evidence/GDN-011/server-capability-observation-20261017.json",
+  "source_review": "docs/evidence/GDN-011/enforcement-completeness-review.md",
+  "remote_ci": "not_run_for_this_component_yet",
+  "provider_mutation": "not_performed",
+  "merge_executor": "not_added",
+  "complete_unit_count_change": 0,
+  "production_verified_items_change": 0,
+  "limitations": [
+    "The worktree source hashes bind local executions; the base commit alone does not contain this patch.",
+    "The GET-shaped fixture follows current primary documentation; the real administrative protection read remains HTTP403.",
+    "Current observed main is unprotected with no visible rulesets. No supported protection/ruleset mutation capability or Administration access is exposed.",
+    "The existing owner-authorized normal guarded merge path remains distinct from affirmative unattended eligibility.",
+    "A JSON snapshot does not establish provider authenticity, and expected_head_sha does not freeze a concurrently moving base.",
+    "Application builds and the full unrelated application suite were not repeated for this pure verifier change; required remote CI remains pending.",
+    "No GitHub protection, rule, queue, permission, provider resource, production service or global progress count was changed."
+  ],
+  "independent_ai_review": {
+    "result": "no_concrete_blocker",
+    "review_scope": "Frozen source, regression tests, provider-shape semantics, guide and evidence; no provider operation or source edit.",
+    "focused_run": {
+      "started_at": "2026-10-17T15:51:12.731767+00:00",
+      "finished_at": "2026-10-17T15:51:13.035844+00:00",
+      "command": [
+        "node",
+        "--test",
+        "--test-reporter=spec",
+        "tests/runtime/merge-readiness.test.mjs"
+      ],
+      "environment_keys": [
+        "CI",
+        "HOME",
+        "NEXT_TELEMETRY_DISABLED",
+        "NODE_ENV",
+        "PATH"
+      ],
+      "passed": 93,
+      "failed": 0,
+      "skipped": 0,
+      "observation_sha256": "f828e91927319245b96e7c2ba3dcc9fffde91455d1e050e03a835f78e08ee1a9",
+      "log_sha256": "429b9d462f398f707a60a20d709eb8ac8429f02c71d5be67d0da1fa514262575",
+      "source_hashes_before_and_after": {
+        "tools/delivery/merge-readiness.mjs": "3d93337bd2a04562871c2dc0cccd9a2d8e62d13fe80f0666886f7349af0e89d3",
+        "tests/runtime/merge-readiness.test.mjs": "408488f8389c41ab0cda5ff92e04efa771ded098d453a2adc8ce49288ee1c3c0",
+        "docs/delivery/merge-policy.json": "26e6e23213b484e953ec7f0bb6937f867ef61babeda1ec2f4108b372a7f5f831",
+        "scripts/check-merge-readiness.mjs": "d1b7ec37d6edc139854129b4e08b87c4320426628232f9855eab0b70d05a0752",
+        "scripts/record_ci_source.py": "50258c2ff1b9db1f6e3d1df67908c4de739cc2a6c4500a9bfd64ed5bf64abf5c"
+      }
+    },
+    "independent_baseline_current_canaries": {
+      "cases": 23,
+      "new_denials": 17,
+      "provider_evidence_synthetic": true,
+      "observation_sha256": "edb9c1829ac6312682ed41cb0cfa659e386d0e4d1b7f972e0f9a32c9fce7c375",
+      "script_sha256": "80ca1f5e93a758da97c621947e1863d64589e113c41459bbbe880c2a3d4e005a",
+      "log_sha256": "717a436d6421a681c21daaa7d4b6f1426b2a2b82a90306a7417db4dd7fa694c4",
+      "started_at": "2026-10-17T15:51:50.966117+00:00",
+      "finished_at": "2026-10-17T15:51:51.037569+00:00",
+      "baseline_source_sha256": "6e67dfdd5c35310446d7f1c377ad5437e39ab4d6cb1cb47654ec0bd1c1fe36de",
+      "candidate_source_sha256": "3d93337bd2a04562871c2dc0cccd9a2d8e62d13fe80f0666886f7349af0e89d3"
+    },
+    "additional_ai_source_read": "A second contributor read the narrow source/test delta, reported no concrete issue and did not duplicate the suite."
+  },
+  "integrated_verification": {
+    "commit": "af6dbcda4aa10d33ddc09dad035f9059aa49d0a4",
+    "tree": "8c1a1834e46f7303c33649dff8d52525988289f0",
+    "verified_base": "933880907295e1003f29f5658b3310eae69d5ab7",
+    "branch": "security/gdn-011-enforcement-integration-20261017",
+    "environment_keys": [
+      "CI",
+      "HOME",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "PATH"
+    ],
+    "environment_values": {
+      "NODE_ENV": "production",
+      "CI": "true",
+      "NEXT_TELEMETRY_DISABLED": "1"
+    },
+    "node": "v24.19.0",
+    "npm": "11.9.0",
+    "started_at": "2026-10-17T16:13:47.476921+00:00",
+    "tracked_source_manifest_sha256": "d00fd7a0c4015c555963ccf6fb61b975abf2da3ec1624fabb4cda3c760a602d1",
+    "source_sha256": {
+      "docs/delivery/autonomous-merges.md": "466b875fdd91be4fde564e516746e7dcc0576da3f7ac34ea547cf05bbb997ca4",
+      "docs/delivery/merge-policy.json": "26e6e23213b484e953ec7f0bb6937f867ef61babeda1ec2f4108b372a7f5f831",
+      "docs/evidence/GDN-011/enforcement-completeness-review.md": "2828f9a186997b9db8cf8c9d7782446f663c1ca68a815cb7656881604f7b0189",
+      "docs/evidence/GDN-011/enforcement-completeness.json": "67241f047742a763c701049525ee17f5a4b2ef938231575beabf665c8d8bc984",
+      "docs/evidence/GDN-011/server-capability-observation-20261017.json": "3cec8548ea649448bc1ba48842c3e81506970810d68c68b79746a5c3c844d7ac",
+      "package-lock.json": "2fabb52e8fc285ab23a1fdc4d4c0f29fced57e2e7181a018b1147694731a5a5b",
+      "package.json": "03b2a6d98673453f56c46387028e2baecc5d1f1a89b74d2becb6c2e2dd771cb7",
+      "tests/runtime/merge-readiness.test.mjs": "408488f8389c41ab0cda5ff92e04efa771ded098d453a2adc8ce49288ee1c3c0",
+      "tools/delivery/merge-readiness.mjs": "3d93337bd2a04562871c2dc0cccd9a2d8e62d13fe80f0666886f7349af0e89d3"
+    },
+    "phases": [
+      {
+        "name": "full-check",
+        "command": [
+          "npm",
+          "run",
+          "check"
+        ],
+        "started_at": "2026-10-17T16:13:47.479641+00:00",
+        "log": "/workspace/scratch/7d1434690aca/gdn011-enforcement-integration-evidence/retry/full-check.log",
+        "ended_at": "2026-10-17T16:14:05.482632+00:00",
+        "wall_seconds": 18.00293899100143,
+        "exit_code": 0,
+        "log_sha256": "d425c4d71f9e44541f0b8632a1531da550671aa78895d5dd748d9f2bae35a71b"
+      }
+    ],
+    "real_postgresql": false,
+    "postgresql_status": "Required published-source CI; not executed locally",
+    "provider_actions": false,
+    "reuse_owned_dependencies": true,
+    "capture_script_sha256": "fdbd5d382e990d35abebf6f27490a8d89b46a822a211fe69d4df571ff637a61e",
+    "ended_at": "2026-10-17T16:14:05.483180+00:00",
+    "wall_seconds": 18.003587186000004,
+    "all_phases_passed": true,
+    "node_modules_owned": true,
+    "tracked_changes_before_generated_restoration": [
+      "apps/public/next-env.d.ts",
+      "apps/research/next-env.d.ts"
+    ],
+    "test_counts": {
+      "tests": 1921,
+      "suites": 0,
+      "pass": 1921,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "typecheck_and_build_exit": "passed as part of complete chained check",
+    "build_output_manifest_hashes": {
+      "config/build-release.json": {
+        "sha256": "d6b90f9cd9798751509e300a3146909c8507311d171c2963f8e839ac0e87520d",
+        "bytes": 51
+      },
+      "apps/public/.next/BUILD_ID": {
+        "sha256": "9ca8eea21186a600a8a4509739bc91e1477f9326fdd9cff81acfe9f4ee44c30b",
+        "bytes": 21
+      },
+      "apps/public/.next/build-manifest.json": {
+        "sha256": "27877bc67fd414cdca52e5fc7f1789b70a933a3c0cecebc47b6df097a40037a2",
+        "bytes": 1766
+      },
+      "apps/public/.next/routes-manifest.json": {
+        "sha256": "d7f99d9b7e0148f182191cabafc0548db6ea8f7b60bc08384a5e30699661cc15",
+        "bytes": 2366
+      },
+      "apps/public/.next/prerender-manifest.json": {
+        "sha256": "e59ceb09adf936af3fc4c90bffcf2bdfca7d705228ba6cc8d453ac57398cc7d8",
+        "bytes": 9971
+      },
+      "apps/public/.next/required-server-files.json": {
+        "sha256": "fad633aa666804179e1fb18ae4b8230bf8006ad0b2e346834b444ba8cb6318c2",
+        "bytes": 10692
+      },
+      "apps/research/.next/BUILD_ID": {
+        "sha256": "b1cdcdfa025a07a2c0f7cbb4818ece80d1ac1883a3ac161e91a4bb027b1cdcd0",
+        "bytes": 21
+      },
+      "apps/research/.next/build-manifest.json": {
+        "sha256": "ebbcf78934fdaad6546b6c39e794b396c9f663d075afd3fa87cf3a598729d524",
+        "bytes": 1561
+      },
+      "apps/research/.next/routes-manifest.json": {
+        "sha256": "414c885b286bbd4906b1f4c4f60df706af97b809c4e7103ade5aafb6f5ccce01",
+        "bytes": 2142
+      },
+      "apps/research/.next/prerender-manifest.json": {
+        "sha256": "34577c57e65c31ac2fec1c007419d6ee47693ee3a687974823fb7cefd6faa540",
+        "bytes": 3257
+      },
+      "apps/research/.next/required-server-files.json": {
+        "sha256": "3e4dba5a110899f5dc88c6f8940797a2ff4f64dbe13aac8db422f2f278eee7f2",
+        "bytes": 10672
+      }
+    },
+    "generated_restoration": {
+      "inspected": true,
+      "paths": [
+        "apps/public/next-env.d.ts",
+        "apps/research/next-env.d.ts"
+      ],
+      "restored_to_commit": "af6dbcda4aa10d33ddc09dad035f9059aa49d0a4",
+      "only_generated_next_declarations_changed": true
+    },
+    "tracked_source_after_restoration_sha256": "d00fd7a0c4015c555963ccf6fb61b975abf2da3ec1624fabb4cda3c760a602d1",
+    "worktree_clean": true,
+    "final_verified_at": "2026-10-17T16:14:56.814426+00:00",
+    "typechecks": {
+      "public": "passed",
+      "research": "passed",
+      "domain": "passed",
+      "workers": "passed",
+      "root_config": "passed"
+    },
+    "builds": {
+      "public": "passed",
+      "research": "passed"
+    },
+    "prior_restricted_run": {
+      "observation_sha256": "d7929519cadd557542a0ae596f54d9ef3ca596a87ddf7a06820dee128ca303ed",
+      "log_sha256": "f1cd7a574d84af2b6eacda5188d69ee2060cd798c345027f787b78038df9d9b2",
+      "capture_script_sha256": "4a48cc8f8f753af5c17f86a66ecdd95e4fe467b5b30e09974abb7902e34223f3",
+      "result": "Failed before typechecks/builds; restricted Node subprocess support",
+      "reported_counts": {
+        "test_files": 50,
+        "passed_files": 43,
+        "failed_files": 7
+      },
+      "diagnostic": "A separate tool-observed Node spawnSync probe reported EPERM and empty stdout/stderr. The initial file-level counts are not application assertion counts.",
+      "diagnostic_artifact": "Tool-returned observation only; no retained standalone raw probe artifact",
+      "source_changed_for_retry": false,
+      "tests_or_guards_disabled": false
+    },
+    "dependency_install": {
+      "prior_observation_sha256": "d7929519cadd557542a0ae596f54d9ef3ca596a87ddf7a06820dee128ca303ed",
+      "command": [
+        "npm",
+        "ci",
+        "--include=dev",
+        "--no-audit"
+      ],
+      "exit_code": 0,
+      "log_sha256": "b9bf2efc51492c008e3586c668f3037b0894da98cd017b68a99ed3f9c93a5c06",
+      "owned_lockfile_dependencies_reused": true
+    }
+  },
+  "integrated_observation_sha256": "70ff2fa4fff60d905c3b8665dbaafb62511ddc8ec5e1ef0d7c6d56842310f97f",
+  "integrated_scope_note": "Exact source integrated on verified PR70 before this subsequent evidence/status update. All 1,921 application assertions, five typecheck targets and both builds passed with unchanged source and owned locked dependencies; required published-source CI remains pending."
+}
