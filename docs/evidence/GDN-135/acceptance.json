@@ -1,0 +1,47 @@
+{
+  "work_item": "GDN-135",
+  "observed_date": "2026-10-17",
+  "phase": "implemented_unmounted_pending_remote_ci",
+  "implementation": {
+    "program_versions": "immutable authority-bound text, institution and permitted purposes",
+    "acknowledgment": "explicit exact-current-version; not content consent",
+    "submission": "private owned completed quarantine reference only",
+    "interest": "separate explicit opt-in and immutable withdrawal",
+    "new_interviews": "denied; future dedicated consent workflow required",
+    "guidance_route": "/contribute",
+    "intake_routes": "not mounted"
+  },
+  "acceptance": {
+    "GDN-135-AC01": "Synthetic behavior tests prove submission and interest remain separate and create no membership, enrollment, endorsement or publication.",
+    "GDN-135-AC02": "New-interview and unknown collection origins are rejected; no interview or outreach endpoint exists. Actual consent-led interview program is not activated.",
+    "GDN-135-AC03": "Exact original research charter bytes, version 1.0 and 2026-09-25 cutoff are pinned and regression-tested."
+  },
+  "specified_scenarios": {
+    "GDN-135-T01": "pass in local synthetic exact-version/authority/acknowledgment tests",
+    "GDN-135-T02": "pass in local synthetic separate submission/interest/withdrawal tests",
+    "GDN-135-T03": "12 browser cases implemented and discoverable; actual browser/axe execution pending remote CI"
+  },
+  "local_verification": {
+    "application_tests_passed": 1341,
+    "focused_behavior_tests_passed": 54,
+    "typecheck": "pass",
+    "public_and_research_builds": "pass",
+    "local_http_checks_passed": 4,
+    "source_binding": "docs/evidence/GDN-135/tests.json"
+  },
+  "real_operations": {
+    "provider_mutations": 0,
+    "programs_authorized": 0,
+    "real_contributors": 0,
+    "source_bytes_collected": 0,
+    "outbound_messages": 0,
+    "new_interviews": 0
+  },
+  "limitations": [
+    "No mounted verified-session, membership, operator authority, source-classification or consent adapters.",
+    "Private SQLite metadata is not encrypted, hosted collaboration or E2EE; real participant records await integrated custody/encryption.",
+    "No actual responsible institution, program authority or response capacity was verified.",
+    "No hosted workflow or independent human audit occurred; local browser archive unavailable.",
+    "Original research scope, existing historical data and public visibility were not changed."
+  ]
+}

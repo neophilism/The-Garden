@@ -1,0 +1,71 @@
+{
+  "work_item": "GDN-135",
+  "recorded_at": "2026-10-17T12:47:50.544080+00:00",
+  "node": "v24.19.0",
+  "tested_base_sha": "f80a2373aa5825e20aee666eeb1f984a58072fcd",
+  "source_binding": {
+    "packages/domain/src/community/program.mjs": "dddce92d27067470841d9cccbf60fc5fd1eb138ad0918efac89acf5b887c5e57",
+    "packages/domain/src/community/program.d.mts": "4d6bfebc494377cbffd12b1c9f90b3828875481f375f6f46591069f1e48a1644",
+    "services/workers/src/contribution-program-repository.mjs": "26ecf3c19567713a4e80e249b744feeae3d89b997d1270e445e05b17f97571bc",
+    "services/workers/src/contribution-program-repository.d.mts": "cc69c45a6712a6db51568815b2fce04675d052cd2ee590a21ae7e6a9e402a060",
+    "apps/research/community/program-service.mjs": "c4467b5b99ac913f5f934ca99ccf00de0fc35b0dda79b2fc5149a54972945861",
+    "apps/research/community/program-service.d.mts": "5951320513555b5aba0655905eda7880837b7cf8e1c20d299270409b9d60f76a",
+    "apps/research/components/ContributorProgramPanel.tsx": "d937d12fbf3d0fbc979f6e3729055b03df891d53bdb9a0c88ac98e26b588f05a",
+    "apps/research/app/contribute/page.tsx": "b002b042792410c9ca2a9a66f043c3af83504e38b04e3eb171c52b10b90f9ad6",
+    "tests/access/contribution-program.test.mjs": "453114477b5fc350828a783e89bd1315941f435f3a0275ff340df868eb6f7f60",
+    "tests/data/contribution-program.test.mjs": "d5fc4abcfcee4a9a080c29c22b05d9ac120be74dcb4bbfb7ebfee43db003e756",
+    "tools/quality/browser/contributor-program.spec.mjs": "95c167ea7bd48f7c8157ec8ecd4e6e95029abc17b31a7f042bcf14d54ab38392"
+  },
+  "full_application_check": {
+    "command": "npm run check",
+    "passed": 1341,
+    "failed": 0,
+    "skipped": 0,
+    "workspace_typechecks": "pass",
+    "public_build": "pass",
+    "research_build": "pass",
+    "environment": "credential-free local build; Node child processes enabled by approved execution escalation",
+    "note": "Tested exact listed source bytes in the worktree on the stated base. Remote exact-commit CI remains a distinct result."
+  },
+  "focused_behavior_tests": {
+    "commands": [
+      "node --test tests/data/contribution-program.test.mjs tests/access/contribution-program.test.mjs"
+    ],
+    "passed": 54,
+    "failed": 0,
+    "access_and_ledger": 39,
+    "domain": 15
+  },
+  "other_checks": {
+    "lint": "pass",
+    "plan_validator": "pass",
+    "charter_validator": "pass",
+    "plan_unittests": 30,
+    "architecture_unittests": 103
+  },
+  "local_http_smoke": {
+    "checks": 4,
+    "passed": 4,
+    "failed": 0,
+    "route": "http://127.0.0.1:4274/contribute",
+    "hosted": false,
+    "browser": false
+  },
+  "browser_tests": {
+    "file": "tools/quality/browser/contributor-program.spec.mjs",
+    "discovery": "pass",
+    "discovered_cases": 12,
+    "local_execution": "not_run_browser_unavailable",
+    "axe_executed": false,
+    "download_failure": "Official Playwright Chromium ZIP returned HTTP 200 text/html, 195 bytes: Site Unavailable / Unable to access this site. No browser binary was installed.",
+    "required_ci": "Run the actual contributor route, keyboard, mobile/desktop, escaping and axe cases with the normal quality browser matrix."
+  },
+  "post_rebase": {
+    "base_sha": "f244a87f737b7bb70261ec0f8ffd150059839633",
+    "recorded_at": "2026-10-17T12:48:16.189402+00:00",
+    "focused_tests_passed": 54,
+    "focused_tests_failed": 0,
+    "tested_source_hashes_unchanged": true,
+    "note": "Clean rebase onto verified PR57 main; original full application check and source bindings above remain separate evidence."
+  }
+}
