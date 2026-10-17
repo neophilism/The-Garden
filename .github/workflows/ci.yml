@@ -83,6 +83,8 @@ jobs:
         run: npm run check
       - name: Start, restart and verify both deployment processes
         run: node tools/quality/runtime-smoke.mjs
+      - name: Verify owner-private staging access and lifecycle
+        run: node tools/quality/private-staging-smoke.mjs
       - name: Confirm static public output, nonindexable preview and no leaks
         run: |
           set -eu

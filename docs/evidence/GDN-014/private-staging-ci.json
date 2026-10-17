@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "unit": "GDN-014",
+  "recorded_at": "2026-10-17T13:01:09.820977+00:00",
+  "input_parent_commit": "fe09d8ba643748fa9f27188e8902293515a4182a",
+  "input_kind": "parent_commit_plus_workflow_delta_bound_by_sha256",
+  "workflow": ".github/workflows/ci.yml",
+  "workflow_sha256": "f2c78a5c801ec8d9d3dd8d4ad0802610454eefa96b31f45e9055759455e1885d",
+  "job": "application-build",
+  "step": "Verify owner-private staging access and lifecycle",
+  "command": "node tools/quality/private-staging-smoke.mjs",
+  "placement": "immediately_after_existing_runtime_smoke",
+  "required_prior_build": "npm run check",
+  "credential_source": "ephemeral_test_only_token_generated_by_smoke",
+  "failure_behavior": "fails_application_build_job",
+  "local_validation": [
+    {
+      "command": "node tools/quality/verify-policy.mjs",
+      "result": "pass"
+    },
+    {
+      "check": "unique-key YAML parse, immediate step order, prior builds, read-only permissions and no ignored failure or credential injection",
+      "result": "pass"
+    },
+    {
+      "command": "node --test tools/quality/unit/policy.test.mjs",
+      "passed": 19,
+      "failed": 0
+    },
+    {
+      "command": "node --test --test-name-pattern='every required workflow' tests/runtime/merge-readiness.test.mjs",
+      "passed": 1,
+      "failed": 0
+    },
+    {
+      "command": "python3 scripts/validate_plan.py",
+      "result": "pass"
+    },
+    {
+      "command": "python3 -m unittest discover -s tests/plan -v",
+      "passed": 30,
+      "failed": 0
+    }
+  ],
+  "remote_execution": "pending",
+  "remote_run_url": null,
+  "online_acceptance": false,
+  "limits": [
+    "Local workflow validation does not establish a successful GitHub Actions run.",
+    "Existing exact-code-commit runtime results remain in private-staging-local.json.",
+    "No provider mutation, resource creation, external HTTPS verification or publication occurred in this integration step."
+  ],
+  "post_rebase": {
+    "base_sha": "d88562eaca438694c5ba1d8c8b0a881bd57f6f50",
+    "source_and_existing_evidence_unchanged": true,
+    "compared_files": 17,
+    "remote_execution": "pending",
+    "focused_tests_passed": 14,
+    "focused_tests_failed": 0,
+    "focused_command": "node --test tests/runtime/private-staging.test.mjs tests/runtime/private-staging-build.test.mjs tests/runtime/private-staging-verification.test.mjs"
+  }
+}
