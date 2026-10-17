@@ -17,7 +17,7 @@
   "X04": {
     "title": "Render authorization",
     "status": "authorized_private_test_deploy_project_placement_unavailable_capacity_unproven",
-    "need": "2026-10-16: Render rejected the free Garden service with a 25-service Hobby limit. 2026-10-17 inventory reports 24 web/static services; creation capacity has not been re-proven. Current connector cannot attach a new service to the authorized Garden project/environment or configure HTTP health paths, and no authenticated Render API credential/CLI path is available in this session. Complete the private ingress and provider placement without repurposing unrelated services, new costs, or public website exposure."
+    "need": "2026-10-16: Render rejected the free Garden service with a 25-service Hobby limit. 2026-10-17 inventory reports 24 web/static services; capacity for both Garden services has not been proven. Current connector cannot attach a new service to the authorized Garden project/environment or configure HTTP health paths. No authenticated Render API credential/CLI path is available, and the dashboard fallback redirects to sign-in. Complete provider placement with the verified private ingress without repurposing unrelated services, new costs, or public website exposure."
   },
   "X05": {
     "title": "Neon authorization",

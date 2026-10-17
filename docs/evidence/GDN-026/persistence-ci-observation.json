@@ -1,0 +1,410 @@
+{
+  "schema_version": 1,
+  "work_item": "GDN-026",
+  "observed_at_utc": "2026-10-17T14:19:48Z",
+  "repository": "neophilism/The-Garden",
+  "pr_number": 64,
+  "head_sha": "4b930b67c380b812d0b44d494dca9d3067ba33fd",
+  "base_sha": "0b53bf9b66f6e9fd4aa090959c24c23e9e372947",
+  "tested_merge_sha": "36ee244733f27bd4205c882c8c16a6d3b94ce82c",
+  "result": "all_ten_required_checks_passed_with_source_bound_postgres_integration",
+  "postgres_version": "18.6",
+  "data_workflow_run": 39038456120,
+  "data_job": 117412922460,
+  "database_workflow_run": 39038456218,
+  "database_job": 117412922945,
+  "source_receipts": {
+    "117412932055": {
+      "jobId": 117412932055,
+      "check": "plan-validation",
+      "receipts": [
+        {
+          "event": "pull_request",
+          "job": "plan",
+          "parent_shas": [
+            "0b53bf9b66f6e9fd4aa090959c24c23e9e372947",
+            "4b930b67c380b812d0b44d494dca9d3067ba33fd"
+          ],
+          "repository": "neophilism/The-Garden",
+          "run_attempt": "1",
+          "schema_version": 1,
+          "tested_sha": "36ee244733f27bd4205c882c8c16a6d3b94ce82c",
+          "workflow_ref": "neophilism/The-Garden/.github/workflows/ci.yml@refs/pull/64/merge",
+          "workflow_run_id": "39038456066"
+        }
+      ]
+    },
+    "117412932033": {
+      "jobId": 117412932033,
+      "check": "architecture-contracts",
+      "receipts": [
+        {
+          "event": "pull_request",
+          "job": "architecture",
+          "parent_shas": [
+            "0b53bf9b66f6e9fd4aa090959c24c23e9e372947",
+            "4b930b67c380b812d0b44d494dca9d3067ba33fd"
+          ],
+          "repository": "neophilism/The-Garden",
+          "run_attempt": "1",
+          "schema_version": 1,
+          "tested_sha": "36ee244733f27bd4205c882c8c16a6d3b94ce82c",
+          "workflow_ref": "neophilism/The-Garden/.github/workflows/ci.yml@refs/pull/64/merge",
+          "workflow_run_id": "39038456066"
+        }
+      ]
+    },
+    "117412931886": {
+      "jobId": 117412931886,
+      "check": "application-build",
+      "receipts": [
+        {
+          "event": "pull_request",
+          "job": "application",
+          "parent_shas": [
+            "0b53bf9b66f6e9fd4aa090959c24c23e9e372947",
+            "4b930b67c380b812d0b44d494dca9d3067ba33fd"
+          ],
+          "repository": "neophilism/The-Garden",
+          "run_attempt": "1",
+          "schema_version": 1,
+          "tested_sha": "36ee244733f27bd4205c882c8c16a6d3b94ce82c",
+          "workflow_ref": "neophilism/The-Garden/.github/workflows/ci.yml@refs/pull/64/merge",
+          "workflow_run_id": "39038456066"
+        }
+      ]
+    },
+    "117412922945": {
+      "jobId": 117412922945,
+      "check": "database-foundation",
+      "receipts": [
+        {
+          "event": "pull_request",
+          "job": "database",
+          "parent_shas": [
+            "0b53bf9b66f6e9fd4aa090959c24c23e9e372947",
+            "4b930b67c380b812d0b44d494dca9d3067ba33fd"
+          ],
+          "repository": "neophilism/The-Garden",
+          "run_attempt": "1",
+          "schema_version": 1,
+          "tested_sha": "36ee244733f27bd4205c882c8c16a6d3b94ce82c",
+          "workflow_ref": "neophilism/The-Garden/.github/workflows/database.yml@refs/pull/64/merge",
+          "workflow_run_id": "39038456218"
+        }
+      ]
+    },
+    "117412922605": {
+      "jobId": 117412922605,
+      "check": "supply-chain-and-policy",
+      "receipts": [
+        {
+          "event": "pull_request",
+          "job": "policy",
+          "parent_shas": [
+            "0b53bf9b66f6e9fd4aa090959c24c23e9e372947",
+            "4b930b67c380b812d0b44d494dca9d3067ba33fd"
+          ],
+          "repository": "neophilism/The-Garden",
+          "run_attempt": "1",
+          "schema_version": 1,
+          "tested_sha": "36ee244733f27bd4205c882c8c16a6d3b94ce82c",
+          "workflow_ref": "neophilism/The-Garden/.github/workflows/quality.yml@refs/pull/64/merge",
+          "workflow_run_id": "39038456148"
+        }
+      ]
+    },
+    "117412922590": {
+      "jobId": 117412922590,
+      "check": "identity-lifecycle",
+      "receipts": [
+        {
+          "event": "pull_request",
+          "job": "identity",
+          "parent_shas": [
+            "0b53bf9b66f6e9fd4aa090959c24c23e9e372947",
+            "4b930b67c380b812d0b44d494dca9d3067ba33fd"
+          ],
+          "repository": "neophilism/The-Garden",
+          "run_attempt": "1",
+          "schema_version": 1,
+          "tested_sha": "36ee244733f27bd4205c882c8c16a6d3b94ce82c",
+          "workflow_ref": "neophilism/The-Garden/.github/workflows/identity.yml@refs/pull/64/merge",
+          "workflow_run_id": "39038456089"
+        }
+      ]
+    },
+    "117412922587": {
+      "jobId": 117412922587,
+      "check": "Status record integrity (not product certification)",
+      "receipts": [
+        {
+          "event": "pull_request",
+          "job": "status-record",
+          "parent_shas": [
+            "0b53bf9b66f6e9fd4aa090959c24c23e9e372947",
+            "4b930b67c380b812d0b44d494dca9d3067ba33fd"
+          ],
+          "repository": "neophilism/The-Garden",
+          "run_attempt": "1",
+          "schema_version": 1,
+          "tested_sha": "36ee244733f27bd4205c882c8c16a6d3b94ce82c",
+          "workflow_ref": "neophilism/The-Garden/.github/workflows/e2eesa-status.yml@refs/pull/64/merge",
+          "workflow_run_id": "39038456242"
+        }
+      ]
+    },
+    "117412922460": {
+      "jobId": 117412922460,
+      "check": "historical-data-contracts",
+      "receipts": [
+        {
+          "event": "pull_request",
+          "job": "data",
+          "parent_shas": [
+            "0b53bf9b66f6e9fd4aa090959c24c23e9e372947",
+            "4b930b67c380b812d0b44d494dca9d3067ba33fd"
+          ],
+          "repository": "neophilism/The-Garden",
+          "run_attempt": "1",
+          "schema_version": 1,
+          "tested_sha": "36ee244733f27bd4205c882c8c16a6d3b94ce82c",
+          "workflow_ref": "neophilism/The-Garden/.github/workflows/data.yml@refs/pull/64/merge",
+          "workflow_run_id": "39038456120"
+        }
+      ]
+    },
+    "117412922429": {
+      "jobId": 117412922429,
+      "check": "browser-and-accessibility",
+      "receipts": [
+        {
+          "event": "pull_request",
+          "job": "browser",
+          "parent_shas": [
+            "0b53bf9b66f6e9fd4aa090959c24c23e9e372947",
+            "4b930b67c380b812d0b44d494dca9d3067ba33fd"
+          ],
+          "repository": "neophilism/The-Garden",
+          "run_attempt": "1",
+          "schema_version": 1,
+          "tested_sha": "36ee244733f27bd4205c882c8c16a6d3b94ce82c",
+          "workflow_ref": "neophilism/The-Garden/.github/workflows/quality.yml@refs/pull/64/merge",
+          "workflow_run_id": "39038456148"
+        }
+      ]
+    },
+    "117412922212": {
+      "jobId": 117412922212,
+      "check": "archive-storage-boundaries",
+      "receipts": [
+        {
+          "event": "pull_request",
+          "job": "storage",
+          "parent_shas": [
+            "0b53bf9b66f6e9fd4aa090959c24c23e9e372947",
+            "4b930b67c380b812d0b44d494dca9d3067ba33fd"
+          ],
+          "repository": "neophilism/The-Garden",
+          "run_attempt": "1",
+          "schema_version": 1,
+          "tested_sha": "36ee244733f27bd4205c882c8c16a6d3b94ce82c",
+          "workflow_ref": "neophilism/The-Garden/.github/workflows/storage.yml@refs/pull/64/merge",
+          "workflow_run_id": "39038456072"
+        }
+      ]
+    }
+  },
+  "scenarios": [
+    {
+      "number": 1,
+      "result": "passed",
+      "scenario": "JavaScript and actual JSONB canonical digests agree despite object-key reordering"
+    },
+    {
+      "number": 2,
+      "result": "passed",
+      "scenario": "stored ciphertext survives PostgreSQL serialization and exact operation retries create one material generation and one succeeded event"
+    },
+    {
+      "number": 3,
+      "result": "passed",
+      "scenario": "a head digest cannot diverge from its immutable generation receipt, including an attempted direct synthetic restore"
+    },
+    {
+      "number": 4,
+      "result": "passed",
+      "scenario": "receipt readback requires the original authenticated actor and exact request digest; changed input cannot reuse an operation ID"
+    },
+    {
+      "number": 5,
+      "result": "passed",
+      "scenario": "content-version UUIDs bind to an exact workspace/record/numeric-revision foreign key and cannot alias another record"
+    },
+    {
+      "number": 6,
+      "result": "passed",
+      "scenario": "authoritative classification, active state, exact current revision and reviewed consent are required even for a valid member with a record grant"
+    },
+    {
+      "number": 7,
+      "result": "passed",
+      "scenario": "all six tables force RLS, every ordinary capability lacks raw access, and mixed issuer/content capabilities are rejected"
+    },
+    {
+      "number": 8,
+      "result": "passed",
+      "scenario": "immutable metadata excludes wrapped DEKs/ciphertext; direct truncate reaches exact FKs, rewrite/delete/cascading truncate reach append-only triggers, and populated retained state is unchanged"
+    },
+    {
+      "number": 9,
+      "result": "passed",
+      "scenario": "concurrent identical retries converge, while competing digest-and-generation CAS rotations yield one winner and preserve encrypted content"
+    },
+    {
+      "number": 10,
+      "result": "passed",
+      "scenario": "an older valid head restored beside newer immutable receipts cannot authorize reads, preparation or another rotation"
+    },
+    {
+      "number": 11,
+      "result": "passed",
+      "scenario": "current key-policy generation and the actual deployment environment must match before a prepared envelope can commit"
+    },
+    {
+      "number": 12,
+      "result": "passed",
+      "scenario": "membership, object grant/state and key revocations committed while admission waits prevent all persistence and succeeded events"
+    },
+    {
+      "number": 13,
+      "result": "passed",
+      "scenario": "a consent withdrawal that wins the shared workspace lock prevents a previously prepared encrypted commit"
+    },
+    {
+      "number": 14,
+      "result": "passed",
+      "scenario": "grant, role and key expiry after already-dispatched authority, key-row or audit-head waits rolls back material, head, receipt and commit audit"
+    },
+    {
+      "number": 15,
+      "result": "passed",
+      "scenario": "the repository-owned transaction rechecks the captured authority deadline at actual COMMIT after its SQL function has returned"
+    },
+    {
+      "number": 16,
+      "result": "passed",
+      "scenario": "failure after the mutation function but before COMMIT rolls back its material, metadata, head and succeeded audit event atomically"
+    },
+    {
+      "number": 17,
+      "result": "passed",
+      "scenario": "actual audit insertion failure after content identity insertion rolls back the identity, material, head, receipt and succeeded event"
+    },
+    {
+      "number": 18,
+      "result": "passed",
+      "scenario": "lost COMMIT acknowledgment exposes only a safe unconfirmed recovery binding; fresh readback proves the one committed operation without re-encryption"
+    },
+    {
+      "number": 19,
+      "result": "passed",
+      "scenario": "real stored ciphertext rejects a missing or wrong recovered wrapping key and becomes readable only after the exact synthetic key is recovered"
+    },
+    {
+      "number": 20,
+      "result": "passed",
+      "scenario": "synthetic material removal leaves immutable receipts and shared class keys intact; isolated material restoration must still pass current authorization"
+    },
+    {
+      "number": 21,
+      "result": "passed",
+      "scenario": "restoring older encrypted material into current consent state cannot revive a withdrawn source or its old operation receipt"
+    },
+    {
+      "number": 22,
+      "result": "passed",
+      "scenario": "all new mutation/key-policy events verify in the closed tamper-evident audit catalog without plaintext or pooled ticket residue"
+    }
+  ],
+  "artifact": {
+    "id": 12103432376,
+    "name": "garden-data-39038456120.zip",
+    "bytes": 8577,
+    "sha256": "44e0abe8b81b216747d693b8eb571a3242d7b9a425c0b2152528d0954b7ff87f",
+    "download_url": "https://github.com/neophilism/The-Garden/actions/runs/39038456120/artifacts/12103432376"
+  },
+  "first_attempt_evidence": "docs/evidence/GDN-026/persistence-integration-attempt-1.json",
+  "staging_applied": true,
+  "production_verified": false,
+  "independent_human_review": false,
+  "required_check_snapshot": [
+    {
+      "name": "plan-validation",
+      "job_id": 117412932055,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "architecture-contracts",
+      "job_id": 117412932033,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "application-build",
+      "job_id": 117412931886,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "database-foundation",
+      "job_id": 117412922945,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "supply-chain-and-policy",
+      "job_id": 117412922605,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "identity-lifecycle",
+      "job_id": 117412922590,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Status record integrity (not product certification)",
+      "job_id": 117412922587,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "historical-data-contracts",
+      "job_id": 117412922460,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "browser-and-accessibility",
+      "job_id": 117412922429,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "archive-storage-boundaries",
+      "job_id": 117412922212,
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "required_checks_complete": true,
+  "github_merge_sha": "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
+  "merge_evidence": "docs/evidence/GDN-026/persistence-merge-observation.json",
+  "staging_evidence": "docs/evidence/GDN-026/persistence-staging-observation.json",
+  "application_tests_passed": 1547,
+  "browser_tests_passed": 108,
+  "postgres_persistence_scenarios_passed": 22
+}

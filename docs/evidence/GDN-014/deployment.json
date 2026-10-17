@@ -19,7 +19,17 @@
     "provider_mutation_performed": false,
     "service_id": null,
     "url": null,
-    "current_blocker": "Authenticated tools lack Garden project/environment and health-path assignment; free capacity for two services remains unproven.",
+    "current_blocker": "Authenticated tools lack Garden project/environment and health-path assignment. The Render dashboard fallback redirects to sign-in; no signed-in browser session is available. Free capacity for two services remains unproven.",
+    "dashboard_observation": {
+      "observed_at_utc": "2026-10-17T13:34:00Z",
+      "timestamp_precision": "minute",
+      "requested_url": "https://dashboard.render.com/project/prj-db57f92jnfac739ghic0",
+      "observed_url": "https://dashboard.render.com/login?next=%2Fproject%2Fprj-db57f92jnfac739ghic0",
+      "outcome": "sign_in_required",
+      "credentials_entered": false,
+      "project_page_access_verified": false,
+      "resource_mutation_performed": false
+    },
     "local_and_ci_smoke_evidence": "docs/evidence/GDN-014/private-staging-ci-result.json",
     "human_review_is_blocker": false
   }

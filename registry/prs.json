@@ -12,7 +12,7 @@
   "scopeNote": "Exact 210 work package titles and scopes recovered from plan/plan.json; the last 14 are contingent governmental scope, not activated powers or deployed features. PR links come only from existing reviewed historical mappings.",
   "schemaVersion": 1,
   "roadmapVersion": 2,
-  "observedAt": "2026-10-17T13:28:24.948Z",
+  "observedAt": "2026-10-17T14:19:48Z",
   "units": [
     {
       "id": "GDN-001",
@@ -170,7 +170,10 @@
       ],
       "externalDependencies": [],
       "externalPrerequisites": [],
-      "sourceExternalGates": []
+      "sourceExternalGates": [],
+      "contributingPrs": [
+        63
+      ]
     },
     {
       "id": "GDN-009",
@@ -553,7 +556,8 @@
         "X08"
       ],
       "contributingPrs": [
-        62
+        62,
+        64
       ]
     },
     {
@@ -5413,6 +5417,36 @@
       "headSha": "bb7197076d930c0b5532d178c7292ae0d877ae00",
       "baseRef": "main",
       "mergeCommitSha": "b2a7fe6c1c3a8b9c257f14791e52d90f9b8451d3"
+    },
+    {
+      "id": 4900455789,
+      "number": 63,
+      "title": "Restore approved dependencies and reconcile verified delivery evidence",
+      "url": "https://github.com/neophilism/The-Garden/pull/63",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T13:30:16Z",
+      "updatedAt": "2026-10-17T13:32:56Z",
+      "closedAt": "2026-10-17T13:32:55Z",
+      "mergedAt": "2026-10-17T13:32:55Z",
+      "headSha": "3b27816590c484b8f3999766f9d4ed237a212bb7",
+      "baseRef": "main",
+      "mergeCommitSha": "0b53bf9b66f6e9fd4aa090959c24c23e9e372947"
+    },
+    {
+      "id": 4900560653,
+      "number": 64,
+      "title": "Persist encrypted research revisions with atomic audit and rotation CAS",
+      "url": "https://github.com/neophilism/The-Garden/pull/64",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T13:44:55Z",
+      "updatedAt": "2026-10-17T14:17:01Z",
+      "closedAt": "2026-10-17T14:17:01Z",
+      "mergedAt": "2026-10-17T14:17:01Z",
+      "headSha": "4b930b67c380b812d0b44d494dca9d3067ba33fd",
+      "baseRef": "main",
+      "mergeCommitSha": "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b"
     }
   ]
 }
