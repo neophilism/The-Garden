@@ -1,0 +1,102 @@
+{
+  "work_item": "GDN-135",
+  "follow_up": "audit_completion_closure",
+  "observed_at_utc": "2026-10-17T13:08:01.099595+00:00",
+  "base_commit": "b8bc6e255378867d8583437d438b20b6ca0d46e0",
+  "tested_source_state": "Base commit plus the source files identified by SHA-256 below; final PR CI must bind the committed checkout.",
+  "source_sha256": {
+    "apps/research/community/program-service.mjs": "b1487b7f64a36c6bdd09ecadefb7881b8e389ac81c0db93c29f0999dc753c40c",
+    "tests/access/contribution-program-audit-closure.test.mjs": "90214d9cbaef01f011ad51e50f6d4bf092e04dec2bdb62c37932f58c3e7ca6e1",
+    "apps/research/access/audit.mjs": "6027133978750adffd5e641b447a13abe815f1d174cc03a9ef8e92fad2483331",
+    "tests/security/database-role-fixture.mjs": "078bd3f9cc8ed7aa5ffde6724d6013167f1bf36979c9eb9d1d34a3b1eb172fe4",
+    "services/workers/src/contribution-program-repository.mjs": "26ecf3c19567713a4e80e249b744feeae3d89b997d1270e445e05b17f97571bc",
+    "packages/domain/src/community/program.mjs": "dddce92d27067470841d9cccbf60fc5fd1eb138ad0918efac89acf5b887c5e57"
+  },
+  "prior_service_sha256": "c4467b5b99ac913f5f934ca99ccf00de0fc35b0dda79b2fc5149a54972945861",
+  "reproduction_before_fix": {
+    "command": "node --test tests/access/contribution-program-audit-closure.test.mjs",
+    "passed": 2,
+    "failed": 14,
+    "skipped": 0,
+    "findings": [
+      "All four collection actions reached repository dispatch after intake closed during the real audited decision identity recheck, audit insert or audit commit.",
+      "Program-authority revocation and upload revocation during audit commit also permitted collection.",
+      "Receipt reads and withdrawal continued to work before the fix."
+    ]
+  },
+  "new_regressions": {
+    "total": 16,
+    "intake_closure": {
+      "cases": 12,
+      "actions": [
+        "installVersion",
+        "acknowledge",
+        "submit",
+        "registerInterest"
+      ],
+      "stages": [
+        "identity-recheck",
+        "audit-write",
+        "audit-commit"
+      ]
+    },
+    "authority_revocation_during_audit_commit": 1,
+    "upload_revocation_during_audit_commit": 1,
+    "read_preservation": 1,
+    "idempotent_withdrawal_preservation": 1,
+    "assertions": [
+      "Rejected collection makes zero contributor repository write calls.",
+      "All six contribution-ledger tables, including program_events, remain unchanged after rejected collection.",
+      "An audit allow is admission evidence, not proof of execution.",
+      "Receipt reads remain available and withdrawal persists once after intake and collection authority close."
+    ]
+  },
+  "verification": [
+    {
+      "command": "node --test tests/access/contribution-program-audit-closure.test.mjs tests/access/contribution-program.test.mjs tests/data/contribution-program.test.mjs tests/access/audit.test.mjs",
+      "passed": 108,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "command": "npm run test",
+      "passed": 1412,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "passed"
+    },
+    {
+      "command": "node tools/quality/lint.mjs",
+      "result": "passed"
+    }
+  ],
+  "runtime": {
+    "node": "v24.19.0",
+    "database": "Actual private local SQLite ledger; synthetic capability-probed SQL audit adapter."
+  },
+  "changes": [
+    "Refresh current program authority and submission upload evidence after the audited gate resolves.",
+    "Check enabled intake after those asynchronous reads, immediately before synchronous repository dispatch.",
+    "Keep status and withdrawal outside collection activation checks."
+  ],
+  "limits": [
+    "No shared audit implementation or active adapter was changed.",
+    "The audit decision may record allowed admission before the subsequent collection refresh rejects execution; no contribution record or program event is then written.",
+    "Tests use synthetic identity, authority, upload and SQL-role observations with the real createAuditedDecision implementation. No live PostgreSQL, hosted provider or browser acceptance is claimed by this follow-up.",
+    "The final handoff assumes the existing synchronous repository contract; future remote storage must enforce its own current authorization and transactional boundary.",
+    "No original research charter, collection activation, public route, operator authority or participant record was changed."
+  ],
+  "post_rebase_verification": {
+    "observed_at_utc": "2026-10-17T13:18:29.091820+00:00",
+    "base_commit": "bedce82b33338286c0a235066cb6493911b9e6fc",
+    "reviewed_source_hashes_unchanged": true,
+    "command": "node --test tests/access/contribution-program-audit-closure.test.mjs tests/access/contribution-program.test.mjs tests/data/contribution-program.test.mjs tests/access/audit.test.mjs",
+    "passed": 108,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "Repeated focused contributor and real audited-decision regressions on the PR60 merge base. Final GitHub CI must bind the committed PR source."
+  }
+}
