@@ -25,7 +25,7 @@ const POLICY='c'.repeat(64),CANARY='LIFECYCLE-PRIVATE-CANARY';
 const CAPABILITIES={
  public:'garden_public',research:'garden_research',issuer:'garden_context_issuer',membership:'garden_membership_admin',
  consent:'garden_consent_admin',publisher:'garden_publisher',worker:'garden_worker',reader:'garden_audit_reader',
- audit:'garden_audit_writer',encryption:'garden_encryption',requester:'garden_lifecycle_requester'
+ audit:'garden_audit_writer',encryption:'garden_encryption',requester:'garden_lifecycle_requester',lifecycle_admin:'garden_lifecycle_admin'
 };
 const PRIVATE=['lifecycle_request_cases','lifecycle_request_payloads','lifecycle_request_events','lifecycle_request_heads'];
 const CONTROL=['lifecycle_request_tickets','lifecycle_request_contexts'];
@@ -637,8 +637,8 @@ try{
    separatedPairs++;
   }
  }
- assert.equal(separatedPairs,20);
- check('all eleven disjoint runtime roles lack raw access to six forced-RLS tables; only issuer can mint/retire and only the dedicated requester can redeem, with all twenty new mixed-capability directions denied');
+ assert.equal(separatedPairs,2*(RUNTIME_DATABASE_CAPABILITIES.length-1));
+ check('all '+RUNTIME_DATABASE_CAPABILITIES.length+' disjoint runtime roles lack raw access to six forced-RLS tables; only issuer can mint/retire and only the dedicated requester can redeem, with all '+separatedPairs+' requester mixed-capability directions denied');
 
  const metadataColumns=(await admin.query(`SELECT table_name,column_name FROM information_schema.columns WHERE table_schema='garden_private'
   AND table_name=ANY($1::text[])`,[['lifecycle_request_cases','lifecycle_request_events','lifecycle_request_heads']])).rows;

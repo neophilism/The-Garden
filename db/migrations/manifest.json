@@ -71,6 +71,11 @@
       "id": "0014_lifecycle_requests",
       "file": "0014_lifecycle_requests.sql",
       "sha256": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c"
+    },
+    {
+      "id": "0015_lifecycle_controls",
+      "file": "0015_lifecycle_controls.sql",
+      "sha256": "05ae09ad8fbd7464742e3ef55606e0ebd260554309d0a04bac083474f1ea2785"
     }
   ]
 }

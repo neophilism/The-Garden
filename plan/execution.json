@@ -188,6 +188,20 @@
       ],
       "evidence": "docs/evidence/GDN-032/dependencies-merge-observation.json",
       "note": "All ten required checks across seven workflows passed with exact authenticated source receipts. Adds bounded retained-manifest dependency metadata extraction/closure; no authenticated database inventory, global material completeness, deletion authority, completed work unit or production verification."
+    },
+    {
+      "kind": "engineering_followup_merge",
+      "pr_number": 68,
+      "url": "https://github.com/neophilism/The-Garden/pull/68",
+      "github_head_sha": "8bd17cadf6d75a8da28c3dd6fe2e0c273732f1d0",
+      "github_merge_sha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+      "mapped_work_items": [],
+      "contributing_work_items": [
+        "GDN-024",
+        "GDN-025"
+      ],
+      "evidence": "docs/evidence/GDN-024/identity-boundary-merge.json",
+      "note": "All ten required checks across seven workflows passed with exact source receipts. Refreshes verified identity after policy context cleanup before COMMIT and after ticket retirement before delivery. Actual PostgreSQL RLS suite passed 39 groups, including six new read/write boundary groups; app tests 1785 and browser tests 108. No new unit, migration, provider activation or atomic external-identity/database revocation claim."
     }
   ],
   "work_items": {
@@ -776,5 +790,5 @@
     "mapped_planned_units": 37
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-17T15:01:18Z"
+  "observed_at_utc": "2026-10-17T15:08:39Z"
 }

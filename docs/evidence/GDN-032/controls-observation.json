@@ -1,0 +1,659 @@
+{
+  "schema_version": 1,
+  "work_item": "GDN-032",
+  "recorded_at": "2026-10-17T15:27:55.629914+00:00",
+  "phase": "partial_engineering_candidate_local_verified_remote_ci_pending",
+  "scope": "Default-disabled durable versioned retention rules and scoped holds, explicit current operator grants/evidence, exact recovery and atomic redacted audit.",
+  "unit_complete": false,
+  "effectsVerified": false,
+  "production_verified": false,
+  "tested_source_commit": "a3ab09b4190aaf621d9b194ecf1794b25598838f",
+  "tested_source_tree": "23926f9c75425b9b01c4d400ecc5bcfb04853be7",
+  "verified_base_commit": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+  "source_files": [
+    {
+      "path": ".github/workflows/data.yml",
+      "bytes": 2949,
+      "sha256": "3b25d174f09123196d251ee13ce8adafae6d36089ecbc3118e955db9603c6fcf"
+    },
+    {
+      "path": "apps/research/access/audit.ci.mjs",
+      "bytes": 24218,
+      "sha256": "ce0a37fd7999487d8f8a9535a30e6972e6232ead1e348eb68ac9c50a4bbc97b3"
+    },
+    {
+      "path": "apps/research/access/database-role.mjs",
+      "bytes": 3243,
+      "sha256": "4297280fc04f21d945135ef341f47ec6e5ee6e3341f8783a7a391e4019ee0286"
+    },
+    {
+      "path": "apps/research/access/encryption-persistence.ci.mjs",
+      "bytes": 37466,
+      "sha256": "14ff5bbfae74d416c961ae083c18eca73c0d153e906194fe1a07097a44298b67"
+    },
+    {
+      "path": "apps/research/access/lifecycle-control-repository.mjs",
+      "bytes": 9729,
+      "sha256": "3bea1b1d977c09eac97ba4c4b46a4ae88ed2adbbb20c22d09b3d9eb4acff1f9d"
+    },
+    {
+      "path": "apps/research/access/lifecycle-controls.ci.mjs",
+      "bytes": 74284,
+      "sha256": "f5314b31d65b6c5e7122d4c9384158dc4251ff7e59216fd57eea6e817d95070b"
+    },
+    {
+      "path": "apps/research/access/lifecycle-controls.mjs",
+      "bytes": 6720,
+      "sha256": "c477898361ef731ae8b4c3cb6dbf3deddec071b6ca30b00ca454016577ed96c5"
+    },
+    {
+      "path": "apps/research/access/lifecycle-requests.ci.mjs",
+      "bytes": 55270,
+      "sha256": "c0b3fb5eb57ca6d0cea7e1b0a4f03a24455f4d10903ef6cd55db4d3bf6ade5cf"
+    },
+    {
+      "path": "db/migrations/0015_lifecycle_controls.sql",
+      "bytes": 93387,
+      "sha256": "05ae09ad8fbd7464742e3ef55606e0ebd260554309d0a04bac083474f1ea2785"
+    },
+    {
+      "path": "db/migrations/manifest.json",
+      "bytes": 2673,
+      "sha256": "b57aad531fce39f185c44dc16684337412fa5b715f69ae85106507de2c999dae"
+    },
+    {
+      "path": "docs/security/lifecycle-controls.md",
+      "bytes": 17350,
+      "sha256": "ec8e49a53e4cd86d199d8c7ae88f9f66f47f418924b46ade22d6a22c98d2e5f5"
+    },
+    {
+      "path": "docs/security/retention-policy.md",
+      "bytes": 15881,
+      "sha256": "4e3643642418cc34a0dee20f6c780236fde7a764087e0cfa9f18ebf16c50a555"
+    },
+    {
+      "path": "packages/domain/src/audit/ledger.mjs",
+      "bytes": 8366,
+      "sha256": "45c058c33151a19cac2e6379d44e55ee634cf9eb59552a885089512443e4ffd3"
+    },
+    {
+      "path": "packages/domain/src/lifecycle/control-storage.mjs",
+      "bytes": 15569,
+      "sha256": "86ff3edad168bfbc2043b5dab2ee3ad76f812857b03b74ed8b0cd5fde4663fc5"
+    },
+    {
+      "path": "packages/domain/src/lifecycle/retention.mjs",
+      "bytes": 17510,
+      "sha256": "add28cf1df2582b1c561594cca469592639fc337c4406c1ce3b626213fdf6db8"
+    },
+    {
+      "path": "tests/access/lifecycle-control-repository.test.mjs",
+      "bytes": 27948,
+      "sha256": "96da453a6b416c688a79e3748bec3c198aaf95316b34ad988905cf7e779abfc3"
+    },
+    {
+      "path": "tests/access/lifecycle-controls.test.mjs",
+      "bytes": 21574,
+      "sha256": "109c62804768b8f6cb9fb5966159bf3981384faaedf7ec2dc49ebae9feeb59ed"
+    },
+    {
+      "path": "tests/data/audit.test.mjs",
+      "bytes": 9444,
+      "sha256": "917c8fb483449ca80a1e2126ed7ac4897a22bea3754ced8963b4b7a5240cfff3"
+    },
+    {
+      "path": "tests/security/lifecycle-control-storage.test.mjs",
+      "bytes": 8205,
+      "sha256": "4f4e155a578d5f5f1bbe4c251edf7971c613b5b7f617c4be09a1bad0619101c2"
+    }
+  ],
+  "source_scope": "The application/source candidate is frozen at the tested commit. The PR additionally carries source-owned evidence and the preceding PR68 merge record. A later evidence commit is not relabeled as this local test execution.",
+  "implemented": [
+    "A disjoint NOLOGIN, NOINHERIT, non-elevated garden_lifecycle_admin capability and twelve forced-RLS owner-only tables.",
+    "Immutable revisioned authority evidence and operator grants; exact grant/evidence heads, action, scope, actor and operation proof bind each command.",
+    "Current fresh verified identity and lifecycle.administer assurance, current explicit lifecycle grant/evidence, current research membership/role/read grant/consent, and exact numeric record revision are independently required.",
+    "Versioned rule placement, hold placement and exact hold release, immutable events, digest-bound current heads, scope CAS and a global operation registry shared with requester history.",
+    "Short transaction-bound paired tickets, deferred commit checks and one fixed post-commit validation/retirement transaction recheck current authority before delivery.",
+    "The private admission wrapper preserves the SQL authority deadline through the last awaited host identity check and a synchronous final return fence. A late completed write remains outcome-unknown with exact recovery.",
+    "Status and recovery require separate current lifecycle.inspect authority. Responses assert effectsVerified:false and provide no erasure/read/export/publication authority.",
+    "At most 64 distinct control IDs per record revision; existing control revisions and releases remain available at the cap."
+  ],
+  "full_local_check": {
+    "source_commit": "a3ab09b4190aaf621d9b194ecf1794b25598838f",
+    "source_tree": "23926f9c75425b9b01c4d400ecc5bcfb04853be7",
+    "observation_sha256": "2280a4eee02375823c2ffa68d4e7c58df27de1cb5272bafdd1204b930dc8bde8",
+    "runtime": {
+      "node": "v24.19.0",
+      "npm": "11.9.0"
+    },
+    "environment_keys": [
+      "CI",
+      "HOME",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "PATH"
+    ],
+    "fixed_environment": {
+      "NODE_ENV": "production",
+      "CI": "true",
+      "NEXT_TELEMETRY_DISABLED": "1"
+    },
+    "own_node_modules": true,
+    "phases": [
+      {
+        "phase": "install",
+        "command": [
+          "npm",
+          "ci",
+          "--include=dev",
+          "--ignore-scripts",
+          "--no-audit",
+          "--no-fund"
+        ],
+        "started_at": "2026-10-17T15:22:30.713257+00:00",
+        "finished_at": "2026-10-17T15:22:37.258122+00:00",
+        "duration_seconds": 6.545,
+        "exit_code": 0,
+        "log": "install.log",
+        "log_sha256": "b9bf2efc51492c008e3586c668f3037b0894da98cd017b68a99ed3f9c93a5c06"
+      },
+      {
+        "phase": "check",
+        "command": [
+          "npm",
+          "run",
+          "check"
+        ],
+        "started_at": "2026-10-17T15:22:37.258334+00:00",
+        "finished_at": "2026-10-17T15:22:57.168733+00:00",
+        "duration_seconds": 19.91,
+        "exit_code": 0,
+        "log": "check.log",
+        "log_sha256": "36757716d874e336e5cecea192690bc38cd783e0f36ab6ccf04015076c223367"
+      }
+    ],
+    "counts": {
+      "tests": 1878,
+      "pass": 1878,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "source_hashes": {
+      ".github/workflows/data.yml": "3b25d174f09123196d251ee13ce8adafae6d36089ecbc3118e955db9603c6fcf",
+      "apps/research/access/audit.ci.mjs": "ce0a37fd7999487d8f8a9535a30e6972e6232ead1e348eb68ac9c50a4bbc97b3",
+      "apps/research/access/database-role.mjs": "4297280fc04f21d945135ef341f47ec6e5ee6e3341f8783a7a391e4019ee0286",
+      "apps/research/access/encryption-persistence.ci.mjs": "14ff5bbfae74d416c961ae083c18eca73c0d153e906194fe1a07097a44298b67",
+      "apps/research/access/lifecycle-control-repository.mjs": "3bea1b1d977c09eac97ba4c4b46a4ae88ed2adbbb20c22d09b3d9eb4acff1f9d",
+      "apps/research/access/lifecycle-controls.ci.mjs": "f5314b31d65b6c5e7122d4c9384158dc4251ff7e59216fd57eea6e817d95070b",
+      "apps/research/access/lifecycle-controls.mjs": "c477898361ef731ae8b4c3cb6dbf3deddec071b6ca30b00ca454016577ed96c5",
+      "apps/research/access/lifecycle-requests.ci.mjs": "c0b3fb5eb57ca6d0cea7e1b0a4f03a24455f4d10903ef6cd55db4d3bf6ade5cf",
+      "db/migrations/0015_lifecycle_controls.sql": "05ae09ad8fbd7464742e3ef55606e0ebd260554309d0a04bac083474f1ea2785",
+      "db/migrations/manifest.json": "b57aad531fce39f185c44dc16684337412fa5b715f69ae85106507de2c999dae",
+      "docs/security/lifecycle-controls.md": "ec8e49a53e4cd86d199d8c7ae88f9f66f47f418924b46ade22d6a22c98d2e5f5",
+      "docs/security/retention-policy.md": "4e3643642418cc34a0dee20f6c780236fde7a764087e0cfa9f18ebf16c50a555",
+      "package-lock.json": "2fabb52e8fc285ab23a1fdc4d4c0f29fced57e2e7181a018b1147694731a5a5b",
+      "package.json": "03b2a6d98673453f56c46387028e2baecc5d1f1a89b74d2becb6c2e2dd771cb7",
+      "packages/domain/src/audit/ledger.mjs": "45c058c33151a19cac2e6379d44e55ee634cf9eb59552a885089512443e4ffd3",
+      "packages/domain/src/lifecycle/control-storage.mjs": "86ff3edad168bfbc2043b5dab2ee3ad76f812857b03b74ed8b0cd5fde4663fc5",
+      "packages/domain/src/lifecycle/retention.mjs": "add28cf1df2582b1c561594cca469592639fc337c4406c1ce3b626213fdf6db8",
+      "tests/access/lifecycle-control-repository.test.mjs": "96da453a6b416c688a79e3748bec3c198aaf95316b34ad988905cf7e779abfc3",
+      "tests/access/lifecycle-controls.test.mjs": "109c62804768b8f6cb9fb5966159bf3981384faaedf7ec2dc49ebae9feeb59ed",
+      "tests/data/audit.test.mjs": "917c8fb483449ca80a1e2126ed7ac4897a22bea3754ced8963b4b7a5240cfff3",
+      "tests/security/lifecycle-control-storage.test.mjs": "4f4e155a578d5f5f1bbe4c251edf7971c613b5b7f617c4be09a1bad0619101c2"
+    },
+    "source_before_after_identical": true,
+    "typechecks": {
+      "public": "pass",
+      "research": "pass",
+      "domain": "pass",
+      "workers": "pass",
+      "root_config": "pass"
+    },
+    "builds": {
+      "public": {
+        "result": "pass",
+        "static_pages": 12
+      },
+      "research": {
+        "result": "pass",
+        "static_pages": 5
+      }
+    },
+    "generated_declarations": {
+      "observed_changes": "M apps/public/next-env.d.ts\n M apps/research/next-env.d.ts",
+      "resolution": "Coordinator inspected and restored only the two generated next-env.d.ts files from the tested commit after the successful check.",
+      "restored_hashes_equal_before": {
+        "apps/public/next-env.d.ts": "ad4d5f5650c49907bf3cb65cbf1a590b9569ba93c707c0586264aded70ad89c9",
+        "apps/research/next-env.d.ts": "ad4d5f5650c49907bf3cb65cbf1a590b9569ba93c707c0586264aded70ad89c9"
+      },
+      "final_source_worktree_clean": true
+    },
+    "scope": "Local application tests, type checks and builds only; no actual PostgreSQL, browser, provider or deployment execution."
+  },
+  "independent_ai_review": {
+    "recorded_at": "2026-10-17T15:22:00.930028+00:00",
+    "reviewer": "separate AI peer",
+    "human_audit": false,
+    "observation_sha256": "68b815cbe5ce6590786cd83d09a4b5d7893ab243711e86ca50d210424c64f647",
+    "source_scope": "The code and tests listed in sourceHashes include uncommitted source. This is not a commit-only receipt. Their hashes still match the independently executed focused suite.",
+    "recorded_worktree_head": "5740b5ab907df9c79236a9b8c760bda621ccad04",
+    "source_hashes": {
+      "apps/research/access/lifecycle-control-repository.mjs": "3bea1b1d977c09eac97ba4c4b46a4ae88ed2adbbb20c22d09b3d9eb4acff1f9d",
+      "apps/research/access/lifecycle-controls.mjs": "c477898361ef731ae8b4c3cb6dbf3deddec071b6ca30b00ca454016577ed96c5",
+      "packages/domain/src/lifecycle/control-storage.mjs": "86ff3edad168bfbc2043b5dab2ee3ad76f812857b03b74ed8b0cd5fde4663fc5",
+      "packages/domain/src/lifecycle/retention.mjs": "add28cf1df2582b1c561594cca469592639fc337c4406c1ce3b626213fdf6db8",
+      "db/migrations/0015_lifecycle_controls.sql": "05ae09ad8fbd7464742e3ef55606e0ebd260554309d0a04bac083474f1ea2785",
+      "db/migrations/manifest.json": "b57aad531fce39f185c44dc16684337412fa5b715f69ae85106507de2c999dae",
+      "packages/domain/src/audit/ledger.mjs": "45c058c33151a19cac2e6379d44e55ee634cf9eb59552a885089512443e4ffd3",
+      "apps/research/access/database-role.mjs": "4297280fc04f21d945135ef341f47ec6e5ee6e3341f8783a7a391e4019ee0286",
+      "apps/research/access/lifecycle-controls.ci.mjs": "f5314b31d65b6c5e7122d4c9384158dc4251ff7e59216fd57eea6e817d95070b",
+      "apps/research/access/audit.ci.mjs": "ce0a37fd7999487d8f8a9535a30e6972e6232ead1e348eb68ac9c50a4bbc97b3",
+      "apps/research/access/lifecycle-requests.ci.mjs": "c0b3fb5eb57ca6d0cea7e1b0a4f03a24455f4d10903ef6cd55db4d3bf6ade5cf",
+      "apps/research/access/encryption-persistence.ci.mjs": "14ff5bbfae74d416c961ae083c18eca73c0d153e906194fe1a07097a44298b67",
+      ".github/workflows/data.yml": "3b25d174f09123196d251ee13ce8adafae6d36089ecbc3118e955db9603c6fcf",
+      "tests/access/lifecycle-control-repository.test.mjs": "96da453a6b416c688a79e3748bec3c198aaf95316b34ad988905cf7e779abfc3",
+      "tests/access/lifecycle-controls.test.mjs": "109c62804768b8f6cb9fb5966159bf3981384faaedf7ec2dc49ebae9feeb59ed",
+      "tests/security/lifecycle-control-storage.test.mjs": "4f4e155a578d5f5f1bbe4c251edf7971c613b5b7f617c4be09a1bad0619101c2",
+      "tests/security/lifecycle-retention.test.mjs": "9ac350fcb8c16fa631fbc4db73d68c305422b85ce787923da5d001c38d1d20d6",
+      "tests/data/audit.test.mjs": "917c8fb483449ca80a1e2126ed7ac4897a22bea3754ced8963b4b7a5240cfff3"
+    },
+    "named_source_hashes_equal_final_tested_commit": true,
+    "findings_remaining": [],
+    "resolved_findings": [
+      {
+        "finding": "Valid changed control/authority could borrow an opaque operation receipt fingerprint.",
+        "resolution": "Full immutable operation is returned and recomputed; event command/authority and exact expected commit are bound before commit/recovery delivery.",
+        "verification": "Source review, protocol and host/repository negative tests; earlier independent red/green tool observations."
+      },
+      {
+        "finding": "SQL authority expiry was lost between repository return and final awaited host identity check.",
+        "resolution": "Repository returns exact owned private value/admission wrapper; the service retains the minimum SQL deadline through all later identity awaits and immediately before return.",
+        "verification": "Three independent actual-host/repository synthetic-SQL canaries now deny status/recovery and mark a completed write outcome-unknown; prior failing tool observations preserved separately."
+      },
+      {
+        "finding": "Unbounded new control IDs could exceed the owned response budget and strand existing controls.",
+        "resolution": "New IDs are capped at64 before operation/audit effects; existing revisions/releases remain possible.",
+        "verification": "Source review and widest fully released-hold unit budget canary. Actual cap behavior is authored in PostgreSQL CI and not yet executed."
+      }
+    ],
+    "conclusions": [
+      "Exact principal, action, full command, grant/evidence revision and scope bind each operation; refreshed transport admission does not rewrite historical proof identity.",
+      "The paired control token is bound to actual backend PID and xid8 before redemption, with retirement after the main transaction releases its locks.",
+      "Current real research row, membership, exact read grant, role and consent remain independent prerequisites; unsupported and old source revisions deny.",
+      "The fixed final validation/retirement transaction rechecks the same selected lifecycle grant/evidence and current research authority. Its COMMIT is the last database revocation point; the host thereafter fences the captured absolute deadline.",
+      "Scope/control heads are digest-bound and current reconstruction denies rewound pointers with newer retained revisions. Explicit operation recovery remains historical under fresh inspect authority.",
+      "Consent deadline uses only already eligible alternatives, maximum coverage per required subject/path and minimum across required subjects/paths, bounded by all other admission deadlines.",
+      "Raw privileged mutation probes are scoped to the guarded disposable PostgreSQL journey and use pinned-client unconditional rollback."
+    ],
+    "limits": [
+      "No actual PostgreSQL execution, hosted activation or provider action was performed in this review.",
+      "No atomic database authorization with later network delivery is claimed; absolute deadline enforcement assumes a trustworthy synchronized host clock.",
+      "Arbitrary privileged SQL logins can change deferred-constraint timing; the reviewed boundary is the fixed trusted host/repository transaction contract.",
+      "Default-off partial lifecycle controls do not implement requester decisions, tombstones, physical disposal, shared-key retirement, export, material inventory or administration after research withdrawal.",
+      "Full stale-database restore resistance and underlying legal authority are not established by fingerprints or synthetic fixtures."
+    ],
+    "focused_execution": {
+      "schemaVersion": 1,
+      "kind": "independent-focused-working-tree-tests",
+      "startedAt": "2026-10-17T15:19:47.662627+00:00",
+      "finishedAt": "2026-10-17T15:19:48.106842+00:00",
+      "head": "b4d0d3afb901ca6a3f550151474077f9f0ef3af3",
+      "headTree": "c30667f3e901ba7a7ef69dadab5efca1fddefdb7",
+      "sourceScope": "HEAD plus the explicitly hashed uncommitted source/test files; not a commit-only receipt",
+      "command": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "tests/access/lifecycle-control-repository.test.mjs",
+        "tests/access/lifecycle-controls.test.mjs",
+        "tests/security/lifecycle-control-storage.test.mjs",
+        "tests/security/lifecycle-retention.test.mjs",
+        "tests/data/audit.test.mjs"
+      ],
+      "environmentKeys": [
+        "CI",
+        "HOME",
+        "NEXT_TELEMETRY_DISABLED",
+        "NODE_ENV",
+        "PATH"
+      ],
+      "exitCode": 0,
+      "counts": {
+        "tests": 155,
+        "suites": 0,
+        "pass": 155,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "sourceChangedDuringRun": false,
+      "changedFiles": {},
+      "logSha256": "0c5ef18bc4f0a720429cf8be69fe2a61149752b335092ac9913f7ba40f896ad5",
+      "actualPostgreSQLExecuted": false,
+      "observation_sha256": "3b321d305e255d1ee335903ab4e56eaac051e9e00d9b24a141b11244a9f77833",
+      "source_scope_note": "The recorded earlier worktree head plus the named uncommitted source was tested. Those reviewed file hashes equal the final commit; the earlier run is not claimed as a commit-only execution."
+    },
+    "host_tail_regressions": {
+      "original": {
+        "schemaVersion": 1,
+        "kind": "reconstructed-prior-tool-observation",
+        "provenance": "Recorded from the earlier independent execution output and agent messages in this session. The original raw tool log was not retained as a file. This record is not a fresh execution against the original source, and its creation time is not the probe execution time.",
+        "observedAt": null,
+        "sourceHashes": {
+          "apps/research/access/lifecycle-control-repository.mjs": "db2a2afa3f42cfd145794d8bdc10234aa4b384b4838165653570eb55648121cc",
+          "apps/research/access/lifecycle-controls.mjs": "1258c93cce10676124ad91e13ac439a59cfd4dc9424c32dc5cfbb93d107a1bd0",
+          "packages/domain/src/lifecycle/control-storage.mjs": "2c99652ebc2890a80c9c1b30166067bdf030ddcae7244fcf74ae46d70c222ccd"
+        },
+        "oracle": "Advance time beyond the captured SQL authority deadline only after the actual repository returns; keep UV fresh and all activation flags true. No protected service response may be returned. A completed synthetic write must remain outcome-unknown with exact recovery.",
+        "fixture": "Actual createLifecycleControlService and createLifecycleControlRepository composed with the synthetic SQL pool fixture extracted before test registration from tests/access/lifecycle-control-repository.test.mjs. The fixture SQL deadline was NOW + 90000 milliseconds; the final service identity await advanced time to NOW + 90001 while UV remained fresh.",
+        "actualPostgreSQLExecuted": false,
+        "observations": [
+          {
+            "method": "status",
+            "repositoryReturned": true,
+            "sqlDeadlineExpired": true,
+            "uvStillFresh": true,
+            "delivered": true,
+            "syntheticCommittedWrites": 0
+          },
+          {
+            "method": "recover",
+            "repositoryReturned": true,
+            "sqlDeadlineExpired": true,
+            "uvStillFresh": true,
+            "delivered": true,
+            "syntheticCommittedWrites": 0
+          },
+          {
+            "method": "putRule",
+            "repositoryReturned": true,
+            "sqlDeadlineExpired": true,
+            "uvStillFresh": true,
+            "delivered": true,
+            "syntheticCommittedWrites": 1
+          }
+        ],
+        "failedOracleCases": 3,
+        "finding": "The repository enforced the SQL deadline before its own return, but the service then awaited identity again using only its UV deadline, permitting private results after the database authority deadline.",
+        "observation_sha256": "a3477c115ef6da8234e1216693bbe5d8dea22de2829d4753bf905dc6bb6c2676"
+      },
+      "corrected": {
+        "schemaVersion": 1,
+        "kind": "independent-actual-host-repository-synthetic-sql-canary",
+        "startedAt": "2026-10-17T15:18:48.536Z",
+        "finishedAt": "2026-10-17T15:18:48.588Z",
+        "sourceHashes": {
+          "apps/research/access/lifecycle-control-repository.mjs": "3bea1b1d977c09eac97ba4c4b46a4ae88ed2adbbb20c22d09b3d9eb4acff1f9d",
+          "apps/research/access/lifecycle-controls.mjs": "c477898361ef731ae8b4c3cb6dbf3deddec071b6ca30b00ca454016577ed96c5",
+          "packages/domain/src/lifecycle/control-storage.mjs": "86ff3edad168bfbc2043b5dab2ee3ad76f812857b03b74ed8b0cd5fde4663fc5",
+          "tests/access/lifecycle-control-repository.test.mjs": "96da453a6b416c688a79e3748bec3c198aaf95316b34ad988905cf7e779abfc3"
+        },
+        "oracle": "Advance time beyond the captured SQL authority deadline only after the actual repository returns; keep UV fresh and all activation flags true. No protected service response may be returned. A completed synthetic write must remain outcome-unknown with exact recovery.",
+        "sourceChangedDuringProbe": false,
+        "actualPostgreSQLExecuted": false,
+        "observations": [
+          {
+            "method": "status",
+            "repositoryReturned": true,
+            "sqlDeadlineExpired": true,
+            "uvStillFresh": true,
+            "delivered": false,
+            "code": "lifecycle_control_unavailable",
+            "syntheticCommittedWrites": 0,
+            "recoveryPresent": false
+          },
+          {
+            "method": "recover",
+            "repositoryReturned": true,
+            "sqlDeadlineExpired": true,
+            "uvStillFresh": true,
+            "delivered": false,
+            "code": "lifecycle_control_unavailable",
+            "syntheticCommittedWrites": 0,
+            "recoveryPresent": false
+          },
+          {
+            "method": "putRule",
+            "repositoryReturned": true,
+            "sqlDeadlineExpired": true,
+            "uvStillFresh": true,
+            "delivered": false,
+            "code": "lifecycle_control_outcome_unknown",
+            "syntheticCommittedWrites": 1,
+            "recoveryPresent": true
+          }
+        ],
+        "passed": 3,
+        "observation_sha256": "1c302394d52928b507b42604893849aa9041b1ea664ccd67f185a889ad3c8454"
+      },
+      "probe_sha256": "325bb22473cd3f98d3c199d9f498b58df0625188a9bb89217336501fe16560f5"
+    }
+  },
+  "migration_source_preservation": {
+    "migration_manifest": [
+      {
+        "path": "db/migrations/0001_foundation.sql",
+        "bytes": 3956,
+        "sha256": "7ba727f1d96d342853a75670ecf4313275e72fb53674188c2e27690e246cf52e",
+        "manifest_matches": true,
+        "verified_main_bytes_unchanged": true
+      },
+      {
+        "path": "db/migrations/0002_jobs.sql",
+        "bytes": 10857,
+        "sha256": "3c5a0fa7579aee8ad19d5cf7471a3c0cfcda677961328766f55cb8b71c691f90",
+        "manifest_matches": true,
+        "verified_main_bytes_unchanged": true
+      },
+      {
+        "path": "db/migrations/0003_membership.sql",
+        "bytes": 16199,
+        "sha256": "a3a85fdfbd7102af0f1b8c110b274756104d1a188970063062936d08f84f2e9d",
+        "manifest_matches": true,
+        "verified_main_bytes_unchanged": true
+      },
+      {
+        "path": "db/migrations/0004_policy_context.sql",
+        "bytes": 9607,
+        "sha256": "ce2d084065efc930255d4bb3e46080d65fb8cadf8ef72c1520b10b27bac6e4dd",
+        "manifest_matches": true,
+        "verified_main_bytes_unchanged": true
+      },
+      {
+        "path": "db/migrations/0005_historical_records.sql",
+        "bytes": 13286,
+        "sha256": "7d92349869fde52a1c152b9deb7a2d63a524bbb4cf3a736daa3fe322cc624188",
+        "manifest_matches": true,
+        "verified_main_bytes_unchanged": true
+      },
+      {
+        "path": "db/migrations/0006_archival_sources.sql",
+        "bytes": 10094,
+        "sha256": "79f3adf798faf45c64b11bde77a11d8d821269a3d246444ad31c581bb549e4d0",
+        "manifest_matches": true,
+        "verified_main_bytes_unchanged": true
+      },
+      {
+        "path": "db/migrations/0007_durable_locators.sql",
+        "bytes": 9968,
+        "sha256": "322b7defc98979fb55d851153ae64d7a7406a405a47c4c83ce5b86a20c596691",
+        "manifest_matches": true,
+        "verified_main_bytes_unchanged": true
+      },
+      {
+        "path": "db/migrations/0008_atomic_claims.sql",
+        "bytes": 9155,
+        "sha256": "f2578cb9b4755ccddb3d87f6d83c715f21dffa71d65b2bf059cd0b42ee16fe47",
+        "manifest_matches": true,
+        "verified_main_bytes_unchanged": true
+      },
+      {
+        "path": "db/migrations/0009_purpose_consent.sql",
+        "bytes": 26845,
+        "sha256": "ff49fa5baa2bf92b8d537e4daf115facd7e1baedd913e49ca9dac387776f7312",
+        "manifest_matches": true,
+        "verified_main_bytes_unchanged": true
+      },
+      {
+        "path": "db/migrations/0010_audit_ledger.sql",
+        "bytes": 20387,
+        "sha256": "658e8adc7764e90b7cc51e3ee6fb49925913c31d5d114aae70f13561862dbe75",
+        "manifest_matches": true,
+        "verified_main_bytes_unchanged": true
+      },
+      {
+        "path": "db/migrations/0011_scoped_reviews.sql",
+        "bytes": 38704,
+        "sha256": "beae0f820608c605182622c3a0c3aab6debc00841d01d6c1e1cedd5bb13a7000",
+        "manifest_matches": true,
+        "verified_main_bytes_unchanged": true
+      },
+      {
+        "path": "db/migrations/0012_geographic_assertions.sql",
+        "bytes": 11134,
+        "sha256": "a89296c1a1c05d1abee04d06706a5a7f4e9d4c197dbe6ef74d7a33e8cd7636f8",
+        "manifest_matches": true,
+        "verified_main_bytes_unchanged": true
+      },
+      {
+        "path": "db/migrations/0013_encrypted_content.sql",
+        "bytes": 43773,
+        "sha256": "1fb1eb5adc7b2adced769cf91f8fd99af841f86ed98132d12922e07549b19964",
+        "manifest_matches": true,
+        "verified_main_bytes_unchanged": true
+      },
+      {
+        "path": "db/migrations/0014_lifecycle_requests.sql",
+        "bytes": 44937,
+        "sha256": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c",
+        "manifest_matches": true,
+        "verified_main_bytes_unchanged": true
+      },
+      {
+        "path": "db/migrations/0015_lifecycle_controls.sql",
+        "bytes": 93387,
+        "sha256": "05ae09ad8fbd7464742e3ef55606e0ebd260554309d0a04bac083474f1ea2785",
+        "manifest_matches": true
+      }
+    ],
+    "new_tables": [
+      "garden_control.lifecycle_operation_registry",
+      "garden_control.lifecycle_authority_evidence",
+      "garden_control.lifecycle_evidence_heads",
+      "garden_control.lifecycle_operator_grants",
+      "garden_control.lifecycle_grant_heads",
+      "garden_private.lifecycle_control_events",
+      "garden_private.lifecycle_control_payloads",
+      "garden_private.lifecycle_control_heads",
+      "garden_private.lifecycle_control_scope_heads",
+      "garden_control.lifecycle_control_tickets",
+      "garden_control.lifecycle_control_contexts",
+      "garden_control.lifecycle_control_delivery_checks"
+    ],
+    "new_functions": 34,
+    "issuer_function_grants": 3,
+    "administrator_function_grants": 8,
+    "remaining_functions_owner_only": 23,
+    "observation_sha256": "022c69196b5b7e8b3879f4da00ec7a4a516ba32a3758e20d3b4f453e073f83ee",
+    "label_correction_sha256": "55ec658123acc09b5d2b21b181b5ef3c37cf92b634465a108826ed64b39cab67",
+    "label_correction": {
+      "fields": [
+        "audit_preservation.prior_body_sha256",
+        "audit_preservation.current_body_sha256"
+      ],
+      "correctMeaning": "SHA256 of the full CREATE OR REPLACE FUNCTION definition through END $$;, including signature, LANGUAGE, SECURITY DEFINER and search_path; not pg_proc.prosrc.",
+      "sourceBytesChanged": false
+    },
+    "audit_hash_scopes": {
+      "prior": {
+        "path": "db/migrations/0014_lifecycle_requests.sql",
+        "source_sha256": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c",
+        "complete_function_definition": {
+          "bytes": 4752,
+          "sha256": "4a45cd0afdd9e11a86e7ff7ef9e2ee37c59d1067e05a1d3b453cc4fd56d3b5ea",
+          "start_inclusive": "CREATE OR REPLACE FUNCTION garden_control.append_audit_event(",
+          "end_inclusive": "END $$;"
+        },
+        "quoted_function_body_expected_prosrc": {
+          "bytes": 4441,
+          "sha256": "c7959845ee94528d1165ec926844beac2eb995af6c24fadd043c235eb0c75367",
+          "start_exclusive": "AS $$",
+          "end_exclusive": "$$;",
+          "leading_and_trailing_newlines_preserved": true
+        }
+      },
+      "current": {
+        "path": "db/migrations/0015_lifecycle_controls.sql",
+        "source_sha256": "05ae09ad8fbd7464742e3ef55606e0ebd260554309d0a04bac083474f1ea2785",
+        "complete_function_definition": {
+          "bytes": 5306,
+          "sha256": "9bf94411cdba0b7680318ed77267270d0d1343a40915a4de18042ede6fa110c7",
+          "start_inclusive": "CREATE OR REPLACE FUNCTION garden_control.append_audit_event(",
+          "end_inclusive": "END $$;"
+        },
+        "quoted_function_body_expected_prosrc": {
+          "bytes": 4995,
+          "sha256": "681a44b229a9927a3aeae8f414d2a5c3516cbe9e39f1eee5042e30b2caf0a172",
+          "start_exclusive": "AS $$",
+          "end_exclusive": "$$;",
+          "leading_and_trailing_newlines_preserved": true
+        }
+      }
+    },
+    "audit_body_reconstruction": {
+      "removedExactCaseLines": [
+        "  WHEN 'lifecycle.authority.evidence' THEN expected_kind:='lifecycle-authority';reason:='authority-evidence-recorded';\n",
+        "  WHEN 'lifecycle.authority.grant' THEN expected_kind:='lifecycle-authority';reason:='operator-grant-recorded';\n",
+        "  WHEN 'lifecycle.control.rule' THEN expected_kind:='lifecycle-control';reason:='retention-rule-recorded';\n",
+        "  WHEN 'lifecycle.control.hold-place' THEN expected_kind:='lifecycle-control';reason:='hold-recorded';\n",
+        "  WHEN 'lifecycle.control.hold-release' THEN expected_kind:='lifecycle-control';reason:='hold-release-recorded';\n"
+      ],
+      "priorReconstructedByteForByte": true
+    },
+    "provenance": "All hashes are computed from local migration source bytes. Quoted body slices are the expected PostgreSQL prosrc input; this observation performs no database query or provider call and does not independently assert stored pg_proc values.",
+    "prior_fourteen_migrations_unchanged": true
+  },
+  "remote_ci": {
+    "status": "pending_not_observed",
+    "required_checks": 10,
+    "workflows": 7
+  },
+  "actual_postgresql_controls": {
+    "status": "authored_not_executed",
+    "scenario_groups": 32,
+    "runner": "apps/research/access/lifecycle-controls.ci.mjs"
+  },
+  "staging": {
+    "verified_migration_count": 14,
+    "migration0015_applied": false,
+    "rollout": "Exact-source guarded additive bundle prepared; merge, actual PostgreSQL CI and final deployment review remain required."
+  },
+  "acceptance_contribution": {
+    "GDN-032-AC01": "Not complete: no accepted deletion, delivery tombstone or derivative-removal queue.",
+    "GDN-032-AC02": "Partial local implementation: durable exact-scope authority, finite review dates, rules and holds; actual PostgreSQL execution and complete disposal enforcement are pending.",
+    "GDN-032-AC03": "Not complete: retained-head integrity probes are not a restore-after-withdrawal drill."
+  },
+  "not_established": [
+    "Administration after research consent/access withdrawal: persisted controls survive, but a distinct explicitly evidenced metadata-only authority is still needed.",
+    "Reviewed requester accept/decline decisions, record-wide tombstones or all protected-delivery paths.",
+    "Authenticated complete retained dependency/material inventory, actual erasure, provider DELETE, shared-key retirement, backup/public-copy removal or restore enforcement.",
+    "Atomic database revocation with later network delivery; the final fixed SQL COMMIT is the last database revocation point and host expiry fencing assumes a trustworthy synchronized clock.",
+    "Runtime role provisioning, real authority grants, real requests or records, mounted endpoints or hosted activation.",
+    "Whole-database rollback anchoring, external human security review, legal authority validation or security certification."
+  ],
+  "counting_note": "The 155 focused peer tests overlap the 1878 full-suite cases; the three composed canaries overlap behavior. Counts are not added as distinct coverage.",
+  "unit_count_snapshot": {
+    "verified_merged_items": 37,
+    "production_verified_items": 0,
+    "unit_count_increment": 0
+  },
+  "external_human_review": "deferred_not_performed",
+  "conformance_claim": false,
+  "default_enabled": false,
+  "route_mounted": false,
+  "historical_records_processed": 0,
+  "real_controls_created": 0
+}

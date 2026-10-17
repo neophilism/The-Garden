@@ -12,7 +12,7 @@
   "scopeNote": "Exact 210 work package titles and scopes recovered from plan/plan.json; the last 14 are contingent governmental scope, not activated powers or deployed features. PR links come only from existing reviewed historical mappings.",
   "schemaVersion": 1,
   "roadmapVersion": 2,
-  "observedAt": "2026-10-17T15:01:18Z",
+  "observedAt": "2026-10-17T15:08:39Z",
   "units": [
     {
       "id": "GDN-001",
@@ -5492,6 +5492,21 @@
       "headSha": "3050f4aa012f2a994b6dba11f53b8b27bb860ee3",
       "baseRef": "main",
       "mergeCommitSha": "ea48b8eee11e2cc922dc9c76dac02815ea66d57b"
+    },
+    {
+      "id": 4901161777,
+      "number": 68,
+      "title": "Refresh policy identity after cleanup and before protected delivery",
+      "url": "https://github.com/neophilism/The-Garden/pull/68",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T15:03:54Z",
+      "updatedAt": "2026-10-17T15:06:58Z",
+      "closedAt": "2026-10-17T15:06:58Z",
+      "mergedAt": "2026-10-17T15:06:58Z",
+      "headSha": "8bd17cadf6d75a8da28c3dd6fe2e0c273732f1d0",
+      "baseRef": "main",
+      "mergeCommitSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f"
     }
   ]
 }

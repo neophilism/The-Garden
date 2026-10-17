@@ -31,5 +31,16 @@
     "staging_migration_count": 14,
     "unit_complete": false,
     "production_verified": false
+  },
+  "latest_controls_candidate": {
+    "recorded_at": "2026-10-17T15:27:55.629914+00:00",
+    "evidence": "docs/evidence/GDN-032/controls-observation.json",
+    "tested_source_commit": "a3ab09b4190aaf621d9b194ecf1794b25598838f",
+    "full_local_tests_passed": 1878,
+    "remote_ci": "pending_not_observed",
+    "staging0015_applied": false,
+    "unit_complete": false,
+    "production_verified": false,
+    "note": "Earlier fields retain their dated requester checkpoint; this separate record describes the locally tested durable-control candidate."
   }
 }

@@ -34,7 +34,10 @@ async function rejectedMutation(pool,role,sql,expected){
 }
 const immutableError=error=>error.code==='P0001'&&error.message==='Audit history is append-only';
 async function retainedState(){
- const tables=['garden_control.audit_events','garden_control.audit_heads','garden_private.encrypted_content_versions','garden_private.encrypted_envelope_revisions','garden_private.encrypted_material','garden_private.encrypted_content_heads'];
+ const tables=['garden_control.audit_events','garden_control.audit_heads','garden_private.encrypted_content_versions','garden_private.encrypted_envelope_revisions','garden_private.encrypted_material','garden_private.encrypted_content_heads',
+  'garden_control.lifecycle_operation_registry','garden_private.lifecycle_request_cases','garden_private.lifecycle_request_payloads','garden_private.lifecycle_request_events','garden_private.lifecycle_request_heads',
+  'garden_control.lifecycle_authority_evidence','garden_control.lifecycle_evidence_heads','garden_control.lifecycle_operator_grants','garden_control.lifecycle_grant_heads',
+  'garden_private.lifecycle_control_events','garden_private.lifecycle_control_payloads','garden_private.lifecycle_control_heads','garden_private.lifecycle_control_scope_heads'];
  return(await admin.query(tables.map(table=>`SELECT '${table}' AS table_name,count(*)::text AS count,
   encode(sha256(convert_to(COALESCE(string_agg(to_jsonb(r)::text,E'\\n' ORDER BY to_jsonb(r)::text COLLATE "C"),''),'UTF8')),'hex') AS sha256 FROM ${table} AS r`).join(' UNION ALL ')+' ORDER BY table_name')).rows;
 }
@@ -88,7 +91,7 @@ try{
  const retainedBefore=await retainedState();
  assert.ok(retainedBefore.some(row=>row.table_name==='garden_control.audit_events'&&BigInt(row.count)>0n));
  for(const sql of ['UPDATE garden_control.audit_events SET hash=hash','DELETE FROM garden_control.audit_events'])await rejectedMutation(admin,null,sql,immutableError);
- await rejectedMutation(admin,null,'TRUNCATE garden_control.audit_events',error=>error.code==='0A000'&&error.message==='cannot truncate a table referenced in a foreign key constraint'&&['Table "encrypted_envelope_revisions" references "audit_events".','Table "lifecycle_request_events" references "audit_events".'].includes(error.detail));
+ await rejectedMutation(admin,null,'TRUNCATE garden_control.audit_events',error=>error.code==='0A000'&&error.message==='cannot truncate a table referenced in a foreign key constraint'&&['Table "encrypted_envelope_revisions" references "audit_events".','Table "lifecycle_request_events" references "audit_events".','Table "lifecycle_authority_evidence" references "audit_events".','Table "lifecycle_operator_grants" references "audit_events".','Table "lifecycle_control_events" references "audit_events".'].includes(error.detail));
  // The direct TRUNCATE is rejected before triggers by the receipt FK. CASCADE
  // explicitly reaches the append-only trigger without removing that FK.
  await rejectedMutation(admin,null,'TRUNCATE garden_control.audit_events CASCADE',immutableError);

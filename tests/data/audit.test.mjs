@@ -30,6 +30,17 @@ test('lifecycle mutation evidence keeps the case UUID separate from the operatio
  assert.equal(verifyAuditPage(entries,point()).events.length,2);
  for(const action of ['lifecycle.request.accept','lifecycle.request.export','lifecycle.request.purge'])assert.throws(()=>validateAuditEvent({...event(),action}),AuditError);
 });
+test('operator control audit codes distinguish evidence, grants and retained controls without asserting physical effects',()=>{
+ const actions=[['lifecycle.authority.evidence','lifecycle-authority','authority-evidence-recorded'],['lifecycle.authority.grant','lifecycle-authority','operator-grant-recorded'],['lifecycle.control.rule','lifecycle-control','retention-rule-recorded'],['lifecycle.control.hold-place','lifecycle-control','hold-recorded'],['lifecycle.control.hold-release','lifecycle-control','hold-release-recorded']];
+ let previous=GENESIS;const rows=[];
+ for(const [i,[action,kind,reasonCode]] of actions.entries()){
+  const e={...event(String(i+1)),action,reasonCode,subject:{kind,reference:randomUUID(),version:'1'}};
+  const current=row(e,previous);rows.push(current);previous=current.hash;
+  for(const patch of [{subject:{...e.subject,kind:'record'}},{subject:{...e.subject,kind:'request'}},{outcome:'allowed'},{reasonCode:'purged'},{operatorId:'PRIVATE-OPERATOR'}])assert.throws(()=>validateAuditEvent({...e,...patch}),AuditError);
+ }
+ assert.equal(verifyAuditPage(rows,point()).events.length,5);
+ for(const action of ['lifecycle.control.purge','lifecycle.control.delete','lifecycle.control.export','lifecycle.control.restore','lifecycle.request.accept'])assert.throws(()=>validateAuditEvent({...event(),action}),AuditError);
+});
 for(const [name,change] of [
  ['hash edit',r=>({...r,hash:'1'.repeat(64)})],['previous hash edit',r=>({...r,previousHash:'1'.repeat(64)})],
  ['content edit',r=>({...r,eventText:r.eventText.replace('record-revised','record-created')})],['sequence gap',r=>({...r,sequence:'2'})],
