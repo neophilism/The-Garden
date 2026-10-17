@@ -1,0 +1,357 @@
+{
+  "schema_version": 1,
+  "work_item": "GDN-024",
+  "contributing_work_items": [
+    "GDN-025"
+  ],
+  "recorded_at": "2026-10-17T15:03:07.778572+00:00",
+  "kind": "policy-identity-cleanup-freshness-fix",
+  "tested_source_commit": "8bca7960b2bf476217e511751b9d4b63a5bcbd76",
+  "tested_source_tree": "7fef5421bca801fc2044760bd6dd5293ee39c0f3",
+  "verified_base": "ea48b8eee11e2cc922dc9c76dac02815ea66d57b",
+  "source_files": {
+    "apps/research/access/policy-context.mjs": "4b2eeef84969cefec20b84a7a030b54f91c82dc4ec9f6096e4280567ae5d6249",
+    "apps/research/access/rls.ci.mjs": "9ca70a514631fce7647ef7a92095eb0f4fcb27fa74d09500f66d4e40c05bd0f4",
+    "tests/access/policy-identity-boundaries.test.mjs": "3df2e22583e847115f2cc636d20875febf606259f99c4166acc354eceaf41a6f"
+  },
+  "original_failure": {
+    "recorded_at": "2026-10-17T14:57:26.768873+00:00",
+    "started_at": "2026-10-17T14:57:26.608041+00:00",
+    "head": "9a82d74da36e5d3da07ff0e939e5f71a95fe23e4",
+    "source_sha256": "bd6fc5fc0621afa32b22b5574e8421564d6d33205c73533afe24d08e9fa5f0a9",
+    "test_sha256": "3df2e22583e847115f2cc636d20875febf606259f99c4166acc354eceaf41a6f",
+    "exit_code": 1,
+    "log_sha256": "3617539902a32c08fc0edfee500ff8a70869697a64a136e2a8cd9fe9888bde5b",
+    "counts": [
+      "# tests 18",
+      "# pass 0",
+      "# fail 18",
+      "# cancelled 0",
+      "# skipped 0",
+      "# todo 0"
+    ]
+  },
+  "focused_check": {
+    "started_at": "2026-10-17T14:58:10.599127+00:00",
+    "finished_at": "2026-10-17T14:58:10.814092+00:00",
+    "head": "9a82d74da36e5d3da07ff0e939e5f71a95fe23e4",
+    "uncommitted_delta": true,
+    "command": [
+      "node",
+      "--test",
+      "--test-reporter=tap",
+      "tests/access/policy-context.test.mjs",
+      "tests/access/policy-identity-boundaries.test.mjs",
+      "tests/access/delivery.test.mjs"
+    ],
+    "source_hashes": {
+      "apps/research/access/policy-context.mjs": "4b2eeef84969cefec20b84a7a030b54f91c82dc4ec9f6096e4280567ae5d6249",
+      "apps/research/access/rls.ci.mjs": "9ca70a514631fce7647ef7a92095eb0f4fcb27fa74d09500f66d4e40c05bd0f4",
+      "tests/access/policy-identity-boundaries.test.mjs": "3df2e22583e847115f2cc636d20875febf606259f99c4166acc354eceaf41a6f"
+    },
+    "exit_code": 0,
+    "log_sha256": "bd207a9f325bddd712f3c1028d669890acd4d6e0407dfad1c6c36e2016ae35e6",
+    "counts": [
+      "# tests 96",
+      "# pass 96",
+      "# fail 0",
+      "# cancelled 0",
+      "# skipped 0",
+      "# todo 0"
+    ]
+  },
+  "full_check": {
+    "profile": "garden-local-check-observation-v1",
+    "started_at": "2026-10-17T15:00:11.622778+00:00",
+    "head": "8bca7960b2bf476217e511751b9d4b63a5bcbd76",
+    "tree": "7fef5421bca801fc2044760bd6dd5293ee39c0f3",
+    "source_before": {
+      "apps/research/access/policy-context.mjs": "4b2eeef84969cefec20b84a7a030b54f91c82dc4ec9f6096e4280567ae5d6249",
+      "apps/research/access/rls.ci.mjs": "9ca70a514631fce7647ef7a92095eb0f4fcb27fa74d09500f66d4e40c05bd0f4",
+      "tests/access/policy-identity-boundaries.test.mjs": "3df2e22583e847115f2cc636d20875febf606259f99c4166acc354eceaf41a6f",
+      "package.json": "03b2a6d98673453f56c46387028e2baecc5d1f1a89b74d2becb6c2e2dd771cb7",
+      "package-lock.json": "2fabb52e8fc285ab23a1fdc4d4c0f29fced57e2e7181a018b1147694731a5a5b"
+    },
+    "generated_before": {
+      "apps/public/next-env.d.ts": "ad4d5f5650c49907bf3cb65cbf1a590b9569ba93c707c0586264aded70ad89c9",
+      "apps/research/next-env.d.ts": "ad4d5f5650c49907bf3cb65cbf1a590b9569ba93c707c0586264aded70ad89c9"
+    },
+    "environment_keys": [
+      "CI",
+      "HOME",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "PATH"
+    ],
+    "runtime": {
+      "node": "v24.19.0",
+      "npm": "11.9.0"
+    },
+    "phases": [
+      {
+        "phase": "install",
+        "command": [
+          "npm",
+          "ci",
+          "--include=dev",
+          "--ignore-scripts",
+          "--no-audit",
+          "--no-fund"
+        ],
+        "started_at": "2026-10-17T15:00:11.713881+00:00",
+        "finished_at": "2026-10-17T15:00:16.998519+00:00",
+        "duration_seconds": 5.285,
+        "exit_code": 0,
+        "log": "install.log",
+        "log_sha256": "cdc8e3885dcd7cb39e2b95567579922fe05ccbc0c976c1c3ee95c90c0824263a"
+      },
+      {
+        "phase": "check",
+        "command": [
+          "npm",
+          "run",
+          "check"
+        ],
+        "started_at": "2026-10-17T15:00:16.998739+00:00",
+        "finished_at": "2026-10-17T15:00:35.332433+00:00",
+        "duration_seconds": 18.334,
+        "exit_code": 0,
+        "log": "check.log",
+        "log_sha256": "389db484474fd9471ff1094f4f343a1497ad3e6a72fdbf3d6782288d53fa42a9"
+      }
+    ],
+    "finished_at": "2026-10-17T15:00:35.332978+00:00",
+    "head_after": "8bca7960b2bf476217e511751b9d4b63a5bcbd76",
+    "tree_after": "7fef5421bca801fc2044760bd6dd5293ee39c0f3",
+    "source_after": {
+      "apps/research/access/policy-context.mjs": "4b2eeef84969cefec20b84a7a030b54f91c82dc4ec9f6096e4280567ae5d6249",
+      "apps/research/access/rls.ci.mjs": "9ca70a514631fce7647ef7a92095eb0f4fcb27fa74d09500f66d4e40c05bd0f4",
+      "tests/access/policy-identity-boundaries.test.mjs": "3df2e22583e847115f2cc636d20875febf606259f99c4166acc354eceaf41a6f",
+      "package.json": "03b2a6d98673453f56c46387028e2baecc5d1f1a89b74d2becb6c2e2dd771cb7",
+      "package-lock.json": "2fabb52e8fc285ab23a1fdc4d4c0f29fced57e2e7181a018b1147694731a5a5b"
+    },
+    "tracked_status": "M apps/public/next-env.d.ts\n M apps/research/next-env.d.ts",
+    "own_node_modules": true,
+    "summary_lines": [
+      "ℹ tests 1785",
+      "ℹ pass 1785",
+      "ℹ fail 0",
+      "ℹ cancelled 0",
+      "ℹ skipped 0",
+      "ℹ todo 0"
+    ],
+    "generated_restore": {
+      "inspected": true,
+      "paths": [
+        "apps/public/next-env.d.ts",
+        "apps/research/next-env.d.ts"
+      ],
+      "source": "HEAD",
+      "hashes_after": {
+        "apps/public/next-env.d.ts": "ad4d5f5650c49907bf3cb65cbf1a590b9569ba93c707c0586264aded70ad89c9",
+        "apps/research/next-env.d.ts": "ad4d5f5650c49907bf3cb65cbf1a590b9569ba93c707c0586264aded70ad89c9"
+      },
+      "restored_at": "2026-10-17T15:00:58.426698+00:00"
+    },
+    "final_tracked_status": "clean",
+    "counts": {
+      "tests": 1785,
+      "passed": 1785,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "typechecks": {
+      "public": "pass",
+      "research": "pass",
+      "domain": "pass",
+      "workers": "pass",
+      "root": "pass"
+    },
+    "builds": {
+      "public": {
+        "result": "pass",
+        "pages": 12
+      },
+      "research": {
+        "result": "pass",
+        "pages": 5
+      }
+    }
+  },
+  "independent_ai_review": {
+    "kind": "independent-policy-identity-boundary-review",
+    "started_at": "2026-10-17T15:00:31.768749+00:00",
+    "finished_at": "2026-10-17T15:00:32.257518+00:00",
+    "head": "8bca7960b2bf476217e511751b9d4b63a5bcbd76",
+    "tree": "7fef5421bca801fc2044760bd6dd5293ee39c0f3",
+    "reviewed_pre_rebase_commit": "96a788f70906456a81bc0b88e047e1339864e5a8",
+    "source_sha256": {
+      "apps/research/access/policy-context.mjs": "4b2eeef84969cefec20b84a7a030b54f91c82dc4ec9f6096e4280567ae5d6249",
+      "apps/research/access/rls.ci.mjs": "9ca70a514631fce7647ef7a92095eb0f4fcb27fa74d09500f66d4e40c05bd0f4",
+      "tests/access/policy-identity-boundaries.test.mjs": "3df2e22583e847115f2cc636d20875febf606259f99c4166acc354eceaf41a6f"
+    },
+    "environment_keys": [
+      "CI",
+      "HOME",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "PATH"
+    ],
+    "canaries": {
+      "original": {
+        "sourceSha256": "bd6fc5fc0621afa32b22b5574e8421564d6d33205c73533afe24d08e9fa5f0a9",
+        "cases": [
+          {
+            "phase": "clear",
+            "activeAtReturn": false,
+            "commits": 1,
+            "rollbacks": 0,
+            "delivered": true,
+            "denied": false
+          },
+          {
+            "phase": "final-role",
+            "activeAtReturn": false,
+            "commits": 1,
+            "rollbacks": 0,
+            "delivered": true,
+            "denied": false
+          },
+          {
+            "phase": "research-release",
+            "activeAtReturn": false,
+            "commits": 1,
+            "rollbacks": 0,
+            "delivered": true,
+            "denied": false
+          },
+          {
+            "phase": "ticket-retirement",
+            "activeAtReturn": false,
+            "commits": 1,
+            "rollbacks": 0,
+            "delivered": true,
+            "denied": false
+          }
+        ]
+      },
+      "corrected": {
+        "sourceSha256": "4b2eeef84969cefec20b84a7a030b54f91c82dc4ec9f6096e4280567ae5d6249",
+        "cases": [
+          {
+            "phase": "clear",
+            "activeAtReturn": false,
+            "commits": 0,
+            "rollbacks": 1,
+            "delivered": false,
+            "denied": true
+          },
+          {
+            "phase": "final-role",
+            "activeAtReturn": false,
+            "commits": 0,
+            "rollbacks": 1,
+            "delivered": false,
+            "denied": true
+          },
+          {
+            "phase": "research-release",
+            "activeAtReturn": false,
+            "commits": 1,
+            "rollbacks": 0,
+            "delivered": false,
+            "denied": true
+          },
+          {
+            "phase": "ticket-retirement",
+            "activeAtReturn": false,
+            "commits": 1,
+            "rollbacks": 0,
+            "delivered": false,
+            "denied": true
+          }
+        ]
+      }
+    },
+    "test_command": [
+      "node",
+      "--test",
+      "--test-reporter=tap",
+      "tests/access/policy-context.test.mjs",
+      "tests/access/policy-identity-boundaries.test.mjs",
+      "tests/access/delivery.test.mjs"
+    ],
+    "counts": {
+      "tests": 96,
+      "pass": 96,
+      "fail": 0,
+      "skipped": 0
+    },
+    "static_checks": [
+      {
+        "command": [
+          "node",
+          "--check",
+          "apps/research/access/rls.ci.mjs"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "source_hashes_unchanged_after": true,
+    "status_before": " M apps/public/next-env.d.ts\n",
+    "status_after": " M apps/public/next-env.d.ts\n M apps/research/next-env.d.ts\n",
+    "log_path": "/workspace/scratch/7d1434690aca/policy-delivery-peer-8bca796.log",
+    "log_sha256": "99046f2a0b3f8cf8154b4d4cbe2b45c07e8a634db14253ae1d8e35062d1d4d56",
+    "provider_calls": 0,
+    "postgresql_execution": false,
+    "limits": [
+      "Actual PostgreSQL six new boundary groups remain pending required CI.",
+      "Identity freshness checks do not establish atomic external-identity or database revocation/tombstone linearization."
+    ]
+  },
+  "human_security_audit": false,
+  "counting_note": "The 18 added regressions are included in both the 96-test focused suites and the 1785-test full suite; these counts overlap. The peer's four independent boundary canaries are not four additional full-suite tests. Its earlier read-review commit has the same three source hashes as the rebased checked commit.",
+  "postgresql_ci": {
+    "status": "authored_pending_execution",
+    "script": "apps/research/access/rls.ci.mjs",
+    "sha256": "9ca70a514631fce7647ef7a92095eb0f4fcb27fa74d09500f66d4e40c05bd0f4",
+    "new_groups": 6,
+    "expected_total_groups": 39,
+    "boundary_groups": [
+      "read and write identity closure after actual context cleanup",
+      "read and write identity closure after actual final role probe",
+      "read and write identity closure during actual ticket retirement"
+    ],
+    "database": "disposable PostgreSQL 18.6 only",
+    "identity_closure": "synthetic trusted identity adapter",
+    "assertions": "No protected delivery; pre-COMMIT closure retains the prior record/version; post-COMMIT write closure retains the committed write; all ticket/context rows are retired.",
+    "results_observed": false
+  },
+  "remote_ci": {
+    "status": "pending candidate publication",
+    "required_checks": 10,
+    "workflows": 7
+  },
+  "deployment": {
+    "provider_mutations": false,
+    "migration_change": false,
+    "hosted_activation": false,
+    "production_verified": false
+  },
+  "limits": [
+    "Fresh verified-subject checks are observations of the trusted identity adapter, not an atomic external-identity revocation protocol.",
+    "No new final database grant, consent, tombstone or material-inventory serialization is claimed.",
+    "A denied acknowledgment after COMMIT does not prove rollback; callers must not blindly retry non-idempotent writes.",
+    "No added completed roadmap unit or security conformance claim."
+  ]
+}

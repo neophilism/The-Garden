@@ -91,6 +91,44 @@ try{
  const before=(await admin.query('SELECT version,payload FROM garden_private.record_envelopes WHERE id=$1',[ids.readable])).rows[0];
  await assert.rejects(()=>executor.run(headers('owner'),{workspaceId:W,action:'write'},async c=>{await c.query("UPDATE garden_private.record_envelopes SET payload='{\"rollback\":true}' WHERE id=$1",[ids.readable]);throw Error('synthetic failure');}),PolicyError);
  assert.deepEqual((await admin.query('SELECT version,payload FROM garden_private.record_envelopes WHERE id=$1',[ids.readable])).rows[0],before);record('failed write rolls back data and version together');
+ // Exercise the fixed host executor with actual PostgreSQL transactions and
+ // disjoint pooled logins. Identity closure is synthetic; database outcomes are real.
+ for(const phase of ['context-clear','role-probe','ticket-retirement'])for(const action of ['read','write']){
+  let active=true,cleared=false,committed=false;
+  const intercept=(pool,kind)=>({connect:async()=>{
+   const client=await pool.connect();
+   return {query:async(sql,args)=>{
+    const result=await client.query(sql,args);
+    if(kind==='research'&&sql.includes('clear_policy_context')){
+     cleared=true;if(phase==='context-clear')active=false;
+    }
+    if(kind==='research'&&cleared&&sql.startsWith('SELECT current_user')&&phase==='role-probe')active=false;
+    if(kind==='research'&&sql==='COMMIT')committed=true;
+    if(kind==='issuer'&&sql.includes('invalidate_policy_ticket')&&phase==='ticket-retirement')active=false;
+    return result;
+   },release:destroy=>client.release(destroy)};
+  }});
+  const protectedExecutor=createPolicyExecutor({
+   identity:{viewer:async input=>active?identity.viewer(input):null},
+   issuerPool:intercept(issuerPool,'issuer'),researchPool:intercept(queryPool,'research')
+  });
+  const snapshot=(await admin.query('SELECT version,payload FROM garden_private.record_envelopes WHERE id=$1',[ids.readable])).rows[0];
+  const marker={synthetic:'identity-freshness',phase,action};
+  await assert.rejects(()=>protectedExecutor.run(headers('owner'),{workspaceId:W,recordId:ids.readable,action},async client=>{
+   if(action==='write')return (await client.query('UPDATE garden_private.record_envelopes SET payload=$1::jsonb WHERE id=$2 RETURNING version,payload',[marker,ids.readable])).rows[0];
+   const value=(await client.query('SELECT version,payload FROM garden_private.record_envelopes WHERE id=$1',[ids.readable])).rows[0];
+   assert.ok(value);return value;
+  }),error=>error instanceof PolicyError&&error.message==='Research access denied');
+  const after=(await admin.query('SELECT version,payload FROM garden_private.record_envelopes WHERE id=$1',[ids.readable])).rows[0];
+  const afterCommit=phase==='ticket-retirement';
+  assert.equal(committed,afterCommit);
+  if(action==='write'&&afterCommit){
+   assert.deepEqual(after.payload,marker);assert.equal(BigInt(after.version),BigInt(snapshot.version)+1n);
+  }else assert.deepEqual(after,snapshot);
+  assert.equal((await admin.query('SELECT count(*)::int AS n FROM garden_control.policy_tickets')).rows[0].n,0);
+  assert.equal((await admin.query('SELECT count(*)::int AS n FROM garden_control.policy_contexts')).rows[0].n,0);
+  record(action+' identity closure during '+phase+' suppresses delivery and preserves the observed '+(afterCommit?'committed':'rolled-back')+' PostgreSQL outcome');
+ }
  assert.equal((await admin.query('SELECT count(*)::int AS n FROM garden_control.policy_tickets')).rows[0].n,0);assert.equal((await admin.query('SELECT count(*)::int AS n FROM garden_control.policy_contexts')).rows[0].n,0);record('successful and failed operations retire ticket and backend context');
  await assert.rejects(()=>admin.query("UPDATE garden_private.record_envelopes SET payload='{\"plaintext\":true}' WHERE id=$1",[ids.sealed]),e=>e.code==='23514');record('sealed envelope rejects plaintext payload');
  const reused=(await queryPool.query('SELECT current_user::text AS role')).rows[0].role;assert.equal(reused,'garden_policy_query_ci');record('query login identity is restored after every transaction');

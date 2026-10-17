@@ -175,6 +175,19 @@
       ],
       "evidence": "docs/evidence/GDN-032/requester-merge-observation.json",
       "note": "Ten required checks across seven workflows passed with authenticated source receipts, including all 22 actual PostgreSQL requester groups. Additive 0014 was subsequently applied atomically and independently read back on existing isolated staging after a corrected deployment-only owner-membership postguard. Pending/cancelled request persistence and pure retention contracts remain unmounted and partial; no completed unit or production verification is claimed."
+    },
+    {
+      "kind": "engineering_followup_merge",
+      "pr_number": 67,
+      "url": "https://github.com/neophilism/The-Garden/pull/67",
+      "github_head_sha": "3050f4aa012f2a994b6dba11f53b8b27bb860ee3",
+      "github_merge_sha": "ea48b8eee11e2cc922dc9c76dac02815ea66d57b",
+      "mapped_work_items": [],
+      "contributing_work_items": [
+        "GDN-032"
+      ],
+      "evidence": "docs/evidence/GDN-032/dependencies-merge-observation.json",
+      "note": "All ten required checks across seven workflows passed with exact authenticated source receipts. Adds bounded retained-manifest dependency metadata extraction/closure; no authenticated database inventory, global material completeness, deletion authority, completed work unit or production verification."
     }
   ],
   "work_items": {
@@ -763,5 +776,5 @@
     "mapped_planned_units": 37
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-17T14:53:13Z"
+  "observed_at_utc": "2026-10-17T15:01:18Z"
 }

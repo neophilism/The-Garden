@@ -19,15 +19,19 @@ export function createPolicyExecutor({identity,issuerPool,researchPool}) {
    const actor=await verified(headers);
    const result=await issuerOperation('SELECT garden_control.issue_policy_ticket($1::uuid,$2::text,$3::text,$4::uuid) AS ticket',[workspace,actor,action,scope]);
    const ticket=result.rows[0]?.ticket;if(typeof ticket!=='string'||!/^[0-9a-f]{64}$/.test(ticket))deny();
-   let c,bad=false,completed=false,login;
+   let c,bad=false,completed=false,login,value;
    try{
     c=await researchPool.connect();try{login=await checkRole(c,'research');}catch{bad=true;deny();}await c.query('BEGIN');await c.query('SET LOCAL ROLE garden_research');
     await c.query("SET LOCAL statement_timeout='5s'");await c.query("SET LOCAL idle_in_transaction_session_timeout='10s'");
     await c.query('SELECT garden_control.bind_policy_context($1::text)',[ticket]);
     // Only trusted repository code receives this connection, never a request-provided query.
-    const value=await work(c);
+    value=await work(c);
     if(await verified(headers)!==actor)deny();
-    await c.query('SELECT garden_control.clear_policy_context()');await checkRole(c,'research',true,login);await c.query('COMMIT');completed=true;return value;
+    await c.query('SELECT garden_control.clear_policy_context()');await checkRole(c,'research',true,login);
+    // Context cleanup and the role probe are awaited boundaries too. Refresh
+    // identity after them before admitting COMMIT.
+    if(await verified(headers)!==actor)deny();
+    await c.query('COMMIT');completed=true;
    }catch(error){if(error instanceof DatabaseCapabilityError)bad=true;try{if(c)await c.query('ROLLBACK');}catch{bad=true;}deny();}
    finally{
     c?.release(bad);
@@ -35,6 +39,10 @@ export function createPolicyExecutor({identity,issuerPool,researchPool}) {
     try{await issuerOperation('SELECT garden_control.invalidate_policy_ticket($1::text)',[ticket]);}
     catch{if(completed)deny();}
    }
+   // COMMIT, connection release and issuer retirement can outlive the earlier
+   // proof. Deny delivery on closure without pretending a committed write rolled back.
+   if(await verified(headers)!==actor)deny();
+   return value;
   }
  });
 }
