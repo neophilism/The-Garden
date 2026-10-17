@@ -12,6 +12,8 @@ const HASH = /^[0-9a-f]{64}$/;
 const INTEGER = /^(0|[1-9][0-9]{0,18})$/;
 const MAX_SEQUENCE = 9223372036854775807n;
 const ACTIONS = Object.freeze({
+ 'lifecycle.request.submit':['lifecycle-request','succeeded','request-submitted'],
+ 'lifecycle.request.cancel':['lifecycle-request','succeeded','request-cancelled'],
  'encryption.persist':['record','succeeded','encrypted-content-persisted'],
  'encryption.rewrap':['record','succeeded','encrypted-content-rewrapped'],
  'encryption.key-policy':['workspace','succeeded','encryption-key-policy-changed'],

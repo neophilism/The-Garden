@@ -1,0 +1,380 @@
+{
+  "work_item": "GDN-032",
+  "recorded_at": "2026-10-17T14:36:54.080767+00:00",
+  "tested_source_commit": "968574abd351af7d645b1021c4cea0a6876c68f4",
+  "tested_source_tree": "a14f8424a859f2182be15e004dbe8853e93b1356",
+  "scope": "Source-bound local unit/negative tests, type checking and builds; actual PostgreSQL and remote CI remain pending.",
+  "base_commit": "bff5048543ee336162ff01e306cf56d3a656e36c",
+  "source_files": [
+    {
+      "path": ".github/workflows/data.yml",
+      "bytes": 2812,
+      "sha256": "a69cc640811ade213b7a9de548ebdece1a5e8d7ef3b10f30ef6f0c831aac1ad3"
+    },
+    {
+      "path": "apps/research/access/audit.ci.mjs",
+      "bytes": 23460,
+      "sha256": "f215052bb86358cfcda02a418521ea1da08a82158458b34aadc76d94ee0f0960"
+    },
+    {
+      "path": "apps/research/access/database-role.mjs",
+      "bytes": 3218,
+      "sha256": "f91e16720b7302a6fba057d8443c5bade4e000c982006770bf93bca2f5a587fa"
+    },
+    {
+      "path": "apps/research/access/lifecycle-request-repository.mjs",
+      "bytes": 11579,
+      "sha256": "7a942bd937f90013316648b67cefd9e6fa6b6da3454c5759b04990c662c72dc5"
+    },
+    {
+      "path": "apps/research/access/lifecycle-requests.ci.mjs",
+      "bytes": 55137,
+      "sha256": "d76b59bbf3e8a554564f22d81a10d6f5445d71eed938866c30c881a53f9442d5"
+    },
+    {
+      "path": "apps/research/access/lifecycle-requests.mjs",
+      "bytes": 8616,
+      "sha256": "7ea05a9b73f66970049a3b3daa133c88b7ad4e2f755244017226cd7391c95b92"
+    },
+    {
+      "path": "apps/research/identity/assurance.mjs",
+      "bytes": 3390,
+      "sha256": "144aa6a42c37d5c75e9149d4f29a0531a12f82959f7b9595fc3df5793d47b285"
+    },
+    {
+      "path": "apps/research/identity/assurance.test.mjs",
+      "bytes": 6064,
+      "sha256": "567a62d17b01bfbb949e7900f4bc0d5fc2d6fb856770a54e1c9f972083a28122"
+    },
+    {
+      "path": "apps/research/identity/sessions.ci.mjs",
+      "bytes": 19824,
+      "sha256": "9c412ad3eca79716bd609275a0834d533c8d0906d0b8118bf98400b06368769d"
+    },
+    {
+      "path": "db/migrations/0014_lifecycle_requests.sql",
+      "bytes": 44937,
+      "sha256": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c"
+    },
+    {
+      "path": "db/migrations/manifest.json",
+      "bytes": 2493,
+      "sha256": "438836593b6e811ad38e8615a1e0f40d862226bd53713b930cb8865d35b20094"
+    },
+    {
+      "path": "docs/security/lifecycle-request-host.md",
+      "bytes": 5968,
+      "sha256": "864c4d26a6a6771208440c0250a1b631e8b342c19203371138e7fb6ad8bd674c"
+    },
+    {
+      "path": "docs/security/lifecycle-request-storage.md",
+      "bytes": 9789,
+      "sha256": "91a8c691658cd143f1062271853c24b4084d97a47d013f0c86516d636d87c85a"
+    },
+    {
+      "path": "docs/security/lifecycle-requests.md",
+      "bytes": 8347,
+      "sha256": "398c7f0975781ebf32972c5c6606fa98ee2193eaf368c7edf9661fb7bd4163b0"
+    },
+    {
+      "path": "docs/security/retention-policy.md",
+      "bytes": 15577,
+      "sha256": "490aff4fcfe1e4687b329740bd64b27838d63122160a5cd1a4ca6bbe9500829c"
+    },
+    {
+      "path": "packages/domain/src/audit/ledger.mjs",
+      "bytes": 7912,
+      "sha256": "4bf56d8c748ebe09d035e719a5c073840d393df5b62971616b110b154a7b602a"
+    },
+    {
+      "path": "packages/domain/src/lifecycle/requests.mjs",
+      "bytes": 14711,
+      "sha256": "a463329d79720d4c0fb56d2bfbb9db4cd290d01e0358685f682da8376d38a7d8"
+    },
+    {
+      "path": "packages/domain/src/lifecycle/retention.mjs",
+      "bytes": 16927,
+      "sha256": "998f3c8f6bebe64b82a579cb5a6458c6d1b0953fc86fb394520c4a304063b978"
+    },
+    {
+      "path": "tests/access/lifecycle-request-repository.test.mjs",
+      "bytes": 27776,
+      "sha256": "9cec0dc40d2a31707cf7b86df7c7272017e6f67da537811f7470b39662d1b18b"
+    },
+    {
+      "path": "tests/access/lifecycle-requests.test.mjs",
+      "bytes": 19780,
+      "sha256": "711d3e658647b8b1b964a27e959b9faae2960ba6a5d3f65ce2adae3ab0311444"
+    },
+    {
+      "path": "tests/data/audit.test.mjs",
+      "bytes": 8096,
+      "sha256": "6d9466c708dacd1c8d39b60e484868d1f256a74271825ce484e0d53fdb6f06ee"
+    },
+    {
+      "path": "tests/security/lifecycle-requests.test.mjs",
+      "bytes": 21617,
+      "sha256": "3cadf13ddc9f8aa5cd73586c37d995d73394853edae4870cf1d887d52b8265d8"
+    },
+    {
+      "path": "tests/security/lifecycle-retention.test.mjs",
+      "bytes": 24533,
+      "sha256": "9ac350fcb8c16fa631fbc4db73d68c305422b85ce787923da5d001c38d1d20d6"
+    }
+  ],
+  "source_hash_verification": "All supplied candidate file hashes were checked against both current worktree bytes and git show of the exact tested commit.",
+  "full_check": {
+    "command": [
+      "npm",
+      "run",
+      "check"
+    ],
+    "source_commit": "968574abd351af7d645b1021c4cea0a6876c68f4",
+    "source_tree": "a14f8424a859f2182be15e004dbe8853e93b1356",
+    "source_commit_after": "968574abd351af7d645b1021c4cea0a6876c68f4",
+    "source_tree_after": "a14f8424a859f2182be15e004dbe8853e93b1356",
+    "started_at": "2026-10-17T14:31:12.276779+00:00",
+    "finished_at": "2026-10-17T14:31:24.734168+00:00",
+    "exit_code": 0,
+    "counts": {
+      "tests": 1717,
+      "suites": 0,
+      "pass": 1717,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "environment_names": [
+      "CI",
+      "HOME",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "PATH"
+    ],
+    "environment_mode": "Fresh allowlisted child; only HOME, PATH, NODE_ENV=production, CI=true and NEXT_TELEMETRY_DISABLED=1. No inherited service credentials.",
+    "node": "v24.19.0",
+    "npm": "11.9.0",
+    "source_unchanged": true,
+    "log_name": "gdn032-full-check-968574.log",
+    "log_sha256": "d7c247d4851b041e0c8f999d3e9c5868880e45d8dc3cdac7dbcfb1466e845d72",
+    "typecheck": {
+      "result": "passed",
+      "workspaces": [
+        "@garden/public",
+        "@garden/research",
+        "@garden/domain",
+        "@garden/workers"
+      ],
+      "rootConfiguration": "config/tsconfig.json"
+    },
+    "builds": {
+      "public": {
+        "result": "passed",
+        "staticPagesGenerated": 12
+      },
+      "research": {
+        "result": "passed",
+        "staticPagesGenerated": 5
+      },
+      "nextVersion": "16.4.0",
+      "releaseManifestSha": "968574abd351af7d645b1021c4cea0a6876c68f4"
+    },
+    "generated_files": "Both apps/*/next-env.d.ts diffs were inspected and only those generated files restored. HEAD/tree remained unchanged and the worktree was clean after verification.",
+    "configuration_guard": "Preserved; no test or configuration boundary was bypassed. Child-process tests used the authorized escalated executor."
+  },
+  "separate_assurance": {
+    "command": [
+      "node",
+      "--test",
+      "--test-reporter=tap",
+      "apps/research/identity/assurance.test.mjs"
+    ],
+    "source_commit": "968574abd351af7d645b1021c4cea0a6876c68f4",
+    "source_tree": "a14f8424a859f2182be15e004dbe8853e93b1356",
+    "source_commit_after": "968574abd351af7d645b1021c4cea0a6876c68f4",
+    "source_tree_after": "a14f8424a859f2182be15e004dbe8853e93b1356",
+    "started_at": "2026-10-17T14:31:24.750282+00:00",
+    "finished_at": "2026-10-17T14:31:24.886331+00:00",
+    "exit_code": 0,
+    "counts": {
+      "tests": 37,
+      "suites": 0,
+      "pass": 37,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "environment_names": [
+      "CI",
+      "HOME",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "PATH"
+    ],
+    "environment_mode": "Fresh allowlisted child; only HOME, PATH, NODE_ENV=production, CI=true and NEXT_TELEMETRY_DISABLED=1. No inherited service credentials.",
+    "node": "v24.19.0",
+    "npm": "11.9.0",
+    "source_unchanged": true,
+    "log_name": "gdn032-assurance-968574.log",
+    "log_sha256": "4708ed764a5654909c878113e5ff9a2c8662d24b504641379a6331e245e04bd5",
+    "included_in_npm_run_check": false,
+    "scope": "Existing identity assurance suite including lifecycle.administer privileged-action coverage; not 37 new GDN-032-only tests."
+  },
+  "earlier_focused": {
+    "command": [
+      "node",
+      "--test",
+      "--test-isolation=none",
+      "tests/access/lifecycle-request-repository.test.mjs",
+      "tests/access/lifecycle-requests.test.mjs",
+      "tests/security/lifecycle-requests.test.mjs",
+      "tests/data/audit.test.mjs",
+      "tests/security/database-role.test.mjs"
+    ],
+    "status": "passed",
+    "source_head": "50b9ea7f260d57d0babf78d35a201d43fcec4ea2",
+    "uncommitted_source_delta": true,
+    "scope": "Earlier source-hash-bound requester/audit/database-role suite at its original draft HEAD; no builds or actual PostgreSQL. Do not relabel this as a clean-commit execution at the final candidate.",
+    "started_at": "2026-10-17T14:27:43.150561+00:00",
+    "finished_at": "2026-10-17T14:27:43.891912+00:00",
+    "exit_code": 0,
+    "counts": {
+      "tests": 375,
+      "suites": 0,
+      "pass": 375,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "environment_names": [
+      "LANG",
+      "PATH",
+      "TZ"
+    ],
+    "source_hashes": {
+      "db/migrations/0014_lifecycle_requests.sql": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c",
+      "apps/research/access/lifecycle-request-repository.mjs": "7a942bd937f90013316648b67cefd9e6fa6b6da3454c5759b04990c662c72dc5",
+      "tests/access/lifecycle-request-repository.test.mjs": "9cec0dc40d2a31707cf7b86df7c7272017e6f67da537811f7470b39662d1b18b",
+      "db/migrations/manifest.json": "438836593b6e811ad38e8615a1e0f40d862226bd53713b930cb8865d35b20094",
+      "apps/research/access/database-role.mjs": "f91e16720b7302a6fba057d8443c5bade4e000c982006770bf93bca2f5a587fa",
+      "packages/domain/src/audit/ledger.mjs": "4bf56d8c748ebe09d035e719a5c073840d393df5b62971616b110b154a7b602a",
+      "tests/data/audit.test.mjs": "6d9466c708dacd1c8d39b60e484868d1f256a74271825ce484e0d53fdb6f06ee",
+      "apps/research/access/audit.ci.mjs": "f215052bb86358cfcda02a418521ea1da08a82158458b34aadc76d94ee0f0960",
+      "apps/research/access/lifecycle-requests.mjs": "7ea05a9b73f66970049a3b3daa133c88b7ad4e2f755244017226cd7391c95b92",
+      "tests/access/lifecycle-requests.test.mjs": "711d3e658647b8b1b964a27e959b9faae2960ba6a5d3f65ce2adae3ab0311444",
+      "packages/domain/src/lifecycle/requests.mjs": "a463329d79720d4c0fb56d2bfbb9db4cd290d01e0358685f682da8376d38a7d8",
+      "tests/security/lifecycle-requests.test.mjs": "3cadf13ddc9f8aa5cd73586c37d995d73394853edae4870cf1d887d52b8265d8",
+      "tests/security/database-role.test.mjs": "8f5a025357703e3e967c3eaabbda5c605b9662e90cbd595f14858700c6c0ecec"
+    },
+    "source_unchanged_during_run": true,
+    "reviewed_files_match_final_candidate": true,
+    "log_name": "gdn032-requester-final-focused.log",
+    "log_sha256": "5615207b28a45280d81e58343b880e864be37cde7387c2cd4c5e791c7fe71a8e",
+    "actual_postgresql": false
+  },
+  "independent_ai_peer": {
+    "command": [
+      "node",
+      "--test",
+      "--test-reporter=tap",
+      "tests/access/lifecycle-request-repository.test.mjs",
+      "tests/access/lifecycle-requests.test.mjs",
+      "tests/security/lifecycle-requests.test.mjs"
+    ],
+    "status": "passed",
+    "source_head": "2a9ebf9658bfb9909e6f5abf0631770c947caeab",
+    "uncommitted_source_delta": true,
+    "scope": "Independent read-only AI rerun of 44 repository, 45 requester-host and 28 domain tests against the original draft hashes. SQL at this checkpoint was 8a275cab..., before the cancellation local-name correction; these JavaScript tests did not execute PostgreSQL.",
+    "started_at": "2026-10-17T14:24:12.376269+00:00",
+    "finished_at": "2026-10-17T14:24:12.951747+00:00",
+    "exit_code": 0,
+    "counts": {
+      "tests": 117,
+      "suites": 0,
+      "pass": 117,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "environment_names": [
+      "CI",
+      "HOME",
+      "NEXT_TELEMETRY_DISABLED",
+      "NODE_ENV",
+      "PATH"
+    ],
+    "source_hashes": {
+      "db/migrations/0014_lifecycle_requests.sql": "8a275cab75814179f5aee76c5b3a73691682c6f7cf7f3cf5d1f5a0d33b638408",
+      "apps/research/access/lifecycle-request-repository.mjs": "7a942bd937f90013316648b67cefd9e6fa6b6da3454c5759b04990c662c72dc5",
+      "tests/access/lifecycle-request-repository.test.mjs": "9cec0dc40d2a31707cf7b86df7c7272017e6f67da537811f7470b39662d1b18b",
+      "apps/research/access/lifecycle-requests.mjs": "7ea05a9b73f66970049a3b3daa133c88b7ad4e2f755244017226cd7391c95b92",
+      "tests/access/lifecycle-requests.test.mjs": "711d3e658647b8b1b964a27e959b9faae2960ba6a5d3f65ce2adae3ab0311444",
+      "packages/domain/src/lifecycle/requests.mjs": "a463329d79720d4c0fb56d2bfbb9db4cd290d01e0358685f682da8376d38a7d8",
+      "tests/security/lifecycle-requests.test.mjs": "3cadf13ddc9f8aa5cd73586c37d995d73394853edae4870cf1d887d52b8265d8"
+    },
+    "source_unchanged_during_run": true,
+    "log_name": "draft0014-requester-peer-tests.log",
+    "log_sha256": "c8fc9eb805c75cef67efaa153c438197edee4e78faa18e75a67d88740475bede",
+    "independent_canaries": "Original cross-realm rejecting predicates now deny without unhandled rejection; queued final repository closure denies status and yields outcome-unknown for the simulated committed submit.",
+    "canary_provenance": "Inline executor probes retained in session outputs; not represented as separately retained scripts/logs. Durable corresponding regression cases are in the source-bound repository test file.",
+    "human_security_audit": false,
+    "actual_postgresql": false
+  },
+  "sql_final_delta_review": {
+    "currentSha256": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c",
+    "reconstructedPreviousSha256": "8a275cab75814179f5aee76c5b3a73691682c6f7cf7f3cf5d1f5a0d33b638408",
+    "change": "Seven cancellation-local op_fingerprint references replace fingerprint and its invalid implicit function qualification; reverting exactly reconstructs previously reviewed bytes.",
+    "manifestMatches": true
+  },
+  "postgresql_ci": {
+    "status": "authored_pending_execution",
+    "script": "apps/research/access/lifecycle-requests.ci.mjs",
+    "sha256": "d76b59bbf3e8a554564f22d81a10d6f5445d71eed938866c30c881a53f9442d5",
+    "workflow": ".github/workflows/data.yml",
+    "database_image": "postgres:18.6-bookworm",
+    "test_groups": 22,
+    "planned_assertion_groups": [
+      "a verified nonmember can submit, read and recover an exact own pending request in an inactive research workspace",
+      "actual JSONB and JavaScript agree on quotes, backslashes, Unicode and object order; cancelled status is separate from stable original operation readback",
+      "request IDs and recovery hashes never override current actor, workspace, immutable claim or global operation binding",
+      "known inaccessible and nonexistent record claims both create pending requester receipts without resolving, reading or changing the claimed record",
+      "closing intake preserves authenticated own status, cancellation and exact recovery without reopening a terminal request",
+      "observed concurrent identical submissions converge, global operation and cancellation races have one winner, and operation IDs cannot cross actions or cases",
+      "restoring an older valid pending head beside a retained cancellation denies every read, retry and cancellation until the correct head is restored",
+      "missing separately stored request payload denies status, recovery, exact submission and cancellation without recreation or extra audit; exact synthetic restoration preserves the original receipt",
+      "a head fingerprint without its exact immutable event fails the specific foreign key in an always-rolled-back owner probe, with populated retained state unchanged",
+      "failed retirement leaves a committed PID+xid binding: both committed and rolled-back tokens deny replay on the same backend in a new transaction",
+      "SQL independently binds both PID and xid8, and a redeemed ticket cannot switch action, request, canonical fingerprint or claim kind",
+      "failure after the SQL mutation returns but before COMMIT rolls back private payload, immutable operation, current head and succeeded audit together",
+      "forced real audit insertion failures leave submission absent and cancellation pending, with exact populated ledger and request snapshots unchanged",
+      "actual case and audit-head lock waits cannot extend admission: expiry denies new writes and own-status delivery after the wait",
+      "deferred admission checks run at actual COMMIT for submit, cancel, status, recovery and exact replay after context cleanup, not merely at SQL function return",
+      "real successful COMMIT with a lost acknowledgement returns only an uncertain operation handle; authenticated exact readback confirms one submission or cancellation",
+      "a real repository retirement failure denies acknowledgement, leaves its token unusable, and preserves exact operation recovery",
+      "service, intake, repository and session closure after SQL context cleanup all prevent submission COMMIT and succeeded audit",
+      "closure during post-COMMIT ticket retirement denies final write acknowledgement or status delivery without pretending a committed write rolled back",
+      "all eleven disjoint runtime roles lack raw access to six forced-RLS tables; only issuer can mint/retire and only the dedicated requester can redeem, with all twenty new mixed-capability directions denied",
+      "retained metadata excludes requester and claim payload; exact FK/append-only guards and non-null predecessor checks reject owner probes with every transaction rolled back and all populated state unchanged",
+      "closed audit actions bind stable case IDs separately from operation IDs, verify every succeeded mutation without raw requester/claim values, and leave no pooled ticket or context residue"
+    ],
+    "expected_artifact": "data-evidence/lifecycle-requests-results.json",
+    "results_observed": false,
+    "synthetic_disposable_service_only": true,
+    "run_against_retained_staging": false,
+    "scope": "Named checks describe authored assertions, not observed passing PostgreSQL results. Migration DDL/runtime SQL, locking, expiry, grants, concurrency and audit rollback require this real database gate."
+  },
+  "remote_ci": {
+    "status": "pending",
+    "required_checks_expected": 10,
+    "source_receipt_workflows_expected": 7,
+    "observed_success": false,
+    "scope": "Required current-head and integration-source GitHub checks and per-workflow receipts must be inspected after publication; local success does not predict them."
+  },
+  "counting_note": "The 375 and 117 runs overlap the current full suite. Counts are per execution and must not be added as distinct coverage. The separate 37-test assurance suite is outside npm run check.",
+  "raw_logs": "Raw logs and private working-session metadata are not copied into the repository; compact observations, reproducible commands, source hashes and log hashes are retained here.",
+  "production_verified": false
+}

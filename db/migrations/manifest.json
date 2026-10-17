@@ -66,6 +66,11 @@
       "id": "0013_encrypted_content",
       "file": "0013_encrypted_content.sql",
       "sha256": "1fb1eb5adc7b2adced769cf91f8fd99af841f86ed98132d12922e07549b19964"
+    },
+    {
+      "id": "0014_lifecycle_requests",
+      "file": "0014_lifecycle_requests.sql",
+      "sha256": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c"
     }
   ]
 }

@@ -51,3 +51,10 @@ test('assurance comparison binds subject, session, credential and timestamp',()=
  for(const key of ['id','sessionId','assuranceCredentialId','lastStepUpAt','privilegedAssurance'])assert.equal(sameAssurance(a,{...a,[key]:'wrong'}),false);
  assert.equal(sameAssurance(a,null),false);assert.ok(Object.isFrozen(PRIVILEGED_ACTIONS));
 });
+test('lifecycle review is a distinct privileged action without a requester or physical-erasure bypass',()=>{
+ assert.ok(PRIVILEGED_ACTIONS.includes('lifecycle.administer'));
+ assert.ok(PRIVILEGED_ACTIONS.includes('consent.administer'));
+ for(const action of ['lifecycle.submit','lifecycle.status','lifecycle.cancel','lifecycle.erase','lifecycle.export','lifecycle.*','consent.administer.lifecycle'])assert.equal(PRIVILEGED_ACTIONS.includes(action),false);
+ assert.equal(new Set(PRIVILEGED_ACTIONS).size,PRIVILEGED_ACTIONS.length);
+ assert.throws(()=>PRIVILEGED_ACTIONS.push('lifecycle.erase'),TypeError);
+});

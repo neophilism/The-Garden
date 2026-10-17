@@ -1,0 +1,22 @@
+{
+  "work_item": "GDN-032",
+  "recorded_at": "2026-10-17T14:36:54.080767+00:00",
+  "tested_source_commit": "968574abd351af7d645b1021c4cea0a6876c68f4",
+  "tested_source_tree": "a14f8424a859f2182be15e004dbe8853e93b1356",
+  "performed": false,
+  "reason": "The requester capability remains default-disabled and unmounted. Migration0014 has not been applied to staging, actual PostgreSQL CI is pending, and no hosted requester workflow was exercised.",
+  "url": null,
+  "service_id": null,
+  "schema_0014_live_verified": false,
+  "requester_workflow_live_verified": false,
+  "tombstone_delivery_denial_verified": false,
+  "derivative_removal_verified": false,
+  "actual_export_verified": false,
+  "restore_after_withdrawal_verified": false,
+  "retention_or_hold_enforcement_verified": false,
+  "effectsVerified": false,
+  "production_verified": false,
+  "local_evidence": "tests.json",
+  "local_scope": "Synthetic local test success and both application builds are source verification; they are not deployment, database integration or live behavior evidence.",
+  "future_verification": "Record actual provider target, deployed source and migration checksum, timestamp, private endpoint behavior, authorized/denied cases, current feature state and exact recovery before changing these flags. Full GDN-032 acceptance additionally requires real tombstone/removal/hold/restore enforcement."
+}

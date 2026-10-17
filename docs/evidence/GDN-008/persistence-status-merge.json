@@ -1,0 +1,306 @@
+{
+  "schema_version": 1,
+  "work_item": "GDN-008",
+  "observation": "verified_guarded_maintenance_merge",
+  "pre_merge_observed_at_utc": "2026-10-17T14:29:37Z",
+  "merge_confirmed_observed_at_utc": "2026-10-17T14:29:51Z",
+  "repository": "neophilism/The-Garden",
+  "pr_number": 65,
+  "pr_url": "https://github.com/neophilism/The-Garden/pull/65",
+  "head_sha": "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b",
+  "base_sha": "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
+  "tested_merge_sha": "ca2e605207334d55bd9bfe4666e47b4b764c8782",
+  "merge_sha": "bff5048543ee336162ff01e306cf56d3a656e36c",
+  "merged_at": "2026-10-17T14:29:43Z",
+  "github_mergeable_state_before_merge": "clean",
+  "checks": [
+    {
+      "id": 117419046116,
+      "name": "archive-storage-boundaries",
+      "app_id": 15368,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554254/job/117419046116",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "storage",
+        "parent_shas": [
+          "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
+          "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "ca2e605207334d55bd9bfe4666e47b4b764c8782",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/storage.yml@refs/pull/65/merge",
+        "workflow_run_id": "39040554254"
+      }
+    },
+    {
+      "id": 117419046059,
+      "name": "supply-chain-and-policy",
+      "app_id": 15368,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554227/job/117419046059",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "policy",
+        "parent_shas": [
+          "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
+          "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "ca2e605207334d55bd9bfe4666e47b4b764c8782",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/quality.yml@refs/pull/65/merge",
+        "workflow_run_id": "39040554227"
+      }
+    },
+    {
+      "id": 117419045938,
+      "name": "browser-and-accessibility",
+      "app_id": 15368,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554227/job/117419045938",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "browser",
+        "parent_shas": [
+          "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
+          "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "ca2e605207334d55bd9bfe4666e47b4b764c8782",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/quality.yml@refs/pull/65/merge",
+        "workflow_run_id": "39040554227"
+      }
+    },
+    {
+      "id": 117419045853,
+      "name": "application-build",
+      "app_id": 15368,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554179/job/117419045853",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "application",
+        "parent_shas": [
+          "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
+          "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "ca2e605207334d55bd9bfe4666e47b4b764c8782",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/ci.yml@refs/pull/65/merge",
+        "workflow_run_id": "39040554179"
+      }
+    },
+    {
+      "id": 117419045820,
+      "name": "architecture-contracts",
+      "app_id": 15368,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554179/job/117419045820",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "architecture",
+        "parent_shas": [
+          "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
+          "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "ca2e605207334d55bd9bfe4666e47b4b764c8782",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/ci.yml@refs/pull/65/merge",
+        "workflow_run_id": "39040554179"
+      }
+    },
+    {
+      "id": 117419045814,
+      "name": "historical-data-contracts",
+      "app_id": 15368,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554192/job/117419045814",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "data",
+        "parent_shas": [
+          "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
+          "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "ca2e605207334d55bd9bfe4666e47b4b764c8782",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/data.yml@refs/pull/65/merge",
+        "workflow_run_id": "39040554192"
+      }
+    },
+    {
+      "id": 117419045802,
+      "name": "database-foundation",
+      "app_id": 15368,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554190/job/117419045802",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "database",
+        "parent_shas": [
+          "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
+          "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "ca2e605207334d55bd9bfe4666e47b4b764c8782",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/database.yml@refs/pull/65/merge",
+        "workflow_run_id": "39040554190"
+      }
+    },
+    {
+      "id": 117419045785,
+      "name": "identity-lifecycle",
+      "app_id": 15368,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554189/job/117419045785",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "identity",
+        "parent_shas": [
+          "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
+          "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "ca2e605207334d55bd9bfe4666e47b4b764c8782",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/identity.yml@refs/pull/65/merge",
+        "workflow_run_id": "39040554189"
+      }
+    },
+    {
+      "id": 117419045746,
+      "name": "plan-validation",
+      "app_id": 15368,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554179/job/117419045746",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "plan",
+        "parent_shas": [
+          "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
+          "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "ca2e605207334d55bd9bfe4666e47b4b764c8782",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/ci.yml@refs/pull/65/merge",
+        "workflow_run_id": "39040554179"
+      }
+    },
+    {
+      "id": 117419045610,
+      "name": "Status record integrity (not product certification)",
+      "app_id": 15368,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554191/job/117419045610",
+      "source_receipt": {
+        "event": "pull_request",
+        "job": "status-record",
+        "parent_shas": [
+          "2c4c216276ab67a5b388f5ce778d62b0b8a0a76b",
+          "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b"
+        ],
+        "repository": "neophilism/The-Garden",
+        "run_attempt": "1",
+        "schema_version": 1,
+        "tested_sha": "ca2e605207334d55bd9bfe4666e47b4b764c8782",
+        "workflow_ref": "neophilism/The-Garden/.github/workflows/e2eesa-status.yml@refs/pull/65/merge",
+        "workflow_run_id": "39040554191"
+      }
+    }
+  ],
+  "workflows": [
+    {
+      "id": 39040554189,
+      "path": ".github/workflows/identity.yml",
+      "event": "pull_request",
+      "head_sha": "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b",
+      "attempt": 1,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554189"
+    },
+    {
+      "id": 39040554227,
+      "path": ".github/workflows/quality.yml",
+      "event": "pull_request",
+      "head_sha": "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b",
+      "attempt": 1,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554227"
+    },
+    {
+      "id": 39040554254,
+      "path": ".github/workflows/storage.yml",
+      "event": "pull_request",
+      "head_sha": "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b",
+      "attempt": 1,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554254"
+    },
+    {
+      "id": 39040554191,
+      "path": ".github/workflows/e2eesa-status.yml",
+      "event": "pull_request",
+      "head_sha": "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b",
+      "attempt": 1,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554191"
+    },
+    {
+      "id": 39040554190,
+      "path": ".github/workflows/database.yml",
+      "event": "pull_request",
+      "head_sha": "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b",
+      "attempt": 1,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554190"
+    },
+    {
+      "id": 39040554192,
+      "path": ".github/workflows/data.yml",
+      "event": "pull_request",
+      "head_sha": "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b",
+      "attempt": 1,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554192"
+    },
+    {
+      "id": 39040554179,
+      "path": ".github/workflows/ci.yml",
+      "event": "pull_request",
+      "head_sha": "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b",
+      "attempt": 1,
+      "conclusion": "success",
+      "url": "https://github.com/neophilism/The-Garden/actions/runs/39040554179"
+    }
+  ],
+  "reviews": [],
+  "review_threads": [],
+  "commit_statuses": [],
+  "visible_rulesets": [],
+  "main_protected": false,
+  "merge_method": "squash",
+  "expected_head_sha": "bb349dbfd3e23466c6ba989299c9e7ba809a4c8b",
+  "merge_confirmed": true,
+  "mapped_units_added": 0,
+  "production_deployed": false,
+  "production_verified": false,
+  "independent_human_review": "deferred_follow_up",
+  "note": "Current source-owned progress and isolated staging observations were reconciled after PR64. All ten checks and seven workflows passed on the exact tested merge. This operator-guarded maintenance merge does not establish an unattended merge executor, live Engine Room ingestion or runtime activation."
+}

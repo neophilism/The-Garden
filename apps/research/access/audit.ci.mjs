@@ -88,7 +88,7 @@ try{
  const retainedBefore=await retainedState();
  assert.ok(retainedBefore.some(row=>row.table_name==='garden_control.audit_events'&&BigInt(row.count)>0n));
  for(const sql of ['UPDATE garden_control.audit_events SET hash=hash','DELETE FROM garden_control.audit_events'])await rejectedMutation(admin,null,sql,immutableError);
- await rejectedMutation(admin,null,'TRUNCATE garden_control.audit_events',error=>error.code==='0A000'&&error.message==='cannot truncate a table referenced in a foreign key constraint'&&error.detail==='Table "encrypted_envelope_revisions" references "audit_events".');
+ await rejectedMutation(admin,null,'TRUNCATE garden_control.audit_events',error=>error.code==='0A000'&&error.message==='cannot truncate a table referenced in a foreign key constraint'&&['Table "encrypted_envelope_revisions" references "audit_events".','Table "lifecycle_request_events" references "audit_events".'].includes(error.detail));
  // The direct TRUNCATE is rejected before triggers by the receipt FK. CASCADE
  // explicitly reaches the append-only trigger without removing that FK.
  await rejectedMutation(admin,null,'TRUNCATE garden_control.audit_events CASCADE',immutableError);
