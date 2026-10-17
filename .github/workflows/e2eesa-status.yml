@@ -1,10 +1,9 @@
 name: E2EESA status record
 on:
   pull_request:
-    paths: ['security/**', 'scripts/validate_e2eesa_status.py', 'docs/E2EESA_ADOPTION.md', 'README.md']
   push:
     branches: [main]
-    paths: ['security/**', 'scripts/validate_e2eesa_status.py', 'docs/E2EESA_ADOPTION.md', 'README.md']
+  merge_group:
 permissions:
   contents: read
 jobs:
@@ -16,4 +15,6 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
+      - name: Record exact checkout for merge review
+        run: python3 scripts/record_ci_source.py
       - run: python3 scripts/validate_e2eesa_status.py

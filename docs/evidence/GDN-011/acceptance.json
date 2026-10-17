@@ -1,0 +1,81 @@
+{
+  "work_item": "GDN-011",
+  "observed_date": "2026-10-17",
+  "implementation": "partial_engineering_local_validation",
+  "scope": "Read-only guarded-merge evidence evaluator, per-job source receipts and complete status-record workflow triggers",
+  "local_checks": {
+    "command": "node --test tests/runtime/merge-readiness.test.mjs",
+    "node_version": "v24.19.0",
+    "passed": 55,
+    "failed": 0,
+    "notes": "Normal child-process execution required; the restricted workspace sandbox denies Node test children with EPERM. Full command passed in the approved execution context."
+  },
+  "acceptance": {
+    "GDN-011-AC01": "Synthetic PR and merge-group source-binding fixtures pass. Actual GitHub strict protection and queue acceptance remain pending.",
+    "GDN-011-AC02": "Stale source, latest-run, latest-status, changed evidence and final-reread fixtures pass.",
+    "GDN-011-AC03": "No merge or administration capability exists in the evaluator. Unknown protections and required bypass deny unattended eligibility."
+  },
+  "provider_observation": {
+    "base_sha": "f80a2373aa5825e20aee666eeb1f984a58072fcd",
+    "branch_summary_protected": false,
+    "visible_rulesets": 0,
+    "detailed_protection_http_status": 403,
+    "detailed_protection_error": "Resource not accessible by integration",
+    "repository_owner_type": "User",
+    "protection_configured_by_this_work": false,
+    "merge_queue_activated": false
+  },
+  "independent_human_review": "deferred_follow_up",
+  "production_deployed": false,
+  "production_verified": false,
+  "github_pr_number": null,
+  "tested_head_sha": null,
+  "github_merge_sha": null,
+  "limitations": [
+    "This contributes to GDN-011; full remote configuration acceptance is not complete.",
+    "No unattended development worker or merge executor was installed.",
+    "Evidence collection is authenticated operator work; JSON itself does not prove provider origin.",
+    "Unknown rulesets and missing strict server branch enforcement deny affirmative unattended eligibility.",
+    "GitHub expected-head protection does not itself atomically freeze the base branch."
+  ],
+  "local_validation": [
+    {
+      "command": "npm run test",
+      "passed": 1339,
+      "failed": 0,
+      "scope": "Full application suite before the final three additional merge-readiness fixtures; the final focused suite then passed 55/55."
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "passed"
+    },
+    {
+      "command": "npm run build:public && npm run build:research",
+      "result": "passed",
+      "scope": "Local configuration with ambient unrelated credentials removed; the public configuration guard was preserved."
+    },
+    {
+      "command": "python3 scripts/validate_plan.py",
+      "result": "passed"
+    },
+    {
+      "command": "python3 -m unittest discover -s tests/plan -v",
+      "passed": 30,
+      "failed": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tests/architecture -v",
+      "passed": 103,
+      "failed": 0
+    },
+    {
+      "command": "node tools/quality/verify-policy.mjs",
+      "result": "passed"
+    }
+  ],
+  "ai_review": {
+    "status": "completed_findings_remediated",
+    "human_audit": false,
+    "record": "docs/evidence/GDN-011/review.md"
+  }
+}
