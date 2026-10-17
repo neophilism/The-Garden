@@ -463,5 +463,24 @@
     "scope": "Only the row-probe lock strength and its explanatory comment changed. Runtime policy ordering, 11 groups, exact backend/blocker wait, zero bound context, graph probe and row-count assertions remain unchanged.",
     "ci_history": "docs/evidence/GDN-024/workspace-gate-ci-observation.json",
     "note": "The original full local check above binds the prior CI fixture. This subsequent narrow fixture correction has separate focused evidence, and requires fresh published merge-tree CI."
+  },
+  "latest_verified_followup": {
+    "observed_at": "2026-10-17T16:15:17.398859+00:00",
+    "pr_number": 70,
+    "head_sha": "8e2d129f60ffadbf08c9888109e9a16038637538",
+    "merge_sha": "933880907295e1003f29f5658b3310eae69d5ab7",
+    "tested_merge_sha": "aac47fbacb67abc4a0e0dc9b6a6a691ba6fb9f39",
+    "tree_sha": "f7e918283c43d6957d14ea73861696755d3d4880",
+    "required_checks_passed": 10,
+    "workflows_passed": 7,
+    "authenticated_source_receipts": 10,
+    "actual_workspace_postgresql_groups_passed": 11,
+    "actual_application_tests_passed": 1883,
+    "actual_browser_tests_passed": 108,
+    "merge_evidence": "docs/evidence/GDN-024/workspace-gate-merge-observation.json",
+    "unit_complete": false,
+    "production_verified": false,
+    "migration_added": false,
+    "note": "The initial local source and first failing fixture run remain dated historical evidence. The final current-source CI and guarded merge verify the corrected fixture and all 11 actual PostgreSQL concurrency groups."
   }
 }

@@ -119,6 +119,8 @@ export function assessMerge(snapshot, policy, now = Date.now()) {
       !Array.isArray(rules?.rulesets) || rules.rulesets.length !== 0 || !protection || requirements?.strict !== true)
     deny('server_rules_unverified', 'Unattended eligibility requires verified strict branch enforcement; unreadable or unsupported rules remain unknown.');
   if (rules?.bypassRequired !== false) deny('bypass_forbidden', 'No bypass may be needed or requested.');
+  if (protection?.enforce_admins?.enabled !== true)
+    deny('admin_enforcement_unverified', 'The provider readback must enforce branch restrictions for administrators.');
   if (rules?.digest !== rulesDigest(rules)) deny('rules_digest_invalid', 'Rules evidence must match its recorded digest.');
   const knownProtectionKeys = new Set(['url', 'required_status_checks', 'required_pull_request_reviews', 'restrictions',
     'required_signatures', 'enforce_admins', 'required_linear_history', 'allow_force_pushes', 'allow_deletions',
@@ -130,15 +132,25 @@ export function assessMerge(snapshot, policy, now = Date.now()) {
       protection?.block_creations?.enabled || protection?.restrictions)
     deny('remote_rule_unsupported', 'Signature, history, creation or actor restrictions require a supported provider proof.');
   if (Array.isArray(requirements?.checks)) {
+    const remoteChecks = new Map();
     for (const check of requirements.checks) {
+      if (!check || typeof check.context !== 'string' || !check.context || !isId(check.app_id) || remoteChecks.has(check.context)) {
+        deny('remote_requirement_unverified', 'Required checks need unique contexts and explicit positive GitHub App IDs.');
+        continue;
+      }
+      remoteChecks.set(check.context, check.app_id);
       const observedCheck = selected.get(check.context);
-      if (!observedCheck || (check.app_id !== null && check.app_id !== -1 && check.app_id !== observedCheck.app.id))
-        deny('remote_requirement_unverified', check.context ?? 'Unknown check requirement');
+      if (!observedCheck || check.app_id !== observedCheck.app.id)
+        deny('remote_requirement_unverified', check.context);
     }
+    // Green local checks do not prove that GitHub requires those checks or their trusted app.
+    for (const required of policy.checks)
+      if (remoteChecks.get(required.name) !== required.appId) deny('server_policy_incomplete', required.name);
   } else if (protection) deny('remote_requirement_unverified', 'Required check/app bindings were not read.');
-  for (const context of requirements?.contexts ?? []) {
+  if (!Array.isArray(requirements?.contexts) || requirements.contexts.some(context => typeof context !== 'string' || !context))
+    deny('remote_requirement_unverified', 'The provider legacy-context collection must be an array of nonempty names.');
+  else for (const context of requirements.contexts)
     if (!selected.has(context) && currentStatuses.get(context)?.state !== 'success') deny('remote_requirement_unverified', context);
-  }
   const reviews = new Map();
   for (const review of [...snapshot.reviews].sort((a, b) => a.id - b.id)) {
     if (!review.user?.login || !['APPROVED', 'CHANGES_REQUESTED', 'DISMISSED', 'COMMENTED', 'PENDING'].includes(review.state)) {

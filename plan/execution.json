@@ -215,6 +215,21 @@
       ],
       "evidence": "docs/evidence/GDN-032/controls-merge-observation.json",
       "note": "Ten required checks/seven workflows and32 actual controls PostgreSQL groups passed; exact source receipts and guarded merge were verified. Adds durable scoped operator authority, rules/holds, exact recovery and atomic audit. Isolated schema0015 was subsequently applied and independently read back. No complete work unit, post-withdrawal metadata authority, requester decision, tombstone, erasure, hosted activation or production verification."
+    },
+    {
+      "kind": "engineering_followup_merge",
+      "pr_number": 70,
+      "url": "https://github.com/neophilism/The-Garden/pull/70",
+      "github_head_sha": "8e2d129f60ffadbf08c9888109e9a16038637538",
+      "github_merge_sha": "933880907295e1003f29f5658b3310eae69d5ab7",
+      "mapped_work_items": [],
+      "contributing_work_items": [
+        "GDN-024",
+        "GDN-025",
+        "GDN-032"
+      ],
+      "evidence": "docs/evidence/GDN-024/workspace-gate-merge-observation.json",
+      "note": "Ten required checks across seven workflows passed with exact source receipts, including 11 actual PostgreSQL workspace-ordering groups, 1,883 application tests and 108 browser tests. The fixed research executor acquires the common workspace gate before policy, graph and row locks. The initial consent-FK probe conflict and fixture correction remain recorded. No migration, completed unit or production activation."
     }
   ],
   "work_items": {
@@ -803,5 +818,5 @@
     "mapped_planned_units": 37
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-17T15:57:56.380937+00:00"
+  "observed_at_utc": "2026-10-17T16:15:17.398859+00:00"
 }

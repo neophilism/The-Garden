@@ -38,6 +38,7 @@ function fixture(kind = 'pull_request') {
     rules: { inspection: 'verified', baseSha: B, protected: true, rulesets: [], bypassRequired: false,
       branchProtection: { required_status_checks: { strict: true,
         contexts: policy.checks.map(c => c.name), checks: policy.checks.map(c => ({ context: c.name, app_id: c.appId })) },
+        enforce_admins: { enabled: true },
         required_pull_request_reviews: null, required_conversation_resolution: { enabled: true } } },
   });
 }
@@ -143,6 +144,73 @@ test('missing or inaccessible remote protection never becomes affirmative unatte
 test('base-change race needs actual server strict-up-to-date enforcement', () => {
   const s = fixture(); s.rules.branchProtection.required_status_checks.strict = false; denied(s, 'server_rules_unverified');
 });
+test('documented GitHub GET protection shape accepts complete app bindings and enabled administrator enforcement', () => {
+  const s = fixture();
+  const url = 'https://api.github.com/repos/neophilism/The-Garden/branches/main/protection';
+  // GET returns an enabled object; the update request's bare boolean is not readback evidence.
+  s.rules.branchProtection = { ...s.rules.branchProtection, url,
+    required_status_checks: { ...s.rules.branchProtection.required_status_checks,
+      url: `${url}/required_status_checks`, contexts_url: `${url}/required_status_checks/contexts` },
+    enforce_admins: { url: `${url}/enforce_admins`, enabled: true },
+    restrictions: null, required_signatures: { url: `${url}/required_signatures`, enabled: false },
+    required_linear_history: { enabled: false }, allow_force_pushes: { enabled: false },
+    allow_deletions: { enabled: false }, block_creations: { enabled: false },
+    lock_branch: { enabled: false }, allow_fork_syncing: { enabled: false },
+  };
+  s.rules.branchProtection.required_status_checks.checks.reverse();
+  assert.equal(assess(confirm(s)).eligible, true);
+});
+test('exact app-bound requirements remain authoritative when the legacy contexts projection is empty', () => {
+  const s = fixture(); s.rules.branchProtection.required_status_checks.contexts = [];
+  assert.equal(assess(confirm(s)).eligible, true);
+});
+test('strict protection with no required checks cannot establish server enforcement', () => {
+  const s = fixture(); s.rules.branchProtection.required_status_checks = { strict: true, contexts: [], checks: [] };
+  denied(s, 'server_policy_incomplete');
+});
+test('legacy check names cannot substitute for exact server app bindings', () => {
+  const s = fixture(); s.rules.branchProtection.required_status_checks.checks = [];
+  denied(s, 'server_policy_incomplete');
+});
+for (const required of policy.checks) {
+  test(`server policy cannot omit ${required.name} while its local check is green`, () => {
+    const s = fixture();
+    const checks = s.rules.branchProtection.required_status_checks;
+    checks.contexts = checks.contexts.filter(name => name !== required.name);
+    checks.checks = checks.checks.filter(check => check.context !== required.name);
+    denied(s, 'server_policy_incomplete');
+  });
+}
+for (const [label, appId] of [['null', null], ['any app', -1], ['zero', 0], ['wrong app', 999], ['string', '15368'], ['missing', undefined]]) {
+  test(`server requirement with ${label} app binding cannot borrow a green trusted check`, () => {
+    const s = fixture(); s.rules.branchProtection.required_status_checks.checks[0].app_id = appId;
+    denied(s, 'remote_requirement_unverified');
+  });
+}
+for (const [label, checks] of [['missing', undefined], ['null', null], ['object', {}], ['null entry', [null]], ['string entry', ['plan-validation']]]) {
+  test(`malformed ${label} required checks produce a denial receipt`, () => {
+    const s = fixture(); s.rules.branchProtection.required_status_checks.checks = checks;
+    denied(s, 'remote_requirement_unverified');
+  });
+}
+test('duplicate server check contexts cannot hide ambiguous app requirements', () => {
+  const s = fixture();
+  s.rules.branchProtection.required_status_checks.checks.push({ ...s.rules.branchProtection.required_status_checks.checks[0] });
+  denied(s, 'remote_requirement_unverified');
+});
+for (const [label, contexts] of [['missing', undefined], ['null', null], ['string', ''], ['object', {}], ['null entry', [null]], ['empty entry', ['']]]) {
+  test(`malformed ${label} legacy contexts do not qualify as complete provider evidence`, () => {
+    const s = fixture(); s.rules.branchProtection.required_status_checks.contexts = contexts;
+    denied(s, 'remote_requirement_unverified');
+  });
+}
+for (const [label, admin] of [['missing', undefined], ['null', null], ['disabled', { enabled: false }],
+  ['empty object', {}], ['request boolean', true], ['string enabled', { enabled: 'true' }]]) {
+  test(`${label} administrator enforcement cannot establish no-bypass server policy`, () => {
+    const s = fixture(); s.rules.branchProtection.enforce_admins = admin;
+    denied(s, 'admin_enforcement_unverified');
+  });
+}
 test('bypass requests cannot qualify', () => {
   const s = fixture(); s.rules.bypassRequired = true; denied(s, 'bypass_forbidden');
 });

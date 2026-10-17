@@ -1,0 +1,274 @@
+{
+  "work_item": "GDN-011",
+  "scope": "Read-only GitHub server enforcement and exposed capability inspection; no provider configuration or merge.",
+  "observed_on": "2026-10-17",
+  "provider": {
+    "repository": {
+      "id": 1413400176,
+      "name": "neophilism/The-Garden",
+      "ownerType": "User",
+      "private": false,
+      "defaultBranch": "main",
+      "permissions": {
+        "admin": true,
+        "maintain": true,
+        "push": true,
+        "triage": true,
+        "pull": true
+      },
+      "allow_auto_merge": false
+    },
+    "main": {
+      "sha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+      "protected": false,
+      "protection": {
+        "enabled": false,
+        "required_status_checks": {
+          "enforcement_level": "off",
+          "contexts": [],
+          "checks": []
+        }
+      }
+    },
+    "rulesets": [],
+    "protectionError": {
+      "error": "GitHub API error 403: {\"message\":\"Resource not accessible by integration\",\"documentation_url\":\"https://docs.github.com/rest/branches/branch-protection#get-branch-protection\",\"status\":\"403\"}",
+      "error_code": "FORBIDDEN",
+      "error_data": {
+        "message": "Resource not accessible by integration",
+        "documentation_url": "https://docs.github.com/rest/branches/branch-protection#get-branch-protection",
+        "status": "403"
+      }
+    }
+  },
+  "observations": {
+    "checkCount": 10,
+    "checks": [
+      {
+        "name": "supply-chain-and-policy",
+        "id": 117427920117,
+        "appId": 15368,
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "detailsUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635973/job/117427920117"
+      },
+      {
+        "name": "Status record integrity (not product certification)",
+        "id": 117427920028,
+        "appId": 15368,
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "detailsUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635991/job/117427920028"
+      },
+      {
+        "name": "plan-validation",
+        "id": 117427919995,
+        "appId": 15368,
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "detailsUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635954/job/117427919995"
+      },
+      {
+        "name": "browser-and-accessibility",
+        "id": 117427919903,
+        "appId": 15368,
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "detailsUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635973/job/117427919903"
+      },
+      {
+        "name": "application-build",
+        "id": 117427919902,
+        "appId": 15368,
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "detailsUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635954/job/117427919902"
+      },
+      {
+        "name": "database-foundation",
+        "id": 117427919788,
+        "appId": 15368,
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "detailsUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635938/job/117427919788"
+      },
+      {
+        "name": "architecture-contracts",
+        "id": 117427919741,
+        "appId": 15368,
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "detailsUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635954/job/117427919741"
+      },
+      {
+        "name": "historical-data-contracts",
+        "id": 117427919690,
+        "appId": 15368,
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "detailsUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635894/job/117427919690"
+      },
+      {
+        "name": "identity-lifecycle",
+        "id": 117427919615,
+        "appId": 15368,
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "detailsUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635899/job/117427919615"
+      },
+      {
+        "name": "archive-storage-boundaries",
+        "id": 117427919560,
+        "appId": 15368,
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "detailsUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635872/job/117427919560"
+      }
+    ],
+    "workflowCount": 7,
+    "workflows": [
+      {
+        "id": 39043635991,
+        "path": ".github/workflows/e2eesa-status.yml",
+        "event": "push",
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "runAttempt": 1,
+        "htmlUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635991"
+      },
+      {
+        "id": 39043635954,
+        "path": ".github/workflows/ci.yml",
+        "event": "push",
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "runAttempt": 1,
+        "htmlUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635954"
+      },
+      {
+        "id": 39043635899,
+        "path": ".github/workflows/identity.yml",
+        "event": "push",
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "runAttempt": 1,
+        "htmlUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635899"
+      },
+      {
+        "id": 39043635894,
+        "path": ".github/workflows/data.yml",
+        "event": "push",
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "runAttempt": 1,
+        "htmlUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635894"
+      },
+      {
+        "id": 39043635973,
+        "path": ".github/workflows/quality.yml",
+        "event": "push",
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "runAttempt": 1,
+        "htmlUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635973"
+      },
+      {
+        "id": 39043635872,
+        "path": ".github/workflows/storage.yml",
+        "event": "push",
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "runAttempt": 1,
+        "htmlUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635872"
+      },
+      {
+        "id": 39043635938,
+        "path": ".github/workflows/database.yml",
+        "event": "push",
+        "headSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+        "status": "completed",
+        "conclusion": "success",
+        "runAttempt": 1,
+        "htmlUrl": "https://github.com/neophilism/The-Garden/actions/runs/39043635938"
+      }
+    ]
+  },
+  "inspection": {
+    "github_tool_count": 89,
+    "supported_protection_or_ruleset_mutation_methods": [],
+    "fetch_methods": [
+      "GET"
+    ],
+    "documented_managed_app_administration_access": false,
+    "repository_admin_metadata_is_separate_from_integration_permission": true,
+    "detailed_protection_error_interpreted_as": "Unavailable; not an empty protection object.",
+    "source_policy": "docs/delivery/merge-policy.json",
+    "source_policy_sha256": "26e6e23213b484e953ec7f0bb6937f867ef61babeda1ec2f4108b372a7f5f831",
+    "policy_check_names_and_apps_match_observed_main_checks": true,
+    "no_selected_job_logs_collected": true,
+    "tool_name_inventory_sha256": "2833587f1bc9edcf5718ea4404f7222a4359771505ac856e0e8b3043ff832a67",
+    "relevant_exposed_tools": [
+      "mcp__codex_apps__github_enable_auto_merge",
+      "mcp__codex_apps__github_fetch",
+      "mcp__codex_apps__github_merge_pull_request",
+      "mcp__codex_apps__github_update_ref"
+    ]
+  },
+  "api_requirements": [
+    {
+      "operation": "Classic branch protection update",
+      "method": "PUT",
+      "path": "/repos/neophilism/The-Garden/branches/main/protection",
+      "permission": "Repository Administration write; authenticated actor must have repository administrative authority.",
+      "source": "https://docs.github.com/en/rest/branches/branch-protection"
+    },
+    {
+      "operation": "Ruleset create or update",
+      "method": "POST or PUT",
+      "path": "/repos/neophilism/The-Garden/rulesets[/id]",
+      "permission": "Repository Administration write.",
+      "source": "https://docs.github.com/en/rest/repos/rules"
+    },
+    {
+      "operation": "Classic protection availability",
+      "requirement": "Public repositories on GitHub Free are supported; no new paid plan established as necessary.",
+      "source": "https://docs.github.com/en/rest/branches/branch-protection"
+    },
+    {
+      "operation": "Merge queue",
+      "requirement": "Documented for organization-owned repositories; observed repository owner type User does not satisfy this boundary.",
+      "source": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue"
+    },
+    {
+      "operation": "Workflow token permissions",
+      "requirement": "Available GITHUB_TOKEN permission scopes do not include Administration; adding a workflow cannot supply the missing permission.",
+      "source": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax"
+    }
+  ],
+  "possible_next_configuration": "Classic strict protection with all ten exact GitHub Actions app 15368 check bindings and administrator enforcement. Existing evaluator rejects any nonempty rulesets list, so a ruleset route additionally needs explicit supported evaluation.",
+  "provider_configuration": "not_performed",
+  "full_unit_acceptance": "partial",
+  "limitations": [
+    "Current main push checks establish names/apps/workflow paths, not fresh PR69 evidence or complete H/B/M receipts.",
+    "Detailed protection is unreadable (403), while branch summary protected:false and rulesets:[] are narrower observed facts.",
+    "Repository permissions.admin:true is separate from the integration's missing Administration permission.",
+    "The GitHub capability result leaves GDN011 server enforcement incomplete."
+  ],
+  "recorded_at": "2026-10-17T15:49:18.122774+00:00"
+}
