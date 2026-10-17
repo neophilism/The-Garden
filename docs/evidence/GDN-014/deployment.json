@@ -11,5 +11,16 @@
   "service_id": null,
   "url": null,
   "live_verification": "not_possible_no_service_created",
-  "human_review_is_blocker": false
+  "human_review_is_blocker": false,
+  "continuation_2026_10_17": {
+    "source_pr": 60,
+    "source_merge_sha": "bedce82b33338286c0a235066cb6493911b9e6fc",
+    "source_ci_passed": true,
+    "provider_mutation_performed": false,
+    "service_id": null,
+    "url": null,
+    "current_blocker": "Authenticated tools lack Garden project/environment and health-path assignment; free capacity for two services remains unproven.",
+    "local_and_ci_smoke_evidence": "docs/evidence/GDN-014/private-staging-ci-result.json",
+    "human_review_is_blocker": false
+  }
 }

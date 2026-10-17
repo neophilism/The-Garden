@@ -111,7 +111,7 @@
     "lock_changed": false,
     "credential_free_child": true
   },
-  "ci_integration": "Existing npm test security glob includes the new test file; remote exact-head execution remains required before merge.",
+  "ci_integration": "Existing npm test security glob executes the component tests. All ten final GitHub checks passed; actual tested merge and parent receipts are in merge-observation.json.",
   "followup_commit_scope": "Evidence and two wording-only operational-contract clarifications; no runtime, tests, dependencies or configuration guard changes.",
   "not_verified": [
     "live KMS or provider transport/IAM",
@@ -132,5 +132,14 @@
     "failed": 0,
     "skipped": 0,
     "scope": "Repeated exact-source encryption regressions on the PR61 merge base. The final PR requires all current GitHub checks and actual test-merge source receipts."
+  },
+  "github_ci": {
+    "pr_number": 62,
+    "head_sha": "bb7197076d930c0b5532d178c7292ae0d877ae00",
+    "base_sha": "ecf35d9448424d45436a23f1970dc48fe9b4eadb",
+    "tested_merge_sha": "518f28dd2d4ced1f1f328984e5bf2a9d6b05d637",
+    "required_checks_passed": 10,
+    "workflows_passed": 7,
+    "evidence": "docs/evidence/GDN-026/merge-observation.json"
   }
 }

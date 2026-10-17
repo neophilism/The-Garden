@@ -1,6 +1,6 @@
 {
   "work_item": "GDN-026",
-  "phase": "partial_engineering_contribution_component_tested_unmounted_provider_integration_pending",
+  "phase": "partial_engineering_contribution_merged_component_unmounted_provider_and_persistence_integration_pending",
   "recorded_at": "2026-10-17T13:20:02.597035+00:00",
   "tested_source_commit": "8bc3ab07fbe234972ed65f65a4426fc0813ea86b",
   "acceptance": {
@@ -33,5 +33,9 @@
   "external_human_review": "deferred_not_performed",
   "ai_source_review": "implementation plus separate peer; concrete reproduced findings corrected",
   "conformance_claim": false,
-  "ci": "remote_exact_head_execution_pending_before_merge"
+  "ci": "all_ten_required_checks_passed_with_exact_source_receipts",
+  "github_pr_number": 62,
+  "github_head_sha": "bb7197076d930c0b5532d178c7292ae0d877ae00",
+  "github_merge_sha": "b2a7fe6c1c3a8b9c257f14791e52d90f9b8451d3",
+  "merge_evidence": "docs/evidence/GDN-026/merge-observation.json"
 }

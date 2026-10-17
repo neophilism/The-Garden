@@ -1,0 +1,43 @@
+{
+  "work_item": "GDN-014",
+  "observed_date": "2026-10-17",
+  "implementation": "partial_engineering_merged_with_exact_ci",
+  "github_pr_number": 60,
+  "tested_head_sha": "a0be8bdb39580aed42036101a4b645176cc80928",
+  "tested_merge_sha": "7fa691b80d8acfdbb10826fb7f290179b3c3eec6",
+  "github_merge_sha": "bedce82b33338286c0a235066cb6493911b9e6fc",
+  "contributing_prs": [
+    53,
+    60
+  ],
+  "accepted": false,
+  "production_deployed": false,
+  "production_verified": false,
+  "scope": "Owner-private public/research staging ingress, source-bound startup, build guard, process lifecycle and executable CI smoke.",
+  "acceptance": {
+    "GDN-014-AC01": "Actual local and GitHub CI processes serve protected shells; external HTTPS health and hosted user-visible shell remain unverified because no Garden Render service exists.",
+    "GDN-014-AC02": "Exact local and CI build/test source is recorded, including PR60 base/head/test merge; a deployed provider SHA does not yet exist.",
+    "GDN-014-AC03": "Only generated test credentials and synthetic empty shells were exercised; no real research or personal data was seeded."
+  },
+  "test_cases": {
+    "GDN-014-T01": "External HTTPS smoke pending actual project-scoped deployment.",
+    "GDN-014-T02": "Wrong-environment, missing/weak credential, source mismatch, forbidden database configuration and feature-enable startup canaries reject.",
+    "GDN-014-T03": "Four real process runs/restarts passed 80 HTTP assertions, four denied upgrades and four clean terminations; 14 invalid startup cases rejected."
+  },
+  "evidence": [
+    "docs/evidence/GDN-014/private-staging-local.json",
+    "docs/evidence/GDN-014/private-staging-ci-result.json",
+    "docs/evidence/GDN-014/merge-observation.json",
+    "docs/evidence/GDN-014/private-staging-review.md"
+  ],
+  "independent_human_review": "deferred_follow_up",
+  "remaining": [
+    "Project-aware Render service/environment assignment and health-path configuration are not available through the current authenticated connector.",
+    "Available free workspace capacity for two services has not been established; no new cost is authorized.",
+    "Real external HTTPS, provider logs, source identity and hosted restart/rollback acceptance require actual Garden services."
+  ],
+  "limits": [
+    "The source and CI contribution does not complete the deployment roadmap unit.",
+    "The owner-private website remains unpublished; no service, URL or participant record was created."
+  ]
+}

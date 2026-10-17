@@ -1,7 +1,7 @@
 {
   "work_item": "GDN-135",
   "observed_date": "2026-10-17",
-  "phase": "implemented_unmounted_pending_remote_ci",
+  "phase": "engineering_merged_with_exact_ci_intake_unmounted",
   "implementation": {
     "program_versions": "immutable authority-bound text, institution and permitted purposes",
     "acknowledgment": "explicit exact-current-version; not content consent",
@@ -19,7 +19,7 @@
   "specified_scenarios": {
     "GDN-135-T01": "pass in local synthetic exact-version/authority/acknowledgment tests",
     "GDN-135-T02": "pass in local synthetic separate submission/interest/withdrawal tests",
-    "GDN-135-T03": "12 browser cases implemented and discoverable; actual browser/axe execution pending remote CI"
+    "GDN-135-T03": "pass in actual GitHub browser/accessibility workflow on exact PR58 source; local browser download remained unavailable"
   },
   "local_verification": {
     "application_tests_passed": 1341,
@@ -41,7 +41,18 @@
     "No mounted verified-session, membership, operator authority, source-classification or consent adapters.",
     "Private SQLite metadata is not encrypted, hosted collaboration or E2EE; real participant records await integrated custody/encryption.",
     "No actual responsible institution, program authority or response capacity was verified.",
-    "No hosted workflow or independent human audit occurred; local browser archive unavailable.",
+    "No hosted intake or independent human audit occurred. Actual GitHub browser tests passed; local browser archive was unavailable.",
     "Original research scope, existing historical data and public visibility were not changed."
-  ]
+  ],
+  "github_pr_number": 58,
+  "github_merge_sha": "b8bc6e255378867d8583437d438b20b6ca0d46e0",
+  "merge_evidence": "docs/evidence/GDN-135/merge-observation.json",
+  "follow_up": {
+    "pr_number": 61,
+    "github_head_sha": "410b4a0daf949bde7de0d91fce1c5bbd3c6a754a",
+    "github_merge_sha": "ecf35d9448424d45436a23f1970dc48fe9b4eadb",
+    "source_evidence": "docs/evidence/GDN-135/audit-closure-merge.json",
+    "tests": "docs/evidence/GDN-135/audit-closure-tests.json",
+    "result": "Current intake, program authority and submission upload are revalidated after audited admission; denied collection makes no ledger mutation."
+  }
 }

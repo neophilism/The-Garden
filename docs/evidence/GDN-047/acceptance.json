@@ -1,6 +1,6 @@
 {
   "work_item_id": "GDN-047",
-  "implementation": "local_candidate",
+  "implementation": "merged_with_exact_ci_worker_unmounted",
   "accepted": false,
   "production_verified": false,
   "independent_review": "not_performed_deferred_followup",
@@ -25,5 +25,8 @@
     "The offline journal needs deployed encrypted volumes, source grants, quotas, backup/restore and source-bound live evidence.",
     "Hash chains and file modes do not establish administrator-proof immutability, encryption, historical accuracy or a license.",
     "Public-byte guard is a composable restriction, not a published endpoint or replacement for existing delivery/storage/purpose controls."
-  ]
+  ],
+  "github_pr_number": 59,
+  "github_merge_sha": "d88562eaca438694c5ba1d8c8b0a881bd57f6f50",
+  "merge_evidence": "docs/evidence/GDN-047/merge-observation.json"
 }

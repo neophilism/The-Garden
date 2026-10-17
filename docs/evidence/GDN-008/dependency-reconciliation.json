@@ -1,0 +1,54 @@
+{
+  "work_item": "GDN-008",
+  "kind": "canonical_dependency_repair",
+  "recorded_at_utc": "2026-10-17T13:03:32Z",
+  "status": "local_validated_pending_remote_ci",
+  "approved_source": "plan/plan.json",
+  "approved_source_sha256": "f0b889f2504fbf58a3a1b5967d4ac51a69abba1e8b18e72ba8dc1ec9fccba274",
+  "registry": "registry/prs.json",
+  "observed_missing_edges": 960,
+  "restored_approved_edges": 960,
+  "units": 210,
+  "current_scope_units": 196,
+  "conditional_units": 14,
+  "dependency_free_roots": [
+    "GDN-001"
+  ],
+  "source_external_gate_references": 181,
+  "baseline_changed": false,
+  "completion_inferred": false,
+  "production_verified": false,
+  "source_sha256": {
+    "scripts/sync_roadmap.py": "ce1739b638e95325c5497383f67010ba4a1ef9c3cc70eda8681ea4df1b5aaef0",
+    "tests/architecture/test_canonical_roadmap.py": "1ff7f55983114280e0a987df7f62975f95a954f4a3d4a0a12ef07255b5c95525"
+  },
+  "local_verification": {
+    "canonical_roadmap_tests_passed": 17,
+    "read_only_sync_gate": "pass",
+    "plan_validator": "pass",
+    "shared_pr_registry_parser": "pass",
+    "full_plan_tests_passed": 30,
+    "full_architecture_tests_passed": 109,
+    "workflow_policy": "pass",
+    "latest_aggregate_check_at_utc": "2026-10-17T13:29:01.772141+00:00",
+    "actual_gitHub_snapshot_count": 61,
+    "latest_verified_partial_pr": 62
+  },
+  "ai_peer_review": {
+    "status": "passed_no_concrete_findings",
+    "independent_agent": true,
+    "independent_human_audit": false,
+    "verified": [
+      "Exact source arrays, known IDs, unique edges, no self-dependency and acyclic graph.",
+      "Current work cannot silently depend on conditional governmental activation.",
+      "Normal CLI rejects drift; --write explicitly repairs from the validated source.",
+      "PR mappings, observations, timestamps and unrelated external fields are preserved.",
+      "Source external gates remain provenance rather than blanket unresolved prerequisites."
+    ]
+  },
+  "downstream_limitations": [
+    "The live Engine Room registration and ingestion have not been independently observed.",
+    "Its current typed plan projection does not establish persistence or scheduling of these dependency and external-gate fields.",
+    "A source registry repair does not activate a development worker or merge queue."
+  ]
+}

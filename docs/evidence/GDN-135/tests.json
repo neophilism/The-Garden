@@ -58,7 +58,10 @@
     "local_execution": "not_run_browser_unavailable",
     "axe_executed": false,
     "download_failure": "Official Playwright Chromium ZIP returned HTTP 200 text/html, 195 bytes: Site Unavailable / Unable to access this site. No browser binary was installed.",
-    "required_ci": "Run the actual contributor route, keyboard, mobile/desktop, escaping and axe cases with the normal quality browser matrix."
+    "required_ci": "Run the actual contributor route, keyboard, mobile/desktop, escaping and axe cases with the normal quality browser matrix.",
+    "remote_execution": "passed_actual_browser_and_accessibility_workflow",
+    "remote_axe_executed": true,
+    "remote_job_url": "https://github.com/neophilism/The-Garden/actions/runs/39034059103/job/117400218083"
   },
   "post_rebase": {
     "base_sha": "f244a87f737b7bb70261ec0f8ffd150059839633",
@@ -67,5 +70,20 @@
     "focused_tests_failed": 0,
     "tested_source_hashes_unchanged": true,
     "note": "Clean rebase onto verified PR57 main; original full application check and source bindings above remain separate evidence."
+  },
+  "github_exact_head_ci": {
+    "head_sha": "8d38eb1ebec19602cd3f2c41a9c3b89a4091347b",
+    "tested_merge_sha": "6156a9e7a31262370a907674bc41ff2f1d463979",
+    "checks_successful": 10,
+    "workflows_successful": 7,
+    "evidence": "docs/evidence/GDN-135/merge-observation.json"
+  },
+  "follow_up": {
+    "pr_number": 61,
+    "focused_tests_passed": 108,
+    "ci_required_checks_passed": 10,
+    "tests": "docs/evidence/GDN-135/audit-closure-tests.json",
+    "merge_evidence": "docs/evidence/GDN-135/audit-closure-merge.json",
+    "historical_source_manifest_note": "The original source hashes and test results above bind PR58; the follow-up has its own exact-source manifest."
   }
 }

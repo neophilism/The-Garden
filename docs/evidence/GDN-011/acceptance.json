@@ -1,7 +1,7 @@
 {
   "work_item": "GDN-011",
   "observed_date": "2026-10-17",
-  "implementation": "partial_engineering_local_validation",
+  "implementation": "partial_engineering_merged_with_exact_ci",
   "scope": "Read-only guarded-merge evidence evaluator, per-job source receipts and complete status-record workflow triggers",
   "local_checks": {
     "command": "node --test tests/runtime/merge-readiness.test.mjs",
@@ -28,9 +28,9 @@
   "independent_human_review": "deferred_follow_up",
   "production_deployed": false,
   "production_verified": false,
-  "github_pr_number": null,
-  "tested_head_sha": null,
-  "github_merge_sha": null,
+  "github_pr_number": 57,
+  "tested_head_sha": "e009de9fc63bd0e80883253e835c5477d09d63f1",
+  "github_merge_sha": "f244a87f737b7bb70261ec0f8ffd150059839633",
   "limitations": [
     "This contributes to GDN-011; full remote configuration acceptance is not complete.",
     "No unattended development worker or merge executor was installed.",
@@ -77,5 +77,6 @@
     "status": "completed_findings_remediated",
     "human_audit": false,
     "record": "docs/evidence/GDN-011/review.md"
-  }
+  },
+  "merge_evidence": "docs/evidence/GDN-011/merge-observation.json"
 }

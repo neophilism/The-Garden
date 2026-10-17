@@ -16,8 +16,8 @@
   },
   "X04": {
     "title": "Render authorization",
-    "status": "authorized_test_deploy_rejected_hobby_25_service_limit",
-    "need": "2026-10-16: Render rejected garden-public-staging on the free plan: Hobby Tier is limited to 25 services. No service was created. Free capacity or separately authorized paid capacity is required; do not delete unrelated services. Project attachment also remains unverified."
+    "status": "authorized_private_test_deploy_project_placement_unavailable_capacity_unproven",
+    "need": "2026-10-16: Render rejected the free Garden service with a 25-service Hobby limit. 2026-10-17 inventory reports 24 web/static services; creation capacity has not been re-proven. Current connector cannot attach a new service to the authorized Garden project/environment or configure HTTP health paths, and no authenticated Render API credential/CLI path is available in this session. Complete the private ingress and provider placement without repurposing unrelated services, new costs, or public website exposure."
   },
   "X05": {
     "title": "Neon authorization",
@@ -41,8 +41,8 @@
   },
   "X09": {
     "title": "Full research artifacts and item rights",
-    "status": "four_components_and_cp017_bytes_revalidated_read_only_full_scan_companions_rights_and_ingestion_open",
-    "need": "All four components and six current documents must be revalidated at import; only CORE byte/schema checks were performed in preparing this plan. Item rights and research review remain open."
+    "status": "cp021_current_manuscript_and_cp017_cp021_image_tables_reconciled_read_only_rights_and_ingestion_open",
+    "need": "Read-only October 17 checks independently bound the exact CP021 v1.33 manuscript and CP017/CP021 CORE databases. They found 607 current media members / 630 stored placements, 567 legacy exact-byte matches and 40 new members; CP021 has no placement rows bound to the exact v1.33 document hash. The aggregate observation is docs/evidence/GDN-047/source-observation.json. This is image-table reconciliation, not full checkpoint ingestion, historical verification, rights clearance or public release. Revalidate every selected original and companion before actual import."
   },
   "X10": {
     "title": "AI provider/data-processing authority",

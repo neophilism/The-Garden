@@ -71,6 +71,58 @@
       "github_merge_sha": "034590eecf99497aabbf598c5d6038673cd1b795",
       "mapped_work_items": [],
       "note": "Nine successful exact-head checks; owner-authorized AI security review policy aligned with plan. No additional roadmap unit or deployment."
+    },
+    {
+      "kind": "engineering_followup_merge",
+      "pr_number": 57,
+      "url": "https://github.com/neophilism/The-Garden/pull/57",
+      "github_head_sha": "e009de9fc63bd0e80883253e835c5477d09d63f1",
+      "github_merge_sha": "f244a87f737b7bb70261ec0f8ffd150059839633",
+      "mapped_work_items": [],
+      "contributing_work_items": [
+        "GDN-011"
+      ],
+      "evidence": "docs/evidence/GDN-011/merge-observation.json",
+      "note": "Ten successful checks across seven workflows; every selected job source receipt binds the actual base and head. GDN-011 remains partial because server protection is not configured. No additional completed unit, hosted deployment or unattended worker."
+    },
+    {
+      "kind": "engineering_followup_merge",
+      "pr_number": 60,
+      "url": "https://github.com/neophilism/The-Garden/pull/60",
+      "github_head_sha": "a0be8bdb39580aed42036101a4b645176cc80928",
+      "github_merge_sha": "bedce82b33338286c0a235066cb6493911b9e6fc",
+      "mapped_work_items": [],
+      "contributing_work_items": [
+        "GDN-014"
+      ],
+      "evidence": "docs/evidence/GDN-014/merge-observation.json",
+      "note": "Ten successful checks across seven workflows with authenticated merge-parent receipts. Owner-private staging source and actual-process CI smoke pass; hosted service placement and external HTTPS remain pending. No additional completed unit or provider deployment."
+    },
+    {
+      "kind": "engineering_followup_merge",
+      "pr_number": 61,
+      "url": "https://github.com/neophilism/The-Garden/pull/61",
+      "github_head_sha": "410b4a0daf949bde7de0d91fce1c5bbd3c6a754a",
+      "github_merge_sha": "ecf35d9448424d45436a23f1970dc48fe9b4eadb",
+      "mapped_work_items": [],
+      "contributing_work_items": [
+        "GDN-135"
+      ],
+      "evidence": "docs/evidence/GDN-135/audit-closure-merge.json",
+      "note": "Ten successful checks across seven workflows with exact authenticated source receipts. Current authority/upload/intake is refreshed after audited admission, before synchronous collection writes. No additional completed roadmap unit or active intake."
+    },
+    {
+      "kind": "engineering_followup_merge",
+      "pr_number": 62,
+      "url": "https://github.com/neophilism/The-Garden/pull/62",
+      "github_head_sha": "bb7197076d930c0b5532d178c7292ae0d877ae00",
+      "github_merge_sha": "b2a7fe6c1c3a8b9c257f14791e52d90f9b8451d3",
+      "mapped_work_items": [],
+      "contributing_work_items": [
+        "GDN-026"
+      ],
+      "evidence": "docs/evidence/GDN-026/merge-observation.json",
+      "note": "Ten successful checks across seven workflows with authenticated source receipts. Bounded trusted-processing encryption component remains unmounted; database persistence, provider integration and custody remain incomplete. No additional completed roadmap unit."
     }
   ],
   "work_items": {
@@ -600,6 +652,55 @@
       "production_verified": false,
       "independent_review": "not_performed",
       "note": "Six successful exact-head workflows reverified 17 October. Private offline acquisition queue; endpoints, provider contact, payments and historical acceptance remain inactive."
+    },
+    "GDN-135": {
+      "implementation": "merged_with_exact_ci_intake_unmounted",
+      "github_pr_number": 58,
+      "github_head_sha": "8d38eb1ebec19602cd3f2c41a9c3b89a4091347b",
+      "tested_merge_ref": "6156a9e7a31262370a907674bc41ff2f1d463979",
+      "github_merge_sha": "b8bc6e255378867d8583437d438b20b6ca0d46e0",
+      "ci_url": "https://github.com/neophilism/The-Garden/pull/58/checks",
+      "ci_workflows": {
+        "e2eesa-status": 39034059098,
+        "storage": 39034059107,
+        "data": 39034059138,
+        "identity": 39034059108,
+        "ci": 39034059101,
+        "database": 39034059133,
+        "quality": 39034059103
+      },
+      "tests_local_synthetic": 54,
+      "browser_accessibility_ci": "passed",
+      "accepted": false,
+      "production_verified": false,
+      "independent_review": "human_review_deferred_ai_review_completed",
+      "evidence": "docs/evidence/GDN-135/merge-observation.json",
+      "note": "All ten required checks across seven workflows passed with exact source receipts before guarded merge. The optional program terms, private receipts and guidance route are implemented; real program authority, hosted intake and encryption/custody are not activated.",
+      "follow_up_evidence": "docs/evidence/GDN-135/audit-closure-merge.json"
+    },
+    "GDN-047": {
+      "implementation": "merged_with_exact_ci_worker_unmounted",
+      "github_pr_number": 59,
+      "github_head_sha": "ba8c5c76805fc711b4d47d07a8ece8a91d706009",
+      "tested_merge_ref": "d5c9e20a72cc705315e0ac21777871ce9b0fb13c",
+      "github_merge_sha": "d88562eaca438694c5ba1d8c8b0a881bd57f6f50",
+      "ci_url": "https://github.com/neophilism/The-Garden/pull/59/checks",
+      "ci_workflows": {
+        "database": 39034987766,
+        "data": 39034987787,
+        "identity": 39034987761,
+        "e2eesa-status": 39034987779,
+        "storage": 39034987773,
+        "ci": 39034987772,
+        "quality": 39034987777
+      },
+      "focused_tests_passed": 60,
+      "accepted": false,
+      "production_verified": false,
+      "independent_review": "human_review_deferred_ai_review_completed",
+      "evidence": "docs/evidence/GDN-047/merge-observation.json",
+      "source_evidence": "docs/evidence/GDN-047/source-observation.json",
+      "note": "All ten required checks across seven workflows passed with exact source receipts before guarded merge. Actual read-only source reconciliation preserves distinct editions and physical row coordinates. No operational migration, historical review, rights clearance or public byte release occurred."
     }
   },
   "production_verified_items": 0,
@@ -607,8 +708,8 @@
     "registration": "not_verified",
     "sync": "not_verified",
     "manifest_in_repo": true,
-    "mapped_planned_units": 35
+    "mapped_planned_units": 37
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-17T12:16:42.238752+00:00"
+  "observed_at_utc": "2026-10-17T13:28:24.948Z"
 }

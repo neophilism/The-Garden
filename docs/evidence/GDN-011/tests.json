@@ -1,0 +1,61 @@
+{
+  "work_item": "GDN-011",
+  "scope": "Source-bound local validation and authenticated PR57 CI observations",
+  "tested_head_sha": "e009de9fc63bd0e80883253e835c5477d09d63f1",
+  "tested_source_sha256": {
+    "tools/delivery/merge-readiness.mjs": "6e67dfdd5c35310446d7f1c377ad5437e39ab4d6cb1cb47654ec0bd1c1fe36de",
+    "scripts/check-merge-readiness.mjs": "d1b7ec37d6edc139854129b4e08b87c4320426628232f9855eab0b70d05a0752",
+    "scripts/record_ci_source.py": "50258c2ff1b9db1f6e3d1df67908c4de739cc2a6c4500a9bfd64ed5bf64abf5c",
+    "docs/delivery/merge-policy.json": "26e6e23213b484e953ec7f0bb6937f867ef61babeda1ec2f4108b372a7f5f831",
+    "tests/runtime/merge-readiness.test.mjs": "f61df83c68f63da423e41547867347270eaac852c78df6cfcccc958d694dff31"
+  },
+  "focused_checks": {
+    "command": "node --test tests/runtime/merge-readiness.test.mjs",
+    "node_version": "v24.19.0",
+    "passed": 55,
+    "failed": 0,
+    "notes": "Normal child-process execution required; the restricted workspace sandbox denies Node test children with EPERM. Full command passed in the approved execution context."
+  },
+  "other_local_checks": [
+    {
+      "command": "npm run test",
+      "passed": 1339,
+      "failed": 0,
+      "scope": "Full application suite before the final three additional merge-readiness fixtures; the final focused suite then passed 55/55."
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "passed"
+    },
+    {
+      "command": "npm run build:public && npm run build:research",
+      "result": "passed",
+      "scope": "Local configuration with ambient unrelated credentials removed; the public configuration guard was preserved."
+    },
+    {
+      "command": "python3 scripts/validate_plan.py",
+      "result": "passed"
+    },
+    {
+      "command": "python3 -m unittest discover -s tests/plan -v",
+      "passed": 30,
+      "failed": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tests/architecture -v",
+      "passed": 103,
+      "failed": 0
+    },
+    {
+      "command": "node tools/quality/verify-policy.mjs",
+      "result": "passed"
+    }
+  ],
+  "github_checks_successful": 10,
+  "github_workflows_successful": 7,
+  "merge_evidence": "docs/evidence/GDN-011/merge-observation.json",
+  "limitations": [
+    "Synthetic merge-group cases do not prove a configured live merge queue.",
+    "Full local application count predates the last three focused fixtures; exact final candidate passed all required GitHub jobs."
+  ]
+}

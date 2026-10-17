@@ -14,5 +14,17 @@
     "Application and tooling audit: zero known vulnerabilities"
   ],
   "online_verification": false,
-  "independent_human_audit": "pending_final_follow_up"
+  "independent_human_audit": "pending_final_follow_up",
+  "follow_up_pr60": {
+    "pr_head_sha": "a0be8bdb39580aed42036101a4b645176cc80928",
+    "base_sha": "d88562eaca438694c5ba1d8c8b0a881bd57f6f50",
+    "tested_merge_sha": "7fa691b80d8acfdbb10826fb7f290179b3c3eec6",
+    "merge_sha": "bedce82b33338286c0a235066cb6493911b9e6fc",
+    "check_runs": "https://github.com/neophilism/The-Garden/pull/60/checks",
+    "all_ten_check_runs": "success",
+    "source_evidence": "docs/evidence/GDN-014/merge-observation.json",
+    "local_tests": "docs/evidence/GDN-014/private-staging-local.json",
+    "actual_ci_process_smoke": "docs/evidence/GDN-014/private-staging-ci-result.json",
+    "online_verification": false
+  }
 }
