@@ -12,6 +12,11 @@ const HASH = /^[0-9a-f]{64}$/;
 const INTEGER = /^(0|[1-9][0-9]{0,18})$/;
 const MAX_SEQUENCE = 9223372036854775807n;
 const ACTIONS = Object.freeze({
+ 'lifecycle.authority.evidence':['lifecycle-authority','succeeded','authority-evidence-recorded'],
+ 'lifecycle.authority.grant':['lifecycle-authority','succeeded','operator-grant-recorded'],
+ 'lifecycle.control.rule':['lifecycle-control','succeeded','retention-rule-recorded'],
+ 'lifecycle.control.hold-place':['lifecycle-control','succeeded','hold-recorded'],
+ 'lifecycle.control.hold-release':['lifecycle-control','succeeded','hold-release-recorded'],
  'lifecycle.request.submit':['lifecycle-request','succeeded','request-submitted'],
  'lifecycle.request.cancel':['lifecycle-request','succeeded','request-cancelled'],
  'encryption.persist':['record','succeeded','encrypted-content-persisted'],

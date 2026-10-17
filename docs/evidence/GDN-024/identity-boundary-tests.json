@@ -353,5 +353,18 @@
     "No new final database grant, consent, tombstone or material-inventory serialization is claimed.",
     "A denied acknowledgment after COMMIT does not prove rollback; callers must not blindly retry non-idempotent writes.",
     "No added completed roadmap unit or security conformance claim."
-  ]
+  ],
+  "latest_verified_followup": {
+    "observed_at": "2026-10-17T15:08:39Z",
+    "evidence": "docs/evidence/GDN-024/identity-boundary-merge.json",
+    "merge_sha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+    "required_checks_passed": 10,
+    "workflows_passed": 7,
+    "actual_postgresql_rls_groups": 39,
+    "new_postgresql_boundary_groups": 6,
+    "actual_application_tests": 1785,
+    "actual_browser_tests": 108,
+    "production_verified": false,
+    "note": "Original local and pending-CI fields retain their dated pre-publication checkpoint; this later exact-source observation establishes actual CI and guarded PR68 merge."
+  }
 }

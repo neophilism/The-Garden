@@ -9,6 +9,7 @@ import {allowSyntheticResearchUse} from './consent-test-fixture.mjs';
 import {GENESIS,verifyAuditPage} from '../../../packages/domain/src/audit/ledger.mjs';
 import {envelopeDigest} from '../../../services/workers/src/trusted-encryption.mjs';
 import {createPersistenceKeys,PERSISTENCE_CANARY} from '../../../tests/security/encryption-persistence-fixture.mjs';
+import {RUNTIME_DATABASE_CAPABILITIES,assertDatabaseCapability} from './database-role.mjs';
 
 if(process.env.CI!=='true'||process.env.GARDEN_IDENTITY_TEST!=='ephemeral-ci'||process.env.GARDEN_DB_TARGET!=='ci'||
  process.env.PGHOST!=='127.0.0.1'||process.env.PGPORT!=='5432'||process.env.PGUSER!=='postgres'||process.env.PGDATABASE!=='neondb')throw Error('Encryption persistence fixtures require isolated loopback CI');
@@ -19,7 +20,7 @@ const check=name=>{checks.push({name,result:'pass'});console.log('ENCRYPTION '+c
 const reject=work=>assert.rejects(work,error=>error instanceof EncryptionPersistenceError&&!/CANARY|PASSWORD|postgresql:/.test(error.message));
 const PRIVATE=['encrypted_content_versions','encrypted_envelope_revisions','encrypted_material','encrypted_content_heads'];
 const CONTROL=['encryption_key_versions','encryption_key_bindings'];
-const CAPABILITIES={issuer:'garden_context_issuer',encryption:'garden_encryption',membership:'garden_membership_admin',consent:'garden_consent_admin',research:'garden_research',worker:'garden_worker',publisher:'garden_publisher',public:'garden_public',audit:'garden_audit_writer',reader:'garden_audit_reader'};
+const CAPABILITIES={issuer:'garden_context_issuer',encryption:'garden_encryption',membership:'garden_membership_admin',consent:'garden_consent_admin',research:'garden_research',worker:'garden_worker',publisher:'garden_publisher',public:'garden_public',audit:'garden_audit_writer',reader:'garden_audit_reader',requester:'garden_lifecycle_requester',lifecycle_admin:'garden_lifecycle_admin'};
 
 async function login(alias,capability){
  const name='garden_persist_'+alias+'_ci',password=randomBytes(32).toString('hex');
@@ -122,6 +123,7 @@ async function consentRequired(spec){
 }
 
 try{
+ assert.deepEqual([...RUNTIME_DATABASE_CAPABILITIES].sort(),Object.values(CAPABILITIES).sort());
  for(const [alias,capability] of Object.entries(CAPABILITIES))await login(alias,capability);
  const repo=repository(),W=await workspace(),OTHER=await workspace(),base=await record(W);
  const request=await prepared(base),digest=encryptionRequestDigest(request);
@@ -170,15 +172,21 @@ try{
  check('authoritative classification, active state, exact current revision and reviewed consent are required even for a valid member with a record grant');
 
  for(const [alias,capability] of Object.entries(CAPABILITIES)){
+  const own=await pools[alias].connect();
+  try{await assertDatabaseCapability(own,capability);}finally{own.release();}
   for(const table of PRIVATE)await assert.rejects(()=>transaction(pools[alias],capability,client=>client.query('SELECT * FROM garden_private.'+table)),error=>error.code==='42501');
   for(const table of CONTROL)await assert.rejects(()=>transaction(pools[alias],capability,client=>client.query('SELECT * FROM garden_control.'+table)),error=>error.code==='42501');
+  if(alias!=='encryption'){
+   await assert.rejects(()=>transaction(pools[alias],capability,client=>client.query('SELECT garden_control.prepare_encrypted_content($1::uuid,$2::uuid,$3::bigint,$4::uuid,$5::text)',[W,base.recordId,'1',base.contentVersionId,'ci'])),error=>error.code==='42501');
+   await assert.rejects(()=>transaction(pools[alias],capability,client=>client.query('SELECT garden_control.commit_encrypted_content($1::jsonb)',[JSON.stringify(request)])),error=>error.code==='42501');
+  }
  }
  await assert.rejects(()=>transaction(pools.encryption,'garden_encryption',client=>client.query('SELECT garden_control.prepare_encrypted_content($1,$2,$3,$4,$5)',[W,base.recordId,'1',base.contentVersionId,'ci'])));
  await assert.rejects(()=>transaction(pools.encryption,'garden_encryption',client=>client.query('SELECT garden_control.encrypted_envelope($1,$2,1)',[W,base.contentVersionId])),error=>error.code==='42501');
  await admin.query('GRANT garden_encryption TO garden_persist_issuer_ci WITH INHERIT FALSE, SET TRUE');await reject(()=>repo.prepare(H('alice'),base));await admin.query('REVOKE garden_encryption FROM garden_persist_issuer_ci');
  const force=(await admin.query("SELECT relname,relrowsecurity,relforcerowsecurity FROM pg_class WHERE relname=ANY($1::text[])",[[...PRIVATE,...CONTROL]])).rows;
  assert.equal(force.length,6);assert.ok(force.every(row=>row.relrowsecurity&&row.relforcerowsecurity));
- check('all six tables force RLS, every ordinary capability lacks raw access, and mixed issuer/content capabilities are rejected');
+ check('all six tables force RLS, all '+RUNTIME_DATABASE_CAPABILITIES.length+' disjoint capabilities lack raw access, unrelated roles cannot prepare or commit material, and mixed issuer/content capabilities are rejected');
 
  const schema=(await admin.query("SELECT table_name,column_name FROM information_schema.columns WHERE table_schema='garden_private' AND table_name IN ('encrypted_content_versions','encrypted_envelope_revisions')")).rows;
  assert.equal(schema.some(row=>['wrapped_key','ciphertext','nonce','tag'].includes(row.column_name)),false);

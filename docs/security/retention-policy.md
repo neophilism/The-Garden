@@ -7,6 +7,11 @@ supplied current facts for a dry-run review. All returned proposals carry
 delivery authorization, tombstone, removal queue, material eraser or key-retirement
 operation in this component. GDN-032's integrated acceptance remains incomplete.
 
+The separately default-off [durable controls bridge](lifecycle-controls.md)
+persists these rules and hold transitions under current scoped operator and
+research authority. Its receipts still establish no physical disposal or
+delivery effects; the evaluator below remains a pure supplied-facts contract.
+
 ## Authority and source of facts
 
 The host must independently resolve the canonical record and its current numeric

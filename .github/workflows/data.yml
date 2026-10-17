@@ -69,6 +69,8 @@ jobs:
         run: node apps/research/access/encryption-persistence.ci.mjs
       - name: Real database requester lifecycle and atomic audit journey
         run: node apps/research/access/lifecycle-requests.ci.mjs
+      - name: Real database scoped retention authority and hold journey
+        run: node apps/research/access/lifecycle-controls.ci.mjs
       - name: Preserve synthetic data acceptance evidence
         if: success()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

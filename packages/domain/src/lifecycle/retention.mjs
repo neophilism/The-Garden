@@ -112,6 +112,12 @@ export function holdPlacementCommandFingerprint(context,input){try{return comman
 export function holdReleaseCommandFingerprint(context,current,input){try{const p=operator(context),h=holdSnapshot(current),c=releaseCommand(input);boundRelease(c,activeHold(h.placement));if(p.workspaceId!==h.placement.command.scope.workspaceId)fail();return commandDigest(ACTIONS.release,p,c);}catch{fail();}}
 export function validateRetentionRule(value){try{return ruleSnapshot(value);}catch{fail();}}
 export function validateHoldRecord(value){try{return holdSnapshot(value);}catch{fail();}}
+// Fixed hosts snapshot commands before their first asynchronous identity read.
+// These validators establish representation only, never current authority.
+export function validateRetentionRuleCommand(value){try{return freeze(ruleCommand(value));}catch{fail();}}
+export function validateHoldPlacementCommand(value){try{return freeze(placeCommand(value));}catch{fail();}}
+export function validateHoldReleaseCommand(value){try{return freeze(releaseCommand(value));}catch{fail();}}
+export function validateRetentionAuthority(value){try{return freeze(proofShape(value));}catch{fail();}}
 
 /** Trusted authority must be independently verified for the whole fingerprinted
  * command. This is a proposal, with no database CAS or authority lookup. */
