@@ -12,7 +12,7 @@
   "scopeNote": "Exact 210 work package titles and scopes recovered from plan/plan.json; the last 14 are contingent governmental scope, not activated powers or deployed features. PR links come only from existing reviewed historical mappings.",
   "schemaVersion": 1,
   "roadmapVersion": 2,
-  "observedAt": "2026-10-17T14:53:13Z",
+  "observedAt": "2026-10-17T15:01:18Z",
   "units": [
     {
       "id": "GDN-001",
@@ -5477,6 +5477,21 @@
       "headSha": "75e999f122428fa2f8ef7c7a6ae13598e6b06d00",
       "baseRef": "main",
       "mergeCommitSha": "9a82d74da36e5d3da07ff0e939e5f71a95fe23e4"
+    },
+    {
+      "id": 4901099515,
+      "number": 67,
+      "title": "Add retained lifecycle dependency inventory with explicit completeness",
+      "url": "https://github.com/neophilism/The-Garden/pull/67",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T14:55:32Z",
+      "updatedAt": "2026-10-17T14:59:19Z",
+      "closedAt": "2026-10-17T14:59:19Z",
+      "mergedAt": "2026-10-17T14:59:19Z",
+      "headSha": "3050f4aa012f2a994b6dba11f53b8b27bb860ee3",
+      "baseRef": "main",
+      "mergeCommitSha": "ea48b8eee11e2cc922dc9c76dac02815ea66d57b"
     }
   ]
 }

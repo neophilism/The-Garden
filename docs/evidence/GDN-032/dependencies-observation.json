@@ -307,5 +307,18 @@
     "Requester acceptance, delivery tombstones or derivative removal",
     "Complete provider/backup/plaintext material inventory",
     "Physical erasure, public-copy removal or restore enforcement"
-  ]
+  ],
+  "latest_verified_followup": {
+    "observed_at": "2026-10-17T15:01:18Z",
+    "evidence": "docs/evidence/GDN-032/dependencies-merge-observation.json",
+    "merge_sha": "ea48b8eee11e2cc922dc9c76dac02815ea66d57b",
+    "required_checks_passed": 10,
+    "workflows_passed": 7,
+    "authenticated_source_receipts": 10,
+    "actual_application_tests": 1767,
+    "actual_browser_tests": 108,
+    "unit_complete": false,
+    "production_verified": false,
+    "note": "Original local and pending-CI fields retain their dated pre-publication checkpoint; this later record establishes the successful exact-head CI and guarded PR67 merge."
+  }
 }
