@@ -63,6 +63,9 @@ try{
  assert.equal((await fetchOn(page,'/sign-in/email',account)).status,200);
  const oldCookie=cookieHeader(await first.cookies());let current=await view(first);const userId=current.id;
  assert.equal(current.privilegedAssurance,false);record('password session cannot perform privileged work');
+ let basicLifecycleAuthorityCalls=0;
+ assert.equal(await app.authorizePrivileged(new Headers({cookie:oldCookie}),'lifecycle.administer',async()=>{basicLifecycleAuthorityCalls++;return true;}),false);
+ assert.equal(basicLifecycleAuthorityCalls,0);record('lifecycle review cannot use password-only authority admission');
  await clientCall(page,'enroll',['Primary key']);assert.equal((await view(first)).privilegedAssurance,false);record('user-verified enrollment is not an authentication upgrade');
  await clientCall(page,'stepUp');current=await view(first);assert.equal(current.privilegedAssurance,true);assert.equal(await app.viewer(new Headers({cookie:oldCookie})),null);record('real browser assertion verifies signature and rotates the prior session token');
  assert.equal(await peer.viewer(new Headers({cookie:cookieHeader(await first.cookies())})).then(v=>v.privilegedAssurance),true);record('second identity instance reads live assurance without process-local trust');
@@ -70,6 +73,15 @@ try{
  assert.equal(await app.authorizePrivileged(privilegedHeaders,'publication.release',async()=>permit),false);permit=true;
  assert.equal(await app.authorizePrivileged(privilegedHeaders,'publication.release',async()=>permit),true);
  assert.equal(await app.authorizePrivileged(privilegedHeaders,'unregistered-action',async()=>true),false);record('fresh passkey assurance and separate action authority are both required');
+ let lifecycleAuthorityCalls=0;
+ assert.equal(await app.authorizePrivileged(privilegedHeaders,'lifecycle.administer',async context=>{
+  lifecycleAuthorityCalls++;assert.deepEqual(context,{subjectId:userId,sessionId:current.sessionId,action:'lifecycle.administer'});assert.ok(Object.isFrozen(context));return context.action==='consent.administer';
+ }),false);
+ assert.equal(await app.authorizePrivileged(privilegedHeaders,'lifecycle.administer',async context=>{
+  lifecycleAuthorityCalls++;assert.equal(context.action,'lifecycle.administer');return true;
+ }),true);
+ for(const action of ['lifecycle.submit','lifecycle.status','lifecycle.cancel','lifecycle.erase','lifecycle.export','lifecycle.*'])assert.equal(await app.authorizePrivileged(privilegedHeaders,action,async()=>{lifecycleAuthorityCalls++;return true;}),false);
+ assert.equal(lifecycleAuthorityCalls,2);record('lifecycle operator admission requires its own current authority and cannot authorize requester actions or physical erasure');
  let keys=await clientCall(page,'passkeys');const primary=keys.passkeys[0].id;
  assert.equal((await fetchOn(page,'/passkey/remove',{id:primary})).status,403);record('last enrolled passkey cannot be removed');
  assert.equal((await fetchOn(other,'/sign-in/email',account)).status,200);

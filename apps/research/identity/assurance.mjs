@@ -5,7 +5,7 @@
 export const ASSURANCE_LIFETIME_MS = 5 * 60 * 1000;
 export const ENROLLMENT_FRESHNESS_MS = 10 * 60 * 1000;
 export const PRIVILEGED_ACTIONS = Object.freeze([
-  'identity.manage', 'membership.administer', 'consent.administer',
+  'identity.manage', 'membership.administer', 'consent.administer', 'lifecycle.administer',
   'publication.release', 'rights.clear', 'audit.inspect'
 ]);
 const date = value => value instanceof Date ? value.getTime() : typeof value === 'string' ? Date.parse(value) : NaN;

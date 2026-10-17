@@ -14,6 +14,8 @@ All thirteen staging database migration hashes are verified in [db/staging-obser
 
 The owner authorizes continued implementation, AI-assisted source/security review, tests and ordinary guarded merges. External human security review is deferred follow-up. [The merge protocol](docs/delivery/autonomous-merges.md) binds review to the current head, independently read base, tested merge revision and CI job receipts; remote protection configuration remains a separate acceptance requirement.
 
+The [lifecycle request implementation](docs/security/lifecycle-request-storage.md) adds authenticated request submission, private status, cancellation and exact recovery receipts, with additive migration 0014 and a dedicated requester capability. [Retention contracts](docs/security/retention-policy.md) define explicit scoped rules, holds and conservative dry-run decisions. This is a partial GDN-032 contribution: request receipts do not establish deletion or export, and durable operator decisions, delivery tombstones, derivative-removal queues and physical erasure remain follow-up work. [Its evidence](docs/evidence/GDN-032/acceptance.json) records the exact local source and required PostgreSQL verification separately from staging and hosted activation.
+
 ## Local application and checks
 
 Use Node 24, Python 3.10+ and the committed lockfiles:

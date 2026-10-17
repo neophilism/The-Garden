@@ -19,6 +19,17 @@ for(const [name,change] of [
  ['uppercase UUID',e=>({...e,eventId:'ABCDEFAB-0000-4000-8000-000000000001'})],['extra null',e=>({...e,unused:null})]
 ])test(name+' is rejected from immutable event data',()=>assert.throws(()=>validateAuditEvent(change(event())),AuditError));
 test('decision event binds subject to request, not a potentially secret object name',()=>{const e=event();e.action='access.deny';e.reasonCode='authorization-denied';e.outcome='denied';e.subject={kind:'request',reference:e.requestId,version:null};assert.ok(validateAuditEvent(e));e.subject.reference=randomUUID();assert.throws(()=>validateAuditEvent(e),AuditError);});
+test('lifecycle mutation evidence keeps the case UUID separate from the operation UUID',()=>{
+ const caseId=randomUUID();let previous=GENESIS;const entries=[];
+ for(const [i,action,reason] of [[1,'lifecycle.request.submit','request-submitted'],[2,'lifecycle.request.cancel','request-cancelled']]){
+  const e={...event(String(i)),action,reasonCode:reason,subject:{kind:'lifecycle-request',reference:caseId,version:String(i)}};
+  assert.notEqual(e.subject.reference,e.requestId);assert.deepEqual(validateAuditEvent(e).subject,e.subject);
+  const stored=row(e,previous);entries.push(stored);previous=stored.hash;
+  for(const bad of [{...e,subject:{...e.subject,kind:'request'}},{...e,subject:{...e.subject,kind:'record'}},{...e,outcome:'allowed'},{...e,reasonCode:'delivery-stopped'},{...e,claimedRecordId:randomUUID()}])assert.throws(()=>validateAuditEvent(bad),AuditError);
+ }
+ assert.equal(verifyAuditPage(entries,point()).events.length,2);
+ for(const action of ['lifecycle.request.accept','lifecycle.request.export','lifecycle.request.purge'])assert.throws(()=>validateAuditEvent({...event(),action}),AuditError);
+});
 for(const [name,change] of [
  ['hash edit',r=>({...r,hash:'1'.repeat(64)})],['previous hash edit',r=>({...r,previousHash:'1'.repeat(64)})],
  ['content edit',r=>({...r,eventText:r.eventText.replace('record-revised','record-created')})],['sequence gap',r=>({...r,sequence:'2'})],

@@ -1,0 +1,45 @@
+{
+  "work_item": "GDN-032",
+  "recorded_at": "2026-10-17T14:36:54.080767+00:00",
+  "tested_source_commit": "968574abd351af7d645b1021c4cea0a6876c68f4",
+  "tested_source_tree": "a14f8424a859f2182be15e004dbe8853e93b1356",
+  "status": "not_deployed",
+  "deployed": false,
+  "route_mounted": false,
+  "default_enabled": false,
+  "intake_default_enabled": false,
+  "capability_url": null,
+  "migration": {
+    "id": "0014_lifecycle_requests",
+    "file": "db/migrations/0014_lifecycle_requests.sql",
+    "sha256": "c793c2816ead6ce800d95cc2fde612d3360939b6230d25ba8cc45eadf6cc257c",
+    "manifest": "db/migrations/manifest.json",
+    "status": "committed_candidate_not_applied_to_staging_or_production",
+    "actual_postgresql_ci": "pending",
+    "retained_staging_execution": "The destructive synthetic CI seed/role/teardown journey must never run against retained staging."
+  },
+  "preceding_staging_baseline": {
+    "migration": "0013_encrypted_content.sql",
+    "scope": "Previously merged GDN-026 sidecar schema, separate from this contribution. Its staging observation does not prove requester0014 applied or enabled.",
+    "evidence": "../GDN-026/persistence-staging-observation.json"
+  },
+  "activation_remaining": [
+    "Pass current GitHub checks and actual disposable PostgreSQL journey for the final reviewed source.",
+    "Apply only the reviewed additive migration against an explicitly bound authorized nonproduction target and verify its exact checksum.",
+    "Configure and verify distinct issuer/requester pools, current identity, feature controls and a private mounted host before any real requester use.",
+    "Verify live privacy, denial, uncertain-outcome recovery and operational rollback behavior before claiming a deployed capability."
+  ],
+  "rollback": "Disable the capability or use a compatible application artifact while preserving successful request events, audit, consent and later lifecycle controls; no destructive down migration or request replay is supplied.",
+  "effectsVerified": false,
+  "provider_mutations_for_this_contribution": 0,
+  "new_paid_resources": 0,
+  "historical_records_processed": 0,
+  "real_requests_processed": 0,
+  "production_verified": false,
+  "unit_count_snapshot": {
+    "verified_merged_items": 37,
+    "production_verified_items": 0,
+    "unit_count_increment": 0,
+    "basis": "Existing plan/progress.json; this partial contribution changes no mapped completion or production count."
+  }
+}

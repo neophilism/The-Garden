@@ -1,0 +1,68 @@
+{
+  "work_item": "GDN-032",
+  "recorded_at": "2026-10-17T14:36:54.080767+00:00",
+  "tested_source_commit": "968574abd351af7d645b1021c4cea0a6876c68f4",
+  "tested_source_tree": "a14f8424a859f2182be15e004dbe8853e93b1356",
+  "phase": "partial_engineering_candidate_local_verified_remote_ci_pending",
+  "scope": "Default-disabled requester intake/status/cancellation/exact recovery with PostgreSQL repository and additive schema; pure request and retention proposals; lifecycle operator assurance policy.",
+  "unit_complete": false,
+  "effectsVerified": false,
+  "acceptance": {
+    "GDN-032-AC01": {
+      "status": "not_implemented",
+      "requirement": "Deletion stops new delivery and queues derivative removal",
+      "implemented_contribution": "Authenticated own-request intake, status, cancellation and exact recovery are implemented locally. Pending/cancelled receipts do not establish target ownership, approve deletion, stop delivery or enqueue removal.",
+      "remaining": "Authoritative operator decisions, record-wide delivery tombstones, current access enforcement, complete derivative/material inventory and removal queue."
+    },
+    "GDN-032-AC02": {
+      "status": "partial_pure_contract_and_synthetic_tests",
+      "requirement": "Holds have authority, scope and review date",
+      "implemented_contribution": "Strict immutable rules and holds require exact scope, explicit finite dates, evidence and versioned authority. Operator-bound complete command fingerprints and full-proof operation fingerprints protect proposals and explicit release/replay. Expired, overdue, missing, stale, unresolved or conflicting facts require review.",
+      "remaining": "Current operator grants and verified authority/evidence resolution, persisted retention rules and hold records, atomic control revisions, complete material inventory and enforced disposal constraints."
+    },
+    "GDN-032-AC03": {
+      "status": "not_implemented",
+      "requirement": "Restores reapply current deletions and consent",
+      "implemented_contribution": "Requester history rejects a rewound head when a newer immutable event remains. This is request metadata integrity, not restore-after-withdrawal acceptance.",
+      "remaining": "Restore quarantine/current tombstone and consent reapplication, protected-delivery verification and a real bounded recovery drill."
+    }
+  },
+  "test_scenarios": {
+    "GDN-032-T01": "Tombstone/reindex workflow not implemented or exercised. Request history and receipt tests are preparatory only.",
+    "GDN-032-T02": "Restore-after-withdrawal not implemented or exercised. Requester head/payload restoration probes are not this scenario.",
+    "GDN-032-T03": "Pure hold expiry, exact release, stale authority and conflicting-period fixtures pass; persisted hold enforcement and real current-facts integration remain pending."
+  },
+  "implementation_boundaries": {
+    "requester_sql_states": [
+      "pending",
+      "cancelled"
+    ],
+    "operator_review": "Pure reviewed intent only; no persisted accept/decline or scoped lifecycle.administer grant model.",
+    "operator_assurance": "lifecycle.administer requires the existing privileged session assurance policy; requester own-request operations do not require an operator passkey.",
+    "retention_effects": "Pure dry-run review; no legal timeline inferred, no purge capability issued.",
+    "sql_schema": "0014_lifecycle_requests.sql defines requester cases, payloads, events, heads, tickets and contexts; it adds no retention_rules, deletion_tombstones or hold_records.",
+    "default_enabled": false,
+    "route_mounted": false
+  },
+  "local_tests": {
+    "full_check_passed": 1717,
+    "separate_assurance_passed": 37,
+    "evidence": "tests.json"
+  },
+  "remote_ci": "pending_not_observed",
+  "postgresql_22_group_journey": "authored_not_executed",
+  "staging_0014_applied": false,
+  "production_verified": false,
+  "historical_records_processed": 0,
+  "real_requests_processed": 0,
+  "unit_count_snapshot": {
+    "verified_merged_items": 37,
+    "production_verified_items": 0,
+    "unit_count_increment": 0,
+    "basis": "Existing plan/progress.json; this partial contribution changes no mapped completion or production count."
+  },
+  "ai_source_review": "Bounded implementing/coordinating/separate AI peer review; concrete findings corrected. See review.md.",
+  "external_human_review": "deferred_not_performed",
+  "conformance_claim": false,
+  "evidence_scope": "These observations bind the source commit above. This later evidence-only commit does not claim a new full-check execution or future GitHub results."
+}
