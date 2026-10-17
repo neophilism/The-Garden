@@ -61,6 +61,11 @@
       "id": "0012_geographic_assertions",
       "file": "0012_geographic_assertions.sql",
       "sha256": "a89296c1a1c05d1abee04d06706a5a7f4e9d4c197dbe6ef74d7a33e8cd7636f8"
+    },
+    {
+      "id": "0013_encrypted_content",
+      "file": "0013_encrypted_content.sql",
+      "sha256": "1fb1eb5adc7b2adced769cf91f8fd99af841f86ed98132d12922e07549b19964"
     }
   ]
 }

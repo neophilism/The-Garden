@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "plannedUnit": "GDN-026",
+  "recordedAt": "2026-10-17T13:43:26.183904+00:00",
+  "phase": "partial_engineering_followup_private_postgres_persistence_not_activated",
+  "implementationCommit": "dd6be553dd7023ca5b97cf4c7b3ca3bf956830ff",
+  "implementationTree": "799cc49584cd7303e1ceac1d0dc9a402e6d45dbc",
+  "baseCommit": "b2a7fe6c1c3a8b9c257f14791e52d90f9b8451d3",
+  "sourceBinding": "Exact file hashes below bind the final locally inspected candidate. The evidence commit additionally removes an EOF blank line from the new CI script and corrects existing isolation CI capability-count expectations; both scripts passed node --check, while actual PostgreSQL execution remains required remote CI.",
+  "sourceFiles": [
+    {
+      "path": "apps/research/access/encryption-persistence.mjs",
+      "sha256": "1c11d1e50af959d32c1f19a3a3569c282dc64e6253d69894f208bab09d827a14"
+    },
+    {
+      "path": "apps/research/access/database-role.mjs",
+      "sha256": "02c2a901ee4507cfdc7a70142132cca7510af3c1bc3fcf8f5a69f5b0761b53eb"
+    },
+    {
+      "path": "db/migrations/0013_encrypted_content.sql",
+      "sha256": "1fb1eb5adc7b2adced769cf91f8fd99af841f86ed98132d12922e07549b19964"
+    },
+    {
+      "path": "db/migrations/manifest.json",
+      "sha256": "c8d8ae811708ce2660cadc34d2274842e90abdaa6d76c888686bb0b008a36ff0"
+    },
+    {
+      "path": "packages/domain/src/audit/ledger.mjs",
+      "sha256": "f9d1b0c201b58f6a20f024a22db187d266cd71780f5d027e38865b2c6797f32a"
+    },
+    {
+      "path": "services/workers/src/trusted-encryption.mjs",
+      "sha256": "11a2b4104630314646c1d6f62c5976a4edb6134d1cea00609c5dc372547ff1fc"
+    },
+    {
+      "path": "tests/access/encryption-persistence.test.mjs",
+      "sha256": "1f25aeadf1c9a1d0b1d6854a744855bd5b5bd700bcf2ba009d6a6c5a7709e664"
+    },
+    {
+      "path": "tests/access/encrypted-content-service.test.mjs",
+      "sha256": "e71ef97e0e538d5754408ac66a7c8c9743bb705785d4e18fa96e73544089cc43"
+    },
+    {
+      "path": "tests/security/encryption-persistence-fixture.mjs",
+      "sha256": "7d8cc11367e5e5abbfc9eab71cbb21a39ed2831b75c987a61797be308016f99a"
+    },
+    {
+      "path": "tests/security/trusted-encryption.test.mjs",
+      "sha256": "a449cf49cb4c8e6d5c562cb504937bf488302a891353a7dc524977f24c94f611"
+    },
+    {
+      "path": "apps/research/access/encryption-persistence.ci.mjs",
+      "sha256": "de4eb87ca94030e3ff8563dca2d6e25b74fe07c7725e889122142a5b2b6f6f34"
+    },
+    {
+      "path": "apps/research/access/isolation.ci.mjs",
+      "sha256": "d12dff25c2bafb31bd455f790963ea8498a1f26b86c5a53a0348ce5d644ef37f"
+    },
+    {
+      "path": ".github/workflows/data.yml",
+      "sha256": "dbc4929808be5fa1332029563afc6b76e9a3b32d77aa24dd92f6e0ccb32df339"
+    },
+    {
+      "path": "config/environment.ts",
+      "sha256": "4f898b62bdf62da766cc3e05fe290d7b4e0fc9ce298076596493beffbff625b0"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "2fabb52e8fc285ab23a1fdc4d4c0f29fced57e2e7181a018b1147694731a5a5b"
+    }
+  ],
+  "originalComponentEvidencePreserved": [
+    "acceptance.json",
+    "tests.json",
+    "recovery.json",
+    "review.md",
+    "deployment.json",
+    "live-verification.json"
+  ],
+  "implemented": [
+    "server-generated content UUID to canonical numeric record revision composite FK",
+    "actual current research+active record, current member/grant/role/consent and key-version checks",
+    "ci/staging deployment binding and dedicated isolated garden_encryption capability",
+    "strict typed JSON canonical hashes consistent with the crypto envelope format",
+    "generation and immutable receipt digest CAS plus latest retained generation checks",
+    "same-transaction storage success audit, receipt, erasable material and head change",
+    "exact candidate idempotence and fresh-authorized uncertain-commit receipt lookup",
+    "host service uses actual crypto output; final read/head/key-policy and cleanup-tail activation gates",
+    "immutable metadata separate from future erasable material"
+  ],
+  "localVerification": {
+    "focused": {
+      "command": "node --test --test-isolation=none tests/access/encryption-persistence.test.mjs tests/access/encrypted-content-service.test.mjs tests/security/trusted-encryption.test.mjs",
+      "passed": 80,
+      "newPersistenceAndServiceTests": 32,
+      "priorCryptoTests": 48,
+      "failed": 0,
+      "skipped": 0,
+      "runtime": "v24.19.0"
+    },
+    "applicationTests": {
+      "command": "npm run check (test phase)",
+      "passed": 1547,
+      "failed": 0,
+      "skipped": 0
+    },
+    "typecheck": {
+      "command": "npm run check (typecheck phase)",
+      "result": "passed_all_workspaces_and_config"
+    },
+    "initialCheck": {
+      "startedAt": "2026-10-17T13:40:18.344410+00:00",
+      "finishedAt": "2026-10-17T13:40:26.458832+00:00",
+      "exitCode": 1,
+      "command": "npm run check",
+      "environmentKeys": [
+        "CI",
+        "HOME",
+        "NEXT_TELEMETRY_DISABLED",
+        "NODE_ENV",
+        "PATH"
+      ],
+      "failure": "Turbopack rejected node_modules symlink outside configured filesystem roots; tests and typecheck had passed",
+      "logSha256": "58cd32bc65c6cb819accf8ada35aa6c01c9e24f371b73a30cb63fa7b19cc6bc2"
+    },
+    "buildResolution": {
+      "dependencyAction": "npm ci --include=dev --no-audit --no-fund into this worktree; 95 existing locked packages; lock unchanged",
+      "environmentKeys": [
+        "CI",
+        "HOME",
+        "NEXT_TELEMETRY_DISABLED",
+        "NODE_ENV",
+        "PATH"
+      ],
+      "configurationGuardUnchanged": true,
+      "results": [
+        {
+          "command": "npm run build:public",
+          "startedAt": "2026-10-17T13:41:34.050928+00:00",
+          "finishedAt": "2026-10-17T13:41:39.960323+00:00",
+          "exitCode": 0
+        },
+        {
+          "command": "npm run build:research",
+          "startedAt": "2026-10-17T13:41:39.960349+00:00",
+          "finishedAt": "2026-10-17T13:41:46.586475+00:00",
+          "exitCode": 0
+        }
+      ],
+      "logSha256": "27248f66233554c3261b9846d2775d320f7e096ee4ab33787c6b238d1876ace5",
+      "releaseManifestLimit": "Builds ran on the candidate worktree before its source commit; generated manifests reported base b2a7fe6. This is not deployed or exact-commit remote CI proof."
+    },
+    "manifest": {
+      "result": "13 migration checksums validated; old 0001-0012 SQL unchanged",
+      "applied": false
+    },
+    "syntax": [
+      "node --check apps/research/access/encryption-persistence.mjs",
+      "node --check apps/research/access/encryption-persistence.ci.mjs",
+      "node --check apps/research/access/isolation.ci.mjs"
+    ],
+    "planValidation": {
+      "result": "passed",
+      "unitTests": 30,
+      "approvedPlanChanged": false
+    }
+  },
+  "peerReview": {
+    "kind": "independent_read_only_AI_source_review_not_human_audit",
+    "result": "no_remaining_concrete_source_blocker_at_recording",
+    "independentFocusedPassed": 32,
+    "resolvedFindings": [
+      "repository activation closure during asynchronous ticket retirement",
+      "head/predecessor digest foreign keys to immutable generation receipts",
+      "older active head denied while newer immutable receipts remain"
+    ],
+    "reviewedHostSha256": "1c11d1e50af959d32c1f19a3a3569c282dc64e6253d69894f208bab09d827a14",
+    "reviewedMigrationSha256": "1fb1eb5adc7b2adced769cf91f8fd99af841f86ed98132d12922e07549b19964"
+  },
+  "postgresIntegration": {
+    "status": "not_run_locally_required_ci_pending",
+    "workflow": ".github/workflows/data.yml",
+    "script": "apps/research/access/encryption-persistence.ci.mjs",
+    "artifact": "data-evidence/encryption-persistence-results.json",
+    "fixture": "existing disposable PostgreSQL18.6 CI service; generated keys and records only",
+    "scenarios": [
+      "revision/classification/state/consent binding",
+      "exact SQL/JS canonical hash and JSONB reorder",
+      "concurrent exact candidate idempotence and one-winner CAS",
+      "grants/role/key expiry after real lock waits",
+      "forced audit INSERT failure rolls back new identity and mutation",
+      "lost COMMIT response with authorized receipt readback",
+      "all10 runtime capability isolation and raw table access denial",
+      "material loss and missing/wrong/original recovered keys",
+      "wrong digest FK and partial head rollback denial",
+      "audit page round-trip with new semantic actions"
+    ],
+    "stagingFixtureUse": "Do not run disposable role/seed/teardown journey against retained Neon staging."
+  },
+  "knownLimits": [
+    "Default off and unmounted; no live provider, credential, key, historical data or cloud resource changed.",
+    "Only restricted_research under actual research purpose in existing ci/staging database bindings is supported.",
+    "Only the current parent numeric record revision is admitted; edits make older sidecars unavailable through this bridge.",
+    "SQL validates representation and current authority but cannot prove ciphertext authenticity; trusted service must use the crypto component.",
+    "PostgreSQL SET CONSTRAINTS is caller-controlled; final deferred timing belongs to the fixed trusted executor, not an arbitrary compromised SQL login.",
+    "Database owners, complete database rollback, provider custody and independently anchored generation remain outside these local guarantees.",
+    "No purge executor, legal-hold policy, backup erasure, shared key retirement or production restore drill is supplied.",
+    "Existing record payloads and historical plaintext are not converted or backfilled.",
+    "Key-use provider authorization/audit adapters, deadlines and future transport/delivery integration remain required.",
+    "A prepared encryption or key-use completion is not a committed write; re-encrypting identical plaintext is not an exact candidate retry."
+  ],
+  "completionClaims": {
+    "fullyCompletedPlannedUnit": false,
+    "productionVerified": false,
+    "liveProviderApproved": false,
+    "e2ee": false,
+    "certified": false,
+    "keyRetirementVerified": false
+  }
+}

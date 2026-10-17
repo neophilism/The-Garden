@@ -53,7 +53,7 @@ try{
   await assert.rejects(()=>asRole(guard,cap,async()=>assert.fail('Non-settable capability accepted')),DatabaseCapabilityError);
   await admin.query(`REVOKE ${cap} FROM garden_matrix_guard_ci`);
  }
- assert.equal(counts.databaseCapabilityPairs,90);check('all nine runtime capabilities reject every other capability, migration membership and a future unknown role');
+ assert.equal(counts.databaseCapabilityPairs,CAPS.length*(CAPS.length+1));check('all '+CAPS.length+' runtime capabilities reject every other capability, migration membership and a future unknown role');
  await admin.query('GRANT garden_research TO garden_matrix_guard_ci WITH INHERIT FALSE, SET TRUE');
  await admin.query('CREATE SCHEMA garden_matrix_owned_ci AUTHORIZATION garden_matrix_guard_ci');
  await assert.rejects(()=>asRole(guard,'garden_research',async()=>assert.fail('Object owner admitted')),DatabaseCapabilityError);
