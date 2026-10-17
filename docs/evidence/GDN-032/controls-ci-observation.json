@@ -405,9 +405,294 @@
       "merge_performed": false,
       "staging_performed": false,
       "all_controls_groups_passed": false
+    },
+    {
+      "observed_at": "2026-10-17T15:45:34.679Z",
+      "pr": 69,
+      "head_sha": "17707a74e40aca018f7fb436a9a91dba22e0ebd7",
+      "base_sha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+      "tested_merge_sha": "429b1c4ad8a90d7aa15182945dba19affaf1a330",
+      "tested_tree_sha": "cac8ecaf4f6779f9bc38e6fccbb5d7f79f147f0b",
+      "migration_sha256": "b934cd39c5313fb855d9096829e540a35bae30fc1610722798149d044098648a",
+      "manifest_sha256": "d54478303a768aa5413b2ca4c446a9d0cbc689d07ad5b3b2286aa7e93cd224e8",
+      "ci_file_sha256": "ca9a17fc258a003496f9b80bf83427d6f720c95a3105090ae7f30d80a152cd9d",
+      "postgresql_version": "18.6",
+      "actual_migration_result": "pass_applied_and_reapplied",
+      "jobs": [
+        {
+          "id": 117434941241,
+          "name": "architecture-contracts",
+          "run": 39046073702,
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39046073702/job/117434941241",
+          "conclusion": "success",
+          "source_receipt": {
+            "event": "pull_request",
+            "job": "architecture",
+            "parent_shas": [
+              "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+              "17707a74e40aca018f7fb436a9a91dba22e0ebd7"
+            ],
+            "repository": "neophilism/The-Garden",
+            "run_attempt": "1",
+            "schema_version": 1,
+            "tested_sha": "429b1c4ad8a90d7aa15182945dba19affaf1a330",
+            "workflow_ref": "neophilism/The-Garden/.github/workflows/ci.yml@refs/pull/69/merge",
+            "workflow_run_id": "39046073702"
+          }
+        },
+        {
+          "id": 117434941077,
+          "name": "database-foundation",
+          "run": 39046073709,
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39046073709/job/117434941077",
+          "conclusion": "success",
+          "source_receipt": {
+            "event": "pull_request",
+            "job": "database",
+            "parent_shas": [
+              "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+              "17707a74e40aca018f7fb436a9a91dba22e0ebd7"
+            ],
+            "repository": "neophilism/The-Garden",
+            "run_attempt": "1",
+            "schema_version": 1,
+            "tested_sha": "429b1c4ad8a90d7aa15182945dba19affaf1a330",
+            "workflow_ref": "neophilism/The-Garden/.github/workflows/database.yml@refs/pull/69/merge",
+            "workflow_run_id": "39046073709"
+          }
+        },
+        {
+          "id": 117434941045,
+          "name": "application-build",
+          "run": 39046073702,
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39046073702/job/117434941045",
+          "conclusion": "success",
+          "source_receipt": {
+            "event": "pull_request",
+            "job": "application",
+            "parent_shas": [
+              "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+              "17707a74e40aca018f7fb436a9a91dba22e0ebd7"
+            ],
+            "repository": "neophilism/The-Garden",
+            "run_attempt": "1",
+            "schema_version": 1,
+            "tested_sha": "429b1c4ad8a90d7aa15182945dba19affaf1a330",
+            "workflow_ref": "neophilism/The-Garden/.github/workflows/ci.yml@refs/pull/69/merge",
+            "workflow_run_id": "39046073702"
+          }
+        },
+        {
+          "id": 117434941030,
+          "name": "browser-and-accessibility",
+          "run": 39046073711,
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39046073711/job/117434941030",
+          "conclusion": "success",
+          "source_receipt": {
+            "event": "pull_request",
+            "job": "browser",
+            "parent_shas": [
+              "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+              "17707a74e40aca018f7fb436a9a91dba22e0ebd7"
+            ],
+            "repository": "neophilism/The-Garden",
+            "run_attempt": "1",
+            "schema_version": 1,
+            "tested_sha": "429b1c4ad8a90d7aa15182945dba19affaf1a330",
+            "workflow_ref": "neophilism/The-Garden/.github/workflows/quality.yml@refs/pull/69/merge",
+            "workflow_run_id": "39046073711"
+          }
+        },
+        {
+          "id": 117434941017,
+          "name": "historical-data-contracts",
+          "run": 39046073717,
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39046073717/job/117434941017",
+          "conclusion": "failure",
+          "source_receipt": {
+            "event": "pull_request",
+            "job": "data",
+            "parent_shas": [
+              "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+              "17707a74e40aca018f7fb436a9a91dba22e0ebd7"
+            ],
+            "repository": "neophilism/The-Garden",
+            "run_attempt": "1",
+            "schema_version": 1,
+            "tested_sha": "429b1c4ad8a90d7aa15182945dba19affaf1a330",
+            "workflow_ref": "neophilism/The-Garden/.github/workflows/data.yml@refs/pull/69/merge",
+            "workflow_run_id": "39046073717"
+          }
+        },
+        {
+          "id": 117434940972,
+          "name": "archive-storage-boundaries",
+          "run": 39046073703,
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39046073703/job/117434940972",
+          "conclusion": "success",
+          "source_receipt": {
+            "event": "pull_request",
+            "job": "storage",
+            "parent_shas": [
+              "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+              "17707a74e40aca018f7fb436a9a91dba22e0ebd7"
+            ],
+            "repository": "neophilism/The-Garden",
+            "run_attempt": "1",
+            "schema_version": 1,
+            "tested_sha": "429b1c4ad8a90d7aa15182945dba19affaf1a330",
+            "workflow_ref": "neophilism/The-Garden/.github/workflows/storage.yml@refs/pull/69/merge",
+            "workflow_run_id": "39046073703"
+          }
+        },
+        {
+          "id": 117434940877,
+          "name": "plan-validation",
+          "run": 39046073702,
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39046073702/job/117434940877",
+          "conclusion": "success",
+          "source_receipt": {
+            "event": "pull_request",
+            "job": "plan",
+            "parent_shas": [
+              "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+              "17707a74e40aca018f7fb436a9a91dba22e0ebd7"
+            ],
+            "repository": "neophilism/The-Garden",
+            "run_attempt": "1",
+            "schema_version": 1,
+            "tested_sha": "429b1c4ad8a90d7aa15182945dba19affaf1a330",
+            "workflow_ref": "neophilism/The-Garden/.github/workflows/ci.yml@refs/pull/69/merge",
+            "workflow_run_id": "39046073702"
+          }
+        },
+        {
+          "id": 117434940824,
+          "name": "supply-chain-and-policy",
+          "run": 39046073711,
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39046073711/job/117434940824",
+          "conclusion": "success",
+          "source_receipt": {
+            "event": "pull_request",
+            "job": "policy",
+            "parent_shas": [
+              "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+              "17707a74e40aca018f7fb436a9a91dba22e0ebd7"
+            ],
+            "repository": "neophilism/The-Garden",
+            "run_attempt": "1",
+            "schema_version": 1,
+            "tested_sha": "429b1c4ad8a90d7aa15182945dba19affaf1a330",
+            "workflow_ref": "neophilism/The-Garden/.github/workflows/quality.yml@refs/pull/69/merge",
+            "workflow_run_id": "39046073711"
+          }
+        },
+        {
+          "id": 117434940656,
+          "name": "Status record integrity (not product certification)",
+          "run": 39046073713,
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39046073713/job/117434940656",
+          "conclusion": "success",
+          "source_receipt": {
+            "event": "pull_request",
+            "job": "status-record",
+            "parent_shas": [
+              "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+              "17707a74e40aca018f7fb436a9a91dba22e0ebd7"
+            ],
+            "repository": "neophilism/The-Garden",
+            "run_attempt": "1",
+            "schema_version": 1,
+            "tested_sha": "429b1c4ad8a90d7aa15182945dba19affaf1a330",
+            "workflow_ref": "neophilism/The-Garden/.github/workflows/e2eesa-status.yml@refs/pull/69/merge",
+            "workflow_run_id": "39046073713"
+          }
+        },
+        {
+          "id": 117434940599,
+          "name": "identity-lifecycle",
+          "run": 39046073688,
+          "url": "https://github.com/neophilism/The-Garden/actions/runs/39046073688/job/117434940599",
+          "conclusion": "success",
+          "source_receipt": {
+            "event": "pull_request",
+            "job": "identity",
+            "parent_shas": [
+              "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f",
+              "17707a74e40aca018f7fb436a9a91dba22e0ebd7"
+            ],
+            "repository": "neophilism/The-Garden",
+            "run_attempt": "1",
+            "schema_version": 1,
+            "tested_sha": "429b1c4ad8a90d7aa15182945dba19affaf1a330",
+            "workflow_ref": "neophilism/The-Garden/.github/workflows/identity.yml@refs/pull/69/merge",
+            "workflow_run_id": "39046073688"
+          }
+        }
+      ],
+      "completed_check_totals": {
+        "success": 9,
+        "failure": 1
+      },
+      "data_workflow": {
+        "job": 117434941017,
+        "run": 39046073717,
+        "conclusion": "failure",
+        "controls_groups_passed": 24,
+        "passed_scenarios": [
+          "LIFECYCLE CONTROL 1: research membership, read permission and reviewed consent alone cannot create a retention control",
+          "LIFECYCLE CONTROL 2: a scoped write grant commits one immutable control and one succeeded audit event but never implies independent inspection authority",
+          "LIFECYCLE CONTROL 3: fresh transport admission and later proposal time preserve the original exact operation receipt; changed reviewed command cannot reuse its ID",
+          "LIFECYCLE CONTROL 4: rule revision and aggregate-control CAS preserve historical receipts while status reports only the current rule head",
+          "LIFECYCLE CONTROL 5: hold release is a separately authorized immutable revision that retains its exact placement and does not claim deletion or restore delivery",
+          "LIFECYCLE CONTROL 6: actual JSONB canonical intent, command, operation and private result digests agree for reordered keys, quotes, backslashes and Unicode actor identifiers",
+          "LIFECYCLE CONTROL 7: two actual blocked control transactions competing for one aggregate revision converge to exactly one committed control",
+          "LIFECYCLE CONTROL 8: identical concurrent commands share the original immutable operation, control revision and audit receipt",
+          "LIFECYCLE CONTROL 9: one global immutable operation registry rejects cross-workspace, rule/hold and requester/control ID reuse in both directions",
+          "LIFECYCLE CONTROL 10: an unreleased hold cannot become a retention rule, and an existing control ID cannot move to another record or research revision",
+          "LIFECYCLE CONTROL 11: actual current membership, research read grant, active classification and latest record revision are required independently of stored lifecycle authority and syntactic IDs",
+          "LIFECYCLE CONTROL 12: new or revoked evidence/grant heads deny stale prepared writes and changed-proof retries while independently authorized recovery retains the original receipt",
+          "LIFECYCLE CONTROL 13: restoring an older active grant pointer beside its retained revocation cannot resurrect status or historical recovery authority",
+          "LIFECYCLE CONTROL 14: current consent ancestry gates control inspection and release without deleting or releasing a previously recorded hold",
+          "LIFECYCLE CONTROL 15: forced audit failure rolls back the global operation, private payload, event and current heads with no succeeded receipt",
+          "LIFECYCLE CONTROL 16: actual workspace-lock waits recheck grant and evidence expiry using current database time after the wait",
+          "LIFECYCLE CONTROL 17: a command review or validity deadline passing inside an actual audit-head wait prevents the control transaction from committing",
+          "LIFECYCLE CONTROL 18: both repository preflight and the actual issuer reject an expired UV admission deadline despite a callback returning true",
+          "LIFECYCLE CONTROL 19: deferred COMMIT admission rejects expired completed write and read contexts even after the fixed context-clear statement",
+          "LIFECYCLE CONTROL 20: actual PID plus xid8 and paired-token bindings reject different backends, mismatched policy tickets and same-connection replay after commit or rollback even without retirement",
+          "LIFECYCLE CONTROL 21: a real committed write whose connection acknowledgement is lost returns only its exact recovery handle and recovers one original operation without another mutation",
+          "LIFECYCLE CONTROL 22: missing or modified separately erasable payload denies reads and exact replay without recreating material or manufacturing another operation/audit",
+          "LIFECYCLE CONTROL 23: exact head FKs reject altered digests and older valid control/aggregate pointers beside newer receipts cannot authorize current status or preparation; explicit historical recovery stays historical",
+          "LIFECYCLE CONTROL 24: fresh final SQL validation rejects exact selected-grant revocation after main COMMIT; completed writes stay recoverable and reads release no result"
+        ],
+        "failed_scenario": 25,
+        "failure": {
+          "kind": "synthetic_fixture_shape_invalid",
+          "message": "Use policy unavailable",
+          "code": "P0001",
+          "location": "apps/research/access/lifecycle-controls.ci.mjs:160",
+          "caller_line": 605,
+          "function": "garden_control.set_use_policy(uuid,jsonb,bigint,text)",
+          "function_line": 4,
+          "cause": "personalConsent used numeric JSON terms.version; the existing exact_revision_valid contract requires a canonical decimal string. The shape guard rejected setup before its deadline assertion.",
+          "expected_policy_revision": 1,
+          "expected_policy_revision_is_correct": true,
+          "runtime_change_required": false
+        },
+        "retained_log_scope": "Decoded job text retained with a terminating newline; not the provider zip archive bytes.",
+        "retained_decoded_log_sha256": "5e1e717be5403b812de62d4af3a652a88064cc33d085345b2321c970f86dda27"
+      },
+      "other_observed_results": {
+        "application_tests_passed": 1878,
+        "browser_tests_passed": 108,
+        "data_unit_tests_passed": 832
+      },
+      "merge_performed": false,
+      "staging_performed": false,
+      "all_controls_groups_passed": false
     }
   ],
-  "latest_status": "group9_test_expectation_corrected_required_ci_pending",
+  "latest_status": "group25_consent_fixture_corrected_required_ci_pending",
   "unit_complete": false,
   "production_verified": false,
   "corrections": [
@@ -781,7 +1066,83 @@
       "migration_sha256_unchanged": "b934cd39c5313fb855d9096829e540a35bae30fc1610722798149d044098648a",
       "manifest_sha256_unchanged": "d54478303a768aa5413b2ca4c446a9d0cbc689d07ad5b3b2286aa7e93cd224e8",
       "required_ci": "pending_amended_head_rerun"
+    },
+    {
+      "recorded_at": "2026-10-17T15:49:26.432139+00:00",
+      "source_commit": "5329f4d7dfc1678bbc35c5f1272613294eb7334c",
+      "source_tree": "2f8edb39af96091d6b23ca5ca859dfb2b429da64",
+      "path": "apps/research/access/lifecycle-controls.ci.mjs",
+      "sha256": "086bf9333dfda6493884093100a9bd5565141b0ac928767191acde81ad7549d2",
+      "scope": "CI-only synthetic personal-consent setup correction; no runtime, migration, manifest or expiry-negative change.",
+      "changes": [
+        "Use the existing canonical decimal-string terms revision for policy and grant.",
+        "Run the existing pure policy/grant validators on the emitted setup payloads.",
+        "Require actual current consent to be true using database clock_timestamp before proceeding to the expiry scenario."
+      ],
+      "verification": {
+        "started_at": "2026-10-17T15:47:10.247060+00:00",
+        "finished_at": "2026-10-17T15:47:10.488731+00:00",
+        "environment_keys": [
+          "CI",
+          "HOME",
+          "NEXT_TELEMETRY_DISABLED",
+          "NODE_ENV",
+          "PATH"
+        ],
+        "source_head_before_edit": "20b4947b58671f2839c386d547511297474c3e6e",
+        "source_report_sha256": "c36a0a5c2a1b53261a299e852b8ffcf254b75b76074e5c80631978fe9ea7a471",
+        "source_scope": "Observed edited CI file on the prior integration head, bound by exact file hash; no whole-tree or actual PostgreSQL execution is claimed.",
+        "consent_unit_tests_passed": 70,
+        "consent_unit_tests_skipped": 0,
+        "original_helper_numeric_revision_failures_reproduced": 2,
+        "corrected_helper_variants_passed": 2,
+        "positive_setup_false_reply_variants_rejected": 2,
+        "outside_helper_and_validator_import_byte_identical": true,
+        "actual_postgresql_execution": false,
+        "canary_path": "docs/evidence/GDN-032/controls-consent-fixture-canary.mjs",
+        "canary_sha256": "d0f726437ba2aaeded96ea06c1d9a9e3c006f7ae2662c97bdafddbfc245fd8aa",
+        "canary_reproduction": "Run the retained canary with red or green, a source CI-file path and a checkout root. Original source is commit20b4947b58671f2839c386d547511297474c3e6e; corrected source is the recorded source_commit.",
+        "retained_logs": [
+          {
+            "name": "red",
+            "sha256": "66498b1bc60f542f5936e81fa955bb9d16ddad358fd66ac93cf3761450d615f9",
+            "scope": "Exact fresh local stdout/stderr text recorded by the peer runner."
+          },
+          {
+            "name": "green",
+            "sha256": "3d385bbf6319c881039362d17ef1c712fbd7bb805a25001097fd263ec5f2137f",
+            "scope": "Exact fresh local stdout/stderr text recorded by the peer runner."
+          },
+          {
+            "name": "consent-units",
+            "sha256": "d046462ad44db420b7bfe0f5bde14acf98dc7e51e6c169ff9a00bd1279d3cab5",
+            "scope": "Exact fresh local stdout/stderr text recorded by the peer runner."
+          }
+        ]
+      },
+      "independent_ai_review": {
+        "source_sha256": "086bf9333dfda6493884093100a9bd5565141b0ac928767191acde81ad7549d2",
+        "baseline_sha256": "ca9a17fc258a003496f9b80bf83427d6f720c95a3105090ae7f30d80a152cd9d",
+        "helper_sha256": "307ead5e8a1f3496b69265282ac9805661e1ba5df58af83688e2a830a0d46937",
+        "checks": [
+          "all non-helper code, including every expiry window and negative oracle, is byte-identical",
+          "owned self fixture and exact-boundary pure denial remain valid",
+          "owned guardian fixture and exact-boundary pure denial remain valid",
+          "positive setup assertion rejects false",
+          "positive setup assertion rejects null",
+          "positive setup assertion rejects 1",
+          "positive setup assertion rejects \"true\"",
+          "missing SQL setup row rejects"
+        ],
+        "passed": 8,
+        "real_postgresql": false,
+        "repository_files_modified": false
+      },
+      "independent_ai_review_sha256": "9db93e865345149f034398c716034e193ffd560a7b9b8b5501867d2d48c214d0",
+      "migration_sha256_unchanged": "b934cd39c5313fb855d9096829e540a35bae30fc1610722798149d044098648a",
+      "manifest_sha256_unchanged": "d54478303a768aa5413b2ca4c446a9d0cbc689d07ad5b3b2286aa7e93cd224e8",
+      "required_ci": "pending_amended_head_rerun"
     }
   ],
-  "updated_at": "2026-10-17T15:39:52.960711+00:00"
+  "updated_at": "2026-10-17T15:49:26.432139+00:00"
 }

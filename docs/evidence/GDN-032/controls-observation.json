@@ -657,13 +657,13 @@
   "historical_records_processed": 0,
   "real_controls_created": 0,
   "latest_ci_followup": {
-    "recorded_at": "2026-10-17T15:39:52.960711+00:00",
+    "recorded_at": "2026-10-17T15:49:26.432139+00:00",
     "evidence": "docs/evidence/GDN-032/controls-ci-observation.json",
-    "note": "The initial SQL parser failure was corrected and actual PostgreSQL then passed migration/idempotency and eight controls groups. Group9 exposed a new CI expectation mismatch with the unchanged requester uncertainty contract; the CI-only assertion/recovery/effect correction is awaiting all required checks. Earlier source-specific observations remain historical.",
+    "note": "After the SQL parser and requester collision-oracle corrections, actual PostgreSQL passed migration/idempotency and 24 controls groups. Group25 failed during synthetic consent setup because its JSON terms revision used a number instead of the existing canonical decimal-string contract. The corrected fixture validates both payloads and positively checks current database consent; all required CI will rerun. Earlier source-specific observations remain historical.",
     "migration_sha256": "b934cd39c5313fb855d9096829e540a35bae30fc1610722798149d044098648a",
     "source_commit": "b29f333032b2a659570240aec5bbf39852d9e900",
     "unit_complete": false,
     "production_verified": false,
-    "ci_correction_source_commit": "8066e94ea9b25e9c2db87c08751a7b547f35e23c"
+    "ci_correction_source_commit": "5329f4d7dfc1678bbc35c5f1272613294eb7334c"
   }
 }

@@ -16,6 +16,7 @@ import {RUNTIME_DATABASE_CAPABILITIES,assertDatabaseCapability,DatabaseCapabilit
 import {GENESIS,verifyAuditPage} from '../../../packages/domain/src/audit/ledger.mjs';
 import {retentionRuleCommandFingerprint} from '../../../packages/domain/src/lifecycle/retention.mjs';
 import {lifecycleRequestFingerprint} from '../../../packages/domain/src/lifecycle/requests.mjs';
+import {validateUsePolicy,validateConsentGrant} from '../../../packages/domain/src/consent/purpose.mjs';
 import {controlMethodIntent,lifecycleControlIntentFingerprint,lifecycleControlCommandFingerprint,buildControlCommit,
  lifecycleControlReadFingerprint,lifecycleControlResultFingerprint,controlRecovery,validateControlResult} from '../../../packages/domain/src/lifecycle/control-storage.mjs';
 
@@ -153,15 +154,17 @@ async function authorities(scope,options={}){
   .map(async action=>[action,await authority(scope,action,options)])));
 }
 async function personalConsent(scope,{guardian=false,deadline=iso(Date.now()+2000)}={}){
- const terms={id:randomUUID(),version:1,digest:'3'.repeat(64)},subjectId=CANARY+'-represented-person';
+ const terms={id:randomUUID(),version:'1',digest:'3'.repeat(64)},subjectId=CANARY+'-represented-person';
  await admin.query('SELECT garden_control.register_consent_terms($1,1,$2,$3)',[terms.id,terms.digest,'synthetic-consent-reviewer']);
- const policy={schemaVersion:1,recordId:scope.recordId,basis:'consent-required',inputs:[],terms,
-  subjects:[{subjectId,authority:guardian?'guardian':'self'}],purposes:[],reasonDigest:'4'.repeat(64)};
+ const policy=validateUsePolicy({schemaVersion:1,recordId:scope.recordId,basis:'consent-required',inputs:[],terms,
+  subjects:[{subjectId,authority:guardian?'guardian':'self'}],purposes:[],reasonDigest:'4'.repeat(64)});
  await admin.query('SELECT garden_control.set_use_policy($1,$2::jsonb,1,$3)',[scope.workspaceId,JSON.stringify(policy),'synthetic-consent-reviewer']);
- const grant={schemaVersion:1,id:randomUUID(),recordId:scope.recordId,subjectId,grantorId:guardian?CANARY+'-representative':subjectId,
+ const grant=validateConsentGrant({schemaVersion:1,id:randomUUID(),recordId:scope.recordId,subjectId,grantorId:guardian?CANARY+'-representative':subjectId,
   authority:guardian?'guardian':'self',authorityDigest:guardian?'5'.repeat(64):null,authorityExpiresAt:guardian?deadline:null,
-  terms,purpose:'research',derivativesAllowed:true,validFrom:iso(Date.now()-60000),expiresAt:guardian?iso(Date.now()+3600000):deadline,evidenceDigest:'6'.repeat(64)};
+  terms,purpose:'research',derivativesAllowed:true,validFrom:iso(Date.now()-60000),expiresAt:guardian?iso(Date.now()+3600000):deadline,evidenceDigest:'6'.repeat(64)});
  await admin.query('SELECT garden_control.record_consent_grant($1,$2::jsonb,$3)',[scope.workspaceId,JSON.stringify(grant),'synthetic-consent-reviewer']);
+ assert.equal((await admin.query("SELECT garden_control.consent_allows($1,$2,'research',clock_timestamp()) AS allowed",
+  [scope.workspaceId,scope.recordId])).rows[0].allowed,true,'synthetic consent setup must allow research before expiry');
  return grant;
 }
 async function reviseAuthority(entry,kind,patch={}){
