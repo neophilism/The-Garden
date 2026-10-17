@@ -62,6 +62,15 @@
       },
       "mapped_work_items": [],
       "note": "GDN-045 read-only diagnostic follow-up. Six exact-head workflows and nine checks succeeded. No additional roadmap completion or live ingestion inferred; private source reports excluded from GitHub."
+    },
+    {
+      "kind": "maintenance_merge",
+      "pr_number": 55,
+      "url": "https://github.com/neophilism/The-Garden/pull/55",
+      "github_head_sha": "1e4b9697214ac45e229ab62e2907bcb7983e8393",
+      "github_merge_sha": "034590eecf99497aabbf598c5d6038673cd1b795",
+      "mapped_work_items": [],
+      "note": "Nine successful exact-head checks; owner-authorized AI security review policy aligned with plan. No additional roadmap unit or deployment."
     }
   ],
   "work_items": {
@@ -572,6 +581,25 @@
       "production_verified": false,
       "independent_review": "not_performed",
       "note": "Six exact-head workflows/nine checks passed and GitHub confirmed merge. Bounded bibliographic discovery-only intake, private owner-scoped SQLite, DOI adapter and reversible metadata matching; no operational provider, API mount, real ingestion or acceptance."
+    },
+    "GDN-085": {
+      "implementation": "merged_with_exact_ci",
+      "github_pr_number": 50,
+      "github_head_sha": "374f7933a4fde8767ca2bf7aba27db1b62d943b5",
+      "github_merge_sha": "0e822533e74ac2492aeebb7813d60c395d0a5ef2",
+      "ci_url": "https://github.com/neophilism/The-Garden/pull/50/checks",
+      "ci_workflows": {
+        "repository": 38325743152,
+        "database": 38325743155,
+        "storage": 38325743274,
+        "historical_data": 38325743256,
+        "quality_browser": 38325743179,
+        "identity": 38325743210
+      },
+      "accepted": false,
+      "production_verified": false,
+      "independent_review": "not_performed",
+      "note": "Six successful exact-head workflows reverified 17 October. Private offline acquisition queue; endpoints, provider contact, payments and historical acceptance remain inactive."
     }
   },
   "production_verified_items": 0,
@@ -579,8 +607,8 @@
     "registration": "not_verified",
     "sync": "not_verified",
     "manifest_in_repo": true,
-    "mapped_planned_units": 34
+    "mapped_planned_units": 35
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-12T23:56:24+00:00"
+  "observed_at_utc": "2026-10-17T12:16:42.238752+00:00"
 }

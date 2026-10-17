@@ -1,7 +1,7 @@
 {
   "work_item": "GDN-085",
   "observed_date": "2026-10-12",
-  "phase": "implementation_candidate_unmounted",
+  "phase": "implementation_merged_unmounted",
   "source_dependency": {
     "GDN-023": "merged",
     "GDN-029": "merged",
@@ -36,6 +36,18 @@
     "No provider permissions, fee quotes or spending authority was verified in a live system",
     "No independent security, rights, historical or deployment acceptance was performed"
   ],
-  "verified_merge_sha": null,
-  "ci": "pending"
+  "verified_merge_sha": "0e822533e74ac2492aeebb7813d60c395d0a5ef2",
+  "ci": {
+    "head_sha": "374f7933a4fde8767ca2bf7aba27db1b62d943b5",
+    "result": "six_workflows_success",
+    "reverified_at": "2026-10-17T12:16:42.238752+00:00",
+    "workflows": {
+      "repository": 38325743152,
+      "database": 38325743155,
+      "storage": 38325743274,
+      "historical_data": 38325743256,
+      "quality_browser": 38325743179,
+      "identity": 38325743210
+    }
+  }
 }

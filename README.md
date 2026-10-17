@@ -1,5 +1,7 @@
 # The Garden
 
+Latest verified checkpoint: **35 merged engineering units**, including the offline source-acquisition queue (GDN-085 / PR #50). The staging database has all twelve migrations; the public/research runtime is implemented but Garden web deployment was rejected by Render capacity. [Current status](docs/CURRENT_STATUS.md) and the sole canonical [PR registry](registry/prs.json) distinguish merged implementation from live operation. The release plan now permits AI-assisted security review and testing with external expert review deferred.
+
 Runnable test deployment: see [staging setup and verification](docs/runbooks/staging.md). `npm run check` builds both surfaces; `npm start` serves the public export, and `PORT=3001 npm run start:research` starts the isolated research shell. Live private research requires the remaining runtime integration; human review is deferred to final acceptance.
 
 ## Policy and historical document library
