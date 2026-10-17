@@ -21,8 +21,8 @@
   },
   "X05": {
     "title": "Neon authorization",
-    "status": "staging_migrations_0001_through_0015_schema_verified",
-    "need": "The isolated garden-staging branch has 15 exact merged migration hashes, with separate source-bound readbacks through 0015. New encryption, requester and control structures remain empty and forced-RLS; no real key, authority, control or runtime login was provisioned by those rollouts. Hosted identity/application/storage integration and external client TLS still require actual connection and acceptance evidence."
+    "status": "staging_migrations_0001_through_0016_schema_verified",
+    "need": "The isolated garden-staging branch has16 exact merged migration hashes, with separate source-bound readbacks through0016. Encryption, delivery, requester and control structures remain empty and forced-RLS; no real key, authority, control or runtime login was provisioned by those rollouts. Hosted identity/application/storage integration and external client TLS still require actual connection and acceptance evidence."
   },
   "X06": {
     "title": "Storage, identity, key and notification providers",

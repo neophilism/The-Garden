@@ -243,6 +243,21 @@
       ],
       "evidence": "docs/evidence/GDN-011/enforcement-merge-observation.json",
       "note": "Every trusted check must be represented by its exact GitHub App binding and administrator enforcement must be explicit. Ten required checks across seven workflows passed with authenticated source receipts; 1,921 application and 108 browser tests passed. This is read-only evaluator hardening. Current main remains unprotected and the connector lacks Administration access, so unattended eligibility stays false. No migration, completed unit or production activation."
+    },
+    {
+      "kind": "engineering_followup_merge",
+      "pr_number": 72,
+      "url": "https://github.com/neophilism/The-Garden/pull/72",
+      "github_head_sha": "d36e20b3874b6fca7b0d6ffc7b69ec3721f609cc",
+      "github_merge_sha": "688756a243dfa56d2eae05d091d72e2c7266fd8f",
+      "mapped_work_items": [],
+      "contributing_work_items": [
+        "GDN-026",
+        "GDN-024",
+        "GDN-032"
+      ],
+      "evidence": "docs/evidence/GDN-026/delivery-merge-observation.json",
+      "note": "Encrypted delivery now pins identity, canonical result and earliest authority deadline through main COMMIT, a fresh issuer completion and the final host await. All ten checks/seven workflows passed on the first published head, including1947 application tests,108 browser tests and33 actual encryption PostgreSQL groups. Verified schema0016 was subsequently applied to isolated staging and independently read back. No complete work unit, mounted route, live key, corpus processing, erasure or production acceptance."
     }
   ],
   "work_items": {
@@ -831,5 +846,5 @@
     "mapped_planned_units": 37
   },
   "environment": "staging_synthetic_only_no_application_deployment",
-  "observed_at_utc": "2026-10-17T16:21:52.597Z"
+  "observed_at_utc": "2026-10-17T16:38:51.688Z"
 }

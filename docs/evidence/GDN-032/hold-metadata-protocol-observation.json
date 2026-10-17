@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "work_item": "GDN-032",
+  "observation": "pure-purpose-bound-hold-metadata-protocol",
+  "observed_at_utc": "2026-10-17T16:29:00.814189+00:00",
+  "repository": "neophilism/The-Garden",
+  "original_checkpoint": "8b84c0935ea25784e2c08d95c9ff8f7025377849",
+  "corrected_checkpoint": "f240699ffd3b4a2c867339157831d4a8404599fd",
+  "integration_checkpoint": "1bdecac6cef9a5b22a1114d1579de75c0827a59c",
+  "integration_verified_base": "72789692f70994fb0d3cf37698fa34858d956a9a",
+  "source_sha256": {
+    "packages/domain/src/lifecycle/hold-metadata-storage.mjs": "a639c0848ee1d0be4f10502295a515c8f2bb54a1996f4b0db5ba5300bc90c043",
+    "tests/security/lifecycle-hold-metadata-storage.test.mjs": "4d73f3ef8f37e6d3830099793d062228d7061e994921191970a54f6e7cba09ae"
+  },
+  "observations": {
+    "initial_checkpoint": {
+      "artifact_name": "checkpoint.json",
+      "artifact_sha256": "be734c17379f667968df686a83f4ba107b8de0c90b4a27b1b3f3527a1898cc94",
+      "observation": {
+        "recordedAt": "2026-10-17T16:19:42.035447+00:00",
+        "commit": "8b84c0935ea25784e2c08d95c9ff8f7025377849",
+        "tree": "fa0ef564603242edd73a699f9a6cfe6cd6c7bc73",
+        "parent": "3dc436db71ec24616a8b24eb6a78e2d3612eb297",
+        "files": {
+          "packages/domain/src/lifecycle/hold-metadata-storage.mjs": "378f0281e350fb928e9c717cb5ae82afc487117d5b3e93f62735866b8b76c74f",
+          "tests/security/lifecycle-hold-metadata-storage.test.mjs": "f3e84af1d625d48f90d288cdd87ee4a778f6dcf6f96f439f80201fa1ace0d16b"
+        },
+        "matchesTestedBytes": true,
+        "testObservation": "focused.json",
+        "testObservationSha256": "fa6c0756b8150a7a9f66b93f1f93641276197b83ec0ca398ebad581b2ce441e8",
+        "testSourceDescription": "Tests ran against the parent plus the exact two subsequently committed new files; no tests are relabeled as a later execution.",
+        "counts": {
+          "tests": 63,
+          "suites": 0,
+          "pass": 63,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "peerReview": "pending bounded independent review",
+        "artifacts": {
+          "focused.log": "2365e42c37a5cf0cd89e66db61da5a29cbc79fad8d61d2aa470737b58c5f32bb",
+          "independent-vectors.py": "ad2c24eb85119781df64c48437f4245488ea1742fad9001d2d62cbd62dc0ab39",
+          "independent-vectors.json": "2a6c48a5c36b8f08bf401877c48857aa8ef8aae52eaa6237828b79cef715dbb8"
+        },
+        "repositoryClean": true
+      }
+    },
+    "initial_focused": {
+      "artifact_name": "focused.json",
+      "artifact_sha256": "fa6c0756b8150a7a9f66b93f1f93641276197b83ec0ca398ebad581b2ce441e8",
+      "observation": {
+        "sourceHead": "3dc436db71ec24616a8b24eb6a78e2d3612eb297",
+        "sourceDelta": [
+          "packages/domain/src/lifecycle/hold-metadata-storage.mjs",
+          "tests/security/lifecycle-hold-metadata-storage.test.mjs"
+        ],
+        "command": [
+          "node",
+          "--test",
+          "--test-reporter=tap",
+          "tests/security/lifecycle-hold-metadata-storage.test.mjs",
+          "tests/security/lifecycle-control-storage.test.mjs",
+          "tests/security/lifecycle-retention.test.mjs"
+        ],
+        "environmentKeys": [
+          "CI",
+          "HOME",
+          "NEXT_TELEMETRY_DISABLED",
+          "NODE_ENV",
+          "PATH"
+        ],
+        "startedAt": "2026-10-17T16:17:56.798256+00:00",
+        "finishedAt": "2026-10-17T16:17:57.061264+00:00",
+        "exitCode": 0,
+        "counts": {
+          "tests": 63,
+          "suites": 0,
+          "pass": 63,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "before": {
+          "packages/domain/src/lifecycle/hold-metadata-storage.mjs": "378f0281e350fb928e9c717cb5ae82afc487117d5b3e93f62735866b8b76c74f",
+          "tests/security/lifecycle-hold-metadata-storage.test.mjs": "f3e84af1d625d48f90d288cdd87ee4a778f6dcf6f96f439f80201fa1ace0d16b",
+          "packages/domain/src/lifecycle/control-storage.mjs": "86ff3edad168bfbc2043b5dab2ee3ad76f812857b03b74ed8b0cd5fde4663fc5",
+          "packages/domain/src/lifecycle/retention.mjs": "add28cf1df2582b1c561594cca469592639fc337c4406c1ce3b626213fdf6db8"
+        },
+        "after": {
+          "packages/domain/src/lifecycle/hold-metadata-storage.mjs": "378f0281e350fb928e9c717cb5ae82afc487117d5b3e93f62735866b8b76c74f",
+          "tests/security/lifecycle-hold-metadata-storage.test.mjs": "f3e84af1d625d48f90d288cdd87ee4a778f6dcf6f96f439f80201fa1ace0d16b",
+          "packages/domain/src/lifecycle/control-storage.mjs": "86ff3edad168bfbc2043b5dab2ee3ad76f812857b03b74ed8b0cd5fde4663fc5",
+          "packages/domain/src/lifecycle/retention.mjs": "add28cf1df2582b1c561594cca469592639fc337c4406c1ce3b626213fdf6db8"
+        },
+        "logSha256": "2365e42c37a5cf0cd89e66db61da5a29cbc79fad8d61d2aa470737b58c5f32bb",
+        "postgresqlExecuted": false
+      }
+    },
+    "initial_root_source_review": {
+      "artifact_name": "root-source-review.json",
+      "artifact_sha256": "59f2b59cd3b970cd9fa04461f425e59f2fb747f508a76a9bfd141c2e59502939",
+      "observation": {
+        "recordedAt": "2026-10-17T16:20:37.962319+00:00",
+        "reviewer": "root",
+        "recordedBy": "contributor_program",
+        "sourceCommit": "8b84c0935ea25784e2c08d95c9ff8f7025377849",
+        "sourceTree": "fa0ef564603242edd73a699f9a6cfe6cd6c7bc73",
+        "sourceHashes": {
+          "packages/domain/src/lifecycle/hold-metadata-storage.mjs": "378f0281e350fb928e9c717cb5ae82afc487117d5b3e93f62735866b8b76c74f",
+          "tests/security/lifecycle-hold-metadata-storage.test.mjs": "f3e84af1d625d48f90d288cdd87ee4a778f6dcf6f96f439f80201fa1ace0d16b"
+        },
+        "observationOrigin": "Root collaboration message reporting a read of both pure metadata files plus immutable control-storage/retention validators. This artifact creation time is not a claimed source-read timestamp.",
+        "scope": [
+          "Exact purpose and placement binding",
+          "Full authority-creation fingerprint",
+          "Strict administrative projection",
+          "Predecessor and replay semantics",
+          "Unchanged v1 release wrapper"
+        ],
+        "verdict": "No concrete blocker found in the source-only review.",
+        "testsExecutedByReviewer": false,
+        "separateTestEvidence": "focused.json records contributor_program 63/63 executed tests.",
+        "newExecutionOrDeploymentClaim": false
+      }
+    },
+    "independent_vectors": {
+      "artifact_name": "independent-vectors.json",
+      "artifact_sha256": "2a6c48a5c36b8f08bf401877c48857aa8ef8aae52eaa6237828b79cef715dbb8",
+      "observation": {
+        "hold": "b0fdfefc59c018f78260bd41afa93889fc0037a056d07fc0520d6a0024f77963",
+        "descriptor": "1acdef8b5381b3c1f272139562fc7df1c7464bb4bbd4c8b04eacceb69bb93ccc",
+        "grant": "e690471e662fa9224f888610f5a7842dc01ed31fe4f5fdc56df0f5d1b81192b7",
+        "evidence": "4b051867f3e26d338b6a3c0978894bd2e8f43cebb9bdd88cad76408453eb02fb",
+        "release": "a0ec919193eabd2a81f79b956fe102f04993f4d532ee095ca10580f9033fa0e0"
+      }
+    },
+    "independent_replay_finding": {
+      "artifact_name": "metadata-peer-observation.json",
+      "artifact_sha256": "18e6ee64dff597d3a7c408e169adff2edbe8d94b002d9375165ba803a3302b4a",
+      "observation": {
+        "module": "/workspace/scratch/7d1434690aca/garden-gdn032-hold-metadata/packages/domain/src/lifecycle/hold-metadata-storage.mjs",
+        "moduleSha256": "378f0281e350fb928e9c717cb5ae82afc487117d5b3e93f62735866b8b76c74f",
+        "testFixtureSha256": "f3e84af1d625d48f90d288cdd87ee4a778f6dcf6f96f439f80201fa1ace0d16b",
+        "observations": [
+          {
+            "name": "valid separately supplied original and current revisions remain distinct",
+            "result": "pass"
+          },
+          {
+            "name": "valid changed placements cannot satisfy an original target descriptor",
+            "result": "pass"
+          },
+          {
+            "name": "hostile descriptor, nested hold and maintainer references execute no callbacks",
+            "result": "pass"
+          },
+          {
+            "name": "metadata projection omits operation identities and proof actors while preserving only documented evidence references",
+            "result": "pass"
+          },
+          {
+            "name": "changed maintainer or valid target changes the new authority fingerprint and cannot replay an old operation",
+            "result": "pass"
+          },
+          {
+            "name": "valid active and released wrapper calls preserve original v1 release bytes",
+            "result": "pass"
+          }
+        ],
+        "findings": [
+          {
+            "field": "grantId",
+            "acceptedDifferentCommit": true,
+            "originalFingerprint": "a0ec919193eabd2a81f79b956fe102f04993f4d532ee095ca10580f9033fa0e0",
+            "changedFingerprint": "b813506161de6345db72a63957b7ec2ee8f2ce527f0c549954d0babb547c51a4"
+          },
+          {
+            "field": "expectedControlRevision",
+            "acceptedDifferentCommit": true,
+            "originalFingerprint": "a0ec919193eabd2a81f79b956fe102f04993f4d532ee095ca10580f9033fa0e0",
+            "changedFingerprint": "1b1db3bfed6402b18122c206553b9fd84dc410f5bb37afcc8cf947736234cac2"
+          }
+        ],
+        "interpretation": "The released hold binds placement, command and proof, not the full grant/aggregate-CAS operation. This is a pure representation/replay-contract limitation, not an observed runtime authorization bypass. Future replay needs a separately expected immutable full operation.",
+        "fullSuiteRepeated": false,
+        "realPostgresql": false,
+        "repositoryEdits": false
+      }
+    },
+    "corrected_focused": {
+      "artifact_name": "final-focused.json",
+      "artifact_sha256": "2c8879353f00bf7fa387ae3a741c180f1307242cd36d57355132294a31cfd483",
+      "observation": {
+        "base": "8b84c0935ea25784e2c08d95c9ff8f7025377849",
+        "executionHead": "8b84c0935ea25784e2c08d95c9ff8f7025377849",
+        "executionStatus": [
+          " M packages/domain/src/lifecycle/hold-metadata-storage.mjs",
+          " M tests/security/lifecycle-hold-metadata-storage.test.mjs"
+        ],
+        "sourceSha256": {
+          "packages/domain/src/lifecycle/hold-metadata-storage.mjs": "a639c0848ee1d0be4f10502295a515c8f2bb54a1996f4b0db5ba5300bc90c043",
+          "tests/security/lifecycle-hold-metadata-storage.test.mjs": "4d73f3ef8f37e6d3830099793d062228d7061e994921191970a54f6e7cba09ae",
+          "packages/domain/src/lifecycle/control-storage.mjs": "86ff3edad168bfbc2043b5dab2ee3ad76f812857b03b74ed8b0cd5fde4663fc5",
+          "packages/domain/src/lifecycle/retention.mjs": "add28cf1df2582b1c561594cca469592639fc337c4406c1ce3b626213fdf6db8",
+          "tests/security/lifecycle-control-storage.test.mjs": "4f4e155a578d5f5f1bbe4c251edf7971c613b5b7f617c4be09a1bad0619101c2",
+          "tests/security/lifecycle-retention.test.mjs": "9ac350fcb8c16fa631fbc4db73d68c305422b85ce787923da5d001c38d1d20d6"
+        },
+        "unchangedFromBase": [
+          "packages/domain/src/lifecycle/control-storage.mjs",
+          "packages/domain/src/lifecycle/retention.mjs",
+          "tests/security/lifecycle-control-storage.test.mjs",
+          "tests/security/lifecycle-retention.test.mjs"
+        ],
+        "command": [
+          "node",
+          "--test",
+          "--test-reporter=tap",
+          "tests/security/lifecycle-hold-metadata-storage.test.mjs",
+          "tests/security/lifecycle-control-storage.test.mjs",
+          "tests/security/lifecycle-retention.test.mjs"
+        ],
+        "environmentKeys": [
+          "CI",
+          "HOME",
+          "NEXT_TELEMETRY_DISABLED",
+          "NODE_ENV",
+          "PATH"
+        ],
+        "node": "v24.19.0",
+        "start": "2026-10-17T16:26:33.402890+00:00",
+        "end": "2026-10-17T16:26:33.735707+00:00",
+        "seconds": 0.33279332899837755,
+        "exitCode": 0,
+        "counts": {
+          "tests": 68,
+          "pass": 68,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "log": "/workspace/scratch/7d1434690aca/hold-metadata-replay-verification/final-focused.log",
+        "logSha256": "09423bcca42e80eee93c882d450c3528912141dea357d6dbecf9fc1ed657b665",
+        "syntaxAndDiffChecks": "passed",
+        "fullApplicationCheck": "not run; root owns integration verification",
+        "databaseOrProviderActions": false,
+        "originalFindingEvidence": "/workspace/scratch/7d1434690aca/encryption-delivery-ci-evidence/metadata-peer-observation.json"
+      }
+    },
+    "corrected_checkpoint": {
+      "artifact_name": "committed-handoff.json",
+      "artifact_sha256": "f4516e9228adff0da81e9947a22b2fcf7dbc17d9e19ebf49c4da736f66d042d0",
+      "observation": {
+        "commit": "f240699ffd3b4a2c867339157831d4a8404599fd",
+        "tree": "b4b6c66e5b669da9ca63d5cf28a98fdfa712bf30",
+        "parent": "8b84c0935ea25784e2c08d95c9ff8f7025377849",
+        "clean": true,
+        "changedPaths": [
+          "packages/domain/src/lifecycle/hold-metadata-storage.mjs",
+          "tests/security/lifecycle-hold-metadata-storage.test.mjs"
+        ],
+        "testedBytesEqualCommittedBytes": true,
+        "focusedObservation": "/workspace/scratch/7d1434690aca/hold-metadata-replay-verification/final-focused.json",
+        "focusedObservationSha256": "2c8879353f00bf7fa387ae3a741c180f1307242cd36d57355132294a31cfd483",
+        "logSha256": "09423bcca42e80eee93c882d450c3528912141dea357d6dbecf9fc1ed657b665",
+        "sourceSha256": {
+          "packages/domain/src/lifecycle/hold-metadata-storage.mjs": "a639c0848ee1d0be4f10502295a515c8f2bb54a1996f4b0db5ba5300bc90c043",
+          "tests/security/lifecycle-hold-metadata-storage.test.mjs": "4d73f3ef8f37e6d3830099793d062228d7061e994921191970a54f6e7cba09ae",
+          "packages/domain/src/lifecycle/control-storage.mjs": "86ff3edad168bfbc2043b5dab2ee3ad76f812857b03b74ed8b0cd5fde4663fc5",
+          "packages/domain/src/lifecycle/retention.mjs": "add28cf1df2582b1c561594cca469592639fc337c4406c1ce3b626213fdf6db8",
+          "tests/security/lifecycle-control-storage.test.mjs": "4f4e155a578d5f5f1bbe4c251edf7971c613b5b7f617c4be09a1bad0619101c2",
+          "tests/security/lifecycle-retention.test.mjs": "9ac350fcb8c16fa631fbc4db73d68c305422b85ce787923da5d001c38d1d20d6"
+        },
+        "tests": {
+          "tests": 68,
+          "pass": 68,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "limitations": [
+          "Pure representation and replay comparison only.",
+          "Future storage must independently supply expected immutable operation and current purpose-bound authority.",
+          "No SQL, provider, migration, publication, or full application verification performed."
+        ]
+      }
+    }
+  },
+  "root_followup_source_review": {
+    "reviewed_commit": "f240699ffd3b4a2c867339157831d4a8404599fd",
+    "reviewed_at_utc": "2026-10-17T16:29:00.816458+00:00",
+    "focus": [
+      "required full immutable expected and received operations",
+      "canonical equality after validating each complete v1 commit",
+      "released hold requirement and exact placement binding",
+      "preserved v1 bytes, strict ownership and no authority claim"
+    ],
+    "additional_blocking_findings": [],
+    "additional_root_tests": false
+  },
+  "full_integration_check": {
+    "observation": {
+      "commit": "acf953a7a556607aeeda0329a982a54823bf929b",
+      "tree": "b67d6eac31d8c6d6f69b731d1ccb3f6cec3fd2da",
+      "verified_base": "688756a243dfa56d2eae05d091d72e2c7266fd8f",
+      "branch": "security/hold-metadata-integration-20261017",
+      "worktree": "/workspace/scratch/7d1434690aca/garden-hold-metadata-integration",
+      "environment_keys": [
+        "CI",
+        "HOME",
+        "NEXT_TELEMETRY_DISABLED",
+        "NODE_ENV",
+        "PATH"
+      ],
+      "environment_values": {
+        "NODE_ENV": "production",
+        "CI": "true",
+        "NEXT_TELEMETRY_DISABLED": "1"
+      },
+      "node": "v24.19.0",
+      "npm": "11.9.0",
+      "started_at": "2026-10-17T16:43:17.440369+00:00",
+      "tracked_source_manifest": "/workspace/scratch/7d1434690aca/hold-metadata-integration-evidence/tracked-source-before.json",
+      "tracked_source_manifest_sha256": "32db18792f0b22f78ed0f13dfd8b6d4a224c3779de3efdb402a62306b5c01633",
+      "source_sha256": {
+        ".github/workflows/data.yml": "d3a3c8e54e19226c349bdc9ea34e6d96b5c33a8a7e5b4cc90ef88b33bf79e1c1",
+        "README.md": "373bdd4bbde4c2a8f62ac6b9909b34b869c576c07f9807689c106bd5ae65f06e",
+        "apps/research/access/lifecycle-hold-metadata-permissions.ci.mjs": "47d3a0dd0ae81bf2ed2edd5c62ca4cad337576ad0692763199e3cc2f9c70942a",
+        "db/staging-observation.json": "780df2488905df270ce13c8405ef5f1424c7c2f5889cfa71aac867773356582c",
+        "docs/CURRENT_STATUS.md": "c1867f3f24c3444088d3366a56f2f11dfbb805ef63ead95dd8bdb84120f74b20",
+        "docs/delivery/merge-policy.json": "26e6e23213b484e953ec7f0bb6937f867ef61babeda1ec2f4108b372a7f5f831",
+        "docs/evidence/GDN-026/delivery-ci-observation.json": "107b58b7a6af8813d061d5e241e4c7836ad6dbdad12cfbf65027d90dc61ee5c3",
+        "docs/evidence/GDN-026/delivery-fence-tests.json": "a0a2d79ce26f29a7fa1aa8a7d8d201c1a9fcb4ee6b79e15a4c233393112c0b0b",
+        "docs/evidence/GDN-026/delivery-merge-observation.json": "0f45c7f698249c7f038dca7044427bf8c616fbfab5192ace370174828f1cd38f",
+        "docs/evidence/GDN-026/delivery-staging-observation.json": "68479bd115c7eb1b6989fa98c179e3b0be5a2b7d6a3069cae6a67b1925e1b389",
+        "docs/evidence/GDN-032/hold-metadata-permissions-observation.json": "68c941a5b20be7c9a285cc5b764de85931001c79ece204c6effbaebcd50e8d64",
+        "docs/evidence/GDN-032/hold-metadata-protocol-observation.json": "9b58aea2781c8623683784f3f97f052dab930918be2c5aa443e1c2288b2d3ca3",
+        "docs/evidence/GDN-032/hold-metadata-vectors.py": "ad2c24eb85119781df64c48437f4245488ea1742fad9001d2d62cbd62dc0ab39",
+        "docs/handoff.md": "f7a888abdbadfa542417835317d45ba237719d1d38c2259a60783dd7b9d01775",
+        "docs/prs/GDN-026.md": "bb9fbe665a7113feb861be8fb2b48f58c763c46a96614537651e3e33381a6336",
+        "docs/prs/GDN-032.md": "9c7392255108292a53a306afec123b632d7b138192e158d8c0961212f8f5e72d",
+        "docs/security/lifecycle-hold-metadata.md": "453596a0368988a347ae27a46f3abb13eee224abf2a0e221e4cc71d33b27d37a",
+        "package-lock.json": "2fabb52e8fc285ab23a1fdc4d4c0f29fced57e2e7181a018b1147694731a5a5b",
+        "package.json": "03b2a6d98673453f56c46387028e2baecc5d1f1a89b74d2becb6c2e2dd771cb7",
+        "packages/domain/src/lifecycle/hold-metadata-storage.mjs": "a639c0848ee1d0be4f10502295a515c8f2bb54a1996f4b0db5ba5300bc90c043",
+        "plan/blockers.json": "9059f2e611f7a5dd4e008bb191ef6486514fd46a9af49f6159483f4c749866d6",
+        "plan/execution.json": "e84e0df92c8001cbad78f3dc6236b12ce275da21069e7620d586113af17fd5da",
+        "plan/progress.json": "81012cb5048ef4e040c69d6d96e26df4ea4643d95e0133a9086b02b0cc6b58fa",
+        "registry/prs.json": "d31d41d845a4f3fdffe6e9be66ab41be6da37af8ef65ae918289730df66af33e",
+        "tests/security/lifecycle-hold-metadata-storage.test.mjs": "4d73f3ef8f37e6d3830099793d062228d7061e994921191970a54f6e7cba09ae"
+      },
+      "phases": [
+        {
+          "name": "install",
+          "command": [
+            "npm",
+            "ci",
+            "--include=dev",
+            "--no-audit"
+          ],
+          "started_at": "2026-10-17T16:43:17.443543+00:00",
+          "log": "/workspace/scratch/7d1434690aca/hold-metadata-integration-evidence/install.log",
+          "ended_at": "2026-10-17T16:43:23.696062+00:00",
+          "wall_seconds": 6.252485964996595,
+          "exit_code": 0,
+          "log_sha256": "b9bf2efc51492c008e3586c668f3037b0894da98cd017b68a99ed3f9c93a5c06"
+        },
+        {
+          "name": "full-check",
+          "command": [
+            "npm",
+            "run",
+            "check"
+          ],
+          "started_at": "2026-10-17T16:43:23.696573+00:00",
+          "log": "/workspace/scratch/7d1434690aca/hold-metadata-integration-evidence/full-check.log",
+          "ended_at": "2026-10-17T16:43:42.680429+00:00",
+          "wall_seconds": 18.983851656998013,
+          "exit_code": 0,
+          "log_sha256": "2748900caa4cd3b8d96adc54d25fe33c3a7d24350bf522e1ea2069105bc2231a"
+        }
+      ],
+      "real_postgresql": false,
+      "postgresql_status": "Required published-source CI; not executed locally",
+      "provider_actions": false,
+      "reuse_owned_dependencies": false,
+      "capture_script_sha256": "fdbd5d382e990d35abebf6f27490a8d89b46a822a211fe69d4df571ff637a61e",
+      "ended_at": "2026-10-17T16:43:42.681045+00:00",
+      "wall_seconds": 25.237545779997163,
+      "all_phases_passed": true,
+      "node_modules_owned": true,
+      "tracked_changes_before_generated_restoration": [
+        "apps/public/next-env.d.ts",
+        "apps/research/next-env.d.ts"
+      ],
+      "test_counts": {
+        "tests": 1979,
+        "suites": 0,
+        "pass": 1979,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "typecheck_and_build_exit": "passed as part of complete chained check",
+      "build_output_manifest_hashes": {
+        "config/build-release.json": {
+          "sha256": "61778977e7c9765d350a08f5b22b8810536600d79fa0a75e7d8f5e663e3a1857",
+          "bytes": 51
+        },
+        "apps/public/.next/BUILD_ID": {
+          "sha256": "e17ceacf745677e198bb72549d51d051d3df87cfa161125cfc099a01b29adb67",
+          "bytes": 21
+        },
+        "apps/public/.next/build-manifest.json": {
+          "sha256": "481146e4dd851226671584d9f116fa2591c6affc4b5816556d92f5e98187ed3b",
+          "bytes": 1766
+        },
+        "apps/public/.next/routes-manifest.json": {
+          "sha256": "d7f99d9b7e0148f182191cabafc0548db6ea8f7b60bc08384a5e30699661cc15",
+          "bytes": 2366
+        },
+        "apps/public/.next/prerender-manifest.json": {
+          "sha256": "d2fbd26a301cae0eb723714a598f4506c54d42489a533c0b6aac5d69132b4c80",
+          "bytes": 9971
+        },
+        "apps/public/.next/required-server-files.json": {
+          "sha256": "e9d998d7d29e54a92f87937f4f2c6978d7f860a0c4391b97e327bb299958b4ff",
+          "bytes": 10672
+        },
+        "apps/research/.next/BUILD_ID": {
+          "sha256": "31e4a5b0544caf358503dc3f13fb5503e3dc4888f8a2ee683dd84606506919b5",
+          "bytes": 21
+        },
+        "apps/research/.next/build-manifest.json": {
+          "sha256": "81d94b52c7e824cab148dd24297d720cf1f02d7812edb6797db0812e0f5861b6",
+          "bytes": 1561
+        },
+        "apps/research/.next/routes-manifest.json": {
+          "sha256": "414c885b286bbd4906b1f4c4f60df706af97b809c4e7103ade5aafb6f5ccce01",
+          "bytes": 2142
+        },
+        "apps/research/.next/prerender-manifest.json": {
+          "sha256": "f55d0cc25b4a18b8193fe4df1a1aa6072ba5a7e352de1a19a89915423475e9c5",
+          "bytes": 3257
+        },
+        "apps/research/.next/required-server-files.json": {
+          "sha256": "ebb35d6e61815c24e2653413f114b8e0ad2b850dd2e9b24057b2bf827d11b5ca",
+          "bytes": 10652
+        }
+      },
+      "generated_restoration": {
+        "paths": [
+          "apps/public/next-env.d.ts",
+          "apps/research/next-env.d.ts"
+        ],
+        "source": "exact checked HEAD",
+        "all_tracked_hashes_match_before": true,
+        "repository_clean_before_evidence": true
+      },
+      "typecheck_targets": [
+        "@garden/public",
+        "@garden/research",
+        "@garden/domain",
+        "@garden/workers",
+        "config/tsconfig.json"
+      ],
+      "static_prerender_route_counts": {
+        "public": 12,
+        "research": 4
+      },
+      "execution_context": "Authorized normal process support for nested Node tests, five-key environment, own95 locked dependencies and unchanged check commands.",
+      "separate_plan_regression": {
+        "command": "python -B -m unittest discover -s tests/plan -v",
+        "source_commit": "acf953a7a556607aeeda0329a982a54823bf929b",
+        "tests": 30,
+        "passed": 30,
+        "failures": 0,
+        "basis": "Coordinator observed the completed command output and exit0; separate from npm check."
+      }
+    },
+    "observation_sha256": "189fead9e9f408609a9b14ab7dea52d91afd6aebe0e4692fd8f274f4c896d32f",
+    "note": "Complete check ran at this exact source commit/tree before these evidence-only updates. Actual PostgreSQL semantics remain a required separate CI gate."
+  },
+  "published_source_ci": "pending",
+  "limits": {
+    "pure_representation_only": true,
+    "current_authority_verified": false,
+    "database_or_migration_implemented": false,
+    "provider_actions": false,
+    "hosted_activation": false,
+    "physical_erasure": false,
+    "additional_completed_units": 0,
+    "production_verified": false
+  },
+  "integration_on_verified_pr72": {
+    "verified_base": "688756a243dfa56d2eae05d091d72e2c7266fd8f",
+    "protocol_checkpoint": "a37c2cc43527312d709e768c50b0e3823e95fc51",
+    "permission_checkpoint": "b64dee7c9543da5f2c7188f20a5a203566763051",
+    "source_hashes_match_original_corrected_protocol": true,
+    "note": "The earlier integration_checkpoint remains a dated historical observation. The final full source check and CI are separate pending gates."
+  },
+  "permission_prerequisite_evidence": "docs/evidence/GDN-032/hold-metadata-permissions-observation.json"
+}

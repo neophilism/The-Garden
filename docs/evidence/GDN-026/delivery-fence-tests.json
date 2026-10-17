@@ -572,5 +572,26 @@
       }
     },
     "observation_sha256": "43df43968d5473f8e9c7934c4b1482f1f290254c2ecfb33df205fcbb0b6a3d5c"
+  },
+  "verified_published_source_followup": {
+    "pr_number": 72,
+    "head_sha": "d36e20b3874b6fca7b0d6ffc7b69ec3721f609cc",
+    "tested_merge_sha": "08472ad571da1df25cfe5b0d549af2f7dad6f4fa",
+    "merged_sha": "688756a243dfa56d2eae05d091d72e2c7266fd8f",
+    "tree_sha": "ef53ddabc845cee88f63fbb9eb1b86bb4169ea55",
+    "confirmed_at": "2026-10-17T16:32:46.473Z",
+    "evidence": "docs/evidence/GDN-026/delivery-merge-observation.json",
+    "ci_evidence": "docs/evidence/GDN-026/delivery-ci-observation.json",
+    "required_checks": 10,
+    "workflows": 7,
+    "application_tests": 1947,
+    "browser_tests": 108,
+    "encryption_postgresql_groups": 33,
+    "control_postgresql_groups": 32,
+    "requester_postgresql_groups": 22,
+    "workspace_gate_postgresql_groups": 11,
+    "first_published_head_passed": true,
+    "staging_evidence": "docs/evidence/GDN-026/delivery-staging-observation.json",
+    "production_verified": false
   }
 }
