@@ -62,6 +62,14 @@ export function createContributionProgramService({decisions,authorize,authorizeO
    async function receipt(){return validateSubmissionSource(await verifyUpload({facts,workspaceId,subjectId:facts.subjectId,uploadId:spec.uploadId,purpose:'research-submission'}),{...facts,uploadId:spec.uploadId});}
    if(action==='submit')source=await receipt();
    facts=await gate(action==='status'?'read':'before-write');
+   if(collecting){
+    // The audited decision can await identity and storage after evaluating its
+    // callback. Refresh mutable grants after it finishes, then check intake as
+    // the final asynchronous boundary before synchronous repository dispatch.
+    if(action==='submit')source=await receipt();
+    authority=await currentAuthority();
+    if(await enabled()!==true)reject();
+   }
    let result;
    if(action==='installVersion')result=repository.installVersion(facts,spec.version,authority);
    else if(action==='status'){
