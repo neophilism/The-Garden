@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "repository": "neophilism/The-Garden",
+  "baseRef": "main",
+  "maxSnapshotAgeSeconds": 300,
+  "checks": [
+    {"name": "plan-validation", "appId": 15368, "workflow": ".github/workflows/ci.yml"},
+    {"name": "architecture-contracts", "appId": 15368, "workflow": ".github/workflows/ci.yml"},
+    {"name": "application-build", "appId": 15368, "workflow": ".github/workflows/ci.yml"},
+    {"name": "historical-data-contracts", "appId": 15368, "workflow": ".github/workflows/data.yml"},
+    {"name": "database-foundation", "appId": 15368, "workflow": ".github/workflows/database.yml"},
+    {"name": "identity-lifecycle", "appId": 15368, "workflow": ".github/workflows/identity.yml"},
+    {"name": "supply-chain-and-policy", "appId": 15368, "workflow": ".github/workflows/quality.yml"},
+    {"name": "browser-and-accessibility", "appId": 15368, "workflow": ".github/workflows/quality.yml"},
+    {"name": "archive-storage-boundaries", "appId": 15368, "workflow": ".github/workflows/storage.yml"},
+    {"name": "Status record integrity (not product certification)", "appId": 15368, "workflow": ".github/workflows/e2eesa-status.yml"}
+  ]
+}
