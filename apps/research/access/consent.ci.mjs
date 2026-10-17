@@ -46,7 +46,33 @@ try{
  const derivedResearch=grant(source,'research',{derivativesAllowed:true});await consent.recordGrant(headers,W,derivedResearch);assert.equal((await records.find(headers,W,grandchild)).id,grandchild);check('nested derivatives inherit explicit permitted use from all ancestors');
  await consent.withdraw(headers,W,derivedResearch.id,H);await assert.rejects(()=>records.find(headers,W,source),PolicyError);await assert.rejects(()=>records.find(headers,W,grandchild),PolicyError);assert.equal(await publish(source),true);check('withdrawing one purpose retires older grants of that purpose without affecting display consent');
  const freshResearch=grant(source,'research',{derivativesAllowed:true});await consent.recordGrant(headers,W,freshResearch);await consent.withdraw(headers,W,derivedResearch.id,H);assert.equal((await records.find(headers,W,source)).id,source);check('idempotent withdrawal replay cannot revoke a later newly evidenced consent');
- await executor.run(headers,{workspaceId:W},async c=>{assert.equal((await c.query('SELECT id FROM garden_private.record_envelopes WHERE id=$1',[source])).rows.length,1);await consent.withdraw(headers,W,freshResearch.id,H);assert.equal((await c.query('SELECT id FROM garden_private.record_envelopes WHERE id=$1',[source])).rows.length,0);});check('withdrawal becomes visible on the next statement of an existing pooled research context');
+ // The trusted research executor now owns the same workspace gate as withdrawal.
+ // Observe two independent transactions; awaiting withdrawal inside the paused
+ // research callback would make the fixture wait on its own transaction.
+ let readEntered,readResume,readPid,withdrawalDone=false;
+ const readingInside=new Promise(resolve=>{readEntered=resolve;}),resumeRead=new Promise(resolve=>{readResume=resolve;});
+ const reading=executor.run(headers,{workspaceId:W},async c=>{
+  readPid=(await c.query('SELECT pg_backend_pid() AS pid')).rows[0].pid;
+  assert.equal((await c.query('SELECT id FROM garden_private.record_envelopes WHERE id=$1',[source])).rows.length,1);
+  readEntered();await resumeRead;
+  assert.equal((await c.query('SELECT id FROM garden_private.record_envelopes WHERE id=$1',[source])).rows.length,1);
+ }).then(value=>({value}),error=>({error}));
+ let withdrawingResearch;
+ try{
+  await Promise.race([readingInside,reading.then(result=>{throw result.error??Error('Research did not reach the expected pause');})]);
+  withdrawingResearch=consent.withdraw(headers,W,freshResearch.id,H).then(value=>{withdrawalDone=true;return {value};},error=>{withdrawalDone=true;return {error};});
+  const end=Date.now()+3000;let observed=false;
+  do{
+   const rows=(await admin.query("SELECT pid FROM pg_stat_activity WHERE usename='garden_consent_consent_ci' AND wait_event_type='Lock' AND wait_event='advisory' AND query LIKE '%withdraw_consent_grant%' AND $1::integer=ANY(pg_blocking_pids(pid))",[readPid])).rows;
+   if(rows.length===1){observed=true;break;}
+   assert.equal(withdrawalDone,false);await new Promise(resolve=>setTimeout(resolve,10));
+  }while(Date.now()<end);
+  assert.equal(observed,true);assert.equal(withdrawalDone,false);readResume();
+  const readResult=await reading;if(readResult.error)throw readResult.error;
+  const withdrawalResult=await withdrawingResearch;if(withdrawalResult.error)throw withdrawalResult.error;
+ }finally{readResume();await reading;if(withdrawingResearch)await withdrawingResearch;}
+ await assert.rejects(()=>records.find(headers,W,source),PolicyError);
+ check('research and consent withdrawal have an observed serialized order; the next research transaction denies');
  const expiredSource=await resource('Expired permission fixture');await consent.setPolicy(headers,W,policy(expiredSource),'0');await consent.recordGrant(headers,W,grant(expiredSource,'public-display',{expiresAt:date(-1000)}));await assert.rejects(()=>publish(expiredSource));check('expired permission blocks a new use admission');
  const guardianSource=await resource('Guardian authority synthetic fixture'),guardianPolicy=policy(guardianSource,{subjects:[{subjectId:'synthetic-minor',authority:'guardian'}]});await consent.setPolicy(headers,W,guardianPolicy,'0');
  await assert.rejects(()=>consent.recordGrant(headers,W,grant(guardianSource,'research',{subjectId:'synthetic-minor',grantorId:'synthetic-minor'})));await consent.recordGrant(headers,W,grant(guardianSource,'research',{subjectId:'synthetic-minor',grantorId:'synthetic-guardian',authority:'guardian',authorityDigest:H,authorityExpiresAt:date(-1000)}));await assert.rejects(()=>records.find(headers,W,guardianSource),PolicyError);check('guardian authority and its expiry cannot be replaced by a self-asserted child grant');

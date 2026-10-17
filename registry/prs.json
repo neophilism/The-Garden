@@ -12,7 +12,7 @@
   "scopeNote": "Exact 210 work package titles and scopes recovered from plan/plan.json; the last 14 are contingent governmental scope, not activated powers or deployed features. PR links come only from existing reviewed historical mappings.",
   "schemaVersion": 1,
   "roadmapVersion": 2,
-  "observedAt": "2026-10-17T15:08:39Z",
+  "observedAt": "2026-10-17T15:56:56.507Z",
   "units": [
     {
       "id": "GDN-001",
@@ -5507,6 +5507,21 @@
       "headSha": "8bd17cadf6d75a8da28c3dd6fe2e0c273732f1d0",
       "baseRef": "main",
       "mergeCommitSha": "269f62d8f8c99ec74cdbaec2d04d3303df1eb87f"
+    },
+    {
+      "id": 4901375312,
+      "number": 69,
+      "title": "Persist scoped retention rules and holds with current operator authority",
+      "url": "https://github.com/neophilism/The-Garden/pull/69",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T15:29:44Z",
+      "updatedAt": "2026-10-17T15:53:27Z",
+      "closedAt": "2026-10-17T15:53:27Z",
+      "mergedAt": "2026-10-17T15:53:27Z",
+      "headSha": "2be7201402f8440c2db936fa336085820c2ccc51",
+      "baseRef": "main",
+      "mergeCommitSha": "3dc436db71ec24616a8b24eb6a78e2d3612eb297"
     }
   ]
 }
