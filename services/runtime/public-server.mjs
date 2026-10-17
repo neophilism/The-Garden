@@ -17,7 +17,7 @@ function csp(html){
  return "default-src 'none'; script-src 'self' "+hashes.join(' ')+"; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; form-action 'none'";
 }
 /** Index only the built export. Requests never become filesystem paths. */
-export async function publicServer({root,release,write}){
+export async function publicServer({root,release,write,access}){
  const files=new Map();
  async function scan(relative=''){
   for(const item of await readdir(join(root,relative),{withFileTypes:true})){
@@ -35,7 +35,8 @@ export async function publicServer({root,release,write}){
  }
  await scan();if(!files.has('/'))throw new Error('Public export is missing');
  let draining=false;
- const server=createServer({maxHeaderSize:16384,requestTimeout:10000,headersTimeout:10000},async(req,res)=>{
+ const server=createServer({maxHeaderSize:16384,requestTimeout:10000,headersTimeout:10000,shouldUpgradeCallback:()=>false},async(req,res)=>{
+  if(access&&!access(req,res))return;
   const observation=requestObservation('public',write);let route='not_found';
   res.on('finish',()=>observation.complete(route,res.statusCode));
   res.on('close',()=>observation.complete(route,res.writableFinished?res.statusCode:499));

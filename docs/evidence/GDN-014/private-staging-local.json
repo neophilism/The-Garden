@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "unit": "GDN-014",
+  "recorded_at": "2026-10-17T12:56:28.530Z",
+  "source_sha": "af6d39548f42686c7dff37d3c7b5cff12955c98c",
+  "clean_source_at_start": true,
+  "scope": "local_owner_private_staging_shell",
+  "runtime": "v24.19.0",
+  "guarded_builds": [
+    "public",
+    "research"
+  ],
+  "artifact_secret_scan": {
+    "files": 285,
+    "ephemeral_ingress_token_present": false
+  },
+  "focused_tests": {
+    "command": "node --test tests/runtime/private-staging.test.mjs tests/runtime/private-staging-build.test.mjs tests/runtime/private-staging-verification.test.mjs tests/runtime/public-server.test.mjs",
+    "tests": 19,
+    "passed": 19,
+    "failed": 0
+  },
+  "process_checks": [
+    {
+      "surface": "public",
+      "restart": false,
+      "checks": 20,
+      "late_upgrade": "denied",
+      "graceful_shutdown": true,
+      "status": "pass"
+    },
+    {
+      "surface": "public",
+      "restart": true,
+      "checks": 20,
+      "late_upgrade": "denied",
+      "graceful_shutdown": true,
+      "status": "pass"
+    },
+    {
+      "surface": "public",
+      "startup_canary": "GARDEN_ENV",
+      "status": "rejected"
+    },
+    {
+      "surface": "public",
+      "startup_canary": "GARDEN_ENV",
+      "status": "rejected"
+    },
+    {
+      "surface": "public",
+      "startup_canary": "GARDEN_STAGING_PREVIEW_ACCESS_TOKEN",
+      "status": "rejected"
+    },
+    {
+      "surface": "public",
+      "startup_canary": "RENDER_GIT_COMMIT",
+      "status": "rejected"
+    },
+    {
+      "surface": "public",
+      "startup_canary": "GARDEN_PRODUCTION_RESEARCH_DATABASE_URL",
+      "status": "rejected"
+    },
+    {
+      "surface": "public",
+      "startup_canary": "GARDEN_STAGING_RESEARCH_DATABASE_URL",
+      "status": "rejected"
+    },
+    {
+      "surface": "public",
+      "startup_canary": "ENABLE_RESEARCH",
+      "status": "rejected"
+    },
+    {
+      "surface": "research",
+      "restart": false,
+      "checks": 20,
+      "late_upgrade": "denied",
+      "graceful_shutdown": true,
+      "status": "pass"
+    },
+    {
+      "surface": "research",
+      "restart": true,
+      "checks": 20,
+      "late_upgrade": "denied",
+      "graceful_shutdown": true,
+      "status": "pass"
+    },
+    {
+      "surface": "research",
+      "startup_canary": "GARDEN_ENV",
+      "status": "rejected"
+    },
+    {
+      "surface": "research",
+      "startup_canary": "GARDEN_ENV",
+      "status": "rejected"
+    },
+    {
+      "surface": "research",
+      "startup_canary": "GARDEN_STAGING_PREVIEW_ACCESS_TOKEN",
+      "status": "rejected"
+    },
+    {
+      "surface": "research",
+      "startup_canary": "RENDER_GIT_COMMIT",
+      "status": "rejected"
+    },
+    {
+      "surface": "research",
+      "startup_canary": "GARDEN_PRODUCTION_RESEARCH_DATABASE_URL",
+      "status": "rejected"
+    },
+    {
+      "surface": "research",
+      "startup_canary": "GARDEN_STAGING_RESEARCH_DATABASE_URL",
+      "status": "rejected"
+    },
+    {
+      "surface": "research",
+      "startup_canary": "ENABLE_RESEARCH",
+      "status": "rejected"
+    }
+  ],
+  "source_sha256": {
+    "services/runtime/private-staging.mjs": "d52f6066bc50dbd0f5335ecd241b62b27fb9f73e8c9feb8ea66248a9c4d80249",
+    "services/runtime/public-server.mjs": "990db2d60afd4040d866a803398e437d24f05cd1130ce143cb5710d3c26ab630",
+    "services/runtime/private-staging-verification.mjs": "0c8196bb08c6179eeee7513b75ec147682a0599c7316e5ef37b717406756470d",
+    "scripts/build-private-staging.mjs": "38567a5ce21d6fb255166e8d70c20a300a36200a843919c569e1da1d32c469e5",
+    "scripts/serve-private-staging.mjs": "4f66c284a663bec694bf7924d45611fc34c28406042fb45876d97bd0f83a98cb",
+    "scripts/verify-private-staging.mjs": "df6990a49277e4a7424358326188fa126587486fc243995cf4f1876e1eb4cdc6",
+    "tools/quality/private-staging-smoke.mjs": "9cbccc1a5bca4b79586a0111b7455f555769e3ce8f33e383646e4569ca202ccd",
+    "tests/runtime/private-staging.test.mjs": "5fdf6e33af37aa11c29bd8918643f26a9d5642ff261d17c90e30b0548c7d6fee",
+    "tests/runtime/private-staging-build.test.mjs": "f3d595bb72ae2d57175565bfced94ea8a1de43a4c93bc02e5822ab274f6fb5db",
+    "tests/runtime/private-staging-verification.test.mjs": "cfb632053304ae14eb2055162dce2cb0687d463591c370bf5f5f92548c8357ad",
+    "tests/runtime/public-server.test.mjs": "8ad35567d92878fa35166c6df23c0ac83b1c4e03b3d475eb2388eccd9167f188",
+    "render.yaml": "8bf370bbaff0b84f3e3adbc0f1fb674189e9f68f346a6244168039fb4e3cde3b"
+  },
+  "external_https_verified": false,
+  "provider_mutated": false,
+  "acceptance": "partial_engineering_contribution",
+  "limits": [
+    "No Garden Render service or deployed SHA exists in this evidence.",
+    "Project/environment attachment and provider capacity remain unverified.",
+    "Browser authentication UX, hosted logs and provider forwarded-header trust require live verification.",
+    "No corpus import, researcher activation, human audit or certification is claimed."
+  ]
+}

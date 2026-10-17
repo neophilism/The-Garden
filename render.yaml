@@ -1,5 +1,7 @@
 # Apply to The Garden project in the owner-designated workspace. No database is
 # created and no secret is shared between surfaces. These services are free.
+# All application routes require the owner staging credential. /api/live alone
+# returns minimal anonymous process health. Project placement must be verified.
 services:
   - type: web
     name: garden-public-staging
@@ -8,14 +10,16 @@ services:
     region: ohio
     branch: main
     autoDeployTrigger: 'off'
-    buildCommand: npm ci --include=dev --ignore-scripts --no-audit --no-fund && npm run build:public
-    startCommand: npm start
+    buildCommand: node scripts/build-private-staging.mjs public
+    startCommand: node scripts/serve-private-staging.mjs public
     healthCheckPath: /api/live
     envVars:
       - key: NODE_VERSION
         value: 24.19.0
       - key: GARDEN_ENV
         value: staging
+      - key: GARDEN_STAGING_PREVIEW_ACCESS_TOKEN
+        generateValue: true
       - key: NEXT_TELEMETRY_DISABLED
         value: '1'
   - type: web
@@ -25,14 +29,16 @@ services:
     region: ohio
     branch: main
     autoDeployTrigger: 'off'
-    buildCommand: npm ci --include=dev --ignore-scripts --no-audit --no-fund && npm run build:research
-    startCommand: npm run start:research
+    buildCommand: node scripts/build-private-staging.mjs research
+    startCommand: node scripts/serve-private-staging.mjs research
     healthCheckPath: /api/live
     envVars:
       - key: NODE_VERSION
         value: 24.19.0
       - key: GARDEN_ENV
         value: staging
+      - key: GARDEN_STAGING_PREVIEW_ACCESS_TOKEN
+        generateValue: true
       - key: ENABLE_RESEARCH
         value: 'false'
       - key: NEXT_TELEMETRY_DISABLED
