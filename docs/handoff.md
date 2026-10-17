@@ -1,31 +1,41 @@
-# Handoff to the next developer or AI agent
+# Continue The Garden development
 
-## Resumable intake implementation (12 October 2026)
+## Current authority
 
-GDN-077 adds owner-bound, checksummed uploads with durable pause/resume, quota reservation, crash recovery, private quarantine receipts and a trusted handoff to GDN-045. The contributor panel distinguishes bytes received from research review and publication. [Runbook](runbooks/resumable-uploads.md); [acceptance evidence](evidence/GDN-077/acceptance.json). Implementation is under review in [PR #40](https://github.com/neophilism/The-Garden/pull/40) and remains disabled/unmounted; hosted activation and independent acceptance are not claimed.
+The owner has authorized implementation, tests, GitHub pushes, PR creation, and ordinary guarded merges when actual checks pass and GitHub reports safety. Continue the next dependency-ready item without asking for another start instruction. Free or existing Garden test deployment and isolated Neon staging work are authorized; new costs and public website exposure are not. Do not repurpose unrelated services.
 
-The read-only preflight follow-up merged as [PR #39](https://github.com/neophilism/The-Garden/pull/39) at `12f9e1ff02dbf3349caa4f587c9c354d15ba0ba3`, after six workflows and nine checks passed on `fcbf577f836fc1b78719d032d9b674804e920a92`. Real-source development reports remain private. GDN-077 tests use generated data; no historical source has been uploaded through this capability or promoted into research records.
+External human security review is deferred follow-up. Perform substantive AI source/security review and meaningful tests, resolve actual findings, and keep deployment, content review, rights and certification claims separate. No recurring development scheduler or unattended worker is installed.
 
-## Current continuation: 12 October 2026
+Start with [current status](CURRENT_STATUS.md), [AGENTS.md](../AGENTS.md), [the approved plan](../plan/plan.json), [execution evidence](../plan/execution.json), [progress](../plan/progress.json), and [current provider constraints](../plan/blockers.json). The sole canonical PR registry is [registry/prs.json](../registry/prs.json). The approved 210 items contain 196 current public/research units and 14 conditional governmental units; do not change historical baseline statuses to manufacture progress.
 
-The sections below describing an uncreated repository are historical planning-baseline statements. Current authority is `docs/CURRENT_STATUS.md`, `plan/execution.json` and actual GitHub evidence. GDN-045 adds the unmounted offline importer in `services/workers/import/stage.py` with a server admission adapter in `services/workers/src/corpus-staging.mjs`. Start with `docs/runbooks/corpus-staging.md`, its exact activation boundaries and `docs/evidence/GDN-045/`. No real corpus ingestion or production deployment is implied by the implementation. Continue via normal checked-head PRs; never infer historical or rights approval from stored source labels.
+## Verify the source before continuing
 
-## What is complete in this package
+1. Fetch actual main, open PRs and branch heads. Coordinate with any encryption or private Site work already in progress. Use isolated branches/worktrees and preserve other contributors' changes.
+2. Run plan and charter validation, the canonical/compatibility roadmap reconciliation, and relevant existing tests. Run the full required CI suites on the candidate revision.
+3. Follow [the checked revision merge protocol](delivery/autonomous-merges.md): independently inspect the current base and head, actual test-merge parents, complete checks/workflows/reviews and each selected CI job's checkout receipt. Use the final head as the GitHub merge condition and verify the returned merge SHA.
+4. Merge one PR at a time. Update the next branch against the new base and obtain current checks before its merge. Preserve failures and fix them; do not disable required checks.
+5. Record exact PR/head/tested-merge/merge identities and acceptance limits in the source-owned evidence and registries. A contributing PR does not necessarily complete its planned work item. Live Engine Room ingestion still needs independent readback.
 
-A comprehensive planning baseline and local validation tooling. The actual CORE artifact was checksum-verified and its read-only SQLite schema/row inventory inspected; the 106-table disposition is a proposed migration map. Read validation reports for checks actually executed. This is not an implemented website or proof that historical content is correct.
+## Local execution
 
-## What has not happened
+Use Node 24 and the committed lockfiles. `npm run check` runs application tests, workspace type checks and both deployment builds. Python plan/import and storage/identity/database/browser suites are defined in `.github/workflows/`; they remain required for merges.
 
-No GitHub repository was inspected, created or updated; no PR was opened or merged; no application CI or production test ran; no Render/Neon resource was provisioned; no Engine Room synchronization occurred; no canonical security conformance was verified; no new research, interview or generated image was created for the site. Optional and governmental capabilities remain inactive.
+The public and disabled-research builds deliberately reject ambient private credential variables. Use an isolated local build environment that omits unrelated credentials; do not rename or remove the guard. Some managed sandboxes deny ordinary Node child processes with `EPERM`. Request the normal approved execution context for the authorized tests rather than weakening or skipping them. Next.js may regenerate its tracked `next-env.d.ts` scaffolding during a build; inspect and discard only those generated, unrelated changes.
 
-## Continue without chat history
+## Deployment and private access
 
-Read AGENTS.md and the full plan. Validate all local files. Obtain authorized GitHub access and identify the intended repository or create a separate Garden repository only within explicit account authority. Commit the plan and source-access manifests; retain real metadata but never commit private source bytes or secrets. Preserve prior repository content if one already exists; inspect before deciding it is empty.
+The owner-designated Render workspace is `tea-db23jkks728c73av263g` and project is `prj-db57f92jnfac739ghic0`. The October 16 free-service attempt was rejected by the 25-service Hobby limit. October 17 inventory shows 24 web/static services; it does not prove that creation will succeed. The current Render connector cannot assign project/environment placement or HTTP health paths, and no authenticated API path is available in this session. Preserve the target; do not create an ungrouped substitute.
 
-Discover canonical security and existing engine contracts. Deliver gap records where missing, but do not treat proposed contracts as satisfied runtime dependencies. Verify authorized Render, Neon, storage, identity and budget resources. Register/import the plan to actual Engine Room only when its API and permissions are verified.
+The separate owner-private Site is `appgprj_6ad366c7c24c8191b8a5d1599fdb2883`, titled **The Garden · History, held in common**. The owner designated it for the separate private frontend work. Inspect actual versions and deployment before claiming it is live. Reuse that exact project and preserve its one-owner audience; do not create a duplicate or widen access.
 
-Start dependency-ready foundation and public-experience PRs; use synthetic fixtures until sensitive production gates clear. Keep scholarly/editorial work explicit. R1 is the public-first path; full corpus import, advanced collaboration, community intake and AI follow in parallel where safe. Conditional governmental work never blocks current public-site completion.
+Neon staging is project `royal-union-78374030`, branch `br-purple-grass-b5hurfl7` (`garden-staging`). The production branch is distinct. Twelve migrations and synthetic RLS/isolation checks are recorded in [the database observation](../db/staging-observation.json); runtime identity, storage, encryption and application acceptance remain separate.
 
-## Evidence and progress
+## Research custody
 
-Use exact head/merge SHAs, real check IDs, actual deployment IDs/URLs and dated live test results. Local validation evidence belongs to the planning package, not an application PR that does not exist. Preserve blocked items and unknown health. Update latest-work pointers only after durable save and readback. Keep source checkpoint, policy version and software release independent.
+Read [the research charter](sources/research-charter.md) before handling real source material. Revalidate the exact selected checkpoint and original bytes. Preserve source archives, database rowids, document editions and recovery boundaries; never rerun historical migrations over the current corpus. Keep detailed source values, licensed images, captions, contributor records and private reports outside GitHub. Only approved aggregate custody/evidence records belong here.
+
+An image byte match does not establish placement equivalence across editions, rights clearance, depicted identity or a historical claim. New contribution acknowledgments do not establish content consent, membership, subscription, enrollment or policy endorsement. Keep unmounted adapters inactive until the exact required identity, purpose, source, custody and runtime integrations are verified.
+
+The PR62 encryption component is merged and partially implemented; its verified local and CI evidence does not supply PostgreSQL envelope persistence, atomic CAS rotation or real provider custody. The immediate integration follow-up must bind a UUID content version to an actual numeric record revision, recheck real record classification/state and current consent, preserve role separation, commit generation/digest CAS with its mutation audit atomically, and keep erasable material separate from immutable receipts. Prepare cryptography before the database mutation transaction; separate-pool audit or ticket retirement while holding the transaction's corresponding locks can self-block. GDN-032 must use the resulting verified persistence boundary rather than an invented ledger.
+
+Use the dependency graph to select the next actual item. GDN-014 staging unlocks GDN-017 telemetry and GDN-033 web-policy acceptance. GDN-026 encryption unlocks the GDN-032 retention path and, with the other prerequisites, GDN-136 private family submissions. GDN-047 alone does not complete the normalization/reconciliation chain or authorize image publication.

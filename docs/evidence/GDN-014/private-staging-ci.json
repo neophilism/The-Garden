@@ -42,11 +42,11 @@
       "failed": 0
     }
   ],
-  "remote_execution": "pending",
-  "remote_run_url": null,
+  "remote_execution": "passed",
+  "remote_run_url": "https://github.com/neophilism/The-Garden/actions/runs/39035440318",
   "online_acceptance": false,
   "limits": [
-    "Local workflow validation does not establish a successful GitHub Actions run.",
+    "The successful GitHub Actions job is distinct from hosted Render acceptance; exact authenticated source and result observations are linked separately.",
     "Existing exact-code-commit runtime results remain in private-staging-local.json.",
     "No provider mutation, resource creation, external HTTPS verification or publication occurred in this integration step."
   ],
@@ -54,9 +54,11 @@
     "base_sha": "d88562eaca438694c5ba1d8c8b0a881bd57f6f50",
     "source_and_existing_evidence_unchanged": true,
     "compared_files": 17,
-    "remote_execution": "pending",
+    "remote_execution": "passed",
     "focused_tests_passed": 14,
     "focused_tests_failed": 0,
     "focused_command": "node --test tests/runtime/private-staging.test.mjs tests/runtime/private-staging-build.test.mjs tests/runtime/private-staging-verification.test.mjs"
-  }
+  },
+  "remote_source_evidence": "docs/evidence/GDN-014/merge-observation.json",
+  "remote_smoke_evidence": "docs/evidence/GDN-014/private-staging-ci-result.json"
 }

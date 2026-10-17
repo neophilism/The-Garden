@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "unit": "GDN-014",
+  "observed_at_utc": "2026-10-17T13:13:49.396Z",
+  "source": "authenticated_GitHub_Actions_job_log",
+  "job_id": 117404190410,
+  "job_url": "https://github.com/neophilism/The-Garden/actions/runs/39035440318/job/117404190410",
+  "head_sha": "a0be8bdb39580aed42036101a4b645176cc80928",
+  "result": {
+    "sha": "7fa691b80d8acfdbb10826fb7f290179b3c3eec6",
+    "checks": [
+      {
+        "surface": "public",
+        "restart": false,
+        "checks": 20,
+        "late_upgrade": "denied",
+        "graceful_shutdown": true,
+        "status": "pass"
+      },
+      {
+        "surface": "public",
+        "restart": true,
+        "checks": 20,
+        "late_upgrade": "denied",
+        "graceful_shutdown": true,
+        "status": "pass"
+      },
+      {
+        "surface": "public",
+        "startup_canary": "GARDEN_ENV",
+        "status": "rejected"
+      },
+      {
+        "surface": "public",
+        "startup_canary": "GARDEN_ENV",
+        "status": "rejected"
+      },
+      {
+        "surface": "public",
+        "startup_canary": "GARDEN_STAGING_PREVIEW_ACCESS_TOKEN",
+        "status": "rejected"
+      },
+      {
+        "surface": "public",
+        "startup_canary": "RENDER_GIT_COMMIT",
+        "status": "rejected"
+      },
+      {
+        "surface": "public",
+        "startup_canary": "GARDEN_PRODUCTION_RESEARCH_DATABASE_URL",
+        "status": "rejected"
+      },
+      {
+        "surface": "public",
+        "startup_canary": "GARDEN_STAGING_RESEARCH_DATABASE_URL",
+        "status": "rejected"
+      },
+      {
+        "surface": "public",
+        "startup_canary": "ENABLE_RESEARCH",
+        "status": "rejected"
+      },
+      {
+        "surface": "research",
+        "restart": false,
+        "checks": 20,
+        "late_upgrade": "denied",
+        "graceful_shutdown": true,
+        "status": "pass"
+      },
+      {
+        "surface": "research",
+        "restart": true,
+        "checks": 20,
+        "late_upgrade": "denied",
+        "graceful_shutdown": true,
+        "status": "pass"
+      },
+      {
+        "surface": "research",
+        "startup_canary": "GARDEN_ENV",
+        "status": "rejected"
+      },
+      {
+        "surface": "research",
+        "startup_canary": "GARDEN_ENV",
+        "status": "rejected"
+      },
+      {
+        "surface": "research",
+        "startup_canary": "GARDEN_STAGING_PREVIEW_ACCESS_TOKEN",
+        "status": "rejected"
+      },
+      {
+        "surface": "research",
+        "startup_canary": "RENDER_GIT_COMMIT",
+        "status": "rejected"
+      },
+      {
+        "surface": "research",
+        "startup_canary": "GARDEN_PRODUCTION_RESEARCH_DATABASE_URL",
+        "status": "rejected"
+      },
+      {
+        "surface": "research",
+        "startup_canary": "GARDEN_STAGING_RESEARCH_DATABASE_URL",
+        "status": "rejected"
+      },
+      {
+        "surface": "research",
+        "startup_canary": "ENABLE_RESEARCH",
+        "status": "rejected"
+      }
+    ],
+    "result": "pass",
+    "scope": "Local guarded processes, actual build artifacts, restart and fail-closed configuration; no external HTTPS acceptance."
+  },
+  "external_https_verified": false,
+  "provider_deployed": false
+}

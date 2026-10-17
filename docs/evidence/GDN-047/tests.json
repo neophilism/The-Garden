@@ -1,7 +1,13 @@
 {
   "work_item_id": "GDN-047",
   "recorded_at_utc": "2026-10-17T13:02:27.641017+00:00",
-  "github_exact_head_ci": "pending_pr_59_updated_head",
+  "github_exact_head_ci": {
+    "head_sha": "ba8c5c76805fc711b4d47d07a8ece8a91d706009",
+    "tested_merge_sha": "d5c9e20a72cc705315e0ac21777871ce9b0fb13c",
+    "checks_successful": 10,
+    "workflows_successful": 7,
+    "evidence": "docs/evidence/GDN-047/merge-observation.json"
+  },
   "tested_source_sha256": {
     "packages/domain/src/historical/image-reconciliation.mjs": "f7be578a477a36d299de11837fc4a221d69314c9e44f0e3c569ec3bb3d17d8a5",
     "services/workers/import/images.py": "2b297f837de3cf9638c38c92dbe92685c52b624f1deab076b0c99a2d837a0ea9",

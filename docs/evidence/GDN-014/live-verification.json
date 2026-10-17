@@ -1,0 +1,18 @@
+{
+  "work_item": "GDN-014",
+  "observed_date": "2026-10-17",
+  "verified": false,
+  "environment": "no_Garden_Render_service_created",
+  "url": null,
+  "service_id": null,
+  "deployed_sha": null,
+  "local_and_ci_smoke": "passed_on_actual_processes",
+  "local_and_ci_evidence": [
+    "docs/evidence/GDN-014/private-staging-local.json",
+    "docs/evidence/GDN-014/private-staging-ci-result.json"
+  ],
+  "external_https_verified": false,
+  "production_verified": false,
+  "reason": "Current authenticated deployment tools do not provide required Garden project/environment and health-path placement; free capacity for both services is unproven.",
+  "human_review_is_blocker": false
+}

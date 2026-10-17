@@ -1,10 +1,10 @@
 {
   "current_scope_items": 196,
   "conditional_items": 14,
-  "remote_prs_opened": 35,
-  "verified_merged_items": 35,
+  "remote_prs_opened": 37,
+  "verified_merged_items": 37,
   "production_verified_items": 0,
   "current_scope_weight": 608,
   "conditional_weight": 46,
-  "note": "35 mapped engineering units have verified implementation merges, including GDN-085 / PR #50. Runtime PR #53 contributes to GDN-014/GDN-017 but live acceptance is incomplete. Maintenance PRs add no units; production verification remains zero."
+  "note": "37 mapped engineering units have verified implementation merges, including GDN-135 / PR58 and GDN-047 / PR59. PR57 contributes to GDN-011; PR53 contributes to GDN-014/GDN-017; PR60 contributes owner-private staging to GDN-014; PR61 fixes GDN-135 audited-admission closure; PR62 contributes the GDN-026 encryption component. These partial/follow-up contributions add no complete units. Counts refer to mapped work items, not all GitHub PRs. Provider acceptance remains incomplete and production verification remains zero."
 }

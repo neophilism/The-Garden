@@ -12,7 +12,7 @@
   "scopeNote": "Exact 210 work package titles and scopes recovered from plan/plan.json; the last 14 are contingent governmental scope, not activated powers or deployed features. PR links come only from existing reviewed historical mappings.",
   "schemaVersion": 1,
   "roadmapVersion": 2,
-  "observedAt": "2026-10-17T12:16:41Z",
+  "observedAt": "2026-10-17T13:28:24.948Z",
   "units": [
     {
       "id": "GDN-001",
@@ -27,7 +27,10 @@
       "source": "plan/plan.json",
       "dependsOn": [],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X01"
+      ]
     },
     {
       "id": "GDN-002",
@@ -40,9 +43,14 @@
       "applicability": "current_scope",
       "scope": "Inventory current Garden policy, CP-017 documents, all four corpus components, charter, exact hashes and access limits. Preserve original sources and distinguish inspected bytes from baseline-reported status.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-001"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X09"
+      ]
     },
     {
       "id": "GDN-003",
@@ -55,9 +63,14 @@
       "applicability": "current_scope",
       "scope": "Retrieve the actual End-To-End-Everywhere standard, pin its revision, compare every required data flow and record differences from this proposed security baseline.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-001"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02"
+      ]
     },
     {
       "id": "GDN-004",
@@ -70,9 +83,15 @@
       "applicability": "current_scope",
       "scope": "Inspect authorized reusable identity, storage, encryption, notification and Engine Room engines before implementing duplicates. Record real APIs, ownership, versions and license constraints.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-001"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X03",
+        "X06"
+      ]
     },
     {
       "id": "GDN-005",
@@ -85,9 +104,13 @@
       "applicability": "current_scope",
       "scope": "Model public, research, sensitive and sealed data flows, attackers, trust boundaries, misuse and retention. Include source poisoning, identity inference, abusive insiders and political targeting.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-001",
+        "GDN-003"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-006",
@@ -100,9 +123,12 @@
       "applicability": "current_scope",
       "scope": "Design six primary navigation areas and prototype newcomer, descendant-contributor and skeptical-investigator journeys. Establish typography, responsive behavior and historical-image treatment.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-001"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-007",
@@ -115,9 +141,15 @@
       "applicability": "current_scope",
       "scope": "Specify launch texts, exhibits, fiscal/legal review, community consultation and asset review as explicit work with editorial owners and consent boundaries.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-002",
+        "GDN-006"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-008",
@@ -130,9 +162,15 @@
       "applicability": "current_scope",
       "scope": "Commit this PR catalog, JSON schema, dependency DAG, feature crosswalk, release closures and evidence-based progress semantics. Include a local validator and handoff instructions.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-001",
+        "GDN-002",
+        "GDN-005",
+        "GDN-006"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-009",
@@ -145,9 +183,15 @@
       "applicability": "current_scope",
       "scope": "Scaffold separate public and research apps, shared domain packages and worker services with TypeScript strictness, locked dependencies and local synthetic fixtures. Pin patched Node 24 LTS and compatible stable Next.js at bootstrap.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-004",
+        "GDN-008"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X01"
+      ]
     },
     {
       "id": "GDN-010",
@@ -160,9 +204,14 @@
       "applicability": "current_scope",
       "scope": "Add lint, unit, integration, accessibility, security, build and plan-consistency jobs. Pin external actions by verified commit and scope job permissions minimally.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-009"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X01"
+      ]
     },
     {
       "id": "GDN-011",
@@ -171,11 +220,19 @@
       "prs": [],
       "sourceItemId": "GDN-011",
       "applicability": "current_scope",
-      "scope": "Configure actual repository rulesets, required checks, merge queue when available and safe automated PR chaining. Preserve genuine independent review requirements.",
+      "scope": "Configure repository rulesets, required checks, merge queue where available and safe automated PR chaining. Preserve appropriate editorial/legal separation of duties; AI-assisted security review is permitted and independent paid security review is not a prerequisite.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-010"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "contributingPrs": [
+        57
+      ],
+      "sourceExternalGates": [
+        "X01"
+      ]
     },
     {
       "id": "GDN-012",
@@ -188,9 +245,17 @@
       "applicability": "current_scope",
       "scope": "Define isolated local, CI, preview, staging and production configuration and required secret names. Inventory existing authorized resources and proposed incremental spending.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-005",
+        "GDN-009"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X04",
+        "X05",
+        "X08"
+      ]
     },
     {
       "id": "GDN-013",
@@ -203,9 +268,14 @@
       "applicability": "current_scope",
       "scope": "Provision only authorized project-specific Neon environments. Configure runtime, migration and publication roles, TLS connections, pool-aware transactions and extension verification.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-012"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X05"
+      ]
     },
     {
       "id": "GDN-014",
@@ -216,11 +286,20 @@
       "applicability": "current_scope",
       "scope": "Deploy minimal public/research service shells to authorized Render resources, verify routing, health endpoints, HTTPS and environment isolation.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-009",
+        "GDN-012",
+        "GDN-013"
+      ],
       "externalDependencies": [],
       "externalPrerequisites": [],
       "contributingPrs": [
-        53
+        53,
+        60
+      ],
+      "sourceExternalGates": [
+        "X04",
+        "X08"
       ]
     },
     {
@@ -234,9 +313,16 @@
       "applicability": "current_scope",
       "scope": "Configure authorized S3-compatible object storage with separate quarantine, restricted and public-derivative namespaces. Store checksums, encryption metadata and version identifiers.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-005",
+        "GDN-012"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X06",
+        "X08"
+      ]
     },
     {
       "id": "GDN-016",
@@ -249,9 +335,12 @@
       "applicability": "current_scope",
       "scope": "Implement durable jobs and transactional outbox with idempotency keys, leases, retry policy, dead-letter queue and cancellation. Avoid an extra paid queue until justified.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-013"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-017",
@@ -262,12 +351,16 @@
       "applicability": "current_scope",
       "scope": "Add request IDs, metrics, traces, structured redacted logs and error reporting. Separate operational telemetry from reading histories and contributor content.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-014",
+        "GDN-016"
+      ],
       "externalDependencies": [],
       "externalPrerequisites": [],
       "contributingPrs": [
         53
-      ]
+      ],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-018",
@@ -278,9 +371,18 @@
       "applicability": "current_scope",
       "scope": "Build immutable artifacts, execute serialized expand-contract migrations and verify staging before promotion. Document Render pre-deploy entitlement and safe fallback.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-010",
+        "GDN-013",
+        "GDN-014",
+        "GDN-017"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X04",
+        "X05"
+      ]
     },
     {
       "id": "GDN-019",
@@ -291,9 +393,18 @@
       "applicability": "current_scope",
       "scope": "Implement against the discovered Engine Room API only after schema/authentication validation. Produce a local intermediate contract while the actual API is unavailable.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-004",
+        "GDN-008",
+        "GDN-010",
+        "GDN-017"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X01",
+        "X03"
+      ]
     },
     {
       "id": "GDN-020",
@@ -304,9 +415,19 @@
       "applicability": "current_scope",
       "scope": "Create isolated previews using synthetic or specifically sanitized data, scoped secrets and authorized resource limits. Remove resources after PR closure with explicit retention exceptions.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-011",
+        "GDN-012",
+        "GDN-018"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X01",
+        "X04",
+        "X05",
+        "X08"
+      ]
     },
     {
       "id": "GDN-021",
@@ -319,9 +440,17 @@
       "applicability": "current_scope",
       "scope": "Reuse verified identity service or an approved standards-based provider. Implement sign-in, verified account linking, sign-out, suspension and account recovery without bespoke password crypto.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-004",
+        "GDN-005",
+        "GDN-009",
+        "GDN-013"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X06"
+      ]
     },
     {
       "id": "GDN-022",
@@ -334,9 +463,14 @@
       "applicability": "current_scope",
       "scope": "Configure secure session cookies, CSRF protections, session rotation, passkey/MFA support and step-up authentication for sensitive actions.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-021"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X06"
+      ]
     },
     {
       "id": "GDN-023",
@@ -349,9 +483,12 @@
       "applicability": "current_scope",
       "scope": "Implement organization/workspace membership, role grants, training tasks, expertise claims and accountable reviewer assignments. Community historians need no institutional credential to contribute.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-021"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-024",
@@ -364,9 +501,15 @@
       "applicability": "current_scope",
       "scope": "Enforce tenant/workspace and record policies with non-owner runtime roles and transaction-local identity. Test owner bypass and background-worker contexts explicitly.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-013",
+        "GDN-023"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X05"
+      ]
     },
     {
       "id": "GDN-025",
@@ -379,9 +522,13 @@
       "applicability": "current_scope",
       "scope": "Apply authorization to APIs, search facets, counts, snippets, image tiles, media ranges, exports, notifications and collaboration channels.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-015",
+        "GDN-024"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-026",
@@ -392,9 +539,22 @@
       "applicability": "current_scope",
       "scope": "Implement approved key-provider adapter, envelope encryption, key separation, rotation and access auditing for server-processed restricted material.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-003",
+        "GDN-005",
+        "GDN-012",
+        "GDN-025"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X06",
+        "X08"
+      ],
+      "contributingPrs": [
+        62
+      ]
     },
     {
       "id": "GDN-027",
@@ -405,9 +565,18 @@
       "applicability": "current_scope",
       "scope": "Provide an optional sealed workspace using reviewed client-side cryptographic libraries and explicit recipient-controlled keys. Specify device trust, metadata leakage and unrecoverable-key risks.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-022",
+        "GDN-025",
+        "GDN-026"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X06",
+        "X08"
+      ]
     },
     {
       "id": "GDN-028",
@@ -418,9 +587,15 @@
       "applicability": "current_scope",
       "scope": "Add encrypted document updates, device/recipient changes and deliberate release of selected sealed material into a named trusted or public workflow.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-027"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X06"
+      ]
     },
     {
       "id": "GDN-029",
@@ -433,9 +608,13 @@
       "applicability": "current_scope",
       "scope": "Model separate consent for preservation, research, public display, name attribution and promotional endorsement. Track scope, expiry, guardian authority and withdrawal.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-005",
+        "GDN-025"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-030",
@@ -448,9 +627,14 @@
       "applicability": "current_scope",
       "scope": "Record authorization, review, publication, consent and administrative events in append-only structured audit with integrity verification and redacted payloads.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-016",
+        "GDN-022",
+        "GDN-025"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-031",
@@ -463,9 +647,15 @@
       "applicability": "current_scope",
       "scope": "Build reusable property-based and E2E policy tests for every role/data-class combination and all non-HTML retrieval surfaces.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-024",
+        "GDN-025",
+        "GDN-029",
+        "GDN-030"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-032",
@@ -476,9 +666,14 @@
       "applicability": "current_scope",
       "scope": "Implement retention classes, review queues, user export/deletion requests, legitimate preservation exceptions and narrowly scoped legal holds. Explain backup and public-copy limits.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-026",
+        "GDN-029",
+        "GDN-030"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-033",
@@ -489,9 +684,14 @@
       "applicability": "current_scope",
       "scope": "Configure CSP, safe HTML rendering, CSRF defense, origin checks, rate limits, dependency scanning and upload-viewer sandboxing. Remove uncontrolled third-party scripts.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-010",
+        "GDN-014",
+        "GDN-022"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-034",
@@ -502,9 +702,16 @@
       "applicability": "current_scope",
       "scope": "Require independent checks of research status, rights, consent, privacy, accessibility and release authority before public delivery. Provide deny-first withdrawal across origins and derivatives.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-025",
+        "GDN-029",
+        "GDN-030",
+        "GDN-031",
+        "GDN-033"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-035",
@@ -517,9 +724,13 @@
       "applicability": "current_scope",
       "scope": "Model people, polities, peoples, languages, places, institutions, voyages and events with typed relationships, historical names and provenance.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-013",
+        "GDN-024"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-036",
@@ -532,9 +743,13 @@
       "applicability": "current_scope",
       "scope": "Model repositories, collections, series, items, witnesses, editions and digital representations. Preserve conflicting catalog data and source independence links.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-013",
+        "GDN-024"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-037",
@@ -547,9 +762,13 @@
       "applicability": "current_scope",
       "scope": "Store atomic source claims, historical interpretations and policy statements separately, with supporting/contradicting evidence and every public placement.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-035",
+        "GDN-036"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-038",
@@ -562,9 +781,13 @@
       "applicability": "current_scope",
       "scope": "Implement edition/page/region/timecode locators, text quotes and positions bound to exact content hashes. Preserve original page labels alongside digital ordinals.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-035",
+        "GDN-036"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-039",
@@ -577,9 +800,14 @@
       "applicability": "current_scope",
       "scope": "Implement separate status axes for acquisition, transcription, evidentiary review, rights, consent, accessibility and publication. Record actor and scope of each review.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-029",
+        "GDN-030",
+        "GDN-037"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-040",
@@ -592,9 +820,15 @@
       "applicability": "current_scope",
       "scope": "Define typed pages, explanation levels, callouts, definitions, policy provisions and citations. Separate advocacy interpretation from research claims and effective draft versions.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-006",
+        "GDN-007",
+        "GDN-037",
+        "GDN-039"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-041",
@@ -607,9 +841,15 @@
       "applicability": "current_scope",
       "scope": "Build read-only ingestion manifests, content-type verification, malware/quota checks and quarantine. Record source bytes, transformation lineage and denied access.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-015",
+        "GDN-016",
+        "GDN-030",
+        "GDN-036"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-042",
@@ -620,9 +860,18 @@
       "applicability": "current_scope",
       "scope": "Register all current research/legislation files and create a small explicitly reviewed public seed with exact provenance and limitations. Preserve restricted originals separately.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-002",
+        "GDN-034",
+        "GDN-038",
+        "GDN-040",
+        "GDN-041"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X09"
+      ]
     },
     {
       "id": "GDN-043",
@@ -633,9 +882,18 @@
       "applicability": "current_scope",
       "scope": "Create a public serving database/projection using only publication-eligible fields and versions, with separate credentials and revocation checks.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-034",
+        "GDN-035",
+        "GDN-036",
+        "GDN-037",
+        "GDN-038",
+        "GDN-039",
+        "GDN-040"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-044",
@@ -648,9 +906,20 @@
       "applicability": "current_scope",
       "scope": "Inspect every CP-017 table and map it to raw preservation, normalized destination, legacy snapshot or unresolved recovery status. Define conversion and foreign-key rules.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-002",
+        "GDN-035",
+        "GDN-036",
+        "GDN-037",
+        "GDN-038",
+        "GDN-039",
+        "GDN-041"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X09"
+      ]
     },
     {
       "id": "GDN-045",
@@ -663,9 +932,16 @@
       "applicability": "current_scope",
       "scope": "Import exact SQLite and valid export representations into immutable legacy staging, preserving typed cells, NULLs, raw JSON and edition namespaces.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-041",
+        "GDN-044"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X05",
+        "X09"
+      ]
     },
     {
       "id": "GDN-046",
@@ -676,22 +952,40 @@
       "applicability": "current_scope",
       "scope": "Convert DOCX structures, note targets, tables, citations, editorial comments and exact spans without treating comments as source testimony. Preserve edition-local numbering.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-038",
+        "GDN-040",
+        "GDN-042",
+        "GDN-045"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X09"
+      ]
     },
     {
       "id": "GDN-047",
       "title": "Image, rights and derivative migration",
       "origin": "original",
-      "prs": [],
+      "prs": [
+        59
+      ],
       "sourceItemId": "GDN-047",
       "applicability": "current_scope",
       "scope": "Reconcile actual current-document media and placements with legacy asset tables, carry rights/captions/alt text and distinguish archival images from generated illustrations.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-015",
+        "GDN-029",
+        "GDN-041",
+        "GDN-045"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X09"
+      ]
     },
     {
       "id": "GDN-048",
@@ -702,9 +996,17 @@
       "applicability": "current_scope",
       "scope": "Produce row, hash, source, note, asset and state reconciliation reports. Preserve CP-016 truncation and CP-011 schema-lineage gaps as open exceptions.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-045",
+        "GDN-046",
+        "GDN-047"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X05",
+        "X09"
+      ]
     },
     {
       "id": "GDN-049",
@@ -715,9 +1017,15 @@
       "applicability": "current_scope",
       "scope": "Build the public site shell with six primary sections, global search entry, footer identity/status and a separate researcher entry point.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-006",
+        "GDN-009",
+        "GDN-033",
+        "GDN-043"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-050",
@@ -728,9 +1036,13 @@
       "applicability": "current_scope",
       "scope": "Implement typography, spacing, accessible controls, callouts, cards, long-form reading, citations and distinct source/interpretation labels.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-006",
+        "GDN-049"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-051",
@@ -741,9 +1053,16 @@
       "applicability": "current_scope",
       "scope": "Implement the primary definition, public purpose, policy status, optional film, key routes and prominent funding explanation linked to the full caveats.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-007",
+        "GDN-040",
+        "GDN-042",
+        "GDN-049",
+        "GDN-050"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-052",
@@ -754,9 +1073,14 @@
       "applicability": "current_scope",
       "scope": "Provide brief, guided and detailed explanations with preserved place, definitions and routes to source provisions. Avoid contradictory summaries.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-040",
+        "GDN-049",
+        "GDN-050"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-053",
@@ -767,9 +1091,18 @@
       "applicability": "current_scope",
       "scope": "Build narrated story pages connecting documented lives, institutions, disruption, survival and evidence without inventing scenes or quotes.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-007",
+        "GDN-037",
+        "GDN-038",
+        "GDN-050"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07",
+        "X09"
+      ]
     },
     {
       "id": "GDN-054",
@@ -780,9 +1113,14 @@
       "applicability": "current_scope",
       "scope": "Explain the metaphor and proposed institutional relationships using accessible text and diagrams with equivalent descriptions.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-040",
+        "GDN-050",
+        "GDN-052"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-055",
@@ -793,9 +1131,16 @@
       "applicability": "current_scope",
       "scope": "Add paired-image and gallery layouts preserving separate captions, attribution, rights, context and reconstruction labels for each asset. Use the explicitly cleared seed for the first release; full asset migration is added independently under GDN-047.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-034",
+        "GDN-042",
+        "GDN-050"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X09"
+      ]
     },
     {
       "id": "GDN-056",
@@ -806,9 +1151,16 @@
       "applicability": "current_scope",
       "scope": "Add optional film/audio with captions, transcripts, audio description where needed, playback controls and low-bandwidth alternatives.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-029",
+        "GDN-034",
+        "GDN-050"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X06"
+      ]
     },
     {
       "id": "GDN-057",
@@ -819,9 +1171,14 @@
       "applicability": "current_scope",
       "scope": "Build thematic exhibits mixing subjects, objects and documents with clear curatorial scope and routes to underlying research.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-043",
+        "GDN-053",
+        "GDN-055"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-058",
@@ -832,9 +1189,14 @@
       "applicability": "current_scope",
       "scope": "Provide accessible inline definitions, pronunciation where licensed and historic/modern term distinctions. Preserve historical offensive terminology with context rather than silently normalizing evidence.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-035",
+        "GDN-040",
+        "GDN-050"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-059",
@@ -845,9 +1207,15 @@
       "applicability": "current_scope",
       "scope": "Add optional choose-a-topic routes, breadcrumbs, in-page navigation and local reading position. Avoid demographic targeting or compulsory personas.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-049",
+        "GDN-052",
+        "GDN-057",
+        "GDN-058"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-060",
@@ -858,9 +1226,13 @@
       "applicability": "current_scope",
       "scope": "Identify the organization, editorial roles, funding disclosures, contact channels and dated legislative status with evidence.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-040",
+        "GDN-049"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-061",
@@ -871,9 +1243,14 @@
       "applicability": "current_scope",
       "scope": "Build topic-filtered questions with concise answers, full explanations, dated sources and unresolved-status labels.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-040",
+        "GDN-049",
+        "GDN-058"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-062",
@@ -884,9 +1261,15 @@
       "applicability": "current_scope",
       "scope": "Add text-first reading, print styles, optional image suppression and robust low-bandwidth fallbacks. Do not cache restricted research offline.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-049",
+        "GDN-050",
+        "GDN-052",
+        "GDN-053"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-063",
@@ -897,9 +1280,14 @@
       "applicability": "current_scope",
       "scope": "Implement locale-aware routes, directionality, translation provenance, fallback and stale-translation notices.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-040",
+        "GDN-050",
+        "GDN-058"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-064",
@@ -910,9 +1298,26 @@
       "applicability": "current_scope",
       "scope": "Run integrated usability, comprehension, content-source, rights and accessibility checks across newcomer and investigation paths. Create a reproducible acceptance dossier.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-051",
+        "GDN-052",
+        "GDN-053",
+        "GDN-054",
+        "GDN-055",
+        "GDN-056",
+        "GDN-057",
+        "GDN-058",
+        "GDN-059",
+        "GDN-060",
+        "GDN-061",
+        "GDN-062",
+        "GDN-063"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-065",
@@ -923,9 +1328,14 @@
       "applicability": "current_scope",
       "scope": "Implement enactment-to-census-to-founding-to-compacts-to-enterprises steps and a who-decides view using versioned conditions rather than assumed dates.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-040",
+        "GDN-050",
+        "GDN-052"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-066",
@@ -936,9 +1346,17 @@
       "applicability": "current_scope",
       "scope": "Explain draft criteria, optional affiliation, privacy, appeals and continuing US citizenship. Provide a non-recording local questionnaire for general information.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-040",
+        "GDN-050",
+        "GDN-058",
+        "GDN-065"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-067",
@@ -949,9 +1367,15 @@
       "applicability": "current_scope",
       "scope": "Render full legislation as accessible HTML with stable section anchors, source file downloads and commentary clearly separated from operative draft text.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-038",
+        "GDN-040",
+        "GDN-042",
+        "GDN-050"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-068",
@@ -962,9 +1386,14 @@
       "applicability": "current_scope",
       "scope": "Show side-by-side and inline legislative changes, explanatory change logs and downstream content affected by revisions.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-037",
+        "GDN-040",
+        "GDN-067"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-069",
@@ -975,9 +1404,15 @@
       "applicability": "current_scope",
       "scope": "Implement draft-specific fiscal calculations using decimal/minor-unit arithmetic, versioned assumptions and separate founding, operating, fee, tax and repayment accounts.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-040",
+        "GDN-067"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-070",
@@ -988,9 +1423,15 @@
       "applicability": "current_scope",
       "scope": "Display cash-flow diagrams, actual-versus-projected distinctions, assumptions, risks, repayment mechanism and downloadable calculation notes.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-050",
+        "GDN-069"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-071",
@@ -1001,9 +1442,13 @@
       "applicability": "current_scope",
       "scope": "Add editable scenarios for low income, failure, delays, fees and changing costs with baseline comparison and machine-readable exports.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-069",
+        "GDN-070"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-072",
@@ -1014,9 +1459,15 @@
       "applicability": "current_scope",
       "scope": "Create labeled hypothetical examples of community budgeting, private investment, reinvestment versus distributions and unsuccessful negotiations.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-040",
+        "GDN-050",
+        "GDN-065",
+        "GDN-070"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-073",
@@ -1027,9 +1478,15 @@
       "applicability": "current_scope",
       "scope": "Provide structured questions, strongest substantive objections, project responses, independent views and comparisons using explicit criteria.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-040",
+        "GDN-061",
+        "GDN-065",
+        "GDN-070"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-074",
@@ -1040,9 +1497,17 @@
       "applicability": "current_scope",
       "scope": "Link draft provisions to relevant legal analyses and record questions requiring qualified counsel. Track law/source currency without pretending the proposal is enacted.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-036",
+        "GDN-040",
+        "GDN-067",
+        "GDN-068"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-075",
@@ -1053,9 +1518,15 @@
       "applicability": "current_scope",
       "scope": "Build the stable latest-work page with current versions, status, prior milestones, checked links and rights-respecting downloads. Preserve existing index redirects.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-042",
+        "GDN-043",
+        "GDN-067",
+        "GDN-068"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-076",
@@ -1066,9 +1537,24 @@
       "applicability": "current_scope",
       "scope": "Verify policy walkthrough, bill reader, funding model, examples and objections against one consistent draft revision and the public narrative.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-065",
+        "GDN-066",
+        "GDN-067",
+        "GDN-068",
+        "GDN-069",
+        "GDN-070",
+        "GDN-071",
+        "GDN-072",
+        "GDN-073",
+        "GDN-074",
+        "GDN-075"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-077",
@@ -1081,9 +1567,18 @@
       "applicability": "current_scope",
       "scope": "Implement chunked uploads, checksums, quotas, pause/resume and clear contributor receipts for allowed file types.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-015",
+        "GDN-016",
+        "GDN-025",
+        "GDN-029",
+        "GDN-041"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X06"
+      ]
     },
     {
       "id": "GDN-078",
@@ -1096,9 +1591,14 @@
       "applicability": "current_scope",
       "scope": "Add manual repository records and import of common bibliographic formats, DOI/catalog metadata and citations with conservative matching.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-036",
+        "GDN-041",
+        "GDN-077"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-079",
@@ -1109,9 +1609,15 @@
       "applicability": "current_scope",
       "scope": "Sandbox text extraction, image tiling and document conversion with resource limits, disabled macros/network and immutable source references.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-016",
+        "GDN-033",
+        "GDN-038",
+        "GDN-077"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-080",
@@ -1122,9 +1628,15 @@
       "applicability": "current_scope",
       "scope": "Build zoomable page viewer with original page labels, digital page navigation, side-by-side text and linked evidence regions.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-038",
+        "GDN-043",
+        "GDN-050",
+        "GDN-079"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-081",
@@ -1135,9 +1647,15 @@
       "applicability": "current_scope",
       "scope": "Generate and consume supported IIIF Presentation manifests for eligible images and annotations, maintaining attribution and access controls.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-036",
+        "GDN-038",
+        "GDN-079",
+        "GDN-080"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-082",
@@ -1148,9 +1666,15 @@
       "applicability": "current_scope",
       "scope": "Add media segments, synchronized transcripts, captions and speaker labels with consent-scoped delivery.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-029",
+        "GDN-038",
+        "GDN-079",
+        "GDN-080"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-083",
@@ -1161,9 +1685,14 @@
       "applicability": "current_scope",
       "scope": "Provide synchronized and independent page/time panes, region matching and explicit alignment hypotheses for multiple witnesses.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-038",
+        "GDN-080",
+        "GDN-082"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-084",
@@ -1174,9 +1703,16 @@
       "applicability": "current_scope",
       "scope": "Let researchers annotate image regions, text spans and media segments, attach notes and propose evidence links with visibility controls.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-025",
+        "GDN-030",
+        "GDN-038",
+        "GDN-080",
+        "GDN-082"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-085",
@@ -1189,9 +1725,17 @@
       "applicability": "current_scope",
       "scope": "Track scans, permissions, access barriers, repository correspondence, lawful offline research leads and costs without initiating unauthorized transactions.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-023",
+        "GDN-029",
+        "GDN-036",
+        "GDN-078"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X08"
+      ]
     },
     {
       "id": "GDN-086",
@@ -1202,9 +1746,17 @@
       "applicability": "current_scope",
       "scope": "Add structured reviews of provenance, author position, witness dependence, translation limits, completeness and competing interpretations.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-036",
+        "GDN-037",
+        "GDN-039",
+        "GDN-080"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-087",
@@ -1215,9 +1767,17 @@
       "applicability": "current_scope",
       "scope": "Produce citations and authorized source/derivative downloads with complete repository, call-number, edition, locator and license information.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-025",
+        "GDN-029",
+        "GDN-036",
+        "GDN-038",
+        "GDN-080",
+        "GDN-081"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-088",
@@ -1228,9 +1788,22 @@
       "applicability": "current_scope",
       "scope": "Exercise full source workflow with hostile files, large scans, missing pages, private media, corrected metadata and lost network sessions.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-077",
+        "GDN-078",
+        "GDN-079",
+        "GDN-080",
+        "GDN-081",
+        "GDN-082",
+        "GDN-083",
+        "GDN-084",
+        "GDN-085",
+        "GDN-086",
+        "GDN-087"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-089",
@@ -1241,9 +1814,16 @@
       "applicability": "current_scope",
       "scope": "Build pages for polities, peoples, people, places, institutions, voyages and events with evidence, aliases, scope and uncertainty.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-035",
+        "GDN-037",
+        "GDN-039",
+        "GDN-043",
+        "GDN-050"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-090",
@@ -1254,9 +1834,13 @@
       "applicability": "current_scope",
       "scope": "Add searchable spelling/transliteration variants, language labels, historical names and explainable suggestions without automatic identity merging.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-035",
+        "GDN-089"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-091",
@@ -1267,9 +1851,14 @@
       "applicability": "current_scope",
       "scope": "Build a public-only full-text index with exact/phrase search, excerpt highlighting, type/status filters and useful no-results guidance.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-043",
+        "GDN-089",
+        "GDN-090"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-092",
@@ -1280,9 +1869,18 @@
       "applicability": "current_scope",
       "scope": "Add separate researcher indexes and policy filters before ranking, faceting, snippets or aggregation. Exclude sealed content from server indexes.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-025",
+        "GDN-031",
+        "GDN-035",
+        "GDN-036",
+        "GDN-037",
+        "GDN-038",
+        "GDN-091"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-093",
@@ -1293,9 +1891,15 @@
       "applicability": "current_scope",
       "scope": "Implement an accessible validated query AST for dates, record types, languages, repositories, review states, relations, exact phrases and missing data.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-038",
+        "GDN-050",
+        "GDN-091",
+        "GDN-092"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-094",
@@ -1306,9 +1910,14 @@
       "applicability": "current_scope",
       "scope": "Save or share queries against named public snapshots or authorized workspaces, record result counts and offer opt-in change notifications.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-021",
+        "GDN-029",
+        "GDN-093"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-095",
@@ -1321,9 +1930,14 @@
       "applicability": "current_scope",
       "scope": "Model sourced geographic assertions, changing names/boundaries and approximate locations without treating modern states as historical polities.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-035",
+        "GDN-037",
+        "GDN-039"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-096",
@@ -1334,9 +1948,15 @@
       "applicability": "current_scope",
       "scope": "Build progressive-loading maps with synchronized accessible lists, uncertain-boundary styles and optional modern context.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-043",
+        "GDN-050",
+        "GDN-089",
+        "GDN-095"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-097",
@@ -1347,9 +1967,16 @@
       "applicability": "current_scope",
       "scope": "Display events, source dates and interpretations on navigable timelines with uncertain ranges and linked evidence.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-035",
+        "GDN-038",
+        "GDN-043",
+        "GDN-050",
+        "GDN-089"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-098",
@@ -1360,9 +1987,16 @@
       "applicability": "current_scope",
       "scope": "Add relationship and voyage/movement views with source-backed edges, accessible tables and clear hypothesis styling.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-035",
+        "GDN-037",
+        "GDN-043",
+        "GDN-089",
+        "GDN-095"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-099",
@@ -1373,9 +2007,17 @@
       "applicability": "current_scope",
       "scope": "Expose supporting and contradicting evidence, exact passages, review scope, alternative interpretations and correction history beside public claims.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-037",
+        "GDN-038",
+        "GDN-039",
+        "GDN-043",
+        "GDN-050",
+        "GDN-080"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-100",
@@ -1386,9 +2028,16 @@
       "applicability": "current_scope",
       "scope": "Add bookmarks, saved passages, private notes and optional cross-device sync. Keep interests and notes out of advocacy profiling.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-021",
+        "GDN-025",
+        "GDN-029",
+        "GDN-050",
+        "GDN-089"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-101",
@@ -1399,9 +2048,15 @@
       "applicability": "current_scope",
       "scope": "Let authorized users publish curated record collections with captions, citations and granular sharing after rights/content review.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-034",
+        "GDN-087",
+        "GDN-089",
+        "GDN-100"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-102",
@@ -1412,9 +2067,16 @@
       "applicability": "current_scope",
       "scope": "Export rights-permitted query results, citations and structured metadata with schemas, checksums, provenance and snapshot IDs.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-025",
+        "GDN-032",
+        "GDN-087",
+        "GDN-093",
+        "GDN-101"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-103",
@@ -1425,9 +2087,21 @@
       "applicability": "current_scope",
       "scope": "Build expert-judged query sets across source languages, exact names, uncertainty and common public questions. Measure quality and performance separately.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-090",
+        "GDN-091",
+        "GDN-092",
+        "GDN-093",
+        "GDN-094",
+        "GDN-096",
+        "GDN-097",
+        "GDN-098",
+        "GDN-099",
+        "GDN-102"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-104",
@@ -1438,9 +2112,24 @@
       "applicability": "current_scope",
       "scope": "Validate story-to-subject-to-claim-to-source-to-citation journeys across public, researcher and assistive-technology paths.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-064",
+        "GDN-088",
+        "GDN-089",
+        "GDN-091",
+        "GDN-093",
+        "GDN-096",
+        "GDN-097",
+        "GDN-098",
+        "GDN-099",
+        "GDN-100",
+        "GDN-101",
+        "GDN-102",
+        "GDN-103"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-105",
@@ -1451,9 +2140,17 @@
       "applicability": "current_scope",
       "scope": "Build line/page-bound transcription with uncertain characters, abbreviations, deletions, ditto marks and original orthography. Preserve machine suggestions separately.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-023",
+        "GDN-025",
+        "GDN-038",
+        "GDN-079",
+        "GDN-080",
+        "GDN-084"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-106",
@@ -1464,9 +2161,13 @@
       "applicability": "current_scope",
       "scope": "Provide cell-level transcription, row boundaries, facing-leaf remarks linkage and competing alignment hypotheses for registers.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-083",
+        "GDN-105"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-107",
@@ -1477,9 +2178,14 @@
       "applicability": "current_scope",
       "scope": "Add distinct diplomatic, normalized and translated layers with language, translator, source-version binding and terminology notes.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-038",
+        "GDN-063",
+        "GDN-105"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-108",
@@ -1490,9 +2196,19 @@
       "applicability": "current_scope",
       "scope": "Assign qualified independent reviewers, hide prior readings where useful and preserve disagreements before adjudication.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-023",
+        "GDN-039",
+        "GDN-086",
+        "GDN-105",
+        "GDN-106",
+        "GDN-107"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-109",
@@ -1503,9 +2219,16 @@
       "applicability": "current_scope",
       "scope": "Provide side-by-side evidence for possible identity matches, duplicate entities and aliases with reject/merge/unmerge workflows.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-023",
+        "GDN-035",
+        "GDN-039",
+        "GDN-090",
+        "GDN-106"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-110",
@@ -1516,9 +2239,17 @@
       "applicability": "current_scope",
       "scope": "Let researchers split compound assertions, classify claim types and attach supporting/contradicting locators and scoped interpretation.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-037",
+        "GDN-038",
+        "GDN-039",
+        "GDN-084",
+        "GDN-086",
+        "GDN-105"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-111",
@@ -1529,9 +2260,18 @@
       "applicability": "current_scope",
       "scope": "Implement review requests, conflict declarations, recommendations, editorial decisions, reasons and appeals with separation of roles.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-023",
+        "GDN-030",
+        "GDN-039",
+        "GDN-108",
+        "GDN-110"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-112",
@@ -1542,9 +2282,15 @@
       "applicability": "current_scope",
       "scope": "Implement collaborative rich-text authoring with CRDT or equivalent conflict handling, document versions and typed evidence blocks.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-025",
+        "GDN-030",
+        "GDN-040",
+        "GDN-105"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-113",
@@ -1555,9 +2301,13 @@
       "applicability": "current_scope",
       "scope": "Add visible save state, retry/backoff, local recovery controls, durable snapshots and exact resume locations for interrupted sessions.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-016",
+        "GDN-112"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-114",
@@ -1568,9 +2318,15 @@
       "applicability": "current_scope",
       "scope": "Add anchored comments, threads, resolved states and mentions with visibility inherited from the underlying content and explicit editorial purpose.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-023",
+        "GDN-025",
+        "GDN-038",
+        "GDN-112"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-115",
@@ -1581,9 +2337,16 @@
       "applicability": "current_scope",
       "scope": "Build work queues tied to sources, claims, dossiers, languages and review gates, with task dependencies, ownership and handoff notes.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-008",
+        "GDN-023",
+        "GDN-037",
+        "GDN-085",
+        "GDN-110"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-116",
@@ -1594,9 +2357,20 @@
       "applicability": "current_scope",
       "scope": "Add in-app and authorized email notifications, digest preferences, mentions, task changes and opt-in saved-search updates.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-016",
+        "GDN-025",
+        "GDN-029",
+        "GDN-094",
+        "GDN-114",
+        "GDN-115"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X06",
+        "X08"
+      ]
     },
     {
       "id": "GDN-117",
@@ -1607,9 +2381,20 @@
       "applicability": "current_scope",
       "scope": "Create structured dossiers for political existence, institutions, chronology, enslavement relationships, disruption, continuity and competing explanations.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-035",
+        "GDN-037",
+        "GDN-039",
+        "GDN-089",
+        "GDN-110",
+        "GDN-111",
+        "GDN-115"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-118",
@@ -1620,9 +2405,16 @@
       "applicability": "current_scope",
       "scope": "Track coverage by region, period, language, repository, trade system and evidence type, with explicit searched/not-searched/inaccessible states.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-035",
+        "GDN-036",
+        "GDN-085",
+        "GDN-115",
+        "GDN-117"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-119",
@@ -1633,9 +2425,16 @@
       "applicability": "current_scope",
       "scope": "Record source queries, consulted editions, access attempts, backward/forward citations, competing accounts and lawful follow-up leads.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-036",
+        "GDN-078",
+        "GDN-085",
+        "GDN-086",
+        "GDN-118"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-120",
@@ -1646,9 +2445,15 @@
       "applicability": "current_scope",
       "scope": "Allow new evidence or credible criticism to reopen claims, freeze affected publication and route independent review without deleting prior decisions.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-030",
+        "GDN-039",
+        "GDN-111",
+        "GDN-117"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-121",
@@ -1659,9 +2464,24 @@
       "applicability": "current_scope",
       "scope": "Provide one coherent researcher dashboard, training cases, assigned work, source tools and exact resume points without overwhelming new contributors.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-023",
+        "GDN-088",
+        "GDN-108",
+        "GDN-109",
+        "GDN-110",
+        "GDN-111",
+        "GDN-113",
+        "GDN-114",
+        "GDN-115",
+        "GDN-117",
+        "GDN-118",
+        "GDN-119",
+        "GDN-120"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-122",
@@ -1672,9 +2492,27 @@
       "applicability": "current_scope",
       "scope": "Verify intake, transcription, second reading, claim review, dossier work, team handoff and durable save across concurrent users.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-108",
+        "GDN-109",
+        "GDN-110",
+        "GDN-111",
+        "GDN-112",
+        "GDN-113",
+        "GDN-114",
+        "GDN-115",
+        "GDN-116",
+        "GDN-117",
+        "GDN-118",
+        "GDN-119",
+        "GDN-120",
+        "GDN-121"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-123",
@@ -1685,9 +2523,15 @@
       "applicability": "current_scope",
       "scope": "Build editor-facing page composition using approved components, source bindings, previews and versioned drafts rather than unrestricted HTML.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-023",
+        "GDN-034",
+        "GDN-040",
+        "GDN-112"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-124",
@@ -1698,9 +2542,17 @@
       "applicability": "current_scope",
       "scope": "Route releases through evidence, editorial, rights, consent and accessibility review, with documented responsibility and immutable release manifests.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-034",
+        "GDN-039",
+        "GDN-111",
+        "GDN-123"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-125",
@@ -1711,9 +2563,15 @@
       "applicability": "current_scope",
       "scope": "Implement preview tokens, approved release scheduling, atomic public updates and rollback to a still-eligible release.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-016",
+        "GDN-018",
+        "GDN-043",
+        "GDN-124"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-126",
@@ -1724,9 +2582,16 @@
       "applicability": "current_scope",
       "scope": "Track claims into pages, translations, exhibits, models, charts, social assets, downloadable editions and assistant retrieval snapshots.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-037",
+        "GDN-068",
+        "GDN-099",
+        "GDN-120",
+        "GDN-124"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-127",
@@ -1737,9 +2602,15 @@
       "applicability": "current_scope",
       "scope": "Display material corrections, qualifications and retractions with dates, reasons, precise affected passages and preserved historical editions when lawful.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-075",
+        "GDN-120",
+        "GDN-125",
+        "GDN-126"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-128",
@@ -1750,9 +2621,17 @@
       "applicability": "current_scope",
       "scope": "Give editors/reviewers exact original, creator, date, repository ID, rights, image identity, caption, alt text, crops and placements in one asset record.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-036",
+        "GDN-038",
+        "GDN-047",
+        "GDN-123"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-129",
@@ -1763,9 +2642,18 @@
       "applicability": "current_scope",
       "scope": "Track rights evidence, permission correspondence, allowed uses, territories, credits, expirations and known/unknown fees.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-029",
+        "GDN-085",
+        "GDN-128"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07",
+        "X08",
+        "X09"
+      ]
     },
     {
       "id": "GDN-130",
@@ -1776,9 +2664,18 @@
       "applicability": "current_scope",
       "scope": "Add a separate generated-asset workflow with creation provenance, intended illustrative role, historical checks and conspicuous public labels.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-034",
+        "GDN-055",
+        "GDN-128",
+        "GDN-129"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07",
+        "X09"
+      ]
     },
     {
       "id": "GDN-131",
@@ -1789,9 +2686,16 @@
       "applicability": "current_scope",
       "scope": "Generate responsive image sizes, safe crops and descriptive alternatives preserving historically relevant details, captions and orientation.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-050",
+        "GDN-079",
+        "GDN-128",
+        "GDN-129",
+        "GDN-130"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-132",
@@ -1802,9 +2706,20 @@
       "applicability": "current_scope",
       "scope": "Produce coordinated HTML and rights-permitted DOCX/PDF/EPUB/data exports from reviewed content, preserving citations, image licenses and edition identifiers.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-046",
+        "GDN-087",
+        "GDN-102",
+        "GDN-124",
+        "GDN-126",
+        "GDN-131"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07",
+        "X09"
+      ]
     },
     {
       "id": "GDN-133",
@@ -1815,9 +2730,16 @@
       "applicability": "current_scope",
       "scope": "Add canonical URLs, public sitemaps, descriptive metadata, structured data and safe social previews for eligible content.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-043",
+        "GDN-060",
+        "GDN-089",
+        "GDN-124",
+        "GDN-127"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-134",
@@ -1828,22 +2750,51 @@
       "applicability": "current_scope",
       "scope": "Verify author-to-public release and correction journeys, all asset classes and publication reversal with real editorial roles.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-124",
+        "GDN-125",
+        "GDN-126",
+        "GDN-127",
+        "GDN-128",
+        "GDN-129",
+        "GDN-130",
+        "GDN-131",
+        "GDN-132",
+        "GDN-133"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-135",
       "title": "Contributor portal and separate program charter",
       "origin": "original",
-      "prs": [],
+      "prs": [
+        58
+      ],
       "sourceItemId": "GDN-135",
       "applicability": "current_scope",
       "scope": "Launch an optional contribution program with explicit scope separate from the original research charter, contributor guidance and non-endorsement participation.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-007",
+        "GDN-023",
+        "GDN-029",
+        "GDN-077",
+        "GDN-085"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07",
+        "X08"
+      ],
+      "contributingPrs": [
+        61
+      ]
     },
     {
       "id": "GDN-136",
@@ -1854,9 +2805,16 @@
       "applicability": "current_scope",
       "scope": "Provide secure file submission, context forms, attribution preferences, visibility selection and an auditable receipt.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-025",
+        "GDN-029",
+        "GDN-032",
+        "GDN-077",
+        "GDN-135"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-137",
@@ -1867,9 +2825,18 @@
       "applicability": "current_scope",
       "scope": "Support interview agreements, media permissions, transcript review, narrator corrections, embargoes and distinct research/promotional uses.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-029",
+        "GDN-082",
+        "GDN-107",
+        "GDN-135",
+        "GDN-136"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-138",
@@ -1880,9 +2847,19 @@
       "applicability": "current_scope",
       "scope": "Implement redaction review for documents/audio/video, guardian/minor permissions and separate restricted originals with public-safe derivatives.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-025",
+        "GDN-029",
+        "GDN-032",
+        "GDN-079",
+        "GDN-136",
+        "GDN-137"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-139",
@@ -1893,9 +2870,17 @@
       "applicability": "current_scope",
       "scope": "Let contributors manage permitted visibility, embargo dates, correction requests and withdrawal with clear processing status and limits.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-029",
+        "GDN-032",
+        "GDN-116",
+        "GDN-126",
+        "GDN-136",
+        "GDN-138"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-140",
@@ -1906,9 +2891,18 @@
       "applicability": "current_scope",
       "scope": "Publish advisory remit, member permissions, meeting records and consultation channels without treating one person as representative of an entire people.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-023",
+        "GDN-029",
+        "GDN-035",
+        "GDN-060",
+        "GDN-135"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-141",
@@ -1919,9 +2913,16 @@
       "applicability": "current_scope",
       "scope": "Let communities and readers submit contextual annotations, naming concerns and representation challenges linked to records.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-084",
+        "GDN-089",
+        "GDN-120",
+        "GDN-135",
+        "GDN-140"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-142",
@@ -1932,9 +2933,17 @@
       "applicability": "current_scope",
       "scope": "Publish consultation questions, material submissions where permitted, reasoned responses, unresolved concerns and resulting changes.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-111",
+        "GDN-120",
+        "GDN-140",
+        "GDN-141"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-143",
@@ -1945,9 +2954,15 @@
       "applicability": "current_scope",
       "scope": "Publish consented public conversations and interviews, separating testimony, reflection, analysis and explicit endorsement.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-029",
+        "GDN-056",
+        "GDN-137",
+        "GDN-140"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-144",
@@ -1958,9 +2973,17 @@
       "applicability": "current_scope",
       "scope": "Add optional moderated Q&A, reporting, rate limits, appeals and clear separation of discussion from reviewed research.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-021",
+        "GDN-025",
+        "GDN-033",
+        "GDN-061",
+        "GDN-116",
+        "GDN-140"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-145",
@@ -1971,9 +2994,18 @@
       "applicability": "current_scope",
       "scope": "Provide confidential reporting of fabrication, coercion, harassment, conflicts and data misuse, with segregated case access and recusal.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-023",
+        "GDN-025",
+        "GDN-030",
+        "GDN-032",
+        "GDN-111"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-146",
@@ -1984,9 +3016,16 @@
       "applicability": "current_scope",
       "scope": "Track contribution roles, authorship agreements, affiliations, reviewer credit and declared conflicts across research outputs.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-023",
+        "GDN-030",
+        "GDN-111",
+        "GDN-124",
+        "GDN-140"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-147",
@@ -1997,9 +3036,18 @@
       "applicability": "current_scope",
       "scope": "Offer accessible routes to challenge historical representation, rights decisions and moderation, with evidence, response windows and impartial reviewer assignment.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-120",
+        "GDN-127",
+        "GDN-141",
+        "GDN-142",
+        "GDN-145"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-148",
@@ -2010,9 +3058,26 @@
       "applicability": "current_scope",
       "scope": "Test contribution, narrator review, representation challenge, withdrawal, moderation and confidential reporting with appropriate reviewers.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-135",
+        "GDN-136",
+        "GDN-137",
+        "GDN-138",
+        "GDN-139",
+        "GDN-140",
+        "GDN-141",
+        "GDN-142",
+        "GDN-143",
+        "GDN-144",
+        "GDN-145",
+        "GDN-146",
+        "GDN-147"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-149",
@@ -2023,9 +3088,18 @@
       "applicability": "current_scope",
       "scope": "Build age-appropriate, source-centered teaching collections, activities and teacher guides with content notices and accessible formats.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-057",
+        "GDN-063",
+        "GDN-087",
+        "GDN-101",
+        "GDN-124"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-150",
@@ -2036,9 +3110,16 @@
       "applicability": "current_scope",
       "scope": "Provide worked examples of transcription, source criticism, uncertainty, conflicting evidence and citation, using synthetic or cleared training records.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-080",
+        "GDN-099",
+        "GDN-105",
+        "GDN-121",
+        "GDN-149"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-151",
@@ -2049,9 +3130,18 @@
       "applicability": "current_scope",
       "scope": "Publish current summaries, approved visuals, spokesperson contacts, policy status, corrections and source packs for journalists.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-060",
+        "GDN-067",
+        "GDN-075",
+        "GDN-127",
+        "GDN-129",
+        "GDN-131",
+        "GDN-133"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-152",
@@ -2062,9 +3152,18 @@
       "applicability": "current_scope",
       "scope": "Generate reviewed share cards, short explainers and presentations from source-bound content with dates and qualifications.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-040",
+        "GDN-055",
+        "GDN-068",
+        "GDN-070",
+        "GDN-126",
+        "GDN-131",
+        "GDN-151"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-153",
@@ -2075,9 +3174,19 @@
       "applicability": "current_scope",
       "scope": "Add public event pages, capacity-aware registration, calendar exports, access needs, cancellation and optional recording consent.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-021",
+        "GDN-029",
+        "GDN-056",
+        "GDN-116",
+        "GDN-140"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X06",
+        "X08"
+      ]
     },
     {
       "id": "GDN-154",
@@ -2088,9 +3197,16 @@
       "applicability": "current_scope",
       "scope": "Publish research, translation, outreach and operational volunteer roles with requirements, training and accountable assignment.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-023",
+        "GDN-029",
+        "GDN-115",
+        "GDN-135",
+        "GDN-153"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-155",
@@ -2101,9 +3217,18 @@
       "applicability": "current_scope",
       "scope": "Offer separate project, research-correction, event and general advocacy subscriptions with preference center and confirmed consent.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-029",
+        "GDN-116",
+        "GDN-127",
+        "GDN-153"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X06",
+        "X08"
+      ]
     },
     {
       "id": "GDN-156",
@@ -2114,9 +3239,20 @@
       "applicability": "current_scope",
       "scope": "Provide optional general-public representative lookup and user-reviewed communications based on accurate district data and current policy materials.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-029",
+        "GDN-040",
+        "GDN-060",
+        "GDN-073",
+        "GDN-155"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07",
+        "X08",
+        "X11"
+      ]
     },
     {
       "id": "GDN-157",
@@ -2127,9 +3263,19 @@
       "applicability": "current_scope",
       "scope": "Integrate an authorized payment provider using hosted checkout, separate research/advocacy purposes, receipts, refunds and reconciliation.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-012",
+        "GDN-029",
+        "GDN-060",
+        "GDN-116"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07",
+        "X08",
+        "X11"
+      ]
     },
     {
       "id": "GDN-158",
@@ -2140,9 +3286,17 @@
       "applicability": "current_scope",
       "scope": "Publish the website/research organization's actual finances and funding sources separately from modeled government-program finances.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-060",
+        "GDN-070",
+        "GDN-146",
+        "GDN-157"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X11"
+      ]
     },
     {
       "id": "GDN-159",
@@ -2153,9 +3307,15 @@
       "applicability": "current_scope",
       "scope": "Provide clear contact routes for general questions, corrections, press, accessibility and sensitive concerns, with safe routing and delivery receipts.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-029",
+        "GDN-060",
+        "GDN-116",
+        "GDN-144"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-160",
@@ -2166,9 +3326,25 @@
       "applicability": "current_scope",
       "scope": "Verify education, press, subscriptions, events, volunteering, civic tools, donations and support with realistic consent and failure cases.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-149",
+        "GDN-150",
+        "GDN-151",
+        "GDN-152",
+        "GDN-153",
+        "GDN-154",
+        "GDN-155",
+        "GDN-156",
+        "GDN-157",
+        "GDN-158",
+        "GDN-159"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07",
+        "X11"
+      ]
     },
     {
       "id": "GDN-161",
@@ -2179,9 +3355,15 @@
       "applicability": "current_scope",
       "scope": "Create immutable analysis snapshots with schemas, source lineage, known gaps and reproducible query/export manifests.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-045",
+        "GDN-048",
+        "GDN-093",
+        "GDN-102"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-162",
@@ -2192,9 +3374,17 @@
       "applicability": "current_scope",
       "scope": "Run authorized analytic code in resource-limited, isolated workers with no arbitrary network access, short-lived inputs and versioned dependencies.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-016",
+        "GDN-025",
+        "GDN-026",
+        "GDN-161"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X08"
+      ]
     },
     {
       "id": "GDN-163",
@@ -2205,9 +3395,15 @@
       "applicability": "current_scope",
       "scope": "Provide versioned transformation recipes for dates, names, tabular joins and deduplication proposals with side-by-side raw data.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-106",
+        "GDN-109",
+        "GDN-161",
+        "GDN-162"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-164",
@@ -2218,9 +3414,17 @@
       "applicability": "current_scope",
       "scope": "Build reproducible analysis-to-chart workflows with accessible tables, denominators, uncertainty and source/exclusion notes.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-095",
+        "GDN-097",
+        "GDN-102",
+        "GDN-161",
+        "GDN-162",
+        "GDN-163"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-165",
@@ -2231,9 +3435,19 @@
       "applicability": "current_scope",
       "scope": "Require another authorized researcher to rerun important computations and inspect assumptions before publishing results.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-111",
+        "GDN-124",
+        "GDN-161",
+        "GDN-162",
+        "GDN-163",
+        "GDN-164"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-166",
@@ -2244,9 +3458,21 @@
       "applicability": "current_scope",
       "scope": "Implement an optional assistant gateway over approved public or authorized research material using a verified provider contract, usage limits and data-processing review.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-004",
+        "GDN-012",
+        "GDN-025",
+        "GDN-029",
+        "GDN-092",
+        "GDN-099",
+        "GDN-161"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X08",
+        "X10"
+      ]
     },
     {
       "id": "GDN-167",
@@ -2257,9 +3483,17 @@
       "applicability": "current_scope",
       "scope": "Add question answering with exact supporting passages, distinctions between quote/inference/uncertainty and links to inspect sources.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-038",
+        "GDN-050",
+        "GDN-099",
+        "GDN-166"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X10"
+      ]
     },
     {
       "id": "GDN-168",
@@ -2270,9 +3504,17 @@
       "applicability": "current_scope",
       "scope": "Treat archival text, annotations and uploads as untrusted data. Restrict assistant tools, egress, cross-record access and mutation capabilities.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-033",
+        "GDN-162",
+        "GDN-166",
+        "GDN-167"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X10"
+      ]
     },
     {
       "id": "GDN-169",
@@ -2283,9 +3525,18 @@
       "applicability": "current_scope",
       "scope": "Build expert-reviewed evaluation sets covering conflicts, missing evidence, source dependence, historical slurs, uncertainty and non-English queries.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-103",
+        "GDN-165",
+        "GDN-167",
+        "GDN-168"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07",
+        "X10"
+      ]
     },
     {
       "id": "GDN-170",
@@ -2296,9 +3547,18 @@
       "applicability": "current_scope",
       "scope": "Add user feedback, answer correction routing, opt-out, usage/cost controls and minimal retained logs.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-029",
+        "GDN-032",
+        "GDN-116",
+        "GDN-167",
+        "GDN-169"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X10"
+      ]
     },
     {
       "id": "GDN-171",
@@ -2309,9 +3569,19 @@
       "applicability": "current_scope",
       "scope": "Let assistants propose transcription drafts, source leads, claim segmentation and task suggestions with human/scholarly review, never silently apply them as accepted evidence.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-115",
+        "GDN-119",
+        "GDN-165",
+        "GDN-168",
+        "GDN-169",
+        "GDN-170"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X10"
+      ]
     },
     {
       "id": "GDN-172",
@@ -2322,9 +3592,25 @@
       "applicability": "current_scope",
       "scope": "Review reproducibility, provider handling, security, citation accuracy and costs before controlled release of optional analysis/AI capabilities.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-161",
+        "GDN-162",
+        "GDN-163",
+        "GDN-164",
+        "GDN-165",
+        "GDN-166",
+        "GDN-167",
+        "GDN-168",
+        "GDN-169",
+        "GDN-170",
+        "GDN-171"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07",
+        "X10"
+      ]
     },
     {
       "id": "GDN-173",
@@ -2335,9 +3621,17 @@
       "applicability": "current_scope",
       "scope": "Build separate admin views for accounts, roles, imports, queues, publication holds and incidents, with restricted sensitive-case access.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-023",
+        "GDN-025",
+        "GDN-030",
+        "GDN-115",
+        "GDN-144",
+        "GDN-145"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-174",
@@ -2348,9 +3642,17 @@
       "applicability": "current_scope",
       "scope": "Consolidate spam, harassment, copyright concerns, personal-data leaks and abuse reports with triage, evidence, response and appeal.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-030",
+        "GDN-033",
+        "GDN-144",
+        "GDN-145",
+        "GDN-147",
+        "GDN-173"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-175",
@@ -2361,9 +3663,20 @@
       "applicability": "current_scope",
       "scope": "Publish editorial standards, advisory remit, authorship, conflicts, appeals, donor separation and correction procedures with version history.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-060",
+        "GDN-111",
+        "GDN-140",
+        "GDN-142",
+        "GDN-145",
+        "GDN-146",
+        "GDN-147"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-176",
@@ -2374,9 +3687,17 @@
       "applicability": "current_scope",
       "scope": "Report acquired, read, transcribed, reviewed, rights-cleared and published work separately, with definitions and denominators.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-039",
+        "GDN-048",
+        "GDN-115",
+        "GDN-117",
+        "GDN-118",
+        "GDN-124"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-177",
@@ -2387,9 +3708,19 @@
       "applicability": "current_scope",
       "scope": "Track planned, implemented, CI-passed, merged, deployed, production-verified and regressed states with GitHub/Render evidence and Engine Room reconciliation.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-008",
+        "GDN-011",
+        "GDN-018",
+        "GDN-019",
+        "GDN-173"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X01",
+        "X03"
+      ]
     },
     {
       "id": "GDN-178",
@@ -2400,9 +3731,17 @@
       "applicability": "current_scope",
       "scope": "Provide administrator queues for expiring licenses, stale permissions, sensitive data reviews, retention actions and storage access checks.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-025",
+        "GDN-029",
+        "GDN-032",
+        "GDN-085",
+        "GDN-129",
+        "GDN-173"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-179",
@@ -2413,9 +3752,17 @@
       "applicability": "current_scope",
       "scope": "Measure aggregate task success, search quality, performance and accessibility feedback with minimal collection and no demographic/political targeting.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-005",
+        "GDN-029",
+        "GDN-064",
+        "GDN-103",
+        "GDN-160",
+        "GDN-176"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-180",
@@ -2426,9 +3773,17 @@
       "applicability": "current_scope",
       "scope": "Display service status, queue lag, failed imports, index freshness, broken links, backup age and external integration state.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-017",
+        "GDN-018",
+        "GDN-088",
+        "GDN-173",
+        "GDN-177",
+        "GDN-178"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-181",
@@ -2439,9 +3794,19 @@
       "applicability": "current_scope",
       "scope": "Track website operating costs, authorized budgets, AI usage, storage growth and vendor resource limits separately from program fiscal models.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-012",
+        "GDN-157",
+        "GDN-158",
+        "GDN-170",
+        "GDN-173",
+        "GDN-180"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X08"
+      ]
     },
     {
       "id": "GDN-182",
@@ -2452,9 +3817,20 @@
       "applicability": "current_scope",
       "scope": "Verify operational controls, governance truthfulness, progress accuracy, moderation and financial separation with an audit-oriented reviewer.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-173",
+        "GDN-174",
+        "GDN-175",
+        "GDN-176",
+        "GDN-177",
+        "GDN-178",
+        "GDN-179",
+        "GDN-180",
+        "GDN-181"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-183",
@@ -2465,9 +3841,21 @@
       "applicability": "current_scope",
       "scope": "Produce checksummed, size-bounded backups and portable research packages with all manifests, schema, rights, lineage and restore instructions.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-015",
+        "GDN-026",
+        "GDN-032",
+        "GDN-048",
+        "GDN-102",
+        "GDN-132"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X06",
+        "X08",
+        "X09"
+      ]
     },
     {
       "id": "GDN-184",
@@ -2478,9 +3866,19 @@
       "applicability": "current_scope",
       "scope": "Restore authorized backups into isolated environments, recover keys according to mode and reapply withdrawals, legal holds and revocations before serving.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-026",
+        "GDN-027",
+        "GDN-032",
+        "GDN-183"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X05",
+        "X06",
+        "X08"
+      ]
     },
     {
       "id": "GDN-185",
@@ -2491,9 +3889,16 @@
       "applicability": "current_scope",
       "scope": "Maintain stable project-wide current-work index, per-product latest pointers, downloadable checkpoints and resume instructions after each successful durable save.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-075",
+        "GDN-113",
+        "GDN-132",
+        "GDN-177",
+        "GDN-183"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-186",
@@ -2504,9 +3909,19 @@
       "applicability": "current_scope",
       "scope": "Test that a new developer can clone, validate, run synthetic services, understand architecture, locate required credentials and continue work without chat context.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-008",
+        "GDN-044",
+        "GDN-173",
+        "GDN-177",
+        "GDN-183",
+        "GDN-185"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X01"
+      ]
     },
     {
       "id": "GDN-187",
@@ -2517,9 +3932,20 @@
       "applicability": "current_scope",
       "scope": "Audit complete public and researcher processes against chosen WCAG 2.2 AA scope using automated and manual checks including source tools and authentication.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-064",
+        "GDN-076",
+        "GDN-104",
+        "GDN-122",
+        "GDN-134",
+        "GDN-148",
+        "GDN-160"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07"
+      ]
     },
     {
       "id": "GDN-188",
@@ -2530,9 +3956,21 @@
       "applicability": "current_scope",
       "scope": "Test real deployment topology under expected/synthetic growth, simultaneous editing, large files, database sleep/restarts and slow networks.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-020",
+        "GDN-103",
+        "GDN-113",
+        "GDN-164",
+        "GDN-180",
+        "GDN-181"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X04",
+        "X05",
+        "X08"
+      ]
     },
     {
       "id": "GDN-189",
@@ -2543,9 +3981,18 @@
       "applicability": "current_scope",
       "scope": "Establish incident severity, containment, key compromise response, data-loss recovery, lawful notification review and public status communication.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-017",
+        "GDN-030",
+        "GDN-032",
+        "GDN-174",
+        "GDN-180",
+        "GDN-184",
+        "GDN-188"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": []
     },
     {
       "id": "GDN-190",
@@ -2556,9 +4003,30 @@
       "applicability": "current_scope",
       "scope": "Obtain authorized independent security testing of actual components and reconcile canonical-standard controls, penetration findings and cryptographic boundaries. Assess the enabled core research scope first; sealed, community, AI and government capabilities retain their own independent activation assessments in their feature and release PRs, not an assumed blanket pass.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-003",
+        "GDN-005",
+        "GDN-024",
+        "GDN-025",
+        "GDN-026",
+        "GDN-030",
+        "GDN-031",
+        "GDN-033",
+        "GDN-034",
+        "GDN-041",
+        "GDN-077",
+        "GDN-079",
+        "GDN-088",
+        "GDN-122",
+        "GDN-184"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X07",
+        "X08"
+      ]
     },
     {
       "id": "GDN-191",
@@ -2569,9 +4037,21 @@
       "applicability": "current_scope",
       "scope": "Reconcile all currently available research artifacts, preserve open historical questions and verify what is eligible for public discovery versus restricted preservation.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-048",
+        "GDN-117",
+        "GDN-118",
+        "GDN-122",
+        "GDN-134",
+        "GDN-183",
+        "GDN-184"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07",
+        "X09"
+      ]
     },
     {
       "id": "GDN-192",
@@ -2582,9 +4062,23 @@
       "applicability": "current_scope",
       "scope": "Launch the reviewed public explanation and document library on authorized production resources with verified DNS/HTTPS, backups and visible status. Verify seed backup/restore, minimal live monitoring and safe metadata here; the full-corpus backup and monitoring suites follow without blocking this bounded release.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-017",
+        "GDN-018",
+        "GDN-034",
+        "GDN-042",
+        "GDN-064",
+        "GDN-076",
+        "GDN-080",
+        "GDN-087"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X01",
+        "X04",
+        "X05"
+      ]
     },
     {
       "id": "GDN-193",
@@ -2595,9 +4089,29 @@
       "applicability": "current_scope",
       "scope": "Release researcher tools to an authorized cohort, import permitted material and verify actual uploads, collaboration, review, publication and withdrawal online.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-020",
+        "GDN-088",
+        "GDN-104",
+        "GDN-122",
+        "GDN-134",
+        "GDN-148",
+        "GDN-184",
+        "GDN-187",
+        "GDN-188",
+        "GDN-190",
+        "GDN-191",
+        "GDN-192"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X01",
+        "X02",
+        "X04",
+        "X05",
+        "X07"
+      ]
     },
     {
       "id": "GDN-194",
@@ -2608,9 +4122,29 @@
       "applicability": "current_scope",
       "scope": "Verify the full non-government feature inventory across providers, documentation, consent, performance and production behavior. Record any intentionally disabled optional capability.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-160",
+        "GDN-172",
+        "GDN-182",
+        "GDN-185",
+        "GDN-186",
+        "GDN-187",
+        "GDN-188",
+        "GDN-189",
+        "GDN-190",
+        "GDN-191",
+        "GDN-193"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X01",
+        "X02",
+        "X03",
+        "X04",
+        "X05",
+        "X07"
+      ]
     },
     {
       "id": "GDN-195",
@@ -2621,9 +4155,20 @@
       "applicability": "current_scope",
       "scope": "Configure authorized health checks, dependency alerts, security updates, restore exercises and regression-triggered status changes as application operations.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-177",
+        "GDN-180",
+        "GDN-181",
+        "GDN-189",
+        "GDN-194"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X01",
+        "X03",
+        "X04"
+      ]
     },
     {
       "id": "GDN-196",
@@ -2634,9 +4179,21 @@
       "applicability": "current_scope",
       "scope": "Perform final feature inventory, source preservation, security, accessibility, live deployment and repository-only handoff review. Establish ongoing ownership and unresolved research backlog.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-186",
+        "GDN-194",
+        "GDN-195",
+        "GDN-028"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X01",
+        "X02",
+        "X03",
+        "X04",
+        "X07"
+      ]
     },
     {
       "id": "GDN-197",
@@ -2647,9 +4204,18 @@
       "applicability": "conditional_government",
       "scope": "After actual enactment and authorization, retrieve operative law/rules and establish governmental operator, mandate, privacy authority, funding and separate repository contracts.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-074",
+        "GDN-175",
+        "GDN-190",
+        "GDN-196"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X07",
+        "X12"
+      ]
     },
     {
       "id": "GDN-198",
@@ -2660,9 +4226,16 @@
       "applicability": "conditional_government",
       "scope": "Establish separate governmental application/services with authorized identity, isolated data stores/keys, procurement and accessibility/security requirements.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-197"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X08",
+        "X12"
+      ]
     },
     {
       "id": "GDN-199",
@@ -2673,9 +4246,16 @@
       "applicability": "conditional_government",
       "scope": "Implement official roster versions, evidence, agency decisions, public notice and distinction from independent scholarly dossiers.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-197",
+        "GDN-198"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X12"
+      ]
     },
     {
       "id": "GDN-200",
@@ -2686,9 +4266,16 @@
       "applicability": "conditional_government",
       "scope": "Support legally specified comment windows, correction petitions, accessible filing, docketing and reasoned decisions with required retention.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-198",
+        "GDN-199"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X12"
+      ]
     },
     {
       "id": "GDN-201",
@@ -2699,9 +4286,17 @@
       "applicability": "conditional_government",
       "scope": "Build authorized identity/evidence submission, case assignment and secure family-record handling under adopted standards.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-197",
+        "GDN-198",
+        "GDN-200"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X12"
+      ]
     },
     {
       "id": "GDN-202",
@@ -2712,9 +4307,16 @@
       "applicability": "conditional_government",
       "scope": "Implement legally authorized duplicate detection with privacy-preserving identifiers, guardian/minor processes and allowed founding-period affiliation corrections.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-198",
+        "GDN-201"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X12"
+      ]
     },
     {
       "id": "GDN-203",
@@ -2725,9 +4327,17 @@
       "applicability": "conditional_government",
       "scope": "Support human-authorized decisions, reasons, evidence requests, impartial appeals and final status under adopted rules.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-200",
+        "GDN-201",
+        "GDN-202"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X12"
+      ]
     },
     {
       "id": "GDN-204",
@@ -2738,9 +4348,16 @@
       "applicability": "conditional_government",
       "scope": "Accept authorized founding instruments and publish certification status, constitutions, public laws and budgets with verified signatures and redaction.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-198",
+        "GDN-203"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X12"
+      ]
     },
     {
       "id": "GDN-205",
@@ -2751,9 +4368,17 @@
       "applicability": "conditional_government",
       "scope": "Publish verified governmental offers, districts, conditions, existing rights, readiness requirements and deadlines for every eligible nation, including non-Assembly participants.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-197",
+        "GDN-198",
+        "GDN-204"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X12"
+      ]
     },
     {
       "id": "GDN-206",
@@ -2764,9 +4389,18 @@
       "applicability": "conditional_government",
       "scope": "Implement externally reviewed sealed submissions, immutable receipts, authorized common deadlines, controlled key custody and auditable opening ceremony.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-198",
+        "GDN-204",
+        "GDN-205"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X07",
+        "X12"
+      ]
     },
     {
       "id": "GDN-207",
@@ -2777,9 +4411,17 @@
       "applicability": "conditional_government",
       "scope": "Provide authorized negotiation records, draft agreements, conflicts, invitations and voluntary joint proposals without giving the Assembly power to impose outcomes.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-204",
+        "GDN-205",
+        "GDN-206"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X12"
+      ]
     },
     {
       "id": "GDN-208",
@@ -2790,9 +4432,17 @@
       "applicability": "conditional_government",
       "scope": "Publish authorized audited budgets, enterprise reporting, fee/repayment calculations and compact compliance with confidential fields segregated.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-198",
+        "GDN-204",
+        "GDN-207"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X12"
+      ]
     },
     {
       "id": "GDN-209",
@@ -2803,9 +4453,17 @@
       "applicability": "conditional_government",
       "scope": "Provide linked public portals for laws, budgets, notices and service directories, with clear service owners and separate governance.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-198",
+        "GDN-204",
+        "GDN-208"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X12"
+      ]
     },
     {
       "id": "GDN-210",
@@ -2816,656 +4474,165 @@
       "applicability": "conditional_government",
       "scope": "Conduct formal authorized acceptance of every activated governmental function, including independent security, legal process, accessibility, operations and disaster recovery.",
       "source": "plan/plan.json",
-      "dependsOn": [],
+      "dependsOn": [
+        "GDN-197",
+        "GDN-198",
+        "GDN-199",
+        "GDN-200",
+        "GDN-201",
+        "GDN-202",
+        "GDN-203",
+        "GDN-204",
+        "GDN-205",
+        "GDN-206",
+        "GDN-207",
+        "GDN-208",
+        "GDN-209"
+      ],
       "externalDependencies": [],
-      "externalPrerequisites": []
+      "externalPrerequisites": [],
+      "sourceExternalGates": [
+        "X02",
+        "X07",
+        "X12"
+      ]
     }
   ],
   "pullRequests": [
     {
-      "id": 4890692570,
-      "number": 55,
-      "title": "Conform Garden release plan to AI security review and deferred outside audit",
-      "url": "https://github.com/neophilism/The-Garden/pull/55",
+      "id": 4813335921,
+      "number": 1,
+      "title": "Bootstrap: import complete approved Garden development baseline",
+      "url": "https://github.com/neophilism/The-Garden/pull/1",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-16T15:39:11Z",
-      "updatedAt": "2026-10-17T12:15:11Z",
-      "closedAt": "2026-10-17T12:15:11Z",
-      "mergedAt": "2026-10-17T12:15:11Z",
-      "headSha": "1e4b9697214ac45e229ab62e2907bcb7983e8393",
+      "createdAt": "2026-10-10T18:03:33Z",
+      "updatedAt": "2026-10-10T18:05:39Z",
+      "closedAt": "2026-10-10T18:05:39Z",
+      "mergedAt": "2026-10-10T18:05:39Z",
+      "headSha": "fedf621f2b6acc738684cf13b0c3e2d4ac0410e4",
       "baseRef": "main",
-      "mergeCommitSha": "034590eecf99497aabbf598c5d6038673cd1b795"
+      "mergeCommitSha": "ae4e04ce000afaeea24e3936a9feb45489ceb127"
     },
     {
-      "id": 4890227850,
-      "number": 54,
-      "title": "Record Garden schema rollout and actual deployment capacity limit",
-      "url": "https://github.com/neophilism/The-Garden/pull/54",
+      "id": 4813375279,
+      "number": 2,
+      "title": "GDN-001: project charter, feature ownership and execution contracts",
+      "url": "https://github.com/neophilism/The-Garden/pull/2",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-16T15:01:47Z",
-      "updatedAt": "2026-10-16T15:07:41Z",
-      "closedAt": "2026-10-16T15:07:41Z",
-      "mergedAt": "2026-10-16T15:07:41Z",
-      "headSha": "af365c16962e2a8aae1cf82961f11f23cc39148e",
+      "createdAt": "2026-10-10T18:10:03Z",
+      "updatedAt": "2026-10-10T18:11:04Z",
+      "closedAt": "2026-10-10T18:11:04Z",
+      "mergedAt": "2026-10-10T18:11:04Z",
+      "headSha": "a3ffa6605e2cd10da25e46a76cd407fa6a54097e",
       "baseRef": "main",
-      "mergeCommitSha": "76d43db0b9ae753fed309edefbe71611bd5e7069"
+      "mergeCommitSha": "84995389795271438c61f14ea629c412d3814c5b"
     },
     {
-      "id": 4890137409,
-      "number": 53,
-      "title": "Prepare Garden staging runtime and health verification",
-      "url": "https://github.com/neophilism/The-Garden/pull/53",
+      "id": 4815340818,
+      "number": 3,
+      "title": "GDN-002: verified CP-017 source baseline and read-only validation",
+      "url": "https://github.com/neophilism/The-Garden/pull/3",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-16T14:54:17Z",
-      "updatedAt": "2026-10-16T14:57:56Z",
-      "closedAt": "2026-10-16T14:57:56Z",
-      "mergedAt": "2026-10-16T14:57:56Z",
-      "headSha": "e718bd373b590a4948723832231e1c243cdcea13",
+      "createdAt": "2026-10-11T00:02:18Z",
+      "updatedAt": "2026-10-11T00:03:11Z",
+      "closedAt": "2026-10-11T00:03:10Z",
+      "mergedAt": "2026-10-11T00:03:10Z",
+      "headSha": "de5c0687ec8272eda5a179fc2a10c5ebb994e115",
       "baseRef": "main",
-      "mergeCommitSha": "34a671165adff09d7d9fb1997324ac3b571b7a74"
+      "mergeCommitSha": "19cce0f73ea06e6be70f09c350d4eaceac1e6903"
     },
     {
-      "id": 4848614445,
-      "number": 52,
-      "title": "Standardize canonical PR registry for Boardroom and Engine Room",
-      "url": "https://github.com/neophilism/The-Garden/pull/52",
+      "id": 4815352074,
+      "number": 4,
+      "title": "GDN-003: pin canonical E2EESA revision and fail closed on unassessed controls",
+      "url": "https://github.com/neophilism/The-Garden/pull/4",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-13T19:49:05Z",
-      "updatedAt": "2026-10-13T21:25:35Z",
-      "closedAt": "2026-10-13T21:25:35Z",
-      "mergedAt": "2026-10-13T21:25:34Z",
-      "headSha": "01ab665e9bd2c98cda09de54afb5c06d49f8bbc3",
+      "createdAt": "2026-10-11T00:04:16Z",
+      "updatedAt": "2026-10-11T00:05:01Z",
+      "closedAt": "2026-10-11T00:05:01Z",
+      "mergedAt": "2026-10-11T00:05:01Z",
+      "headSha": "dde6135afa4a5df3e7549eb27ef1f32693dfab3c",
       "baseRef": "main",
-      "mergeCommitSha": "c4f7dcd544a3871d0821119654819460fdf38de3"
+      "mergeCommitSha": "91307ffc3831d8a908f2ecebd97b5baf18303fab"
     },
     {
-      "id": 4848107862,
-      "number": 51,
-      "title": "Owner policy: proceed with AI security review; defer external audit",
-      "url": "https://github.com/neophilism/The-Garden/pull/51",
+      "id": 4815361808,
+      "number": 5,
+      "title": "GDN-004: authorized provider inventory and Engine Room plan manifest",
+      "url": "https://github.com/neophilism/The-Garden/pull/5",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-13T19:04:37Z",
-      "updatedAt": "2026-10-13T19:09:52Z",
-      "closedAt": "2026-10-13T19:09:52Z",
-      "mergedAt": "2026-10-13T19:09:52Z",
-      "headSha": "bdeb49a7907abcf5157afa8c7620f72022e56f23",
+      "createdAt": "2026-10-11T00:06:15Z",
+      "updatedAt": "2026-10-11T00:07:05Z",
+      "closedAt": "2026-10-11T00:07:05Z",
+      "mergedAt": "2026-10-11T00:07:05Z",
+      "headSha": "df5be0fded17483434e356caf958c8da8a296a7b",
       "baseRef": "main",
-      "mergeCommitSha": "db741c80bc237bde0ce327fb3fed4d876e03f14a"
+      "mergeCommitSha": "2350f0523c9ab5accebbaec147da7548af9109f4"
     },
     {
-      "id": 4836474441,
-      "number": 50,
-      "title": "GDN-085: private source acquisition queue with verified authority and denial history",
-      "url": "https://github.com/neophilism/The-Garden/pull/50",
+      "id": 4815372085,
+      "number": 6,
+      "title": "GDN-005: classify data flows and fail-closed threat model",
+      "url": "https://github.com/neophilism/The-Garden/pull/6",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-13T00:08:16Z",
-      "updatedAt": "2026-10-13T00:10:24Z",
-      "closedAt": "2026-10-13T00:10:24Z",
-      "mergedAt": "2026-10-13T00:10:24Z",
-      "headSha": "374f7933a4fde8767ca2bf7aba27db1b62d943b5",
+      "createdAt": "2026-10-11T00:08:11Z",
+      "updatedAt": "2026-10-11T00:10:35Z",
+      "closedAt": "2026-10-11T00:10:35Z",
+      "mergedAt": "2026-10-11T00:10:35Z",
+      "headSha": "583cb44b9991aa5c470a58d71839f2719dced8b0",
       "baseRef": "main",
-      "mergeCommitSha": "0e822533e74ac2492aeebb7813d60c395d0a5ef2"
+      "mergeCommitSha": "cd9e31cf8ade1a7cdb9a9beca58f1786b7203d60"
     },
     {
-      "id": 4836405974,
-      "number": 49,
-      "title": "Reconcile GDN-078 merge and profile real CP-018 corpus formats without import",
-      "url": "https://github.com/neophilism/The-Garden/pull/49",
+      "id": 4815385030,
+      "number": 7,
+      "title": "GDN-006: accessible public-orientation prototype and visitor journeys",
+      "url": "https://github.com/neophilism/The-Garden/pull/7",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-12T23:59:07Z",
-      "updatedAt": "2026-10-13T00:05:12Z",
-      "closedAt": "2026-10-13T00:05:12Z",
-      "mergedAt": "2026-10-13T00:05:12Z",
-      "headSha": "d7a80971ed1032e5400ea23a4203a48eb21008da",
+      "createdAt": "2026-10-11T00:10:42Z",
+      "updatedAt": "2026-10-11T00:11:02Z",
+      "closedAt": "2026-10-11T00:11:02Z",
+      "mergedAt": "2026-10-11T00:11:01Z",
+      "headSha": "89589dd5d8fd5f7fdbbd7437693ba4990f82a3ee",
       "baseRef": "main",
-      "mergeCommitSha": "9161fe0f8417fa8fb4366e5b2197db9c51dfd06e"
+      "mergeCommitSha": "6cf5c7517691f7582ee674aae4512d36f71ba087"
     },
     {
-      "id": 4836370947,
-      "number": 48,
-      "title": "GDN-078: repository links, citation formats and private bibliographic intake",
-      "url": "https://github.com/neophilism/The-Garden/pull/48",
+      "id": 4815390461,
+      "number": 8,
+      "title": "GDN-008: reconcile 210-item roadmap with verified PR evidence",
+      "url": "https://github.com/neophilism/The-Garden/pull/8",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-12T23:54:03Z",
-      "updatedAt": "2026-10-12T23:56:25Z",
-      "closedAt": "2026-10-12T23:56:25Z",
-      "mergedAt": "2026-10-12T23:56:25Z",
-      "headSha": "cd29f6fbfff4d979472e89001ec1af9aa3f7856d",
+      "createdAt": "2026-10-11T00:11:49Z",
+      "updatedAt": "2026-10-11T00:14:11Z",
+      "closedAt": "2026-10-11T00:14:10Z",
+      "mergedAt": "2026-10-11T00:14:10Z",
+      "headSha": "746cd66d905a8dbe16b96ebddd148af36c0a1821",
       "baseRef": "main",
-      "mergeCommitSha": "9c5b9903d1438ed980de600d53c03a5719530cd8"
+      "mergeCommitSha": "7932bab5dbf5492270dc4c59bc599461215aa114"
     },
     {
-      "id": 4830333381,
-      "number": 41,
-      "title": "docs: reconcile GDN-077 merge, roadmap and evidence",
-      "url": "https://github.com/neophilism/The-Garden/pull/41",
+      "id": 4815402249,
+      "number": 9,
+      "title": "GDN-007: editorial source coverage and image-rights review gates",
+      "url": "https://github.com/neophilism/The-Garden/pull/9",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-12T13:47:50Z",
-      "updatedAt": "2026-10-12T23:51:22Z",
-      "closedAt": "2026-10-12T23:51:22Z",
-      "mergedAt": "2026-10-12T23:51:22Z",
-      "headSha": "c020f158a5b9165bcf4c0d798ae24e161f730a63",
+      "createdAt": "2026-10-11T00:14:17Z",
+      "updatedAt": "2026-10-11T00:14:48Z",
+      "closedAt": "2026-10-11T00:14:47Z",
+      "mergedAt": "2026-10-11T00:14:47Z",
+      "headSha": "8b57225d0c0668ac8830bc7b15d244dfe057fb47",
       "baseRef": "main",
-      "mergeCommitSha": "af195d9e67eb1b3d4050d01e4bd088ef43bbc848"
-    },
-    {
-      "id": 4835982596,
-      "number": 46,
-      "title": "Archive six additional CP-018 historical research originals in GitHub",
-      "url": "https://github.com/neophilism/The-Garden/pull/46",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-12T22:59:09Z",
-      "updatedAt": "2026-10-12T23:01:02Z",
-      "closedAt": "2026-10-12T23:01:02Z",
-      "mergedAt": "2026-10-12T23:01:02Z",
-      "headSha": "189fe4f8e1f80bc29ec2589d656ab4895abc2b18",
-      "baseRef": "main",
-      "mergeCommitSha": "ccf291c4a947a2b3f625dd12ebe132ee18276e60"
-    },
-    {
-      "id": 4835940314,
-      "number": 45,
-      "title": "Verify all 12 remaining CP-018 originals against immutable source hashes",
-      "url": "https://github.com/neophilism/The-Garden/pull/45",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-12T22:53:51Z",
-      "updatedAt": "2026-10-12T22:55:36Z",
-      "closedAt": "2026-10-12T22:55:35Z",
-      "mergedAt": "2026-10-12T22:55:35Z",
-      "headSha": "b710558a73919c94065f13dedc442f6dd7ac16e3",
-      "baseRef": "main",
-      "mergeCommitSha": "4ddfd5b29ec0fd31806333ca3c7fa208e765b16a"
-    },
-    {
-      "id": 4831098633,
-      "number": 43,
-      "title": "Add Garden source document library",
-      "url": "https://github.com/neophilism/The-Garden/pull/43",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-12T14:51:30Z",
-      "updatedAt": "2026-10-12T22:49:09Z",
-      "closedAt": "2026-10-12T22:49:09Z",
-      "mergedAt": "2026-10-12T22:49:08Z",
-      "headSha": "0d30a03cd304dae4cc2921c79f2320d4c097ca4e",
-      "baseRef": "main",
-      "mergeCommitSha": "4f397326bb7410025c65ad8f4406c1f3ef3ef296"
-    },
-    {
-      "id": 4831981736,
-      "number": 44,
-      "title": "Restore all Garden validation and evidence gates on CircleCI",
-      "url": "https://github.com/neophilism/The-Garden/pull/44",
-      "state": "open",
-      "draft": false,
-      "createdAt": "2026-10-12T16:06:52Z",
-      "updatedAt": "2026-10-12T16:06:52Z",
-      "closedAt": null,
-      "mergedAt": null,
-      "headSha": "525f2c5681e45f5a512a7853ab39672b99696030",
-      "baseRef": "main",
-      "mergeCommitSha": "6bd71b7fc9c2021336b36c987ab48c358a488ca2"
-    },
-    {
-      "id": 4830379603,
-      "number": 42,
-      "title": "Track E2EESA implementation, full testing and independent expert review",
-      "url": "https://github.com/neophilism/The-Garden/pull/42",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-12T13:51:26Z",
-      "updatedAt": "2026-10-12T14:23:07Z",
-      "closedAt": "2026-10-12T14:23:07Z",
-      "mergedAt": "2026-10-12T14:23:07Z",
-      "headSha": "5628156dc75884241c33715bff0fbc6aae1f01c8",
-      "baseRef": "main",
-      "mergeCommitSha": "ae226a1a98f6ee71a0cf01b0216583867c0e7350"
-    },
-    {
-      "id": 4830027037,
-      "number": 40,
-      "title": "GDN-077: resumable private uploads with audited corpus-staging handoff",
-      "url": "https://github.com/neophilism/The-Garden/pull/40",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-12T13:21:50Z",
-      "updatedAt": "2026-10-12T13:46:45Z",
-      "closedAt": "2026-10-12T13:46:45Z",
-      "mergedAt": "2026-10-12T13:46:45Z",
-      "headSha": "6a9f29b9e1321ffc59861538f09ec0bf1e7c9466",
-      "baseRef": "main",
-      "mergeCommitSha": "9053666876ed0a870e28ef55373dc2ae9f895e55"
-    },
-    {
-      "id": 4829733248,
-      "number": 39,
-      "title": "GDN-045 follow-up: bounded read-only corpus preflight",
-      "url": "https://github.com/neophilism/The-Garden/pull/39",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-12T12:57:05Z",
-      "updatedAt": "2026-10-12T13:01:06Z",
-      "closedAt": "2026-10-12T13:01:05Z",
-      "mergedAt": "2026-10-12T13:01:05Z",
-      "headSha": "fcbf577f836fc1b78719d032d9b674804e920a92",
-      "baseRef": "main",
-      "mergeCommitSha": "12f9e1ff02dbf3349caa4f587c9c354d15ba0ba3"
-    },
-    {
-      "id": 4829398754,
-      "number": 38,
-      "title": "docs: record GDN-045 verified merge and acceptance boundaries",
-      "url": "https://github.com/neophilism/The-Garden/pull/38",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-12T12:28:00Z",
-      "updatedAt": "2026-10-12T12:30:37Z",
-      "closedAt": "2026-10-12T12:30:36Z",
-      "mergedAt": "2026-10-12T12:30:36Z",
-      "headSha": "35ed2592806cfd7ae6772a50fb2b8621deabba1b",
-      "baseRef": "main",
-      "mergeCommitSha": "07f75cbec6f857a9d57625272a84c1923b7f8698"
-    },
-    {
-      "id": 4829289784,
-      "number": 37,
-      "title": "GDN-045: resumable historical corpus staging in private quarantine",
-      "url": "https://github.com/neophilism/The-Garden/pull/37",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-12T12:18:35Z",
-      "updatedAt": "2026-10-12T12:28:40Z",
-      "closedAt": "2026-10-12T12:25:43Z",
-      "mergedAt": "2026-10-12T12:25:42Z",
-      "headSha": "f406e0c1fba421c5be8e3ab87d40b46e278d7374",
-      "baseRef": "main",
-      "mergeCommitSha": "5b883434c0711d8f423d7c576d74ecade013d543"
-    },
-    {
-      "id": 4822257718,
-      "number": 36,
-      "title": "Reconcile verified PRs and roadmap progress",
-      "url": "https://github.com/neophilism/The-Garden/pull/36",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T20:51:49Z",
-      "updatedAt": "2026-10-11T20:53:58Z",
-      "closedAt": "2026-10-11T20:53:57Z",
-      "mergedAt": "2026-10-11T20:53:57Z",
-      "headSha": "1d1f8dc98670b06291b249340331b651ece8cfbc",
-      "baseRef": "main",
-      "mergeCommitSha": "638a012da5e4ff846c7b7ef86f2185602099035b"
-    },
-    {
-      "id": 4822213120,
-      "number": 35,
-      "title": "GDN-044: explicit source-table mappings and schema-drift validation",
-      "url": "https://github.com/neophilism/The-Garden/pull/35",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T20:44:42Z",
-      "updatedAt": "2026-10-11T20:46:26Z",
-      "closedAt": "2026-10-11T20:46:26Z",
-      "mergedAt": "2026-10-11T20:46:26Z",
-      "headSha": "b2b4eb3ef9f656e305f5cc06c033ba0f46b65ec2",
-      "baseRef": "main",
-      "mergeCommitSha": "3cfd7584fee08cc87d0fffc0fac839b5e9d73913"
-    },
-    {
-      "id": 4822146762,
-      "number": 34,
-      "title": "GDN-041: read-only import inventory and quarantine",
-      "url": "https://github.com/neophilism/The-Garden/pull/34",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T20:34:31Z",
-      "updatedAt": "2026-10-11T20:36:57Z",
-      "closedAt": "2026-10-11T20:36:57Z",
-      "mergedAt": "2026-10-11T20:36:57Z",
-      "headSha": "3d9401e3d5a05320bf14275de58c67a354dea68d",
-      "baseRef": "main",
-      "mergeCommitSha": "d789ed5e440a19d07a35f8a3fdfa8863b9d76d54"
-    },
-    {
-      "id": 4822050635,
-      "number": 33,
-      "title": "GDN-095: sourced geography, uncertain dates and protected coordinate history",
-      "url": "https://github.com/neophilism/The-Garden/pull/33",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T20:20:22Z",
-      "updatedAt": "2026-10-11T20:26:24Z",
-      "closedAt": "2026-10-11T20:26:24Z",
-      "mergedAt": "2026-10-11T20:26:24Z",
-      "headSha": "75b64e576dff4021cd0a6b98b155735e1305ddaa",
-      "baseRef": "main",
-      "mergeCommitSha": "d55a3ea953c6b009945bb572817f30dd5040f65a"
-    },
-    {
-      "id": 4821986189,
-      "number": 32,
-      "title": "GDN-040: structured editorial content and version-bound policy references",
-      "url": "https://github.com/neophilism/The-Garden/pull/32",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T20:10:28Z",
-      "updatedAt": "2026-10-11T20:13:49Z",
-      "closedAt": "2026-10-11T20:13:49Z",
-      "mergedAt": "2026-10-11T20:13:49Z",
-      "headSha": "656b16a9774da9ff9e4f1622efe1532e36956b47",
-      "baseRef": "main",
-      "mergeCommitSha": "e0c98404757c05337116b2a2fb52c1896a3dbcfb"
-    },
-    {
-      "id": 4821672980,
-      "number": 31,
-      "title": "GDN-039: scoped review axes, independent assignments and immutable dispute history",
-      "url": "https://github.com/neophilism/The-Garden/pull/31",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T19:21:46Z",
-      "updatedAt": "2026-10-11T19:30:58Z",
-      "closedAt": "2026-10-11T19:30:58Z",
-      "mergedAt": "2026-10-11T19:30:58Z",
-      "headSha": "90a5ca803bd760e35d85779b4b3d763f2850ffa0",
-      "baseRef": "main",
-      "mergeCommitSha": "9d286f168cb24d51178f020da60d1b462c277275"
-    },
-    {
-      "id": 4821510270,
-      "number": 30,
-      "title": "Fix numeric revision history and keyset pagination across research repositories",
-      "url": "https://github.com/neophilism/The-Garden/pull/30",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T18:58:09Z",
-      "updatedAt": "2026-10-11T19:06:53Z",
-      "closedAt": "2026-10-11T19:06:53Z",
-      "mergedAt": "2026-10-11T19:06:53Z",
-      "headSha": "ddf76ad7ef0ebe3374341d2d85b54af65f6ee465",
-      "baseRef": "main",
-      "mergeCommitSha": "61d38aa5642988e7d275c9f0856b6fb806440281"
-    },
-    {
-      "id": 4821439690,
-      "number": 29,
-      "title": "GDN-031: authorization matrix, database-role isolation and route coverage gates",
-      "url": "https://github.com/neophilism/The-Garden/pull/29",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T18:46:57Z",
-      "updatedAt": "2026-10-11T18:55:15Z",
-      "closedAt": "2026-10-11T18:55:15Z",
-      "mergedAt": "2026-10-11T18:55:15Z",
-      "headSha": "f09f5fffa25ae9d4ae301669ec082ce27af5b8d5",
-      "baseRef": "main",
-      "mergeCommitSha": "476ab0b8aff861f52f766d114cbf0a3bc2faa783"
-    },
-    {
-      "id": 4821173806,
-      "number": 28,
-      "title": "GDN-030: redacted tamper-evident audit and scoped auditor exports",
-      "url": "https://github.com/neophilism/The-Garden/pull/28",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T18:05:30Z",
-      "updatedAt": "2026-10-11T18:25:24Z",
-      "closedAt": "2026-10-11T18:25:24Z",
-      "mergedAt": "2026-10-11T18:25:24Z",
-      "headSha": "c00198d8796f10594f119194e4ffb14baee3d060",
-      "baseRef": "main",
-      "mergeCommitSha": "7cb417f291011f20f89f66c8a0d2da804b560198"
-    },
-    {
-      "id": 4820967259,
-      "number": 27,
-      "title": "GDN-022: verified passkeys, current session assurance and protected recovery",
-      "url": "https://github.com/neophilism/The-Garden/pull/27",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T17:32:56Z",
-      "updatedAt": "2026-10-11T17:47:25Z",
-      "closedAt": "2026-10-11T17:47:25Z",
-      "mergedAt": "2026-10-11T17:47:25Z",
-      "headSha": "1cf895006931c8f2930cfd07c8f36e3449ad0227",
-      "baseRef": "main",
-      "mergeCommitSha": "fa0a14c1917fcdbaeb648acfec72d65f90ccb55f"
-    },
-    {
-      "id": 4820100345,
-      "number": 26,
-      "title": "GDN-029: purpose-specific consent, derivative limits and live withdrawal enforcement",
-      "url": "https://github.com/neophilism/The-Garden/pull/26",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T15:19:33Z",
-      "updatedAt": "2026-10-11T15:21:38Z",
-      "closedAt": "2026-10-11T15:21:38Z",
-      "mergedAt": "2026-10-11T15:21:38Z",
-      "headSha": "779cd85db8562e8764bad9caf7a9fdd8b791b2c1",
-      "baseRef": "main",
-      "mergeCommitSha": "b62396cf1715d51c2d396ef24d276a7a3306f017"
-    },
-    {
-      "id": 4819967019,
-      "number": 25,
-      "title": "GDN-037: atomic claims, explicit evidence relations and correction propagation",
-      "url": "https://github.com/neophilism/The-Garden/pull/25",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T14:58:47Z",
-      "updatedAt": "2026-10-11T15:01:37Z",
-      "closedAt": "2026-10-11T15:01:37Z",
-      "mergedAt": "2026-10-11T15:01:37Z",
-      "headSha": "07c2111c32f465ad98ce445da2f83c6a614cd5df",
-      "baseRef": "main",
-      "mergeCommitSha": "38eea9c6cf2a3af390270db0ef248cd48be242fd"
-    },
-    {
-      "id": 4818219151,
-      "number": 24,
-      "title": "GDN-038: version-bound source locators and explicit reanchoring proposals",
-      "url": "https://github.com/neophilism/The-Garden/pull/24",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T09:59:09Z",
-      "updatedAt": "2026-10-11T10:01:28Z",
-      "closedAt": "2026-10-11T10:01:28Z",
-      "mergedAt": "2026-10-11T10:01:28Z",
-      "headSha": "328e4242dd4d704edc665862bb254389ae852ad4",
-      "baseRef": "main",
-      "mergeCommitSha": "9886c7e52026b89cef7d8a0949972ec5f238a71d"
-    },
-    {
-      "id": 4818139988,
-      "number": 23,
-      "title": "GDN-036: archival hierarchy, source provenance and conflicting catalog assertions",
-      "url": "https://github.com/neophilism/The-Garden/pull/23",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T09:44:34Z",
-      "updatedAt": "2026-10-11T09:46:29Z",
-      "closedAt": "2026-10-11T09:46:29Z",
-      "mergedAt": "2026-10-11T09:46:29Z",
-      "headSha": "2c6445f995e05fe608e5a350cab795f49c0cb6c7",
-      "baseRef": "main",
-      "mergeCommitSha": "940356a72bc60fb7f484195467e9f157b58feb4c"
-    },
-    {
-      "id": 4818068066,
-      "number": 22,
-      "title": "GDN-035: typed historical entities, reversible merges and protected revision history",
-      "url": "https://github.com/neophilism/The-Garden/pull/22",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T09:30:37Z",
-      "updatedAt": "2026-10-11T09:34:59Z",
-      "closedAt": "2026-10-11T09:34:59Z",
-      "mergedAt": "2026-10-11T09:34:59Z",
-      "headSha": "7734e0759ce6341739ea3f8c96eb7f3458c73621",
-      "baseRef": "main",
-      "mergeCommitSha": "8fee8457a4bff214ab09b20da67ed877a34aba46"
-    },
-    {
-      "id": 4817901578,
-      "number": 21,
-      "title": "GDN-025: permission-filtered search, secondary views and private byte delivery",
-      "url": "https://github.com/neophilism/The-Garden/pull/21",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T08:59:57Z",
-      "updatedAt": "2026-10-11T09:14:06Z",
-      "closedAt": "2026-10-11T09:14:05Z",
-      "mergedAt": "2026-10-11T09:14:05Z",
-      "headSha": "8fa10d03356c267f06e47a528c65913d27bad908",
-      "baseRef": "main",
-      "mergeCommitSha": "9dab5f939c987d7b67e1f20d60ff33f812004a35"
-    },
-    {
-      "id": 4817794416,
-      "number": 20,
-      "title": "GDN-024: forced record security and transaction-bound researcher identity",
-      "url": "https://github.com/neophilism/The-Garden/pull/20",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T08:40:53Z",
-      "updatedAt": "2026-10-11T08:45:46Z",
-      "closedAt": "2026-10-11T08:45:45Z",
-      "mergedAt": "2026-10-11T08:45:45Z",
-      "headSha": "90c04ba9a0f1a8182541cbd5a25544f076762a96",
-      "baseRef": "main",
-      "mergeCommitSha": "c6483bb22a6319a28ad0d486cf7e4dd12613cf01"
-    },
-    {
-      "id": 4817724669,
-      "number": 19,
-      "title": "GDN-023: researcher membership, expiring invitations and accountable review assignment",
-      "url": "https://github.com/neophilism/The-Garden/pull/19",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T08:27:47Z",
-      "updatedAt": "2026-10-11T08:30:04Z",
-      "closedAt": "2026-10-11T08:30:04Z",
-      "mergedAt": "2026-10-11T08:30:04Z",
-      "headSha": "35e2351361dcdd6e3c9fc8ad14af04264a438ca8",
-      "baseRef": "main",
-      "mergeCommitSha": "c8ecf194dc6fe755cd9b2d652023aaf12a74b0f4"
-    },
-    {
-      "id": 4817538344,
-      "number": 18,
-      "title": "GDN-021: verified-email identity lifecycle and fail-closed researcher sessions",
-      "url": "https://github.com/neophilism/The-Garden/pull/18",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T07:52:11Z",
-      "updatedAt": "2026-10-11T08:01:53Z",
-      "closedAt": "2026-10-11T08:01:53Z",
-      "mergedAt": "2026-10-11T08:01:52Z",
-      "headSha": "8072e9eeaa33f87c0f6161f6295631abdd8bca24",
-      "baseRef": "main",
-      "mergeCommitSha": "d9f6699da3c009c282bf52d3fdacc76b3cf96e48"
-    },
-    {
-      "id": 4817515654,
-      "number": 17,
-      "title": "GDN-016 follow-up: prove concurrent queue claims and atomic consumer recovery",
-      "url": "https://github.com/neophilism/The-Garden/pull/17",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T07:48:07Z",
-      "updatedAt": "2026-10-11T07:51:57Z",
-      "closedAt": "2026-10-11T07:51:57Z",
-      "mergedAt": "2026-10-11T07:51:57Z",
-      "headSha": "b55db60f22aa99ae3c85cc487eb763c8047cb265",
-      "baseRef": "main",
-      "mergeCommitSha": "2939c1235fe7de6b6e66f172f698d43c9ea5f350"
-    },
-    {
-      "id": 4817458181,
-      "number": 16,
-      "title": "GDN-016: transactional jobs, retry leases and permission-aware outbox",
-      "url": "https://github.com/neophilism/The-Garden/pull/16",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T07:38:57Z",
-      "updatedAt": "2026-10-11T07:42:14Z",
-      "closedAt": "2026-10-11T07:42:14Z",
-      "mergedAt": "2026-10-11T07:42:14Z",
-      "headSha": "8416cf24334c7f9f2105e5a55f369f8afaebe232",
-      "baseRef": "main",
-      "mergeCommitSha": "83806d9e1f99f50cb5d819d6e69c0f97f57427cd"
-    },
-    {
-      "id": 4817414928,
-      "number": 15,
-      "title": "GDN-015: private archive storage with immutable references and review gates",
-      "url": "https://github.com/neophilism/The-Garden/pull/15",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T07:31:35Z",
-      "updatedAt": "2026-10-11T07:37:28Z",
-      "closedAt": "2026-10-11T07:37:28Z",
-      "mergedAt": "2026-10-11T07:37:28Z",
-      "headSha": "a84d44556d634ede2cf549de709bbe386bcca43d",
-      "baseRef": "main",
-      "mergeCommitSha": "7f2c738e008a0a9de5ad1bddde60682c7f4376a5"
-    },
-    {
-      "id": 4817374217,
-      "number": 14,
-      "title": "GDN-013: isolated Neon staging, atomic migrations and permission tests",
-      "url": "https://github.com/neophilism/The-Garden/pull/14",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T07:24:14Z",
-      "updatedAt": "2026-10-11T07:32:55Z",
-      "closedAt": "2026-10-11T07:32:54Z",
-      "mergedAt": "2026-10-11T07:32:54Z",
-      "headSha": "b57815aa65a753e574d802aefc867a570839c1db",
-      "baseRef": "main",
-      "mergeCommitSha": "e37b220875ea93b5416119244ab346780f4da769"
-    },
-    {
-      "id": 4815600027,
-      "number": 13,
-      "title": "GDN-012: enforce environment, secret and spending isolation",
-      "url": "https://github.com/neophilism/The-Garden/pull/13",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T00:54:00Z",
-      "updatedAt": "2026-10-11T00:59:01Z",
-      "closedAt": "2026-10-11T00:59:01Z",
-      "mergedAt": "2026-10-11T00:59:01Z",
-      "headSha": "3555cdae6a2365c4859cad6e6babc0e1472ea42a",
-      "baseRef": "main",
-      "mergeCommitSha": "671bfe5d4c31f49dae9f18035509d5d0d28bd7a6"
-    },
-    {
-      "id": 4815523418,
-      "number": 12,
-      "title": "GDN-010: browser, accessibility, supply-chain and fail-closed quality gates",
-      "url": "https://github.com/neophilism/The-Garden/pull/12",
-      "state": "closed",
-      "draft": false,
-      "createdAt": "2026-10-11T00:37:46Z",
-      "updatedAt": "2026-10-11T00:49:22Z",
-      "closedAt": "2026-10-11T00:49:22Z",
-      "mergedAt": "2026-10-11T00:49:22Z",
-      "headSha": "c19065616ba3ca2006459eb5b74ad14448679dec",
-      "baseRef": "main",
-      "mergeCommitSha": "04e8d5cb23938e6a15db7403c50026eeeff5ff9c"
+      "mergeCommitSha": "ba59a29cbe5399c5a96f0bda2a9139588754643f"
     },
     {
       "id": 4815429016,
@@ -3498,139 +4665,754 @@
       "mergeCommitSha": "b8614abf72c12eb887fc3595f1b48340df8677f1"
     },
     {
-      "id": 4815402249,
-      "number": 9,
-      "title": "GDN-007: editorial source coverage and image-rights review gates",
-      "url": "https://github.com/neophilism/The-Garden/pull/9",
+      "id": 4815523418,
+      "number": 12,
+      "title": "GDN-010: browser, accessibility, supply-chain and fail-closed quality gates",
+      "url": "https://github.com/neophilism/The-Garden/pull/12",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-11T00:14:17Z",
-      "updatedAt": "2026-10-11T00:14:48Z",
-      "closedAt": "2026-10-11T00:14:47Z",
-      "mergedAt": "2026-10-11T00:14:47Z",
-      "headSha": "8b57225d0c0668ac8830bc7b15d244dfe057fb47",
+      "createdAt": "2026-10-11T00:37:46Z",
+      "updatedAt": "2026-10-11T00:49:22Z",
+      "closedAt": "2026-10-11T00:49:22Z",
+      "mergedAt": "2026-10-11T00:49:22Z",
+      "headSha": "c19065616ba3ca2006459eb5b74ad14448679dec",
       "baseRef": "main",
-      "mergeCommitSha": "ba59a29cbe5399c5a96f0bda2a9139588754643f"
+      "mergeCommitSha": "04e8d5cb23938e6a15db7403c50026eeeff5ff9c"
     },
     {
-      "id": 4815390461,
-      "number": 8,
-      "title": "GDN-008: reconcile 210-item roadmap with verified PR evidence",
-      "url": "https://github.com/neophilism/The-Garden/pull/8",
+      "id": 4815600027,
+      "number": 13,
+      "title": "GDN-012: enforce environment, secret and spending isolation",
+      "url": "https://github.com/neophilism/The-Garden/pull/13",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-11T00:11:49Z",
-      "updatedAt": "2026-10-11T00:14:11Z",
-      "closedAt": "2026-10-11T00:14:10Z",
-      "mergedAt": "2026-10-11T00:14:10Z",
-      "headSha": "746cd66d905a8dbe16b96ebddd148af36c0a1821",
+      "createdAt": "2026-10-11T00:54:00Z",
+      "updatedAt": "2026-10-11T00:59:01Z",
+      "closedAt": "2026-10-11T00:59:01Z",
+      "mergedAt": "2026-10-11T00:59:01Z",
+      "headSha": "3555cdae6a2365c4859cad6e6babc0e1472ea42a",
       "baseRef": "main",
-      "mergeCommitSha": "7932bab5dbf5492270dc4c59bc599461215aa114"
+      "mergeCommitSha": "671bfe5d4c31f49dae9f18035509d5d0d28bd7a6"
     },
     {
-      "id": 4815385030,
-      "number": 7,
-      "title": "GDN-006: accessible public-orientation prototype and visitor journeys",
-      "url": "https://github.com/neophilism/The-Garden/pull/7",
+      "id": 4817374217,
+      "number": 14,
+      "title": "GDN-013: isolated Neon staging, atomic migrations and permission tests",
+      "url": "https://github.com/neophilism/The-Garden/pull/14",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-11T00:10:42Z",
-      "updatedAt": "2026-10-11T00:11:02Z",
-      "closedAt": "2026-10-11T00:11:02Z",
-      "mergedAt": "2026-10-11T00:11:01Z",
-      "headSha": "89589dd5d8fd5f7fdbbd7437693ba4990f82a3ee",
+      "createdAt": "2026-10-11T07:24:14Z",
+      "updatedAt": "2026-10-11T07:32:55Z",
+      "closedAt": "2026-10-11T07:32:54Z",
+      "mergedAt": "2026-10-11T07:32:54Z",
+      "headSha": "b57815aa65a753e574d802aefc867a570839c1db",
       "baseRef": "main",
-      "mergeCommitSha": "6cf5c7517691f7582ee674aae4512d36f71ba087"
+      "mergeCommitSha": "e37b220875ea93b5416119244ab346780f4da769"
     },
     {
-      "id": 4815372085,
-      "number": 6,
-      "title": "GDN-005: classify data flows and fail-closed threat model",
-      "url": "https://github.com/neophilism/The-Garden/pull/6",
+      "id": 4817414928,
+      "number": 15,
+      "title": "GDN-015: private archive storage with immutable references and review gates",
+      "url": "https://github.com/neophilism/The-Garden/pull/15",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-11T00:08:11Z",
-      "updatedAt": "2026-10-11T00:10:35Z",
-      "closedAt": "2026-10-11T00:10:35Z",
-      "mergedAt": "2026-10-11T00:10:35Z",
-      "headSha": "583cb44b9991aa5c470a58d71839f2719dced8b0",
+      "createdAt": "2026-10-11T07:31:35Z",
+      "updatedAt": "2026-10-11T07:37:28Z",
+      "closedAt": "2026-10-11T07:37:28Z",
+      "mergedAt": "2026-10-11T07:37:28Z",
+      "headSha": "a84d44556d634ede2cf549de709bbe386bcca43d",
       "baseRef": "main",
-      "mergeCommitSha": "cd9e31cf8ade1a7cdb9a9beca58f1786b7203d60"
+      "mergeCommitSha": "7f2c738e008a0a9de5ad1bddde60682c7f4376a5"
     },
     {
-      "id": 4815361808,
-      "number": 5,
-      "title": "GDN-004: authorized provider inventory and Engine Room plan manifest",
-      "url": "https://github.com/neophilism/The-Garden/pull/5",
+      "id": 4817458181,
+      "number": 16,
+      "title": "GDN-016: transactional jobs, retry leases and permission-aware outbox",
+      "url": "https://github.com/neophilism/The-Garden/pull/16",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-11T00:06:15Z",
-      "updatedAt": "2026-10-11T00:07:05Z",
-      "closedAt": "2026-10-11T00:07:05Z",
-      "mergedAt": "2026-10-11T00:07:05Z",
-      "headSha": "df5be0fded17483434e356caf958c8da8a296a7b",
+      "createdAt": "2026-10-11T07:38:57Z",
+      "updatedAt": "2026-10-11T07:42:14Z",
+      "closedAt": "2026-10-11T07:42:14Z",
+      "mergedAt": "2026-10-11T07:42:14Z",
+      "headSha": "8416cf24334c7f9f2105e5a55f369f8afaebe232",
       "baseRef": "main",
-      "mergeCommitSha": "2350f0523c9ab5accebbaec147da7548af9109f4"
+      "mergeCommitSha": "83806d9e1f99f50cb5d819d6e69c0f97f57427cd"
     },
     {
-      "id": 4815352074,
-      "number": 4,
-      "title": "GDN-003: pin canonical E2EESA revision and fail closed on unassessed controls",
-      "url": "https://github.com/neophilism/The-Garden/pull/4",
+      "id": 4817515654,
+      "number": 17,
+      "title": "GDN-016 follow-up: prove concurrent queue claims and atomic consumer recovery",
+      "url": "https://github.com/neophilism/The-Garden/pull/17",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-11T00:04:16Z",
-      "updatedAt": "2026-10-11T00:05:01Z",
-      "closedAt": "2026-10-11T00:05:01Z",
-      "mergedAt": "2026-10-11T00:05:01Z",
-      "headSha": "dde6135afa4a5df3e7549eb27ef1f32693dfab3c",
+      "createdAt": "2026-10-11T07:48:07Z",
+      "updatedAt": "2026-10-11T07:51:57Z",
+      "closedAt": "2026-10-11T07:51:57Z",
+      "mergedAt": "2026-10-11T07:51:57Z",
+      "headSha": "b55db60f22aa99ae3c85cc487eb763c8047cb265",
       "baseRef": "main",
-      "mergeCommitSha": "91307ffc3831d8a908f2ecebd97b5baf18303fab"
+      "mergeCommitSha": "2939c1235fe7de6b6e66f172f698d43c9ea5f350"
     },
     {
-      "id": 4815340818,
-      "number": 3,
-      "title": "GDN-002: verified CP-017 source baseline and read-only validation",
-      "url": "https://github.com/neophilism/The-Garden/pull/3",
+      "id": 4817538344,
+      "number": 18,
+      "title": "GDN-021: verified-email identity lifecycle and fail-closed researcher sessions",
+      "url": "https://github.com/neophilism/The-Garden/pull/18",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-11T00:02:18Z",
-      "updatedAt": "2026-10-11T00:03:11Z",
-      "closedAt": "2026-10-11T00:03:10Z",
-      "mergedAt": "2026-10-11T00:03:10Z",
-      "headSha": "de5c0687ec8272eda5a179fc2a10c5ebb994e115",
+      "createdAt": "2026-10-11T07:52:11Z",
+      "updatedAt": "2026-10-11T08:01:53Z",
+      "closedAt": "2026-10-11T08:01:53Z",
+      "mergedAt": "2026-10-11T08:01:52Z",
+      "headSha": "8072e9eeaa33f87c0f6161f6295631abdd8bca24",
       "baseRef": "main",
-      "mergeCommitSha": "19cce0f73ea06e6be70f09c350d4eaceac1e6903"
+      "mergeCommitSha": "d9f6699da3c009c282bf52d3fdacc76b3cf96e48"
     },
     {
-      "id": 4813375279,
-      "number": 2,
-      "title": "GDN-001: project charter, feature ownership and execution contracts",
-      "url": "https://github.com/neophilism/The-Garden/pull/2",
+      "id": 4817724669,
+      "number": 19,
+      "title": "GDN-023: researcher membership, expiring invitations and accountable review assignment",
+      "url": "https://github.com/neophilism/The-Garden/pull/19",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-10T18:10:03Z",
-      "updatedAt": "2026-10-10T18:11:04Z",
-      "closedAt": "2026-10-10T18:11:04Z",
-      "mergedAt": "2026-10-10T18:11:04Z",
-      "headSha": "a3ffa6605e2cd10da25e46a76cd407fa6a54097e",
+      "createdAt": "2026-10-11T08:27:47Z",
+      "updatedAt": "2026-10-11T08:30:04Z",
+      "closedAt": "2026-10-11T08:30:04Z",
+      "mergedAt": "2026-10-11T08:30:04Z",
+      "headSha": "35e2351361dcdd6e3c9fc8ad14af04264a438ca8",
       "baseRef": "main",
-      "mergeCommitSha": "84995389795271438c61f14ea629c412d3814c5b"
+      "mergeCommitSha": "c8ecf194dc6fe755cd9b2d652023aaf12a74b0f4"
     },
     {
-      "id": 4813335921,
-      "number": 1,
-      "title": "Bootstrap: import complete approved Garden development baseline",
-      "url": "https://github.com/neophilism/The-Garden/pull/1",
+      "id": 4817794416,
+      "number": 20,
+      "title": "GDN-024: forced record security and transaction-bound researcher identity",
+      "url": "https://github.com/neophilism/The-Garden/pull/20",
       "state": "closed",
       "draft": false,
-      "createdAt": "2026-10-10T18:03:33Z",
-      "updatedAt": "2026-10-10T18:05:39Z",
-      "closedAt": "2026-10-10T18:05:39Z",
-      "mergedAt": "2026-10-10T18:05:39Z",
-      "headSha": "fedf621f2b6acc738684cf13b0c3e2d4ac0410e4",
+      "createdAt": "2026-10-11T08:40:53Z",
+      "updatedAt": "2026-10-11T08:45:46Z",
+      "closedAt": "2026-10-11T08:45:45Z",
+      "mergedAt": "2026-10-11T08:45:45Z",
+      "headSha": "90c04ba9a0f1a8182541cbd5a25544f076762a96",
       "baseRef": "main",
-      "mergeCommitSha": "ae4e04ce000afaeea24e3936a9feb45489ceb127"
+      "mergeCommitSha": "c6483bb22a6319a28ad0d486cf7e4dd12613cf01"
+    },
+    {
+      "id": 4817901578,
+      "number": 21,
+      "title": "GDN-025: permission-filtered search, secondary views and private byte delivery",
+      "url": "https://github.com/neophilism/The-Garden/pull/21",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T08:59:57Z",
+      "updatedAt": "2026-10-11T09:14:06Z",
+      "closedAt": "2026-10-11T09:14:05Z",
+      "mergedAt": "2026-10-11T09:14:05Z",
+      "headSha": "8fa10d03356c267f06e47a528c65913d27bad908",
+      "baseRef": "main",
+      "mergeCommitSha": "9dab5f939c987d7b67e1f20d60ff33f812004a35"
+    },
+    {
+      "id": 4818068066,
+      "number": 22,
+      "title": "GDN-035: typed historical entities, reversible merges and protected revision history",
+      "url": "https://github.com/neophilism/The-Garden/pull/22",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T09:30:37Z",
+      "updatedAt": "2026-10-11T09:34:59Z",
+      "closedAt": "2026-10-11T09:34:59Z",
+      "mergedAt": "2026-10-11T09:34:59Z",
+      "headSha": "7734e0759ce6341739ea3f8c96eb7f3458c73621",
+      "baseRef": "main",
+      "mergeCommitSha": "8fee8457a4bff214ab09b20da67ed877a34aba46"
+    },
+    {
+      "id": 4818139988,
+      "number": 23,
+      "title": "GDN-036: archival hierarchy, source provenance and conflicting catalog assertions",
+      "url": "https://github.com/neophilism/The-Garden/pull/23",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T09:44:34Z",
+      "updatedAt": "2026-10-11T09:46:29Z",
+      "closedAt": "2026-10-11T09:46:29Z",
+      "mergedAt": "2026-10-11T09:46:29Z",
+      "headSha": "2c6445f995e05fe608e5a350cab795f49c0cb6c7",
+      "baseRef": "main",
+      "mergeCommitSha": "940356a72bc60fb7f484195467e9f157b58feb4c"
+    },
+    {
+      "id": 4818219151,
+      "number": 24,
+      "title": "GDN-038: version-bound source locators and explicit reanchoring proposals",
+      "url": "https://github.com/neophilism/The-Garden/pull/24",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T09:59:09Z",
+      "updatedAt": "2026-10-11T10:01:28Z",
+      "closedAt": "2026-10-11T10:01:28Z",
+      "mergedAt": "2026-10-11T10:01:28Z",
+      "headSha": "328e4242dd4d704edc665862bb254389ae852ad4",
+      "baseRef": "main",
+      "mergeCommitSha": "9886c7e52026b89cef7d8a0949972ec5f238a71d"
+    },
+    {
+      "id": 4819967019,
+      "number": 25,
+      "title": "GDN-037: atomic claims, explicit evidence relations and correction propagation",
+      "url": "https://github.com/neophilism/The-Garden/pull/25",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T14:58:47Z",
+      "updatedAt": "2026-10-11T15:01:37Z",
+      "closedAt": "2026-10-11T15:01:37Z",
+      "mergedAt": "2026-10-11T15:01:37Z",
+      "headSha": "07c2111c32f465ad98ce445da2f83c6a614cd5df",
+      "baseRef": "main",
+      "mergeCommitSha": "38eea9c6cf2a3af390270db0ef248cd48be242fd"
+    },
+    {
+      "id": 4820100345,
+      "number": 26,
+      "title": "GDN-029: purpose-specific consent, derivative limits and live withdrawal enforcement",
+      "url": "https://github.com/neophilism/The-Garden/pull/26",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T15:19:33Z",
+      "updatedAt": "2026-10-11T15:21:38Z",
+      "closedAt": "2026-10-11T15:21:38Z",
+      "mergedAt": "2026-10-11T15:21:38Z",
+      "headSha": "779cd85db8562e8764bad9caf7a9fdd8b791b2c1",
+      "baseRef": "main",
+      "mergeCommitSha": "b62396cf1715d51c2d396ef24d276a7a3306f017"
+    },
+    {
+      "id": 4820967259,
+      "number": 27,
+      "title": "GDN-022: verified passkeys, current session assurance and protected recovery",
+      "url": "https://github.com/neophilism/The-Garden/pull/27",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T17:32:56Z",
+      "updatedAt": "2026-10-11T17:47:25Z",
+      "closedAt": "2026-10-11T17:47:25Z",
+      "mergedAt": "2026-10-11T17:47:25Z",
+      "headSha": "1cf895006931c8f2930cfd07c8f36e3449ad0227",
+      "baseRef": "main",
+      "mergeCommitSha": "fa0a14c1917fcdbaeb648acfec72d65f90ccb55f"
+    },
+    {
+      "id": 4821173806,
+      "number": 28,
+      "title": "GDN-030: redacted tamper-evident audit and scoped auditor exports",
+      "url": "https://github.com/neophilism/The-Garden/pull/28",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T18:05:30Z",
+      "updatedAt": "2026-10-11T18:25:24Z",
+      "closedAt": "2026-10-11T18:25:24Z",
+      "mergedAt": "2026-10-11T18:25:24Z",
+      "headSha": "c00198d8796f10594f119194e4ffb14baee3d060",
+      "baseRef": "main",
+      "mergeCommitSha": "7cb417f291011f20f89f66c8a0d2da804b560198"
+    },
+    {
+      "id": 4821439690,
+      "number": 29,
+      "title": "GDN-031: authorization matrix, database-role isolation and route coverage gates",
+      "url": "https://github.com/neophilism/The-Garden/pull/29",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T18:46:57Z",
+      "updatedAt": "2026-10-11T18:55:15Z",
+      "closedAt": "2026-10-11T18:55:15Z",
+      "mergedAt": "2026-10-11T18:55:15Z",
+      "headSha": "f09f5fffa25ae9d4ae301669ec082ce27af5b8d5",
+      "baseRef": "main",
+      "mergeCommitSha": "476ab0b8aff861f52f766d114cbf0a3bc2faa783"
+    },
+    {
+      "id": 4821510270,
+      "number": 30,
+      "title": "Fix numeric revision history and keyset pagination across research repositories",
+      "url": "https://github.com/neophilism/The-Garden/pull/30",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T18:58:09Z",
+      "updatedAt": "2026-10-11T19:06:53Z",
+      "closedAt": "2026-10-11T19:06:53Z",
+      "mergedAt": "2026-10-11T19:06:53Z",
+      "headSha": "ddf76ad7ef0ebe3374341d2d85b54af65f6ee465",
+      "baseRef": "main",
+      "mergeCommitSha": "61d38aa5642988e7d275c9f0856b6fb806440281"
+    },
+    {
+      "id": 4821672980,
+      "number": 31,
+      "title": "GDN-039: scoped review axes, independent assignments and immutable dispute history",
+      "url": "https://github.com/neophilism/The-Garden/pull/31",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T19:21:46Z",
+      "updatedAt": "2026-10-11T19:30:58Z",
+      "closedAt": "2026-10-11T19:30:58Z",
+      "mergedAt": "2026-10-11T19:30:58Z",
+      "headSha": "90a5ca803bd760e35d85779b4b3d763f2850ffa0",
+      "baseRef": "main",
+      "mergeCommitSha": "9d286f168cb24d51178f020da60d1b462c277275"
+    },
+    {
+      "id": 4821986189,
+      "number": 32,
+      "title": "GDN-040: structured editorial content and version-bound policy references",
+      "url": "https://github.com/neophilism/The-Garden/pull/32",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T20:10:28Z",
+      "updatedAt": "2026-10-11T20:13:49Z",
+      "closedAt": "2026-10-11T20:13:49Z",
+      "mergedAt": "2026-10-11T20:13:49Z",
+      "headSha": "656b16a9774da9ff9e4f1622efe1532e36956b47",
+      "baseRef": "main",
+      "mergeCommitSha": "e0c98404757c05337116b2a2fb52c1896a3dbcfb"
+    },
+    {
+      "id": 4822050635,
+      "number": 33,
+      "title": "GDN-095: sourced geography, uncertain dates and protected coordinate history",
+      "url": "https://github.com/neophilism/The-Garden/pull/33",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T20:20:22Z",
+      "updatedAt": "2026-10-11T20:26:24Z",
+      "closedAt": "2026-10-11T20:26:24Z",
+      "mergedAt": "2026-10-11T20:26:24Z",
+      "headSha": "75b64e576dff4021cd0a6b98b155735e1305ddaa",
+      "baseRef": "main",
+      "mergeCommitSha": "d55a3ea953c6b009945bb572817f30dd5040f65a"
+    },
+    {
+      "id": 4822146762,
+      "number": 34,
+      "title": "GDN-041: read-only import inventory and quarantine",
+      "url": "https://github.com/neophilism/The-Garden/pull/34",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T20:34:31Z",
+      "updatedAt": "2026-10-11T20:36:57Z",
+      "closedAt": "2026-10-11T20:36:57Z",
+      "mergedAt": "2026-10-11T20:36:57Z",
+      "headSha": "3d9401e3d5a05320bf14275de58c67a354dea68d",
+      "baseRef": "main",
+      "mergeCommitSha": "d789ed5e440a19d07a35f8a3fdfa8863b9d76d54"
+    },
+    {
+      "id": 4822213120,
+      "number": 35,
+      "title": "GDN-044: explicit source-table mappings and schema-drift validation",
+      "url": "https://github.com/neophilism/The-Garden/pull/35",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T20:44:42Z",
+      "updatedAt": "2026-10-11T20:46:26Z",
+      "closedAt": "2026-10-11T20:46:26Z",
+      "mergedAt": "2026-10-11T20:46:26Z",
+      "headSha": "b2b4eb3ef9f656e305f5cc06c033ba0f46b65ec2",
+      "baseRef": "main",
+      "mergeCommitSha": "3cfd7584fee08cc87d0fffc0fac839b5e9d73913"
+    },
+    {
+      "id": 4822257718,
+      "number": 36,
+      "title": "Reconcile verified PRs and roadmap progress",
+      "url": "https://github.com/neophilism/The-Garden/pull/36",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-11T20:51:49Z",
+      "updatedAt": "2026-10-11T20:53:58Z",
+      "closedAt": "2026-10-11T20:53:57Z",
+      "mergedAt": "2026-10-11T20:53:57Z",
+      "headSha": "1d1f8dc98670b06291b249340331b651ece8cfbc",
+      "baseRef": "main",
+      "mergeCommitSha": "638a012da5e4ff846c7b7ef86f2185602099035b"
+    },
+    {
+      "id": 4829289784,
+      "number": 37,
+      "title": "GDN-045: resumable historical corpus staging in private quarantine",
+      "url": "https://github.com/neophilism/The-Garden/pull/37",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-12T12:18:35Z",
+      "updatedAt": "2026-10-12T12:28:40Z",
+      "closedAt": "2026-10-12T12:25:43Z",
+      "mergedAt": "2026-10-12T12:25:42Z",
+      "headSha": "f406e0c1fba421c5be8e3ab87d40b46e278d7374",
+      "baseRef": "main",
+      "mergeCommitSha": "5b883434c0711d8f423d7c576d74ecade013d543"
+    },
+    {
+      "id": 4829398754,
+      "number": 38,
+      "title": "docs: record GDN-045 verified merge and acceptance boundaries",
+      "url": "https://github.com/neophilism/The-Garden/pull/38",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-12T12:28:00Z",
+      "updatedAt": "2026-10-12T12:30:37Z",
+      "closedAt": "2026-10-12T12:30:36Z",
+      "mergedAt": "2026-10-12T12:30:36Z",
+      "headSha": "35ed2592806cfd7ae6772a50fb2b8621deabba1b",
+      "baseRef": "main",
+      "mergeCommitSha": "07f75cbec6f857a9d57625272a84c1923b7f8698"
+    },
+    {
+      "id": 4829733248,
+      "number": 39,
+      "title": "GDN-045 follow-up: bounded read-only corpus preflight",
+      "url": "https://github.com/neophilism/The-Garden/pull/39",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-12T12:57:05Z",
+      "updatedAt": "2026-10-12T13:01:06Z",
+      "closedAt": "2026-10-12T13:01:05Z",
+      "mergedAt": "2026-10-12T13:01:05Z",
+      "headSha": "fcbf577f836fc1b78719d032d9b674804e920a92",
+      "baseRef": "main",
+      "mergeCommitSha": "12f9e1ff02dbf3349caa4f587c9c354d15ba0ba3"
+    },
+    {
+      "id": 4830027037,
+      "number": 40,
+      "title": "GDN-077: resumable private uploads with audited corpus-staging handoff",
+      "url": "https://github.com/neophilism/The-Garden/pull/40",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-12T13:21:50Z",
+      "updatedAt": "2026-10-12T13:46:45Z",
+      "closedAt": "2026-10-12T13:46:45Z",
+      "mergedAt": "2026-10-12T13:46:45Z",
+      "headSha": "6a9f29b9e1321ffc59861538f09ec0bf1e7c9466",
+      "baseRef": "main",
+      "mergeCommitSha": "9053666876ed0a870e28ef55373dc2ae9f895e55"
+    },
+    {
+      "id": 4830333381,
+      "number": 41,
+      "title": "docs: reconcile GDN-077 merge, roadmap and evidence",
+      "url": "https://github.com/neophilism/The-Garden/pull/41",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-12T13:47:50Z",
+      "updatedAt": "2026-10-12T23:51:22Z",
+      "closedAt": "2026-10-12T23:51:22Z",
+      "mergedAt": "2026-10-12T23:51:22Z",
+      "headSha": "c020f158a5b9165bcf4c0d798ae24e161f730a63",
+      "baseRef": "main",
+      "mergeCommitSha": "af195d9e67eb1b3d4050d01e4bd088ef43bbc848"
+    },
+    {
+      "id": 4830379603,
+      "number": 42,
+      "title": "Track E2EESA implementation, full testing and independent expert review",
+      "url": "https://github.com/neophilism/The-Garden/pull/42",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-12T13:51:26Z",
+      "updatedAt": "2026-10-12T14:23:07Z",
+      "closedAt": "2026-10-12T14:23:07Z",
+      "mergedAt": "2026-10-12T14:23:07Z",
+      "headSha": "5628156dc75884241c33715bff0fbc6aae1f01c8",
+      "baseRef": "main",
+      "mergeCommitSha": "ae226a1a98f6ee71a0cf01b0216583867c0e7350"
+    },
+    {
+      "id": 4831098633,
+      "number": 43,
+      "title": "Add Garden source document library",
+      "url": "https://github.com/neophilism/The-Garden/pull/43",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-12T14:51:30Z",
+      "updatedAt": "2026-10-12T22:49:09Z",
+      "closedAt": "2026-10-12T22:49:09Z",
+      "mergedAt": "2026-10-12T22:49:08Z",
+      "headSha": "0d30a03cd304dae4cc2921c79f2320d4c097ca4e",
+      "baseRef": "main",
+      "mergeCommitSha": "4f397326bb7410025c65ad8f4406c1f3ef3ef296"
+    },
+    {
+      "id": 4831981736,
+      "number": 44,
+      "title": "Restore all Garden validation and evidence gates on CircleCI",
+      "url": "https://github.com/neophilism/The-Garden/pull/44",
+      "state": "open",
+      "draft": false,
+      "createdAt": "2026-10-12T16:06:52Z",
+      "updatedAt": "2026-10-12T16:06:52Z",
+      "closedAt": null,
+      "mergedAt": null,
+      "headSha": "525f2c5681e45f5a512a7853ab39672b99696030",
+      "baseRef": "main",
+      "mergeCommitSha": "e9db51cb2fcb20bad8e51d7920bb3ff885963117"
+    },
+    {
+      "id": 4835940314,
+      "number": 45,
+      "title": "Verify all 12 remaining CP-018 originals against immutable source hashes",
+      "url": "https://github.com/neophilism/The-Garden/pull/45",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-12T22:53:51Z",
+      "updatedAt": "2026-10-12T22:55:36Z",
+      "closedAt": "2026-10-12T22:55:35Z",
+      "mergedAt": "2026-10-12T22:55:35Z",
+      "headSha": "b710558a73919c94065f13dedc442f6dd7ac16e3",
+      "baseRef": "main",
+      "mergeCommitSha": "4ddfd5b29ec0fd31806333ca3c7fa208e765b16a"
+    },
+    {
+      "id": 4835982596,
+      "number": 46,
+      "title": "Archive six additional CP-018 historical research originals in GitHub",
+      "url": "https://github.com/neophilism/The-Garden/pull/46",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-12T22:59:09Z",
+      "updatedAt": "2026-10-12T23:01:02Z",
+      "closedAt": "2026-10-12T23:01:02Z",
+      "mergedAt": "2026-10-12T23:01:02Z",
+      "headSha": "189fe4f8e1f80bc29ec2589d656ab4895abc2b18",
+      "baseRef": "main",
+      "mergeCommitSha": "ccf291c4a947a2b3f625dd12ebe132ee18276e60"
+    },
+    {
+      "id": 4836370947,
+      "number": 48,
+      "title": "GDN-078: repository links, citation formats and private bibliographic intake",
+      "url": "https://github.com/neophilism/The-Garden/pull/48",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-12T23:54:03Z",
+      "updatedAt": "2026-10-12T23:56:25Z",
+      "closedAt": "2026-10-12T23:56:25Z",
+      "mergedAt": "2026-10-12T23:56:25Z",
+      "headSha": "cd29f6fbfff4d979472e89001ec1af9aa3f7856d",
+      "baseRef": "main",
+      "mergeCommitSha": "9c5b9903d1438ed980de600d53c03a5719530cd8"
+    },
+    {
+      "id": 4836405974,
+      "number": 49,
+      "title": "Reconcile GDN-078 merge and profile real CP-018 corpus formats without import",
+      "url": "https://github.com/neophilism/The-Garden/pull/49",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-12T23:59:07Z",
+      "updatedAt": "2026-10-13T00:05:12Z",
+      "closedAt": "2026-10-13T00:05:12Z",
+      "mergedAt": "2026-10-13T00:05:12Z",
+      "headSha": "d7a80971ed1032e5400ea23a4203a48eb21008da",
+      "baseRef": "main",
+      "mergeCommitSha": "9161fe0f8417fa8fb4366e5b2197db9c51dfd06e"
+    },
+    {
+      "id": 4836474441,
+      "number": 50,
+      "title": "GDN-085: private source acquisition queue with verified authority and denial history",
+      "url": "https://github.com/neophilism/The-Garden/pull/50",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-13T00:08:16Z",
+      "updatedAt": "2026-10-13T00:10:24Z",
+      "closedAt": "2026-10-13T00:10:24Z",
+      "mergedAt": "2026-10-13T00:10:24Z",
+      "headSha": "374f7933a4fde8767ca2bf7aba27db1b62d943b5",
+      "baseRef": "main",
+      "mergeCommitSha": "0e822533e74ac2492aeebb7813d60c395d0a5ef2"
+    },
+    {
+      "id": 4848107862,
+      "number": 51,
+      "title": "Owner policy: proceed with AI security review; defer external audit",
+      "url": "https://github.com/neophilism/The-Garden/pull/51",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-13T19:04:37Z",
+      "updatedAt": "2026-10-13T19:09:52Z",
+      "closedAt": "2026-10-13T19:09:52Z",
+      "mergedAt": "2026-10-13T19:09:52Z",
+      "headSha": "bdeb49a7907abcf5157afa8c7620f72022e56f23",
+      "baseRef": "main",
+      "mergeCommitSha": "db741c80bc237bde0ce327fb3fed4d876e03f14a"
+    },
+    {
+      "id": 4848614445,
+      "number": 52,
+      "title": "Standardize canonical PR registry for Boardroom and Engine Room",
+      "url": "https://github.com/neophilism/The-Garden/pull/52",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-13T19:49:05Z",
+      "updatedAt": "2026-10-13T21:25:35Z",
+      "closedAt": "2026-10-13T21:25:35Z",
+      "mergedAt": "2026-10-13T21:25:34Z",
+      "headSha": "01ab665e9bd2c98cda09de54afb5c06d49f8bbc3",
+      "baseRef": "main",
+      "mergeCommitSha": "c4f7dcd544a3871d0821119654819460fdf38de3"
+    },
+    {
+      "id": 4890137409,
+      "number": 53,
+      "title": "Prepare Garden staging runtime and health verification",
+      "url": "https://github.com/neophilism/The-Garden/pull/53",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-16T14:54:17Z",
+      "updatedAt": "2026-10-16T14:57:56Z",
+      "closedAt": "2026-10-16T14:57:56Z",
+      "mergedAt": "2026-10-16T14:57:56Z",
+      "headSha": "e718bd373b590a4948723832231e1c243cdcea13",
+      "baseRef": "main",
+      "mergeCommitSha": "34a671165adff09d7d9fb1997324ac3b571b7a74"
+    },
+    {
+      "id": 4890227850,
+      "number": 54,
+      "title": "Record Garden schema rollout and actual deployment capacity limit",
+      "url": "https://github.com/neophilism/The-Garden/pull/54",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-16T15:01:47Z",
+      "updatedAt": "2026-10-16T15:07:41Z",
+      "closedAt": "2026-10-16T15:07:41Z",
+      "mergedAt": "2026-10-16T15:07:41Z",
+      "headSha": "af365c16962e2a8aae1cf82961f11f23cc39148e",
+      "baseRef": "main",
+      "mergeCommitSha": "76d43db0b9ae753fed309edefbe71611bd5e7069"
+    },
+    {
+      "id": 4890692570,
+      "number": 55,
+      "title": "Conform Garden release plan to AI security review and deferred outside audit",
+      "url": "https://github.com/neophilism/The-Garden/pull/55",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-16T15:39:11Z",
+      "updatedAt": "2026-10-17T12:15:11Z",
+      "closedAt": "2026-10-17T12:15:11Z",
+      "mergedAt": "2026-10-17T12:15:11Z",
+      "headSha": "1e4b9697214ac45e229ab62e2907bcb7983e8393",
+      "baseRef": "main",
+      "mergeCommitSha": "034590eecf99497aabbf598c5d6038673cd1b795"
+    },
+    {
+      "id": 4899983416,
+      "number": 56,
+      "title": "Reconcile 35 verified Garden engineering merges and current release status",
+      "url": "https://github.com/neophilism/The-Garden/pull/56",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T12:18:22Z",
+      "updatedAt": "2026-10-17T12:22:38Z",
+      "closedAt": "2026-10-17T12:22:38Z",
+      "mergedAt": "2026-10-17T12:22:38Z",
+      "headSha": "9eb735c92ec4c7bd9c96573949fc49c3010768e2",
+      "baseRef": "main",
+      "mergeCommitSha": "f80a2373aa5825e20aee666eeb1f984a58072fcd"
+    },
+    {
+      "id": 4900142431,
+      "number": 57,
+      "title": "GDN-011: bind guarded merge review to exact CI source",
+      "url": "https://github.com/neophilism/The-Garden/pull/57",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T12:43:32Z",
+      "updatedAt": "2026-10-17T12:47:14Z",
+      "closedAt": "2026-10-17T12:47:14Z",
+      "mergedAt": "2026-10-17T12:47:14Z",
+      "headSha": "e009de9fc63bd0e80883253e835c5477d09d63f1",
+      "baseRef": "main",
+      "mergeCommitSha": "f244a87f737b7bb70261ec0f8ffd150059839633"
+    },
+    {
+      "id": 4900183880,
+      "number": 58,
+      "title": "GDN-135: separate contributor program choices and private receipts",
+      "url": "https://github.com/neophilism/The-Garden/pull/58",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T12:49:25Z",
+      "updatedAt": "2026-10-17T12:54:27Z",
+      "closedAt": "2026-10-17T12:54:27Z",
+      "mergedAt": "2026-10-17T12:54:27Z",
+      "headSha": "8d38eb1ebec19602cd3f2c41a9c3b89a4091347b",
+      "baseRef": "main",
+      "mergeCommitSha": "b8bc6e255378867d8583437d438b20b6ca0d46e0"
+    },
+    {
+      "id": 4900230925,
+      "number": 59,
+      "title": "GDN-047: reconcile actual manuscript images without mixing editions",
+      "url": "https://github.com/neophilism/The-Garden/pull/59",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T12:56:30Z",
+      "updatedAt": "2026-10-17T13:08:17Z",
+      "closedAt": "2026-10-17T13:08:16Z",
+      "mergedAt": "2026-10-17T13:08:16Z",
+      "headSha": "ba8c5c76805fc711b4d47d07a8ece8a91d706009",
+      "baseRef": "main",
+      "mergeCommitSha": "d88562eaca438694c5ba1d8c8b0a881bd57f6f50"
+    },
+    {
+      "id": 4900319482,
+      "number": 60,
+      "title": "GDN-014: guard private staging shells and verify their lifecycle",
+      "url": "https://github.com/neophilism/The-Garden/pull/60",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T13:10:00Z",
+      "updatedAt": "2026-10-17T13:15:51Z",
+      "closedAt": "2026-10-17T13:15:51Z",
+      "mergedAt": "2026-10-17T13:15:51Z",
+      "headSha": "a0be8bdb39580aed42036101a4b645176cc80928",
+      "baseRef": "main",
+      "mergeCommitSha": "bedce82b33338286c0a235066cb6493911b9e6fc"
+    },
+    {
+      "id": 4900383275,
+      "number": 61,
+      "title": "Fix contributor collection after audited admission completes",
+      "url": "https://github.com/neophilism/The-Garden/pull/61",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T13:19:00Z",
+      "updatedAt": "2026-10-17T13:23:18Z",
+      "closedAt": "2026-10-17T13:23:18Z",
+      "mergedAt": "2026-10-17T13:23:18Z",
+      "headSha": "410b4a0daf949bde7de0d91fce1c5bbd3c6a754a",
+      "baseRef": "main",
+      "mergeCommitSha": "ecf35d9448424d45436a23f1970dc48fe9b4eadb"
+    },
+    {
+      "id": 4900418302,
+      "number": 62,
+      "title": "Add bounded trusted-processing encryption and audited provider boundary",
+      "url": "https://github.com/neophilism/The-Garden/pull/62",
+      "state": "closed",
+      "draft": false,
+      "createdAt": "2026-10-17T13:24:24Z",
+      "updatedAt": "2026-10-17T13:27:07Z",
+      "closedAt": "2026-10-17T13:27:07Z",
+      "mergedAt": "2026-10-17T13:27:07Z",
+      "headSha": "bb7197076d930c0b5532d178c7292ae0d877ae00",
+      "baseRef": "main",
+      "mergeCommitSha": "b2a7fe6c1c3a8b9c257f14791e52d90f9b8451d3"
     }
   ]
 }

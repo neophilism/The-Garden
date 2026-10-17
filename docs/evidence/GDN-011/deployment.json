@@ -1,0 +1,20 @@
+{
+  "work_item": "GDN-011",
+  "application_deployment": "not_applicable_to_read_only_delivery_evaluator",
+  "repository_implementation_pr": 57,
+  "repository_merge_sha": "f244a87f737b7bb70261ec0f8ffd150059839633",
+  "server_protection_configured": false,
+  "merge_queue_activated": false,
+  "unattended_executor_installed": false,
+  "production_verified": false,
+  "provider_configuration_evidence": {
+    "base_sha": "f80a2373aa5825e20aee666eeb1f984a58072fcd",
+    "branch_summary_protected": false,
+    "visible_rulesets": 0,
+    "detailed_protection_http_status": 403,
+    "detailed_protection_error": "Resource not accessible by integration",
+    "repository_owner_type": "User",
+    "protection_configured_by_this_work": false,
+    "merge_queue_activated": false
+  }
+}

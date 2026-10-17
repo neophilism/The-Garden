@@ -1,8 +1,34 @@
-## Verified continuation — 17 October 2026
+# Verified continuation — 17 October 2026
 
-GDN-085 / [PR #50](https://github.com/neophilism/The-Garden/pull/50) is merged; all six workflows on head `374f7933a4fde8767ca2bf7aba27db1b62d943b5` were reverified successful. The acquisition queue remains private, offline and unmounted. The canonical registry and compatibility mapping now record **35 merged engineering units**, with no production-verified capabilities. PR #53 contributes runtime work to GDN-014/GDN-017 and is not counted as their completed live acceptance. PR #55 is merged after nine passing exact-head checks, aligning the release plan with the owner policy: external human security review is deferred follow-up.
+The canonical registry and compatibility mapping record **37 merged engineering units**, with **zero production-verified capabilities**. This checkpoint adds GDN-135 / [PR58](https://github.com/neophilism/The-Garden/pull/58) and GDN-047 / [PR59](https://github.com/neophilism/The-Garden/pull/59). Each merged candidate passed all ten required checks across seven workflows; authenticated job receipts identify the exact tested merge and its current base/head parents. [Execution evidence](../plan/execution.json) preserves the actual identities and limitations. Maintenance and follow-up PRs add no completed units. The embedded GitHub snapshot was refreshed after PR62 and records 61 actual PRs; the older CircleCI PR44 remains open and is not part of the verified chain.
 
-All twelve staging database migrations and the observed Render 25-service capacity rejection are recorded in [the October 16 handoff](SESSION_2026-10-16.md). No Garden Render service or hosted research activation is claimed. Existing private-deployment intent does not authorize public release of research material. Dependency-ready implementation includes trusted-processing encryption, image reconciliation and the optional contributor program; external activation requirements remain scoped to each capability.
+## Latest implemented capabilities
+
+| Work | Verified outcome | Remaining activation |
+| --- | --- | --- |
+| GDN-011 / PR57 | Read-only merge-readiness evaluator, exact CI checkout receipts and complete required-workflow triggers | Server branch enforcement and queue configuration remain unverified; this is a partial contribution |
+| GDN-135 / PR58 + PR61 | Separate program terms, explicit acknowledgments, private submission and interest receipts, withdrawal and accessible contributor guidance | No real program authority, participants, intake endpoint or operational custody is activated |
+| GDN-047 / PR59 | Bounded read-only DOCX scanning, per-edition image reconciliation, private report journal and reviewed-byte guard | Operational image migration, item rights and public byte delivery remain unmounted |
+| GDN-014 / PR60 | Owner-private staging ingress, guarded builds and actual-process CI smoke | Project-scoped Render services and external HTTPS remain unverified; this is a partial contribution |
+| GDN-026 / PR62 | Bounded authenticated envelope encryption, checked provider adapter and rewrap preparation | Database persistence, atomic rotation, real provider custody and hosted activation remain incomplete; this is a partial contribution |
+
+The image work includes five reproduced and fixed late-cancellation/feature-closure regressions. Its final focused suites passed **60 tests**, and all ten required GitHub checks passed. The contributor guidance passed actual browser and accessibility CI. [PR61](https://github.com/neophilism/The-Garden/pull/61) fixes collection closure and authority/upload revocation during asynchronous audit completion. Its 108 focused tests and all ten GitHub checks passed; source-bound evidence remains distinct from the original PR58 test record.
+
+## Actual image-source findings
+
+Read-only checks bound the exact current CP-021 1.33-alpha manuscript and the original CP-017/CP-021 CORE databases. The manuscript contains **607 media members with distinct bytes and 630 stored placements**; one media member lacks a resolved placement. All **567 legacy assets** match current media bytes, while **40 current members** lack a legacy asset row.
+
+CP-021 registers the current document, but its **1,221 stored image placements** belong to 1.18-alpha (591) and 1.32-alpha (630). **None binds the exact current 1.33-alpha document hash.** Equal placement totals did not retarget earlier rows. The current scan remains a separate, unreviewed projection. Original bytes and physical row coordinates were preserved; no historical migration, rights approval or operational image write occurred. Only aggregate custody/results are committed in [source evidence](evidence/GDN-047/source-observation.json).
+
+## Dependency and delivery state
+
+The source-owned roadmap repair restores all **960 approved dependency edges across 210 units** and preserves **181 external-gate references** as provenance. It validates exact arrays and rejects malformed, missing, cyclic or current-scope dependencies on conditional-government work. The approved baseline remains unchanged. [Dependency evidence](evidence/GDN-008/dependency-reconciliation.json) distinguishes this repair from live Engine Room ingestion, which remains unverified.
+
+The owner-private staging implementation merged as [PR60](https://github.com/neophilism/The-Garden/pull/60). It guards every page and asset, strips ingress credentials from application/build contexts, and adds actual access/restart/shutdown checks to CI. It is a partial GDN-014 contribution until a real deployment is verified. The recovered GDN-026 encryption component merged as [PR62](https://github.com/neophilism/The-Garden/pull/62), after 48 focused tests and all ten final GitHub checks. Its source-bound full local suite passed 1,444 tests and both builds on the separately recorded implementation commit. It remains partial while durable PostgreSQL envelope/version binding, atomic rotation and actual provider integration are completed. The earlier uncommitted 27-test observation is preserved as history rather than reused as final evidence.
+
+All twelve isolated Neon staging migrations remain recorded in [the database observation](../db/staging-observation.json). No Garden Render service or hosted research activation is claimed. Render inventory currently shows 24 services after the earlier 25-service capacity rejection, but capacity for both Garden services is unproven. The available connector cannot assign the required Garden project/environment or HTTP health path. [The continuation handoff](handoff.md) records exact resources and the existing separate owner-private Site; public website exposure and new costs remain unauthorized.
+
+External human security review is deferred follow-up under AGENTS.md. Current authorization, cryptographic controls, required test results, content rights and actual provider limitations remain substantive requirements. Continue verified dependency-ready PRs without routine owner restart prompts.
 
 Earlier dated sections below are historical checkpoints, not current counts.
 

@@ -1,0 +1,12 @@
+{
+  "work_item": "GDN-011",
+  "status": "partial_github_merge_observation_configuration_acceptance_pending",
+  "actual_provider": "GitHub",
+  "pr_url": "https://github.com/neophilism/The-Garden/pull/57",
+  "merge_evidence": "docs/evidence/GDN-011/merge-observation.json",
+  "successful_exact_source_jobs": 10,
+  "live_merge_group_executed": false,
+  "strict_branch_enforcement_verified": false,
+  "production_verified": false,
+  "limitation": "Authenticated source/check/merge observations are recorded; no server protection or queue was installed, and the read-only evaluator denies unattended eligibility when protection evidence is missing."
+}
