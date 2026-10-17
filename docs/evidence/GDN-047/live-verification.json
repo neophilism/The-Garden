@@ -1,0 +1,8 @@
+{
+  "work_item_id": "GDN-047",
+  "performed": false,
+  "url": null,
+  "service_id": null,
+  "deployed_sha": null,
+  "reason": "Actual local CP-021 source inspection is technical source evidence, not hosted identity/storage/policy or publication verification. No live Garden image route was activated."
+}

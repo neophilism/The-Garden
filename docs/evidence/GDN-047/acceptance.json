@@ -1,0 +1,29 @@
+{
+  "work_item_id": "GDN-047",
+  "implementation": "local_candidate",
+  "accepted": false,
+  "production_verified": false,
+  "independent_review": "not_performed_deferred_followup",
+  "criteria": {
+    "GDN-047-AC01": "Separate legacy snapshot row counts from each exact document's member, distinct-byte and stored-placement counts. Synthetic 567/591 versus 591/615 regression passes; the actual CP-021 607/630 observation is recorded separately.",
+    "GDN-047-AC02": "Every supplied legacy row receives a disposition. Actual CP-017/CP-021 four-table comparisons preserve all rowids: 567 exact byte matches and 40 current members without a legacy asset row. CP-021's 1,221 placement rows bind editions 1.18-alpha/1.32-alpha, with none bound to the registered current 1.33-alpha document. Rights-annotation reconciliation and operational promotion remain pending.",
+    "GDN-047-AC03": "All reconciliation assets and placements deny public bytes. The separate unmounted byte guard rejects unknown/prohibited/permission-required rights, stale review, missing generated labels and mid-read revocation."
+  },
+  "test_ids": {
+    "GDN-047-T01": "Exact-byte hash/size matching, unchanged originals, filename nonidentity, source mutation rejection and return-byte verification.",
+    "GDN-047-T02": "Distinct document/member/byte/placement units, duplicate inherited IDs and coordinates, replay without duplicate projections, and no placement equivalence across changed editions.",
+    "GDN-047-T03": "Missing rights evidence and generated/reconstruction labels deny eligibility and actual guard byte reads; inherited verified/archival strings remain assertions."
+  },
+  "real_source_scope": "Authorized read-only inspection of one exact CP-021 manuscript and the documents/assets/asset_members/image_placements tables from the hash-verified CP-017 and CP-021 original SQLite databases. No historical migrations executed, no source bytes changed, no image-budget annotations loaded, and no source values or detailed media reports committed.",
+  "historical_claims_verified": 0,
+  "item_rights_cleared": 0,
+  "operational_asset_rows_written": 0,
+  "activation": "Default-disabled; no mounted route; trusted corpus-registry and operational asset adapters still require integration.",
+  "limitations": [
+    "Stored references are not rendered placement counts; strict OOXML and alternate rendering remain explicitly limited.",
+    "Current 1.33-alpha placements remain a separate unreviewed projection; the 1.32-alpha rows are not retargeted. Rights/caption annotation loading remains pending.",
+    "The offline journal needs deployed encrypted volumes, source grants, quotas, backup/restore and source-bound live evidence.",
+    "Hash chains and file modes do not establish administrator-proof immutability, encryption, historical accuracy or a license.",
+    "Public-byte guard is a composable restriction, not a published endpoint or replacement for existing delivery/storage/purpose controls."
+  ]
+}
