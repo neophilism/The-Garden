@@ -3,6 +3,10 @@ import assert from 'node:assert/strict';
 import { assertWorkflow, assertLock, assertManifests, credentialFindings } from '../policy.mjs';
 const good = () => ({on:{pull_request:null,push:{branches:['main']},merge_group:null},permissions:{contents:'read'},jobs:{test:{'timeout-minutes':20,steps:[{uses:'actions/checkout@11d5960a326750d5838078e36cf38b85af677262',with:{'persist-credentials':false}},{run:'npm run check'}]}}});
 test('same read-only policy is valid for fork and same-repository PR events',()=>assert.doesNotThrow(()=>assertWorkflow(good())));
+const reusable = () => ({on:{pull_request:null},permissions:{contents:'read'},jobs:{contract:{uses:'neophilism/Development-Deployment-Monitor/.github/workflows/validate-client.yml@429a9203cec131189692bfa7e41124ef5a7a906c'}}});
+test('reviewed immutable reusable workflow is valid without unsupported execution fields',()=>assert.doesNotThrow(()=>assertWorkflow(reusable())));
+test('reusable workflow rejects a floating ref',()=>{const d=reusable();d.jobs.contract.uses='neophilism/Development-Deployment-Monitor/.github/workflows/validate-client.yml@main';assert.throws(()=>assertWorkflow(d));});
+test('reusable workflow rejects caller timeout fields unsupported by GitHub',()=>{const d=reusable();d.jobs.contract['timeout-minutes']=5;assert.throws(()=>assertWorkflow(d));});
 for (const [name, mutate] of [
  ['global writes',d=>{d.permissions.contents='write';}],
  ['job writes',d=>{d.jobs.test.permissions={contents:'write'};}],
