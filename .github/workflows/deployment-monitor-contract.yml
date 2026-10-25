@@ -8,4 +8,5 @@ permissions:
   contents: read
 jobs:
   contract:
+    timeout-minutes: 5
     uses: neophilism/Development-Deployment-Monitor/.github/workflows/validate-client.yml@main
