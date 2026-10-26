@@ -4,6 +4,9 @@ const actionPins = new Set([
   'actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020',
   'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02'
 ]);
+const reusableWorkflowPins = new Set([
+  'neophilism/Development-Deployment-Monitor/.github/workflows/validate-client.yml@429a9203cec131189692bfa7e41124ef5a7a906c'
+]);
 export function assertWorkflow(doc) {
   if (!doc || typeof doc !== 'object' || Array.isArray(doc)) throw Error('Workflow object required');
   if (JSON.stringify(doc).match(/secrets\s*[.\[]|pull_request_target|workflow_run/)) throw Error('Privileged event or secret reference forbidden in verification CI');
@@ -18,6 +21,11 @@ export function assertWorkflow(doc) {
   for (const job of Object.values(doc.jobs)) {
     if (job.permissions !== undefined) readOnly(job.permissions);
     if (job['continue-on-error']) throw Error('Job cannot ignore failure');
+    if (typeof job.uses === 'string') {
+      if (!reusableWorkflowPins.has(job.uses)) throw Error('Reusable workflow must use a reviewed immutable pin');
+      if (job.steps !== undefined || job['timeout-minutes'] !== undefined) throw Error('Reusable workflow caller has invalid execution fields');
+      continue;
+    }
     if (!Number.isInteger(job['timeout-minutes']) || job['timeout-minutes'] > 30 || job['timeout-minutes'] < 1) throw Error('Bounded job timeout required');
     if (!Array.isArray(job.steps) || !job.steps.length) throw Error('Executable steps required');
     for (const step of job.steps) {

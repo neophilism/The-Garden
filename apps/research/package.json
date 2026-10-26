@@ -14,9 +14,10 @@
     "@better-auth/passkey": "1.7.7",
     "@garden/domain": "file:../../packages/domain",
     "better-auth": "1.7.7",
-    "next": "16.4.0",
+    "next": "16.4.3",
     "pg": "8.23.1",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   }
 }
+

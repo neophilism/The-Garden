@@ -8,7 +8,7 @@ test("workspace packages and pinned Next/React versions",()=>{
  const web=JSON.parse(read("apps/public/package.json"));
  const research=JSON.parse(read("apps/research/package.json"));
  assert.equal(root.engines.node,">=24 <25");
- assert.equal(web.dependencies.next,"16.4.0");
+ assert.equal(web.dependencies.next,"16.4.3");
  assert.equal(web.dependencies.react,"19.3.0");
  assert.equal(research.dependencies.next,web.dependencies.next);
  assert.deepEqual(new Set(root.workspaces),new Set(["apps/public","apps/research","packages/domain","services/workers"]));
